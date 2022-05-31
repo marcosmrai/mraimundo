@@ -74,4 +74,4 @@ email: ''
 highlight_name: true
 ---
 
-Marcos M. Raimundo is an Assistant Professor at University of Campinas (UNICAMP), in the Institute of Computing (IC). He is also a faculty member of the REasoning for COmplex Data laboratory (Recod.ai). His research interests includes multiobjective optimization, machine learning, combinatorial optimization and logistics.
+Marcos M. Raimundo is an Assistant Professor at University of Campinas (UNICAMP), in the Institute of Computing (IC). He is also a faculty member of the REasoning for COmplex Data laboratory (Recod.ai). His research interests includes Machine Learning, Multi-objective Optimization, Ethical AI, Mathematical Programming.
