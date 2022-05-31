@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Credit Scoring | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/tag/credit-scoring/</link>
+      <atom:link href="ic.unicamp.br/marcos/tag/credit-scoring/index.xml" rel="self" type="application/rss+xml" />
+    <description>Credit Scoring</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/ic.unicamp.br/marcos/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Credit Scoring</title>
+      <link>ic.unicamp.br/marcos/tag/credit-scoring/</link>
+    </image>
+    
+    <item>
+      <title>Fair and Interpretable Credit Scoring</title>
+      <link>ic.unicamp.br/marcos/project/credit/</link>
+      <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/project/credit/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

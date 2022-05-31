@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/project/</link>
+      <atom:link href="ic.unicamp.br/marcos/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/ic.unicamp.br/marcos/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Projects</title>
+      <link>ic.unicamp.br/marcos/project/</link>
+    </image>
+    
+    <item>
+      <title>Fair and Interpretable Credit Scoring</title>
+      <link>ic.unicamp.br/marcos/project/credit/</link>
+      <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/project/credit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ethical AI</title>
+      <link>ic.unicamp.br/marcos/project/ethicalai/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/project/ethicalai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multiobjective optimization in machine learning</title>
+      <link>ic.unicamp.br/marcos/project/mol/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/project/mol/</guid>
+      <description>&lt;p&gt;This research project is a framework using a posteriori multiobjective optimization to train generalized linear models. To deal with the multiple models resultant from the training I explored ensemble filtering and aggregation technique. One of the strengths of this framework resides in its flexibility, being applicable to multi-class and multi-label classification, transfer learning, multi-task learning, and multi-view learning.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithms for Multi-objective Optimization</title>
+      <link>ic.unicamp.br/marcos/project/moo/</link>
+      <pubDate>Wed, 01 May 2013 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/project/moo/</guid>
+      <description>&lt;p&gt;This research project studies a posteriori multiobjective methods based on scalarization.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

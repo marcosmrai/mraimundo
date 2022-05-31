@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/event/</link>
+      <atom:link href="ic.unicamp.br/marcos/event/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent &amp; Upcoming Talks</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 03 Sep 2021 18:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/ic.unicamp.br/marcos/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Recent &amp; Upcoming Talks</title>
+      <link>ic.unicamp.br/marcos/event/</link>
+    </image>
+    
+    <item>
+      <title>Aprendizado Multi-objetivo: Usando conflitos para aprender</title>
+      <link>ic.unicamp.br/marcos/talk/aprendizado-multi-objetivo-usando-conflitos-para-aprender/</link>
+      <pubDate>Fri, 03 Sep 2021 18:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/talk/aprendizado-multi-objetivo-usando-conflitos-para-aprender/</guid>
+      <description>&lt;iframe width=&#34;700&#34; height=&#34;455&#34; src=&#34;https://www.youtube.com/embed/1n31MyURJ08&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exploring counterfactual antecedents on crime analysis</title>
+      <link>ic.unicamp.br/marcos/talk/exploring-counterfactual-antecedents-on-crime-analysis/</link>
+      <pubDate>Fri, 21 May 2021 16:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/talk/exploring-counterfactual-antecedents-on-crime-analysis/</guid>
+      <description>&lt;iframe width=&#34;700&#34; height=&#34;455&#34; src=&#34;https://www.youtube.com/embed/vIist2mM6Gs&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

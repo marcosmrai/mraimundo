@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mathematical Programming | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/tag/mathematical-programming/</link>
+      <atom:link href="ic.unicamp.br/marcos/tag/mathematical-programming/index.xml" rel="self" type="application/rss+xml" />
+    <description>Mathematical Programming</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 May 2013 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/ic.unicamp.br/marcos/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Mathematical Programming</title>
+      <link>ic.unicamp.br/marcos/tag/mathematical-programming/</link>
+    </image>
+    
+    <item>
+      <title>Algorithms for Multi-objective Optimization</title>
+      <link>ic.unicamp.br/marcos/project/moo/</link>
+      <pubDate>Wed, 01 May 2013 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/project/moo/</guid>
+      <description>&lt;p&gt;This research project studies a posteriori multiobjective methods based on scalarization.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

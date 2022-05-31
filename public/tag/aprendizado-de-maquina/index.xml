@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aprendizado de Máquina | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/tag/aprendizado-de-maquina/</link>
+      <atom:link href="ic.unicamp.br/marcos/tag/aprendizado-de-maquina/index.xml" rel="self" type="application/rss+xml" />
+    <description>Aprendizado de Máquina</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 13 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/ic.unicamp.br/marcos/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Aprendizado de Máquina</title>
+      <link>ic.unicamp.br/marcos/tag/aprendizado-de-maquina/</link>
+    </image>
+    
+    <item>
+      <title>MO721 - Ethics in AI - Ética em IA</title>
+      <link>ic.unicamp.br/marcos/teaching/ai_ethics_2022/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/teaching/ai_ethics_2022/</guid>
+      <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
+&lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
+&lt;h2 id=&#34;pré-requisitos&#34;&gt;Pré-requisitos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ser capaz de realizar uma análise descritiva de dados.&lt;/li&gt;
+&lt;li&gt;Ser capaz de aplicar e explicar modelos de aprendizado de máquina (regressão logística, árvores de decisão e ensembles) em dados tabelados.&lt;/li&gt;
+&lt;li&gt;Ser capaz de aplicar modelos de aprendizado profundo em dados de natureza diversa.&lt;/li&gt;
+&lt;li&gt;Ser capaz de entender e modelar problemas de otimização no contexto de aprendizado de máquina.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;avaliação-diagnóstica&#34;&gt;Avaliação diagnóstica&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Projeto a ser executado entre a primeira e segunda semana, contendo tarefas que induzam a demonstração de cada um dos desempenhos listados acima.&lt;/li&gt;
+&lt;li&gt;Exercício prático, individual, a ser executado entre a primeira e segunda semana, contendo tarefas que induzam a demonstração de cada um dos desempenhos listados acima.&lt;/li&gt;
+&lt;li&gt;Serão ministradas quatro aulas adicionais através de videoconferência/híbrido  (para facilitar adesão dos alunos), sendo uma de cada tópico, para nivelar desempenho mínimo de cada conhecimento requerido.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Divulgação geral:
+&amp;ndash; Algoritmos de Destruição em Massa: Livro que apresenta diversos exemplos de algoritmos anti-éticos
+&amp;ndash; The Ethical Algorithm: The Science of Socially Aware Algorithm Design: Livro que apresenta as principais áreas de ética em ML (Fairness, Transparency e Privacy) para o público geral
+&amp;ndash; Coded Bias: Documentário da Netflix que pode servir de motivação para o curso&lt;/li&gt;
+&lt;li&gt;Textbooks:
+&amp;ndash; Fairness and machine learning: Livro disponibilizado gratuitamente que foi feito em conjunto por três professores de universidades diferentes que dão disciplinas de Fairness ou Ética em ML. No site estão disponíveis as páginas das respectivas matérias
+&amp;ndash; Trustworthy Machine Learning: Livro disponibilizado gratuitamente que apresenta conceitos gerais de fairness e transparency
+&amp;ndash; Practical Fairness: Livro de Fairness da O&amp;rsquo;Reilly que adicionei na lista só pra avisar que não vale muito a pena. Ele usa nomenclaturas diferentes das mais utilizadas na literatura e não apresenta bem a parte matemática&lt;/li&gt;
+&lt;li&gt;Recursos gerais:
+&amp;ndash; Trustworthy ML Initiative: Possui diversos recursos de Trustworthy ML, como livros de divuldação geral, textbooks, documentários e sites de disciplinas.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Operations Research II</title>
+      <link>ic.unicamp.br/marcos/teaching/po_ii_2021/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/teaching/po_ii_2021/</guid>
+      <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
+&lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
+&lt;h2 id=&#34;pré-requisitos&#34;&gt;Pré-requisitos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ser capaz de realizar uma análise descritiva de dados.&lt;/li&gt;
+&lt;li&gt;Ser capaz de aplicar e explicar modelos de aprendizado de máquina (regressão logística, árvores de decisão e ensembles) em dados tabelados.&lt;/li&gt;
+&lt;li&gt;Ser capaz de aplicar modelos de aprendizado profundo em dados de natureza diversa.&lt;/li&gt;
+&lt;li&gt;Ser capaz de entender e modelar problemas de otimização no contexto de aprendizado de máquina.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;avaliação-diagnóstica&#34;&gt;Avaliação diagnóstica&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Projeto a ser executado entre a primeira e segunda semana, contendo tarefas que induzam a demonstração de cada um dos desempenhos listados acima.&lt;/li&gt;
+&lt;li&gt;Exercício prático, individual, a ser executado entre a primeira e segunda semana, contendo tarefas que induzam a demonstração de cada um dos desempenhos listados acima.&lt;/li&gt;
+&lt;li&gt;Serão ministradas quatro aulas adicionais através de videoconferência/híbrido  (para facilitar adesão dos alunos), sendo uma de cada tópico, para nivelar desempenho mínimo de cada conhecimento requerido.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Divulgação geral:
+&amp;ndash; Algoritmos de Destruição em Massa: Livro que apresenta diversos exemplos de algoritmos anti-éticos
+&amp;ndash; The Ethical Algorithm: The Science of Socially Aware Algorithm Design: Livro que apresenta as principais áreas de ética em ML (Fairness, Transparency e Privacy) para o público geral
+&amp;ndash; Coded Bias: Documentário da Netflix que pode servir de motivação para o curso&lt;/li&gt;
+&lt;li&gt;Textbooks:
+&amp;ndash; Fairness and machine learning: Livro disponibilizado gratuitamente que foi feito em conjunto por três professores de universidades diferentes que dão disciplinas de Fairness ou Ética em ML. No site estão disponíveis as páginas das respectivas matérias
+&amp;ndash; Trustworthy Machine Learning: Livro disponibilizado gratuitamente que apresenta conceitos gerais de fairness e transparency
+&amp;ndash; Practical Fairness: Livro de Fairness da O&amp;rsquo;Reilly que adicionei na lista só pra avisar que não vale muito a pena. Ele usa nomenclaturas diferentes das mais utilizadas na literatura e não apresenta bem a parte matemática&lt;/li&gt;
+&lt;li&gt;Recursos gerais:
+&amp;ndash; Trustworthy ML Initiative: Possui diversos recursos de Trustworthy ML, como livros de divuldação geral, textbooks, documentários e sites de disciplinas.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Operations Research III</title>
+      <link>ic.unicamp.br/marcos/teaching/po_iii_2021/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/teaching/po_iii_2021/</guid>
+      <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
+&lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
+&lt;h2 id=&#34;pré-requisitos&#34;&gt;Pré-requisitos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ser capaz de realizar uma análise descritiva de dados.&lt;/li&gt;
+&lt;li&gt;Ser capaz de aplicar e explicar modelos de aprendizado de máquina (regressão logística, árvores de decisão e ensembles) em dados tabelados.&lt;/li&gt;
+&lt;li&gt;Ser capaz de aplicar modelos de aprendizado profundo em dados de natureza diversa.&lt;/li&gt;
+&lt;li&gt;Ser capaz de entender e modelar problemas de otimização no contexto de aprendizado de máquina.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;avaliação-diagnóstica&#34;&gt;Avaliação diagnóstica&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Projeto a ser executado entre a primeira e segunda semana, contendo tarefas que induzam a demonstração de cada um dos desempenhos listados acima.&lt;/li&gt;
+&lt;li&gt;Exercício prático, individual, a ser executado entre a primeira e segunda semana, contendo tarefas que induzam a demonstração de cada um dos desempenhos listados acima.&lt;/li&gt;
+&lt;li&gt;Serão ministradas quatro aulas adicionais através de videoconferência/híbrido  (para facilitar adesão dos alunos), sendo uma de cada tópico, para nivelar desempenho mínimo de cada conhecimento requerido.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Divulgação geral:
+&amp;ndash; Algoritmos de Destruição em Massa: Livro que apresenta diversos exemplos de algoritmos anti-éticos
+&amp;ndash; The Ethical Algorithm: The Science of Socially Aware Algorithm Design: Livro que apresenta as principais áreas de ética em ML (Fairness, Transparency e Privacy) para o público geral
+&amp;ndash; Coded Bias: Documentário da Netflix que pode servir de motivação para o curso&lt;/li&gt;
+&lt;li&gt;Textbooks:
+&amp;ndash; Fairness and machine learning: Livro disponibilizado gratuitamente que foi feito em conjunto por três professores de universidades diferentes que dão disciplinas de Fairness ou Ética em ML. No site estão disponíveis as páginas das respectivas matérias
+&amp;ndash; Trustworthy Machine Learning: Livro disponibilizado gratuitamente que apresenta conceitos gerais de fairness e transparency
+&amp;ndash; Practical Fairness: Livro de Fairness da O&amp;rsquo;Reilly que adicionei na lista só pra avisar que não vale muito a pena. Ele usa nomenclaturas diferentes das mais utilizadas na literatura e não apresenta bem a parte matemática&lt;/li&gt;
+&lt;li&gt;Recursos gerais:
+&amp;ndash; Trustworthy ML Initiative: Possui diversos recursos de Trustworthy ML, como livros de divuldação geral, textbooks, documentários e sites de disciplinas.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

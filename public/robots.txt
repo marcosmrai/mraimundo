@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: ic.unicamp.br/marcos/sitemap.xml
