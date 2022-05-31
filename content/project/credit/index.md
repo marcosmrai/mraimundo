@@ -7,6 +7,7 @@ tags:
   - Ethics
   - Interpretability
   - Fairness
+  - Social Good
 date: '2022-05-01'
 
 # Optional external URL for project (replaces project detail page).

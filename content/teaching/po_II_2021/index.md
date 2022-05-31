@@ -1,5 +1,5 @@
 ---
-title: Pesquisa Operacional II
+title: EEI744 - Pesquisa Operacional II (UFRJ)
 subtitle: 
 
 # Summary for listings and search engines
@@ -9,10 +9,10 @@ summary:
 projects: []
 
 # Date published
-date: '2020-12-13T00:00:00Z'
+date: '2021-10-01T00:00:00Z'
 
 # Date updated
-lastmod: '2020-12-13T00:00:00Z'
+lastmod: '2022-04-30T00:00:00Z'
 
 # Is this an unpublished draft?
 draft: false

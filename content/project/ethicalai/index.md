@@ -1,20 +1,20 @@
 ---
 title: Ethical AI
-summary: 
+summary: The goal of this project is to promote trust, transparency and fairness in machine learning models.
 tags:
   - Machine Learning
-  - Multi-objective Optimization
   - Fairness
   - Interpretability
   - Privacy
   - Transparence
-date: '2014-05-01'
+  - Social Good
+date: '2020-05-01'
 
 # Optional external URL for project (replaces project detail page).
 external_link: ''
 
 image:
-  caption: Overview of the multiobjective learning framework.
+  caption: 
   focal_point: Smart
 
 url_code: ''

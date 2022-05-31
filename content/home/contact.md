@@ -25,8 +25,8 @@ content:
 #      captcha: true
 
   # Contact details (edit or remove options as required)
-  email: test@example.org
-  phone: + 55 19 3521 5406
+  email: mraimundo at ic dot unicamp dot br
+#  phone: + 55 19 3521 5406
   address:
     street: Av. Albert Einsten, 1521
     city: Campinas
@@ -35,13 +35,13 @@ content:
     country: Brazil
     country_code: BR
   coordinates:
-    latitude: '37.4275'
-    longitude: '-122.1697'
-  directions: Prédio ao lado dos prédios de ensino da Economia, chamado de IC2
+    latitude: '-22.8148374'
+    longitude: '-47.0647708'
+  directions: 
   office_hours:
     - 'Monday 10:00 to 12:00'
     - 'Wednesday 10:00 to 12:00'
-  appointment_url: 'https://calendly.com'
+#  appointment_url: 'https://calendly.com'
 #  contact_links:
 #    - icon: twitter
 #      icon_pack: fab
