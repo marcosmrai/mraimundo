@@ -1,5 +1,5 @@
 ---
-title: MO721 - Ethics in AI - Ética em IA
+title: MO721 - Aprendizado de Máquina Ético - Ethical ML
 subtitle: 
 
 # Summary for listings and search engines
