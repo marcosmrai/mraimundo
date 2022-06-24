@@ -14,11 +14,6 @@ image:
   caption: Overview of the multiobjective learning framework.
   focal_point: Smart
 
-links:
-  - icon: twitter
-    icon_pack: fab
-    name: Follow
-    url: https://twitter.com/georgecushen
 url_code: ''
 url_pdf: ''
 url_slides: ''
@@ -32,4 +27,8 @@ url_video: ''
 slides: example
 ---
 
-This research project is a framework using a posteriori multiobjective optimization to train generalized linear models. To deal with the multiple models resultant from the training I explored ensemble filtering and aggregation technique. One of the strengths of this framework resides in its flexibility, being applicable to multi-class and multi-label classification, transfer learning, multi-task learning, and multi-view learning. 
+Machine learning problems commonly have to deal with implicit or explicit conflicting objectives, thus leading to trade-offs. One of the most traditional is the model complexity vs. error rate on training trade-off. However, more complex is the model, more capable to adapt to data, thus reducing error; and vice-versa. But there are many other conflicting goals such as: error rate on each class; error rate vs. interpretability; error rate vs. fairness metrics. 
+
+Previous research investigated the impact of optimization methods in machine learning, finding interesting impacts of multi-objective optimization in model selection, ensemble diversity, and knowledge sharing for classification problems, and esulted in applications in biology, medicine, logistics, and power transmissions; and also have theoretical contributions to machine learning, operations research, and multi-objective optimization. 
+
+This project has three main goals: 1) Create a software framework to ease modeling and running conflicting objectives in machine learning; 2) Investigate theoretical consequences of modeling machine learning problems as multi-objective ones; 3) Creation of models to be employed in a wide sprectrum of applications. As a result, we expect to create a helpful framework that would machine learning experts to model tasks with conflicting objectives.
