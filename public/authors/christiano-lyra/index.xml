@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Christiano Lyra | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/authors/christiano-lyra/</link>
+      <atom:link href="ic.unicamp.br/marcos/authors/christiano-lyra/index.xml" rel="self" type="application/rss+xml" />
+    <description>Christiano Lyra</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <title>Christiano Lyra</title>
+      <link>ic.unicamp.br/marcos/authors/christiano-lyra/</link>
+    </image>
+    
+    <item>
+      <title>Exploring multiobjective training in multiclass classification</title>
+      <link>ic.unicamp.br/marcos/publication/2020_neurocomputing/2020_neurocomputing/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2020_neurocomputing/2020_neurocomputing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ant genera identification using an ensemble of convolutional neural networks</title>
+      <link>ic.unicamp.br/marcos/publication/2018_plos/2018_plos/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2018_plos/2018_plos/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
