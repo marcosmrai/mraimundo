@@ -1,5 +1,5 @@
 ---
-title: Fair and Interpretable Credit Scoring
+title: Fair and Transparent Credit Scoring
 summary: The goal of this project is to build an automatic credit scoring system that uses mobile and socio-economical data to promote finance inclusion.
 tags:
   - Credit Scoring

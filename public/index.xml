@@ -2,33 +2,171 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/marcos/</link>
-      <atom:link href="ic.unicamp.br/marcos/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://example.com/</link>
+      <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcos M. Raimundo</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 19 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 20 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>https://example.com/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Marcos M. Raimundo</title>
-      <link>ic.unicamp.br/marcos/</link>
+      <link>https://example.com/</link>
     </image>
     
     <item>
-      <title>Call for applications in AI applied in Finance at University of Campinas</title>
-      <link>ic.unicamp.br/marcos/post/post_doc_hiaac_2022/</link>
-      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/post/post_doc_hiaac_2022/</guid>
-      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
-&lt;p&gt;We are looking for a motivated postdoc with an interest in machine learning applied to fair and transparent credit scoring. Formal training in economics is not required; strong ML/AI/Statistics skills are an advantage. More details in: &lt;a href=&#34;https://docs.google.com/document/d/12uaQlCiuuJXS7N1sFfvOJ4vsRUEkk2Nm8hB9Z7f-Lf4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;banner&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;We would appreciate it if you could share the job ad with anyone you think might be interested.&lt;/p&gt;
+      <title>Example Event</title>
+      <link>https://example.com/event/example/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      <guid>https://example.com/event/example/</guid>
+      <description>&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Wowchemy&amp;rsquo;s &lt;a href=&#34;https://docs.hugoblox.com/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://docs.hugoblox.com/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Further event details, including page elements such as image galleries, can be added to the body of this page.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>MO810 - Aprendizado de Máquina Ético - Ethical ML</title>
-      <link>ic.unicamp.br/marcos/teaching/ai_ethics_2022/</link>
-      <pubDate>Sat, 04 Jun 2022 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/teaching/ai_ethics_2022/</guid>
-      <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
+      <title>Exploring the Trade-off Between Model Performance and Explanation Plausibility of Text Classifiers Using Human Rationales</title>
+      <link>https://example.com/publication/2024_naacl/2024_naacl/</link>
+      <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://example.com/publication/2024_naacl/2024_naacl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aprendizado de Máquina Ético (2s2024) - Ethical ML</title>
+      <link>https://example.com/teaching/ai_ethics_2024/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://example.com/teaching/ai_ethics_2024/</guid>
+      <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
+&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
+&lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
+&lt;h2 id=&#34;pré-requisitos&#34;&gt;Pré-requisitos&lt;/h2&gt;
+&lt;p&gt;Abaixo estão listadas as capacidades desejáveis para o aluno, estas não são mandatórias, mas aumentarão a probabilidade na absorsão de conhecimento do aluno.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ser capaz de realizar uma análise descritiva de dados (estatísticas básicas, visualização de dados).&lt;/li&gt;
+&lt;li&gt;Ser capaz de aplicar e descrever características de modelos de aprendizado de máquina (regressão logística, árvores de decisão e ensembles) em dados tabelados.&lt;/li&gt;
+&lt;li&gt;Ser capaz de aplicar modelos de aprendizado profundo em dados de natureza diversa.&lt;/li&gt;
+&lt;li&gt;Ser capaz de entender e modelar problemas de otimização no contexto de aprendizado de máquina.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conteúdos&#34;&gt;Conteúdos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Parte 1: Dados e modelos
+&lt;ul&gt;
+&lt;li&gt;Dados: Fontes de dados, modalidades, vieses, privacidade e consentimento. (1 aula)
+&lt;ul&gt;
+&lt;li&gt;Objetivo: O aluno deverá ser capaz de preparar dados que sejam confiáveis e menos enviesados, preservando a privacidade e consentimento do usuário.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Modelagem básica: Conceitos básicos de aprendizado de máquina, aprendizado supervisionado, modelos causais. (1 aula)
+&lt;ul&gt;
+&lt;li&gt;Objetivo: O aluno deverá ser capaz escolher e potencialmente criar modelos de aprendizado de máquina que sejam mais adequados para os dados preparados.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Parte 2. Imparcialidade
+&lt;ul&gt;
+&lt;li&gt;Imparcialidade: Detecção e promoção de imparcialidade em máquinas de aprendizado, manutenção de confiabilidade em cenários sob mudança ou ataque. (5 aulas)
+&lt;ul&gt;
+&lt;li&gt;Objetivo: O aluno deverá ser capaz de escolher e potencialmente criar/modificar modelos de aprendizado de máquina mais confiáveis e imparciais.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Parte 3: Explicabilidade:
+&lt;ul&gt;
+&lt;li&gt;Explicabilidade: Interpretabilidade em aprendizado de máquina, e criação de mecanismos de intervenção nas máquinas de aprendizado. (5 semanas)
+&lt;ul&gt;
+&lt;li&gt;Objetivo: O aluno deverá ser capaz de detectar e modificar uma máquina de aprendizado que falhe ao empoderar tomadores de decisão de compreendê-la e detectar falhas na sua confiabilidade e imparcialidade.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Referência principal:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.trustworthymachinelearning.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Trustworthy Machine Learning&lt;/a&gt;: Livro aborda, de forma geral, conceitos gerais de fairness e transparency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Referências adicionais:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://fairmlbook.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fairness and machine learning&lt;/a&gt;: Livro disponibilizado gratuitamente que foi feito em conjunto por três professores de universidades diferentes que dão disciplinas de Fairness ou Ética em ML. No site estão disponíveis as páginas das respectivas matérias&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.oreilly.com/library/view/practical-fairness/9781492075721/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Practical Fairness&lt;/a&gt;: Livro de Fairness da O&amp;rsquo;Reilly que adicionei na lista só pra avisar que não vale muito a pena. Ele usa nomenclaturas diferentes das mais utilizadas na literatura e não apresenta bem a parte matemática&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Recursos gerais:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.trustworthyml.org/resources&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Trustworthy ML Initiative&lt;/a&gt;: Possui diversos recursos de Trustworthy ML, como livros de divuldação geral, textbooks, documentários e sites de disciplinas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Divulgação geral:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com.br/Algoritmos-Destrui%C3%A7%C3%A3o-Massa-Cathy-ONeil/dp/6586460026/ref=sr_1_2?keywords=weapons&amp;#43;of&amp;#43;math&amp;#43;destruction&amp;amp;qid=1652104295&amp;amp;sprefix=weapons&amp;#43;%2Caps%2C314&amp;amp;sr=8-2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Algoritmos de Destruição em Massa&lt;/a&gt;: Livro que apresenta diversos exemplos de algoritmos anti-éticos&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com.br/Ethical-Algorithm-Science-Socially-English-ebook/dp/B07XLTXBXV/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&amp;amp;crid=1RJ20GQLALC4A&amp;amp;keywords=The&amp;#43;Ethical&amp;#43;Algorithm&amp;amp;qid=1652104305&amp;amp;sprefix=the&amp;#43;ethical&amp;#43;algorithm%2Caps%2C213&amp;amp;sr=8-1&amp;amp;ufe=app_do%3Aamzn1.fos.6121c6c4-c969-43ae-92f7-cc248fc6181d&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Ethical Algorithm&lt;/a&gt;: The Science of Socially Aware Algorithm Design: Livro que apresenta as principais áreas de ética em ML (Fairness, Transparency e Privacy) para o público geral&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.netflix.com/title/81328723&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Coded Bias&lt;/a&gt;: Documentário da Netflix que pode servir de motivação para o curso&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Programação Orientada a Objetos - MC322</title>
+      <link>https://example.com/teaching/poo/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://example.com/teaching/poo/</guid>
+      <description>&lt;p&gt;A disciplina visa introduzir e desenvolver o pensamento orientado a objetos nos alunos. A disciplina cobre conceitos fundamentais de OO, como classes, objetos, encapsulamento, herança, e polimorfismo, além de boas práticas de design e implementação de classes. Também ensina a usar UML para modelagem e a aplicar padrões de projeto, preparando os alunos para criar software robusto e escalável.&lt;/p&gt;
+&lt;h2 id=&#34;conteúdos&#34;&gt;Conteúdos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Entender os Conceitos Básicos de OO: Ensinar a diferença entre programação procedural e orientada a objetos, e apresentar os conceitos de classe, objeto, atributo e método.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Desenvolver o Pensamento Orientado a Objetos: Ajudar os alunos a pensar em termos de objetos, encapsulamento, herança, e polimorfismo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Aprender a Projetar e Implementar Classes: Ensinar como projetar classes robustas, com interfaces mínimas e eficientes, além de boas práticas para métodos de acesso (getters e setters) e ocultação de dados.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trabalhar com Herança e Composição: Explicar como usar herança para reutilização de código e composição para construção de objetos complexos a partir de objetos mais simples.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Aplicar Padrões de Projeto: Introduzir padrões de design que facilitam a reutilização e manutenção do código.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modelagem com UML: Ensinar como usar UML (Unified Modeling Language) para modelar sistemas orientados a objetos.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Implementação Prática: Fornecer exemplos práticos e exercícios para implementação dos conceitos em linguagens de programação como Java, C#, e outras.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Object-Oriented-Thought-Process-Developers-Library/dp/0321861272&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Object-Oriented Thought Proces&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Enforcing Fairness Using Ensemble of Diverse Pareto-optimal Models</title>
+      <link>https://example.com/publication/2023_dami/2023_dami/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.com/publication/2023_dami/2023_dami/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aprendizado de Máquina Ético (2022/2023) - Ethical ML</title>
+      <link>https://example.com/teaching/ai_ethics_2022/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.com/teaching/ai_ethics_2022/</guid>
+      <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
+&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
 &lt;h2 id=&#34;pré-requisitos&#34;&gt;Pré-requisitos&lt;/h2&gt;
 &lt;p&gt;Abaixo estão listadas as capacidades desejáveis para o aluno, estas não são mandatórias, mas aumentarão a probabilidade na absorsão de conhecimento do aluno.&lt;/p&gt;
@@ -108,18 +246,50 @@
     </item>
     
     <item>
-      <title>Fair and Interpretable Credit Scoring</title>
-      <link>ic.unicamp.br/marcos/project/credit/</link>
+      <title>Mining Pareto-optimal Counterfactual Antecedents with a Branch-and-Bound Model-agnostic Algorithm</title>
+      <link>https://example.com/publication/2022_dami/2022_dami/</link>
+      <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/publication/2022_dami/2022_dami/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://example.com/contact/</link>
+      <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/contact/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>People</title>
+      <link>https://example.com/people/</link>
+      <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/people/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tour</title>
+      <link>https://example.com/_tour/</link>
+      <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/_tour/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fair and Transparent Credit Scoring</title>
+      <link>https://example.com/project/credit/</link>
       <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/project/credit/</guid>
+      <guid>https://example.com/project/credit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EEI744 - Pesquisa Operacional II (UFRJ)</title>
-      <link>ic.unicamp.br/marcos/teaching/po_ii_2021/</link>
+      <link>https://example.com/teaching/po_ii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/teaching/po_ii_2021/</guid>
+      <guid>https://example.com/teaching/po_ii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização para problemas de estoques, grafos e filas usando otimização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -128,9 +298,9 @@
     
     <item>
       <title>EEI946 - Pesquisa Operacional III (UFRJ)</title>
-      <link>ic.unicamp.br/marcos/teaching/po_iii_2021/</link>
+      <link>https://example.com/teaching/po_iii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/teaching/po_iii_2021/</guid>
+      <guid>https://example.com/teaching/po_iii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -138,257 +308,136 @@
     </item>
     
     <item>
-      <title>Mining Pareto-Optimal Counterfactual Antecedents With A Branch-And-Bound Model-Agnostic Algorithm</title>
-      <link>ic.unicamp.br/marcos/publication/2021_preprint_dm/2021_preprint_dm/</link>
+      <title>Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory’s Invariance</title>
+      <link>https://example.com/publication/2022_edm/2022_edm/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2021_preprint_dm/2021_preprint_dm/</guid>
+      <guid>https://example.com/publication/2022_edm/2022_edm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Aprendizado Multi-objetivo: Usando conflitos para aprender</title>
-      <link>ic.unicamp.br/marcos/talk/aprendizado-multi-objetivo-usando-conflitos-para-aprender/</link>
-      <pubDate>Fri, 03 Sep 2021 18:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/talk/aprendizado-multi-objetivo-usando-conflitos-para-aprender/</guid>
-      <description>&lt;iframe width=&#34;700&#34; height=&#34;455&#34; src=&#34;https://www.youtube.com/embed/1n31MyURJ08&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Exploring counterfactual antecedents on crime analysis</title>
-      <link>ic.unicamp.br/marcos/talk/exploring-counterfactual-antecedents-on-crime-analysis/</link>
-      <pubDate>Fri, 21 May 2021 16:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/talk/exploring-counterfactual-antecedents-on-crime-analysis/</guid>
-      <description>&lt;iframe width=&#34;700&#34; height=&#34;455&#34; src=&#34;https://www.youtube.com/embed/vIist2mM6Gs&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
       <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
-      <link>ic.unicamp.br/marcos/publication/2021_tvcg/2021_tvcg/</link>
+      <link>https://example.com/publication/2021_tvcg/2021_tvcg/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2021_tvcg/2021_tvcg/</guid>
+      <guid>https://example.com/publication/2021_tvcg/2021_tvcg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring multiobjective training in multiclass classification</title>
-      <link>ic.unicamp.br/marcos/publication/2020_neurocomputing/2020_neurocomputing/</link>
+      <link>https://example.com/publication/2020_neurocomputing/2020_neurocomputing/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2020_neurocomputing/2020_neurocomputing/</guid>
+      <guid>https://example.com/publication/2020_neurocomputing/2020_neurocomputing/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Jian Yang and Monica Hall Win the Best Paper Award at Wowchemy 2020</title>
+      <link>https://example.com/post/20-12-02-icml-best-paper/</link>
+      <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/20-12-02-icml-best-paper/</guid>
+      <description>&lt;p&gt;Congratulations to Jian Yang and Monica Hall for winning the Best Paper Award at the 2020 Conference on Wowchemy for their paper “Learning Wowchemy”.&lt;/p&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim, arcu nisl suscipit ante, at accumsan sapien nisl eu eros.&lt;/p&gt;
+&lt;p&gt;Sed eu dui nec ligula bibendum dapibus. Nullam imperdiet auctor tortor, vel cursus mauris malesuada non. Quisque ultrices euismod dapibus. Aenean sed gravida risus. Sed nisi tortor, vulputate nec quam non, placerat porta nisl. Nunc varius lobortis urna, condimentum facilisis ipsum molestie eu. Ut molestie eleifend ligula sed dignissim. Duis ut tellus turpis. Praesent tincidunt, nunc sed congue malesuada, mauris enim maximus massa, eget interdum turpis urna et ante. Morbi sem nisl, cursus quis mollis et, interdum luctus augue. Aliquam laoreet, leo et accumsan tincidunt, libero neque aliquet lectus, a ultricies lorem mi a orci.&lt;/p&gt;
+&lt;p&gt;Mauris dapibus sem vel magna convallis laoreet. Donec in venenatis urna, vitae sodales odio. Praesent tortor diam, varius non luctus nec, bibendum vel est. Quisque id sem enim. Maecenas at est leo. Vestibulum tristique pellentesque ex, blandit placerat nunc eleifend sit amet. Fusce eget lectus bibendum, accumsan mi quis, luctus sem. Etiam vitae nulla scelerisque, eleifend odio in, euismod quam. Etiam porta ullamcorper massa, vitae gravida turpis euismod quis. Mauris sodales sem ac ultrices viverra. In placerat ultrices sapien. Suspendisse eu arcu hendrerit, luctus tortor cursus, maximus dolor. Proin et velit et quam gravida dapibus. Donec blandit justo ut consequat tristique.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Richard Hendricks Wins First Place in the Wowchemy Prize</title>
+      <link>https://example.com/post/20-12-01-wowchemy-prize/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/20-12-01-wowchemy-prize/</guid>
+      <description>&lt;p&gt;Congratulations to Richard Hendricks for winning first place in the Wowchemy Prize.&lt;/p&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim, arcu nisl suscipit ante, at accumsan sapien nisl eu eros.&lt;/p&gt;
+&lt;p&gt;Sed eu dui nec ligula bibendum dapibus. Nullam imperdiet auctor tortor, vel cursus mauris malesuada non. Quisque ultrices euismod dapibus. Aenean sed gravida risus. Sed nisi tortor, vulputate nec quam non, placerat porta nisl. Nunc varius lobortis urna, condimentum facilisis ipsum molestie eu. Ut molestie eleifend ligula sed dignissim. Duis ut tellus turpis. Praesent tincidunt, nunc sed congue malesuada, mauris enim maximus massa, eget interdum turpis urna et ante. Morbi sem nisl, cursus quis mollis et, interdum luctus augue. Aliquam laoreet, leo et accumsan tincidunt, libero neque aliquet lectus, a ultricies lorem mi a orci.&lt;/p&gt;
+&lt;p&gt;Mauris dapibus sem vel magna convallis laoreet. Donec in venenatis urna, vitae sodales odio. Praesent tortor diam, varius non luctus nec, bibendum vel est. Quisque id sem enim. Maecenas at est leo. Vestibulum tristique pellentesque ex, blandit placerat nunc eleifend sit amet. Fusce eget lectus bibendum, accumsan mi quis, luctus sem. Etiam vitae nulla scelerisque, eleifend odio in, euismod quam. Etiam porta ullamcorper massa, vitae gravida turpis euismod quis. Mauris sodales sem ac ultrices viverra. In placerat ultrices sapien. Suspendisse eu arcu hendrerit, luctus tortor cursus, maximus dolor. Proin et velit et quam gravida dapibus. Donec blandit justo ut consequat tristique.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>An extension of the non-inferior set estimation algorithm for many objectives</title>
-      <link>ic.unicamp.br/marcos/publication/2020_ejor/2020_ejor/</link>
+      <link>https://example.com/publication/2020_ejor/2020_ejor/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2020_ejor/2020_ejor/</guid>
+      <guid>https://example.com/publication/2020_ejor/2020_ejor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria analysis involving Pareto-optimal misclassification tradeoffs on imbalanced datasets</title>
-      <link>ic.unicamp.br/marcos/publication/2020_ijcnn/2020_ijcnn/</link>
+      <link>https://example.com/publication/2020_ijcnn/2020_ijcnn/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2020_ijcnn/2020_ijcnn/</guid>
+      <guid>https://example.com/publication/2020_ijcnn/2020_ijcnn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ethical AI</title>
-      <link>ic.unicamp.br/marcos/project/ethicalai/</link>
+      <link>https://example.com/project/ethicalai/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/project/ethicalai/</guid>
+      <guid>https://example.com/project/ethicalai/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Slides</title>
-      <link>ic.unicamp.br/marcos/slides/example/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/slides/example/</guid>
-      <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://owchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Efficiently write slides in Markdown&lt;/li&gt;
-&lt;li&gt;3-in-1: Create, Present, and Publish your slides&lt;/li&gt;
-&lt;li&gt;Supports speaker notes&lt;/li&gt;
-&lt;li&gt;Mobile friendly slides&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;controls&#34;&gt;Controls&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Next: &lt;code&gt;Right Arrow&lt;/code&gt; or &lt;code&gt;Space&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Previous: &lt;code&gt;Left Arrow&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Start: &lt;code&gt;Home&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Finish: &lt;code&gt;End&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Overview: &lt;code&gt;Esc&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Speaker notes: &lt;code&gt;S&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Fullscreen: &lt;code&gt;F&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Zoom: &lt;code&gt;Alt + Click&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://revealjs.com/pdf-export/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PDF Export&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;code-highlighting&#34;&gt;Code Highlighting&lt;/h2&gt;
-&lt;p&gt;Inline code: &lt;code&gt;variable&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Code block:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;porridge&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;porridge&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Eating...&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
-&lt;p&gt;In-line math: $x + y = z$&lt;/p&gt;
-&lt;p&gt;Block math:&lt;/p&gt;
-&lt;p&gt;$$
-f\left( x \right) = ;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
-$$&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;fragments&#34;&gt;Fragments&lt;/h2&gt;
-&lt;p&gt;Make content appear incrementally&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{{% fragment %}} One {{% /fragment %}}
-{{% fragment %}} **Two** {{% /fragment %}}
-{{% fragment %}} Three {{% /fragment %}}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-  One
-&lt;/span&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-  &lt;strong&gt;Two&lt;/strong&gt;
-&lt;/span&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-  Three
-&lt;/span&gt;
-&lt;hr&gt;
-&lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: use a custom style (requires definition in custom CSS)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: sets the order in which a fragment appears&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;speaker-notes&#34;&gt;Speaker Notes&lt;/h2&gt;
-&lt;p&gt;Add speaker notes to your presentation&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% speaker_note %}}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Only the speaker can read these notes
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Press &lt;span class=&#34;sb&#34;&gt;`S`&lt;/span&gt; key to view
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  {{% /speaker_note %}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Press the &lt;code&gt;S&lt;/code&gt; key to view the speaker notes!&lt;/p&gt;
-&lt;aside class=&#34;notes&#34;&gt;
-  &lt;ul&gt;
-&lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
-&lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/aside&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;black: Black background, white text, blue links (default)&lt;/li&gt;
-&lt;li&gt;white: White background, black text, blue links&lt;/li&gt;
-&lt;li&gt;league: Gray background, white text, blue links&lt;/li&gt;
-&lt;li&gt;beige: Beige background, dark text, brown links&lt;/li&gt;
-&lt;li&gt;sky: Blue background, thin dark text, blue links&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;night: Black background, thick white text, orange links&lt;/li&gt;
-&lt;li&gt;serif: Cappuccino background, gray text, brown links&lt;/li&gt;
-&lt;li&gt;simple: White background, black text, blue links&lt;/li&gt;
-&lt;li&gt;solarized: Cream-colored background, dark green text, blue links&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;section data-noprocess data-shortcode-slide
-  
-      
-      data-background-image=&#34;/media/boards.jpg&#34;
-  &gt;
-
-&lt;h2 id=&#34;custom-slide&#34;&gt;Custom Slide&lt;/h2&gt;
-&lt;p&gt;Customize the slide style and background&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;background-image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/media/boards.jpg&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;background-color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#0000FF&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;my-style&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;custom-css-example&#34;&gt;Custom CSS Example&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s make headers navy colored.&lt;/p&gt;
-&lt;p&gt;Create &lt;code&gt;assets/css/reveal_custom.css&lt;/code&gt; with:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h3&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;navy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/discussions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Exploring multi-objective optimization to deal with multiple feature extractions in detection of epileptic seizures</title>
-      <link>ic.unicamp.br/marcos/publication/2019_brainn/2019_brainn/</link>
+      <link>https://example.com/publication/2019_brainn/2019_brainn/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2019_brainn/2019_brainn/</guid>
+      <guid>https://example.com/publication/2019_brainn/2019_brainn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Investigating multiobjective methods in multitask classification</title>
-      <link>ic.unicamp.br/marcos/publication/2018_ijcnn/2018_ijcnn/</link>
+      <link>https://example.com/publication/2018_ijcnn/2018_ijcnn/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2018_ijcnn/2018_ijcnn/</guid>
+      <guid>https://example.com/publication/2018_ijcnn/2018_ijcnn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ant genera identification using an ensemble of convolutional neural networks</title>
-      <link>ic.unicamp.br/marcos/publication/2018_plos/2018_plos/</link>
+      <link>https://example.com/publication/2018_plos/2018_plos/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2018_plos/2018_plos/</guid>
+      <guid>https://example.com/publication/2018_plos/2018_plos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
-      <link>ic.unicamp.br/marcos/publication/2018_ciarp1/2018_ciarp1/</link>
+      <link>https://example.com/publication/2018_ciarp1/2018_ciarp1/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2018_ciarp1/2018_ciarp1/</guid>
+      <guid>https://example.com/publication/2018_ciarp1/2018_ciarp1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Many-Objective Ensemble-Based Multilabel Classification</title>
-      <link>ic.unicamp.br/marcos/publication/2018_ciarp2/2018_ciarp2/</link>
+      <link>https://example.com/publication/2018_ciarp2/2018_ciarp2/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2018_ciarp2/2018_ciarp2/</guid>
+      <guid>https://example.com/publication/2018_ciarp2/2018_ciarp2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
-      <link>ic.unicamp.br/marcos/publication/2017_brainn/2017_brainn/</link>
+      <link>https://example.com/publication/2017_brainn/2017_brainn/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2017_brainn/2017_brainn/</guid>
+      <guid>https://example.com/publication/2017_brainn/2017_brainn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MONISE - Many Objective Non-Inferior Set Estimation</title>
-      <link>ic.unicamp.br/marcos/publication/2017_arxiv/2017_arxiv/</link>
+      <link>https://example.com/publication/2017_arxiv/2017_arxiv/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2017_arxiv/2017_arxiv/</guid>
+      <guid>https://example.com/publication/2017_arxiv/2017_arxiv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multiobjective optimization in machine learning</title>
-      <link>ic.unicamp.br/marcos/project/mol/</link>
+      <link>https://example.com/project/mol/</link>
       <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/project/mol/</guid>
+      <guid>https://example.com/project/mol/</guid>
       <description>&lt;p&gt;Machine learning problems commonly have to deal with implicit or explicit conflicting objectives, thus leading to trade-offs. One of the most traditional is the model complexity vs. error rate on training trade-off. However, more complex is the model, more capable to adapt to data, thus reducing error; and vice-versa. But there are many other conflicting goals such as: error rate on each class; error rate vs. interpretability; error rate vs. fairness metrics.&lt;/p&gt;
 &lt;p&gt;Previous research investigated the impact of optimization methods in machine learning, finding interesting impacts of multi-objective optimization in model selection, ensemble diversity, and knowledge sharing for classification problems, and esulted in applications in biology, medicine, logistics, and power transmissions; and also have theoretical contributions to machine learning, operations research, and multi-objective optimization.&lt;/p&gt;
 &lt;p&gt;This project has three main goals: 1) Create a software framework to ease modeling and running conflicting objectives in machine learning; 2) Investigate theoretical consequences of modeling machine learning problems as multi-objective ones; 3) Creation of models to be employed in a wide sprectrum of applications. As a result, we expect to create a helpful framework that would machine learning experts to model tasks with conflicting objectives.&lt;/p&gt;
@@ -397,9 +446,9 @@ $$&lt;/p&gt;
     
     <item>
       <title>Algorithms for Multi-objective Optimization</title>
-      <link>ic.unicamp.br/marcos/project/moo/</link>
+      <link>https://example.com/project/moo/</link>
       <pubDate>Wed, 01 May 2013 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/project/moo/</guid>
+      <guid>https://example.com/project/moo/</guid>
       <description>&lt;p&gt;Many practical applications are better modeled as optimization problem, characterized by the existence of multiple conflicting objectives. A classical and usual example is the compromise between maximizing consumer satisfaction and minimizing service cost. Indeed, dealing with conflicting objectives is omnipresent in our lives, and a significant portion of these multi-objective problems admits a proper mathematical formulation, so that we may resort to computational resources to obtain Pareto-optimal solutions, also called non-inferior solutions.&lt;/p&gt;
 &lt;p&gt;Without any assumption from the decision maker, all non-inferior solutions are equally relevant, so what we want to research in this project are algorithms capable of find a good representative set of non inferior solutions - those methods are called a posteriori multiobjective methods. This optimization framework can be applied to logistic problems, economics and &lt;a href=&#34;../mol/&#34;&gt;machine learning&lt;/a&gt;.&lt;/p&gt;
 </description>
@@ -407,9 +456,9 @@ $$&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>ic.unicamp.br/marcos/admin/config.yml</link>
+      <link>https://example.com/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/admin/config.yml</guid>
+      <guid>https://example.com/admin/config.yml</guid>
       <description></description>
     </item>
     

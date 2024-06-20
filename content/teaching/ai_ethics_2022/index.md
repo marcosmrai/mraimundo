@@ -1,5 +1,5 @@
 ---
-title: MO810 - Aprendizado de Máquina Ético - Ethical ML
+title: Aprendizado de Máquina Ético (2022/2023) - Ethical ML
 subtitle: 
 
 # Summary for listings and search engines
@@ -9,10 +9,10 @@ summary:
 projects: []
 
 # Date published
-date: '2022-06-04T00:00:00Z'
+date: '2023-06-04T00:00:00Z'
 
 # Date updated
-lastmod: '2022-06-04T00:00:00Z'
+lastmod: '2023-06-04T00:00:00Z'
 
 # Is this an unpublished draft?
 draft: false
@@ -39,6 +39,8 @@ tags:
 categories:
   - Disciplinas
 ---
+
+A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.
 
 ## Objetivos Terminais
 

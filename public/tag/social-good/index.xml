@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Social Good | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/marcos/tag/social-good/</link>
-      <atom:link href="ic.unicamp.br/marcos/tag/social-good/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://example.com/tag/social-good/</link>
+      <atom:link href="https://example.com/tag/social-good/index.xml" rel="self" type="application/rss+xml" />
     <description>Social Good</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>https://example.com/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Social Good</title>
-      <link>ic.unicamp.br/marcos/tag/social-good/</link>
+      <link>https://example.com/tag/social-good/</link>
     </image>
     
     <item>
-      <title>Fair and Interpretable Credit Scoring</title>
-      <link>ic.unicamp.br/marcos/project/credit/</link>
+      <title>Fair and Transparent Credit Scoring</title>
+      <link>https://example.com/project/credit/</link>
       <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/project/credit/</guid>
+      <guid>https://example.com/project/credit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ethical AI</title>
-      <link>ic.unicamp.br/marcos/project/ethicalai/</link>
+      <link>https://example.com/project/ethicalai/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/project/ethicalai/</guid>
+      <guid>https://example.com/project/ethicalai/</guid>
       <description></description>
     </item>
     

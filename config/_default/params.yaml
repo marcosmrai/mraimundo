@@ -1,28 +1,30 @@
 # SITE SETUP
-# Guide: https://wowchemy.com/docs/getting-started/
-# Documentation: https://wowchemy.com/docs/
+# Guide: https://docs.hugoblox.com/tutorial/
+# Documentation: https://docs.hugoblox.com/
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 # Appearance
 
 appearance:
   theme_day: minimal
-  theme_night: minimal
-  font: minimal
+  theme_night:
+  font: native
   font_size: L
 
 # SEO
 
 marketing:
   seo:
-    site_type: Person
+    site_type: Organization
     local_business_type: ''
     org_name: ''
-    description: 'A highly-customizable Hugo academic resume theme powered by Wowchemy website builder.'
-    twitter: 'wowchemy'
+    description: 'A highly-customizable Hugo research group theme powered by Wowchemy website builder.'
+    twitter: 'GetResearchDev'
   analytics:
     google_analytics: ''
     baidu_tongji: ''
+    google_tag_manager: ''
+    microsoft_clarity: ''
   verification:
     google: ''
     baidu: ''
@@ -32,12 +34,12 @@ marketing:
 header:
   navbar:
     enable: true
-    align: l
+    align: r
     show_logo: true
     show_language: false
     show_day_night: true
     show_search: true
-    highlight_active_link: true
+    highlight_active_link: false
 
 # Site footer
 
@@ -61,7 +63,7 @@ locale:
 
 features:
   syntax_highlighter:
-    enable: true
+    enable: false
     extra_languages:
       - r
       - latex
@@ -72,7 +74,7 @@ features:
   repository:
     url: 'https://github.com/<username>/<repository>'
     content_dir: content
-    branch: master
+    branch: main
   avatar:
     gravatar: false
     shape: circle
@@ -83,6 +85,11 @@ features:
       show_count: true
     commento:
       url: ''
+    giscus:
+      repo: ''
+      repo_id: ''
+      category: ''
+      category_id: ''
   search:
     provider: wowchemy
     algolia:
@@ -91,21 +98,21 @@ features:
       index_name: ''
       show_logo: false
   map:
-    provider: 'google'
-    api_key: 'AIzaSyCnNOBI4dODo8cVfuQUWDykWBcI19ax5-0'
+    provider: 'mapnik'
+    api_key: ''
     zoom: 15
 
 # Extensions
 
 extensions:
-  cms:
+  decap_cms:
     branch: main
     local_backend: false
   academicons:
     enable: true
 
-# Security
+# Citation style
 
-security:
-  # Allow frame for embedding speaker notes in slides
-  allow_frame: true
+publications:
+  date_format: January 2006
+  citation_style: apa
