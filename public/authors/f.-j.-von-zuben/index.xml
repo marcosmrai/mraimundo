@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>F. J. Von Zuben | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/marcos/authors/f.-j.-von-zuben/</link>
-      <atom:link href="ic.unicamp.br/marcos/authors/f.-j.-von-zuben/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/f.-j.-von-zuben/</link>
+      <atom:link href="/authors/f.-j.-von-zuben/index.xml" rel="self" type="application/rss+xml" />
     <description>F. J. Von Zuben</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>F. J. Von Zuben</title>
-      <link>ic.unicamp.br/marcos/authors/f.-j.-von-zuben/</link>
+      <link>/authors/f.-j.-von-zuben/</link>
     </image>
     
     <item>
       <title>Investigating multiobjective methods in multitask classification</title>
-      <link>ic.unicamp.br/marcos/publication/2018_ijcnn/2018_ijcnn/</link>
+      <link>/publication/2018_ijcnn/2018_ijcnn/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2018_ijcnn/2018_ijcnn/</guid>
+      <guid>/publication/2018_ijcnn/2018_ijcnn/</guid>
       <description></description>
     </item>
     

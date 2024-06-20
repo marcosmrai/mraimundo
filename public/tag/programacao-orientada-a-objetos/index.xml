@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programação Orientada a Objetos | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/marcos/tag/programacao-orientada-a-objetos/</link>
-      <atom:link href="ic.unicamp.br/marcos/tag/programacao-orientada-a-objetos/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tag/programacao-orientada-a-objetos/</link>
+      <atom:link href="/tag/programacao-orientada-a-objetos/index.xml" rel="self" type="application/rss+xml" />
     <description>Programação Orientada a Objetos</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Programação Orientada a Objetos</title>
-      <link>ic.unicamp.br/marcos/tag/programacao-orientada-a-objetos/</link>
+      <link>/tag/programacao-orientada-a-objetos/</link>
     </image>
     
     <item>
       <title>Programação Orientada a Objetos - MC322</title>
-      <link>ic.unicamp.br/marcos/teaching/poo/</link>
+      <link>/teaching/poo/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/teaching/poo/</guid>
+      <guid>/teaching/poo/</guid>
       <description>&lt;p&gt;A disciplina visa introduzir e desenvolver o pensamento orientado a objetos nos alunos. A disciplina cobre conceitos fundamentais de OO, como classes, objetos, encapsulamento, herança, e polimorfismo, além de boas práticas de design e implementação de classes. Também ensina a usar UML para modelagem e a aplicar padrões de projeto, preparando os alunos para criar software robusto e escalável.&lt;/p&gt;
 &lt;h2 id=&#34;conteúdos&#34;&gt;Conteúdos&lt;/h2&gt;
 &lt;ul&gt;

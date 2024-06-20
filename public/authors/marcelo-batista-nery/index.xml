@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marcelo Batista Nery | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/marcos/authors/marcelo-batista-nery/</link>
-      <atom:link href="ic.unicamp.br/marcos/authors/marcelo-batista-nery/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/marcelo-batista-nery/</link>
+      <atom:link href="/authors/marcelo-batista-nery/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcelo Batista Nery</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Marcelo Batista Nery</title>
-      <link>ic.unicamp.br/marcos/authors/marcelo-batista-nery/</link>
+      <link>/authors/marcelo-batista-nery/</link>
     </image>
     
     <item>
       <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
-      <link>ic.unicamp.br/marcos/publication/2021_tvcg/2021_tvcg/</link>
+      <link>/publication/2021_tvcg/2021_tvcg/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/publication/2021_tvcg/2021_tvcg/</guid>
+      <guid>/publication/2021_tvcg/2021_tvcg/</guid>
       <description></description>
     </item>
     
