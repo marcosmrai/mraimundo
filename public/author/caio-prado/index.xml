@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Caio Prado | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/marcos/author/caio-prado/</link>
-      <atom:link href="ic.unicamp.br/marcos/author/caio-prado/index.xml" rel="self" type="application/rss+xml" />
+    <link>./author/caio-prado/</link>
+      <atom:link href="./author/caio-prado/index.xml" rel="self" type="application/rss+xml" />
     <description>Caio Prado</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>./media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Caio Prado</title>
-      <link>ic.unicamp.br/marcos/author/caio-prado/</link>
+      <link>./author/caio-prado/</link>
     </image>
     
     <item>
       <title>Caio Prado</title>
-      <link>ic.unicamp.br/marcos/author/caio-prado/</link>
+      <link>./author/caio-prado/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/marcos/author/caio-prado/</guid>
+      <guid>./author/caio-prado/</guid>
       <description>&lt;p&gt;吳恩達 is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.&lt;/p&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.&lt;/p&gt;
 </description>
