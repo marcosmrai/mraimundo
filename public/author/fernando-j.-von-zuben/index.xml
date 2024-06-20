@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fernando J. Von Zuben | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/author/fernando-j.-von-zuben/</link>
+      <atom:link href="ic.unicamp.br/marcos/author/fernando-j.-von-zuben/index.xml" rel="self" type="application/rss+xml" />
+    <description>Fernando J. Von Zuben</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <title>Fernando J. Von Zuben</title>
+      <link>ic.unicamp.br/marcos/author/fernando-j.-von-zuben/</link>
+    </image>
+    
+    <item>
+      <title>Exploring multi-objective optimization to deal with multiple feature extractions in detection of epileptic seizures</title>
+      <link>ic.unicamp.br/marcos/publication/2019_brainn/2019_brainn/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2019_brainn/2019_brainn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ant genera identification using an ensemble of convolutional neural networks</title>
+      <link>ic.unicamp.br/marcos/publication/2018_plos/2018_plos/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2018_plos/2018_plos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
+      <link>ic.unicamp.br/marcos/publication/2018_ciarp1/2018_ciarp1/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2018_ciarp1/2018_ciarp1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Many-Objective Ensemble-Based Multilabel Classification</title>
+      <link>ic.unicamp.br/marcos/publication/2018_ciarp2/2018_ciarp2/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2018_ciarp2/2018_ciarp2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
+      <link>ic.unicamp.br/marcos/publication/2017_brainn/2017_brainn/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2017_brainn/2017_brainn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MONISE - Many Objective Non-Inferior Set Estimation</title>
+      <link>ic.unicamp.br/marcos/publication/2017_arxiv/2017_arxiv/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2017_arxiv/2017_arxiv/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

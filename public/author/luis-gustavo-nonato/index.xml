@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Luis Gustavo Nonato | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/author/luis-gustavo-nonato/</link>
+      <atom:link href="ic.unicamp.br/marcos/author/luis-gustavo-nonato/index.xml" rel="self" type="application/rss+xml" />
+    <description>Luis Gustavo Nonato</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 16 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <title>Luis Gustavo Nonato</title>
+      <link>ic.unicamp.br/marcos/author/luis-gustavo-nonato/</link>
+    </image>
+    
+    <item>
+      <title>Mining Pareto-optimal Counterfactual Antecedents with a Branch-and-Bound Model-agnostic Algorithm</title>
+      <link>ic.unicamp.br/marcos/publication/2022_dami/2022_dami/</link>
+      <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2022_dami/2022_dami/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
+      <link>ic.unicamp.br/marcos/publication/2021_tvcg/2021_tvcg/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/publication/2021_tvcg/2021_tvcg/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

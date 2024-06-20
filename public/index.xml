@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marcos M. Raimundo</title>
-    <link>https://example.com/</link>
-      <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <link>ic.unicamp.br/marcos/</link>
+      <atom:link href="ic.unicamp.br/marcos/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcos M. Raimundo</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 20 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://example.com/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Marcos M. Raimundo</title>
-      <link>https://example.com/</link>
+      <link>ic.unicamp.br/marcos/</link>
     </image>
     
     <item>
       <title>Example Event</title>
-      <link>https://example.com/event/example/</link>
+      <link>ic.unicamp.br/marcos/event/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://example.com/event/example/</guid>
+      <guid>ic.unicamp.br/marcos/event/example/</guid>
       <description>&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Wowchemy&amp;rsquo;s &lt;a href=&#34;https://docs.hugoblox.com/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
@@ -29,17 +29,17 @@
     
     <item>
       <title>Exploring the Trade-off Between Model Performance and Explanation Plausibility of Text Classifiers Using Human Rationales</title>
-      <link>https://example.com/publication/2024_naacl/2024_naacl/</link>
+      <link>ic.unicamp.br/marcos/publication/2024_naacl/2024_naacl/</link>
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2024_naacl/2024_naacl/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2024_naacl/2024_naacl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Aprendizado de Máquina Ético (2s2024) - Ethical ML</title>
-      <link>https://example.com/teaching/ai_ethics_2024/</link>
+      <link>ic.unicamp.br/marcos/teaching/ai_ethics_2024/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>https://example.com/teaching/ai_ethics_2024/</guid>
+      <guid>ic.unicamp.br/marcos/teaching/ai_ethics_2024/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
@@ -117,9 +117,9 @@
     
     <item>
       <title>Programação Orientada a Objetos - MC322</title>
-      <link>https://example.com/teaching/poo/</link>
+      <link>ic.unicamp.br/marcos/teaching/poo/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://example.com/teaching/poo/</guid>
+      <guid>ic.unicamp.br/marcos/teaching/poo/</guid>
       <description>&lt;p&gt;A disciplina visa introduzir e desenvolver o pensamento orientado a objetos nos alunos. A disciplina cobre conceitos fundamentais de OO, como classes, objetos, encapsulamento, herança, e polimorfismo, além de boas práticas de design e implementação de classes. Também ensina a usar UML para modelagem e a aplicar padrões de projeto, preparando os alunos para criar software robusto e escalável.&lt;/p&gt;
 &lt;h2 id=&#34;conteúdos&#34;&gt;Conteúdos&lt;/h2&gt;
 &lt;ul&gt;
@@ -154,17 +154,17 @@
     
     <item>
       <title>Enforcing Fairness Using Ensemble of Diverse Pareto-optimal Models</title>
-      <link>https://example.com/publication/2023_dami/2023_dami/</link>
+      <link>ic.unicamp.br/marcos/publication/2023_dami/2023_dami/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2023_dami/2023_dami/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2023_dami/2023_dami/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Aprendizado de Máquina Ético (2022/2023) - Ethical ML</title>
-      <link>https://example.com/teaching/ai_ethics_2022/</link>
+      <link>ic.unicamp.br/marcos/teaching/ai_ethics_2022/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://example.com/teaching/ai_ethics_2022/</guid>
+      <guid>ic.unicamp.br/marcos/teaching/ai_ethics_2022/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
@@ -247,49 +247,49 @@
     
     <item>
       <title>Mining Pareto-optimal Counterfactual Antecedents with a Branch-and-Bound Model-agnostic Algorithm</title>
-      <link>https://example.com/publication/2022_dami/2022_dami/</link>
+      <link>ic.unicamp.br/marcos/publication/2022_dami/2022_dami/</link>
       <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2022_dami/2022_dami/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2022_dami/2022_dami/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>https://example.com/contact/</link>
+      <link>ic.unicamp.br/marcos/contact/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://example.com/contact/</guid>
+      <guid>ic.unicamp.br/marcos/contact/</guid>
       <description></description>
     </item>
     
     <item>
       <title>People</title>
-      <link>https://example.com/people/</link>
+      <link>ic.unicamp.br/marcos/people/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://example.com/people/</guid>
+      <guid>ic.unicamp.br/marcos/people/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tour</title>
-      <link>https://example.com/_tour/</link>
+      <link>ic.unicamp.br/marcos/_tour/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://example.com/_tour/</guid>
+      <guid>ic.unicamp.br/marcos/_tour/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fair and Transparent Credit Scoring</title>
-      <link>https://example.com/project/credit/</link>
+      <link>ic.unicamp.br/marcos/project/credit/</link>
       <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://example.com/project/credit/</guid>
+      <guid>ic.unicamp.br/marcos/project/credit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EEI744 - Pesquisa Operacional II (UFRJ)</title>
-      <link>https://example.com/teaching/po_ii_2021/</link>
+      <link>ic.unicamp.br/marcos/teaching/po_ii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://example.com/teaching/po_ii_2021/</guid>
+      <guid>ic.unicamp.br/marcos/teaching/po_ii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização para problemas de estoques, grafos e filas usando otimização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -298,9 +298,9 @@
     
     <item>
       <title>EEI946 - Pesquisa Operacional III (UFRJ)</title>
-      <link>https://example.com/teaching/po_iii_2021/</link>
+      <link>ic.unicamp.br/marcos/teaching/po_iii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://example.com/teaching/po_iii_2021/</guid>
+      <guid>ic.unicamp.br/marcos/teaching/po_iii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -309,33 +309,33 @@
     
     <item>
       <title>Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory’s Invariance</title>
-      <link>https://example.com/publication/2022_edm/2022_edm/</link>
+      <link>ic.unicamp.br/marcos/publication/2022_edm/2022_edm/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2022_edm/2022_edm/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2022_edm/2022_edm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
-      <link>https://example.com/publication/2021_tvcg/2021_tvcg/</link>
+      <link>ic.unicamp.br/marcos/publication/2021_tvcg/2021_tvcg/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2021_tvcg/2021_tvcg/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2021_tvcg/2021_tvcg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring multiobjective training in multiclass classification</title>
-      <link>https://example.com/publication/2020_neurocomputing/2020_neurocomputing/</link>
+      <link>ic.unicamp.br/marcos/publication/2020_neurocomputing/2020_neurocomputing/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2020_neurocomputing/2020_neurocomputing/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2020_neurocomputing/2020_neurocomputing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jian Yang and Monica Hall Win the Best Paper Award at Wowchemy 2020</title>
-      <link>https://example.com/post/20-12-02-icml-best-paper/</link>
+      <link>ic.unicamp.br/marcos/post/20-12-02-icml-best-paper/</link>
       <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://example.com/post/20-12-02-icml-best-paper/</guid>
+      <guid>ic.unicamp.br/marcos/post/20-12-02-icml-best-paper/</guid>
       <description>&lt;p&gt;Congratulations to Jian Yang and Monica Hall for winning the Best Paper Award at the 2020 Conference on Wowchemy for their paper “Learning Wowchemy”.&lt;/p&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim, arcu nisl suscipit ante, at accumsan sapien nisl eu eros.&lt;/p&gt;
 &lt;p&gt;Sed eu dui nec ligula bibendum dapibus. Nullam imperdiet auctor tortor, vel cursus mauris malesuada non. Quisque ultrices euismod dapibus. Aenean sed gravida risus. Sed nisi tortor, vulputate nec quam non, placerat porta nisl. Nunc varius lobortis urna, condimentum facilisis ipsum molestie eu. Ut molestie eleifend ligula sed dignissim. Duis ut tellus turpis. Praesent tincidunt, nunc sed congue malesuada, mauris enim maximus massa, eget interdum turpis urna et ante. Morbi sem nisl, cursus quis mollis et, interdum luctus augue. Aliquam laoreet, leo et accumsan tincidunt, libero neque aliquet lectus, a ultricies lorem mi a orci.&lt;/p&gt;
@@ -344,9 +344,9 @@
     
     <item>
       <title>Richard Hendricks Wins First Place in the Wowchemy Prize</title>
-      <link>https://example.com/post/20-12-01-wowchemy-prize/</link>
+      <link>ic.unicamp.br/marcos/post/20-12-01-wowchemy-prize/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://example.com/post/20-12-01-wowchemy-prize/</guid>
+      <guid>ic.unicamp.br/marcos/post/20-12-01-wowchemy-prize/</guid>
       <description>&lt;p&gt;Congratulations to Richard Hendricks for winning first place in the Wowchemy Prize.&lt;/p&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim, arcu nisl suscipit ante, at accumsan sapien nisl eu eros.&lt;/p&gt;
 &lt;p&gt;Sed eu dui nec ligula bibendum dapibus. Nullam imperdiet auctor tortor, vel cursus mauris malesuada non. Quisque ultrices euismod dapibus. Aenean sed gravida risus. Sed nisi tortor, vulputate nec quam non, placerat porta nisl. Nunc varius lobortis urna, condimentum facilisis ipsum molestie eu. Ut molestie eleifend ligula sed dignissim. Duis ut tellus turpis. Praesent tincidunt, nunc sed congue malesuada, mauris enim maximus massa, eget interdum turpis urna et ante. Morbi sem nisl, cursus quis mollis et, interdum luctus augue. Aliquam laoreet, leo et accumsan tincidunt, libero neque aliquet lectus, a ultricies lorem mi a orci.&lt;/p&gt;
@@ -355,89 +355,89 @@
     
     <item>
       <title>An extension of the non-inferior set estimation algorithm for many objectives</title>
-      <link>https://example.com/publication/2020_ejor/2020_ejor/</link>
+      <link>ic.unicamp.br/marcos/publication/2020_ejor/2020_ejor/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2020_ejor/2020_ejor/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2020_ejor/2020_ejor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria analysis involving Pareto-optimal misclassification tradeoffs on imbalanced datasets</title>
-      <link>https://example.com/publication/2020_ijcnn/2020_ijcnn/</link>
+      <link>ic.unicamp.br/marcos/publication/2020_ijcnn/2020_ijcnn/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2020_ijcnn/2020_ijcnn/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2020_ijcnn/2020_ijcnn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ethical AI</title>
-      <link>https://example.com/project/ethicalai/</link>
+      <link>ic.unicamp.br/marcos/project/ethicalai/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://example.com/project/ethicalai/</guid>
+      <guid>ic.unicamp.br/marcos/project/ethicalai/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring multi-objective optimization to deal with multiple feature extractions in detection of epileptic seizures</title>
-      <link>https://example.com/publication/2019_brainn/2019_brainn/</link>
+      <link>ic.unicamp.br/marcos/publication/2019_brainn/2019_brainn/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2019_brainn/2019_brainn/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2019_brainn/2019_brainn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Investigating multiobjective methods in multitask classification</title>
-      <link>https://example.com/publication/2018_ijcnn/2018_ijcnn/</link>
+      <link>ic.unicamp.br/marcos/publication/2018_ijcnn/2018_ijcnn/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2018_ijcnn/2018_ijcnn/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2018_ijcnn/2018_ijcnn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ant genera identification using an ensemble of convolutional neural networks</title>
-      <link>https://example.com/publication/2018_plos/2018_plos/</link>
+      <link>ic.unicamp.br/marcos/publication/2018_plos/2018_plos/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2018_plos/2018_plos/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2018_plos/2018_plos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
-      <link>https://example.com/publication/2018_ciarp1/2018_ciarp1/</link>
+      <link>ic.unicamp.br/marcos/publication/2018_ciarp1/2018_ciarp1/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2018_ciarp1/2018_ciarp1/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2018_ciarp1/2018_ciarp1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Many-Objective Ensemble-Based Multilabel Classification</title>
-      <link>https://example.com/publication/2018_ciarp2/2018_ciarp2/</link>
+      <link>ic.unicamp.br/marcos/publication/2018_ciarp2/2018_ciarp2/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2018_ciarp2/2018_ciarp2/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2018_ciarp2/2018_ciarp2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
-      <link>https://example.com/publication/2017_brainn/2017_brainn/</link>
+      <link>ic.unicamp.br/marcos/publication/2017_brainn/2017_brainn/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2017_brainn/2017_brainn/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2017_brainn/2017_brainn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MONISE - Many Objective Non-Inferior Set Estimation</title>
-      <link>https://example.com/publication/2017_arxiv/2017_arxiv/</link>
+      <link>ic.unicamp.br/marcos/publication/2017_arxiv/2017_arxiv/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publication/2017_arxiv/2017_arxiv/</guid>
+      <guid>ic.unicamp.br/marcos/publication/2017_arxiv/2017_arxiv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multiobjective optimization in machine learning</title>
-      <link>https://example.com/project/mol/</link>
+      <link>ic.unicamp.br/marcos/project/mol/</link>
       <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
-      <guid>https://example.com/project/mol/</guid>
+      <guid>ic.unicamp.br/marcos/project/mol/</guid>
       <description>&lt;p&gt;Machine learning problems commonly have to deal with implicit or explicit conflicting objectives, thus leading to trade-offs. One of the most traditional is the model complexity vs. error rate on training trade-off. However, more complex is the model, more capable to adapt to data, thus reducing error; and vice-versa. But there are many other conflicting goals such as: error rate on each class; error rate vs. interpretability; error rate vs. fairness metrics.&lt;/p&gt;
 &lt;p&gt;Previous research investigated the impact of optimization methods in machine learning, finding interesting impacts of multi-objective optimization in model selection, ensemble diversity, and knowledge sharing for classification problems, and esulted in applications in biology, medicine, logistics, and power transmissions; and also have theoretical contributions to machine learning, operations research, and multi-objective optimization.&lt;/p&gt;
 &lt;p&gt;This project has three main goals: 1) Create a software framework to ease modeling and running conflicting objectives in machine learning; 2) Investigate theoretical consequences of modeling machine learning problems as multi-objective ones; 3) Creation of models to be employed in a wide sprectrum of applications. As a result, we expect to create a helpful framework that would machine learning experts to model tasks with conflicting objectives.&lt;/p&gt;
@@ -446,9 +446,9 @@
     
     <item>
       <title>Algorithms for Multi-objective Optimization</title>
-      <link>https://example.com/project/moo/</link>
+      <link>ic.unicamp.br/marcos/project/moo/</link>
       <pubDate>Wed, 01 May 2013 00:00:00 +0000</pubDate>
-      <guid>https://example.com/project/moo/</guid>
+      <guid>ic.unicamp.br/marcos/project/moo/</guid>
       <description>&lt;p&gt;Many practical applications are better modeled as optimization problem, characterized by the existence of multiple conflicting objectives. A classical and usual example is the compromise between maximizing consumer satisfaction and minimizing service cost. Indeed, dealing with conflicting objectives is omnipresent in our lives, and a significant portion of these multi-objective problems admits a proper mathematical formulation, so that we may resort to computational resources to obtain Pareto-optimal solutions, also called non-inferior solutions.&lt;/p&gt;
 &lt;p&gt;Without any assumption from the decision maker, all non-inferior solutions are equally relevant, so what we want to research in this project are algorithms capable of find a good representative set of non inferior solutions - those methods are called a posteriori multiobjective methods. This optimization framework can be applied to logistic problems, economics and &lt;a href=&#34;../mol/&#34;&gt;machine learning&lt;/a&gt;.&lt;/p&gt;
 </description>
@@ -456,9 +456,9 @@
     
     <item>
       <title></title>
-      <link>https://example.com/admin/config.yml</link>
+      <link>ic.unicamp.br/marcos/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/admin/config.yml</guid>
+      <guid>ic.unicamp.br/marcos/admin/config.yml</guid>
       <description></description>
     </item>
     

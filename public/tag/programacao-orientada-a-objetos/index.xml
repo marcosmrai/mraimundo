@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programação Orientada a Objetos | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/marcos/tag/programacao-orientada-a-objetos/</link>
+      <atom:link href="ic.unicamp.br/marcos/tag/programacao-orientada-a-objetos/index.xml" rel="self" type="application/rss+xml" />
+    <description>Programação Orientada a Objetos</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>ic.unicamp.br/marcos/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <title>Programação Orientada a Objetos</title>
+      <link>ic.unicamp.br/marcos/tag/programacao-orientada-a-objetos/</link>
+    </image>
+    
+    <item>
+      <title>Programação Orientada a Objetos - MC322</title>
+      <link>ic.unicamp.br/marcos/teaching/poo/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/marcos/teaching/poo/</guid>
+      <description>&lt;p&gt;A disciplina visa introduzir e desenvolver o pensamento orientado a objetos nos alunos. A disciplina cobre conceitos fundamentais de OO, como classes, objetos, encapsulamento, herança, e polimorfismo, além de boas práticas de design e implementação de classes. Também ensina a usar UML para modelagem e a aplicar padrões de projeto, preparando os alunos para criar software robusto e escalável.&lt;/p&gt;
+&lt;h2 id=&#34;conteúdos&#34;&gt;Conteúdos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Entender os Conceitos Básicos de OO: Ensinar a diferença entre programação procedural e orientada a objetos, e apresentar os conceitos de classe, objeto, atributo e método.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Desenvolver o Pensamento Orientado a Objetos: Ajudar os alunos a pensar em termos de objetos, encapsulamento, herança, e polimorfismo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Aprender a Projetar e Implementar Classes: Ensinar como projetar classes robustas, com interfaces mínimas e eficientes, além de boas práticas para métodos de acesso (getters e setters) e ocultação de dados.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trabalhar com Herança e Composição: Explicar como usar herança para reutilização de código e composição para construção de objetos complexos a partir de objetos mais simples.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Aplicar Padrões de Projeto: Introduzir padrões de design que facilitam a reutilização e manutenção do código.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modelagem com UML: Ensinar como usar UML (Unified Modeling Language) para modelar sistemas orientados a objetos.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Implementação Prática: Fornecer exemplos práticos e exercícios para implementação dos conceitos em linguagens de programação como Java, C#, e outras.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Object-Oriented-Thought-Process-Developers-Library/dp/0321861272&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Object-Oriented Thought Proces&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
