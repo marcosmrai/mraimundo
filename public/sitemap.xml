@@ -2,354 +2,357 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/talk/example-event/</loc>
+    <loc>//localhost:1313/talk/example-event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/event/</loc>
+    <loc>//localhost:1313/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2024-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication-type/1/</loc>
+    <loc>//localhost:1313/publication-type/1/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/</loc>
+    <loc>//localhost:1313/authors/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2024_naacl/2024_naacl/</loc>
+    <loc>//localhost:1313/publication/2024_naacl/2024_naacl/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/jorge-poco/</loc>
+    <loc>//localhost:1313/authors/jorge-poco/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/lucas-resck/</loc>
+    <loc>//localhost:1313/authors/lucas-resck/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/marcos-m-raimundo/</loc>
+    <loc>//localhost:1313/authors/marcos-m-raimundo/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication_types/</loc>
+    <loc>//localhost:1313/publication_types/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/</loc>
+    <loc>//localhost:1313/publication/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/aprendizado-de-maquina/</loc>
+    <loc>//localhost:1313/tag/aprendizado-de-maquina/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/teaching/ai_ethics_2024/</loc>
+    <loc>//localhost:1313/teaching/ai_ethics_2024/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>//localhost:1313/categories/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/disciplinas/</loc>
+    <loc>//localhost:1313/tag/disciplinas/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/category/disciplinas/</loc>
+    <loc>//localhost:1313/category/disciplinas/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/ia/</loc>
+    <loc>//localhost:1313/tag/ia/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/admin/</loc>
+    <loc>//localhost:1313/authors/admin/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/teaching/</loc>
+    <loc>//localhost:1313/teaching/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>//localhost:1313/tags/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/programacao-orientada-a-objetos/</loc>
+    <loc>//localhost:1313/tag/programacao-orientada-a-objetos/</loc>
     <lastmod>2024-03-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/teaching/poo/</loc>
+    <loc>//localhost:1313/teaching/poo/</loc>
     <lastmod>2024-03-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2023_dami/2023_dami/</loc>
+    <loc>//localhost:1313/publication/2023_dami/2023_dami/</loc>
     <lastmod>2023-09-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/vitoria-guardieiro/</loc>
+    <loc>//localhost:1313/authors/vitoria-guardieiro/</loc>
     <lastmod>2023-09-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/teaching/ai_ethics_2022/</loc>
+    <loc>//localhost:1313/teaching/ai_ethics_2022/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/luis-gustavo-nonato/</loc>
+    <loc>//localhost:1313/authors/luis-gustavo-nonato/</loc>
     <lastmod>2022-12-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2022_dami/2022_dami/</loc>
+    <loc>//localhost:1313/publication/2022_dami/2022_dami/</loc>
     <lastmod>2022-12-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/contact/</loc>
+    <loc>//localhost:1313/contact/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/people/</loc>
+    <loc>//localhost:1313/people/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/_tour/</loc>
+    <loc>//localhost:1313/_tour/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/credit-scoring/</loc>
+    <loc>//localhost:1313/tag/credit-scoring/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/ethics/</loc>
+    <loc>//localhost:1313/tag/ethics/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/credit/</loc>
+    <loc>//localhost:1313/project/credit/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/fairness/</loc>
+    <loc>//localhost:1313/tag/fairness/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/interpretability/</loc>
+    <loc>//localhost:1313/tag/interpretability/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/machine-learning/</loc>
+    <loc>//localhost:1313/tag/machine-learning/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/</loc>
+    <loc>//localhost:1313/project/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/social-good/</loc>
+    <loc>//localhost:1313/tag/social-good/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/teaching/po_ii_2021/</loc>
+    <loc>//localhost:1313/teaching/po_ii_2021/</loc>
     <lastmod>2022-04-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/teaching/po_iii_2021/</loc>
+    <loc>//localhost:1313/teaching/po_iii_2021/</loc>
     <lastmod>2022-04-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/otimizacao/</loc>
+    <loc>//localhost:1313/tag/otimizacao/</loc>
     <lastmod>2022-04-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/pesquisa-operacional/</loc>
+    <loc>//localhost:1313/tag/pesquisa-operacional/</loc>
     <lastmod>2022-04-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2022_edm/2022_edm/</loc>
+    <loc>//localhost:1313/publication/2022_edm/2022_edm/</loc>
     <lastmod>2021-09-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/vitoria-guardieiro/</loc>
+    <loc>//localhost:1313/authors/vitoria-guardieiro/</loc>
     <lastmod>2021-09-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/alan-caio-r-marques/</loc>
+    <loc>//localhost:1313/authors/alan-caio-r-marques/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/anderson-rocha/</loc>
+    <loc>//localhost:1313/authors/anderson-rocha/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/christiano-lyra/</loc>
+    <loc>//localhost:1313/authors/christiano-lyra/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/claudio-t-silva/</loc>
+    <loc>//localhost:1313/authors/claudio-t-silva/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2021_tvcg/2021_tvcg/</loc>
+    <loc>//localhost:1313/publication/2021_tvcg/2021_tvcg/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2020_neurocomputing/2020_neurocomputing/</loc>
+    <loc>//localhost:1313/publication/2020_neurocomputing/2020_neurocomputing/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/fernando-j-von-zuben/</loc>
+    <loc>//localhost:1313/authors/fernando-j-von-zuben/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/germain-garcia-zanabria/</loc>
+    <loc>//localhost:1313/authors/germain-garcia-zanabria/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/marcelo-batista-nery/</loc>
+    <loc>//localhost:1313/authors/marcelo-batista-nery/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/marcos-mm-raimundo/</loc>
+    <loc>//localhost:1313/authors/marcos-mm-raimundo/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/sergio-franca-adorno-de-abreu/</loc>
+    <loc>//localhost:1313/authors/sergio-franca-adorno-de-abreu/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/thalita-f-drumond/</loc>
+    <loc>//localhost:1313/authors/thalita-f-drumond/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/post/20-12-02-icml-best-paper/</loc>
+    <loc>//localhost:1313/post/20-12-02-icml-best-paper/</loc>
     <lastmod>2020-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/post/</loc>
+    <loc>//localhost:1313/post/</loc>
     <lastmod>2020-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/post/20-12-01-wowchemy-prize/</loc>
+    <loc>//localhost:1313/post/20-12-01-wowchemy-prize/</loc>
     <lastmod>2020-12-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2020_ejor/2020_ejor/</loc>
+    <loc>//localhost:1313/publication/2020_ejor/2020_ejor/</loc>
     <lastmod>2020-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2020_ijcnn/2020_ijcnn/</loc>
+    <loc>//localhost:1313/publication/2020_ijcnn/2020_ijcnn/</loc>
     <lastmod>2020-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/paulo-av-ferreira/</loc>
+    <loc>//localhost:1313/authors/paulo-av-ferreira/</loc>
     <lastmod>2020-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/ethicalai/</loc>
+    <loc>//localhost:1313/project/ethicalai/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/privacy/</loc>
+    <loc>//localhost:1313/tag/privacy/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/transparence/</loc>
+    <loc>//localhost:1313/tag/transparence/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication-type/2/</loc>
+    <loc>//localhost:1313/publication-type/2/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2019_brainn/2019_brainn/</loc>
+    <loc>//localhost:1313/publication/2019_brainn/2019_brainn/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/fernando-j.-von-zuben/</loc>
+    <loc>//localhost:1313/authors/fernando-j.-von-zuben/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/marcos-m.-raimundo/</loc>
+    <loc>//localhost:1313/authors/marcos-m.-raimundo/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/f.-j.-von-zuben/</loc>
+    <loc>//localhost:1313/authors/f.-j.-von-zuben/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2018_ijcnn/2018_ijcnn/</loc>
+    <loc>//localhost:1313/publication/2018_ijcnn/2018_ijcnn/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/m.-m.-raimundo/</loc>
+    <loc>//localhost:1313/authors/m.-m.-raimundo/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/alan-caio-m.-r./</loc>
+    <loc>//localhost:1313/authors/alan-caio-m.-r./</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2018_plos/2018_plos/</loc>
+    <loc>//localhost:1313/publication/2018_plos/2018_plos/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/ellen-marianne-b.-cavalheiro/</loc>
+    <loc>//localhost:1313/authors/ellen-marianne-b.-cavalheiro/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2018_ciarp1/2018_ciarp1/</loc>
+    <loc>//localhost:1313/publication/2018_ciarp1/2018_ciarp1/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/fernando-s.-beserra/</loc>
+    <loc>//localhost:1313/authors/fernando-s.-beserra/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/luis-f.-p.-salles/</loc>
+    <loc>//localhost:1313/authors/luis-f.-p.-salles/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2018_ciarp2/2018_ciarp2/</loc>
+    <loc>//localhost:1313/publication/2018_ciarp2/2018_ciarp2/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2017_brainn/2017_brainn/</loc>
+    <loc>//localhost:1313/publication/2017_brainn/2017_brainn/</loc>
     <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/publication/2017_arxiv/2017_arxiv/</loc>
+    <loc>//localhost:1313/publication/2017_arxiv/2017_arxiv/</loc>
     <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/multi-objective-learning/</loc>
+    <loc>//localhost:1313/tag/multi-objective-learning/</loc>
     <lastmod>2014-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/multi-objective-optimization/</loc>
+    <loc>//localhost:1313/tag/multi-objective-optimization/</loc>
     <lastmod>2014-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/mol/</loc>
+    <loc>//localhost:1313/project/mol/</loc>
     <lastmod>2014-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/moo/</loc>
+    <loc>//localhost:1313/project/moo/</loc>
     <lastmod>2013-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/tag/mathematical-programming/</loc>
+    <loc>//localhost:1313/tag/mathematical-programming/</loc>
     <lastmod>2013-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/admin/</loc>
+    <loc>//localhost:1313/admin/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/caio_prado/</loc>
+    <loc>//localhost:1313/authors/caio_prado/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>//localhost:1313/authors/kamila/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
