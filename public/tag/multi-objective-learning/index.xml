@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Multi-Objective Learning | Marcos M. Raimundo</title>
-    <link>//localhost:1313/tag/multi-objective-learning/</link>
-      <atom:link href="//localhost:1313/tag/multi-objective-learning/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tag/multi-objective-learning/</link>
+      <atom:link href="/tag/multi-objective-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Multi-Objective Learning</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 01 May 2014 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>//localhost:1313/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Multi-Objective Learning</title>
-      <link>//localhost:1313/tag/multi-objective-learning/</link>
+      <link>/tag/multi-objective-learning/</link>
     </image>
     
     <item>
       <title>Multiobjective optimization in machine learning</title>
-      <link>//localhost:1313/project/mol/</link>
+      <link>/project/mol/</link>
       <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/project/mol/</guid>
+      <guid>/project/mol/</guid>
       <description>&lt;p&gt;Machine learning problems commonly have to deal with implicit or explicit conflicting objectives, thus leading to trade-offs. One of the most traditional is the model complexity vs. error rate on training trade-off. However, more complex is the model, more capable to adapt to data, thus reducing error; and vice-versa. But there are many other conflicting goals such as: error rate on each class; error rate vs. interpretability; error rate vs. fairness metrics.&lt;/p&gt;
 &lt;p&gt;Previous research investigated the impact of optimization methods in machine learning, finding interesting impacts of multi-objective optimization in model selection, ensemble diversity, and knowledge sharing for classification problems, and esulted in applications in biology, medicine, logistics, and power transmissions; and also have theoretical contributions to machine learning, operations research, and multi-objective optimization.&lt;/p&gt;
 &lt;p&gt;This project has three main goals: 1) Create a software framework to ease modeling and running conflicting objectives in machine learning; 2) Investigate theoretical consequences of modeling machine learning problems as multi-objective ones; 3) Creation of models to be employed in a wide sprectrum of applications. As a result, we expect to create a helpful framework that would machine learning experts to model tasks with conflicting objectives.&lt;/p&gt;

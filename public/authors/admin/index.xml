@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marcos M. Raimundo</title>
-    <link>//localhost:1313/authors/admin/</link>
-      <atom:link href="//localhost:1313/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/admin/</link>
+      <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcos M. Raimundo</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>//localhost:1313/authors/admin/avatar_hud7ab407eb4c2ec553e7e0f08692d15ca_46130_270x270_fill_q75_lanczos_center.jpg</url>
+      <url>/authors/admin/avatar_hud7ab407eb4c2ec553e7e0f08692d15ca_46130_270x270_fill_q75_lanczos_center.jpg</url>
       <title>Marcos M. Raimundo</title>
-      <link>//localhost:1313/authors/admin/</link>
+      <link>/authors/admin/</link>
     </image>
     
     <item>
       <title>Aprendizado de Máquina Ético (2s2024) - Ethical ML</title>
-      <link>//localhost:1313/teaching/ai_ethics_2024/</link>
+      <link>/teaching/ai_ethics_2024/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/teaching/ai_ethics_2024/</guid>
+      <guid>/teaching/ai_ethics_2024/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
@@ -94,9 +94,9 @@
     
     <item>
       <title>Programação Orientada a Objetos - MC322</title>
-      <link>//localhost:1313/teaching/poo/</link>
+      <link>/teaching/poo/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/teaching/poo/</guid>
+      <guid>/teaching/poo/</guid>
       <description>&lt;p&gt;A disciplina visa introduzir e desenvolver o pensamento orientado a objetos nos alunos. A disciplina cobre conceitos fundamentais de OO, como classes, objetos, encapsulamento, herança, e polimorfismo, além de boas práticas de design e implementação de classes. Também ensina a usar UML para modelagem e a aplicar padrões de projeto, preparando os alunos para criar software robusto e escalável.&lt;/p&gt;
 &lt;h2 id=&#34;conteúdos&#34;&gt;Conteúdos&lt;/h2&gt;
 &lt;ul&gt;
@@ -131,9 +131,9 @@
     
     <item>
       <title>Aprendizado de Máquina Ético (2022/2023) - Ethical ML</title>
-      <link>//localhost:1313/teaching/ai_ethics_2022/</link>
+      <link>/teaching/ai_ethics_2022/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/teaching/ai_ethics_2022/</guid>
+      <guid>/teaching/ai_ethics_2022/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
@@ -216,9 +216,9 @@
     
     <item>
       <title>EEI744 - Pesquisa Operacional II (UFRJ)</title>
-      <link>//localhost:1313/teaching/po_ii_2021/</link>
+      <link>/teaching/po_ii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/teaching/po_ii_2021/</guid>
+      <guid>/teaching/po_ii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização para problemas de estoques, grafos e filas usando otimização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -227,9 +227,9 @@
     
     <item>
       <title>EEI946 - Pesquisa Operacional III (UFRJ)</title>
-      <link>//localhost:1313/teaching/po_iii_2021/</link>
+      <link>/teaching/po_iii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/teaching/po_iii_2021/</guid>
+      <guid>/teaching/po_iii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
