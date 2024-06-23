@@ -7,7 +7,7 @@ type: landing
 sections:
   - block: collection
     content:
-      title: Latest Publications
+      title: Lastest Courses
       text: ""
       count: 3
       filters:
