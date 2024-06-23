@@ -79,7 +79,7 @@ sections:
       columns: '1'
       background:
         image: 
-          filename: ic_pos.jpeg
+          filename: ./ic_pos.jpeg
           filters:
             brightness: 1
           parallax: false

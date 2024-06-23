@@ -25,7 +25,7 @@ sections:
       columns: '1'
       background:
         image: 
-          filename: ic_grad.jpeg
+          filename: ./ic_grad.jpeg
           filters:
             brightness: 1
           parallax: false
