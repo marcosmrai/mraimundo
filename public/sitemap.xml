@@ -349,10 +349,19 @@
     <loc>/admin/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>/authors/athyrson/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>/authors/caio_prado/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>/authors/decio/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>/authors/giovani/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>/authors/joao_victor/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>/authors/kamila/</loc>

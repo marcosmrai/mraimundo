@@ -34,7 +34,7 @@ interests:
 education:
   courses:
     - course: MS in Computer science
-      institution: computer science institute - University of Campinas
+      institution: Computer Science Institute - University of Campinas
       year: current
     - course: BSc in Computer science
       institution: Federal university of alagoas
