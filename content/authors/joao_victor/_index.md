@@ -50,7 +50,7 @@ education:
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
   - icon: globe
-    icon_pack: fab
+    icon_pack: fa
     link: joaoavanzini.github.io
   - icon: github
     icon_pack: fab

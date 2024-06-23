@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Luan Silveira | Marcos M. Raimundo</title>
+    <link>/authors/luan/</link>
+      <atom:link href="/authors/luan/index.xml" rel="self" type="application/rss+xml" />
+    <description>Luan Silveira</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>/authors/luan/avatar_hu708c1b65e33f8082db53df67c90fd9ce_3598_270x270_fill_q75_lanczos_center.jpeg</url>
+      <title>Luan Silveira</title>
+      <link>/authors/luan/</link>
+    </image>
+    
+  </channel>
+</rss>
