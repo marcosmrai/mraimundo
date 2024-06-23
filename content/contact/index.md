@@ -43,17 +43,15 @@ sections:
       subtitle: ''
       text:
     design:
-      columns: '1'
+      columns: '2'
       background:
         image: 
-          filename: contact.jpg
+          filename: ic_doc.jpeg
           filters:
             brightness: 1
           parallax: false
-          position: center
-          size: cover
+          size: auto
           text_color_light: true
       spacing:
-        padding: ['20px', '0', '20px', '0']
-      css_class: fullscreen
+        padding: ['30%', '0', '30%', '0']
 ---

@@ -79,4 +79,4 @@ user_groups:
   - Master Students
 ---
 
-João Avanzini is an M.Sc student at the Institute of Computing (IC), University of Campinas (UNICAMP). He is also a scientific researcher at the laboratory REasoning for Complex Data (Recod.ai). His research concerns medical electrocardiogram data, with a particular emphasis on AI ethics.
+João Avanzini is an M.Sc student at the Institute of Computing (IC), University of Campinas (UNICAMP). He is also a member at the laboratory REasoning for Complex Data (Recod.ai). His research concerns medical electrocardiogram data, with a particular emphasis on AI ethics.

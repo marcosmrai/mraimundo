@@ -14,6 +14,14 @@
     <lastmod>2024-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>/projects/</loc>
+    <lastmod>2024-06-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>/teaching/</loc>
+    <lastmod>2024-06-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>/publication-type/1/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -74,10 +82,6 @@
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/teaching/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>/tags/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -130,7 +134,7 @@
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/credit/</loc>
+    <loc>/projects/credit/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -143,10 +147,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>/tag/machine-learning/</loc>
-    <lastmod>2022-05-01T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>/project/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -250,7 +250,7 @@
     <lastmod>2020-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/ethicalai/</loc>
+    <loc>/projects/ethicalai/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -334,11 +334,11 @@
     <lastmod>2014-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/mol/</loc>
+    <loc>/projects/mol/</loc>
     <lastmod>2014-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/project/moo/</loc>
+    <loc>/projects/moo/</loc>
     <lastmod>2013-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -347,6 +347,9 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>/admin/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>/authors/arthur/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>/authors/athyrson/</loc>

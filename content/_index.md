@@ -68,13 +68,23 @@ sections:
     design:
       view: citation
       columns: '1'
-
+      
   - block: markdown
     content:
       title:
-      subtitle:
+      subtitle: ''
       text: |
-        {{% cta cta_link="./people/" cta_text="Meet the team →" %}}
+              {{% cta cta_link="./people/" cta_text="Meet the team →" %}}
     design:
       columns: '1'
+      background:
+        image: 
+          filename: ic_pos.jpeg
+          filters:
+            brightness: 1
+          parallax: false
+          size: auto
+          text_color_light: true
+      spacing:
+        padding: ['30%', '0', '30%', '0']
 ---

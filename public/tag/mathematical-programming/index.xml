@@ -14,9 +14,9 @@
     
     <item>
       <title>Algorithms for Multi-objective Optimization</title>
-      <link>/project/moo/</link>
+      <link>/projects/moo/</link>
       <pubDate>Wed, 01 May 2013 00:00:00 +0000</pubDate>
-      <guid>/project/moo/</guid>
+      <guid>/projects/moo/</guid>
       <description>&lt;p&gt;Many practical applications are better modeled as optimization problem, characterized by the existence of multiple conflicting objectives. A classical and usual example is the compromise between maximizing consumer satisfaction and minimizing service cost. Indeed, dealing with conflicting objectives is omnipresent in our lives, and a significant portion of these multi-objective problems admits a proper mathematical formulation, so that we may resort to computational resources to obtain Pareto-optimal solutions, also called non-inferior solutions.&lt;/p&gt;
 &lt;p&gt;Without any assumption from the decision maker, all non-inferior solutions are equally relevant, so what we want to research in this project are algorithms capable of find a good representative set of non inferior solutions - those methods are called a posteriori multiobjective methods. This optimization framework can be applied to logistic problems, economics and &lt;a href=&#34;../mol/&#34;&gt;machine learning&lt;/a&gt;.&lt;/p&gt;
 </description>

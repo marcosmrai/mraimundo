@@ -78,4 +78,4 @@ user_groups:
 ---
 
 
-Decio Miranda Filho is a researcher at University of Campinas (UNICAMP) and artificial intelligence hub and cognitive architectures (H.IAAC), in the Institute of Computing (IC). He is also a faculty member of the REasoning for COmplex Data laboratory (Recod.ai). His research interests includes Machine Learning, Statistical Modeling, Explainable and Ethical AI and Econometrics.
+Decio Miranda Filho is a researcher at University of Campinas (UNICAMP) and artificial intelligence hub and cognitive architectures (H.IAAC), in the Institute of Computing (IC). He is also a member of the REasoning for COmplex Data laboratory (Recod.ai). His research interests includes Machine Learning, Statistical Modeling, Explainable and Ethical AI and Econometrics.
