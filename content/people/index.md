@@ -17,7 +17,7 @@ sections:
           - Master Students
           - Undergrad Research Assistants
           - Collaborators
-          - Alumni
+          - Former Researchers
       sort_by: Params.last_name
       sort_ascending: true
     design:
