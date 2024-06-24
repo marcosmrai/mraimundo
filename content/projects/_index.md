@@ -28,7 +28,7 @@ sections:
           filters:
             brightness: 1
           parallax: false
-          size: auto
+          size: full
           text_color_light: true
       spacing:
         padding: ['20%', '0', '20%', '0']
