@@ -24,7 +24,7 @@ sections:
       columns: '1'
       background:
         image: 
-          filename: img/ic_proj.png
+          filename: ic_proj.png
           filters:
             brightness: 1
           parallax: false

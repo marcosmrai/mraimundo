@@ -46,7 +46,7 @@ sections:
       columns: '2'
       background:
         image: 
-          filename: ./ic_doc.jpeg
+          filename: ic_doc.jpeg
           filters:
             brightness: 1
           parallax: false
