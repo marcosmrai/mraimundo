@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aline Azevedo | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/mraimundo/authors/aline/</link>
-      <atom:link href="ic.unicamp.br/mraimundo/authors/aline/index.xml" rel="self" type="application/rss+xml" />
+    <link>www.ic.unicamp.br/mraimundo/authors/aline/</link>
+      <atom:link href="www.ic.unicamp.br/mraimundo/authors/aline/index.xml" rel="self" type="application/rss+xml" />
     <description>Aline Azevedo</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>ic.unicamp.br/mraimundo/authors/aline/avatar_hu7c9f0c1eb9151bc8326c83203d623a71_1567105_270x270_fill_lanczos_center_3.png</url>
+      <url>www.ic.unicamp.br/mraimundo/authors/aline/avatar_hu7c9f0c1eb9151bc8326c83203d623a71_1567105_270x270_fill_lanczos_center_3.png</url>
       <title>Aline Azevedo</title>
-      <link>ic.unicamp.br/mraimundo/authors/aline/</link>
+      <link>www.ic.unicamp.br/mraimundo/authors/aline/</link>
     </image>
     
   </channel>

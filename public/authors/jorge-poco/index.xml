@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jorge Poco | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/mraimundo/authors/jorge-poco/</link>
-      <atom:link href="ic.unicamp.br/mraimundo/authors/jorge-poco/index.xml" rel="self" type="application/rss+xml" />
+    <link>www.ic.unicamp.br/mraimundo/authors/jorge-poco/</link>
+      <atom:link href="www.ic.unicamp.br/mraimundo/authors/jorge-poco/index.xml" rel="self" type="application/rss+xml" />
     <description>Jorge Poco</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 15 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>ic.unicamp.br/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>www.ic.unicamp.br/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Jorge Poco</title>
-      <link>ic.unicamp.br/mraimundo/authors/jorge-poco/</link>
+      <link>www.ic.unicamp.br/mraimundo/authors/jorge-poco/</link>
     </image>
     
     <item>
       <title>Exploring the Trade-off Between Model Performance and Explanation Plausibility of Text Classifiers Using Human Rationales</title>
-      <link>ic.unicamp.br/mraimundo/publication/2024_naacl/2024_naacl/</link>
+      <link>www.ic.unicamp.br/mraimundo/publication/2024_naacl/2024_naacl/</link>
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/mraimundo/publication/2024_naacl/2024_naacl/</guid>
+      <guid>www.ic.unicamp.br/mraimundo/publication/2024_naacl/2024_naacl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Enforcing Fairness Using Ensemble of Diverse Pareto-optimal Models</title>
-      <link>ic.unicamp.br/mraimundo/publication/2023_dami/2023_dami/</link>
+      <link>www.ic.unicamp.br/mraimundo/publication/2023_dami/2023_dami/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/mraimundo/publication/2023_dami/2023_dami/</guid>
+      <guid>www.ic.unicamp.br/mraimundo/publication/2023_dami/2023_dami/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mining Pareto-optimal Counterfactual Antecedents with a Branch-and-Bound Model-agnostic Algorithm</title>
-      <link>ic.unicamp.br/mraimundo/publication/2022_dami/2022_dami/</link>
+      <link>www.ic.unicamp.br/mraimundo/publication/2022_dami/2022_dami/</link>
       <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/mraimundo/publication/2022_dami/2022_dami/</guid>
+      <guid>www.ic.unicamp.br/mraimundo/publication/2022_dami/2022_dami/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory’s Invariance</title>
-      <link>ic.unicamp.br/mraimundo/publication/2022_edm/2022_edm/</link>
+      <link>www.ic.unicamp.br/mraimundo/publication/2022_edm/2022_edm/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/mraimundo/publication/2022_edm/2022_edm/</guid>
+      <guid>www.ic.unicamp.br/mraimundo/publication/2022_edm/2022_edm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
-      <link>ic.unicamp.br/mraimundo/publication/2021_tvcg/2021_tvcg/</link>
+      <link>www.ic.unicamp.br/mraimundo/publication/2021_tvcg/2021_tvcg/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>ic.unicamp.br/mraimundo/publication/2021_tvcg/2021_tvcg/</guid>
+      <guid>www.ic.unicamp.br/mraimundo/publication/2021_tvcg/2021_tvcg/</guid>
       <description></description>
     </item>
     
