@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Caio Prado | Marcos M. Raimundo</title>
-    <link>/authors/caio_prado/</link>
-      <atom:link href="/authors/caio_prado/index.xml" rel="self" type="application/rss+xml" />
+    <link>ic.unicamp.br/mraimundo/authors/caio_prado/</link>
+      <atom:link href="ic.unicamp.br/mraimundo/authors/caio_prado/index.xml" rel="self" type="application/rss+xml" />
     <description>Caio Prado</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>/authors/caio_prado/avatar_hubf20cf8257bece978f1ddb425e68fc6f_190110_270x270_fill_q75_h2_lanczos_center_2.webp</url>
+      <url>ic.unicamp.br/mraimundo/authors/caio_prado/avatar_hubf20cf8257bece978f1ddb425e68fc6f_190110_270x270_fill_q75_h2_lanczos_center_2.webp</url>
       <title>Caio Prado</title>
-      <link>/authors/caio_prado/</link>
+      <link>ic.unicamp.br/mraimundo/authors/caio_prado/</link>
     </image>
     
     <item>
       <title>Caio Prado</title>
-      <link>/authors/caio_prado/</link>
+      <link>ic.unicamp.br/mraimundo/authors/caio_prado/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/authors/caio_prado/</guid>
+      <guid>ic.unicamp.br/mraimundo/authors/caio_prado/</guid>
       <description></description>
     </item>
     
