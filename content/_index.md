@@ -24,7 +24,7 @@ sections:
       title: Teaching
       subtitle:
       text:
-      count: 5
+      count: 3
       filters:
         author: ''
         category: ''
@@ -35,8 +35,8 @@ sections:
       order: desc
       page_type: teaching
     design:
-      view: card
-      columns: '1'
+      view: compact
+      columns: '2'
 
   - block: collection
     content:
@@ -52,9 +52,9 @@ sections:
         tag: ''
       offset: 0
       order: desc
-      page_type: project
+      page_type: projects
     design:
-      view: card
+      view: compact
       columns: '2'
 
   - block: collection
@@ -67,7 +67,7 @@ sections:
           - publication
     design:
       view: citation
-      columns: '1'
+      columns: '2'
       
   - block: markdown
     content:

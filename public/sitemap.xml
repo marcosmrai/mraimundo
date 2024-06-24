@@ -349,6 +349,9 @@
     <loc>/admin/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>/authors/aline/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>/authors/arthur/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -374,6 +377,9 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>/authors/luan/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>/authors/raphael/_index-/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

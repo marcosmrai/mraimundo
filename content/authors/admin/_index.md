@@ -30,13 +30,13 @@ interests:
 # Education to show in About widget
 education:
   courses:
-    - course: PhD in Computer Engineering
+    - course: Ph.D. in Computer Engineering
       institution: School of Electrical and Computer Engineering - University of Campinas
       year: 2018
-    - course: MS in Computer Engineering
+    - course: M.Sc. in Computer Engineering
       institution: School of Electrical and Computer Engineering - University of Campinas
       year: 2014
-    - course: BSc in Computer Engineering
+    - course: B.Sc. in Computer Engineering
       institution: University of Campinas
       year: 2011
 
@@ -45,12 +45,6 @@ education:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-  - icon: envelope
-    icon_pack: fas
-    link: '/#contact'
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/mraimundo
   - icon: google-scholar
     icon_pack: ai
     link: https://scholar.google.com.br/citations?user=ibe0jfQAAAAJ&hl=pt-BR
@@ -59,10 +53,13 @@ social:
     link: https://github.com/marcosmrai
   - icon: linkedin
     icon_pack: fab
-    link: https://www.linkedin.com/marcosmrai
+    link: https://www.linkedin.com/in/marcos-medeiros-raimundo-866b8731/
   - icon: lattes
     icon_pack: ai
     link: http://lattes.cnpq.br/1605909137233786
+  - icon: twitter
+    icon_pack: fab
+    link: https://twitter.com/mraimundo
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
