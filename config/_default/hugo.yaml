@@ -6,7 +6,7 @@
 title: Marcos M. Raimundo # Website name
 baseURL: 'ic.unicamp.br/mraimundo/' # Website URL
 RelativeURLs: false
-CanonifyURLs: true
+CanonifyURLs: false
 
 ############################
 ## LANGUAGE
