@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>1 | Marcos M. Raimundo</title>
-    <link>/publication-type/1/</link>
-      <atom:link href="/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
+    <link>/mraimundo/publication-type/1/</link>
+      <atom:link href="/mraimundo/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
     <description>1</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 15 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>1</title>
-      <link>/publication-type/1/</link>
+      <link>/mraimundo/publication-type/1/</link>
     </image>
     
     <item>
       <title>Exploring the Trade-off Between Model Performance and Explanation Plausibility of Text Classifiers Using Human Rationales</title>
-      <link>/publication/2024_naacl/2024_naacl/</link>
+      <link>/mraimundo/publication/2024_naacl/2024_naacl/</link>
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>/publication/2024_naacl/2024_naacl/</guid>
+      <guid>/mraimundo/publication/2024_naacl/2024_naacl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Enforcing Fairness Using Ensemble of Diverse Pareto-optimal Models</title>
-      <link>/publication/2023_dami/2023_dami/</link>
+      <link>/mraimundo/publication/2023_dami/2023_dami/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>/publication/2023_dami/2023_dami/</guid>
+      <guid>/mraimundo/publication/2023_dami/2023_dami/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mining Pareto-optimal Counterfactual Antecedents with a Branch-and-Bound Model-agnostic Algorithm</title>
-      <link>/publication/2022_dami/2022_dami/</link>
+      <link>/mraimundo/publication/2022_dami/2022_dami/</link>
       <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>/publication/2022_dami/2022_dami/</guid>
+      <guid>/mraimundo/publication/2022_dami/2022_dami/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory’s Invariance</title>
-      <link>/publication/2022_edm/2022_edm/</link>
+      <link>/mraimundo/publication/2022_edm/2022_edm/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>/publication/2022_edm/2022_edm/</guid>
+      <guid>/mraimundo/publication/2022_edm/2022_edm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
-      <link>/publication/2021_tvcg/2021_tvcg/</link>
+      <link>/mraimundo/publication/2021_tvcg/2021_tvcg/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>/publication/2021_tvcg/2021_tvcg/</guid>
+      <guid>/mraimundo/publication/2021_tvcg/2021_tvcg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring multiobjective training in multiclass classification</title>
-      <link>/publication/2020_neurocomputing/2020_neurocomputing/</link>
+      <link>/mraimundo/publication/2020_neurocomputing/2020_neurocomputing/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>/publication/2020_neurocomputing/2020_neurocomputing/</guid>
+      <guid>/mraimundo/publication/2020_neurocomputing/2020_neurocomputing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An extension of the non-inferior set estimation algorithm for many objectives</title>
-      <link>/publication/2020_ejor/2020_ejor/</link>
+      <link>/mraimundo/publication/2020_ejor/2020_ejor/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/publication/2020_ejor/2020_ejor/</guid>
+      <guid>/mraimundo/publication/2020_ejor/2020_ejor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria analysis involving Pareto-optimal misclassification tradeoffs on imbalanced datasets</title>
-      <link>/publication/2020_ijcnn/2020_ijcnn/</link>
+      <link>/mraimundo/publication/2020_ijcnn/2020_ijcnn/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/publication/2020_ijcnn/2020_ijcnn/</guid>
+      <guid>/mraimundo/publication/2020_ijcnn/2020_ijcnn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
-      <link>/publication/2018_ciarp1/2018_ciarp1/</link>
+      <link>/mraimundo/publication/2018_ciarp1/2018_ciarp1/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>/publication/2018_ciarp1/2018_ciarp1/</guid>
+      <guid>/mraimundo/publication/2018_ciarp1/2018_ciarp1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Many-Objective Ensemble-Based Multilabel Classification</title>
-      <link>/publication/2018_ciarp2/2018_ciarp2/</link>
+      <link>/mraimundo/publication/2018_ciarp2/2018_ciarp2/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>/publication/2018_ciarp2/2018_ciarp2/</guid>
+      <guid>/mraimundo/publication/2018_ciarp2/2018_ciarp2/</guid>
       <description></description>
     </item>
     

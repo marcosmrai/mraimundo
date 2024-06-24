@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pesquisa Operacional | Marcos M. Raimundo</title>
-    <link>/tag/pesquisa-operacional/</link>
-      <atom:link href="/tag/pesquisa-operacional/index.xml" rel="self" type="application/rss+xml" />
+    <link>/mraimundo/tag/pesquisa-operacional/</link>
+      <atom:link href="/mraimundo/tag/pesquisa-operacional/index.xml" rel="self" type="application/rss+xml" />
     <description>Pesquisa Operacional</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Pesquisa Operacional</title>
-      <link>/tag/pesquisa-operacional/</link>
+      <link>/mraimundo/tag/pesquisa-operacional/</link>
     </image>
     
     <item>
       <title>EEI744 - Pesquisa Operacional II (UFRJ)</title>
-      <link>/teaching/po_ii_2021/</link>
+      <link>/mraimundo/teaching/po_ii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>/teaching/po_ii_2021/</guid>
+      <guid>/mraimundo/teaching/po_ii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização para problemas de estoques, grafos e filas usando otimização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -25,9 +25,9 @@
     
     <item>
       <title>EEI946 - Pesquisa Operacional III (UFRJ)</title>
-      <link>/teaching/po_iii_2021/</link>
+      <link>/mraimundo/teaching/po_iii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>/teaching/po_iii_2021/</guid>
+      <guid>/mraimundo/teaching/po_iii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;

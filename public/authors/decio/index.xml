@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Decio Miranda Filho | Marcos M. Raimundo</title>
-    <link>/authors/decio/</link>
-      <atom:link href="/authors/decio/index.xml" rel="self" type="application/rss+xml" />
+    <link>/mraimundo/authors/decio/</link>
+      <atom:link href="/mraimundo/authors/decio/index.xml" rel="self" type="application/rss+xml" />
     <description>Decio Miranda Filho</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>/authors/decio/avatar_hu8c9625607dc4db7d9b4c7dc9d18e8965_61262_270x270_fill_q75_lanczos_center.jpg</url>
+      <url>/mraimundo/authors/decio/avatar_hu8c9625607dc4db7d9b4c7dc9d18e8965_61262_270x270_fill_q75_lanczos_center.jpg</url>
       <title>Decio Miranda Filho</title>
-      <link>/authors/decio/</link>
+      <link>/mraimundo/authors/decio/</link>
     </image>
     
   </channel>

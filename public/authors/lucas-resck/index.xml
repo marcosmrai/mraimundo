@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lucas Resck | Marcos M. Raimundo</title>
-    <link>/authors/lucas-resck/</link>
-      <atom:link href="/authors/lucas-resck/index.xml" rel="self" type="application/rss+xml" />
+    <link>/mraimundo/authors/lucas-resck/</link>
+      <atom:link href="/mraimundo/authors/lucas-resck/index.xml" rel="self" type="application/rss+xml" />
     <description>Lucas Resck</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 15 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Lucas Resck</title>
-      <link>/authors/lucas-resck/</link>
+      <link>/mraimundo/authors/lucas-resck/</link>
     </image>
     
     <item>
       <title>Exploring the Trade-off Between Model Performance and Explanation Plausibility of Text Classifiers Using Human Rationales</title>
-      <link>/publication/2024_naacl/2024_naacl/</link>
+      <link>/mraimundo/publication/2024_naacl/2024_naacl/</link>
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>/publication/2024_naacl/2024_naacl/</guid>
+      <guid>/mraimundo/publication/2024_naacl/2024_naacl/</guid>
       <description></description>
     </item>
     
