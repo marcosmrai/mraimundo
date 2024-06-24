@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Marcos M. Raimundo # Website name
-baseURL: 'mraimundo/' # Website URL
+baseURL: '/' # Website URL
 RelativeURLs: true
 CanonifyURLs: false
 
