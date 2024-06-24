@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arthur Hendricks M. de Oliveira | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/mraimundo/authors/arthur/</link>
-      <atom:link href="ic.unicamp.br/mraimundo/authors/arthur/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/arthur/</link>
+      <atom:link href="/authors/arthur/index.xml" rel="self" type="application/rss+xml" />
     <description>Arthur Hendricks M. de Oliveira</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>ic.unicamp.br/mraimundo/authors/arthur/avatar_hue7c0bb7abbe13ea8f87411e86cee7ccf_43540_270x270_fill_q75_lanczos_center.jpeg</url>
+      <url>/authors/arthur/avatar_hue7c0bb7abbe13ea8f87411e86cee7ccf_43540_270x270_fill_q75_lanczos_center.jpeg</url>
       <title>Arthur Hendricks M. de Oliveira</title>
-      <link>ic.unicamp.br/mraimundo/authors/arthur/</link>
+      <link>/authors/arthur/</link>
     </image>
     
   </channel>

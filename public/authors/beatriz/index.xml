@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Beatriz Nascimento | Marcos M. Raimundo</title>
-    <link>ic.unicamp.br/mraimundo/authors/beatriz/</link>
-      <atom:link href="ic.unicamp.br/mraimundo/authors/beatriz/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/beatriz/</link>
+      <atom:link href="/authors/beatriz/index.xml" rel="self" type="application/rss+xml" />
     <description>Beatriz Nascimento</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>ic.unicamp.br/mraimundo/authors/beatriz/avatar_hu6faa42c1bbb3af3b59047a6133d89ebe_72180_270x270_fill_q75_lanczos_center.jpeg</url>
+      <url>/authors/beatriz/avatar_hu6faa42c1bbb3af3b59047a6133d89ebe_72180_270x270_fill_q75_lanczos_center.jpeg</url>
       <title>Beatriz Nascimento</title>
-      <link>ic.unicamp.br/mraimundo/authors/beatriz/</link>
+      <link>/authors/beatriz/</link>
     </image>
     
   </channel>
