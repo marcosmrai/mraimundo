@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kamila Benevides | Marcos M. Raimundo</title>
-    <link>/mraimundo/authors/kamila/</link>
-      <atom:link href="/mraimundo/authors/kamila/index.xml" rel="self" type="application/rss+xml" />
+    <link>mraimundo/authors/kamila/</link>
+      <atom:link href="mraimundo/authors/kamila/index.xml" rel="self" type="application/rss+xml" />
     <description>Kamila Benevides</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>/mraimundo/authors/kamila/avatar_hud97647b69e12c25477c0a5dedc986b10_973278_270x270_fill_q75_lanczos_center.jpg</url>
+      <url>mraimundo/authors/kamila/avatar_hud97647b69e12c25477c0a5dedc986b10_973278_270x270_fill_q75_lanczos_center.jpg</url>
       <title>Kamila Benevides</title>
-      <link>/mraimundo/authors/kamila/</link>
+      <link>mraimundo/authors/kamila/</link>
     </image>
     
     <item>
       <title>Kamila Benevides</title>
-      <link>/mraimundo/authors/kamila/</link>
+      <link>mraimundo/authors/kamila/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/mraimundo/authors/kamila/</guid>
+      <guid>mraimundo/authors/kamila/</guid>
       <description>&lt;p&gt;Kamila Benevides is a master&amp;rsquo;s student at the State University of Campinas (UNICAMP), in the Institute of Computing (IC). She is also a faculty member of the REasoning for COmplex Data (Recod.ai) lab. His research interests include machine learning, computer science in education, data visualization.&lt;/p&gt;
 </description>
     </item>

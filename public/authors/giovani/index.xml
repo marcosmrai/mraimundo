@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Giovani Valdrighi | Marcos M. Raimundo</title>
-    <link>/mraimundo/authors/giovani/</link>
-      <atom:link href="/mraimundo/authors/giovani/index.xml" rel="self" type="application/rss+xml" />
+    <link>mraimundo/authors/giovani/</link>
+      <atom:link href="mraimundo/authors/giovani/index.xml" rel="self" type="application/rss+xml" />
     <description>Giovani Valdrighi</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>/mraimundo/authors/giovani/avatar_hu0274d4c2801ddbea1f89ab106d22efd5_40938_270x270_fill_q75_lanczos_center.jpeg</url>
+      <url>mraimundo/authors/giovani/avatar_hu0274d4c2801ddbea1f89ab106d22efd5_40938_270x270_fill_q75_lanczos_center.jpeg</url>
       <title>Giovani Valdrighi</title>
-      <link>/mraimundo/authors/giovani/</link>
+      <link>mraimundo/authors/giovani/</link>
     </image>
     
   </channel>
