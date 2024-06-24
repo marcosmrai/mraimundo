@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>João Victor P. B. Avanzini | Marcos M. Raimundo</title>
-    <link>/authors/joao_victor/</link>
-      <atom:link href="/authors/joao_victor/index.xml" rel="self" type="application/rss+xml" />
+    <link>ic.unicamp.br/mraimundo/authors/joao_victor/</link>
+      <atom:link href="ic.unicamp.br/mraimundo/authors/joao_victor/index.xml" rel="self" type="application/rss+xml" />
     <description>João Victor P. B. Avanzini</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>/authors/joao_victor/avatar_hu36a6bedb0f304ff5aaee41702c7d884b_63885_270x270_fill_q75_lanczos_center.jpg</url>
+      <url>ic.unicamp.br/mraimundo/authors/joao_victor/avatar_hu36a6bedb0f304ff5aaee41702c7d884b_63885_270x270_fill_q75_lanczos_center.jpg</url>
       <title>João Victor P. B. Avanzini</title>
-      <link>/authors/joao_victor/</link>
+      <link>ic.unicamp.br/mraimundo/authors/joao_victor/</link>
     </image>
     
   </channel>

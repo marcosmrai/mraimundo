@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fernando J Von Zuben | Marcos M. Raimundo</title>
-    <link>/authors/fernando-j-von-zuben/</link>
-      <atom:link href="/authors/fernando-j-von-zuben/index.xml" rel="self" type="application/rss+xml" />
+    <link>ic.unicamp.br/mraimundo/authors/fernando-j-von-zuben/</link>
+      <atom:link href="ic.unicamp.br/mraimundo/authors/fernando-j-von-zuben/index.xml" rel="self" type="application/rss+xml" />
     <description>Fernando J Von Zuben</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>ic.unicamp.br/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>Fernando J Von Zuben</title>
-      <link>/authors/fernando-j-von-zuben/</link>
+      <link>ic.unicamp.br/mraimundo/authors/fernando-j-von-zuben/</link>
     </image>
     
     <item>
       <title>Exploring multiobjective training in multiclass classification</title>
-      <link>/publication/2020_neurocomputing/2020_neurocomputing/</link>
+      <link>ic.unicamp.br/mraimundo/publication/2020_neurocomputing/2020_neurocomputing/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>/publication/2020_neurocomputing/2020_neurocomputing/</guid>
+      <guid>ic.unicamp.br/mraimundo/publication/2020_neurocomputing/2020_neurocomputing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An extension of the non-inferior set estimation algorithm for many objectives</title>
-      <link>/publication/2020_ejor/2020_ejor/</link>
+      <link>ic.unicamp.br/mraimundo/publication/2020_ejor/2020_ejor/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/publication/2020_ejor/2020_ejor/</guid>
+      <guid>ic.unicamp.br/mraimundo/publication/2020_ejor/2020_ejor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria analysis involving Pareto-optimal misclassification tradeoffs on imbalanced datasets</title>
-      <link>/publication/2020_ijcnn/2020_ijcnn/</link>
+      <link>ic.unicamp.br/mraimundo/publication/2020_ijcnn/2020_ijcnn/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/publication/2020_ijcnn/2020_ijcnn/</guid>
+      <guid>ic.unicamp.br/mraimundo/publication/2020_ijcnn/2020_ijcnn/</guid>
       <description></description>
     </item>
     

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vitória Guardieiro | Marcos M. Raimundo</title>
-    <link>/authors/vitoria-guardieiro/</link>
-      <atom:link href="/authors/vitoria-guardieiro/index.xml" rel="self" type="application/rss+xml" />
-    <description>Vitória Guardieiro</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <title>Vitoria Guardieiro | Marcos M. Raimundo</title>
+    <link>ic.unicamp.br/mraimundo/authors/vitoria-guardieiro/</link>
+      <atom:link href="ic.unicamp.br/mraimundo/authors/vitoria-guardieiro/index.xml" rel="self" type="application/rss+xml" />
+    <description>Vitoria Guardieiro</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
-      <title>Vitória Guardieiro</title>
-      <link>/authors/vitoria-guardieiro/</link>
+      <url>ic.unicamp.br/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <title>Vitoria Guardieiro</title>
+      <link>ic.unicamp.br/mraimundo/authors/vitoria-guardieiro/</link>
     </image>
     
     <item>
-      <title>Enforcing Fairness Using Ensemble of Diverse Pareto-optimal Models</title>
-      <link>/publication/2023_dami/2023_dami/</link>
-      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>/publication/2023_dami/2023_dami/</guid>
+      <title>Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory’s Invariance</title>
+      <link>ic.unicamp.br/mraimundo/publication/2022_edm/2022_edm/</link>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>ic.unicamp.br/mraimundo/publication/2022_edm/2022_edm/</guid>
       <description></description>
     </item>
     

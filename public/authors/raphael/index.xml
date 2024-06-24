@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raphael Adamski | Marcos M. Raimundo</title>
-    <link>/authors/raphael/</link>
-      <atom:link href="/authors/raphael/index.xml" rel="self" type="application/rss+xml" />
+    <link>ic.unicamp.br/mraimundo/authors/raphael/</link>
+      <atom:link href="ic.unicamp.br/mraimundo/authors/raphael/index.xml" rel="self" type="application/rss+xml" />
     <description>Raphael Adamski</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>/authors/raphael/avatar_hucb5089ea7085a3db3cfbd1308b0a9508_102388_270x270_fill_q75_lanczos_center.jpeg</url>
+      <url>ic.unicamp.br/mraimundo/authors/raphael/avatar_hucb5089ea7085a3db3cfbd1308b0a9508_102388_270x270_fill_q75_lanczos_center.jpeg</url>
       <title>Raphael Adamski</title>
-      <link>/authors/raphael/</link>
+      <link>ic.unicamp.br/mraimundo/authors/raphael/</link>
     </image>
     
   </channel>
