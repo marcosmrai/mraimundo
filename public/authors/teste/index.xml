@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Giovani Valdrighi | Marcos M. Raimundo</title>
+    <link>//localhost:1313/authors/teste/</link>
+      <atom:link href="//localhost:1313/authors/teste/index.xml" rel="self" type="application/rss+xml" />
+    <description>Giovani Valdrighi</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>//localhost:1313/authors/teste/avatar_hu0274d4c2801ddbea1f89ab106d22efd5_40938_270x270_fill_q75_lanczos_center.jpeg</url>
+      <title>Giovani Valdrighi</title>
+      <link>//localhost:1313/authors/teste/</link>
+    </image>
+    
+  </channel>
+</rss>

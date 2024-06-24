@@ -358,6 +358,9 @@
     <loc>/authors/athyrson/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>/authors/beatriz/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>/authors/caio_lima/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -379,7 +382,7 @@
     <loc>/authors/luan/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>/authors/raphael/_index-/</loc>
+    <loc>/authors/raphael/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
