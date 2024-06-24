@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Athyrson M. Ribeiro | Marcos M. Raimundo</title>
-    <link>www.ic.unicamp.br/mraimundo/authors/athyrson/</link>
-      <atom:link href="www.ic.unicamp.br/mraimundo/authors/athyrson/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/athyrson/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/athyrson/index.xml" rel="self" type="application/rss+xml" />
     <description>Athyrson M. Ribeiro</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>www.ic.unicamp.br/mraimundo/authors/athyrson/avatar_hu731b7852e1f610d1e4e275dcf1551f75_59827_270x270_fill_q75_lanczos_center.jpg</url>
+      <url>http://ic.unicamp.br/mraimundo/authors/athyrson/avatar_hu731b7852e1f610d1e4e275dcf1551f75_59827_270x270_fill_q75_lanczos_center.jpg</url>
       <title>Athyrson M. Ribeiro</title>
-      <link>www.ic.unicamp.br/mraimundo/authors/athyrson/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/athyrson/</link>
     </image>
     
   </channel>

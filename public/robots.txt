@@ -1,3 +1,3 @@
 User-agent: *
 
-Sitemap: www.ic.unicamp.br/mraimundo/sitemap.xml
+Sitemap: http://ic.unicamp.br/mraimundo/sitemap.xml

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IA | Marcos M. Raimundo</title>
-    <link>www.ic.unicamp.br/mraimundo/tag/ia/</link>
-      <atom:link href="www.ic.unicamp.br/mraimundo/tag/ia/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/tag/ia/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/tag/ia/index.xml" rel="self" type="application/rss+xml" />
     <description>IA</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>www.ic.unicamp.br/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
       <title>IA</title>
-      <link>www.ic.unicamp.br/mraimundo/tag/ia/</link>
+      <link>http://ic.unicamp.br/mraimundo/tag/ia/</link>
     </image>
     
     <item>
       <title>Aprendizado de Máquina Ético (2s2024) - Ethical ML</title>
-      <link>www.ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>www.ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
@@ -94,9 +94,9 @@
     
     <item>
       <title>Aprendizado de Máquina Ético (2022/2023) - Ethical ML</title>
-      <link>www.ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>www.ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
