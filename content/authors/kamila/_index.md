@@ -18,7 +18,7 @@ role: Master student in Data Visualization
 
 # Organizations/Affiliations
 organizations:
-  - name: Institute of Campinas - University of Campinas
+  - name: Institute of Computing - University of Campinas
     url: https://ic.unicamp.br/
 
 # Short bio (displayed in user profile at end of posts)

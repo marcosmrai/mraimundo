@@ -18,7 +18,7 @@ role: Undergrad Research Assistant
 
 # Organizations/Affiliations
 organizations:
-  - name: University of Campinas
+  - name: Institute of Computing - University of Campinas
     url: ''
 
 # Short bio (displayed in user profile at end of posts)

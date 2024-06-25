@@ -1,65 +1,64 @@
 ---
 # Display name
-title: Athyrson M. Ribeiro
+title: Daniel G. Gratti
 
 # Full Name (for SEO)
-first_name: Athyrson
-last_name: Machado Ribeiro
+first_name: Daniel
+last_name: G. Gratti
 
 # Is this the primary user of the site?
-superuser: no
+superuser: false
 
 # Role/position
-role: PhD Student in Machine Learning
+role: MSc student in Machine Learning
 
 # Organizations/Affiliations
 organizations:
   - name: Institute of Computing - University of Campinas
     url: https://ic.unicamp.br/
 
+# Não entendi onde isso aparece
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include Credit Scoring, Reject Inference, Data Science and Ethical AI.
+bio: My research interests include Machine Learning, Reinforcement Learning and Optimization.
 
 # Interests to show in About widget
 interests:
-  - Credit Scoring
-  - Reject Inference
-  - Data Science
-  - Ethical AI
+  - Machine Learning
+  - Reinforcement Learning
+  - Optimization
+  - Deep Learning
 
 # Education to show in About widget
 education:
   courses:
-    - course: PhD in Computer Science
+    - course: MSc in Computer Science
       institution: Institute of Computing - University of Campinas
-      year: 2028
-    - course: MS in Computer Science
-      institution: Institute of Computing - University of Campinas
-      year: 2024
-    - course: BSc in Computer Science
-      institution: State University of Piauí
-      year: 2019
+      year: current
+    - course: BSc in Applied Mathematics
+      institution: Institute of Mathematics, Statistics and Scientific Computing - University of Campinas
+      year: 2022
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-  - icon: instagram
-    icon_pack: emoji
-    link: https://www.instagram.com/athyrson06
+  - icon: envelope
+    icon_pack: fas
+    link: 'mailto:d214729@dac.unicamp.br'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.com.br/citations?user=lTwSfXYAAAAJ&hl=en&oi=sra
+    link: https://scholar.google.com.br/citations?user=6jgRU94AAAAJ&hl=pt-BR
   - icon: github
     icon_pack: fab
-    link: https://github.com/athyrson06
+    link: https://github.com/DanielGardin
   - icon: linkedin
     icon_pack: fab
-    link: https://www.linkedin.com/in/athyrson06/
+    link: https://www.linkedin.com/in/danielgardin/
   - icon: lattes
     icon_pack: ai
-    link: https://lattes.cnpq.br/8910332182361384
+    link: http://lattes.cnpq.br/9581043941982632
+
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -75,7 +74,7 @@ highlight_name: false
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-  - Ph.D. Students
+  - Master Students
 ---
 
-Athyrson M. Ribeiro is a Ph.D. candidate in Computer Science at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of the Recod.ai lab. He is also a member of the Hub of Artificial Intelligence and Cognitive Architectures (HIAAC), performing research in Trusthyworth AI, mainly in the area of reject inference and explainability.
+Daniel Gardin is a master’s student at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is also a faculty member of the REasoning for COmplex Data (Recod.ai) lab. Mostly interested in Reinforcement Learning, Operational Research and Optimization.

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Daniel G. Gratti | Marcos M. Raimundo</title>
+    <link>http://ic.unicamp.br/mraimundo/authors/daniel/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/daniel/index.xml" rel="self" type="application/rss+xml" />
+    <description>Daniel G. Gratti</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://ic.unicamp.br/mraimundo/authors/daniel/avatar_hua4a77c6ff0f578082cc1efddc1c50d52_37674_270x270_fill_q75_lanczos_center.jpeg</url>
+      <title>Daniel G. Gratti</title>
+      <link>http://ic.unicamp.br/mraimundo/authors/daniel/</link>
+    </image>
+    
+  </channel>
+</rss>

@@ -14,7 +14,7 @@ role: MSc Researcher
 
 # Organizations/Affiliations
 organizations:
-  - name: Institute of Campinas - University of Campinas
+  - name: Institute of Computing - University of Campinas
     url: https://ic.unicamp.br/
   - name: H.IAAC (artificial intelligence hub and cognitive architectures)
     url: https://hiaac.unicamp.br/

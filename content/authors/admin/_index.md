@@ -14,7 +14,7 @@ role: Professor of Machine Learning and Optimization
 
 # Organizations/Affiliations
 organizations:
-  - name: Institute of Campinas - University of Campinas
+  - name: Institute of Computing - University of Campinas
     url: https://ic.unicamp.br/
 
 # Short bio (displayed in user profile at end of posts)
@@ -59,7 +59,7 @@ social:
     link: http://lattes.cnpq.br/1605909137233786
   - icon: twitter
     icon_pack: fab
-    link: https://twitter.com/mraimundo
+    link: https://twitter.com/marcosmrai
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
