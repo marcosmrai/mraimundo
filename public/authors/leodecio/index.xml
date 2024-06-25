@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leodécio Braz | Marcos M. Raimundo</title>
+    <link>http://ic.unicamp.br/mraimundo/authors/leodecio/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/leodecio/index.xml" rel="self" type="application/rss+xml" />
+    <description>Leodécio Braz</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://ic.unicamp.br/mraimundo/authors/leodecio/avatar_hu3c819a6a6b912909407e2cf85abc04bc_227248_270x270_fill_q75_lanczos_center.jpg</url>
+      <title>Leodécio Braz</title>
+      <link>http://ic.unicamp.br/mraimundo/authors/leodecio/</link>
+    </image>
+    
+  </channel>
+</rss>
