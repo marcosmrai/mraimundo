@@ -22,21 +22,17 @@ bio: My research interests include Deep Learning models such as CNN, ViT, LSTM, 
 
 # Interests to show in About widget
 interests:
-  - Deep Learning
-  - Data Science
   - AI Ethics
-  - Cognitive Computing
-  - Robotics
-  - Internet of Things
-  - Autonomous Guided Vehicles
-  - Medical Data
+  - Explainability
+  - Neural Networks
+  - Medical Data, Signal & Imaging
 
 # Education to show in About widget
 education:
   courses:
     - course: M.Sc in Computer Science
       institution: Institute of Computing - University of Campinas
-      year: 2024
+      year: Current
     - course: Industrial Mechatronics Technology
       institution: Centro de Paula Souza - Fatec Arthur de Azevedo
       year: 2022
@@ -79,4 +75,4 @@ user_groups:
   - Master Students
 ---
 
-João Avanzini is an M.Sc student at the Institute of Computing (IC), University of Campinas (UNICAMP). He is also a member at the laboratory REasoning for Complex Data (Recod.ai). His research concerns medical electrocardiogram data, with a particular emphasis on AI ethics.
+João Avanzini is an M.Sc student at the Institute of Computing (IC), University of Campinas (UNICAMP). He is also a scientific researcher at the laboratory REasoning for Complex Data (Recod.ai). His research concerns medical electrocardiogram data, with a particular emphasis on AI ethics.

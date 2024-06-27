@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Juan David Nieto | Marcos M. Raimundo</title>
+    <link>http://ic.unicamp.br/mraimundo/authors/juan/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/juan/index.xml" rel="self" type="application/rss+xml" />
+    <description>Juan David Nieto</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://ic.unicamp.br/mraimundo/authors/juan/avatar_hu16cb899acadc06292a45db9ccd2acd11_62661_270x270_fill_q75_lanczos_center.jpeg</url>
+      <title>Juan David Nieto</title>
+      <link>http://ic.unicamp.br/mraimundo/authors/juan/</link>
+    </image>
+    
+  </channel>
+</rss>

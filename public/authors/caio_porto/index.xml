@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Caio Porto | Marcos M. Raimundo</title>
+    <link>http://ic.unicamp.br/mraimundo/authors/caio_porto/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/caio_porto/index.xml" rel="self" type="application/rss+xml" />
+    <description>Caio Porto</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://ic.unicamp.br/mraimundo/authors/caio_porto/avatar_hu42bba9dd2475a3921d4d87e20fdde831_19856_270x270_fill_q75_lanczos_center.jpg</url>
+      <title>Caio Porto</title>
+      <link>http://ic.unicamp.br/mraimundo/authors/caio_porto/</link>
+    </image>
+    
+  </channel>
+</rss>

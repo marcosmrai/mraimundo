@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alexandre Negretti | Marcos M. Raimundo</title>
+    <link>http://ic.unicamp.br/mraimundo/authors/alexandre/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/alexandre/index.xml" rel="self" type="application/rss+xml" />
+    <description>Alexandre Negretti</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://ic.unicamp.br/mraimundo/authors/alexandre/avatar_hue03f411165264b27a4a5604f4685b20c_183293_270x270_fill_q75_lanczos_center.jpeg</url>
+      <title>Alexandre Negretti</title>
+      <link>http://ic.unicamp.br/mraimundo/authors/alexandre/</link>
+    </image>
+    
+  </channel>
+</rss>

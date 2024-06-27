@@ -349,6 +349,9 @@
     <loc>http://ic.unicamp.br/mraimundo/admin/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/authors/alexandre/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://ic.unicamp.br/mraimundo/authors/aline/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -364,6 +367,9 @@
     <loc>http://ic.unicamp.br/mraimundo/authors/caio_lima/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/authors/caio_porto/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://ic.unicamp.br/mraimundo/authors/caio_prado/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -376,10 +382,22 @@
     <loc>http://ic.unicamp.br/mraimundo/authors/giovani/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/authors/jansen/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/authors/joao_guimaraes/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://ic.unicamp.br/mraimundo/authors/joao_victor/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/authors/juan/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://ic.unicamp.br/mraimundo/authors/kamila/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/authors/larissa/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://ic.unicamp.br/mraimundo/authors/leodecio/</loc>
