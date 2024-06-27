@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maria Clara Assunção | Marcos M. Raimundo</title>
+    <link>http://ic.unicamp.br/mraimundo/authors/maria_clara/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/maria_clara/index.xml" rel="self" type="application/rss+xml" />
+    <description>Maria Clara Assunção</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://ic.unicamp.br/mraimundo/authors/maria_clara/avatar_hu5569f7b3e272f208a9e443afb16c75e9_20036_270x270_fill_q75_h2_lanczos_center_2.webp</url>
+      <title>Maria Clara Assunção</title>
+      <link>http://ic.unicamp.br/mraimundo/authors/maria_clara/</link>
+    </image>
+    
+  </channel>
+</rss>
