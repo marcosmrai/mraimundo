@@ -1,6 +1,7 @@
 ---
 # Display name
 title: Giovani Valdrighi
+date: 2023-08
 
 # Full Name (for SEO)
 first_name: Giovani

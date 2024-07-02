@@ -1,6 +1,7 @@
 ---
 # Display name
 title: Caio Lima
+date: 2021-08
 
 # Full Name (for SEO)
 first_name: Caio

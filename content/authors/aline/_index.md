@@ -1,6 +1,7 @@
 ---
 # Display name
 title: Aline Azevedo
+date: 2023-03
 
 # Full Name (for SEO)
 first_name: Aline

@@ -13,20 +13,104 @@
     </image>
     
     <item>
-      <title>Aprendizado de Máquina Ético (2s2024) - Ethical ML</title>
+      <title>Ethical Machine Learning (2024)</title>
       <link>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
       <guid>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</guid>
-      <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
-&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
-&lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
-&lt;h2 id=&#34;pré-requisitos&#34;&gt;Pré-requisitos&lt;/h2&gt;
-&lt;p&gt;Abaixo estão listadas as capacidades desejáveis para o aluno, estas não são mandatórias, mas aumentarão a probabilidade na absorsão de conhecimento do aluno.&lt;/p&gt;
+      <description>&lt;p&gt;The course empowers students to identify and mitigate negative impacts of data and machine learning tools on vulnerable groups, promoting transparency and ethical solutions. It involves data analysis, application of machine learning models, and understanding optimization problems, with an initial assessment and leveling classes to ensure the necessary foundation.&lt;/p&gt;
+&lt;h2 id=&#34;terminal-objectives&#34;&gt;Terminal Objectives&lt;/h2&gt;
+&lt;p&gt;Students should be able to identify the use of data and machine learning tools that harm individuals and vulnerable groups and use and propose tools that reduce the impact and increase the transparency of such data and tools.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;The following are desirable skills for the student, these are not mandatory, but will increase the probability of the student&amp;rsquo;s knowledge absorption.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Ser capaz de realizar uma análise descritiva de dados (estatísticas básicas, visualização de dados).&lt;/li&gt;
-&lt;li&gt;Ser capaz de aplicar e descrever características de modelos de aprendizado de máquina (regressão logística, árvores de decisão e ensembles) em dados tabelados.&lt;/li&gt;
-&lt;li&gt;Ser capaz de aplicar modelos de aprendizado profundo em dados de natureza diversa.&lt;/li&gt;
-&lt;li&gt;Ser capaz de entender e modelar problemas de otimização no contexto de aprendizado de máquina.&lt;/li&gt;
+&lt;li&gt;Being able to perform a descriptive analysis of data (basic statistics, data visualization).&lt;/li&gt;
+&lt;li&gt;Being able to apply and describe characteristics of machine learning models (logistic regression, decision trees, and ensembles) in tabular data.&lt;/li&gt;
+&lt;li&gt;Being able to apply deep learning models to data of diverse nature.&lt;/li&gt;
+&lt;li&gt;Being able to understand and model optimization problems in the context of machine learning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: Data and models
+&lt;ul&gt;
+&lt;li&gt;Data: Data sources, modalities, biases, privacy, and consent. (1 class)
+&lt;ul&gt;
+&lt;li&gt;Objective: Students should be able to prepare data that is reliable and less biased, preserving user privacy and consent.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Basic modeling: Basic concepts of machine learning, supervised learning, causal models. (1 class)
+&lt;ul&gt;
+&lt;li&gt;Objective: Students should be able to choose and potentially create machine learning models that are more suitable for the prepared data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Part 2. Fairness
+&lt;ul&gt;
+&lt;li&gt;Fairness: Detection and promotion of fairness in machine learning, maintenance of reliability in scenarios under change or attack. (5 classes)
+&lt;ul&gt;
+&lt;li&gt;Objective: Students should be able to choose and potentially create/modify more reliable and impartial machine learning models.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Part 3: Explainability:
+&lt;ul&gt;
+&lt;li&gt;Explainability: Interpretability in machine learning, and creation of intervention mechanisms in machine learning. (5 weeks)
+&lt;ul&gt;
+&lt;li&gt;Objective: Students should be able to detect and modify a machine learning that fails to empower decision makers to understand it and detect flaws in its reliability and impartiality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Main reference:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.trustworthymachinelearning.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Trustworthy Machine Learning&lt;/a&gt;: The book addresses, in general, general concepts of fairness and transparency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Additional references:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://fairmlbook.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fairness and machine learning&lt;/a&gt;: A freely available book that was made jointly by three professors from different universities who teach Fairness or Ethics in ML courses. The website contains the pages of the respective courses.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.oreilly.com/library/view/practical-fairness/9781492075721/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Practical Fairness&lt;/a&gt;: Fairness book from O&amp;rsquo;Reilly that I added to the list just to let you know it&amp;rsquo;s not worth it. It uses different nomenclatures than those most used in the literature and does not present the mathematical part well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;General resources:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.trustworthyml.org/resources&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Trustworthy ML Initiative&lt;/a&gt;: It has several Trustworthy ML resources, such as general interest books, textbooks, documentaries, and course websites.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;General disclosure:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Weapons-Math-Destruction-Cathy-ONeil/dp/0553418815&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Weapons of Math Destruction&lt;/a&gt;: A book that presents several examples of unethical algorithms.&lt;/li&gt;
+&lt;li&gt;The Ethical Algorithm [URL inválido removido]: The Science of Socially Aware Algorithm Design: A book that presents the main areas of ethics in ML (Fairness, Transparency, and Privacy) to the general public.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.netflix.com/title/81328723&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Coded Bias&lt;/a&gt;: A Netflix documentary that can serve as motivation for the course.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Fundamentals of Linear Algebra and Optimization for Machine Learning (2024)</title>
+      <link>http://ic.unicamp.br/mraimundo/teaching/ml_algebra/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/ml_algebra/</guid>
+      <description>&lt;p&gt;This course equips students with the mathematical foundations of linear algebra and optimization, crucial for understanding and implementing machine learning algorithms.&lt;/p&gt;
+&lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
+&lt;p&gt;This course capacitates students to understand, implement, and evaluate machine learning algorithms by providing a solid foundation in the mathematical principles of linear algebra and optimization. Through comprehensive coverage of core concepts like vectors, matrices, linear transformations, eigenvalues, eigenvectors, objective functions, gradient descent, and regularization techniques, students will develop the mathematical skills and intuition necessary to translate real-world problems into mathematical formulations suitable for machine learning solutions. This course emphasizes building a deep understanding of the mathematical foundations upon which machine learning algorithms are built, preparing students for further exploration of advanced topics and ongoing research in the field.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Below are listed the desirable skills for the student, these are not mandatory, but will increase the probability of the student&amp;rsquo;s knowledge absorption.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Basic Calculus: A solid understanding of differential and integral calculus is essential, as many concepts in optimization rely on derivatives and gradients.&lt;/li&gt;
+&lt;li&gt;Introductory Linear Algebra: Familiarity with basic linear algebra concepts like vectors, matrices, matrix operations (addition, multiplication, transpose), and systems of linear equations is crucial.&lt;/li&gt;
+&lt;li&gt;Basic Programming: Some programming experience, preferably in Python, is helpful for implementing algorithms and experimenting with concepts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While not strictly required, the following would be beneficial:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Probability and Statistics: A basic understanding of probability distributions and statistical concepts like mean, variance, and correlation can be helpful in interpreting and evaluating machine learning models.&lt;/li&gt;
+&lt;li&gt;Exposure to Machine Learning: Some prior exposure to machine learning concepts, even at a high level, can provide context and motivation for the mathematical foundations covered in the course.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;conteúdos&#34;&gt;Conteúdos&lt;/h2&gt;
 &lt;ul&gt;
@@ -93,38 +177,38 @@
     </item>
     
     <item>
-      <title>Programação Orientada a Objetos - MC322</title>
+      <title>Object-Oriented Programming - MC322</title>
       <link>http://ic.unicamp.br/mraimundo/teaching/poo/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
       <guid>http://ic.unicamp.br/mraimundo/teaching/poo/</guid>
-      <description>&lt;p&gt;A disciplina visa introduzir e desenvolver o pensamento orientado a objetos nos alunos. A disciplina cobre conceitos fundamentais de OO, como classes, objetos, encapsulamento, herança, e polimorfismo, além de boas práticas de design e implementação de classes. Também ensina a usar UML para modelagem e a aplicar padrões de projeto, preparando os alunos para criar software robusto e escalável.&lt;/p&gt;
-&lt;h2 id=&#34;conteúdos&#34;&gt;Conteúdos&lt;/h2&gt;
+      <description>&lt;p&gt;The course aims to introduce and develop object-oriented thinking in students. It covers fundamental OO concepts such as classes, objects, encapsulation, inheritance, and polymorphism, as well as good practices for designing and implementing classes. It also teaches how to use UML for modeling and apply design patterns, preparing students to create robust and scalable software.&lt;/p&gt;
+&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Entender os Conceitos Básicos de OO: Ensinar a diferença entre programação procedural e orientada a objetos, e apresentar os conceitos de classe, objeto, atributo e método.&lt;/p&gt;
+&lt;p&gt;Understanding Basic OO Concepts: Teaching the difference between procedural and object-oriented programming, and introducing the concepts of class, object, attribute, and method.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Desenvolver o Pensamento Orientado a Objetos: Ajudar os alunos a pensar em termos de objetos, encapsulamento, herança, e polimorfismo.&lt;/p&gt;
+&lt;p&gt;Developing Object-Oriented Thinking: Helping students think in terms of objects, encapsulation, inheritance, and polymorphism.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Aprender a Projetar e Implementar Classes: Ensinar como projetar classes robustas, com interfaces mínimas e eficientes, além de boas práticas para métodos de acesso (getters e setters) e ocultação de dados.&lt;/p&gt;
+&lt;p&gt;Learning to Design and Implement Classes: Teaching how to design robust classes, with minimal and efficient interfaces, as well as good practices for access methods (getters and setters) and data hiding.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Trabalhar com Herança e Composição: Explicar como usar herança para reutilização de código e composição para construção de objetos complexos a partir de objetos mais simples.&lt;/p&gt;
+&lt;p&gt;Working with Inheritance and Composition: Explaining how to use inheritance for code reuse and composition for building complex objects from simpler objects.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Aplicar Padrões de Projeto: Introduzir padrões de design que facilitam a reutilização e manutenção do código.&lt;/p&gt;
+&lt;p&gt;Applying Design Patterns: Introducing design patterns that facilitate code reuse and maintenance.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Modelagem com UML: Ensinar como usar UML (Unified Modeling Language) para modelar sistemas orientados a objetos.&lt;/p&gt;
+&lt;p&gt;Modeling with UML: Teaching how to use UML (Unified Modeling Language) to model object-oriented systems.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Implementação Prática: Fornecer exemplos práticos e exercícios para implementação dos conceitos em linguagens de programação como Java, C#, e outras.&lt;/p&gt;
+&lt;p&gt;Practical Implementation: Providing practical examples and exercises for implementing the concepts in programming languages such as Java, C#, and others.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Object-Oriented-Thought-Process-Developers-Library/dp/0321861272&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Object-Oriented Thought Proces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Object-Oriented-Thought-Process-Developers-Library/dp/0321861272&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Object-Oriented Thought Process&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

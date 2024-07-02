@@ -1,5 +1,5 @@
 ---
-title: Aprendizado de Máquina Ético (2s2024) - Ethical ML
+title: Ethical Machine Learning (2024)
 subtitle: 
 
 # Summary for listings and search engines
@@ -32,52 +32,49 @@ authors:
   - admin
 
 tags:
-  - Disciplinas
-  - IA
-  - Aprendizado de Máquina
-
-categories:
-  - Disciplinas
+  - Disciplines
+  - AI
+  - Machine Learning
 ---
 
-A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.
+The course empowers students to identify and mitigate negative impacts of data and machine learning tools on vulnerable groups, promoting transparency and ethical solutions. It involves data analysis, application of machine learning models, and understanding optimization problems, with an initial assessment and leveling classes to ensure the necessary foundation.
 
-## Objetivos Terminais
+## Terminal Objectives
 
-O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.
+Students should be able to identify the use of data and machine learning tools that harm individuals and vulnerable groups and use and propose tools that reduce the impact and increase the transparency of such data and tools.
 
-## Pré-requisitos
+## Prerequisites
 
-Abaixo estão listadas as capacidades desejáveis para o aluno, estas não são mandatórias, mas aumentarão a probabilidade na absorsão de conhecimento do aluno.
+The following are desirable skills for the student, these are not mandatory, but will increase the probability of the student's knowledge absorption.
 
-- Ser capaz de realizar uma análise descritiva de dados (estatísticas básicas, visualização de dados).
-- Ser capaz de aplicar e descrever características de modelos de aprendizado de máquina (regressão logística, árvores de decisão e ensembles) em dados tabelados.
-- Ser capaz de aplicar modelos de aprendizado profundo em dados de natureza diversa.
-- Ser capaz de entender e modelar problemas de otimização no contexto de aprendizado de máquina.
+- Being able to perform a descriptive analysis of data (basic statistics, data visualization).
+- Being able to apply and describe characteristics of machine learning models (logistic regression, decision trees, and ensembles) in tabular data.
+- Being able to apply deep learning models to data of diverse nature.
+- Being able to understand and model optimization problems in the context of machine learning.
 
-## Conteúdos
+## Contents
 
-- Parte 1: Dados e modelos
-	- Dados: Fontes de dados, modalidades, vieses, privacidade e consentimento. (1 aula)
-		- Objetivo: O aluno deverá ser capaz de preparar dados que sejam confiáveis e menos enviesados, preservando a privacidade e consentimento do usuário.
-	- Modelagem básica: Conceitos básicos de aprendizado de máquina, aprendizado supervisionado, modelos causais. (1 aula)
-		- Objetivo: O aluno deverá ser capaz escolher e potencialmente criar modelos de aprendizado de máquina que sejam mais adequados para os dados preparados.
-- Parte 2. Imparcialidade
-	- Imparcialidade: Detecção e promoção de imparcialidade em máquinas de aprendizado, manutenção de confiabilidade em cenários sob mudança ou ataque. (5 aulas)
-		- Objetivo: O aluno deverá ser capaz de escolher e potencialmente criar/modificar modelos de aprendizado de máquina mais confiáveis e imparciais.
-- Parte 3: Explicabilidade: 
-	- Explicabilidade: Interpretabilidade em aprendizado de máquina, e criação de mecanismos de intervenção nas máquinas de aprendizado. (5 semanas)
-		- Objetivo: O aluno deverá ser capaz de detectar e modificar uma máquina de aprendizado que falhe ao empoderar tomadores de decisão de compreendê-la e detectar falhas na sua confiabilidade e imparcialidade. 
+- Part 1: Data and models
+  - Data: Data sources, modalities, biases, privacy, and consent. (1 class)
+    - Objective: Students should be able to prepare data that is reliable and less biased, preserving user privacy and consent.
+  - Basic modeling: Basic concepts of machine learning, supervised learning, causal models. (1 class)
+    - Objective: Students should be able to choose and potentially create machine learning models that are more suitable for the prepared data.
+- Part 2. Fairness
+  - Fairness: Detection and promotion of fairness in machine learning, maintenance of reliability in scenarios under change or attack. (5 classes)
+    - Objective: Students should be able to choose and potentially create/modify more reliable and impartial machine learning models.
+- Part 3: Explainability: 
+  - Explainability: Interpretability in machine learning, and creation of intervention mechanisms in machine learning. (5 weeks)
+    - Objective: Students should be able to detect and modify a machine learning that fails to empower decision makers to understand it and detect flaws in its reliability and impartiality. 
 
-## Referências
- - Referência principal:
-   - [Trustworthy Machine Learning](http://www.trustworthymachinelearning.com/): Livro aborda, de forma geral, conceitos gerais de fairness e transparency.
- - Referências adicionais:
-   - [Fairness and machine learning](https://fairmlbook.org/): Livro disponibilizado gratuitamente que foi feito em conjunto por três professores de universidades diferentes que dão disciplinas de Fairness ou Ética em ML. No site estão disponíveis as páginas das respectivas matérias
-   - [Practical Fairness](https://www.oreilly.com/library/view/practical-fairness/9781492075721/): Livro de Fairness da O'Reilly que adicionei na lista só pra avisar que não vale muito a pena. Ele usa nomenclaturas diferentes das mais utilizadas na literatura e não apresenta bem a parte matemática
- - Recursos gerais:
-   - [Trustworthy ML Initiative](https://www.trustworthyml.org/resources): Possui diversos recursos de Trustworthy ML, como livros de divuldação geral, textbooks, documentários e sites de disciplinas.
- - Divulgação geral: 
-   - [Algoritmos de Destruição em Massa](https://www.amazon.com.br/Algoritmos-Destrui%C3%A7%C3%A3o-Massa-Cathy-ONeil/dp/6586460026/ref=sr_1_2?keywords=weapons+of+math+destruction&qid=1652104295&sprefix=weapons+%2Caps%2C314&sr=8-2): Livro que apresenta diversos exemplos de algoritmos anti-éticos
-   - [The Ethical Algorithm](https://www.amazon.com.br/Ethical-Algorithm-Science-Socially-English-ebook/dp/B07XLTXBXV/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1RJ20GQLALC4A&keywords=The+Ethical+Algorithm&qid=1652104305&sprefix=the+ethical+algorithm%2Caps%2C213&sr=8-1&ufe=app_do%3Aamzn1.fos.6121c6c4-c969-43ae-92f7-cc248fc6181d): The Science of Socially Aware Algorithm Design: Livro que apresenta as principais áreas de ética em ML (Fairness, Transparency e Privacy) para o público geral
-   - [Coded Bias](https://www.netflix.com/title/81328723): Documentário da Netflix que pode servir de motivação para o curso
+## References
+ - Main reference:
+   - [Trustworthy Machine Learning](http://www.trustworthymachinelearning.com/): The book addresses, in general, general concepts of fairness and transparency.
+ - Additional references:
+   - [Fairness and machine learning](https://fairmlbook.org/): A freely available book that was made jointly by three professors from different universities who teach Fairness or Ethics in ML courses. The website contains the pages of the respective courses.
+   - [Practical Fairness](https://www.oreilly.com/library/view/practical-fairness/9781492075721/): Fairness book from O'Reilly that I added to the list just to let you know it's not worth it. It uses different nomenclatures than those most used in the literature and does not present the mathematical part well.
+ - General resources:
+   - [Trustworthy ML Initiative](https://www.trustworthyml.org/resources): It has several Trustworthy ML resources, such as general interest books, textbooks, documentaries, and course websites.
+ - General disclosure: 
+   - [Weapons of Math Destruction](https://www.amazon.com/Weapons-Math-Destruction-Cathy-ONeil/dp/0553418815): A book that presents several examples of unethical algorithms.
+   - The Ethical Algorithm [URL inválido removido]: The Science of Socially Aware Algorithm Design: A book that presents the main areas of ethics in ML (Fairness, Transparency, and Privacy) to the general public.
+   - [Coded Bias](https://www.netflix.com/title/81328723): A Netflix documentary that can serve as motivation for the course.

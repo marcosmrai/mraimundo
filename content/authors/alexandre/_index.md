@@ -1,6 +1,7 @@
 ---
 # Display name
 title: Alexandre Negretti
+date: 2023-08
 
 # Full Name (for SEO)
 first_name: Alexandre

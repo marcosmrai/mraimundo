@@ -1,0 +1,89 @@
+---
+title: Fundamentals of Linear Algebra and Optimization for Machine Learning (2024)
+
+subtitle: 
+
+# Summary for listings and search engines
+summary: 
+
+# Link this post with a project
+projects: []
+
+# Date published
+date: '2024-06-04T00:00:00Z'
+
+# Date updated
+lastmod: '2024-06-04T00:00:00Z'
+
+# Is this an unpublished draft?
+draft: false
+
+# Show this page in the Featured widget?
+featured: false
+
+# Featured image
+# Place an image named `featured.jpg/png` in this page's folder and customize its options here.
+#image:
+#  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/CpkOjOcXdUY)'
+#  focal_point: ''
+#  placement: 2
+#  preview_only: false
+
+authors:
+  - admin
+
+tags:
+  - Disciplines
+  - AI
+  - Machine Learning
+
+---
+
+This course equips students with the mathematical foundations of linear algebra and optimization, crucial for understanding and implementing machine learning algorithms.
+
+
+## Final Objectives
+
+This course capacitates students to understand, implement, and evaluate machine learning algorithms by providing a solid foundation in the mathematical principles of linear algebra and optimization. Through comprehensive coverage of core concepts like vectors, matrices, linear transformations, eigenvalues, eigenvectors, objective functions, gradient descent, and regularization techniques, students will develop the mathematical skills and intuition necessary to translate real-world problems into mathematical formulations suitable for machine learning solutions. This course emphasizes building a deep understanding of the mathematical foundations upon which machine learning algorithms are built, preparing students for further exploration of advanced topics and ongoing research in the field.
+
+## Prerequisites
+
+Below are listed the desirable skills for the student, these are not mandatory, but will increase the probability of the student's knowledge absorption.
+
+
+- Basic Calculus: A solid understanding of differential and integral calculus is essential, as many concepts in optimization rely on derivatives and gradients.
+- Introductory Linear Algebra: Familiarity with basic linear algebra concepts like vectors, matrices, matrix operations (addition, multiplication, transpose), and systems of linear equations is crucial.
+- Basic Programming: Some programming experience, preferably in Python, is helpful for implementing algorithms and experimenting with concepts.
+
+While not strictly required, the following would be beneficial:
+
+- Probability and Statistics: A basic understanding of probability distributions and statistical concepts like mean, variance, and correlation can be helpful in interpreting and evaluating machine learning models.
+- Exposure to Machine Learning: Some prior exposure to machine learning concepts, even at a high level, can provide context and motivation for the mathematical foundations covered in the course.
+
+
+## Conteúdos
+
+- Parte 1: Dados e modelos
+	- Dados: Fontes de dados, modalidades, vieses, privacidade e consentimento. (1 aula)
+		- Objetivo: O aluno deverá ser capaz de preparar dados que sejam confiáveis e menos enviesados, preservando a privacidade e consentimento do usuário.
+	- Modelagem básica: Conceitos básicos de aprendizado de máquina, aprendizado supervisionado, modelos causais. (1 aula)
+		- Objetivo: O aluno deverá ser capaz escolher e potencialmente criar modelos de aprendizado de máquina que sejam mais adequados para os dados preparados.
+- Parte 2. Imparcialidade
+	- Imparcialidade: Detecção e promoção de imparcialidade em máquinas de aprendizado, manutenção de confiabilidade em cenários sob mudança ou ataque. (5 aulas)
+		- Objetivo: O aluno deverá ser capaz de escolher e potencialmente criar/modificar modelos de aprendizado de máquina mais confiáveis e imparciais.
+- Parte 3: Explicabilidade: 
+	- Explicabilidade: Interpretabilidade em aprendizado de máquina, e criação de mecanismos de intervenção nas máquinas de aprendizado. (5 semanas)
+		- Objetivo: O aluno deverá ser capaz de detectar e modificar uma máquina de aprendizado que falhe ao empoderar tomadores de decisão de compreendê-la e detectar falhas na sua confiabilidade e imparcialidade. 
+
+## Referências
+ - Referência principal:
+   - [Trustworthy Machine Learning](http://www.trustworthymachinelearning.com/): Livro aborda, de forma geral, conceitos gerais de fairness e transparency.
+ - Referências adicionais:
+   - [Fairness and machine learning](https://fairmlbook.org/): Livro disponibilizado gratuitamente que foi feito em conjunto por três professores de universidades diferentes que dão disciplinas de Fairness ou Ética em ML. No site estão disponíveis as páginas das respectivas matérias
+   - [Practical Fairness](https://www.oreilly.com/library/view/practical-fairness/9781492075721/): Livro de Fairness da O'Reilly que adicionei na lista só pra avisar que não vale muito a pena. Ele usa nomenclaturas diferentes das mais utilizadas na literatura e não apresenta bem a parte matemática
+ - Recursos gerais:
+   - [Trustworthy ML Initiative](https://www.trustworthyml.org/resources): Possui diversos recursos de Trustworthy ML, como livros de divuldação geral, textbooks, documentários e sites de disciplinas.
+ - Divulgação geral: 
+   - [Algoritmos de Destruição em Massa](https://www.amazon.com.br/Algoritmos-Destrui%C3%A7%C3%A3o-Massa-Cathy-ONeil/dp/6586460026/ref=sr_1_2?keywords=weapons+of+math+destruction&qid=1652104295&sprefix=weapons+%2Caps%2C314&sr=8-2): Livro que apresenta diversos exemplos de algoritmos anti-éticos
+   - [The Ethical Algorithm](https://www.amazon.com.br/Ethical-Algorithm-Science-Socially-English-ebook/dp/B07XLTXBXV/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1RJ20GQLALC4A&keywords=The+Ethical+Algorithm&qid=1652104305&sprefix=the+ethical+algorithm%2Caps%2C213&sr=8-1&ufe=app_do%3Aamzn1.fos.6121c6c4-c969-43ae-92f7-cc248fc6181d): The Science of Socially Aware Algorithm Design: Livro que apresenta as principais áreas de ética em ML (Fairness, Transparency e Privacy) para o público geral
+   - [Coded Bias](https://www.netflix.com/title/81328723): Documentário da Netflix que pode servir de motivação para o curso

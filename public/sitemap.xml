@@ -54,7 +54,11 @@
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://ic.unicamp.br/mraimundo/tag/aprendizado-de-maquina/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/ai/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/tag/disciplines/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -62,19 +66,11 @@
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://ic.unicamp.br/mraimundo/categories/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/ml_algebra/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://ic.unicamp.br/mraimundo/tag/disciplinas/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://ic.unicamp.br/mraimundo/category/disciplinas/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://ic.unicamp.br/mraimundo/tag/ia/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/machine-learning/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -86,7 +82,7 @@
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://ic.unicamp.br/mraimundo/tag/programacao-orientada-a-objetos/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/object-oriented-programming/</loc>
     <lastmod>2024-03-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -102,7 +98,27 @@
     <lastmod>2023-09-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/tag/aprendizado-de-maquina/</loc>
+    <lastmod>2023-06-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</loc>
+    <lastmod>2023-06-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/categories/</loc>
+    <lastmod>2023-06-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/tag/disciplinas/</loc>
+    <lastmod>2023-06-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/category/disciplinas/</loc>
+    <lastmod>2023-06-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://ic.unicamp.br/mraimundo/tag/ia/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -143,10 +159,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://ic.unicamp.br/mraimundo/tag/interpretability/</loc>
-    <lastmod>2022-05-01T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://ic.unicamp.br/mraimundo/tag/machine-learning/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>

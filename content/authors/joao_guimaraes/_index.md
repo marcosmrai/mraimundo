@@ -1,6 +1,7 @@
 ---
 # Display name
 title: João Guimarães
+date: 2024-05
 
 # Full Name (for SEO)
 first_name: João

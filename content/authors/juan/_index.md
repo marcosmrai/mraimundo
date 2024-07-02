@@ -1,6 +1,7 @@
 ---
 # Display name
 title: Juan David Nieto
+date: 2023-03
 
 # Full Name (for SEO)
 first_name: Juan David 

@@ -1,6 +1,7 @@
 ---
 # Display name
 title: Decio Miranda Filho
+date: 2024-03
 
 # Full Name (for SEO)
 first_name: Decio

@@ -18,8 +18,8 @@ sections:
           - Undergrad Research Assistants
           - Collaborators
           - Former Researchers
-      sort_by: Params.last_name
-      sort_ascending: true
+      sort_by: Params.date
+      sort_ascending: false
     design:
       show_interests: true
       show_role: true
