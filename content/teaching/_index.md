@@ -5,18 +5,6 @@ date: 2024-06-20
 type: landing
 
 sections:
-  - block: collection
-    content:
-      title: Lastest Courses
-      text: ""
-      count: 3
-      filters:
-        folders:
-          - teaching
-    design:
-      view: compact
-      columns: '1'
-      
   - block: markdown
     content:
       title:
@@ -33,4 +21,18 @@ sections:
           text_color_light: true
       spacing:
         padding: ['20%', '0', '20%', '0']
+
+  - block: collection
+    content:
+      title: Lastest Courses
+      text: ""
+      count: 3
+      depth: 1
+      filters:
+        folders:
+          - teaching
+    design:
+      view: compact
+      columns: '1'
+      
 ---

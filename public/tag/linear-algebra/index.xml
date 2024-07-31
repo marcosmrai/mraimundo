@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear Algebra | Marcos M. Raimundo</title>
+    <link>http://localhost:1313/mraimundo/tag/linear-algebra/</link>
+      <atom:link href="http://localhost:1313/mraimundo/tag/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <description>Linear Algebra</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/mraimundo/media/icon_huda5467b54b3ac186660d9d90f6e309e1_14712_512x512_fill_lanczos_center_3.png</url>
+      <title>Linear Algebra</title>
+      <link>http://localhost:1313/mraimundo/tag/linear-algebra/</link>
+    </image>
+    
+    <item>
+      <title>Fundamentals of Linear Algebra and Optimization for Machine Learning (2024)</title>
+      <link>http://localhost:1313/mraimundo/teaching/ml_algebra/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mraimundo/teaching/ml_algebra/</guid>
+      <description>&lt;p&gt;This course equips students with the mathematical foundations of linear algebra and optimization, crucial for understanding and implementing machine learning algorithms.&lt;/p&gt;
+&lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
+&lt;p&gt;This course capacitates students to understand, implement, and evaluate machine learning algorithms by providing a solid foundation in the mathematical principles of linear algebra and optimization. Through comprehensive coverage of core concepts like vectors, matrices, linear transformations, eigenvalues, eigenvectors, objective functions, gradient descent, and regularization techniques, students will develop the mathematical skills and intuition necessary to translate real-world problems into mathematical formulations suitable for machine learning solutions. This course emphasizes building a deep understanding of the mathematical foundations upon which machine learning algorithms are built, preparing students for further exploration of advanced topics and ongoing research in the field.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Below are listed the desirable skills for the student, these are not mandatory, but will increase the probability of the student&amp;rsquo;s knowledge absorption.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Basic Calculus: A solid understanding of differential and integral calculus is essential, as many concepts in optimization rely on derivatives and gradients.&lt;/li&gt;
+&lt;li&gt;Introductory Linear Algebra: Familiarity with basic linear algebra concepts like vectors, matrices, matrix operations (addition, multiplication, transpose), and systems of linear equations is crucial.&lt;/li&gt;
+&lt;li&gt;Basic Programming: Some programming experience, preferably in Python, is helpful for implementing algorithms and experimenting with concepts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While not strictly required, the following would be beneficial:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Probability and Statistics: A basic understanding of probability distributions and statistical concepts like mean, variance, and correlation can be helpful in interpreting and evaluating machine learning models.&lt;/li&gt;
+&lt;li&gt;Exposure to Machine Learning: Some prior exposure to machine learning concepts, even at a high level, can provide context and motivation for the mathematical foundations covered in the course.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;classes&#34;&gt;Classes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Class 1: &lt;a href=&#34;&#34;&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
