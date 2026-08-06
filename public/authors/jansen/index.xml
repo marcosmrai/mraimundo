@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jansen S. B. Pereira | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/jansen/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/jansen/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/jansen/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/jansen/index.xml" rel="self" type="application/rss+xml" />
     <description>Jansen S. B. Pereira</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>http://localhost:1313/mraimundo/authors/jansen/avatar_hu_e1ade46e73e5eeb.jpeg</url>
+      <url>http://ic.unicamp.br/mraimundo/authors/jansen/avatar_hu_96ab2f0386fb889c.jpeg</url>
       <title>Jansen S. B. Pereira</title>
-      <link>http://localhost:1313/mraimundo/authors/jansen/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/jansen/</link>
     </image>
     
   </channel>

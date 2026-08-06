@@ -1,0 +1,68 @@
+---
+title: "Lesson 1: Vector Spaces, Norms, and Metrics"
+author: "Prof. Marcos Medeiros Raimundo"
+format:
+  html:
+    output-file: "livro_aula1.html"
+  revealjs:
+    output-file: "slides_aula1.html"
+---
+
+## 1. Espaços Vetoriais e Geometria dos Dados
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+### Contexto Teórico (Versão Livro Didático)
+
+Em Aprendizado de Máquina, a representação de dados estruturados ocorre tipicamente através de vetores em um espaço vetorial $V = \mathbb{R}^d$. Quando aplicamos algoritmos de similaridade baseados em distância, como o **$k$-Nearest Neighbors ($k$-NN)**, a topologia desse espaço é definida pela escolha da norma utilizada.
+:::
+
+::: {.content-visible when-format="revealjs"}
+### Tópicos da Aula (Versão Slides)
+
+- Dados estruturados representados como vetores em $V = \mathbb{R}^d$.
+- A métrica escolhida altera diretamente a geometria do espaço.
+- Algoritmos baseados em proximidade dependem diretamente desta escolha.
+:::
+
+---
+
+## 2. Cálculo de Normas
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+Importamos o módulo `src.metrics` para executar a função `compute_norm` e avaliar o comportamento do vetor em diferentes normas:
+:::
+
+```{python}
+#| echo: true
+import sys
+import numpy as np
+
+# Adding source path to import the local module
+sys.path.append('.')
+from src.metrics import compute_norm
+
+v = np.array([3.0, -4.0])
+print(f"Vetor: {v}")
+print(f"Norma L1: {compute_norm(v, 'l1')}")
+print(f"Norma L2: {compute_norm(v, 'l2')}")
+print(f"Norma L-infinity: {compute_norm(v, 'linf')}")
+```
+
+---
+
+## 3. Visualização Geométrica das Bolas Unitárias
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+Abaixo, chamamos a função responsável pela renderização gráfica do espaço vetorial:
+:::
+
+```{python}
+#| echo: true
+#| fig-cap: "Geometria comparativa das normas L1, L2 e L-infinity."
+
+import matplotlib.pyplot as plt
+from src.metrics import plot_unit_balls
+
+fig = plot_unit_balls()
+plt.show()
+```

@@ -1,19 +1,18 @@
 ---
-title: Fundamentals of Linear Algebra and Optimization for Machine Learning (2024)
-
-subtitle: 
+title: Optimization and Linear Algebra for Machine Learning
+subtitle:
 
 # Summary for listings and search engines
-summary: 
+summary:
 
 # Link this post with a project
 projects: []
 
 # Date published
-date: '2024-06-04T00:00:00Z'
+date: '2026-07-24T00:00:00Z'
 
 # Date updated
-lastmod: '2024-06-04T00:00:00Z'
+lastmod: '2026-07-24T00:00:00Z'
 
 # Is this an unpublished draft?
 draft: false
@@ -21,47 +20,142 @@ draft: false
 # Show this page in the Featured widget?
 featured: false
 
-# Featured image
-# Place an image named `featured.jpg/png` in this page's folder and customize its options here.
-#image:
-#  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/CpkOjOcXdUY)'
-#  focal_point: ''
-#  placement: 2
-#  preview_only: false
+# Enable math formatting
+math: true
 
 authors:
   - admin
 
 tags:
   - Disciplines
-  - AI
   - Machine Learning
+  - Optimization
+  - Linear Algebra
 
 ---
 
-This course equips students with the mathematical foundations of linear algebra and optimization, crucial for understanding and implementing machine learning algorithms.
-
+This course explores the mathematical foundations of Machine Learning, bridging theoretical Linear Algebra and Continuous Optimization with modern algorithmic design. Rather than treating mathematics as an isolated abstract exercise, concepts are introduced strictly in tandem with their practical utility in machine learning models, scaling from classical closed-form estimators to state-of-the-art neural network optimizers.
 
 ## Final Objectives
 
-This course capacitates students to understand, implement, and evaluate machine learning algorithms by providing a solid foundation in the mathematical principles of linear algebra and optimization. Through comprehensive coverage of core concepts like vectors, matrices, linear transformations, eigenvalues, eigenvectors, objective functions, gradient descent, and regularization techniques, students will develop the mathematical skills and intuition necessary to translate real-world problems into mathematical formulations suitable for machine learning solutions. This course emphasizes building a deep understanding of the mathematical foundations upon which machine learning algorithms are built, preparing students for further exploration of advanced topics and ongoing research in the field.
+The primary goal is to provide students with a deep geometric and analytical understanding of how machine learning models process data and navigate error landscapes. By the end of the course, students will be able to translate abstract machine learning objectives into formal optimization problems, analyze convergence guarantees, understand preconditioned search spaces, handle non-smooth regularization, and write clean, vectorized Python code to implement algorithms from first principles.
 
-## Prerequisites
+## Course Content
 
-Below are listed the desirable skills for the student, these are not mandatory, but will increase the probability of the student's knowledge absorption.
+*Click on each lesson to access its detailed planning and study materials (content in Portuguese).*
 
+### Part 1: Data-Driven Linear Algebra
 
-- Basic Calculus: A solid understanding of differential and integral calculus is essential, as many concepts in optimization rely on derivatives and gradients.
-- Introductory Linear Algebra: Familiarity with basic linear algebra concepts like vectors, matrices, matrix operations (addition, multiplication, transpose), and systems of linear equations is crucial.
-- Basic Programming: Some programming experience, preferably in Python, is helpful for implementing algorithms and experimenting with concepts.
-
-While not strictly required, the following would be beneficial:
-
-- Probability and Statistics: A basic understanding of probability distributions and statistical concepts like mean, variance, and correlation can be helpful in interpreting and evaluating machine learning models.
-- Exposure to Machine Learning: Some prior exposure to machine learning concepts, even at a high level, can provide context and motivation for the mathematical foundations covered in the course.
-
-## Lessons Planning
+* **[Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics](../../algebra/aula1/livro.html)** ([Slides](../../algebra/aula1/slides.html))
+  * **ML Concept:** Distance-based similarity and spatial modeling in $k$-Nearest Neighbors ($k$-NN).
+  * **Mathematical Concept:** Vector spaces, inner products, and vector/matrix norms ($L_1$, $L_2$, $L_\infty$). Geometric interpretation of similarity through inner products and cosine distance.
+  * **Objectives:** Understand how structured data points are represented geometrically and how distance choices impact metric-based learning algorithms.
+  * **Expected Competencies:** Ability to implement custom metric search routines in Python using type hints, analyze norm properties, and formalize geometric similarity.
 
 
-## Reference
-[Lesson 1 - Linear Regression, Vectors, and Matrices](Lesson1.pdf)
+* **[Lesson 2: Matrix Representations, Linear Systems, and Independence](https://www.google.com/search?q=lesson-2/)**
+  * **ML Concept:** Multivariable data matrix representations and Multiple Linear Regression.
+  * **Mathematical Concept:** Matrix-vector operations, rank, linear independence, and system solvability ($Ax = b$).
+  * **Objectives:** Formulate dataset transformations and linear models through matrix systems.
+  * **Expected Competencies:** Ability to express multi-dimensional datasets as design matrices, compute matrix rank, and identify multi-collinearity issues in feature spaces.
+
+
+* **[Lesson 3: Orthogonal Projections and Subspaces](https://www.google.com/search?q=lesson-3/)**
+  * **ML Concept:** Closed-form solutions for Ordinary Least Squares (OLS) regression.
+  * **Mathematical Concept:** Subspaces, orthogonal complements, projection matrices, and the Normal Equations ($X^T X \hat{w} = X^T y$).
+  * **Objectives:** Derive the geometric closed-form solution to linear regression without requiring iterative optimization.
+  * **Expected Competencies:** Ability to mathematically derive the projection operator, derive the OLS closed-form parameters, and program the closed-form solver from scratch.
+
+
+* **[Lesson 4: Eigenvalues, Eigenvectors, and Symmetric Matrices](https://www.google.com/search?q=lesson-4/)**
+  * **ML Concept:** Feature variance, spatial deformations, and directional scaling.
+  * **Mathematical Concept:** Eigendecomposition, characteristic polynomials, real spectral theorem for symmetric matrices, and positive definiteness.
+  * **Objectives:** Grasp how linear transformations stretch and rotate feature spaces along principal directions.
+  * **Expected Competencies:** Ability to calculate eigendecompositions, evaluate matrix positive-definiteness, and interpret transformation matrices geometrically.
+
+
+* **[Lesson 5: Singular Value Decomposition (SVD) and Low-Rank Approximations](https://www.google.com/search?q=lesson-5/)**
+  * **ML Concept:** Principal Component Analysis (PCA) and Collaborative Filtering for Recommendation Systems.
+  * **Mathematical Concept:** Full and Truncated SVD ($A = U \Sigma V^T$), low-rank matrix approximations (Eckart-Young-Mirsky Theorem), and connections to Polar Decomposition.
+  * **Objectives:** Deconstruct arbitrary matrices into orthogonal bases for dimensionality reduction and matrix completion.
+  * **Expected Competencies:** Ability to execute SVD-based PCA from scratch, compute low-rank matrix approximations, and explain the relation between SVD and polar orthogonalization.
+
+
+
+---
+
+### Part 2: Calculus of Differentiable Optimization
+
+* **[Lesson 6: Partial Derivatives, Jacobians, and Gradient Vectors](https://www.google.com/search?q=lesson-6/)**
+  * **ML Concept:** Model sensitivity analysis and parametric error surfaces.
+  * **Mathematical Concept:** Directional derivatives, the Gradient vector $\nabla f(x)$ as the path of steepest ascent, and the Jacobian matrix $J$.
+  * **Objectives:** Evaluate how perturbations in high-dimensional parameter vectors affect loss scalar outputs.
+  * **Expected Competencies:** Ability to compute analytical gradients and Jacobians for multivariate loss functions and verify them numerically.
+
+
+* **[Lesson 7: Convexity and the Hessian Matrix](https://www.google.com/search?q=lesson-7/)**
+  * **ML Concept:** Global convergence guarantees in regularized models (e.g., Ridge Regression).
+  * **Mathematical Concept:** Convex sets, convex functions, the Hessian matrix $\nabla^2 f(x)$, positive semi-definiteness, and first/second-order convexity conditions.
+  * **Objectives:** Identify whether an optimization landscape guarantees a single global minimum versus multiple local optima.
+  * **Expected Competencies:** Ability to prove the convexity of common machine learning loss functions by evaluating the Hessian matrix.
+
+
+* **[Lesson 8: Unconstrained Optimization and Steepest Descent](https://www.google.com/search?q=lesson-8/)**
+  * **ML Concept:** Iterative parameter updating in Logistic Regression (Cross-Entropy Loss).
+  * **Mathematical Concept:** The Gradient Descent (GD) algorithm, step-size selection (learning rate), and first-order necessary optimality conditions.
+  * **Objectives:** Derivation and implementation of iterative first-order optimization routines for non-linear loss functions.
+  * **Expected Competencies:** Ability to derive the gradient of cross-entropy loss, write a fully vectorized Gradient Descent solver, and analyze convergence behavior.
+
+
+* **[Lesson 9: Taylor Expansions and the Multivariate Chain Rule](https://www.google.com/search?q=lesson-9/)**
+  * **ML Concept:** Local linearizations in Multilayer Perceptrons (MLPs).
+  * **Mathematical Concept:** First- and second-order Taylor series approximations, composition of functions, and multi-variable chain rule derivations.
+  * **Objectives:** Analyze local approximations of complex loss landscapes and track error propagation through layered composite functions.
+  * **Expected Competencies:** Ability to construct Taylor series approximations around local operating points and manually compute chain-rule derivatives across composite functions.
+
+
+* **[Lesson 10: Automatic Differentiation and Computational Graphs](https://www.google.com/search?q=lesson-10/)**
+  * **ML Concept:** Backpropagation engines in deep learning frameworks.
+  * **Mathematical Concept:** Directed Acyclic Graphs (DAGs) for computation, forward-mode vs. reverse-mode automatic differentiation, and memory complexity of intermediate adjoints.
+  * **Objectives:** Understand how automatic differentiation engines compute exact gradients without symbolic expansion or finite-difference numerical noise.
+  * **Expected Competencies:** Ability to build a lightweight reverse-mode automatic differentiation engine from scratch in Python.
+
+
+
+---
+
+### Part 3: Advanced Optimization Dynamics and Large-Scale Learning
+
+* **[Lesson 11: Stochastic Gradient Descent (SGD) and Mini-Batching](https://www.google.com/search?q=lesson-11/)**
+  * **ML Concept:** Large-scale learning under computational and memory constraints.
+  * **Mathematical Concept:** Expectation of stochastic gradients, mini-batch variance, learning rate decay schedules, and stochastic approximation theory.
+  * **Objectives:** Transition from batch gradient computations to noisy, computationally efficient mini-batch estimators.
+  * **Expected Competencies:** Ability to implement SGD with custom batching logic and analyze the trade-off between gradient variance and computational throughput.
+
+
+* **[Lesson 12: Momentum and Accelerated Gradient Methods](https://www.google.com/search?q=lesson-12/)**
+  * **ML Concept:** Escaping ill-conditioned ravines and saddle points in complex landscapes.
+  * **Mathematical Concept:** Heavy-ball momentum, Nesterov Accelerated Gradient (NAG), physical analogies of inertia, and second-order linear difference equations.
+  * **Objectives:** Accelerate convergence in ill-conditioned directions using historical velocity vectors.
+  * **Expected Competencies:** Ability to implement Polyak and Nesterov momentum, tuning hyper-parameters to damp oscillations in narrow valleys.
+
+
+* **[Lesson 13: Second-Order Optimization and Diagonal Preconditioning](https://www.google.com/search?q=lesson-13/)**
+  * **ML Concept:** Newton's method vs. adaptive learning rate optimizers (RMSProp, Adam).
+  * **Mathematical Concept:** Classical Newton-Raphson updates ($w_{t+1} = w_t - [\nabla^2 f(w_t)]^{-1} \nabla f(w_t)$), coordinate-wise diagonal preconditioning, and running exponential averages of squared gradients.
+  * **Objectives:** Understand the theoretical ideal of exact second-order optimization and why adaptive algorithms approximate it using coordinate-wise diagonal scaling.
+  * **Expected Competencies:** Ability to derive Newton's step, implement Adam from scratch, and explain the limitations of coordinate-independent (diagonal) preconditioning assumptions.
+
+
+* **[Lesson 14: Structured Preconditioning and Matrix Ortogonalization (Shampoo & Muon)](https://www.google.com/search?q=lesson-14/)**
+  * **ML Concept:** Modern full-matrix/tensor preconditioning for deep neural network layers.
+  * **Mathematical Concept:** Kronecker-factored covariance statistics (Shampoo), orthogonalization of weight update matrices via polar decomposition, and GPU-accelerated Newton-Schulz polynomial iterations ($X_{k+1} = \frac{1}{2} X_k (3I - X_k^T X_k)$).
+  * **Objectives:** Move beyond diagonal preconditioning by capturing matrix correlations and using Newton-Schulz iterations to compute efficient matrix orthogonalizations directly on hardware.
+  * **Expected Competencies:** Ability to explain matrix preconditioning geometry, formulate Kronecker factorization steps, and implement Newton-Schulz iterations to orthogonalize update matrices.
+
+
+* **[Lesson 15: Non-Smooth Optimization, Subgradients, and Proximal Operators](https://www.google.com/search?q=lesson-15/)**
+  * **ML Concept:** $L_1$ Regularization (Lasso), feature selection, and inducing model sparsity.
+  * **Mathematical Concept:** Subgradients, subdifferentials of non-differentiable convex functions, Proximal Operators ($\text{prox}_f(x)$), Soft-Thresholding, and the ISTA/FISTA (Iterative Shrinkage-Thresholding Algorithm) framework.
+  * **Objectives:** Optimize composite loss functions containing non-differentiable regularization penalties without sacrificing convergence guarantees.
+  * **Expected Competencies:** Ability to derive the proximal operator for $L_1$ norms, implement the ISTA algorithm, and prove how soft-thresholding induces exact sparsity.

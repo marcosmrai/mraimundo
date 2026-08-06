@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ethics | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/tag/ethics/</link>
-      <atom:link href="http://localhost:1313/mraimundo/tag/ethics/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/tag/ethics/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/tag/ethics/index.xml" rel="self" type="application/rss+xml" />
     <description>Ethics</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_ff945c07853dd4a6.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Ethics</title>
-      <link>http://localhost:1313/mraimundo/tag/ethics/</link>
+      <link>http://ic.unicamp.br/mraimundo/tag/ethics/</link>
     </image>
     
     <item>
       <title>Fair and Transparent Credit Scoring</title>
-      <link>http://localhost:1313/mraimundo/projects/credit/</link>
+      <link>http://ic.unicamp.br/mraimundo/projects/credit/</link>
       <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/projects/credit/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/projects/credit/</guid>
       <description></description>
     </item>
     

@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alexandre Negretti | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/alexandre/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/alexandre/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/alexandre/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/alexandre/index.xml" rel="self" type="application/rss+xml" />
     <description>Alexandre Negretti</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>http://localhost:1313/mraimundo/authors/alexandre/avatar_hu_9a300c1c69085d41.jpeg</url>
+      <url>http://ic.unicamp.br/mraimundo/authors/alexandre/avatar_hu_8f687a0077c3983d.jpeg</url>
       <title>Alexandre Negretti</title>
-      <link>http://localhost:1313/mraimundo/authors/alexandre/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/alexandre/</link>
     </image>
     
   </channel>

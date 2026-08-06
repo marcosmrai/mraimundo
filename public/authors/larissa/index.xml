@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Larissa Okabayashi | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/larissa/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/larissa/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/larissa/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/larissa/index.xml" rel="self" type="application/rss+xml" />
     <description>Larissa Okabayashi</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>http://localhost:1313/mraimundo/authors/larissa/avatar_hu_9376143a26fe60b6.jpg</url>
+      <url>http://ic.unicamp.br/mraimundo/authors/larissa/avatar_hu_9ba59ab51e680005.jpg</url>
       <title>Larissa Okabayashi</title>
-      <link>http://localhost:1313/mraimundo/authors/larissa/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/larissa/</link>
     </image>
     
   </channel>

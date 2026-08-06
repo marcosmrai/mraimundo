@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>F. J. Zuben | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/f.-j.-zuben/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/f.-j.-zuben/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/f.-j.-zuben/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/f.-j.-zuben/index.xml" rel="self" type="application/rss+xml" />
     <description>F. J. Zuben</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_ff945c07853dd4a6.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>F. J. Zuben</title>
-      <link>http://localhost:1313/mraimundo/authors/f.-j.-zuben/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/f.-j.-zuben/</link>
     </image>
     
     <item>
       <title>Exploring multiobjective training in multiclass classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria analysis involving Pareto-optimal misclassification tradeoffs on imbalanced datasets</title>
-      <link>http://localhost:1313/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Investigating multiobjective methods in multitask classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An extension of the non-inferior set estimation algorithm for many objectives</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Many-Objective Ensemble-Based Multilabel Classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</guid>
       <description></description>
     </item>
     

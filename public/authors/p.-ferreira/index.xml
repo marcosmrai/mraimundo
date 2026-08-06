@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>P. Ferreira | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/p.-ferreira/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/p.-ferreira/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/p.-ferreira/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/p.-ferreira/index.xml" rel="self" type="application/rss+xml" />
     <description>P. Ferreira</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_ff945c07853dd4a6.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>P. Ferreira</title>
-      <link>http://localhost:1313/mraimundo/authors/p.-ferreira/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/p.-ferreira/</link>
     </image>
     
     <item>
       <title>An extension of the non-inferior set estimation algorithm for many objectives</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</guid>
       <description></description>
     </item>
     

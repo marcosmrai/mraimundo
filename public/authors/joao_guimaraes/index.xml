@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>João Guimarães | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/joao_guimaraes/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/joao_guimaraes/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/joao_guimaraes/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/joao_guimaraes/index.xml" rel="self" type="application/rss+xml" />
     <description>João Guimarães</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>http://localhost:1313/mraimundo/authors/joao_guimaraes/avatar_hu_5ad7ec4a3b89ffe8.jpg</url>
+      <url>http://ic.unicamp.br/mraimundo/authors/joao_guimaraes/avatar_hu_8035386555a143b.jpg</url>
       <title>João Guimarães</title>
-      <link>http://localhost:1313/mraimundo/authors/joao_guimaraes/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/joao_guimaraes/</link>
     </image>
     
   </channel>

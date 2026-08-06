@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publication_types | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/publication_types/</link>
-      <atom:link href="http://localhost:1313/mraimundo/publication_types/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/publication_types/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/publication_types/index.xml" rel="self" type="application/rss+xml" />
     <description>Publication_types</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_ff945c07853dd4a6.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Publication_types</title>
-      <link>http://localhost:1313/mraimundo/publication_types/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication_types/</link>
     </image>
     
   </channel>

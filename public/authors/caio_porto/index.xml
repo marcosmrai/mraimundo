@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Caio Porto | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/caio_porto/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/caio_porto/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/caio_porto/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/caio_porto/index.xml" rel="self" type="application/rss+xml" />
     <description>Caio Porto</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>http://localhost:1313/mraimundo/authors/caio_porto/avatar_hu_95c796f2eeba314b.jpg</url>
+      <url>http://ic.unicamp.br/mraimundo/authors/caio_porto/avatar_hu_d229d78e02c23862.jpg</url>
       <title>Caio Porto</title>
-      <link>http://localhost:1313/mraimundo/authors/caio_porto/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/caio_porto/</link>
     </image>
     
   </channel>

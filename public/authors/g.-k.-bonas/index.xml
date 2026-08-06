@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>G. K. Bonás | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/g.-k.-bonas/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/g.-k.-bonas/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/g.-k.-bonas/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/g.-k.-bonas/index.xml" rel="self" type="application/rss+xml" />
     <description>G. K. Bonás</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_ff945c07853dd4a6.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>G. K. Bonás</title>
-      <link>http://localhost:1313/mraimundo/authors/g.-k.-bonas/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/g.-k.-bonas/</link>
     </image>
     
     <item>
       <title>Combinatorial U-Curve Optimization for Multi-Task Learning: A Task Selection Approach</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An algorithm for multi-task learning based on combinatorial optimization of U-curves</title>
-      <link>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</guid>
       <description></description>
     </item>
     

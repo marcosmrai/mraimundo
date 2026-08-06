@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>J. S. B. Pereira | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/j.-s.-b.-pereira/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/j.-s.-b.-pereira/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/j.-s.-b.-pereira/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/j.-s.-b.-pereira/index.xml" rel="self" type="application/rss+xml" />
     <description>J. S. B. Pereira</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_ff945c07853dd4a6.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>J. S. B. Pereira</title>
-      <link>http://localhost:1313/mraimundo/authors/j.-s.-b.-pereira/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/j.-s.-b.-pereira/</link>
     </image>
     
     <item>
       <title>M²FGB: A Min-Max Gradient Boosting Framework for Subgroup Fairness</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</guid>
       <description></description>
     </item>
     
