@@ -4,7 +4,7 @@
         {
             "label": "▶️ RUN SERVER",
             "type": "shell",
-            "command": "bash server.sh",
+            "command": "bash run-server.sh",
             "isBackground": true,
             "problemMatcher": {
                 "owner": "hugo",
@@ -29,7 +29,7 @@
             "id": "openSimpleBrowser",
             "type": "command",
             "command": "simpleBrowser.show",
-            "args": "LINK_MAGICO" 
+            "args": ["FULL_LINK"]
         }
     ]
 }
