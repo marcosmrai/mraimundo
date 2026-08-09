@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maria Clara Assunção | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/authors/maria_clara/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/authors/maria_clara/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/authors/maria_clara/</link>
+      <atom:link href="http://localhost:1313/mraimundo/authors/maria_clara/index.xml" rel="self" type="application/rss+xml" />
     <description>Maria Clara Assunção</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/authors/maria_clara/avatar_hu_a574a3759b3343cc.webp</url>
+      <url>http://localhost:1313/mraimundo/authors/maria_clara/avatar_hu_a574a3759b3343cc.webp</url>
       <title>Maria Clara Assunção</title>
-      <link>http://ic.unicamp.br/mraimundo/authors/maria_clara/</link>
+      <link>http://localhost:1313/mraimundo/authors/maria_clara/</link>
     </image>
     
   </channel>

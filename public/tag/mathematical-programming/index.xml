@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mathematical Programming | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/tag/mathematical-programming/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/tag/mathematical-programming/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/tag/mathematical-programming/</link>
+      <atom:link href="http://localhost:1313/mraimundo/tag/mathematical-programming/index.xml" rel="self" type="application/rss+xml" />
     <description>Mathematical Programming</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Mathematical Programming</title>
-      <link>http://ic.unicamp.br/mraimundo/tag/mathematical-programming/</link>
+      <link>http://localhost:1313/mraimundo/tag/mathematical-programming/</link>
     </image>
     
     <item>
       <title>Gradient-based Algorithms for Multi-objective Optimization</title>
-      <link>http://ic.unicamp.br/mraimundo/projects/mol/</link>
+      <link>http://localhost:1313/mraimundo/projects/mol/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/projects/mol/</guid>
+      <guid>http://localhost:1313/mraimundo/projects/mol/</guid>
       <description>&lt;p&gt;This project addresses the fundamental mathematical challenge of optimizing vector-valued functions without reducing them to a single scalar objective a priori. The core research question is: &lt;strong&gt;how do we define and efficiently follow a descent direction when objectives conflict?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;While scalar optimization relies on setting the gradient to zero, multi-objective optimization operates under the &lt;strong&gt;Karush-Kuhn-Tucker (KKT)&lt;/strong&gt; conditions for Pareto optimality. Our research focuses on developing rigorous, efficient algorithms to reach these stationary points in continuous, differentiable spaces.&lt;/p&gt;
 &lt;h3 id=&#34;key-research-topics&#34;&gt;Key Research Topics:&lt;/h3&gt;
@@ -31,9 +31,9 @@
     
     <item>
       <title>Gradient-based Algorithms for Multi-objective Optimization</title>
-      <link>http://ic.unicamp.br/mraimundo/projects/moo/</link>
+      <link>http://localhost:1313/mraimundo/projects/moo/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/projects/moo/</guid>
+      <guid>http://localhost:1313/mraimundo/projects/moo/</guid>
       <description>&lt;p&gt;This project addresses the fundamental mathematical challenge of optimizing vector-valued functions without reducing them to a single scalar objective a priori. The core research question is: &lt;strong&gt;how do we define and efficiently follow a descent direction when objectives conflict?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;While scalar optimization relies on setting the gradient to zero, multi-objective optimization operates under the &lt;strong&gt;Karush-Kuhn-Tucker (KKT)&lt;/strong&gt; conditions for Pareto optimality. Our research focuses on developing rigorous, efficient algorithms to reach these stationary points in continuous, differentiable spaces.&lt;/p&gt;
 &lt;h3 id=&#34;key-research-topics&#34;&gt;Key Research Topics:&lt;/h3&gt;

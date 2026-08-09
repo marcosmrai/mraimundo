@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Amir Jalilifard | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/authors/amir-jalilifard/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/authors/amir-jalilifard/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/authors/amir-jalilifard/</link>
+      <atom:link href="http://localhost:1313/mraimundo/authors/amir-jalilifard/index.xml" rel="self" type="application/rss+xml" />
     <description>Amir Jalilifard</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Amir Jalilifard</title>
-      <link>http://ic.unicamp.br/mraimundo/authors/amir-jalilifard/</link>
+      <link>http://localhost:1313/mraimundo/authors/amir-jalilifard/</link>
     </image>
     
     <item>
       <title>Reasoning Distillation and Structural Alignment for Improved Code Generation</title>
-      <link>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</link>
+      <link>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</guid>
+      <guid>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</guid>
       <description></description>
     </item>
     

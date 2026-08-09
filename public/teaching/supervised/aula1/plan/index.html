@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: August 6, 2026 --><html lang="en-us" >
+
+
+<head><script src="/mraimundo/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=mraimundo/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/mraimundo/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mraimundo/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/mraimundo/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/mraimundo/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Marcos M. Raimundo" />
+
+
+
+
+
+  
+
+<meta name="description" content="Position in the Course This lesson establishes the thesis that the remaining eleven lessons will elaborate: every supervised algorithm is a distributional assumption, a likelihood, and a decision rule. Lesson 1 makes all three visible at once, in the simplest possible setting — a single continuous feature on a bounded interval and two classes — so that later lessons can add dimensions, non-linearity, and optimization machinery without the student losing sight of the underlying structure.
+" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/mraimundo/teaching/supervised/aula1/plan/" />
+<link rel="canonical" href="http://localhost:1313/mraimundo/teaching/supervised/aula1/plan/" />
+
+
+
+  <link rel="manifest" href="/mraimundo/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/mraimundo/media/icon_hu_5cf9d8fdd8df3b57.png" />
+<link rel="apple-touch-icon" type="image/png" href="/mraimundo/media/icon_hu_c58c21d2f6d42643.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+
+  <meta property="twitter:site" content="@GetResearchDev" />
+  <meta property="twitter:creator" content="@GetResearchDev" />
+<meta property="twitter:image" content="http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png" />
+
+
+
+  
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Marcos M. Raimundo" />
+<meta property="og:url" content="http://localhost:1313/mraimundo/teaching/supervised/aula1/plan/" />
+<meta property="og:title" content="Marcos M. Raimundo" />
+<meta property="og:description" content="Position in the Course
+This lesson establishes the thesis that the remaining eleven lessons will elaborate: every supervised algorithm is a distributional assumption, a likelihood, and a decision rule. Lesson 1 makes all three visible at once, in the simplest possible setting — a single continuous feature on a bounded interval and two classes — so that later lessons can add dimensions, non-linearity, and optimization machinery without the student losing sight of the underlying structure." /><meta property="og:image" content="http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png" /><meta property="og:locale" content="en-us" />
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Marcos M. Raimundo</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="fd6320835d690609d1c432034da63acb" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/mraimundo/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/mraimundo/">Marcos M. Raimundo</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/mraimundo/">Marcos M. Raimundo</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/teaching"><span>Teaching</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/people"><span>People</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/event"><span>Events</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/publication"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1></h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 1, 0001
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h2 id="position-in-the-course">Position in the Course</h2>
+<p>This lesson establishes the thesis that the remaining eleven lessons will elaborate: <strong>every supervised algorithm is a distributional assumption, a likelihood, and a decision rule.</strong> Lesson 1 makes all three visible at once, in the simplest possible setting — a single continuous feature on a bounded interval and two classes — so that later lessons can add dimensions, non-linearity, and optimization machinery without the student losing sight of the underlying structure.</p>
+<p>The deliberate choice of a <strong>one-dimensional</strong> problem is what makes this possible: the decision boundary is a single number, the error probabilities are literal areas under two curves, and the trade-off between them can be drawn on the board rather than asserted.</p>
+<hr>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Basic calculus (integration, change of variables), elementary probability (random variables, expectation, variance), and familiarity with Python and NumPy/SciPy. No prior exposure to machine learning is assumed.</p>
+<hr>
+<h2 id="required-reading">Required Reading</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Topic</th>
+					<th>Source</th>
+					<th>Section</th>
+					<th>Pages</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Motivating screening example, Bayes&rsquo; theorem</td>
+					<td>Bishop &amp; Bishop (2024)</td>
+					<td>§2.1.1, §2.1.3–2.1.5</td>
+					<td>25–31</td>
+			</tr>
+			<tr>
+					<td>Probability densities, normalization</td>
+					<td>Bishop &amp; Bishop (2024)</td>
+					<td>§2.2, §2.2.1</td>
+					<td>32–34</td>
+			</tr>
+			<tr>
+					<td>Beta distribution and its shapes</td>
+					<td>Bishop (2006)</td>
+					<td>§2.1.1</td>
+					<td>71–74</td>
+			</tr>
+			<tr>
+					<td>Decision theory, misclassification rate</td>
+					<td>Bishop (2006)</td>
+					<td>§1.5, §1.5.1</td>
+					<td>38–41</td>
+			</tr>
+			<tr>
+					<td>Expected loss and the reject option</td>
+					<td>Bishop (2006)</td>
+					<td>§1.5.2–1.5.3</td>
+					<td>41–42</td>
+			</tr>
+			<tr>
+					<td>Misclassification rate (modern treatment)</td>
+					<td>Bishop &amp; Bishop (2024)</td>
+					<td>§5.2.1–5.2.3</td>
+					<td>139–143</td>
+			</tr>
+			<tr>
+					<td>Confusion matrix, precision, recall, FPR</td>
+					<td>Bishop &amp; Bishop (2024)</td>
+					<td>§5.2.5</td>
+					<td>147–148</td>
+			</tr>
+			<tr>
+					<td>ROC curve</td>
+					<td>Bishop &amp; Bishop (2024)</td>
+					<td>§5.2.6</td>
+					<td>148–150</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>Two notes on the sources.</strong> First, the 2024 <em>Deep Learning</em> book does <strong>not</strong> cover the Beta distribution — Chapter 3 goes straight from Bernoulli and binomial to the multivariate Gaussian. All Beta material must come from PRML §2.1.1. Second, PRML introduces the Beta as a <em>conjugate prior over the parameter</em> \(\mu\) of a Bernoulli, not as a density over observed data. This lesson repurposes it as a data model for bounded observations \(x \in [0,1]\). The mathematics is identical; the interpretation is not, and the difference should be stated explicitly in class rather than glossed over.</p>
+<hr>
+<h2 id="content-sequence">Content Sequence</h2>
+<p>Timings assume a single 100-minute session and should be treated as proportions, not commitments.</p>
+<h3 id="block-0--why-probability-comes-first-10-min">Block 0 — Why probability comes first (10 min)</h3>
+<p>Open with the medical screening example (Bishop &amp; Bishop, §2.1.1, pp. 25–26, revisited in §2.1.4, p. 30). A test with a 90% detection rate for a disease affecting 1 in 100 people, applied to a person who tests positive, gives a posterior probability of disease far lower than most students expect.</p>
+<p>The pedagogical value is that <strong>a classifier already exists before any algorithm is introduced.</strong> Bayes&rsquo; theorem alone converts a class-conditional model plus a prior into a decision. Everything that follows in the course is machinery for estimating those two ingredients when the problem is harder.</p>
+<h3 id="block-1--from-counts-to-densities-15-min">Block 1 — From counts to densities (15 min)</h3>
+<p>Move from the discrete screening example to a continuous feature. Cover the normalization and non-negativity conditions (Bishop &amp; Bishop, §2.2, pp. 32–33, eqs. 2.27–2.28) and insist on the distinction between a <strong>density</strong> and a <strong>probability</strong>: \(p(x)\) may exceed 1, only \(\int p(x),dx\) is constrained.</p>
+<p>Then motivate the choice of support. Credit scores, default rates, click-through rates, proportions, and normalized measurements live in \([0,1]\). A Gaussian fitted to such data assigns positive mass outside the feasible region and produces thresholds that can fall outside the domain. <strong>The support of the model is a modelling decision, not a technicality.</strong></p>
+<h3 id="block-2--the-beta-distribution-20-min">Block 2 — The Beta distribution (20 min)</h3>
+<p>Introduce \(\text{Beta}(x \mid a, b)\) (PRML eq. 2.13, p. 71), with its normalization via the Gamma function. Walk through the shape gallery in PRML Figure 2.2 (p. 72), which is the single most useful image of the lesson:</p>
+<ul>
+<li>\(a, b &lt; 1\) — U-shaped, mass concentrated at both endpoints</li>
+<li>\(a = b = 1\) — uniform</li>
+<li>\(a, b &gt; 1\) — unimodal, with skew controlled by the ratio \(a/b\)</li>
+</ul>
+<p>State the mean, variance, and mode (PRML Exercise 2.6, p. 129). Then address fitting honestly:</p>
+<ul>
+<li><strong>Maximum likelihood has no closed form.</strong> The stationarity conditions involve digamma functions and require numerical solution. Do not promise students a formula that does not exist.</li>
+<li><strong>Method of moments does have one.</strong> With sample mean \(m\) and sample variance \(v\) satisfying \(v &lt; m(1-m)\):
+\(\hat{a} = m\left(\frac{m(1-m)}{v} - 1\right)\), \(\hat{b} = (1-m)\left(\frac{m(1-m)}{v} - 1\right)\).</li>
+</ul>
+<p>This is a good first encounter with the idea that estimators differ, and that closed form and optimality are not the same property — a theme that returns in Lessons 5 and 7.</p>
+<h3 id="block-3--one-class-anomaly-as-a-tail-event-15-min">Block 3 — One class: anomaly as a tail event (15 min)</h3>
+<p>Fit a Beta to <em>normal</em> observations only and define the exclusion region as a low-probability set — either a tail \({x &gt; t}\) or a level set \({x : p(x) &lt; \lambda}\). The threshold is then a <strong>quantile of the fitted model</strong>, and the false-alarm rate is \(\alpha\) by construction.</p>
+<p>Then make the limitation explicit: <strong>with a single fitted density, the Type II error is not defined.</strong> There is no model of what an anomaly looks like, so the probability of missing one cannot be computed. Students routinely miss this. Stating it here is what motivates the next block rather than making it feel like a repetition.</p>
+<h3 id="block-4--two-classes-overlapping-densities-25-min">Block 4 — Two classes: overlapping densities (25 min)</h3>
+<p>Introduce class-conditional densities \(p(x \mid \mathcal{C}_1) = \text{Beta}(x \mid a_1, b_1)\) and \(p(x \mid \mathcal{C}_2) = \text{Beta}(x \mid a_2, b_2)\) with priors \(\pi_1, \pi_2\), and form the joints \(p(x, \mathcal{C}_k)\).</p>
+<p>Reproduce the region argument of PRML Figure 1.24 (p. 40) on the board. As the boundary \(\hat{x}\) moves, the combined area of two of the error regions stays constant while a third shrinks to zero exactly when \(\hat{x}\) sits at the crossing point of the two joint curves — which is precisely the rule &ldquo;assign \(x\) to the class with the larger posterior \(p(\mathcal{C}_k \mid x)\)&rdquo; (PRML §1.5.1, pp. 39–41).</p>
+<p><strong>Emphasize that Figure 1.24 plots joint distributions, not class-conditionals.</strong> The area interpretation of the errors only works once the priors have been folded in. This is one of the most common sources of confusion in the entire lesson.</p>
+<p>Both error probabilities are now well defined and, for the Beta, available in closed form through the regularized incomplete beta function \(I_t(a,b)\):</p>
+<ul>
+<li>Type I (false positive): \(P(x &gt; t \mid \mathcal{C}_1) = 1 - I_t(a_1, b_1)\)</li>
+<li>Type II (false negative): \(P(x \le t \mid \mathcal{C}_2) = I_t(a_2, b_2)\)</li>
+</ul>
+<p>Flag the terminological point: &ldquo;Type I&rdquo; and &ldquo;Type II&rdquo; are hypothesis-testing labels and require a designated null. In anomaly detection the null is &ldquo;normal&rdquo;; in a symmetric two-class problem the labelling is a convention that must be announced.</p>
+<h3 id="block-5--quantifying-and-trading-off-the-errors-25-min">Block 5 — Quantifying and trading off the errors (25 min)</h3>
+<p>Build the confusion matrix and define precision, recall, false positive rate, and false discovery rate (Bishop &amp; Bishop, §5.2.5, eqs. 5.30–5.33, pp. 147–148). Use their own cautionary example: with 1 case in 1,000, a classifier that predicts &ldquo;negative&rdquo; for everyone reaches 99.9% accuracy and is useless. <strong>Accuracy is not a scalar summary of a decision problem.</strong></p>
+<p>Then sweep the threshold and trace the ROC curve (§5.2.6, pp. 148–150), presenting it as <em>the locus of achievable operating points for a fixed pair of fitted densities</em>. The curve is a property of the model; the point chosen on it is a property of the application.</p>
+<p>Close the block by making the cost structure explicit:</p>
+<ul>
+<li><strong>Expected loss</strong> with an asymmetric loss matrix (PRML §1.5.2, p. 41; Bishop &amp; Bishop §5.2.2, p. 140). The crossing condition becomes cost-weighted: the boundary satisfies \(\pi_1 L_{12}, p(t \mid \mathcal{C}<em>1) = \pi_2 L</em>{21}, p(t \mid \mathcal{C}_2)\), so raising the cost of a missed detection pushes the threshold in a predictable direction.</li>
+<li><strong>The reject option</strong> (PRML §1.5.3, p. 42; Bishop &amp; Bishop §5.2.3, p. 142), as the admission that abstaining is sometimes the lowest-loss action.</li>
+</ul>
+<h3 id="block-6--closing-and-bridge-5-min">Block 6 — Closing and bridge (5 min)</h3>
+<p>The take-away to state in one sentence: <strong>a decision threshold is not a hyperparameter to be tuned blindly — it is the solution to an optimization problem defined by the fitted densities, the priors, and the loss.</strong></p>
+<p>Bridge to Lesson 2: everything here rested on one feature. With many features the class-conditional density becomes a high-dimensional object, and Naive Bayes is the first structural assumption introduced to make it estimable.</p>
+<hr>
+<h2 id="derivations-to-carry-out-on-the-board">Derivations to Carry Out on the Board</h2>
+<ol>
+<li><strong>Normalization of the Beta distribution</strong> (PRML Exercise 2.5, p. 128) — the change of variables through the Gamma function. Assign as reading rather than deriving in full if time is short.</li>
+<li><strong>Mean and variance of the Beta, then inversion to method-of-moments estimators</strong> (PRML Exercise 2.6, p. 129). Short and gives the students a working estimator by the end of the class.</li>
+<li><strong>The minimum-misclassification boundary</strong> as the crossing point of the joint densities (PRML eqs. 1.78–1.79, pp. 39–40).</li>
+<li><strong>How the boundary moves under an asymmetric loss matrix</strong> — a two-line modification of derivation 3 that changes the practical answer completely.</li>
+</ol>
+<hr>
+<h2 id="computational-lab">Computational Lab</h2>
+<p>A single notebook, run in the second half or assigned immediately after:</p>
+<ol>
+<li>Simulate (or load) a bounded feature for two populations; plot histograms against fitted Beta densities.</li>
+<li>Fit by method of moments and by numerical MLE (<code>scipy.stats.beta.fit</code>); compare the estimates and discuss the discrepancy.</li>
+<li>Compute Type I and Type II error rates analytically via <code>scipy.stats.beta.cdf</code> and verify them empirically by simulation.</li>
+<li>Sweep the threshold, plot the ROC curve, and mark three operating points: minimum total error, a fixed false-alarm budget of \(\alpha = 0.05\), and the minimum-expected-loss point under a 10:1 cost asymmetry.</li>
+<li>Repeat step 4 with a strongly imbalanced prior and observe how the optimal threshold and the ROC curve respond differently — the ROC is invariant to the class prior, the chosen operating point is not.</li>
+</ol>
+<p>Step 5 is the intellectual pay-off of the lab and should not be cut.</p>
+<hr>
+<h2 id="suggested-exercises">Suggested Exercises</h2>
+<ul>
+<li><strong>PRML 2.5</strong> (p. 128) — normalization of the Beta.</li>
+<li><strong>PRML 2.6</strong> (p. 129) — mean, variance, and mode of the Beta.</li>
+<li><strong>PRML 1.24</strong> (p. 64) — minimum expected loss with a reject option, and the relationship between the rejection cost and the rejection threshold.</li>
+<li><strong>Course exercise:</strong> given two fitted Betas and a cost ratio, solve numerically for the optimal threshold and show it coincides with the tangency point on the ROC curve.</li>
+</ul>
+<hr>
+<h2 id="teaching-notes-and-common-pitfalls">Teaching Notes and Common Pitfalls</h2>
+<ul>
+<li><strong>Densities are not probabilities.</strong> Expect at least one student to be troubled by a Beta density taking values above 1.</li>
+<li><strong>Exact 0s and 1s break the Beta likelihood</strong> when \(a &lt; 1\) or \(b &lt; 1\), since the density diverges at the endpoints. Real bounded data frequently contains exact zeros. Mention clipping and zero/one-inflated models as the honest fixes; do not let students discover this silently in the lab.</li>
+<li><strong>The Beta-as-prior versus Beta-as-data-model distinction</strong> (see the reading notes above) will confuse anyone who reads PRML §2.1.1 without warning.</li>
+<li><strong>Joint versus class-conditional densities</strong> in PRML Figure 1.24 — restate this at least twice.</li>
+<li><strong>&ldquo;Type I&rdquo; and &ldquo;Type II&rdquo; require a designated null hypothesis.</strong> Announce the convention before using the terms.</li>
+<li>Resist the temptation to introduce the likelihood ratio formally here. It is the natural object, but it lands better in Lesson 2 once Bayes&rsquo; theorem has been developed in the multidimensional setting.</li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula1%2Fplan%2F&amp;text=" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula1%2Fplan%2F&amp;t=" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula1%2Fplan%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula1%2Fplan%2F&amp;title=" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=%20http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula1%2Fplan%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula1%2Fplan%2F&amp;title=" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="/mraimundo/authors/admin/"><img class="avatar mr-3 avatar-circle" src="/mraimundo/authors/admin/avatar_hu_cf7b5f173f3aefc3.jpg" alt="Marcos M. Raimundo"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/mraimundo/authors/admin/">Marcos M. Raimundo</a></h5>
+      <h6 class="card-subtitle">Professor of Machine Learning and Optimization</h6>
+      <p class="card-text">My research interests include Machine Learning, Multi-objective Optimization, Ethical AI, mathematical programming.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com.br/citations?user=ibe0jfQAAAAJ&amp;hl=pt-BR" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/marcosmrai" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/marcos-medeiros-raimundo-866b8731/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://lattes.cnpq.br/1605909137233786" target="_blank" rel="noopener">
+        <i class="ai ai-lattes"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/marcosmrai" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2026 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/mraimundo/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/mraimundo/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/mraimundo/en/js/wowchemy.min.js"></script>
+
+
+
+  <script src="/mraimundo/js/wowchemy-map.js" type="module"></script>
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/mraimundo/js/wowchemy-publication.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

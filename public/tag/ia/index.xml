@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IA | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/tag/ia/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/tag/ia/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/tag/ia/</link>
+      <atom:link href="http://localhost:1313/mraimundo/tag/ia/index.xml" rel="self" type="application/rss+xml" />
     <description>IA</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 04 Jun 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>IA</title>
-      <link>http://ic.unicamp.br/mraimundo/tag/ia/</link>
+      <link>http://localhost:1313/mraimundo/tag/ia/</link>
     </image>
     
     <item>
       <title>Aprendizado de Máquina Ético (2022/2023) - Ethical ML</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</link>
+      <link>http://localhost:1313/mraimundo/teaching/ai_ethics_2022/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/ai_ethics_2022/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;

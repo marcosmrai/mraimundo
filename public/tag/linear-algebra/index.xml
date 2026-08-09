@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linear Algebra | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/tag/linear-algebra/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/tag/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/tag/linear-algebra/</link>
+      <atom:link href="http://localhost:1313/mraimundo/tag/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
     <description>Linear Algebra</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Linear Algebra</title>
-      <link>http://ic.unicamp.br/mraimundo/tag/linear-algebra/</link>
+      <link>http://localhost:1313/mraimundo/tag/linear-algebra/</link>
     </image>
     
     <item>
       <title>Optimization and Linear Algebra for Machine Learning</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/ml_algebra/</link>
+      <link>http://localhost:1313/mraimundo/teaching/algebra_opt/</link>
       <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/ml_algebra/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/algebra_opt/</guid>
       <description>&lt;p&gt;This course explores the mathematical foundations of Machine Learning, bridging theoretical Linear Algebra and Continuous Optimization with modern algorithmic design. Rather than treating mathematics as an isolated abstract exercise, concepts are introduced strictly in tandem with their practical utility in machine learning models, scaling from classical closed-form estimators to state-of-the-art neural network optimizers.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The primary goal is to provide students with a deep geometric and analytical understanding of how machine learning models process data and navigate error landscapes. By the end of the course, students will be able to translate abstract machine learning objectives into formal optimization problems, analyze convergence guarantees, understand preconditioned search spaces, handle non-smooth regularization, and write clean, vectorized Python code to implement algorithms from first principles.&lt;/p&gt;

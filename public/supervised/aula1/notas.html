@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Marcos M. Raimundo">
+
+<title>Classificação Probabilística em Uma Dimensão</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dca9e17680a415f620e26ecc8e6b02a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#posição-desta-aula-no-curso" id="toc-posição-desta-aula-no-curso" class="nav-link active" data-scroll-target="#posição-desta-aula-no-curso">Posição desta aula no curso</a></li>
+  <li><a href="#por-que-a-probabilidade-vem-primeiro" id="toc-por-que-a-probabilidade-vem-primeiro" class="nav-link" data-scroll-target="#por-que-a-probabilidade-vem-primeiro"><span class="header-section-number">1</span> Por que a probabilidade vem primeiro</a></li>
+  <li><a href="#de-contagens-a-densidades" id="toc-de-contagens-a-densidades" class="nav-link" data-scroll-target="#de-contagens-a-densidades"><span class="header-section-number">2</span> De contagens a densidades</a>
+  <ul class="collapse">
+  <li><a href="#densidade-não-é-probabilidade" id="toc-densidade-não-é-probabilidade" class="nav-link" data-scroll-target="#densidade-não-é-probabilidade"><span class="header-section-number">2.1</span> Densidade não é probabilidade</a></li>
+  <li><a href="#o-suporte-é-uma-decisão-de-modelagem" id="toc-o-suporte-é-uma-decisão-de-modelagem" class="nav-link" data-scroll-target="#o-suporte-é-uma-decisão-de-modelagem"><span class="header-section-number">2.2</span> O suporte é uma decisão de modelagem</a></li>
+  </ul></li>
+  <li><a href="#bloco-2-a-distribuição-beta" id="toc-bloco-2-a-distribuição-beta" class="nav-link" data-scroll-target="#bloco-2-a-distribuição-beta"><span class="header-section-number">3</span> Bloco 2 — A distribuição Beta</a>
+  <ul class="collapse">
+  <li><a href="#definição" id="toc-definição" class="nav-link" data-scroll-target="#definição"><span class="header-section-number">3.1</span> Definição</a></li>
+  <li><a href="#a-galeria-de-formas" id="toc-a-galeria-de-formas" class="nav-link" data-scroll-target="#a-galeria-de-formas"><span class="header-section-number">3.2</span> A galeria de formas</a></li>
+  <li><a href="#momentos" id="toc-momentos" class="nav-link" data-scroll-target="#momentos"><span class="header-section-number">3.3</span> Momentos</a></li>
+  <li><a href="#ajuste-duas-rotas-honestamente" id="toc-ajuste-duas-rotas-honestamente" class="nav-link" data-scroll-target="#ajuste-duas-rotas-honestamente"><span class="header-section-number">3.4</span> Ajuste: duas rotas, honestamente</a></li>
+  </ul></li>
+  <li><a href="#bloco-3-uma-classe-anomalia-como-evento-de-cauda" id="toc-bloco-3-uma-classe-anomalia-como-evento-de-cauda" class="nav-link" data-scroll-target="#bloco-3-uma-classe-anomalia-como-evento-de-cauda"><span class="header-section-number">4</span> Bloco 3 — Uma classe: anomalia como evento de cauda</a>
+  <ul class="collapse">
+  <li><a href="#a-limitação-que-motiva-o-bloco-seguinte" id="toc-a-limitação-que-motiva-o-bloco-seguinte" class="nav-link" data-scroll-target="#a-limitação-que-motiva-o-bloco-seguinte"><span class="header-section-number">4.1</span> A limitação que motiva o bloco seguinte</a></li>
+  </ul></li>
+  <li><a href="#bloco-4-duas-classes-densidades-sobrepostas" id="toc-bloco-4-duas-classes-densidades-sobrepostas" class="nav-link" data-scroll-target="#bloco-4-duas-classes-densidades-sobrepostas"><span class="header-section-number">5</span> Bloco 4 — Duas classes: densidades sobrepostas</a>
+  <ul class="collapse">
+  <li><a href="#o-argumento-de-regiões-prml-fig.-1.24-p.-40" id="toc-o-argumento-de-regiões-prml-fig.-1.24-p.-40" class="nav-link" data-scroll-target="#o-argumento-de-regiões-prml-fig.-1.24-p.-40"><span class="header-section-number">5.1</span> O argumento de regiões (PRML Fig. 1.24, p.&nbsp;40)</a></li>
+  <li><a href="#os-dois-erros-em-forma-fechada" id="toc-os-dois-erros-em-forma-fechada" class="nav-link" data-scroll-target="#os-dois-erros-em-forma-fechada"><span class="header-section-number">5.2</span> Os dois erros, em forma fechada</a></li>
+  </ul></li>
+  <li><a href="#bloco-5-quantificando-e-negociando-os-erros" id="toc-bloco-5-quantificando-e-negociando-os-erros" class="nav-link" data-scroll-target="#bloco-5-quantificando-e-negociando-os-erros"><span class="header-section-number">6</span> Bloco 5 — Quantificando e negociando os erros</a>
+  <ul class="collapse">
+  <li><a href="#a-matriz-de-confusão-e-suas-razões" id="toc-a-matriz-de-confusão-e-suas-razões" class="nav-link" data-scroll-target="#a-matriz-de-confusão-e-suas-razões"><span class="header-section-number">6.1</span> A matriz de confusão e suas razões</a></li>
+  <li><a href="#a-curva-roc" id="toc-a-curva-roc" class="nav-link" data-scroll-target="#a-curva-roc"><span class="header-section-number">6.2</span> A curva ROC</a></li>
+  <li><a href="#perda-esperada-e-limiar-deslocado" id="toc-perda-esperada-e-limiar-deslocado" class="nav-link" data-scroll-target="#perda-esperada-e-limiar-deslocado"><span class="header-section-number">6.3</span> Perda esperada e limiar deslocado</a></li>
+  <li><a href="#a-opção-de-rejeição" id="toc-a-opção-de-rejeição" class="nav-link" data-scroll-target="#a-opção-de-rejeição"><span class="header-section-number">6.4</span> A opção de rejeição</a></li>
+  </ul></li>
+  <li><a href="#bloco-6-fechamento-e-ponte" id="toc-bloco-6-fechamento-e-ponte" class="nav-link" data-scroll-target="#bloco-6-fechamento-e-ponte"><span class="header-section-number">7</span> Bloco 6 — Fechamento e ponte</a></li>
+  <li><a href="#conexão-com-o-estado-da-arte" id="toc-conexão-com-o-estado-da-arte" class="nav-link" data-scroll-target="#conexão-com-o-estado-da-arte"><span class="header-section-number">8</span> Conexão com o estado da arte</a>
+  <ul class="collapse">
+  <li><a href="#a-rede-neural-é-a-mesma-equação" id="toc-a-rede-neural-é-a-mesma-equação" class="nav-link" data-scroll-target="#a-rede-neural-é-a-mesma-equação"><span class="header-section-number">8.1</span> A rede neural é a mesma equação</a></li>
+  <li><a href="#calibração" id="toc-calibração" class="nav-link" data-scroll-target="#calibração"><span class="header-section-number">8.2</span> Calibração</a></li>
+  <li><a href="#abstenção-em-modelos-de-larga-escala" id="toc-abstenção-em-modelos-de-larga-escala" class="nav-link" data-scroll-target="#abstenção-em-modelos-de-larga-escala"><span class="header-section-number">8.3</span> Abstenção em modelos de larga escala</a></li>
+  <li><a href="#suporte-limitado-e-caudas-de-volta" id="toc-suporte-limitado-e-caudas-de-volta" class="nav-link" data-scroll-target="#suporte-limitado-e-caudas-de-volta"><span class="header-section-number">8.4</span> Suporte limitado e caudas, de volta</a></li>
+  <li><a href="#um-exemplo-doméstico-escoragem-de-crédito" id="toc-um-exemplo-doméstico-escoragem-de-crédito" class="nav-link" data-scroll-target="#um-exemplo-doméstico-escoragem-de-crédito"><span class="header-section-number">8.5</span> Um exemplo doméstico: escoragem de crédito</a></li>
+  </ul></li>
+  <li><a href="#derivações-para-o-quadro" id="toc-derivações-para-o-quadro" class="nav-link" data-scroll-target="#derivações-para-o-quadro"><span class="header-section-number">9</span> Derivações para o quadro</a></li>
+  <li><a href="#laboratório-computacional" id="toc-laboratório-computacional" class="nav-link" data-scroll-target="#laboratório-computacional"><span class="header-section-number">10</span> Laboratório computacional</a></li>
+  <li><a href="#exercícios-sugeridos" id="toc-exercícios-sugeridos" class="nav-link" data-scroll-target="#exercícios-sugeridos"><span class="header-section-number">11</span> Exercícios sugeridos</a></li>
+  <li><a href="#notas-didáticas-e-armadilhas-comuns" id="toc-notas-didáticas-e-armadilhas-comuns" class="nav-link" data-scroll-target="#notas-didáticas-e-armadilhas-comuns"><span class="header-section-number">12</span> Notas didáticas e armadilhas comuns</a>
+  <ul class="collapse">
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Outros formatos</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Classificação Probabilística em Uma Dimensão</h1>
+<p class="subtitle lead">Aula 1 — Densidades, Verossimilhança e Regras de Decisão</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Marcos M. Raimundo </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="posição-desta-aula-no-curso" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="posição-desta-aula-no-curso">Posição desta aula no curso</h2>
+<p>Esta primeira aula estabelece a tese que as onze aulas seguintes vão apenas elaborar: <strong>todo algoritmo supervisionado é, simultaneamente, uma hipótese distribucional, uma verossimilhança e uma regra de decisão.</strong> A escolha de um problema <em>unidimensional</em> não é uma simplificação didática gratuita — é o que permite tornar as três coisas visíveis ao mesmo tempo. Com uma única variável contínua em <span class="math inline">\([0,1]\)</span> e duas classes, a fronteira de decisão é um número, as probabilidades de erro são literalmente áreas sob duas curvas, e o compromisso entre elas pode ser <em>desenhado</em> em vez de apenas afirmado.</p>
+<p><strong>Pré-requisitos.</strong> Cálculo básico (integração, mudança de variáveis), probabilidade elementar (variáveis aleatórias, esperança, variância) e familiaridade com Python/NumPy/SciPy. Nenhuma exposição prévia a aprendizado de máquina é assumida.</p>
+<p><strong>Leituras.</strong> Bishop &amp; Bishop (2024), §2.1.1, §2.1.3–2.1.5 (pp.&nbsp;25–31), §2.2–2.2.1 (pp.&nbsp;32–34), §5.2.1–5.2.3 (pp.&nbsp;139–143), §5.2.5 (pp.&nbsp;147–148), §5.2.6 (pp.&nbsp;148–150); Bishop (2006, PRML), §2.1.1 (pp.&nbsp;71–74), §1.5–1.5.3 (pp.&nbsp;38–42).</p>
+<blockquote class="blockquote">
+<p><strong>Duas advertências sobre as fontes.</strong> (i) O livro de 2024 <strong>não</strong> cobre a distribuição Beta — o Capítulo 3 vai de Bernoulli/binomial direto para a Gaussiana multivariada. Todo o material sobre a Beta vem do PRML §2.1.1. (ii) O PRML introduz a Beta como <em>priori conjugada sobre o parâmetro</em> <span class="math inline">\(\mu\)</span> de uma Bernoulli, e <strong>não</strong> como densidade sobre dados observados. Nesta aula ela é reaproveitada como modelo de dados para observações limitadas <span class="math inline">\(x \in [0,1]\)</span>. A matemática é idêntica; a interpretação não é, e essa diferença deve ser dita em voz alta, não varrida para debaixo do tapete.</p>
+</blockquote>
+</section>
+<section id="por-que-a-probabilidade-vem-primeiro" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Por que a probabilidade vem primeiro</h1>
+<p>Antes de qualquer algoritmo, antes de qualquer otimização, <strong>um classificador já existe</strong>. Ele é dado pelo teorema de Bayes, e o exemplo canônico é o de rastreamento médico (Bishop &amp; Bishop, §2.1.1, pp.&nbsp;25–26, retomado em §2.1.4, p.&nbsp;30).</p>
+<p>Considere uma doença que afeta 1 em cada 100 pessoas. Um teste detecta 90% dos casos verdadeiramente doentes (sensibilidade) e produz um resultado positivo em 3% das pessoas saudáveis (taxa de falso positivo). Uma pessoa testa positivo. Qual a probabilidade de que ela esteja de fato doente?</p>
+<p>Sejam <span class="math inline">\(\mathcal{C}_1\)</span> = “saudável”, <span class="math inline">\(\mathcal{C}_2\)</span> = “doente”, e <span class="math inline">\(t=+\)</span> o evento “teste positivo”. Os ingredientes são:</p>
+<p><span class="math display">\[
+p(\mathcal{C}_2) = 0{,}01, \qquad
+p(+ \mid \mathcal{C}_2) = 0{,}90, \qquad
+p(+ \mid \mathcal{C}_1) = 0{,}03 .
+\]</span></p>
+<p>O teorema de Bayes é a identidade</p>
+<p><span class="math display">\[
+p(\mathcal{C}_k \mid t) \;=\; \frac{p(t \mid \mathcal{C}_k)\, p(\mathcal{C}_k)}{p(t)},
+\qquad
+p(t) \;=\; \sum_{j} p(t \mid \mathcal{C}_j)\, p(\mathcal{C}_j),
+\]</span></p>
+<p>que nada mais é do que a definição de probabilidade condicional lida em duas direções, mais a regra da soma no denominador. Numericamente:</p>
+<p><span class="math display">\[
+p(\mathcal{C}_2 \mid +) \;=\;
+\frac{0{,}90 \times 0{,}01}{0{,}90 \times 0{,}01 + 0{,}03 \times 0{,}99}
+\;=\; \frac{0{,}0090}{0{,}0387} \;\approx\; 0{,}233 .
+\]</span></p>
+<p>Um teste com 90% de sensibilidade, aplicado a alguém que testou positivo, deixa essa pessoa com <strong>menos de um quarto</strong> de probabilidade de estar doente. O resultado desconcerta praticamente todos os estudantes na primeira exposição, e a razão é conhecida: a intuição desloca a atenção para <span class="math inline">\(p(+ \mid \mathcal{C}_2)\)</span> e ignora a <em>priori</em> <span class="math inline">\(p(\mathcal{C}_2)\)</span>, um viés cognitivo suficientemente estável para ter nome próprio (<em>base rate neglect</em>).</p>
+<p><strong>O valor pedagógico é outro, porém.</strong> Note o que foi necessário para construir esse classificador: (i) um modelo condicional à classe, <span class="math inline">\(p(t \mid \mathcal{C}_k)\)</span>; (ii) uma priori, <span class="math inline">\(p(\mathcal{C}_k)\)</span>; (iii) uma regra que converte a posteriori em ação. Nenhum “treinamento” aconteceu. Nenhuma função de perda foi minimizada por gradiente. Todo o resto do curso é <strong>maquinário para estimar (i) e (ii) quando o problema é mais difícil</strong> — quando <span class="math inline">\(x\)</span> é contínuo, multidimensional, estruturado — e para escolher (iii) quando os erros têm custos diferentes.</p>
+<p>A dependência do resultado com a prevalência é violenta, e vale plotá-la: o mesmo teste, aplicado a uma população de risco em vez de à população geral, é um instrumento completamente diferente.</p>
+<div id="c8c74bc2" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-3-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="891" height="476"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A curva acima é a mensagem do bloco em forma gráfica: a qualidade do teste (sensibilidade e especificidade) é fixa ao longo de todo o eixo horizontal. O que muda é a priori. Um classificador é a composição de um modelo de observação com uma crença sobre a população — e ignorar a segunda parte produz sistemas que funcionam no laboratório e falham em produção.</p>
+<hr>
+</section>
+<section id="de-contagens-a-densidades" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> De contagens a densidades</h1>
+<p>O exemplo do rastreamento é discreto: o teste dá positivo ou negativo. O passo seguinte é substituir esse resultado binário por uma medida contínua — um escore, uma concentração, uma proporção. Isso exige trocar probabilidades por <strong>densidades</strong>.</p>
+<section id="densidade-não-é-probabilidade" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="densidade-não-é-probabilidade"><span class="header-section-number">2.1</span> Densidade não é probabilidade</h2>
+<p>Uma densidade <span class="math inline">\(p(x)\)</span> sobre a reta satisfaz duas condições (Bishop &amp; Bishop, §2.2, pp.&nbsp;32–33, eqs. 2.27–2.28):</p>
+<p><span class="math display">\[
+p(x) \ge 0
+\qquad\text{e}\qquad
+\int_{-\infty}^{\infty} p(x)\, \mathrm{d}x = 1 ,
+\]</span></p>
+<p>e a probabilidade de um intervalo é a integral</p>
+<p><span class="math display">\[
+P(a &lt; x \le b) \;=\; \int_a^b p(x)\, \mathrm{d}x .
+\]</span></p>
+<p>A consequência que causa desconforto: <strong><span class="math inline">\(p(x)\)</span> pode ser maior que 1</strong>. Não há nada de errado com uma densidade que vale 3 em algum ponto, desde que a área total seja 1. O único objeto restrito a <span class="math inline">\([0,1]\)</span> é a integral, não o integrando. Uma densidade tem unidade de “probabilidade por unidade de <span class="math inline">\(x\)</span>”; se <span class="math inline">\(x\)</span> é medido em milímetros, <span class="math inline">\(p(x)\)</span> tem unidade <span class="math inline">\(\text{mm}^{-1}\)</span> e muda de valor numérico se você passar a medir em metros. Probabilidades são adimensionais; densidades não.</p>
+<p>Formalmente, sob uma mudança de variável <span class="math inline">\(x = g(y)\)</span> a densidade se transforma com o jacobiano,</p>
+<p><span class="math display">\[
+p_y(y) \;=\; p_x\big(g(y)\big)\,\left| g'(y) \right| ,
+\]</span></p>
+<p>o que explica por que o <em>modo</em> de uma densidade não é invariante a reparametrizações — um ponto que voltará na Aula 5, quando discutirmos estimação por máximo a posteriori.</p>
+</section>
+<section id="o-suporte-é-uma-decisão-de-modelagem" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="o-suporte-é-uma-decisão-de-modelagem"><span class="header-section-number">2.2</span> O suporte é uma decisão de modelagem</h2>
+<p>Escores de crédito, taxas de inadimplência, <em>click-through rates</em>, proporções, frações de tempo, medidas normalizadas: uma quantidade enorme dos atributos com que trabalhamos vive em <span class="math inline">\([0,1]\)</span> por construção. Ajustar uma Gaussiana a esses dados tem três consequências, todas ruins:</p>
+<ol type="1">
+<li>o modelo atribui massa positiva fora da região viável, <span class="math inline">\(P(x&lt;0)+P(x&gt;1) &gt; 0\)</span>;</li>
+<li>quantis e limiares derivados do modelo podem cair fora do domínio, produzindo regras de decisão inexecutáveis;</li>
+<li>a simetria da Gaussiana é incompatível com a assimetria que dados limitados quase sempre exibem perto das bordas.</li>
+</ol>
+<p><strong>O suporte do modelo é uma decisão de modelagem, não um detalhe técnico.</strong> Escolher a família paramétrica <em>é</em> declarar o que se acredita sobre o fenômeno. Essa é a primeira das três componentes anunciadas na abertura do curso.</p>
+<div id="4d756372" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-4-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="944" height="489"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bloco-2-a-distribuição-beta" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Bloco 2 — A distribuição Beta</h1>
+<section id="definição" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="definição"><span class="header-section-number">3.1</span> Definição</h2>
+<p>A distribuição Beta (PRML eq. 2.13, p.&nbsp;71) é</p>
+<p><span class="math display">\[
+\mathrm{Beta}(x \mid a, b) \;=\;
+\frac{\Gamma(a+b)}{\Gamma(a)\,\Gamma(b)}\; x^{a-1}\,(1-x)^{b-1},
+\qquad x \in [0,1],\quad a&gt;0,\ b&gt;0 ,
+\]</span></p>
+<p>onde <span class="math inline">\(\Gamma(\cdot)\)</span> é a função Gama, <span class="math inline">\(\Gamma(z) = \int_0^\infty u^{z-1}e^{-u}\,\mathrm{d}u\)</span>, com a propriedade <span class="math inline">\(\Gamma(z+1) = z\,\Gamma(z)\)</span>. O fator <span class="math inline">\(B(a,b) = \Gamma(a)\Gamma(b)/\Gamma(a+b)\)</span> é a <em>função Beta</em>, e é exatamente a constante que normaliza o núcleo <span class="math inline">\(x^{a-1}(1-x)^{b-1}\)</span>.</p>
+<p><strong>Advertência de interpretação.</strong> No PRML esta densidade aparece como priori conjugada sobre o parâmetro <span class="math inline">\(\mu \in [0,1]\)</span> de uma Bernoulli. Aqui ela é usada como modelo de dados: <span class="math inline">\(x\)</span> é a <em>observação</em>, não um parâmetro. A álgebra é a mesma, o significado não. Se o aluno ler §2.1.1 sem esse aviso, vai passar a aula inteira tentando reconciliar duas leituras incompatíveis do mesmo símbolo.</p>
+</section>
+<section id="a-galeria-de-formas" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="a-galeria-de-formas"><span class="header-section-number">3.2</span> A galeria de formas</h2>
+<p>A Figura 2.2 do PRML (p.&nbsp;72) é a imagem mais útil desta aula. Três regimes:</p>
+<ul>
+<li><span class="math inline">\(a, b &lt; 1\)</span> — densidade em forma de U, com massa concentrada nos <strong>dois</strong> extremos e divergência (integrável) em <span class="math inline">\(0\)</span> e <span class="math inline">\(1\)</span>;</li>
+<li><span class="math inline">\(a = b = 1\)</span> — uniforme em <span class="math inline">\([0,1]\)</span>;</li>
+<li><span class="math inline">\(a, b &gt; 1\)</span> — unimodal, com assimetria controlada pela razão <span class="math inline">\(a/b\)</span> e concentração controlada por <span class="math inline">\(a+b\)</span>.</li>
+</ul>
+<p>Essa flexibilidade com apenas dois parâmetros é o motivo pelo qual a Beta é a escolha natural para dados limitados: ela cobre desde “quase tudo nas bordas” até “concentrado no meio” sem sair do suporte correto.</p>
+</section>
+<section id="momentos" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="momentos"><span class="header-section-number">3.3</span> Momentos</h2>
+<p><span class="math display">\[
+\mathbb{E}[x] = \frac{a}{a+b},
+\qquad
+\mathrm{Var}[x] = \frac{ab}{(a+b)^2 (a+b+1)},
+\qquad
+\mathrm{moda} = \frac{a-1}{a+b-2}\ \ (a,b&gt;1) .
+\]</span></p>
+<p>A forma da variância deixa claro que <span class="math inline">\(a+b\)</span> funciona como um “tamanho amostral efetivo”: mantendo a média fixa e aumentando <span class="math inline">\(a+b\)</span>, a densidade se concentra.</p>
+</section>
+<section id="ajuste-duas-rotas-honestamente" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="ajuste-duas-rotas-honestamente"><span class="header-section-number">3.4</span> Ajuste: duas rotas, honestamente</h2>
+<p><strong>Máxima verossimilhança não tem forma fechada.</strong> Para <span class="math inline">\(\{x_n\}_{n=1}^N\)</span>,</p>
+<p><span class="math display">\[
+\ln p(\mathbf{x} \mid a,b) = N\big[\ln\Gamma(a+b) - \ln\Gamma(a) - \ln\Gamma(b)\big]
++ (a-1)\sum_n \ln x_n + (b-1)\sum_n \ln(1-x_n),
+\]</span></p>
+<p>e as condições de estacionariedade são</p>
+<p><span class="math display">\[
+\psi(a) - \psi(a+b) = \frac{1}{N}\sum_n \ln x_n,
+\qquad
+\psi(b) - \psi(a+b) = \frac{1}{N}\sum_n \ln (1-x_n),
+\]</span></p>
+<p>onde <span class="math inline">\(\psi = \Gamma'/\Gamma\)</span> é a função digama. Não há solução analítica; é preciso resolver numericamente. <strong>Não prometa aos alunos uma fórmula que não existe.</strong> (Note, de passagem, que as estatísticas suficientes são <span class="math inline">\(\sum \ln x_n\)</span> e <span class="math inline">\(\sum \ln(1-x_n)\)</span> — a Beta é família exponencial, tema da Aula 3.)</p>
+<p><strong>O método dos momentos tem forma fechada.</strong> Com média amostral <span class="math inline">\(m\)</span> e variância amostral <span class="math inline">\(v\)</span> satisfazendo <span class="math inline">\(v &lt; m(1-m)\)</span>:</p>
+<p><span class="math display">\[
+\hat{a} = m\left(\frac{m(1-m)}{v} - 1\right),
+\qquad
+\hat{b} = (1-m)\left(\frac{m(1-m)}{v} - 1\right) .
+\]</span></p>
+<p>A condição <span class="math inline">\(v &lt; m(1-m)\)</span> não é decorativa: <span class="math inline">\(m(1-m)\)</span> é a variância máxima possível para uma variável em <span class="math inline">\([0,1]\)</span> com média <span class="math inline">\(m\)</span> (atingida pela Bernoulli), e a violação dessa desigualdade produz estimativas negativas.</p>
+<p>Este é um bom primeiro encontro com a ideia de que <strong>estimadores diferem</strong>, e de que “ter forma fechada” e “ser ótimo” são propriedades distintas — tema que retorna nas Aulas 5 e 7.</p>
+<div id="e0ef8a1f" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-5-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1395" height="404"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="4489636b" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-6-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="944" height="490"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bloco-3-uma-classe-anomalia-como-evento-de-cauda" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Bloco 3 — Uma classe: anomalia como evento de cauda</h1>
+<p>Suponha agora que se disponha apenas de observações <strong>normais</strong> — o cenário típico em detecção de falhas, monitoramento industrial, detecção de fraude nos primeiros meses de operação. Ajusta-se uma Beta a esses dados e define-se a região de exclusão como um conjunto de baixa probabilidade sob o modelo ajustado. Há duas construções usuais:</p>
+<ul>
+<li><strong>cauda:</strong> <span class="math inline">\(\mathcal{R}_\alpha = \{x : x &gt; t_\alpha\}\)</span>, com <span class="math inline">\(t_\alpha\)</span> tal que <span class="math inline">\(P(x &gt; t_\alpha \mid \mathcal{C}_1) = \alpha\)</span>;</li>
+<li><strong>conjunto de nível:</strong> <span class="math inline">\(\mathcal{R}_\lambda = \{x : p(x \mid \mathcal{C}_1) &lt; \lambda\}\)</span>, que captura simultaneamente as duas caudas quando a densidade é unimodal.</li>
+</ul>
+<p>Em ambos os casos o limiar é um <strong>quantil do modelo ajustado</strong>, e a taxa de falso alarme é <span class="math inline">\(\alpha\)</span> <strong>por construção</strong>:</p>
+<p><span class="math display">\[
+t_\alpha \;=\; F^{-1}(1-\alpha), \qquad F(t) = I_t(a,b),
+\]</span></p>
+<p>onde <span class="math inline">\(I_t(a,b)\)</span> é a função beta incompleta regularizada — que em Python é simplesmente <code>scipy.stats.beta.cdf</code>.</p>
+<section id="a-limitação-que-motiva-o-bloco-seguinte" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="a-limitação-que-motiva-o-bloco-seguinte"><span class="header-section-number">4.1</span> A limitação que motiva o bloco seguinte</h2>
+<p>Aqui está o ponto que os alunos sistematicamente deixam passar, e que vale enunciar de forma categórica:</p>
+<blockquote class="blockquote">
+<p><strong>Com uma única densidade ajustada, o erro Tipo II não está definido.</strong></p>
+</blockquote>
+<p>Não existe modelo do que uma anomalia <em>é</em>. Sem <span class="math inline">\(p(x \mid \mathcal{C}_2)\)</span>, a probabilidade de deixar de detectá-la não é uma quantidade calculável — não é “difícil de estimar”, é <em>indefinida</em>. O que se controla é apenas o falso alarme.</p>
+<p>Isso tem consequências práticas imediatas. Um detector de uma classe com <span class="math inline">\(\alpha = 0{,}01\)</span> soa impressionante e pode ser completamente inútil: se as anomalias reais se distribuem majoritariamente abaixo de <span class="math inline">\(t_\alpha\)</span>, a taxa de detecção é próxima de zero e nada no procedimento revela isso. Declarar <span class="math inline">\(\alpha\)</span> sem declarar a potência é meia informação.</p>
+<p>É exatamente essa lacuna que o próximo bloco preenche.</p>
+<div id="d62ef8c3" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-7-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="944" height="490"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bloco-4-duas-classes-densidades-sobrepostas" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Bloco 4 — Duas classes: densidades sobrepostas</h1>
+<p>Introduzimos agora um modelo para as duas classes:</p>
+<p><span class="math display">\[
+p(x \mid \mathcal{C}_1) = \mathrm{Beta}(x \mid a_1, b_1),
+\qquad
+p(x \mid \mathcal{C}_2) = \mathrm{Beta}(x \mid a_2, b_2),
+\]</span></p>
+<p>com prioris <span class="math inline">\(\pi_1 = p(\mathcal{C}_1)\)</span> e <span class="math inline">\(\pi_2 = p(\mathcal{C}_2)\)</span>, <span class="math inline">\(\pi_1+\pi_2=1\)</span>. As <strong>densidades conjuntas</strong> são</p>
+<p><span class="math display">\[
+p(x, \mathcal{C}_k) \;=\; \pi_k \, p(x \mid \mathcal{C}_k) .
+\]</span></p>
+<section id="o-argumento-de-regiões-prml-fig.-1.24-p.-40" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="o-argumento-de-regiões-prml-fig.-1.24-p.-40"><span class="header-section-number">5.1</span> O argumento de regiões (PRML Fig. 1.24, p.&nbsp;40)</h2>
+<p>Considere uma regra da forma: decidir <span class="math inline">\(\mathcal{C}_2\)</span> se <span class="math inline">\(x &gt; \hat{x}\)</span> e <span class="math inline">\(\mathcal{C}_1\)</span> caso contrário. A probabilidade de erro é</p>
+<p><span class="math display">\[
+p(\text{erro}) = p(x \in \mathcal{R}_2, \mathcal{C}_1) + p(x \in \mathcal{R}_1, \mathcal{C}_2)
+= \int_{\hat{x}}^{1} \pi_1 p(x\mid\mathcal{C}_1)\,\mathrm{d}x
++ \int_{0}^{\hat{x}} \pi_2 p(x\mid\mathcal{C}_2)\,\mathrm{d}x .
+\]</span></p>
+<p>Derivando em relação a <span class="math inline">\(\hat{x}\)</span> pelo teorema fundamental do cálculo:</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}\,p(\text{erro})}{\mathrm{d}\hat{x}}
+= -\pi_1 p(\hat{x}\mid\mathcal{C}_1) + \pi_2 p(\hat{x}\mid\mathcal{C}_2) = 0
+\;\;\Longleftrightarrow\;\;
+\pi_1 p(\hat{x}\mid\mathcal{C}_1) = \pi_2 p(\hat{x}\mid\mathcal{C}_2) ,
+\]</span></p>
+<p>isto é, o ótimo está no <strong>cruzamento das duas curvas conjuntas</strong>. Dividindo ambos os lados por <span class="math inline">\(p(\hat x)\)</span>, a condição é equivalente a <span class="math inline">\(p(\mathcal{C}_1 \mid \hat x) = p(\mathcal{C}_2 \mid \hat x)\)</span>, e portanto a regra ótima é exatamente</p>
+<p><span class="math display">\[
+\boxed{\ \text{atribuir } x \text{ à classe } k \text{ que maximiza } p(\mathcal{C}_k \mid x).\ }
+\]</span></p>
+<p>O argumento geométrico do PRML diz a mesma coisa sem cálculo: ao mover <span class="math inline">\(\hat{x}\)</span>, duas das três regiões de erro trocam área entre si de forma que a soma permanece constante, enquanto a terceira encolhe a zero precisamente no ponto de cruzamento.</p>
+<p><strong>Ênfase que deve ser repetida.</strong> A Figura 1.24 do PRML plota <strong>distribuições conjuntas, não condicionais à classe</strong>. A interpretação dos erros como áreas só funciona depois que as prioris foram incorporadas. Esta é, de longe, a maior fonte de confusão da aula inteira — vale restaurá-la no quadro pelo menos duas vezes.</p>
+</section>
+<section id="os-dois-erros-em-forma-fechada" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="os-dois-erros-em-forma-fechada"><span class="header-section-number">5.2</span> Os dois erros, em forma fechada</h2>
+<p>Com a convenção “positivo = classe 2” e regra <span class="math inline">\(x &gt; t \Rightarrow \mathcal{C}_2\)</span>:</p>
+<ul>
+<li><strong>Tipo I (falso positivo):</strong> <span class="math inline">\(\;P(x &gt; t \mid \mathcal{C}_1) = 1 - I_t(a_1, b_1)\)</span></li>
+<li><strong>Tipo II (falso negativo):</strong> <span class="math inline">\(\;P(x \le t \mid \mathcal{C}_2) = I_t(a_2, b_2)\)</span></li>
+</ul>
+<p>Agora <strong>ambos</strong> estão definidos, e ambos são calculáveis exatamente pela função beta incompleta regularizada — nenhuma simulação é necessária. Este é um luxo raro: em quase todo modelo realista essas quantidades exigem Monte Carlo.</p>
+<p><strong>Nota terminológica.</strong> “Tipo I” e “Tipo II” são rótulos de teste de hipóteses e pressupõem uma hipótese nula designada. Em detecção de anomalias a nula é “normal”. Num problema simétrico de duas classes, a rotulação é <strong>convenção</strong> e precisa ser anunciada antes do uso, sob pena de metade da turma inverter os índices.</p>
+<div id="bfecfabb" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-8-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="970" height="502"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="82d1bc76" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-9-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="944" height="476"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bloco-5-quantificando-e-negociando-os-erros" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Bloco 5 — Quantificando e negociando os erros</h1>
+<section id="a-matriz-de-confusão-e-suas-razões" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="a-matriz-de-confusão-e-suas-razões"><span class="header-section-number">6.1</span> A matriz de confusão e suas razões</h2>
+<p>Fixado um limiar, a tabela de contingência entre verdade e predição (Bishop &amp; Bishop, §5.2.5, eqs. 5.30–5.33, pp.&nbsp;147–148) tem quatro células: verdadeiro positivo (VP), falso positivo (FP), falso negativo (FN), verdadeiro negativo (VN). Delas derivam:</p>
+<p><span class="math display">\[
+\text{Acurácia} = \frac{\mathrm{VP}+\mathrm{VN}}{N},
+\qquad
+\text{Precisão} = \frac{\mathrm{VP}}{\mathrm{VP}+\mathrm{FP}},
+\]</span></p>
+<p><span class="math display">\[
+\text{Revocação (TPR)} = \frac{\mathrm{VP}}{\mathrm{VP}+\mathrm{FN}},
+\qquad
+\text{FPR} = \frac{\mathrm{FP}}{\mathrm{FP}+\mathrm{VN}},
+\qquad
+\text{FDR} = \frac{\mathrm{FP}}{\mathrm{VP}+\mathrm{FP}} .
+\]</span></p>
+<p>O exemplo cautelar dos próprios autores merece ser repetido: com 1 caso em 1.000, um classificador que responde “negativo” para todo mundo atinge <strong>99,9% de acurácia</strong> e é inteiramente inútil. <strong>Acurácia não é um resumo escalar de um problema de decisão.</strong></p>
+<p>Observe a diferença estrutural entre as métricas: TPR e FPR são <em>condicionais à classe verdadeira</em> e, portanto, <strong>não dependem da priori</strong>; precisão e FDR envolvem a mistura das classes e <strong>dependem</strong>. Essa distinção explica o comportamento da curva ROC no experimento final do laboratório.</p>
+</section>
+<section id="a-curva-roc" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="a-curva-roc"><span class="header-section-number">6.2</span> A curva ROC</h2>
+<p>Varrendo <span class="math inline">\(t\)</span> de 1 a 0 e traçando <span class="math inline">\((\mathrm{FPR}(t), \mathrm{TPR}(t))\)</span> obtém-se a curva ROC (Bishop &amp; Bishop, §5.2.6, pp.&nbsp;148–150). Para o nosso modelo,</p>
+<p><span class="math display">\[
+\mathrm{FPR}(t) = 1 - I_t(a_1,b_1),
+\qquad
+\mathrm{TPR}(t) = 1 - I_t(a_2,b_2),
+\]</span></p>
+<p>uma curva paramétrica em <span class="math inline">\(t\)</span>, disponível em forma fechada. A leitura correta é:</p>
+<blockquote class="blockquote">
+<p>A ROC é o <strong>lugar geométrico dos pontos de operação alcançáveis</strong> para um par fixo de densidades ajustadas. A curva é propriedade do <strong>modelo</strong>; o ponto escolhido sobre ela é propriedade da <strong>aplicação</strong>.</p>
+</blockquote>
+<p>Um resultado clássico, útil para enquadrar o resto do curso: a inclinação da ROC no ponto correspondente ao limiar <span class="math inline">\(t\)</span> é igual à razão de verossimilhanças <span class="math inline">\(p(t\mid\mathcal{C}_2)/p(t\mid\mathcal{C}_1)\)</span>. Portanto o ponto de mínima perda esperada é o ponto de <strong>tangência</strong> entre a ROC e a família de retas de inclinação <span class="math inline">\(\pi_1 L_{12} / (\pi_2 L_{21})\)</span>.</p>
+</section>
+<section id="perda-esperada-e-limiar-deslocado" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="perda-esperada-e-limiar-deslocado"><span class="header-section-number">6.3</span> Perda esperada e limiar deslocado</h2>
+<p>Nem todo erro custa o mesmo. Introduza a matriz de perda <span class="math inline">\(L_{kj}\)</span> = custo de decidir <span class="math inline">\(\mathcal{C}_j\)</span> quando a verdade é <span class="math inline">\(\mathcal{C}_k\)</span> (PRML §1.5.2, p.&nbsp;41; Bishop &amp; Bishop §5.2.2, p.&nbsp;140). A perda esperada é</p>
+<p><span class="math display">\[
+\mathbb{E}[L] = \sum_k \sum_j \int_{\mathcal{R}_j} L_{kj}\, p(x, \mathcal{C}_k)\, \mathrm{d}x ,
+\]</span></p>
+<p>e minimizá-la ponto a ponto significa escolher, para cada <span class="math inline">\(x\)</span>, o <span class="math inline">\(j\)</span> que minimiza <span class="math inline">\(\sum_k L_{kj}\, p(\mathcal{C}_k \mid x)\)</span>. No caso binário com <span class="math inline">\(L_{11}=L_{22}=0\)</span>, a fronteira satisfaz</p>
+<p><span class="math display">\[
+\boxed{\ \pi_1 L_{12}\, p(t\mid\mathcal{C}_1) \;=\; \pi_2 L_{21}\, p(t\mid\mathcal{C}_2).\ }
+\]</span></p>
+<p>A leitura é direta: <strong>aumentar <span class="math inline">\(L_{21}\)</span> (custo de deixar passar uma detecção) empurra o limiar para a esquerda</strong>, ampliando a região onde se declara <span class="math inline">\(\mathcal{C}_2\)</span>. O deslocamento é previsível e quantificável — não é uma “calibração empírica”.</p>
+</section>
+<section id="a-opção-de-rejeição" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="a-opção-de-rejeição"><span class="header-section-number">6.4</span> A opção de rejeição</h2>
+<p>Nas regiões onde <span class="math inline">\(\max_k p(\mathcal{C}_k \mid x)\)</span> é próximo de <span class="math inline">\(1/2\)</span>, qualquer decisão é quase um sorteio. Se existe uma terceira ação — encaminhar a um especialista, pedir outro exame, adiar — então abster-se pode ser a ação de menor perda (PRML §1.5.3, p.&nbsp;42; Bishop &amp; Bishop §5.2.3, p.&nbsp;142). A regra é</p>
+<p><span class="math display">\[
+\text{rejeitar } x \quad\text{se}\quad \max_k p(\mathcal{C}_k \mid x) &lt; \theta ,
+\]</span></p>
+<p>com <span class="math inline">\(\theta \in (1/2, 1]\)</span>. Para <span class="math inline">\(\theta = 1\)</span> tudo é rejeitado; para <span class="math inline">\(\theta \le 1/2\)</span> (no caso binário) nada é. Se a rejeição tem custo fixo <span class="math inline">\(\lambda\)</span> e os erros custam 1, o limiar ótimo é <span class="math inline">\(\theta = 1 - \lambda\)</span>: acima do custo de errar, rejeitar deixa de compensar. Este é o conteúdo do Exercício 1.24 do PRML.</p>
+<div id="c0fd3396" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-10-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="786" height="632"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="a35d1e69" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-11-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1412" height="528"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="e30d566f" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-12-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="944" height="490"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bloco-6-fechamento-e-ponte" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Bloco 6 — Fechamento e ponte</h1>
+<p>A frase que deve sair desta aula, e que vale escrever no quadro antes de encerrar:</p>
+<blockquote class="blockquote">
+<p><strong>Um limiar de decisão não é um hiperparâmetro a ser ajustado no escuro — é a solução de um problema de otimização definido pelas densidades ajustadas, pelas prioris e pela perda.</strong></p>
+</blockquote>
+<p>Cada um dos três ingredientes é falsificável e cada um pode estar errado de forma independente: a família paramétrica pode não caber nos dados; a priori de treino pode não ser a priori de operação; a matriz de perda pode nunca ter sido explicitada com quem toma a decisão. Boa parte dos fracassos de sistemas de ML em produção é uma dessas três coisas, não um problema de arquitetura.</p>
+<p><strong>Ponte para a Aula 2.</strong> Tudo aqui repousou sobre <strong>um</strong> atributo. Com <span class="math inline">\(D\)</span> atributos, <span class="math inline">\(p(\mathbf{x} \mid \mathcal{C}_k)\)</span> passa a ser um objeto em dimensão <span class="math inline">\(D\)</span>, e o número de parâmetros necessários para descrevê-lo sem hipóteses adicionais cresce exponencialmente. A próxima aula introduz a primeira hipótese <strong>estrutural</strong> do curso — independência condicional, isto é, Naive Bayes — como o preço mínimo a pagar para tornar essa densidade estimável. A razão de verossimilhanças, que aqui apareceu implicitamente na inclinação da ROC, será formalizada lá, onde ela tem o espaço que merece.</p>
+<hr>
+</section>
+<section id="conexão-com-o-estado-da-arte" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Conexão com o estado da arte</h1>
+<p>Vale terminar mostrando que nada do que foi construído hoje ficou para trás — apenas mudou de nome e de escala.</p>
+<section id="a-rede-neural-é-a-mesma-equação" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="a-rede-neural-é-a-mesma-equação"><span class="header-section-number">8.1</span> A rede neural é a mesma equação</h2>
+<p>Um classificador neural moderno com saída <em>softmax</em> treinado com entropia cruzada é, literalmente, um modelo da posteriori <span class="math inline">\(p(\mathcal{C}_k \mid \mathbf{x})\)</span> estimado por máxima verossimilhança. O <code>argmax</code> na saída é a regra de decisão do Bloco 4 sob perda 0–1. Tudo que se acrescentou foi um estimador flexível para a mesma quantidade. Em particular:</p>
+<ul>
+<li><strong><code>pos_weight</code>, <em>class weights</em>, <em>focal loss</em></strong> são reimplementações da matriz de perda assimétrica <span class="math inline">\(L_{kj}\)</span> dentro do treinamento, em vez de na decisão. O Bloco 5 explica exatamente para onde o limiar se desloca em consequência.</li>
+<li><strong>Ajuste de limiar pós-treino</strong> (o onipresente “escolhemos 0,37 no conjunto de validação”) é a busca do ponto de tangência na ROC. Fazer isso sem declarar a perda é escolher um ponto arbitrário de uma curva e chamá-lo de resultado.</li>
+</ul>
+</section>
+<section id="calibração" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="calibração"><span class="header-section-number">8.2</span> Calibração</h2>
+<p>Uma rede profunda pode ter excelente AUC e posterioris péssimas. Como a AUC depende apenas da <em>ordenação</em> dos escores, ela é invariante a qualquer transformação monótona — e portanto <strong>cega à calibração</strong>. Mas o Bloco 5 mostra que a decisão ótima depende do <em>valor</em> da posteriori, não só da ordem. Daí a importância prática de <em>temperature scaling</em>, <em>Platt scaling</em> e regressão isotônica: eles restauram a interpretação probabilística sem alterar a ROC. A distinção entre “ordenar bem” e “estimar bem” é a mesma que separa a curva do ponto de operação.</p>
+</section>
+<section id="abstenção-em-modelos-de-larga-escala" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="abstenção-em-modelos-de-larga-escala"><span class="header-section-number">8.3</span> Abstenção em modelos de larga escala</h2>
+<p>A opção de rejeição do PRML §1.5.3 reaparece hoje sob os nomes de <em>selective prediction</em>, <em>cascatas de modelos</em> e <em>deferral to human</em>. Um LLM que responde “não tenho informação suficiente”, ou um roteador que envia consultas difíceis a um modelo maior e mais caro, está resolvendo exatamente <span class="math inline">\(\max_k p(\mathcal{C}_k \mid x) &lt; \theta\)</span> com <span class="math inline">\(\theta\)</span> determinado pela razão entre o custo do erro e o custo da escalação. <strong>Predição conformal</strong> vai além: constrói conjuntos de predição com cobertura garantida em amostra finita — o mesmo espírito do Bloco 3 (controlar <span class="math inline">\(\alpha\)</span> por construção), agora sem hipótese paramétrica.</p>
+</section>
+<section id="suporte-limitado-e-caudas-de-volta" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="suporte-limitado-e-caudas-de-volta"><span class="header-section-number">8.4</span> Suporte limitado e caudas, de volta</h2>
+<p>A insistência do Bloco 1 sobre o suporte reaparece em contextos bem modernos: verossimilhanças Beta e <em>Beta-inflated</em> para modelar taxas em modelos hierárquicos, distribuições Beta e Dirichlet como saídas de redes em <em>evidential deep learning</em>, e a modelagem explícita de caudas por teoria de valores extremos em recuperação de informação e detecção de fora-da-distribuição. Em todos, a escolha da família continua sendo a declaração de hipótese que ela sempre foi.</p>
+</section>
+<section id="um-exemplo-doméstico-escoragem-de-crédito" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="um-exemplo-doméstico-escoragem-de-crédito"><span class="header-section-number">8.5</span> Um exemplo doméstico: escoragem de crédito</h2>
+<p>O cenário do Bloco 3 — só se observam os “normais” — é, em crédito, o problema de <strong>inferência de rejeitados</strong>: o banco só observa o desempenho de quem teve o crédito aprovado, e o modelo é retreinado sobre essa amostra selecionada. O limiar de aprovação é literalmente o <span class="math inline">\(t\)</span> desta aula; a perda assimétrica é a razão entre perda por inadimplência e margem perdida por recusa; a região de rejeição é a fila de análise manual. Toda a estrutura de hoje está lá, com nomes de negócio, e a dificuldade adicional é que <span class="math inline">\(p(x \mid \mathcal{C}_2)\)</span> para a população rejeitada não é observável — exatamente a lacuna que o Bloco 3 nos ensinou a enunciar em vez de esconder.</p>
+<hr>
+</section>
+</section>
+<section id="derivações-para-o-quadro" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Derivações para o quadro</h1>
+<ol type="1">
+<li><p><strong>Normalização da Beta</strong> (PRML Ex. 2.5, p.&nbsp;128). Parte-se de <span class="math inline">\(\Gamma(a)\Gamma(b) = \int_0^\infty\!\!\int_0^\infty x^{a-1}y^{b-1}e^{-x-y}\,\mathrm{d}x\,\mathrm{d}y\)</span> e faz-se a mudança <span class="math inline">\(t = y + x\)</span>, <span class="math inline">\(x = t\mu\)</span>, com jacobiano <span class="math inline">\(t\)</span>. Se o tempo estiver curto, atribua como leitura — o mecanismo é bonito mas não é o ponto central da aula.</p></li>
+<li><p><strong>Média e variância da Beta e inversão para o método dos momentos</strong> (PRML Ex. 2.6, p.&nbsp;129). Curta, e entrega ao aluno um estimador funcionando antes do fim da aula. Faça esta.</p></li>
+<li><p><strong>A fronteira de mínima classificação incorreta</strong> como cruzamento das conjuntas (PRML eqs. 1.78–1.79, pp.&nbsp;39–40). Faça pelo argumento de áreas <em>e</em> pela derivada; os dois se iluminam mutuamente.</p></li>
+<li><p><strong>Como a fronteira se move sob perda assimétrica</strong> — modificação de duas linhas da derivação 3 que muda completamente a resposta prática. É o melhor custo-benefício da aula.</p></li>
+</ol>
+<hr>
+</section>
+<section id="laboratório-computacional" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Laboratório computacional</h1>
+<p>Um único <em>notebook</em>, para a segunda metade da aula ou logo em seguida.</p>
+<ol type="1">
+<li>Simule (ou carregue) um atributo limitado para duas populações; plote histogramas contra as Betas ajustadas.</li>
+<li>Ajuste por método dos momentos e por MLE numérica (<code>scipy.stats.beta.fit</code> com <code>floc=0, fscale=1</code>); compare e discuta a discrepância.</li>
+<li>Calcule os erros Tipo I e Tipo II analiticamente com <code>scipy.stats.beta.cdf</code> e verifique-os empiricamente por simulação.</li>
+<li>Varra o limiar, trace a ROC e marque três pontos de operação: mínimo erro total, orçamento fixo de falso alarme <span class="math inline">\(\alpha = 0{,}05\)</span>, e mínima perda esperada sob assimetria 10:1.</li>
+<li>Repita o passo 4 com uma priori fortemente desbalanceada e observe que <strong>a ROC não se move e o ponto ótimo sim</strong>.</li>
+</ol>
+<p>O passo 5 é a recompensa intelectual do laboratório e não deve ser cortado.</p>
+<p>O bloco abaixo resume numericamente o que o aluno deve reproduzir.</p>
+<div id="8c38f6ec" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-13-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1049" height="294"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="exercícios-sugeridos" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Exercícios sugeridos</h1>
+<ul>
+<li><strong>PRML 2.5</strong> (p.&nbsp;128) — normalização da Beta.</li>
+<li><strong>PRML 2.6</strong> (p.&nbsp;129) — média, variância e moda da Beta.</li>
+<li><strong>PRML 1.24</strong> (p.&nbsp;64) — mínima perda esperada com opção de rejeição, e a relação entre o custo de rejeitar e o limiar <span class="math inline">\(\theta\)</span>.</li>
+<li><strong>Exercício do curso.</strong> Dadas duas Betas ajustadas e uma razão de custos, resolva numericamente para o limiar ótimo e mostre que ele coincide com o ponto de tangência sobre a ROC. (Sugestão: use <code>brentq</code> sobre <span class="math inline">\(\pi_1 L_{12} p(t\mid\mathcal{C}_1) - \pi_2 L_{21} p(t\mid\mathcal{C}_2)\)</span> e compare a inclinação numérica <span class="math inline">\(\mathrm{d}\mathrm{TPR}/\mathrm{d}\mathrm{FPR}\)</span> no ponto obtido com <span class="math inline">\(\pi_1 L_{12}/\pi_2 L_{21}\)</span>.)</li>
+</ul>
+<hr>
+</section>
+<section id="notas-didáticas-e-armadilhas-comuns" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Notas didáticas e armadilhas comuns</h1>
+<ul>
+<li><strong>Densidade não é probabilidade.</strong> Espere pelo menos um aluno incomodado com uma Beta valendo mais que 1. Trate isso como oportunidade, não como interrupção.</li>
+<li><strong>Zeros e uns exatos quebram a verossimilhança da Beta</strong> quando <span class="math inline">\(a&lt;1\)</span> ou <span class="math inline">\(b&lt;1\)</span>, pois a densidade diverge nos extremos. Dados limitados reais contêm zeros exatos com frequência incômoda. Mencione <em>clipping</em> e modelos inflacionados em zero/um como as correções honestas — não deixe o aluno descobrir isso silenciosamente no laboratório.</li>
+<li><strong>Beta-como-priori versus Beta-como-modelo-de-dados</strong> vai confundir quem ler o PRML §2.1.1 sem aviso prévio. Avise antes.</li>
+<li><strong>Conjuntas versus condicionais na Figura 1.24.</strong> Repita pelo menos duas vezes.</li>
+<li><strong>“Tipo I” e “Tipo II” exigem nula designada.</strong> Anuncie a convenção antes de usar os termos.</li>
+<li><strong>Resista a introduzir a razão de verossimilhanças formalmente aqui.</strong> É o objeto natural, mas cai melhor na Aula 2, depois que Bayes tiver sido desenvolvido no cenário multidimensional.</li>
+</ul>
+<section id="referências" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referências">Referências</h2>
+<ul>
+<li>Bishop, C. M. (2006). <em>Pattern Recognition and Machine Learning</em>. Springer.</li>
+<li>Bishop, C. M. &amp; Bishop, H. (2024). <em>Deep Learning: Foundations and Concepts</em>. Springer.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Marcos M. Raimundo — Instituto de Computação, UNICAMP">
+
+<title>Distribuições Condicionais e Modelos Generativos</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dca9e17680a415f620e26ecc8e6b02a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#abertura-a-receita-da-aula-1-e-a-pergunta" id="toc-abertura-a-receita-da-aula-1-e-a-pergunta" class="nav-link active" data-scroll-target="#abertura-a-receita-da-aula-1-e-a-pergunta"><span class="header-section-number">1</span> Abertura — a receita da Aula 1, e a pergunta</a></li>
+  <li><a href="#bloco-1-a-dimensão-quebra-a-receita" id="toc-bloco-1-a-dimensão-quebra-a-receita" class="nav-link" data-scroll-target="#bloco-1-a-dimensão-quebra-a-receita"><span class="header-section-number">2</span> Bloco 1 — A dimensão quebra a receita</a>
+  <ul class="collapse">
+  <li><a href="#passo-1-a-extensão-óbvia-e-o-que-ela-custa" id="toc-passo-1-a-extensão-óbvia-e-o-que-ela-custa" class="nav-link" data-scroll-target="#passo-1-a-extensão-óbvia-e-o-que-ela-custa"><span class="header-section-number">2.1</span> Passo 1 — A extensão óbvia, e o que ela custa</a></li>
+  <li><a href="#passo-2-a-intuição-geométrica-também-falha" id="toc-passo-2-a-intuição-geométrica-também-falha" class="nav-link" data-scroll-target="#passo-2-a-intuição-geométrica-também-falha"><span class="header-section-number">2.2</span> Passo 2 — A intuição geométrica também falha</a></li>
+  <li><a href="#passo-3-o-contrapeso-honesto" id="toc-passo-3-o-contrapeso-honesto" class="nav-link" data-scroll-target="#passo-3-o-contrapeso-honesto"><span class="header-section-number">2.3</span> Passo 3 — O contrapeso honesto</a></li>
+  </ul></li>
+  <li><a href="#bloco-2-bayes-formal-e-o-que-significa-generativo" id="toc-bloco-2-bayes-formal-e-o-que-significa-generativo" class="nav-link" data-scroll-target="#bloco-2-bayes-formal-e-o-que-significa-generativo"><span class="header-section-number">3</span> Bloco 2 — Bayes formal, e o que significa “generativo”</a>
+  <ul class="collapse">
+  <li><a href="#passo-1-as-regras-e-a-decomposição" id="toc-passo-1-as-regras-e-a-decomposição" class="nav-link" data-scroll-target="#passo-1-as-regras-e-a-decomposição"><span class="header-section-number">3.1</span> Passo 1 — As regras e a decomposição</a></li>
+  <li><a href="#passo-2-o-que-generativo-quer-dizer" id="toc-passo-2-o-que-generativo-quer-dizer" class="nav-link" data-scroll-target="#passo-2-o-que-generativo-quer-dizer"><span class="header-section-number">3.2</span> Passo 2 — O que “generativo” quer dizer</a></li>
+  </ul></li>
+  <li><a href="#bloco-3-a-suposição-ingênua-como-conserto" id="toc-bloco-3-a-suposição-ingênua-como-conserto" class="nav-link" data-scroll-target="#bloco-3-a-suposição-ingênua-como-conserto"><span class="header-section-number">4</span> Bloco 3 — A suposição ingênua como conserto</a>
+  <ul class="collapse">
+  <li><a href="#passo-1-a-suposição" id="toc-passo-1-a-suposição" class="nav-link" data-scroll-target="#passo-1-a-suposição"><span class="header-section-number">4.1</span> Passo 1 — A suposição</a></li>
+  <li><a href="#passo-2-o-que-a-suposição-compra" id="toc-passo-2-o-que-a-suposição-compra" class="nav-link" data-scroll-target="#passo-2-o-que-a-suposição-compra"><span class="header-section-number">4.2</span> Passo 2 — O que a suposição compra</a></li>
+  <li><a href="#passo-3-a-forma-do-classificador" id="toc-passo-3-a-forma-do-classificador" class="nav-link" data-scroll-target="#passo-3-a-forma-do-classificador"><span class="header-section-number">4.3</span> Passo 3 — A forma do classificador</a></li>
+  </ul></li>
+  <li><a href="#bloco-4-quando-falha-e-quando-não-importa" id="toc-bloco-4-quando-falha-e-quando-não-importa" class="nav-link" data-scroll-target="#bloco-4-quando-falha-e-quando-não-importa"><span class="header-section-number">5</span> Bloco 4 — Quando falha, e quando não importa</a>
+  <ul class="collapse">
+  <li><a href="#passo-1-a-demonstração-cruel" id="toc-passo-1-a-demonstração-cruel" class="nav-link" data-scroll-target="#passo-1-a-demonstração-cruel"><span class="header-section-number">5.1</span> Passo 1 — A demonstração cruel</a>
+  <ul class="collapse">
+  <li><a href="#a-radicalização-duplicar-um-atributo" id="toc-a-radicalização-duplicar-um-atributo" class="nav-link" data-scroll-target="#a-radicalização-duplicar-um-atributo">A radicalização: duplicar um atributo</a></li>
+  </ul></li>
+  <li><a href="#passo-2-por-que-ele-funciona-mesmo-assim" id="toc-passo-2-por-que-ele-funciona-mesmo-assim" class="nav-link" data-scroll-target="#passo-2-por-que-ele-funciona-mesmo-assim"><span class="header-section-number">5.2</span> Passo 2 — Por que ele funciona mesmo assim</a>
+  <ul class="collapse">
+  <li><a href="#o-escalar-c-é-a-superconfiança-medida" id="toc-o-escalar-c-é-a-superconfiança-medida" class="nav-link" data-scroll-target="#o-escalar-c-é-a-superconfiança-medida">O escalar <span class="math inline">\(c\)</span> é a superconfiança, medida</a></li>
+  </ul></li>
+  <li><a href="#passo-3-contagens-zeradas-e-um-reencontro" id="toc-passo-3-contagens-zeradas-e-um-reencontro" class="nav-link" data-scroll-target="#passo-3-contagens-zeradas-e-um-reencontro"><span class="header-section-number">5.3</span> Passo 3 — Contagens zeradas, e um reencontro</a></li>
+  </ul></li>
+  <li><a href="#fechamento-e-ponte" id="toc-fechamento-e-ponte" class="nav-link" data-scroll-target="#fechamento-e-ponte"><span class="header-section-number">6</span> Fechamento e ponte</a>
+  <ul class="collapse">
+  <li><a href="#ponte-para-a-aula-3" id="toc-ponte-para-a-aula-3" class="nav-link" data-scroll-target="#ponte-para-a-aula-3">Ponte para a Aula 3</a></li>
+  </ul></li>
+  <li><a href="#do-quadro-ao-estado-da-arte" id="toc-do-quadro-ao-estado-da-arte" class="nav-link" data-scroll-target="#do-quadro-ao-estado-da-arte"><span class="header-section-number">7</span> Do quadro ao estado da arte</a>
+  <ul class="collapse">
+  <li><a href="#campo-médio-variacional-é-naive-bayes-na-posteriori" id="toc-campo-médio-variacional-é-naive-bayes-na-posteriori" class="nav-link" data-scroll-target="#campo-médio-variacional-é-naive-bayes-na-posteriori"><span class="header-section-number">7.0.1</span> 1. Campo médio variacional é naive Bayes na posteriori</a></li>
+  <li><a href="#fatoração-autorregressiva-a-mesma-forma-sem-a-suposição" id="toc-fatoração-autorregressiva-a-mesma-forma-sem-a-suposição" class="nav-link" data-scroll-target="#fatoração-autorregressiva-a-mesma-forma-sem-a-suposição"><span class="header-section-number">7.0.2</span> 2. Fatoração autorregressiva: a mesma forma, sem a suposição</a></li>
+  <li><a href="#superconfiança-e-calibração" id="toc-superconfiança-e-calibração" class="nav-link" data-scroll-target="#superconfiança-e-calibração"><span class="header-section-number">7.0.3</span> 3. Superconfiança e calibração</a></li>
+  <li><a href="#a-maldição-da-dimensionalidade-e-a-hipótese-da-variedade" id="toc-a-maldição-da-dimensionalidade-e-a-hipótese-da-variedade" class="nav-link" data-scroll-target="#a-maldição-da-dimensionalidade-e-a-hipótese-da-variedade"><span class="header-section-number">7.0.4</span> 4. A maldição da dimensionalidade e a hipótese da variedade</a></li>
+  <li><a href="#o-fecho" id="toc-o-fecho" class="nav-link" data-scroll-target="#o-fecho"><span class="header-section-number">7.0.5</span> O fecho</a></li>
+  </ul></li>
+  <li><a href="#laboratório-computacional" id="toc-laboratório-computacional" class="nav-link" data-scroll-target="#laboratório-computacional"><span class="header-section-number">8</span> Laboratório computacional</a></li>
+  <li><a href="#derivações-no-quadro" id="toc-derivações-no-quadro" class="nav-link" data-scroll-target="#derivações-no-quadro"><span class="header-section-number">9</span> Derivações no quadro</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">10</span> Exercícios</a></li>
+  <li><a href="#notas-de-condução" id="toc-notas-de-condução" class="nav-link" data-scroll-target="#notas-de-condução">Notas de condução</a></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Outros formatos</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Distribuições Condicionais e Modelos Generativos</h1>
+<p class="subtitle lead">Aula 2 — Fundamentos Estatísticos do Aprendizado Supervisionado</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Marcos M. Raimundo — Instituto de Computação, UNICAMP </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">7 de agosto de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abertura-a-receita-da-aula-1-e-a-pergunta" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Abertura — a receita da Aula 1, e a pergunta</h1>
+<p>A Aula 1 terminou com uma receita que funcionava, e que cabe em três linhas:</p>
+<ol type="1">
+<li>ajuste uma densidade <span class="math inline">\(p(x \mid \mathcal{C}_k)\)</span> para cada classe;</li>
+<li>pondere cada uma pela priori <span class="math inline">\(\pi_k\)</span>;</li>
+<li>decida pela conjunta maior — corte onde <span class="math inline">\(p(x\mid\mathcal{C}_1)\pi_1 =
+p(x\mid\mathcal{C}_2)\pi_2\)</span>.</li>
+</ol>
+<p>Provamos que essa regra minimiza a probabilidade de erro, e a prova não usou família paramétrica nenhuma. Ela é geral.</p>
+<p>Agora o problema do dia, em dois exemplos concretos:</p>
+<ul>
+<li>classificar e-mails como <strong>spam</strong> a partir da presença ou ausência de 5.000 palavras de vocabulário — <span class="math inline">\(\mathbf{x} \in \{0,1\}^{5000}\)</span>;</li>
+<li>classificar um <strong>pedido de crédito</strong> a partir de 80 variáveis cadastrais e comportamentais — <span class="math inline">\(\mathbf{x} \in \mathbb{R}^{80}\)</span>.</li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>A receita da Aula 1 funciona aqui? É só trocar <span class="math inline">\(x\)</span> por <span class="math inline">\(\mathbf{x}\)</span>?</strong></p>
+</blockquote>
+<p>Responda antes de virar a página. A resposta que quase toda turma dá é <em>sim</em> — afinal, a demonstração do erro mínimo não fez nenhuma menção à dimensão de <span class="math inline">\(x\)</span>, e de fato ela continua válida. O problema não está na regra de decisão. Está em conseguir estimar o objeto de que a regra depende.</p>
+<hr>
+</section>
+<section id="bloco-1-a-dimensão-quebra-a-receita" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Bloco 1 — A dimensão quebra a receita</h1>
+<section id="passo-1-a-extensão-óbvia-e-o-que-ela-custa" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="passo-1-a-extensão-óbvia-e-o-que-ela-custa"><span class="header-section-number">2.1</span> Passo 1 — A extensão óbvia, e o que ela custa</h2>
+<p>A generalização direta do histograma da Aula 1 é dividir o espaço em células e classificar pela classe majoritária de cada célula. É literalmente o método da Aula 1 desenhado em mais eixos (PRML, Figura 1.20, p.&nbsp;35).</p>
+<p>Faça a conta. Com <span class="math inline">\(b\)</span> divisões por eixo e <span class="math inline">\(D\)</span> dimensões, o número de células é <span class="math inline">\(b^D\)</span>. Com <span class="math inline">\(b = 10\)</span> e <span class="math inline">\(D = 10\)</span>: <span class="math inline">\(10^{10}\)</span> células. Com 10.000 exemplos de treino, <strong>uma célula em cada milhão contém um único ponto</strong>, e todo o resto está vazio. Não há como estimar uma densidade em células vazias — e a esmagadora maioria das células é vazia por construção, não por azar amostral.</p>
+<p>O mesmo fenômeno sem discretização nenhuma. Uma distribuição conjunta <strong>geral</strong> sobre <span class="math inline">\(D\)</span> atributos binários é uma tabela com <span class="math inline">\(2^D\)</span> entradas que somam 1, ou seja, <span class="math inline">\(2^D - 1\)</span> parâmetros livres — <strong>por classe</strong> (PRML, §4.2.3, p.&nbsp;202). Com <span class="math inline">\(D = 80\)</span>, isso é <span class="math inline">\(2^{80} - 1 \approx 1{,}2 \times 10^{24}\)</span> parâmetros. Não é um problema de computação: é um problema de que não existem dados no universo para identificar esses parâmetros.</p>
+<p>E se abandonarmos o não-paramétrico e ajustarmos uma <strong>gaussiana multivariada</strong> por classe? São <span class="math inline">\(D\)</span> médias mais <span class="math inline">\(D(D+1)/2\)</span> entradas de covariância, isto é <span class="math inline">\(D(D+3)/2\)</span> parâmetros. O crescimento é <strong>quadrático</strong>, não exponencial — uma melhora enorme. Mas com <span class="math inline">\(D = 1000\)</span> já são cerca de meio milhão de parâmetros por classe, e há um obstáculo mais duro que a contagem: a matriz de covariância amostral é <strong>singular</strong> sempre que <span class="math inline">\(N &lt; D\)</span>. Ela não é apenas mal condicionada; ela não é inversível, e o modelo nem chega a ser avaliável, porque <span class="math inline">\(\ln p(\mathbf{x}\mid\mathcal{C}_k)\)</span> exige <span class="math inline">\(\Sigma_k^{-1}\)</span> e <span class="math inline">\(\ln\det\Sigma_k\)</span>.</p>
+<p>Os três regimes de crescimento merecem ser escritos lado a lado no quadro, porque a aula inteira consiste em descer nessa escada:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modelo</th>
+<th>Parâmetros por classe</th>
+<th>Regime</th>
+<th><span class="math inline">\(D = 80\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Conjunta geral, atributos binários</td>
+<td><span class="math inline">\(2^D - 1\)</span></td>
+<td>exponencial</td>
+<td><span class="math inline">\(1{,}2\times10^{24}\)</span></td>
+</tr>
+<tr class="even">
+<td>Gaussiana multivariada plena</td>
+<td><span class="math inline">\(D(D+3)/2\)</span></td>
+<td>quadrático</td>
+<td><span class="math inline">\(3.320\)</span></td>
+</tr>
+<tr class="odd">
+<td><em>(a ser descoberto no Bloco 3)</em></td>
+<td><span class="math inline">\(?\)</span></td>
+<td>linear</td>
+<td><span class="math inline">\(?\)</span></td>
+</tr>
+</tbody>
+</table>
+<div id="d43cd2f4" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-3-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1471" height="492"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="passo-2-a-intuição-geométrica-também-falha" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="passo-2-a-intuição-geométrica-também-falha"><span class="header-section-number">2.2</span> Passo 2 — A intuição geométrica também falha</h2>
+<p>O problema não é apenas contagem de parâmetros. É que o espaço em alta dimensão não se comporta como a intuição treinada em duas e três dimensões espera.</p>
+<p>O exemplo canônico é o volume da esfera (PRML, Figura 1.22, p.&nbsp;37). A fração do volume de uma esfera de raio 1 em <span class="math inline">\(\mathbb{R}^D\)</span> contida na casca entre <span class="math inline">\(r = 1-\epsilon\)</span> e <span class="math inline">\(r = 1\)</span> é</p>
+<p><span class="math display">\[
+\frac{V_D(1) - V_D(1-\epsilon)}{V_D(1)} \;=\; 1 - (1-\epsilon)^D ,
+\]</span></p>
+<p>porque <span class="math inline">\(V_D(r) = K_D r^D\)</span> e a constante <span class="math inline">\(K_D\)</span> se cancela. Para <span class="math inline">\(D = 20\)</span> e <span class="math inline">\(\epsilon = 0{,}1\)</span>, isso dá <span class="math inline">\(1 - 0{,}9^{20} \approx 0{,}88\)</span>: quase 90% do volume está numa casca de espessura 10%. Para <span class="math inline">\(D = 100\)</span>, praticamente <strong>todo</strong> o volume está a menos de 5% da superfície.</p>
+<p>A consequência é direta e desconfortável:</p>
+<blockquote class="blockquote">
+<p><strong>Em alta dimensão, “perto do centro” é um lugar praticamente vazio.</strong></p>
+</blockquote>
+<p>As noções de vizinhança e de densidade local que sustentaram a Aula 1 perdem o significado que tinham. Um ponto típico não fica perto da moda; ele fica numa casca. Uma gaussiana em <span class="math inline">\(\mathbb{R}^{1000}\)</span> tem sua massa concentrada numa casca fina de raio <span class="math inline">\(\approx \sigma\sqrt{D}\)</span>, e a moda — o ponto de maior densidade — está numa região onde essencialmente nenhuma amostra cai.</p>
+<p>O fenômeno relacionado, e mais relevante para métodos baseados em distância, é a <strong>concentração das distâncias</strong>: para dados i.i.d., a razão entre a distância do vizinho mais próximo e a do mais distante tende a 1 quando <span class="math inline">\(D\)</span> cresce. Se tudo está aproximadamente à mesma distância de tudo, “vizinho mais próximo” deixa de significar alguma coisa.</p>
+<p>Mencionar também, de passagem, o crescimento <span class="math inline">\(D^M\)</span> do número de coeficientes independentes de um polinômio de ordem <span class="math inline">\(M\)</span> em <span class="math inline">\(D\)</span> variáveis (PRML, eq. 1.74, p.&nbsp;36). É o mesmo fenômeno visto pelo lado da <strong>capacidade</strong> do modelo, e uma prévia da Aula 8.</p>
+<div id="5034dd5d" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-4-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1489" height="476"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="passo-3-o-contrapeso-honesto" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="passo-3-o-contrapeso-honesto"><span class="header-section-number">2.3</span> Passo 3 — O contrapeso honesto</h2>
+<p>Se a aula parasse aqui, a turma sairia com a conclusão errada de que aprendizado em alta dimensão é impossível. Não é — redes profundas operam rotineiramente em <span class="math inline">\(\mathbb{R}^{150000}\)</span> e funcionam. Bishop dá as duas razões, na p.&nbsp;37, e elas precisam ser ditas em voz alta.</p>
+<p><strong>Primeira: dados reais ocupam uma região de dimensão efetiva muito menor que a do espaço ambiente.</strong> Uma fotografia de rosto de <span class="math inline">\(500 \times 300\)</span> pixels vive em <span class="math inline">\(\mathbb{R}^{150000}\)</span>, mas o conjunto das fotografias de rostos não ocupa qualquer canto desse espaço — ele é uma variedade de dimensão bem menor, parametrizada por pose, iluminação, identidade, expressão. Amostre um ponto uniformemente em <span class="math inline">\(\mathbb{R}^{150000}\)</span> e você obtém ruído, nunca um rosto. Esta é a <strong>hipótese da variedade</strong>, e é a justificativa implícita de quase todo o aprendizado profundo.</p>
+<p><strong>Segunda: dados reais têm suavidade local.</strong> Pequenas variações na entrada produzem pequenas variações na saída. Sem isso, nenhuma forma de interpolação faria sentido, e generalização seria impossível em qualquer dimensão.</p>
+<p>O enquadramento correto, e a frase que fecha o bloco:</p>
+<blockquote class="blockquote">
+<p><strong>A maldição da dimensionalidade não proíbe o aprendizado. Ela proíbe o aprendizado sem suposições.</strong></p>
+</blockquote>
+<p>Todo o resto do curso é um catálogo de suposições diferentes: independência condicional (hoje), partições axis-aligned (Aula 3), suavidade em bolas (vizinhos próximos), linearidade da fronteira (Aulas 5–6), margem máxima (Aula 11), composição hierárquica (Aula 12). Cada algoritmo é uma aposta sobre a estrutura dos dados, e escolher um algoritmo é escolher em que apostar.</p>
+<p>Naive Bayes é a primeira suposição do curso, e é a mais brutal de todas.</p>
+<div id="eac8d0c2" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-5-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1230" height="507"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bloco-2-bayes-formal-e-o-que-significa-generativo" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Bloco 2 — Bayes formal, e o que significa “generativo”</h1>
+<section id="passo-1-as-regras-e-a-decomposição" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="passo-1-as-regras-e-a-decomposição"><span class="header-section-number">3.1</span> Passo 1 — As regras e a decomposição</h2>
+<p>Agora que existe uma necessidade, vale formalizar o que a Aula 1 construiu por indução visual. Toda a teoria de probabilidade que o curso usa se apoia em duas regras (DLFC §2.1.2, pp.&nbsp;26–28):</p>
+<p><span class="math display">\[
+\textbf{soma:}\quad p(X) = \sum_Y p(X, Y) ,
+\qquad\qquad
+\textbf{produto:}\quad p(X, Y) = p(Y \mid X)\, p(X) .
+\]</span></p>
+<p>Aplicando a regra do produto nas duas ordens e igualando, sai o teorema de Bayes (DLFC §2.1.3, p.&nbsp;28; §2.1.5, p.&nbsp;31), com as quatro peças nomeadas:</p>
+<p><span class="math display">\[
+\underbrace{p(\mathcal{C}_k \mid \mathbf{x})}_{\text{posteriori}}
+=
+\frac{\overbrace{p(\mathbf{x} \mid \mathcal{C}_k)}^{\text{verossimilhança}}\;
+      \overbrace{p(\mathcal{C}_k)}^{\text{priori}}}
+     {\underbrace{p(\mathbf{x})}_{\text{evidência}}} ,
+\qquad
+p(\mathbf{x}) = \sum_j p(\mathbf{x}\mid\mathcal{C}_j)\,\pi_j .
+\]</span></p>
+<p>Uma observação que economiza confusão pelo curso inteiro:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Para classificar, a evidência é irrelevante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(p(\mathbf{x})\)</span> não depende de <span class="math inline">\(k\)</span>. Ela some no <span class="math inline">\(\arg\max\)</span> e some em qualquer comparação entre classes. Não é preciso calculá-la para decidir.</p>
+<p>Ela volta a importar em dois lugares: na <strong>seleção de modelos</strong> (Aula 4), onde <span class="math inline">\(p(\mathcal{D}\mid\mathcal{M})\)</span> é a verossimilhança marginal, e em <strong>detecção de anomalia</strong>, onde <span class="math inline">\(p(\mathbf{x})\)</span> pequeno é justamente o sinal de interesse — como vimos na Aula 1.</p>
+</div>
+</div>
+<p>Escreva também a forma que será usada o tempo todo. Definindo a <strong>ativação</strong></p>
+<p><span class="math display">\[
+a_k(\mathbf{x}) \;=\; \ln p(\mathbf{x}\mid\mathcal{C}_k) + \ln \pi_k ,
+\]</span></p>
+<p>a posteriori é exatamente a <em>softmax</em> das ativações (PRML, eqs. 4.62–4.63, p.&nbsp;198):</p>
+<p><span class="math display">\[
+p(\mathcal{C}_k\mid\mathbf{x}) = \frac{\exp a_k(\mathbf{x})}{\sum_j \exp a_j(\mathbf{x})} ,
+\]</span></p>
+<p>e no caso de duas classes, com <span class="math inline">\(a = a_1 - a_2\)</span>, a <strong>sigmoide logística</strong> (PRML, eq. 4.57, p.&nbsp;197):</p>
+<p><span class="math display">\[
+p(\mathcal{C}_1\mid\mathbf{x}) = \frac{1}{1 + e^{-a}} = \sigma(a).
+\]</span></p>
+<p>Vale destacar isso com ênfase, porque é uma das ideias mais mal compreendidas da área:</p>
+<blockquote class="blockquote">
+<p><strong>A sigmoide e a softmax não são escolhas de arquitetura. Elas caem de Bayes.</strong></p>
+</blockquote>
+<p>Elas são simplesmente a forma que a posteriori assume quando escrita em termos de log-verossimilhanças. Quando aparecerem na saída de uma regressão logística (Aula 6) ou de uma rede profunda (Aula 12), os alunos já terão visto de onde vêm — e por que o objeto natural produzido por um classificador é o <em>logit</em>, e não a probabilidade.</p>
+<div id="5e0392ab" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-6-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1359" height="502"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="passo-2-o-que-generativo-quer-dizer" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="passo-2-o-que-generativo-quer-dizer"><span class="header-section-number">3.2</span> Passo 2 — O que “generativo” quer dizer</h2>
+<p>A definição é por contraste, seguindo PRML §1.5.4, pp.&nbsp;42–46 (e DLFC §5.3, pp.&nbsp;150–156):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abordagem</th>
+<th>Modela</th>
+<th>Consegue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Generativa</strong></td>
+<td><span class="math inline">\(p(\mathbf{x}\mid\mathcal{C}_k)\)</span> e <span class="math inline">\(\pi_k\)</span></td>
+<td>classificar, detectar anomalia, <strong>gerar dados novos</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Discriminativa</strong></td>
+<td><span class="math inline">\(p(\mathcal{C}_k\mid\mathbf{x})\)</span> diretamente</td>
+<td>classificar, com probabilidade</td>
+</tr>
+<tr class="odd">
+<td><strong>Função discriminante</strong></td>
+<td><span class="math inline">\(f(\mathbf{x}) \to k\)</span></td>
+<td>classificar, sem probabilidade nenhuma</td>
+</tr>
+</tbody>
+</table>
+<p>A palavra “generativo” só deixa de ser jargão quando se faz a demonstração: <strong>ajuste o modelo e amostre dele.</strong> O modelo produz exemplos que nunca existiram, porque ele descreve <em>como os dados nascem</em>, e não apenas <em>onde fica a fronteira</em>. Um modelo discriminativo não tem como fazer isso — ele nunca representou <span class="math inline">\(p(\mathbf{x})\)</span>.</p>
+<p>A figura abaixo faz exatamente isso com o problema-fio da aula: renda e gasto, duas classes, forte correlação positiva entre os dois atributos. À esquerda, os dados; à direita, amostras sintéticas do modelo generativo ajustado.</p>
+<p>Guarde essa demonstração. Ela vai ser reutilizada no Bloco 4 com efeito bem diferente.</p>
+<p>Feita a demonstração, aponte o custo. <strong>O modelo generativo estima muito mais do que precisa.</strong> Para decidir entre duas classes bastaria conhecer a fronteira — um objeto de dimensão <span class="math inline">\(D-1\)</span>. Ele modela as duas populações inteiras em <span class="math inline">\(\mathbb{R}^D\)</span>. Essa é a razão profunda pela qual ele sofre tanto com a dimensionalidade: o esforço estatístico é gasto em regiões do espaço que não influenciam decisão nenhuma. É por isso que a Aula 6 vai propor o caminho discriminativo, e é por isso que a maior parte dos classificadores em produção é discriminativa.</p>
+<p>O contraponto — e a razão pela qual modelos generativos não desapareceram — é a coluna “consegue”: detecção de anomalia, dados faltantes, geração, e a capacidade de incorporar conhecimento de domínio sobre o processo gerador.</p>
+<div id="ee06ea82" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-7-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1202" height="588"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bloco-3-a-suposição-ingênua-como-conserto" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Bloco 3 — A suposição ingênua como conserto</h1>
+<section id="passo-1-a-suposição" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="passo-1-a-suposição"><span class="header-section-number">4.1</span> Passo 1 — A suposição</h2>
+<p>Use o exemplo do próprio Bishop, que continua o fio médico da Aula 1 (PRML §1.5.4, p.&nbsp;46, eqs. 1.84–1.85): diagnóstico a partir de uma radiografia <span class="math inline">\(x_I\)</span> e de um exame de sangue <span class="math inline">\(x_B\)</span>. A suposição é</p>
+<p><span class="math display">\[
+p(x_I,\, x_B \mid \mathcal{C}_k) \;=\; p(x_I \mid \mathcal{C}_k)\; p(x_B \mid \mathcal{C}_k),
+\]</span></p>
+<p>e o nome dela é <strong>independência condicional</strong>.</p>
+<p>Insista na palavra <em>condicional</em>. A afirmação <strong>não</strong> é que radiografia e exame de sangue sejam independentes — eles claramente não são, porque pessoas doentes tendem a ter ambos alterados, o que produz correlação marginal forte. A afirmação é que, <strong>uma vez fixada a doença</strong>, um exame não acrescenta informação sobre o outro. Bishop registra explicitamente que a marginal conjunta <span class="math inline">\(p(x_I, x_B)\)</span> tipicamente <strong>não</strong> fatora sob esse modelo:</p>
+<p><span class="math display">\[
+p(x_I, x_B) = \sum_k \pi_k\, p(x_I\mid\mathcal{C}_k)\,p(x_B\mid\mathcal{C}_k)
+\;\;\neq\;\; p(x_I)\,p(x_B) .
+\]</span></p>
+<p>A mistura de produtos não é um produto. A independência condicional <strong>gera</strong> correlação marginal.</p>
+<p>Este é o ponto conceitual mais escorregadio da aula, e merece um segundo exemplo, do cotidiano: <strong>altura e vocabulário de crianças</strong> são fortemente correlacionados — crianças mais altas sabem mais palavras. Condicionados à <strong>idade</strong>, a correlação praticamente desaparece. Ninguém acha que crescer causa aprender palavras; a idade é a causa comum, e ela é a “classe” deste exemplo.</p>
+<div id="f1f999b0" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-8-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1517" height="489"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O grafo do modelo (PRML, Figura 8.24, p.&nbsp;380) resume a estrutura: a classe no topo, os atributos pendurados nela, e nenhuma aresta entre atributos. Observar a classe <strong>bloqueia</strong> o caminho entre os atributos — que é a leitura gráfica da independência condicional.</p>
+<p><em>(Aqui a figura é uma imagem, não um tópico: o curso não tem espaço para <span class="math inline">\(d\)</span>-separação e modelos gráficos.)</em></p>
+<div id="fffd1f93" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-9-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="919" height="424"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="passo-2-o-que-a-suposição-compra" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="passo-2-o-que-a-suposição-compra"><span class="header-section-number">4.2</span> Passo 2 — O que a suposição compra</h2>
+<p>Generalizando para <span class="math inline">\(D\)</span> atributos:</p>
+<p><span class="math display">\[
+p(\mathbf{x}\mid\mathcal{C}_k) \;=\; \prod_{d=1}^{D} p(x_d \mid \mathcal{C}_k).
+\]</span></p>
+<p>Agora refaça a contagem do Bloco 1 na mesma coluna do quadro:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modelo</th>
+<th>Parâmetros por classe</th>
+<th>Regime</th>
+<th><span class="math inline">\(D = 80\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Conjunta geral, atributos binários</td>
+<td><span class="math inline">\(2^D - 1\)</span></td>
+<td>exponencial</td>
+<td><span class="math inline">\(1{,}2\times 10^{24}\)</span></td>
+</tr>
+<tr class="even">
+<td>Gaussiana multivariada plena</td>
+<td><span class="math inline">\(D(D+3)/2\)</span></td>
+<td>quadrático</td>
+<td><span class="math inline">\(3.320\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Naive Bayes</strong></td>
+<td><span class="math inline">\(\mathbf{D}\)</span>, ou <span class="math inline">\(cD\)</span> com <span class="math inline">\(c\)</span> pequeno</td>
+<td><strong>linear</strong></td>
+<td><span class="math inline">\(\mathbf{80}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exponencial <span class="math inline">\(\to\)</span> quadrático <span class="math inline">\(\to\)</span> linear.</strong> Com <span class="math inline">\(D = 80\)</span> atributos binários, sai de <span class="math inline">\(10^{24}\)</span> para <span class="math inline">\(80\)</span>.</p>
+<p>E então a frase que costura o curso inteiro:</p>
+<blockquote class="blockquote">
+<p>Cada fator <span class="math inline">\(p(x_d \mid \mathcal{C}_k)\)</span> é uma <strong>densidade unidimensional</strong> — exatamente o objeto que a Aula 1 ensinou a ajustar.</p>
+</blockquote>
+<p>Beta para atributos em <span class="math inline">\([0,1]\)</span>, gaussiana para atributos reais, Bernoulli para binários, categórica para nominais, Poisson para contagens. <strong>Naive Bayes é a Aula 1 aplicada <span class="math inline">\(D\)</span> vezes, com os resultados multiplicados e ponderados pela priori.</strong> Não é um algoritmo novo; é uma suposição estrutural aplicada a um modelo generativo — que é exatamente por que Bishop nunca o trata como tópico de primeira classe.</p>
+<p>Note também que a fatoração resolve o problema de <strong>singularidade</strong> do Bloco 1 de graça: cada fator é estimado a partir de uma coluna, e <span class="math inline">\(N &lt; D\)</span> deixa de ser um obstáculo. Naive Bayes é utilizável com <span class="math inline">\(N = 20\)</span> e <span class="math inline">\(D = 5000\)</span>, e é essa propriedade que o manteve vivo em classificação de texto por décadas.</p>
+<hr>
+</section>
+<section id="passo-3-a-forma-do-classificador" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="passo-3-a-forma-do-classificador"><span class="header-section-number">4.3</span> Passo 3 — A forma do classificador</h2>
+<p>Substituindo na expressão da ativação:</p>
+<p><span class="math display">\[
+\boxed{\;
+a_k(\mathbf{x}) \;=\; \ln \pi_k \;+\; \sum_{d=1}^{D} \ln p(x_d \mid \mathcal{C}_k)
+\;}
+\]</span></p>
+<p>Três leituras desta linha, todas úteis.</p>
+<p><strong>1. É uma soma de evidências.</strong> Cada atributo deposita <span class="math inline">\(\ln p(x_d\mid\mathcal{C}_k)\)</span> numa balança, e a priori é o peso inicial do prato. A interpretação é intuitiva e correta, e é a base de toda a interpretabilidade do naive Bayes: dá para listar quais atributos empurraram a decisão para cada lado, e quanto.</p>
+<p><strong>2. É numericamente estável.</strong> O produto de 5.000 probabilidades pequenas causa <em>underflow</em> em ponto flutuante — <span class="math inline">\(10^{-3}\)</span> elevado a 5.000 é zero em qualquer aritmética de precisão dupla. A soma dos logaritmos, não. Trabalhar em log-espaço não é uma otimização: é obrigatório.</p>
+<p><strong>3. Ela pode ser linear em <span class="math inline">\(\mathbf{x}\)</span></strong> — e aqui é preciso ser cuidadoso, porque é fácil errar.</p>
+<p>Para atributos binários com <span class="math inline">\(p(x_d\mid\mathcal{C}_k) = \mu_{kd}^{x_d}
+(1-\mu_{kd})^{1-x_d}\)</span> (PRML, eqs. 4.81–4.82, p.&nbsp;202):</p>
+<p><span class="math display">\[
+a_k(\mathbf{x}) = \ln\pi_k + \sum_d \Big[ x_d \ln\mu_{kd} + (1-x_d)\ln(1-\mu_{kd}) \Big]
+= \underbrace{\sum_d x_d \ln\frac{\mu_{kd}}{1-\mu_{kd}}}_{\text{linear em } \mathbf{x}}
++ \underbrace{\ln\pi_k + \sum_d \ln(1-\mu_{kd})}_{\text{constante}} .
+\]</span></p>
+<p>Logo <span class="math inline">\(p(\mathcal{C}_1\mid\mathbf{x}) = \sigma(\mathbf{w}^\top\mathbf{x} + w_0)\)</span>: uma <strong>sigmoide de uma função linear</strong>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Não atribua a linearidade ao naive Bayes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A linearidade <strong>não vem</strong> da suposição ingênua. Vem da família das densidades escolhidas — especificamente, do fato de os fatores pertencerem à família exponencial com <span class="math inline">\(\mathbf{x}\)</span> como estatística suficiente.</p>
+<p>Há <strong>dois caminhos distintos</strong> para fronteira linear no Bishop, e confundi-los é o erro mais comum:</p>
+<ul>
+<li><strong>Gaussianas com covariância plena compartilhada entre classes</strong> (§4.2.1, eqs. 4.64–4.67, pp.&nbsp;198–200). Os termos quadráticos <span class="math inline">\(-\tfrac12\mathbf{x}^\top\Sigma_k^{-1}\mathbf{x}\)</span> são idênticos nas duas classes e se cancelam na diferença. <strong>Isto não é naive Bayes</strong> — a covariância é cheia, com <span class="math inline">\(D(D+1)/2\)</span> parâmetros.</li>
+<li><strong>Naive Bayes com atributos binários</strong> (§4.2.3, p.&nbsp;202), ou naive gaussiano com variâncias compartilhadas entre classes — que é o caso <em>diagonal</em> do anterior.</li>
+</ul>
+<p>Se os fatores forem <strong>Betas</strong> (Aula 1), <span class="math inline">\(a_k\)</span> é linear nos <span class="math inline">\(\ln x_d\)</span> e <span class="math inline">\(\ln(1-x_d)\)</span>, e <strong>não</strong> em <span class="math inline">\(\mathbf{x}\)</span>. A afirmação geral e segura é apenas: <span class="math inline">\(a_k = \ln p(\mathbf{x}\mid\mathcal{C}_k) + \ln\pi_k\)</span>, sempre. Ser linear em <span class="math inline">\(\mathbf{x}\)</span> é uma propriedade da família escolhida.</p>
+</div>
+</div>
+<p><strong>A observação que fecha o bloco.</strong> Um modelo generativo com suposições agressivas produz <em>exatamente a mesma forma funcional</em> que a regressão logística, que a Aula 6 vai obter por um caminho completamente diferente — estimando a fronteira diretamente, sem modelar <span class="math inline">\(p(\mathbf{x})\)</span> e sem supor independência de nada.</p>
+<p><strong>Dois caminhos, mesma forma, ajustes diferentes.</strong> O generativo estima <span class="math inline">\(\mathbf{w}\)</span> indiretamente, via as densidades; o discriminativo estima <span class="math inline">\(\mathbf{w}\)</span> diretamente, maximizando a verossimilhança condicional. Quando a suposição generativa é boa, o primeiro é mais eficiente com poucos dados; quando ela é ruim, o segundo é assintoticamente melhor. Isso é a Aula 6 antecipada em um parágrafo.</p>
+<div id="2c2b5c15" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-10-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1334" height="529"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bloco-4-quando-falha-e-quando-não-importa" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Bloco 4 — Quando falha, e quando não importa</h1>
+<section id="passo-1-a-demonstração-cruel" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="passo-1-a-demonstração-cruel"><span class="header-section-number">5.1</span> Passo 1 — A demonstração cruel</h2>
+<p>Retome o modelo generativo do Bloco 2 e <strong>amostre dele agora sob a suposição ingênua</strong>. O contraste é o argumento mais convincente que existe de que o modelo está errado — e o mais eficiente, porque não exige conta nenhuma.</p>
+<p>Os dados têm correlação positiva forte entre renda e gasto: quem ganha mais gasta mais. O modelo naive ajusta corretamente cada <strong>marginal</strong> — a distribuição de renda está certa, a de gasto está certa — e depois as combina como se fossem independentes. O resultado são perfis sintéticos com renda do percentil 5 e gasto do percentil 95: cada atributo isolado é plausível, o conjunto é impossível.</p>
+<blockquote class="blockquote">
+<p><strong>A suposição de independência é literalmente visível na amostra.</strong></p>
+</blockquote>
+<p>Em texto o efeito é ainda mais gritante: um gerador naive de e-mails produz mensagens em que cada palavra tem frequência correta e nenhuma sequência faz sentido.</p>
+<section id="a-radicalização-duplicar-um-atributo" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="a-radicalização-duplicar-um-atributo">A radicalização: duplicar um atributo</h3>
+<p>Agora leve a falha ao limite. Duplique um atributo <span class="math inline">\(m\)</span> vezes, de modo que <span class="math inline">\(x_1 = x_2 = \dots = x_m\)</span>. O termo <span class="math inline">\(\ln p(x_1\mid\mathcal{C}_k)\)</span> entra <span class="math inline">\(m\)</span> vezes na soma:</p>
+<p><span class="math display">\[
+a_k(\mathbf{x}) = \ln\pi_k + m\,\ln p(x_1\mid\mathcal{C}_k) + \sum_{d&gt;m}\ln p(x_d\mid\mathcal{C}_k).
+\]</span></p>
+<p>A mesma evidência é contada <span class="math inline">\(m\)</span> vezes. A diferença <span class="math inline">\(a_1 - a_2\)</span> é multiplicada, e a posteriori corre para <span class="math inline">\(0\)</span> ou <span class="math inline">\(1\)</span>. Nenhuma informação nova entrou — apenas foi copiada — e a confiança do modelo explodiu.</p>
+<blockquote class="blockquote">
+<p><strong>Naive Bayes é sistematicamente superconfiante</strong>, porque atributos correlacionados carregam evidência redundante que o modelo trata como independente.</p>
+</blockquote>
+<p>Guarde este mecanismo. No Passo 2 ele vai reaparecer de forma <strong>quantitativa</strong>, e vai explicar por que a acurácia sobrevive à catástrofe da calibração.</p>
+<div id="cfc9df48" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-11-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1509" height="571"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="97d0015e" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-12-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1512" height="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="passo-2-por-que-ele-funciona-mesmo-assim" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="passo-2-por-que-ele-funciona-mesmo-assim"><span class="header-section-number">5.2</span> Passo 2 — Por que ele funciona mesmo assim</h2>
+<p>Escreva a correção de dependência, <strong>sem aproximação nenhuma</strong>. Defina</p>
+<p><span class="math display">\[
+R_k(\mathbf{x}) \;\equiv\; \frac{p(\mathbf{x}\mid\mathcal{C}_k)}{\prod_d p(x_d\mid\mathcal{C}_k)}
+\qquad\Longrightarrow\qquad
+p(\mathbf{x}\mid\mathcal{C}_k) = \Big[\prod_{d=1}^{D} p(x_d\mid\mathcal{C}_k)\Big]\cdot R_k(\mathbf{x}) .
+\]</span></p>
+<p>Isso é uma identidade, não um modelo: <span class="math inline">\(R_k\)</span> é exatamente <strong>tudo aquilo que naive Bayes joga fora</strong> — a cópula da classe <span class="math inline">\(k\)</span>, na linguagem da estatística multivariada. Para duas classes, a decisão depende só da diferença das ativações:</p>
+<p><span class="math display">\[
+a_1(\mathbf{x}) - a_2(\mathbf{x})
+= \underbrace{\ln\frac{\pi_1}{\pi_2}
++ \sum_d \ln\frac{p(x_d\mid\mathcal{C}_1)}{p(x_d\mid\mathcal{C}_2)}}_{\text{o que naive Bayes calcula}}
+\;+\; \underbrace{\ln\frac{R_1(\mathbf{x})}{R_2(\mathbf{x})}}_{\text{o que ele ignora}} .
+\]</span></p>
+<p><strong>Se a estrutura de dependência for a mesma nas duas classes</strong>, isto é <span class="math inline">\(R_1(\mathbf{x}) = R_2(\mathbf{x})\)</span> para todo <span class="math inline">\(\mathbf{x}\)</span>, o último termo é <strong>exatamente zero</strong>, e a fronteira de decisão do naive Bayes coincide com a fronteira ótima — apesar de as duas posterioris estarem erradas.</p>
+<p>Este é o resultado da aula, e ele responde à pergunta de forma cirúrgica:</p>
+<ul>
+<li><strong>A calibração degrada quase sempre.</strong> As probabilidades produzidas são ruins e superconfiantes, e isso não tem conserto dentro do modelo.</li>
+<li><strong>A classificação só degrada quando a dependência entre atributos <em>difere</em> entre as classes.</strong> Correlação alta, por si só, não é o problema; correlação com estrutura diferente por classe é.</li>
+<li>O <span class="math inline">\(\arg\max\)</span> é <strong>invariante a qualquer transformação monótona</strong> da posteriori, e é por isso que um modelo com probabilidades erradas ainda pode acertar o rótulo.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Correção importante: covariância compartilhada <strong>não</strong> basta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>É tentador ilustrar <span class="math inline">\(R_1 = R_2\)</span> com “duas gaussianas com a mesma matriz de covariância <span class="math inline">\(\Sigma\)</span>, não-diagonal”. <strong>Isso está errado</strong>, e vale corrigir de forma explícita porque o erro é comum.</p>
+<p>Com <span class="math inline">\(\Sigma\)</span> compartilhada e <span class="math inline">\(\mathbf{D} = \operatorname{diag}(\Sigma)\)</span>, ambas as fronteiras são hiperplanos que passam pelo mesmo ponto quando <span class="math inline">\(\pi_1=\pi_2\)</span>, mas com <strong>normais diferentes</strong>:</p>
+<p><span class="math display">\[
+\mathbf{v}_{\text{ótimo}} = \Sigma^{-1}\Delta\boldsymbol\mu ,
+\qquad
+\mathbf{u}_{\text{naive}} = \mathbf{D}^{-1}\Delta\boldsymbol\mu ,
+\qquad \Delta\boldsymbol\mu = \boldsymbol\mu_1 - \boldsymbol\mu_2 .
+\]</span></p>
+<p>Para <span class="math inline">\(\Sigma = \left(\begin{smallmatrix}1 &amp; 0{,}9\\ 0{,}9 &amp; 1\end{smallmatrix}\right)\)</span> e <span class="math inline">\(\Delta\boldsymbol\mu = (1,0)^\top\)</span>, temos <span class="math inline">\(\mathbf{v} \propto (1,\,-0{,}9)\)</span> e <span class="math inline">\(\mathbf{u} \propto (1,\,0)\)</span> — o ângulo entre elas é de <span class="math inline">\(42^\circ\)</span>. As fronteiras são bem diferentes, e <span class="math inline">\(R_1 \neq R_2\)</span> porque <span class="math inline">\(R_k\)</span> é função de <span class="math inline">\(\mathbf{x}-\boldsymbol\mu_k\)</span> e as médias diferem.</p>
+<p><strong>A condição correta</strong>, para gaussianas com <span class="math inline">\(\Sigma\)</span> compartilhada:</p>
+<p><span class="math display">\[
+\boxed{\;\Sigma^{-1}\Delta\boldsymbol\mu \;=\; c\,\mathbf{D}^{-1}\Delta\boldsymbol\mu
+\quad\text{para algum } c&gt;0\;}
+\]</span></p>
+<p>isto é, <span class="math inline">\(\Delta\boldsymbol\mu\)</span> é <strong>autovetor de <span class="math inline">\(\Sigma\mathbf{D}^{-1}\)</span></strong>. Com <span class="math inline">\(\pi_1 = \pi_2\)</span> isso é necessário e suficiente. Com prioris desiguais é preciso ainda <span class="math inline">\(c = 1\)</span>, porque o deslocamento <span class="math inline">\(\ln(\pi_1/\pi_2)\)</span> é dividido por normais de magnitudes diferentes.</p>
+<p>O caso limpo que satisfaz a condição: <span class="math inline">\(\Sigma\)</span> <strong>equicorrelacionada</strong>, <span class="math inline">\(\Sigma = \sigma^2[(1-\rho)I + \rho\,\mathbf{1}\mathbf{1}^\top]\)</span>, com <span class="math inline">\(\Delta\boldsymbol\mu \propto \mathbf{1}\)</span> — porque <span class="math inline">\(\mathbf{1}\)</span> é autovetor de <span class="math inline">\(\Sigma\)</span> e de <span class="math inline">\(\mathbf{D}^{-1}\)</span> simultaneamente.</p>
+</div>
+</div>
+<section id="o-escalar-c-é-a-superconfiança-medida" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="o-escalar-c-é-a-superconfiança-medida">O escalar <span class="math inline">\(c\)</span> é a superconfiança, medida</h3>
+<p>Vale a pena olhar para o que <span class="math inline">\(c\)</span> significa. Sob a condição acima e com <span class="math inline">\(\pi_1=\pi_2\)</span>,</p>
+<p><span class="math display">\[
+a^{\text{ótimo}}(\mathbf{x}) \;=\; c \cdot a^{\text{naive}}(\mathbf{x}),
+\qquad
+c = \frac{1}{(1-\rho) + \rho D} \;&lt;\; 1 \ \text{ para } \rho &gt; 0 .
+\]</span></p>
+<p>As duas ativações são <strong>proporcionais</strong>: mesma ordenação, mesma fronteira, magnitudes diferentes. Com <span class="math inline">\(D = 5\)</span> e <span class="math inline">\(\rho = 0{,}8\)</span>, <span class="math inline">\(c \approx 0{,}24\)</span> — o logit do naive Bayes é cerca de <strong>4,2 vezes maior</strong> que o correto.</p>
+<p>Isso amarra o Passo 1 ao Passo 2 de forma exata. A superconfiança do naive Bayes é, neste caso, uma <strong>temperatura errada</strong> no logit — e o conserto é literalmente dividir por <span class="math inline">\(1/c\)</span>, que é o <em>temperature scaling</em> que a Aula 1 mencionou na discussão de calibração. Redundância entre atributos infla o logit; a decisão sobrevive porque o <span class="math inline">\(\arg\max\)</span> não vê escala, e a probabilidade não sobrevive porque ela vê.</p>
+<p><strong>Condição forte e raramente satisfeita de forma exata — diga isso.</strong> Mas ela explica o fenômeno empírico que confunde todo mundo: naive Bayes é um classificador competitivo e um estimador de probabilidade péssimo.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Consequência prática
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se o produto final é uma <strong>decisão binária</strong>, naive Bayes pode servir.</p>
+<p>Se o produto final é um <strong>escore</strong> que vai alimentar uma política de corte, um preço ou um limite de crédito — isto é, se a <em>probabilidade em si</em> é o entregável — não use naive Bayes sem calibração posterior. E note que isso retoma exatamente o fecho da Aula 1: o limiar ótimo depende de prioris e custos, e essa conta pressupõe probabilidades calibradas. A Aula 11 tratará de calibração no contexto de SVM; o problema é o mesmo.</p>
+</div>
+</div>
+<div id="4ef55c5a" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-13-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1518" height="589"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="65919e2e" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-14-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1539" height="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="passo-3-contagens-zeradas-e-um-reencontro" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="passo-3-contagens-zeradas-e-um-reencontro"><span class="header-section-number">5.3</span> Passo 3 — Contagens zeradas, e um reencontro</h2>
+<p>Um problema concreto e imediato na implementação. Se uma palavra do vocabulário <strong>nunca apareceu</strong> na classe “spam” no conjunto de treino, então <span class="math inline">\(\hat{p}(x_d = 1 \mid \text{spam}) = 0\)</span>, o produto inteiro zera, e nenhuma evidência dos outros 4.999 atributos consegue recuperar. Em log-espaço: <span class="math inline">\(\ln 0 = -\infty\)</span>, e a soma é <span class="math inline">\(-\infty\)</span> independentemente do resto.</p>
+<p><strong>Um único zero anula tudo.</strong> E zeros são inevitáveis: com 5.000 palavras e alguns milhares de e-mails, muitas células de contagem ficam vazias por pura escassez amostral, não porque o evento seja impossível.</p>
+<p>O conserto padrão é a <strong>suavização de Laplace</strong>: some 1 a cada contagem. Mas vale mostrar de onde ela vem, porque é um reencontro.</p>
+<p>Coloque uma <strong>priori Beta</strong> sobre o parâmetro <span class="math inline">\(\mu\)</span> da Bernoulli de cada atributo. Observadas <span class="math inline">\(m\)</span> ocorrências em <span class="math inline">\(N = m + l\)</span> tentativas, a posteriori é (PRML, eq. 2.18, p.&nbsp;72):</p>
+<p><span class="math display">\[
+p(\mu \mid m, l) \;=\; \operatorname{Beta}(\mu \mid m + a,\; l + b),
+\]</span></p>
+<p>porque a Beta é <strong>conjugada</strong> à Bernoulli — a forma funcional se preserva, e a atualização é uma soma de contagens nos hiperparâmetros. A média a posteriori é</p>
+<p><span class="math display">\[
+\mathbb{E}[\mu \mid m, l] = \frac{m + a}{m + a + l + b} ,
+\qquad\text{e com } a = b = 1: \quad \frac{m+1}{N+2}.
+\]</span></p>
+<blockquote class="blockquote">
+<p><strong>A suavização “add-one” é a média a posteriori sob priori uniforme.</strong></p>
+</blockquote>
+<p>Não é um truque de engenharia; é inferência bayesiana com <span class="math inline">\(\operatorname{Beta}(1,1)\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>O reencontro com a Aula 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Aula 1 usou a Beta como <strong>modelo dos dados</strong> em <span class="math inline">\([0,1]\)</span>, e avisou explicitamente que o PRML a apresenta em outro papel — como priori conjugada sobre um parâmetro. Aqui ela aparece no papel original do PRML, e resolve um problema de engenharia concreto que os alunos acabaram de encontrar.</p>
+<p>Os hiperparâmetros <span class="math inline">\(a\)</span> e <span class="math inline">\(b\)</span> são, literalmente, um <strong>número efetivo de observações imaginárias</strong>: <span class="math inline">\(a\)</span> sucessos e <span class="math inline">\(b\)</span> fracassos que você finge ter visto antes de olhar os dados. Bishop dá essa interpretação na p.&nbsp;72, e ela volta na Aula 7 como <strong>regularização</strong> — onde o “número de observações imaginárias” reaparece como a força de um termo de penalidade.</p>
+<p>Quando <span class="math inline">\(N \to \infty\)</span>, a média a posteriori converge para a frequência amostral: a priori é lavada pelos dados, como deve ser.</p>
+</div>
+</div>
+<div id="1cf9cb4a" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-15-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1360" height="502"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="fechamento-e-ponte" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Fechamento e ponte</h1>
+<p>A aula cabe em três frases.</p>
+<ol type="1">
+<li><strong>Em alta dimensão, estimar <span class="math inline">\(p(\mathbf{x}\mid\mathcal{C}_k)\)</span> sem suposições é impossível.</strong> A maldição da dimensionalidade não proíbe aprender; proíbe aprender sem suposições.</li>
+<li><strong>Independência condicional derruba a contagem de parâmetros de exponencial para linear</strong>, e transforma o problema em <span class="math inline">\(D\)</span> cópias da Aula 1.</li>
+<li><strong>O preço é pago em calibração, quase sempre; e em acurácia apenas quando a dependência entre atributos difere entre as classes</strong> — ou, mais precisamente, quando o desalinhamento entre <span class="math inline">\(\Sigma^{-1}\Delta\boldsymbol\mu\)</span> e <span class="math inline">\(\mathbf{D}^{-1}\Delta\boldsymbol\mu\)</span> é grande.</li>
+</ol>
+<section id="ponte-para-a-aula-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ponte-para-a-aula-3">Ponte para a Aula 3</h3>
+<p>Naive Bayes fixa a fatoração <strong>a priori</strong>: o modelador decide, antes de ver os dados, que os atributos não interagem. É uma suposição forte, explícita e verificável — e essas três propriedades são virtudes.</p>
+<p><strong>Árvores de decisão</strong> fazem o oposto. Elas não supõem independência de coisa alguma: aprendem a partição do espaço <strong>a partir dos dados</strong>, e cada divisão condiciona todas as divisões abaixo dela, o que é precisamente a capacidade de capturar interação que o naive Bayes descartou.</p>
+<p>O preço muda de lugar. Deixa de ser uma suposição estrutural e passa a ser: (i) a busca pela partição é <strong>gulosa</strong>, e não há garantia de otimalidade; (ii) a estimativa de densidade dentro de cada folha é <strong>constante por partes</strong>, o que produz fronteiras em degraus e probabilidades grosseiras; (iii) o modelo tem variância alta e precisa de poda ou de agregação.</p>
+<p><strong>Trocamos uma suposição forte e explícita por uma busca subótima.</strong> Esse é o padrão que vai se repetir: cada algoritmo do curso é uma escolha diferente sobre onde pagar.</p>
+<hr>
+</section>
+</section>
+<section id="do-quadro-ao-estado-da-arte" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Do quadro ao estado da arte</h1>
+<p>Naive Bayes é frequentemente apresentado como uma curiosidade histórica — o classificador de spam dos anos 1990. A fatoração que o define, porém, é uma das ideias mais reutilizadas do aprendizado de máquina moderno, e a superconfiança que ela produz é um problema aberto em sistemas de produção hoje.</p>
+<section id="campo-médio-variacional-é-naive-bayes-na-posteriori" class="level3" data-number="7.0.1">
+<h3 data-number="7.0.1" class="anchored" data-anchor-id="campo-médio-variacional-é-naive-bayes-na-posteriori"><span class="header-section-number">7.0.1</span> 1. Campo médio variacional é naive Bayes na posteriori</h3>
+<p>A <strong>inferência variacional de campo médio</strong> aproxima uma posteriori intratável <span class="math inline">\(p(\mathbf{z}\mid\mathbf{x})\)</span> por uma família fatorada:</p>
+<p><span class="math display">\[
+q(\mathbf{z}) = \prod_{i} q_i(z_i).
+\]</span></p>
+<p>É <strong>exatamente a mesma suposição</strong> do Bloco 3, aplicada às variáveis latentes em vez dos atributos observados. E ela produz <strong>exatamente a mesma patologia</strong>, por exatamente a mesma razão: ao ignorar as correlações a posteriori, o campo médio <strong>subestima sistematicamente a variância</strong>. Minimizar <span class="math inline">\(\mathrm{KL}(q\,\|\,p)\)</span> força <span class="math inline">\(q\)</span> a se encaixar dentro de um dos modos de <span class="math inline">\(p\)</span>, e a incerteza reportada fica pequena demais.</p>
+<p>Isso não é uma analogia: é o mesmo fenômeno. Um VAE com posteriori gaussiana diagonal <span class="math inline">\(q(\mathbf{z}\mid\mathbf{x}) = \prod_i \mathcal{N}(z_i \mid \mu_i,
+\sigma_i^2)\)</span> é um modelo naive na posteriori, e as consequências práticas — incerteza subestimada, decisões superconfiantes a jusante — são as do Passo 1 deste bloco. É também por isso que existem <em>normalizing flows</em> aplicados à posteriori variacional, <em>full-covariance</em> e <em>structured</em> mean-field: são tentativas de recuperar o <span class="math inline">\(R_k\)</span> que a fatoração jogou fora.</p>
+</section>
+<section id="fatoração-autorregressiva-a-mesma-forma-sem-a-suposição" class="level3" data-number="7.0.2">
+<h3 data-number="7.0.2" class="anchored" data-anchor-id="fatoração-autorregressiva-a-mesma-forma-sem-a-suposição"><span class="header-section-number">7.0.2</span> 2. Fatoração autorregressiva: a mesma forma, sem a suposição</h3>
+<p>Um LLM fatora a distribuição de uma sequência assim:</p>
+<p><span class="math display">\[
+p(x_1,\dots,x_T) \;=\; \prod_{t=1}^{T} p(x_t \mid x_{&lt;t}).
+\]</span></p>
+<p>À primeira vista parece a mesma coisa. <strong>Não é</strong>, e a diferença é o ponto mais importante desta seção. Essa fatoração é a <strong>regra da cadeia</strong> — uma identidade, verdadeira para qualquer distribuição, sem suposição nenhuma. O naive Bayes fatora em <span class="math inline">\(\prod_t p(x_t)\)</span>, que exige independência e é falso.</p>
+<p>O que se paga por não fazer a suposição: cada fator <span class="math inline">\(p(x_t\mid x_{&lt;t})\)</span> é uma distribuição condicionada em um contexto de tamanho crescente, e representá-la exige um modelo enorme. <strong>É por isso que existe o mecanismo de atenção.</strong> A atenção é, literalmente, a maquinaria construída para modelar as dependências entre posições que o naive Bayes descarta.</p>
+<p>O contraste, dito de forma nítida: um modelo de <em>bag of words</em> é naive Bayes sobre texto — cada palavra contribui independentemente, e a ordem não existe. Um <em>transformer</em> é a fatoração honesta. A distância entre os dois é a distância entre 1998 e hoje.</p>
+</section>
+<section id="superconfiança-e-calibração" class="level3" data-number="7.0.3">
+<h3 data-number="7.0.3" class="anchored" data-anchor-id="superconfiança-e-calibração"><span class="header-section-number">7.0.3</span> 3. Superconfiança e calibração</h3>
+<p>O Passo 2 mostrou que, no caso equicorrelacionado, o logit do naive Bayes é o logit ótimo multiplicado por <span class="math inline">\(1/c &gt; 1\)</span> — uma temperatura errada. Redes profundas modernas exibem a <strong>mesma assinatura</strong>: são sistematicamente superconfiantes, e o <em>temperature scaling</em> — dividir os logits por um único escalar <span class="math inline">\(T\)</span> ajustado em validação — corrige a maior parte do problema com um único parâmetro.</p>
+<p>O paralelo é instrutivo. Uma rede profunda vê atributos massivamente redundantes (pixels vizinhos, <em>tokens</em> correlacionados) e, ao somar evidências correlacionadas, comete uma versão do erro do atributo duplicado. Que um <strong>único</strong> escalar conserte tanto sugere que a patologia é, em boa medida, de escala e não de ordenação — que é exatamente o que a decomposição <span class="math inline">\(a^{\text{ótimo}} = c\, a^{\text{naive}}\)</span> diz.</p>
+<p>E a lição da Aula 1 se fecha: o limiar ótimo depende de prioris e custos, e essa conta pressupõe probabilidades calibradas. <strong>Um classificador que ordena bem e calibra mal não pode ter seu limiar escolhido por teoria da decisão</strong> — só empiricamente.</p>
+</section>
+<section id="a-maldição-da-dimensionalidade-e-a-hipótese-da-variedade" class="level3" data-number="7.0.4">
+<h3 data-number="7.0.4" class="anchored" data-anchor-id="a-maldição-da-dimensionalidade-e-a-hipótese-da-variedade"><span class="header-section-number">7.0.4</span> 4. A maldição da dimensionalidade e a hipótese da variedade</h3>
+<p>O Bloco 1 mostrou que <span class="math inline">\(10^{10}\)</span> células ficam vazias com 10.000 pontos. Redes profundas operam em <span class="math inline">\(\mathbb{R}^{150000}\)</span> e funcionam. A reconciliação é o Passo 3: dados reais vivem em variedades de dimensão efetiva baixa, e a arquitetura das redes — convoluções, atenção, invariâncias — é uma forma de codificar suposições sobre essa variedade.</p>
+<p>Dito de outro modo: <strong>a arquitetura é a suposição.</strong> Uma CNN supõe localidade e invariância a translação; um <em>transformer</em> supõe que a relevância entre posições pode ser aprendida por produto interno; um modelo de difusão supõe uma cadeia de Markov de corrupção gradual. Nenhum deles aprende sem suposições, porque o Bloco 1 provou que isso é impossível.</p>
+</section>
+<section id="o-fecho" class="level3" data-number="7.0.5">
+<h3 data-number="7.0.5" class="anchored" data-anchor-id="o-fecho"><span class="header-section-number">7.0.5</span> O fecho</h3>
+<p><span class="math display">\[
+\underbrace{\text{fatorar}}_{\text{escolher o que ignorar}}
+\;\longrightarrow\;
+\underbrace{\text{estimar barato}}_{\text{linear em } D}
+\;\longrightarrow\;
+\underbrace{\text{decidir bem}}_{\text{se } R_1 \approx R_2}
+\;\longrightarrow\;
+\underbrace{\text{calibrar mal}}_{\text{sempre}}
+\]</span></p>
+<p>Sessenta anos separam o naive Bayes do <em>transformer</em>, e a pergunta é a mesma: <strong>quais dependências você pode se dar ao luxo de ignorar?</strong></p>
+<hr>
+</section>
+</section>
+<section id="laboratório-computacional" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Laboratório computacional</h1>
+<ol type="1">
+<li><strong>Reproduzir a falha.</strong> Gerar dados com <span class="math inline">\(D\)</span> crescente e tentar estimar <span class="math inline">\(p(\mathbf{x}\mid\mathcal{C}_k)\)</span> por histograma multidimensional. Plotar a fração de células vazias contra <span class="math inline">\(D\)</span>. A curva é o Bloco 1 em uma imagem. Acrescentar: a menor dimensão <span class="math inline">\(D\)</span> para a qual a covariância amostral fica singular com <span class="math inline">\(N\)</span> fixo.</li>
+<li><strong>Implementar naive Bayes do zero</strong>, em log-espaço, com fatores escolhidos por tipo de atributo — Bernoulli para binário, gaussiano para real, Beta para <span class="math inline">\([0,1]\)</span>, reutilizando o código da Aula 1. Comparar com <code>sklearn.naive_bayes</code> e verificar que batem.</li>
+<li><strong>Amostrar do modelo ajustado</strong> e inspecionar os exemplos sintéticos. Escrever <em>uma frase</em> explicando por que eles são incoerentes.</li>
+<li><strong>O experimento do atributo duplicado.</strong> Replicar um atributo <span class="math inline">\(m = 1, 2, 5,
+20\)</span> vezes e plotar duas curvas contra <span class="math inline">\(m\)</span>: acurácia e log-verossimilhança preditiva (ou Brier). <strong>A acurácia mal se move; a calibração desaba.</strong></li>
+<li><strong>O experimento do cancelamento.</strong> Construir três conjuntos sintéticos:
+<ol type="a">
+<li><span class="math inline">\(\Sigma\)</span> compartilhada com <span class="math inline">\(\Delta\boldsymbol\mu\)</span> genérico — verificar que as fronteiras <strong>já diferem</strong>, contrariando a intuição;</li>
+<li><span class="math inline">\(\Sigma\)</span> equicorrelacionada com <span class="math inline">\(\Delta\boldsymbol\mu \propto \mathbf{1}\)</span> — verificar que coincidem;</li>
+<li><span class="math inline">\(\Sigma\)</span> diferente por classe — verificar que a fronteira ótima é quadrática e a naive é linear. É a verificação empírica da derivação 2, com a correção incluída.</li>
+</ol></li>
+<li><strong>Diagrama de confiabilidade</strong> antes e depois de calibração isotônica, e antes e depois de <em>temperature scaling</em>. Comparar a AUC nos três casos e observar que ela <strong>não muda</strong> — a calibração é monótona, e monótona não altera ordenação. Conecta diretamente com o laboratório da Aula 1.</li>
+</ol>
+<p>Os itens 4 e 5 são o retorno intelectual do laboratório e não devem ser cortados.</p>
+<div id="f65a36c6" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-16-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1361" height="501"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="derivações-no-quadro" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Derivações no quadro</h1>
+<p>Ordem de prioridade; cortar de baixo para cima.</p>
+<ol type="1">
+<li><strong><span class="math inline">\(a_k(\mathbf{x}) = \ln\pi_k + \sum_d \ln p(x_d\mid\mathcal{C}_k)\)</span></strong> a partir de Bayes. Obrigatória — é o classificador.</li>
+<li><strong>A decomposição com <span class="math inline">\(R_k\)</span> e o cancelamento exato quando <span class="math inline">\(R_1 = R_2\)</span>.</strong> Duas linhas, e é o resultado conceitual da aula. Acrescentar a condição correta para gaussianas, <span class="math inline">\(\Sigma^{-1}\Delta\boldsymbol\mu \propto
+\mathbf{D}^{-1}\Delta\boldsymbol\mu\)</span> — sem isso, o exemplo mais natural que ocorre à turma é um contraexemplo.</li>
+<li><strong>Linearidade de <span class="math inline">\(a_k\)</span> para atributos binários</strong> (PRML, eqs. 4.81–4.82, p.&nbsp;202). Curta, e prepara a Aula 6.</li>
+<li><strong>Suavização de Laplace como média a posteriori sob priori Beta</strong> (PRML, eq. 2.18, p.&nbsp;72).</li>
+<li><strong>Cancelamento dos termos quadráticos sob covariância compartilhada</strong> (PRML, eqs. 4.64–4.67, pp.&nbsp;198–200). Boa, mas é a primeira a cair se o tempo apertar; pode ir para a lista de exercícios.</li>
+</ol>
+</section>
+<section id="exercícios" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Exercícios</h1>
+<ul>
+<li><strong>PRML 1.16</strong> (referenciado na p.&nbsp;36) — crescimento <span class="math inline">\(D^M\)</span> do número de coeficientes independentes de um polinômio de ordem <span class="math inline">\(M\)</span> em <span class="math inline">\(D\)</span> variáveis.</li>
+<li><strong>PRML 4.11</strong> (p.&nbsp;222) — mostrar que, sob independência condicional com codificação 1-de-<span class="math inline">\(L\)</span>, as quantidades <span class="math inline">\(a_k\)</span> são funções lineares dos atributos. Bishop registra no enunciado que este é justamente o modelo naive Bayes.</li>
+<li><strong>PRML 4.9 / 4.10</strong> (p.&nbsp;222) — solução de máxima verossimilhança para as prioris de classe e para os parâmetros das condicionais gaussianas.</li>
+<li><strong>Exercício do curso (corrigido).</strong> Sejam duas gaussianas bivariadas com a <strong>mesma</strong> matriz de covariância <span class="math inline">\(\Sigma\)</span> não-diagonal e prioris iguais.
+<ol type="a">
+<li>Mostre que as fronteiras ótima e naive são ambas hiperplanos passando por <span class="math inline">\((\boldsymbol\mu_1+\boldsymbol\mu_2)/2\)</span>, com normais <span class="math inline">\(\Sigma^{-1}\Delta\boldsymbol\mu\)</span> e <span class="math inline">\(\mathbf{D}^{-1}\Delta\boldsymbol\mu\)</span>.</li>
+<li>Conclua que elas coincidem <strong>se e somente se</strong> <span class="math inline">\(\Delta\boldsymbol\mu\)</span> é autovetor de <span class="math inline">\(\Sigma\mathbf{D}^{-1}\)</span>, e exiba um contraexemplo com <span class="math inline">\(\Delta\boldsymbol\mu\)</span> genérico.</li>
+<li>Verifique que <span class="math inline">\(\Sigma\)</span> equicorrelacionada com <span class="math inline">\(\Delta\boldsymbol\mu\propto\mathbf{1}\)</span> satisfaz a condição, calcule <span class="math inline">\(c\)</span> explicitamente, e mostre que as <strong>posterioris</strong> ainda assim não coincidem.</li>
+<li>Mostre que, com prioris <strong>desiguais</strong>, a coincidência exige <span class="math inline">\(c = 1\)</span>, e portanto falha sempre que <span class="math inline">\(\rho \neq 0\)</span>.</li>
+</ol></li>
+<li><strong>Exercício do curso (extra).</strong> Mostre que <span class="math inline">\(R_1 = R_2\)</span> é suficiente mas <strong>não</strong> necessário para a coincidência das fronteiras, usando o item (c) acima como contraexemplo.</li>
+</ul>
+<hr>
+</section>
+<section id="notas-de-condução" class="level1 unnumbered">
+<h1 class="unnumbered">Notas de condução</h1>
+<p>Notas para quem conduz a aula; não fazem parte do material do aluno.</p>
+<ul>
+<li><strong>“Independente” vs.&nbsp;“condicionalmente independente”</strong> é o erro conceitual número um da aula. Repetir o exemplo altura/vocabulário/idade e voltar a ele no Bloco 4.</li>
+<li><strong>Não deixar a turma sair achando que alta dimensão é impossível.</strong> O Passo 3 do Bloco 1 existe só para isso, e é o passo que a pressa costuma comer.</li>
+<li><strong>Não atribuir a linearidade ao naive Bayes.</strong> Ela vem da família exponencial. Naive Bayes com fatores Beta não é linear em <span class="math inline">\(\mathbf{x}\)</span>. Distinguir explicitamente §4.2.1 (covariância plena compartilhada) de §4.2.3 (naive binário) — os dois dão fronteira linear por razões diferentes.</li>
+<li><strong>A correção do Bloco 4 precisa ser dita, não omitida.</strong> Se a turma sair acreditando que “covariância compartilhada ⟹ naive Bayes é ótimo”, ela vai aplicar isso em contextos em que é falso. A figura de três painéis existe exatamente para isso, e o painel (a) é o mais importante dos três.</li>
+<li><strong>A demonstração de amostragem do Bloco 2 precisa estar pronta e testada.</strong> Ela é reutilizada no Bloco 4 e o efeito depende do contraste entre as duas rodadas.</li>
+<li><strong>Ajuste gaussiano não é robusto a outliers</strong>, e Bishop registra isso na p.&nbsp;202 remetendo à §2.3.7 — o mesmo argumento da Figura 2.16 que fechou o Bloco 2 da Aula 1. Vale a menção de dez segundos: a fragilidade que eles viram em 1D não some ao subir de dimensão.</li>
+<li><strong>Se sobrar tempo, não começar modelos gráficos.</strong> A Figura 8.24 é uma imagem, não um tópico. O curso não tem espaço para <span class="math inline">\(d\)</span>-separação, e prometer isso gera dívida.</li>
+<li><strong>Distribuição de tempo:</strong> 5 min de abertura, 25 min do Bloco 1, 20 min do Bloco 2, 25 min do Bloco 3, 20 min do Bloco 4, 5 min de fechamento. O Bloco 2 é o que absorve atraso com menor perda; o Bloco 4 é o que não pode ser comprimido, porque é a competência declarada da aula.</li>
+</ul>
+</section>
+<section id="referências" class="level1 unnumbered">
+<h1 class="unnumbered">Referências</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tópico</th>
+<th>Fonte</th>
+<th>Seção</th>
+<th>Páginas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regras da soma e do produto; Bayes</td>
+<td>Bishop &amp; Bishop (2024)</td>
+<td>§2.1.2–2.1.3</td>
+<td>26–30</td>
+</tr>
+<tr class="even">
+<td>Priori, posteriori, variáveis independentes</td>
+<td>Bishop &amp; Bishop (2024)</td>
+<td>§2.1.5–2.1.6</td>
+<td>31–32</td>
+</tr>
+<tr class="odd">
+<td>Maldição da dimensionalidade</td>
+<td>Bishop (2006)</td>
+<td>§1.4</td>
+<td>33–38</td>
+</tr>
+<tr class="even">
+<td>Maldição da dimensionalidade (tratamento moderno)</td>
+<td>Bishop &amp; Bishop (2024)</td>
+<td>§6.1.1</td>
+<td>172–174</td>
+</tr>
+<tr class="odd">
+<td>Independência condicional e o modelo naive Bayes</td>
+<td>Bishop (2006)</td>
+<td>§1.5.4, eqs. 1.84–1.85</td>
+<td>46</td>
+</tr>
+<tr class="even">
+<td>Inferência e decisão; generativo vs.&nbsp;discriminativo</td>
+<td>Bishop (2006)</td>
+<td>§1.5.4</td>
+<td>42–46</td>
+</tr>
+<tr class="odd">
+<td>Classificadores generativos</td>
+<td>Bishop &amp; Bishop (2024)</td>
+<td>§5.3, §5.3.1–5.3.2</td>
+<td>150–156</td>
+</tr>
+<tr class="even">
+<td>Modelos generativos probabilísticos; sigmoide e softmax</td>
+<td>Bishop (2006)</td>
+<td>§4.2, eqs. 4.57–4.63</td>
+<td>196–198</td>
+</tr>
+<tr class="odd">
+<td>Entradas contínuas: covariância compartilhada → fronteira linear</td>
+<td>Bishop (2006)</td>
+<td>§4.2.1</td>
+<td>198–200</td>
+</tr>
+<tr class="even">
+<td>Atributos discretos: <span class="math inline">\(2^D-1\)</span> parâmetros vs.&nbsp;<span class="math inline">\(D\)</span></td>
+<td>Bishop (2006)</td>
+<td>§4.2.3, eqs. 4.81–4.82</td>
+<td>202</td>
+</tr>
+<tr class="odd">
+<td>Naive Bayes como grafo</td>
+<td>Bishop (2006)</td>
+<td>§8.2.2, Figura 8.24</td>
+<td>380–381</td>
+</tr>
+<tr class="even">
+<td>Priori Beta conjugada à Bernoulli</td>
+<td>Bishop (2006)</td>
+<td>§2.1.1, eq. 2.18</td>
+<td>71–74</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota sobre as fontes.</strong> Naive Bayes não é um tópico de primeira classe em nenhum dos dois livros. No PRML ele aparece três vezes, sempre de passagem: como exemplo em §1.5.4 (p.&nbsp;46), como caso particular de modelo generativo com atributos discretos em §4.2.3 (p.&nbsp;202), e como exemplo de grafo em §8.2.2 (p.&nbsp;380). O livro de 2024 segue a mesma estrutura em §5.3. Isso é uma <strong>vantagem</strong> para o desenho desta aula: o Bishop nunca trata naive Bayes como algoritmo, e sim como uma suposição estrutural aplicada a um modelo generativo. É exatamente o enquadramento do curso.</p>
+<p>Leituras complementares mencionadas no fechamento, fora da bibliografia obrigatória: o resultado clássico de Domingos e Pazzani sobre a otimalidade do classificador bayesiano simples sob perda 0–1; literatura sobre subestimação de variância em inferência variacional de campo médio; e trabalhos sobre calibração de redes profundas por <em>temperature scaling</em>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Cuidado</span>Verifique as citações
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As localizações de seções, páginas, equações e figuras foram registradas a partir do plano de aula e não foram conferidas contra os PDFs nesta compilação. Confira-as antes de distribuir o material aos alunos.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cláudio T. Silva | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/authors/claudio-t.-silva/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/authors/claudio-t.-silva/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/authors/claudio-t.-silva/</link>
+      <atom:link href="http://localhost:1313/mraimundo/authors/claudio-t.-silva/index.xml" rel="self" type="application/rss+xml" />
     <description>Cláudio T. Silva</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Cláudio T. Silva</title>
-      <link>http://ic.unicamp.br/mraimundo/authors/claudio-t.-silva/</link>
+      <link>http://localhost:1313/mraimundo/authors/claudio-t.-silva/</link>
     </image>
     
     <item>
       <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
-      <link>http://ic.unicamp.br/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</link>
+      <link>http://localhost:1313/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</guid>
+      <guid>http://localhost:1313/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</guid>
       <description></description>
     </item>
     

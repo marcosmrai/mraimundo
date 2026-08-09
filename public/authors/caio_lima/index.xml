@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Caio Lima | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/authors/caio_lima/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/authors/caio_lima/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/authors/caio_lima/</link>
+      <atom:link href="http://localhost:1313/mraimundo/authors/caio_lima/index.xml" rel="self" type="application/rss+xml" />
     <description>Caio Lima</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/authors/caio_lima/avatar_hu_d0fb2beaebf2f43d.jpeg</url>
+      <url>http://localhost:1313/mraimundo/authors/caio_lima/avatar_hu_d0fb2beaebf2f43d.jpeg</url>
       <title>Caio Lima</title>
-      <link>http://ic.unicamp.br/mraimundo/authors/caio_lima/</link>
+      <link>http://localhost:1313/mraimundo/authors/caio_lima/</link>
     </image>
     
   </channel>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/teaching/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/teaching/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/teaching/</link>
+      <atom:link href="http://localhost:1313/mraimundo/teaching/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcos M. Raimundo</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 20 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Marcos M. Raimundo</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/</link>
+      <link>http://localhost:1313/mraimundo/teaching/</link>
     </image>
     
     <item>
       <title>Optimization and Linear Algebra for Machine Learning</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/ml_algebra/</link>
+      <link>http://localhost:1313/mraimundo/teaching/algebra_opt/</link>
       <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/ml_algebra/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/algebra_opt/</guid>
       <description>&lt;p&gt;This course explores the mathematical foundations of Machine Learning, bridging theoretical Linear Algebra and Continuous Optimization with modern algorithmic design. Rather than treating mathematics as an isolated abstract exercise, concepts are introduced strictly in tandem with their practical utility in machine learning models, scaling from classical closed-form estimators to state-of-the-art neural network optimizers.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The primary goal is to provide students with a deep geometric and analytical understanding of how machine learning models process data and navigate error landscapes. By the end of the course, students will be able to translate abstract machine learning objectives into formal optimization problems, analyze convergence guarantees, understand preconditioned search spaces, handle non-smooth regularization, and write clean, vectorized Python code to implement algorithms from first principles.&lt;/p&gt;
@@ -172,10 +172,142 @@
     </item>
     
     <item>
-      <title>Unsupervised Learning</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/unsupervised/</link>
+      <title>Supervised Learning</title>
+      <link>http://localhost:1313/mraimundo/teaching/supervised/</link>
       <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/unsupervised/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/supervised/</guid>
+      <description>&lt;p&gt;This course explores the foundations of Supervised Machine Learning through a rigorous probabilistic and statistical lens. Students will learn how to predict labels and continuous targets from observed data, treating each algorithm not as a black box but as an estimator with explicit distributional assumptions, an associated likelihood, and quantifiable error behavior.&lt;/p&gt;
+&lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
+&lt;p&gt;The goal is to provide a deep understanding of how supervised algorithms learn a mapping from inputs to outputs, and why they work. By the end of this course, students will be able to bridge algorithmic concepts like decision trees, regularization, ensembles, and neural networks with their theoretical statistical roots, including maximum likelihood estimation, Bayesian inference, the bias-variance decomposition, and constrained optimization.&lt;/p&gt;
+&lt;h2 id=&#34;course-content&#34;&gt;Course Content&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Click on each lesson to access its detailed planning and study materials.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;part-1-foundations-of-probability-and-partitioning&#34;&gt;Part 1: Foundations of Probability and Partitioning&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-1/&#34;&gt;Lesson 1: Data, Distributions, and Anomaly Detection&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; One-dimensional binary classification and outlier detection.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Fitting continuous densities to bounded data (Beta distribution) and defining decision thresholds from low-probability regions. The unavoidable trade-off between Type I and Type II errors as a consequence of overlapping class-conditional densities.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Understand classification as a comparison between fitted densities, and thresholds as statistical decisions with explicit error costs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to fit a Beta distribution to observed data, place a decision threshold based on tail probabilities, and quantify the resulting Type I and Type II error rates.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-2/&#34;&gt;Lesson 2: Conditional Distributions and Generative Models&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Multidimensional classification under the assumption of feature independence (Naive Bayes).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Bayes&amp;rsquo; theorem decomposed into prior, likelihood, and posterior. The distinction between joint and conditional distributions, and the conditional independence assumption as a deliberate simplification to mitigate the curse of dimensionality.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Understand the generative approach to classification and the cost-benefit of independence assumptions in high dimensions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to derive the Naive Bayes classifier from Bayes&amp;rsquo; theorem and explain when the independence assumption degrades — or fails to degrade — predictive performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-3/&#34;&gt;Lesson 3: Decision Trees — Greedy Partitioning&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; The CART algorithm for classification and regression.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Non-parametric estimation of the conditional density as a piecewise-constant function. Impurity measures (Entropy and Gini) interpreted as the uncertainty of categorical distributions, and splits understood as the greedy maximization of a profile log-likelihood.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Reinterpret recursive partitioning as a likelihood-driven, non-parametric estimation procedure rather than a heuristic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to implement CART, compute impurity gains, and justify split criteria in terms of log-likelihood maximization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-4/&#34;&gt;Lesson 4: Model Selection and Resampling Techniques&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Model validation and overfitting prevention.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Empirical error versus expected generalization error. Cross-validation framed as a simulation of repeated samples from the joint distribution \(P(X,Y)\), and the Bootstrap as a tool for estimating the sampling variance of an estimator.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Treat validation as statistical estimation of an unobservable quantity, not as a bookkeeping step.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to design sound cross-validation schemes and apply the Bootstrap to quantify the uncertainty of a performance estimate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;part-2-the-parametric-linear-story&#34;&gt;Part 2: The Parametric Linear Story&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-5/&#34;&gt;Lesson 5: Linear Regression and Maximum Likelihood&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Prediction of continuous targets via hyperplanes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; The homoscedastic Gaussian noise model \(Y \mid X \sim \mathcal{N}(\beta^T X, \sigma^2)\), the construction of the likelihood function, and the mathematical proof that Ordinary Least Squares (OLS) and Maximum Likelihood Estimation (MLE) coincide under normality.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Establish maximum likelihood as the unifying principle underlying the entire parametric part of the course.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to write the likelihood of a linear model and derive the OLS solution as its maximizer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-6/&#34;&gt;Lesson 6: Logistic Regression and the GLM Framework&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Parametric binary classification.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; The Bernoulli distribution, the link function (&lt;em&gt;logit&lt;/em&gt;) that maps a linear combination into a valid probability, and the derivation of cross-entropy loss directly from the Bernoulli log-likelihood.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Understand classification losses as log-likelihoods of a chosen response distribution, and place logistic regression within the wider GLM family.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to derive cross-entropy from first principles and generalize the construction to other exponential-family responses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-7/&#34;&gt;Lesson 7: Regularization and Bayesian MAP Estimation&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Ridge (\(L_2\)) and Lasso (\(L_1\)) penalties for complexity control.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; The transition from frequentist to Bayesian thinking (parameters as random variables), Maximum A Posteriori (MAP) estimation, and the equivalence of Ridge to a Gaussian prior and of Lasso to a Laplace prior (which induces sparsity).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Recognize regularization as prior belief made explicit rather than as an arbitrary penalty term.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to derive Ridge and Lasso as MAP estimators and explain geometrically why the Laplace prior produces exact zeros.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-8/&#34;&gt;Lesson 8: The Theoretical Bias-Variance Tradeoff&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Mathematical analysis of the capacity and limits of learning algorithms.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Formal decomposition of the expected mean squared error into three predictive components: squared bias, estimator variance, and irreducible error (\(\sigma^2\)).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Provide the analytical vocabulary used throughout Part 3 to explain why ensembles and boosting work.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to derive the decomposition and diagnose whether a given model is bias-limited or variance-limited.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;part-3-advanced-models-and-optimization&#34;&gt;Part 3: Advanced Models and Optimization&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-9/&#34;&gt;Lesson 9: Ensemble Theory and Variance Reduction&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Bagging and Random Forests.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Statistical properties of the average of random variables, the variance formula for a sum of correlated variables (\(\rho\)), and how feature subsampling mathematically breaks that correlation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Explain ensemble gains quantitatively through the variance term of the decomposition from Lesson 8.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to derive the variance of an averaged correlated ensemble and predict how it responds to changes in tree count and feature subsampling rate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-10/&#34;&gt;Lesson 10: Gradient Boosting and Numerical Optimization&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; AdaBoost and Gradient Boosting.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Sequential additive modeling aimed at bias reduction, approximation of loss functions via Taylor expansion, and the interpretation of residuals and pseudo-residuals as the negative gradient of the loss in function space.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Understand boosting as gradient descent performed in the space of functions rather than parameters.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to derive pseudo-residuals for an arbitrary differentiable loss and contrast the bias-reduction mechanism of boosting with the variance reduction of bagging.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-11/&#34;&gt;Lesson 11: Support Vector Machines (SVM)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Maximum-margin classifiers and the kernel trick.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Constrained optimization via the Lagrangian dual formulation, non-probabilistic loss functions (&lt;em&gt;Hinge Loss&lt;/em&gt;, which induces sparsity in the support vectors), and the need for subsequent statistical calibration (such as Platt scaling) to recover probabilities.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Examine a model deliberately built outside the likelihood framework and understand what is gained and lost by that choice.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to formulate the dual problem, identify support vectors, and calibrate SVM scores into usable probabilities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-12/&#34;&gt;Lesson 12: Neural Networks and Representation Learning&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Multilayer Perceptrons (MLPs) and backpropagation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Neural networks as a hierarchical, chained composition of GLMs; final activation functions (such as &lt;em&gt;Softmax&lt;/em&gt;) defining the parameters of multinomial distributions; and gradient computation via the chain rule for the optimization of the global likelihood.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Close the course by showing deep networks as a stacked generalization of the parametric models studied in Part 2.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to describe an MLP as a composition of GLMs, derive backpropagation from the chain rule, and connect the output layer to an explicit likelihood.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Unsupervised Learning</title>
+      <link>http://localhost:1313/mraimundo/teaching/unsupervised/</link>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mraimundo/teaching/unsupervised/</guid>
       <description>&lt;p&gt;This course explores the foundations of Unsupervised Machine Learning and Representation Learning through a rigorous probabilistic and statistical lens. Students will learn how to extract patterns, model underlying distributions, and discover hidden structures in unlabeled data using advanced statistical frameworks and information theory.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The goal is to provide a deep understanding of how machine learning algorithms discover structure in data without human supervision. By the end of this course, students will be able to bridge algorithmic concepts like clustering, dimensionality reduction, and self-supervised learning with their theoretical statistical roots, including density estimation, generative modeling, and mutual information maximization.&lt;/p&gt;
@@ -305,9 +437,9 @@
     
     <item>
       <title>Ethical Machine Learning (2024)</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</link>
+      <link>http://localhost:1313/mraimundo/teaching/ai_ethics_2024/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/ai_ethics_2024/</guid>
       <description>&lt;p&gt;The course empowers students to identify and mitigate negative impacts of data and machine learning tools on vulnerable groups, promoting transparency and ethical solutions. It involves data analysis, application of machine learning models, and understanding optimization problems, with an initial assessment and leveling classes to ensure the necessary foundation.&lt;/p&gt;
 &lt;h2 id=&#34;terminal-objectives&#34;&gt;Terminal Objectives&lt;/h2&gt;
 &lt;p&gt;Students should be able to identify the use of data and machine learning tools that harm individuals and vulnerable groups and use and propose tools that reduce the impact and increase the transparency of such data and tools.&lt;/p&gt;
@@ -385,46 +517,9 @@
     
     <item>
       <title>Object-Oriented Programming - MC322</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/poo/</link>
+      <link>http://localhost:1313/mraimundo/teaching/poo/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/poo/</guid>
-      <description>&lt;p&gt;The course aims to introduce and develop object-oriented thinking in students. It covers fundamental OO concepts such as classes, objects, encapsulation, inheritance, and polymorphism, as well as good practices for designing and implementing classes. It also teaches how to use UML for modeling and apply design patterns, preparing students to create robust and scalable software.&lt;/p&gt;
-&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Understanding Basic OO Concepts: Teaching the difference between procedural and object-oriented programming, and introducing the concepts of class, object, attribute, and method.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Developing Object-Oriented Thinking: Helping students think in terms of objects, encapsulation, inheritance, and polymorphism.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Learning to Design and Implement Classes: Teaching how to design robust classes, with minimal and efficient interfaces, as well as good practices for access methods (getters and setters) and data hiding.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Working with Inheritance and Composition: Explaining how to use inheritance for code reuse and composition for building complex objects from simpler objects.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Applying Design Patterns: Introducing design patterns that facilitate code reuse and maintenance.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Modeling with UML: Teaching how to use UML (Unified Modeling Language) to model object-oriented systems.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Practical Implementation: Providing practical examples and exercises for implementing the concepts in programming languages such as Java, C#, and others.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Object-Oriented-Thought-Process-Developers-Library/dp/0321861272&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Object-Oriented Thought Process&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Object-Oriented Programming - MC322</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/supervised/</link>
-      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/supervised/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/poo/</guid>
       <description>&lt;p&gt;The course aims to introduce and develop object-oriented thinking in students. It covers fundamental OO concepts such as classes, objects, encapsulation, inheritance, and polymorphism, as well as good practices for designing and implementing classes. It also teaches how to use UML for modeling and apply design patterns, preparing students to create robust and scalable software.&lt;/p&gt;
 &lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;
 &lt;ul&gt;
@@ -459,9 +554,9 @@
     
     <item>
       <title>Aprendizado de Máquina Ético (2022/2023) - Ethical ML</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</link>
+      <link>http://localhost:1313/mraimundo/teaching/ai_ethics_2022/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/ai_ethics_2022/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
@@ -544,9 +639,9 @@
     
     <item>
       <title>EEI744 - Pesquisa Operacional II (UFRJ)</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/po_ii_2021/</link>
+      <link>http://localhost:1313/mraimundo/teaching/po_ii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/po_ii_2021/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/po_ii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização para problemas de estoques, grafos e filas usando otimização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -555,9 +650,9 @@
     
     <item>
       <title>EEI946 - Pesquisa Operacional III (UFRJ)</title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/po_iii_2021/</link>
+      <link>http://localhost:1313/mraimundo/teaching/po_iii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/po_iii_2021/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/po_iii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -566,9 +661,76 @@
     
     <item>
       <title></title>
-      <link>http://ic.unicamp.br/mraimundo/teaching/readme/</link>
+      <link>http://localhost:1313/mraimundo/teaching/quarto_prompt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/teaching/readme/</guid>
+      <guid>http://localhost:1313/mraimundo/teaching/quarto_prompt/</guid>
+      <description>&lt;p&gt;Atue como um professor especialista e crie um material didático completo utilizando a linguagem Quarto (.qmd). O documento deve funcionar simultaneamente como um artigo/apostila detalhada e como uma apresentação de slides profissional.&lt;/p&gt;
+&lt;p&gt;Tema da Aula: [INSIRA O TEMA DA AULA AQUI]
+Público-alvo: [EX: Alunos de Graduação/Pós-Graduação em Computação/Engenharia]&lt;/p&gt;
+&lt;p&gt;Siga estritamente as regras de estruturação e formatação abaixo:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CABEÇALHO YAML:
+O documento deve começar com o cabeçalho configurado para HTML e RevealJS:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;slide-number-true&#34;&gt;title: &amp;ldquo;[TÍTULO DA AULA]&amp;rdquo;
+subtitle: &amp;ldquo;[SUBTÍTULO/DISCIPLINA]&amp;rdquo;
+author: &amp;ldquo;[SEU NOME]&amp;rdquo;
+format:
+html:
+output-dir: &amp;ldquo;output&amp;rdquo;
+code-fold: false
+revealjs:
+output-dir: &amp;ldquo;output&amp;rdquo;
+slide-number: true&lt;/h2&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;VISIBILIDADE CONDICIONAL E CONTEÚDO:
+Divida TODO o conteúdo conceitual utilizando as divs condicionais do Quarto:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Para as NOTAS DE AULA (Apostila):
+::: {.content-visible when-format=&amp;ldquo;html&amp;rdquo; unless-format=&amp;ldquo;revealjs&amp;rdquo;}
+[Insira aqui uma explicação profunda, rigorosa, com texto corrido, formalismo matemático em LaTeX, intuição teórica e provas/demonstrações completas.]
+:::&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Para os SLIDES (Apresentação):
+::: {.content-visible when-format=&amp;ldquo;revealjs&amp;rdquo;}
+[Insira o mesmo conceito de forma resumida, utilizando bullet points curtos, destaque para conceitos-chave em negrito e formulas essenciais isoladas.]
+:::&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;ESTRUTURA DOS SLIDES E SEÇÕES:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;#&lt;/code&gt; para seções principais/capítulos.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;---&lt;/code&gt; para indicar quebras de slides ou transições de tópicos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;CÓDIGO PYTHON E ILUSTRAÇÕES GEOMÉTRICAS/GRÁFICAS:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Inclua blocos de código Python embutidos (```{python}) usando bibliotecas como Matplotlib, Numpy ou Scikit-Learn para ilustrar visualmente os conceitos teóricos da aula.&lt;/li&gt;
+&lt;li&gt;Todos os blocos de código gráficos devem conter no topo as diretivas Quarto:
+#| echo: false
+#| fig-align: center&lt;/li&gt;
+&lt;li&gt;Os gráficos devem ser esteticamente limpos, com legendas legíveis, títulos representativos e paletas de cores adequadas (ex: usando plt.style.use(&amp;lsquo;seaborn-v0_8-whitegrid&amp;rsquo;)).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;FECHAMENTO PRÁTICO:
+Ao final da aula, faça uma conexão prática ligando toda a teoria matemática construída a uma aplicação moderna no estado da arte (ex: Redes Neurais, LLMs, Processamento de Sinais, Otimização, etc.).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Gere o arquivo &lt;code&gt;.qmd&lt;/code&gt; completo e pronto para compilação.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/mraimundo/teaching/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mraimundo/teaching/readme/</guid>
       <description></description>
     </item>
     

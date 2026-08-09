@@ -1,0 +1,2122 @@
+---
+title: "Distribuições Condicionais e Modelos Generativos"
+subtitle: "Aula 2 — Fundamentos Estatísticos do Aprendizado Supervisionado"
+author: "Marcos M. Raimundo — Instituto de Computação, UNICAMP"
+date: today
+lang: pt-BR
+format:
+  html:
+    output-dir: "output"
+    code-fold: false
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    fig-width: 8
+    fig-height: 4.5
+  revealjs:
+    output-dir: "output"
+    slide-number: true
+    smaller: true
+    scrollable: true
+    theme: simple
+    fig-width: 8
+    fig-height: 4.2
+jupyter: python3
+execute:
+  warning: false
+  message: false
+---
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+# =====================================================================
+# SETUP GLOBAL — estado compartilhado por todos os chunks
+# =====================================================================
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Ellipse, FancyArrowPatch
+from scipy import stats, linalg
+
+plt.style.use('seaborn-v0_8-whitegrid')
+plt.rcParams.update({
+    "figure.dpi": 130, "font.size": 11,
+    "axes.titlesize": 12, "axes.titleweight": "bold",
+    "legend.frameon": True, "legend.framealpha": 0.9,
+})
+
+rng = np.random.default_rng(20260807)
+
+COR_A   = "#C0392B"   # classe 1
+COR_B   = "#2471A3"   # classe 2
+COR_LIM = "#117A65"   # fronteiras / ótimo
+COR_NEU = "#5D6D7E"
+COR_ALT = "#B9770E"   # naive
+
+# ---------------------------------------------------------------
+# Problema-fio da aula: renda x gasto, duas classes, forte correlação
+# ---------------------------------------------------------------
+MU1 = np.array([1.0, 1.0])       # classe 1  (adimplente)
+MU2 = np.array([-1.0, -1.0])     # classe 2  (inadimplente)
+SIG = np.array([[1.0, 0.85], [0.85, 1.0]])   # covariância COMPARTILHADA
+
+
+def amostra_duas_classes(n, mu1=MU1, mu2=MU2, S1=SIG, S2=None, pi1=0.5, gen=None):
+    """Amostra rotulada de duas gaussianas."""
+    g = gen if gen is not None else rng
+    S2 = SIG if S2 is None else S2
+    y = (g.random(n) < pi1).astype(int)
+    X = np.empty((n, len(mu1)))
+    n1 = int(y.sum())
+    X[y == 1] = g.multivariate_normal(mu1, S1, n1)
+    X[y == 0] = g.multivariate_normal(mu2, S2, n - n1)
+    return X, y
+
+
+def ajusta_full(X, y):
+    """Modelo generativo gaussiano com covariância plena por classe."""
+    return {k: (X[y == k].mean(0), np.cov(X[y == k].T)) for k in (0, 1)}
+
+
+def ajusta_naive(X, y):
+    """Naive Bayes gaussiano: covariância diagonal (variâncias marginais)."""
+    return {k: (X[y == k].mean(0), np.diag(X[y == k].var(0, ddof=1)))
+            for k in (0, 1)}
+
+
+def log_post_diff(X, par, pi1=0.5):
+    """a_1(x) - a_0(x) para um modelo gaussiano {classe: (mu, Sigma)}."""
+    out = np.log(pi1 / (1 - pi1)) * np.ones(len(X))
+    for k, s in ((1, +1.0), (0, -1.0)):
+        mu, S = par[k]
+        out += s * stats.multivariate_normal(mu, S, allow_singular=True).logpdf(X)
+    return out
+
+
+def elipse(ax, mu, S, cor, ls="-", lw=2.0, n_sd=(1, 2)):
+    vals, vecs = np.linalg.eigh(S)
+    ang = np.degrees(np.arctan2(vecs[1, -1], vecs[0, -1]))
+    for k in n_sd:
+        ax.add_patch(Ellipse(mu, 2 * k * np.sqrt(vals[-1]), 2 * k * np.sqrt(vals[0]),
+                             angle=ang, fill=False, edgecolor=cor,
+                             lw=lw, ls=ls, alpha=0.9))
+
+
+X_TR, Y_TR = amostra_duas_classes(2000)
+X_TE, Y_TE = amostra_duas_classes(4000)
+```
+
+# Abertura — a receita da Aula 1, e a pergunta
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+A Aula 1 terminou com uma receita que funcionava, e que cabe em três linhas:
+
+1. ajuste uma densidade $p(x \mid \mathcal{C}_k)$ para cada classe;
+2. pondere cada uma pela priori $\pi_k$;
+3. decida pela conjunta maior — corte onde $p(x\mid\mathcal{C}_1)\pi_1 =
+   p(x\mid\mathcal{C}_2)\pi_2$.
+
+Provamos que essa regra minimiza a probabilidade de erro, e a prova não usou
+família paramétrica nenhuma. Ela é geral.
+
+Agora o problema do dia, em dois exemplos concretos:
+
+- classificar e-mails como **spam** a partir da presença ou ausência de 5.000
+  palavras de vocabulário — $\mathbf{x} \in \{0,1\}^{5000}$;
+- classificar um **pedido de crédito** a partir de 80 variáveis cadastrais e
+  comportamentais — $\mathbf{x} \in \mathbb{R}^{80}$.
+
+> **A receita da Aula 1 funciona aqui? É só trocar $x$ por $\mathbf{x}$?**
+
+Responda antes de virar a página. A resposta que quase toda turma dá é *sim* —
+afinal, a demonstração do erro mínimo não fez nenhuma menção à dimensão de $x$,
+e de fato ela continua válida. O problema não está na regra de decisão. Está em
+conseguir estimar o objeto de que a regra depende.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+A receita da Aula 1, em três linhas:
+
+1. ajuste $p(x \mid \mathcal{C}_k)$ por classe
+2. pondere por $\pi_k$
+3. corte onde as **conjuntas** se cruzam
+
+. . .
+
+Agora: spam com $\mathbf{x} \in \{0,1\}^{5000}$, crédito com $\mathbf{x} \in \mathbb{R}^{80}$.
+
+### **A receita funciona aqui? É só trocar $x$ por $\mathbf{x}$?**
+
+::: {.fragment}
+A regra de decisão continua válida. **O problema é estimar o objeto de que ela depende.**
+:::
+
+:::
+
+---
+
+# Bloco 1 — A dimensão quebra a receita
+
+## Passo 1 — A extensão óbvia, e o que ela custa
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+A generalização direta do histograma da Aula 1 é dividir o espaço em células e
+classificar pela classe majoritária de cada célula. É literalmente o método da
+Aula 1 desenhado em mais eixos (PRML, Figura 1.20, p. 35).
+
+Faça a conta. Com $b$ divisões por eixo e $D$ dimensões, o número de células é
+$b^D$. Com $b = 10$ e $D = 10$: $10^{10}$ células. Com 10.000 exemplos de
+treino, **uma célula em cada milhão contém um único ponto**, e todo o resto está
+vazio. Não há como estimar uma densidade em células vazias — e a esmagadora
+maioria das células é vazia por construção, não por azar amostral.
+
+O mesmo fenômeno sem discretização nenhuma. Uma distribuição conjunta **geral**
+sobre $D$ atributos binários é uma tabela com $2^D$ entradas que somam 1, ou
+seja, $2^D - 1$ parâmetros livres — **por classe** (PRML, §4.2.3, p. 202). Com
+$D = 80$, isso é $2^{80} - 1 \approx 1{,}2 \times 10^{24}$ parâmetros. Não é um
+problema de computação: é um problema de que não existem dados no universo para
+identificar esses parâmetros.
+
+E se abandonarmos o não-paramétrico e ajustarmos uma **gaussiana multivariada**
+por classe? São $D$ médias mais $D(D+1)/2$ entradas de covariância, isto é
+$D(D+3)/2$ parâmetros. O crescimento é **quadrático**, não exponencial — uma
+melhora enorme. Mas com $D = 1000$ já são cerca de meio milhão de parâmetros
+por classe, e há um obstáculo mais duro que a contagem: a matriz de covariância
+amostral é **singular** sempre que $N < D$. Ela não é apenas mal condicionada;
+ela não é inversível, e o modelo nem chega a ser avaliável, porque
+$\ln p(\mathbf{x}\mid\mathcal{C}_k)$ exige $\Sigma_k^{-1}$ e $\ln\det\Sigma_k$.
+
+Os três regimes de crescimento merecem ser escritos lado a lado no quadro,
+porque a aula inteira consiste em descer nessa escada:
+
+| Modelo | Parâmetros por classe | Regime | $D = 80$ |
+|---|---|---|---|
+| Conjunta geral, atributos binários | $2^D - 1$ | exponencial | $1{,}2\times10^{24}$ |
+| Gaussiana multivariada plena | $D(D+3)/2$ | quadrático | $3.320$ |
+| *(a ser descoberto no Bloco 3)* | $?$ | linear | $?$ |
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Extensão óbvia da Aula 1: dividir o espaço em células (PRML Fig. 1.20, p. 35).
+
+- $b$ divisões por eixo, $D$ eixos $\Rightarrow$ $b^D$ células
+- $b=10$, $D=10$: $10^{10}$ células, 10.000 pontos $\Rightarrow$ **quase tudo vazio**
+
+::: {.fragment}
+| Modelo | Parâmetros/classe | $D=80$ |
+|---|---|---|
+| conjunta geral binária | $2^D-1$ | $1{,}2\times10^{24}$ |
+| gaussiana plena | $D(D+3)/2$ | $3.320$ |
+| ? | linear | ? |
+
+E: $\Sigma$ amostral é **singular** sempre que $N < D$ — o modelo nem é avaliável.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+fig, axes = plt.subplots(1, 3, figsize=(11.6, 3.9))
+
+# --- (a) o método da Aula 1 em 2D: células ---
+ax = axes[0]
+Xg, Yg = amostra_duas_classes(150, gen=np.random.default_rng(11))
+ax.scatter(Xg[Yg == 1, 0], Xg[Yg == 1, 1], s=16, color=COR_A, alpha=0.75, lw=0)
+ax.scatter(Xg[Yg == 0, 0], Xg[Yg == 0, 1], s=16, color=COR_B, alpha=0.75, lw=0)
+for v in np.linspace(-4, 4, 9):
+    ax.axvline(v, color=COR_NEU, lw=0.6, alpha=0.5)
+    ax.axhline(v, color=COR_NEU, lw=0.6, alpha=0.5)
+ax.set_xlim(-4, 4); ax.set_ylim(-4, 4); ax.set_aspect("equal")
+ax.set_title("Aula 1 em 2D:\n$b^D$ células")
+ax.set_xlabel("$x_1$"); ax.set_ylabel("$x_2$")
+
+# --- (b) fração de células ocupadas ---
+ax = axes[1]
+Ds = np.arange(1, 13)
+for N, c in [(1_000, COR_A), (10_000, COR_B), (100_000, COR_LIM)]:
+    frac = np.minimum(1.0, N / 10.0 ** Ds)
+    ax.semilogy(Ds, frac, "o-", ms=4, color=c, lw=2.0, label=f"$N = {N:,}$".replace(",", "."))
+ax.set_xlabel("dimensão $D$")
+ax.set_ylabel("fração de células não-vazias")
+ax.set_title("Com $b=10$: o espaço esvazia\nexponencialmente")
+ax.legend(fontsize=8)
+ax.set_ylim(1e-12, 2)
+
+# --- (c) três regimes de crescimento ---
+ax = axes[2]
+Dp = np.arange(1, 101)
+ax.semilogy(Dp, 2.0 ** Dp - 1, color=COR_A, lw=2.6, label=r"conjunta geral: $2^D-1$")
+ax.semilogy(Dp, Dp * (Dp + 3) / 2, color=COR_B, lw=2.6, label=r"gaussiana plena: $D(D{+}3)/2$")
+ax.semilogy(Dp, 2.0 * Dp, color=COR_LIM, lw=2.6, ls="--", label=r"linear: $\propto D$")
+ax.axvline(80, color=COR_NEU, lw=1.2, ls=":")
+ax.text(80, 1e18, " $D=80$", fontsize=9, color=COR_NEU)
+ax.set_xlabel("dimensão $D$")
+ax.set_ylabel("parâmetros por classe")
+ax.set_title("Exponencial, quadrático, linear")
+ax.legend(fontsize=8, loc="lower right")
+ax.set_ylim(1, 1e30)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Passo 2 — A intuição geométrica também falha
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O problema não é apenas contagem de parâmetros. É que o espaço em alta dimensão
+não se comporta como a intuição treinada em duas e três dimensões espera.
+
+O exemplo canônico é o volume da esfera (PRML, Figura 1.22, p. 37). A fração do
+volume de uma esfera de raio 1 em $\mathbb{R}^D$ contida na casca entre
+$r = 1-\epsilon$ e $r = 1$ é
+
+$$
+\frac{V_D(1) - V_D(1-\epsilon)}{V_D(1)} \;=\; 1 - (1-\epsilon)^D ,
+$$
+
+porque $V_D(r) = K_D r^D$ e a constante $K_D$ se cancela. Para $D = 20$ e
+$\epsilon = 0{,}1$, isso dá $1 - 0{,}9^{20} \approx 0{,}88$: quase 90% do volume
+está numa casca de espessura 10%. Para $D = 100$, praticamente **todo** o
+volume está a menos de 5% da superfície.
+
+A consequência é direta e desconfortável:
+
+> **Em alta dimensão, "perto do centro" é um lugar praticamente vazio.**
+
+As noções de vizinhança e de densidade local que sustentaram a Aula 1 perdem o
+significado que tinham. Um ponto típico não fica perto da moda; ele fica numa
+casca. Uma gaussiana em $\mathbb{R}^{1000}$ tem sua massa concentrada numa
+casca fina de raio $\approx \sigma\sqrt{D}$, e a moda — o ponto de maior
+densidade — está numa região onde essencialmente nenhuma amostra cai.
+
+O fenômeno relacionado, e mais relevante para métodos baseados em distância, é
+a **concentração das distâncias**: para dados i.i.d., a razão entre a distância
+do vizinho mais próximo e a do mais distante tende a 1 quando $D$ cresce. Se
+tudo está aproximadamente à mesma distância de tudo, "vizinho mais próximo"
+deixa de significar alguma coisa.
+
+Mencionar também, de passagem, o crescimento $D^M$ do número de coeficientes
+independentes de um polinômio de ordem $M$ em $D$ variáveis (PRML, eq. 1.74,
+p. 36). É o mesmo fenômeno visto pelo lado da **capacidade** do modelo, e uma
+prévia da Aula 8.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Fração do volume da esfera na casca entre $1-\epsilon$ e $1$:
+
+$$ \frac{V_D(1)-V_D(1-\epsilon)}{V_D(1)} = 1 - (1-\epsilon)^D $$
+
+- $D=20$, $\epsilon=0{,}1$ $\Rightarrow$ **88%** do volume na casca
+- Gaussiana em $\mathbb{R}^{1000}$: massa numa casca de raio $\sigma\sqrt{D}$
+
+::: {.fragment}
+> **Em alta dimensão, "perto do centro" é um lugar praticamente vazio.**
+
+E as distâncias **concentram**: $d_{\min}/d_{\max} \to 1$.
+Se tudo está à mesma distância de tudo, "vizinho" não significa nada.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+fig, axes = plt.subplots(1, 3, figsize=(11.6, 3.8))
+
+# --- (a) casca da esfera ---
+ax = axes[0]
+eps = np.linspace(0, 1, 300)
+for D_, c in [(1, "#AEB6BF"), (2, COR_NEU), (5, COR_B), (20, COR_A)]:
+    ax.plot(eps, 1 - (1 - eps) ** D_, lw=2.4, color=c, label=f"$D={D_}$")
+ax.set_xlabel(r"$\epsilon$")
+ax.set_ylabel("fração do volume na casca")
+ax.set_title("Todo o volume vai para a casca")
+ax.legend(fontsize=8, loc="lower right")
+
+# --- (b) norma dos pontos de uma gaussiana padrão ---
+ax = axes[1]
+g2 = np.random.default_rng(5)
+for D_, c in [(2, COR_NEU), (10, COR_B), (50, COR_LIM), (200, COR_A)]:
+    r = np.linalg.norm(g2.normal(size=(4000, D_)), axis=1) / np.sqrt(D_)
+    ax.hist(r, bins=60, density=True, histtype="step", lw=2.2, color=c,
+            label=f"$D={D_}$")
+ax.axvline(1.0, color=COR_NEU, lw=1.2, ls=":")
+ax.set_xlabel(r"$\|x\| / \sqrt{D}$")
+ax.set_ylabel("densidade")
+ax.set_title("A massa se aperta numa casca\n(a moda fica vazia)")
+ax.legend(fontsize=8)
+ax.set_xlim(0, 2)
+
+# --- (c) concentração das distâncias ---
+ax = axes[2]
+Ds = [1, 2, 5, 10, 25, 50, 100, 250, 500]
+razoes = []
+for D_ in Ds:
+    P = g2.uniform(size=(300, D_))
+    d = np.linalg.norm(P[:, None, :] - P[None, :, :], axis=-1)
+    d = d[~np.eye(len(P), dtype=bool)]
+    razoes.append(d.min() / d.max())
+ax.semilogx(Ds, razoes, "o-", color=COR_A, lw=2.4, ms=6)
+ax.set_xlabel("dimensão $D$")
+ax.set_ylabel(r"$d_{\min} / d_{\max}$")
+ax.set_title("Concentração das distâncias:\ntudo fica equidistante")
+ax.set_ylim(0, 1)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Passo 3 — O contrapeso honesto
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Se a aula parasse aqui, a turma sairia com a conclusão errada de que aprendizado
+em alta dimensão é impossível. Não é — redes profundas operam rotineiramente em
+$\mathbb{R}^{150000}$ e funcionam. Bishop dá as duas razões, na p. 37, e elas
+precisam ser ditas em voz alta.
+
+**Primeira: dados reais ocupam uma região de dimensão efetiva muito menor que a
+do espaço ambiente.** Uma fotografia de rosto de $500 \times 300$ pixels vive em
+$\mathbb{R}^{150000}$, mas o conjunto das fotografias de rostos não ocupa
+qualquer canto desse espaço — ele é uma variedade de dimensão bem menor,
+parametrizada por pose, iluminação, identidade, expressão. Amostre um ponto
+uniformemente em $\mathbb{R}^{150000}$ e você obtém ruído, nunca um rosto. Esta
+é a **hipótese da variedade**, e é a justificativa implícita de quase todo o
+aprendizado profundo.
+
+**Segunda: dados reais têm suavidade local.** Pequenas variações na entrada
+produzem pequenas variações na saída. Sem isso, nenhuma forma de interpolação
+faria sentido, e generalização seria impossível em qualquer dimensão.
+
+O enquadramento correto, e a frase que fecha o bloco:
+
+> **A maldição da dimensionalidade não proíbe o aprendizado. Ela proíbe o
+> aprendizado sem suposições.**
+
+Todo o resto do curso é um catálogo de suposições diferentes: independência
+condicional (hoje), partições axis-aligned (Aula 3), suavidade em bolas
+(vizinhos próximos), linearidade da fronteira (Aulas 5–6), margem máxima (Aula
+11), composição hierárquica (Aula 12). Cada algoritmo é uma aposta sobre a
+estrutura dos dados, e escolher um algoritmo é escolher em que apostar.
+
+Naive Bayes é a primeira suposição do curso, e é a mais brutal de todas.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+**Por que alta dimensão não é impossível** (PRML p. 37):
+
+1. **Hipótese da variedade** — dados reais têm dimensão efetiva $\ll$ ambiente.
+   Rostos vivem em $\mathbb{R}^{150000}$, mas não em qualquer canto dele.
+2. **Suavidade local** — pequenas variações na entrada, pequenas na saída.
+
+::: {.fragment}
+> **A maldição da dimensionalidade não proíbe o aprendizado.
+> Ela proíbe o aprendizado sem suposições.**
+
+Todo o curso é um catálogo de suposições. Naive Bayes é a primeira — e a mais brutal.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+# Variedade 1D mergulhada em 3D: dimensão ambiente 3, dimensão efetiva 1
+g3 = np.random.default_rng(9)
+t = np.sort(g3.uniform(0, 3 * np.pi, 700))
+M = np.stack([t * np.cos(t), t * np.sin(t), 0.8 * t], 1) / 9
+M += g3.normal(scale=0.012, size=M.shape)
+
+fig = plt.figure(figsize=(10.6, 4.0))
+
+ax = fig.add_subplot(1, 2, 1, projection="3d")
+ax.scatter(M[:, 0], M[:, 1], M[:, 2], c=t, cmap="viridis", s=9, alpha=0.85)
+ax.set_title("Dados em $\\mathbb{R}^3$…", fontsize=11, fontweight="bold")
+ax.set_xticklabels([]); ax.set_yticklabels([]); ax.set_zticklabels([])
+ax.grid(False)
+
+ax = fig.add_subplot(1, 2, 2)
+ax.scatter(t, np.zeros_like(t) + g3.normal(scale=0.02, size=len(t)),
+           c=t, cmap="viridis", s=12, alpha=0.85)
+ax.set_yticks([])
+ax.set_xlabel("coordenada intrínseca")
+ax.set_title("…mas com dimensão efetiva 1", fontsize=11)
+ax.set_ylim(-0.3, 0.3)
+
+fig.subplots_adjust(wspace=0.15, left=0.02, right=0.97)
+plt.show()
+```
+
+---
+
+# Bloco 2 — Bayes formal, e o que significa "generativo"
+
+## Passo 1 — As regras e a decomposição
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Agora que existe uma necessidade, vale formalizar o que a Aula 1 construiu por
+indução visual. Toda a teoria de probabilidade que o curso usa se apoia em duas
+regras (DLFC §2.1.2, pp. 26–28):
+
+$$
+\textbf{soma:}\quad p(X) = \sum_Y p(X, Y) ,
+\qquad\qquad
+\textbf{produto:}\quad p(X, Y) = p(Y \mid X)\, p(X) .
+$$
+
+Aplicando a regra do produto nas duas ordens e igualando, sai o teorema de
+Bayes (DLFC §2.1.3, p. 28; §2.1.5, p. 31), com as quatro peças nomeadas:
+
+$$
+\underbrace{p(\mathcal{C}_k \mid \mathbf{x})}_{\text{posteriori}}
+=
+\frac{\overbrace{p(\mathbf{x} \mid \mathcal{C}_k)}^{\text{verossimilhança}}\;
+      \overbrace{p(\mathcal{C}_k)}^{\text{priori}}}
+     {\underbrace{p(\mathbf{x})}_{\text{evidência}}} ,
+\qquad
+p(\mathbf{x}) = \sum_j p(\mathbf{x}\mid\mathcal{C}_j)\,\pi_j .
+$$
+
+Uma observação que economiza confusão pelo curso inteiro:
+
+::: {.callout-tip}
+## Para classificar, a evidência é irrelevante
+
+$p(\mathbf{x})$ não depende de $k$. Ela some no $\arg\max$ e some em qualquer
+comparação entre classes. Não é preciso calculá-la para decidir.
+
+Ela volta a importar em dois lugares: na **seleção de modelos** (Aula 4), onde
+$p(\mathcal{D}\mid\mathcal{M})$ é a verossimilhança marginal, e em **detecção
+de anomalia**, onde $p(\mathbf{x})$ pequeno é justamente o sinal de interesse —
+como vimos na Aula 1.
+:::
+
+Escreva também a forma que será usada o tempo todo. Definindo a **ativação**
+
+$$
+a_k(\mathbf{x}) \;=\; \ln p(\mathbf{x}\mid\mathcal{C}_k) + \ln \pi_k ,
+$$
+
+a posteriori é exatamente a *softmax* das ativações (PRML, eqs. 4.62–4.63,
+p. 198):
+
+$$
+p(\mathcal{C}_k\mid\mathbf{x}) = \frac{\exp a_k(\mathbf{x})}{\sum_j \exp a_j(\mathbf{x})} ,
+$$
+
+e no caso de duas classes, com $a = a_1 - a_2$, a **sigmoide logística**
+(PRML, eq. 4.57, p. 197):
+
+$$
+p(\mathcal{C}_1\mid\mathbf{x}) = \frac{1}{1 + e^{-a}} = \sigma(a).
+$$
+
+Vale destacar isso com ênfase, porque é uma das ideias mais mal compreendidas
+da área:
+
+> **A sigmoide e a softmax não são escolhas de arquitetura. Elas caem de
+> Bayes.**
+
+Elas são simplesmente a forma que a posteriori assume quando escrita em termos
+de log-verossimilhanças. Quando aparecerem na saída de uma regressão logística
+(Aula 6) ou de uma rede profunda (Aula 12), os alunos já terão visto de onde
+vêm — e por que o objeto natural produzido por um classificador é o *logit*, e
+não a probabilidade.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Regras da soma e do produto $\Rightarrow$ Bayes:
+
+$$ \underbrace{p(\mathcal{C}_k\mid\mathbf{x})}_{\text{posteriori}} = \frac{\overbrace{p(\mathbf{x}\mid\mathcal{C}_k)}^{\text{verossimilhança}}\;\overbrace{p(\mathcal{C}_k)}^{\text{priori}}}{\underbrace{p(\mathbf{x})}_{\text{evidência}}} $$
+
+::: {.fragment}
+**Para classificar, a evidência é irrelevante** — não depende de $k$, some no $\arg\max$.
+
+Ela volta na Aula 4 (seleção de modelos) e na detecção de anomalia.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Definindo a **ativação** $a_k(\mathbf{x}) = \ln p(\mathbf{x}\mid\mathcal{C}_k) + \ln\pi_k$:
+
+$$ p(\mathcal{C}_k\mid\mathbf{x}) = \mathrm{softmax}(a_k) \qquad\quad p(\mathcal{C}_1\mid\mathbf{x}) = \sigma(a_1-a_2) $$
+
+::: {.fragment}
+> **A sigmoide e a softmax não são escolhas de arquitetura. Elas caem de Bayes.**
+
+O objeto natural de um classificador é o **logit**, não a probabilidade.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+fig, axes = plt.subplots(1, 2, figsize=(10.6, 4.0))
+
+xs = np.linspace(-3.5, 3.5, 500)
+d1 = stats.norm(1.0, 1.0); d2 = stats.norm(-1.0, 1.0)
+pi1_, pi2_ = 0.7, 0.3
+
+ax = axes[0]
+ax.plot(xs, pi1_ * d1.pdf(xs), color=COR_A, lw=2.6, label=r"$p(x\mid\mathcal{C}_1)\pi_1$")
+ax.plot(xs, pi2_ * d2.pdf(xs), color=COR_B, lw=2.6, label=r"$p(x\mid\mathcal{C}_2)\pi_2$")
+ax.set_xlabel("$x$"); ax.set_ylabel("conjunta")
+ax.set_title("As conjuntas (Aula 1)")
+ax.legend(fontsize=9)
+
+ax = axes[1]
+a = (np.log(pi1_) + d1.logpdf(xs)) - (np.log(pi2_) + d2.logpdf(xs))
+ax2 = ax.twinx()
+ax.plot(xs, a, color=COR_NEU, lw=2.4, ls="--", label=r"ativação $a = a_1 - a_2$")
+ax2.plot(xs, 1 / (1 + np.exp(-a)), color=COR_LIM, lw=3.0,
+         label=r"$\sigma(a) = p(\mathcal{C}_1\mid x)$")
+ax.axhline(0, color=COR_NEU, lw=0.9, ls=":")
+ax2.axhline(0.5, color=COR_LIM, lw=0.9, ls=":")
+ax.set_xlabel("$x$"); ax.set_ylabel("ativação $a$", color=COR_NEU)
+ax2.set_ylabel(r"$\sigma(a)$", color=COR_LIM)
+ax2.grid(False)
+ax.set_title("A sigmoide cai de Bayes")
+h1, l1 = ax.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
+ax.legend(h1 + h2, l1 + l2, fontsize=8.5, loc="upper left")
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Passo 2 — O que "generativo" quer dizer
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+A definição é por contraste, seguindo PRML §1.5.4, pp. 42–46 (e DLFC §5.3,
+pp. 150–156):
+
+| Abordagem | Modela | Consegue |
+|---|---|---|
+| **Generativa** | $p(\mathbf{x}\mid\mathcal{C}_k)$ e $\pi_k$ | classificar, detectar anomalia, **gerar dados novos** |
+| **Discriminativa** | $p(\mathcal{C}_k\mid\mathbf{x})$ diretamente | classificar, com probabilidade |
+| **Função discriminante** | $f(\mathbf{x}) \to k$ | classificar, sem probabilidade nenhuma |
+
+A palavra "generativo" só deixa de ser jargão quando se faz a demonstração:
+**ajuste o modelo e amostre dele.** O modelo produz exemplos que nunca
+existiram, porque ele descreve *como os dados nascem*, e não apenas *onde fica
+a fronteira*. Um modelo discriminativo não tem como fazer isso — ele nunca
+representou $p(\mathbf{x})$.
+
+A figura abaixo faz exatamente isso com o problema-fio da aula: renda e gasto,
+duas classes, forte correlação positiva entre os dois atributos. À esquerda, os
+dados; à direita, amostras sintéticas do modelo generativo ajustado.
+
+Guarde essa demonstração. Ela vai ser reutilizada no Bloco 4 com efeito bem
+diferente.
+
+Feita a demonstração, aponte o custo. **O modelo generativo estima muito mais do
+que precisa.** Para decidir entre duas classes bastaria conhecer a fronteira —
+um objeto de dimensão $D-1$. Ele modela as duas populações inteiras em
+$\mathbb{R}^D$. Essa é a razão profunda pela qual ele sofre tanto com a
+dimensionalidade: o esforço estatístico é gasto em regiões do espaço que não
+influenciam decisão nenhuma. É por isso que a Aula 6 vai propor o caminho
+discriminativo, e é por isso que a maior parte dos classificadores em produção
+é discriminativa.
+
+O contraponto — e a razão pela qual modelos generativos não desapareceram — é a
+coluna "consegue": detecção de anomalia, dados faltantes, geração, e a
+capacidade de incorporar conhecimento de domínio sobre o processo gerador.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+| Abordagem | Modela | Consegue |
+|---|---|---|
+| **Generativa** | $p(\mathbf{x}\mid\mathcal{C}_k)$, $\pi_k$ | classificar, anomalia, **gerar** |
+| **Discriminativa** | $p(\mathcal{C}_k\mid\mathbf{x})$ | classificar |
+| **Discriminante** | $f(\mathbf{x})\to k$ | classificar, sem probabilidade |
+
+::: {.fragment}
+**Demonstração:** ajustar e **amostrar**. O modelo produz dados que nunca existiram.
+:::
+
+::: {.fragment}
+**O custo:** ele estima muito mais do que precisa. A fronteira tem dimensão $D-1$;
+ele modela as duas populações inteiras em $\mathbb{R}^D$.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+par_full = ajusta_full(X_TR, Y_TR)
+
+fig, axes = plt.subplots(1, 2, figsize=(10.4, 4.6), sharex=True, sharey=True)
+
+ax = axes[0]
+ax.scatter(X_TR[Y_TR == 1, 0], X_TR[Y_TR == 1, 1], s=10, color=COR_A,
+           alpha=0.45, lw=0, label="classe 1")
+ax.scatter(X_TR[Y_TR == 0, 0], X_TR[Y_TR == 0, 1], s=10, color=COR_B,
+           alpha=0.45, lw=0, label="classe 2")
+ax.set_title("Dados observados")
+ax.legend(fontsize=8.5, loc="upper left")
+
+ax = axes[1]
+gs = np.random.default_rng(21)
+for k, c in ((1, COR_A), (0, COR_B)):
+    mu, S = par_full[k]
+    Z = gs.multivariate_normal(mu, S, 1000)
+    ax.scatter(Z[:, 0], Z[:, 1], s=10, color=c, alpha=0.45, lw=0)
+    elipse(ax, mu, S, c)
+ax.set_title("Amostras do modelo generativo\n(dados que nunca existiram)")
+
+for ax in axes:
+    ax.set_xlabel("$x_1$ — renda padronizada")
+    ax.set_aspect("equal")
+axes[0].set_ylabel("$x_2$ — gasto padronizado")
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+# Bloco 3 — A suposição ingênua como conserto
+
+## Passo 1 — A suposição
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Use o exemplo do próprio Bishop, que continua o fio médico da Aula 1 (PRML
+§1.5.4, p. 46, eqs. 1.84–1.85): diagnóstico a partir de uma radiografia $x_I$ e
+de um exame de sangue $x_B$. A suposição é
+
+$$
+p(x_I,\, x_B \mid \mathcal{C}_k) \;=\; p(x_I \mid \mathcal{C}_k)\; p(x_B \mid \mathcal{C}_k),
+$$
+
+e o nome dela é **independência condicional**.
+
+Insista na palavra *condicional*. A afirmação **não** é que radiografia e exame
+de sangue sejam independentes — eles claramente não são, porque pessoas doentes
+tendem a ter ambos alterados, o que produz correlação marginal forte. A
+afirmação é que, **uma vez fixada a doença**, um exame não acrescenta
+informação sobre o outro. Bishop registra explicitamente que a marginal
+conjunta $p(x_I, x_B)$ tipicamente **não** fatora sob esse modelo:
+
+$$
+p(x_I, x_B) = \sum_k \pi_k\, p(x_I\mid\mathcal{C}_k)\,p(x_B\mid\mathcal{C}_k)
+\;\;\neq\;\; p(x_I)\,p(x_B) .
+$$
+
+A mistura de produtos não é um produto. A independência condicional **gera**
+correlação marginal.
+
+Este é o ponto conceitual mais escorregadio da aula, e merece um segundo
+exemplo, do cotidiano: **altura e vocabulário de crianças** são fortemente
+correlacionados — crianças mais altas sabem mais palavras. Condicionados à
+**idade**, a correlação praticamente desaparece. Ninguém acha que crescer causa
+aprender palavras; a idade é a causa comum, e ela é a "classe" deste exemplo.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Diagnóstico com radiografia $x_I$ e sangue $x_B$ (PRML eqs. 1.84–1.85, p. 46):
+
+$$ p(x_I, x_B \mid \mathcal{C}_k) = p(x_I\mid\mathcal{C}_k)\,p(x_B\mid\mathcal{C}_k) $$
+
+::: {.fragment}
+**Não** se afirma que os exames são independentes. Afirma-se que,
+**fixada a doença**, um não informa sobre o outro.
+
+$$ p(x_I,x_B) = \sum_k \pi_k\,p(x_I\mid\mathcal{C}_k)p(x_B\mid\mathcal{C}_k) \;\neq\; p(x_I)p(x_B) $$
+:::
+
+::: {.fragment}
+**Altura e vocabulário** de crianças: fortemente correlacionados.
+Condicionados à **idade**: praticamente não.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+# Altura x vocabulário, com idade como causa comum
+g4 = np.random.default_rng(77)
+n_c = 900
+idade = g4.integers(3, 11, n_c)
+altura = 85 + 6.2 * idade + g4.normal(0, 4.0, n_c)
+vocab = 200 + 620 * idade + g4.normal(0, 420, n_c)
+
+fig, axes = plt.subplots(1, 3, figsize=(11.8, 3.9))
+
+ax = axes[0]
+ax.scatter(altura, vocab, s=11, color=COR_NEU, alpha=0.55, lw=0)
+r_marg = np.corrcoef(altura, vocab)[0, 1]
+ax.set_title(f"Marginalmente: $r = {r_marg:.2f}$")
+ax.set_xlabel("altura (cm)"); ax.set_ylabel("vocabulário (palavras)")
+
+ax = axes[1]
+cmap = plt.get_cmap("viridis")
+for j, a_ in enumerate(sorted(set(idade))):
+    m = idade == a_
+    ax.scatter(altura[m], vocab[m], s=11, alpha=0.7, lw=0,
+               color=cmap(j / 7), label=f"{a_} anos")
+ax.set_title("Colorindo por idade")
+ax.set_xlabel("altura (cm)")
+ax.legend(fontsize=6.5, ncol=2)
+
+ax = axes[2]
+rs = [np.corrcoef(altura[idade == a_], vocab[idade == a_])[0, 1]
+      for a_ in sorted(set(idade))]
+ax.bar([str(a_) for a_ in sorted(set(idade))], rs, color=COR_B, alpha=0.85)
+ax.axhline(r_marg, color=COR_A, lw=2.0, ls="--",
+           label=f"marginal ($r={r_marg:.2f}$)")
+ax.axhline(0, color=COR_NEU, lw=0.9)
+ax.set_ylim(-1, 1)
+ax.set_xlabel("idade (anos)"); ax.set_ylabel("correlação condicional")
+ax.set_title("Condicionalmente: $r \\approx 0$")
+ax.legend(fontsize=8)
+
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O grafo do modelo (PRML, Figura 8.24, p. 380) resume a estrutura: a classe no
+topo, os atributos pendurados nela, e nenhuma aresta entre atributos. Observar
+a classe **bloqueia** o caminho entre os atributos — que é a leitura gráfica da
+independência condicional.
+
+*(Aqui a figura é uma imagem, não um tópico: o curso não tem espaço para
+$d$-separação e modelos gráficos.)*
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+fig, ax = plt.subplots(figsize=(7.2, 3.4))
+ax.add_patch(plt.Circle((0.5, 0.82), 0.075, color=COR_LIM, alpha=0.9))
+ax.text(0.5, 0.82, r"$\mathcal{C}$", ha="center", va="center",
+        color="white", fontsize=14, fontweight="bold")
+
+xs_n = np.linspace(0.12, 0.88, 5)
+for i, xn in enumerate(xs_n):
+    ax.add_patch(plt.Circle((xn, 0.25), 0.062, color=COR_B, alpha=0.85))
+    lab = r"$x_%d$" % (i + 1) if i < 4 else r"$x_D$"
+    ax.text(xn, 0.25, lab, ha="center", va="center", color="white",
+            fontsize=11, fontweight="bold")
+    ax.add_patch(FancyArrowPatch((0.5, 0.745), (xn, 0.315),
+                                 arrowstyle="-|>", mutation_scale=14,
+                                 color=COR_NEU, lw=1.5,
+                                 shrinkA=0, shrinkB=0))
+
+ax.text(0.5, 0.05, "sem arestas entre atributos: observar $\\mathcal{C}$ bloqueia o caminho",
+        ha="center", fontsize=10, color=COR_NEU, style="italic")
+ax.set_xlim(0, 1); ax.set_ylim(0, 1)
+ax.axis("off")
+ax.set_title("O grafo do naive Bayes (PRML, Fig. 8.24, p. 380)")
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Passo 2 — O que a suposição compra
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Generalizando para $D$ atributos:
+
+$$
+p(\mathbf{x}\mid\mathcal{C}_k) \;=\; \prod_{d=1}^{D} p(x_d \mid \mathcal{C}_k).
+$$
+
+Agora refaça a contagem do Bloco 1 na mesma coluna do quadro:
+
+| Modelo | Parâmetros por classe | Regime | $D = 80$ |
+|---|---|---|---|
+| Conjunta geral, atributos binários | $2^D - 1$ | exponencial | $1{,}2\times 10^{24}$ |
+| Gaussiana multivariada plena | $D(D+3)/2$ | quadrático | $3.320$ |
+| **Naive Bayes** | $\mathbf{D}$, ou $cD$ com $c$ pequeno | **linear** | $\mathbf{80}$ |
+
+**Exponencial $\to$ quadrático $\to$ linear.** Com $D = 80$ atributos binários,
+sai de $10^{24}$ para $80$.
+
+E então a frase que costura o curso inteiro:
+
+> Cada fator $p(x_d \mid \mathcal{C}_k)$ é uma **densidade unidimensional** —
+> exatamente o objeto que a Aula 1 ensinou a ajustar.
+
+Beta para atributos em $[0,1]$, gaussiana para atributos reais, Bernoulli para
+binários, categórica para nominais, Poisson para contagens. **Naive Bayes é a
+Aula 1 aplicada $D$ vezes, com os resultados multiplicados e ponderados pela
+priori.** Não é um algoritmo novo; é uma suposição estrutural aplicada a um
+modelo generativo — que é exatamente por que Bishop nunca o trata como tópico
+de primeira classe.
+
+Note também que a fatoração resolve o problema de **singularidade** do Bloco 1
+de graça: cada fator é estimado a partir de uma coluna, e $N < D$ deixa de ser
+um obstáculo. Naive Bayes é utilizável com $N = 20$ e $D = 5000$, e é essa
+propriedade que o manteve vivo em classificação de texto por décadas.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+$$ p(\mathbf{x}\mid\mathcal{C}_k) = \prod_{d=1}^{D} p(x_d\mid\mathcal{C}_k) $$
+
+| Modelo | Parâmetros/classe | $D=80$ |
+|---|---|---|
+| conjunta geral binária | $2^D-1$ | $1{,}2\times10^{24}$ |
+| gaussiana plena | $D(D+3)/2$ | $3.320$ |
+| **naive Bayes** | $\mathbf{D}$ | $\mathbf{80}$ |
+
+::: {.fragment}
+> Cada fator $p(x_d\mid\mathcal{C}_k)$ é uma **densidade 1D** — o objeto da Aula 1.
+
+**Naive Bayes é a Aula 1 repetida $D$ vezes e colada por um produto.**
+
+E $N < D$ deixa de ser obstáculo: nada precisa ser invertido.
+:::
+
+:::
+
+---
+
+## Passo 3 — A forma do classificador
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Substituindo na expressão da ativação:
+
+$$
+\boxed{\;
+a_k(\mathbf{x}) \;=\; \ln \pi_k \;+\; \sum_{d=1}^{D} \ln p(x_d \mid \mathcal{C}_k)
+\;}
+$$
+
+Três leituras desta linha, todas úteis.
+
+**1. É uma soma de evidências.** Cada atributo deposita
+$\ln p(x_d\mid\mathcal{C}_k)$ numa balança, e a priori é o peso inicial do
+prato. A interpretação é intuitiva e correta, e é a base de toda a
+interpretabilidade do naive Bayes: dá para listar quais atributos empurraram a
+decisão para cada lado, e quanto.
+
+**2. É numericamente estável.** O produto de 5.000 probabilidades pequenas
+causa *underflow* em ponto flutuante — $10^{-3}$ elevado a 5.000 é zero em
+qualquer aritmética de precisão dupla. A soma dos logaritmos, não. Trabalhar em
+log-espaço não é uma otimização: é obrigatório.
+
+**3. Ela pode ser linear em $\mathbf{x}$** — e aqui é preciso ser cuidadoso,
+porque é fácil errar.
+
+Para atributos binários com $p(x_d\mid\mathcal{C}_k) = \mu_{kd}^{x_d}
+(1-\mu_{kd})^{1-x_d}$ (PRML, eqs. 4.81–4.82, p. 202):
+
+$$
+a_k(\mathbf{x}) = \ln\pi_k + \sum_d \Big[ x_d \ln\mu_{kd} + (1-x_d)\ln(1-\mu_{kd}) \Big]
+= \underbrace{\sum_d x_d \ln\frac{\mu_{kd}}{1-\mu_{kd}}}_{\text{linear em } \mathbf{x}}
++ \underbrace{\ln\pi_k + \sum_d \ln(1-\mu_{kd})}_{\text{constante}} .
+$$
+
+Logo $p(\mathcal{C}_1\mid\mathbf{x}) = \sigma(\mathbf{w}^\top\mathbf{x} + w_0)$:
+uma **sigmoide de uma função linear**.
+
+::: {.callout-important}
+## Não atribua a linearidade ao naive Bayes
+
+A linearidade **não vem** da suposição ingênua. Vem da família das densidades
+escolhidas — especificamente, do fato de os fatores pertencerem à família
+exponencial com $\mathbf{x}$ como estatística suficiente.
+
+Há **dois caminhos distintos** para fronteira linear no Bishop, e confundi-los é
+o erro mais comum:
+
+- **Gaussianas com covariância plena compartilhada entre classes** (§4.2.1,
+  eqs. 4.64–4.67, pp. 198–200). Os termos quadráticos
+  $-\tfrac12\mathbf{x}^\top\Sigma_k^{-1}\mathbf{x}$ são idênticos nas duas
+  classes e se cancelam na diferença. **Isto não é naive Bayes** — a covariância
+  é cheia, com $D(D+1)/2$ parâmetros.
+- **Naive Bayes com atributos binários** (§4.2.3, p. 202), ou naive gaussiano
+  com variâncias compartilhadas entre classes — que é o caso *diagonal* do
+  anterior.
+
+Se os fatores forem **Betas** (Aula 1), $a_k$ é linear nos
+$\ln x_d$ e $\ln(1-x_d)$, e **não** em $\mathbf{x}$. A afirmação geral e segura
+é apenas: $a_k = \ln p(\mathbf{x}\mid\mathcal{C}_k) + \ln\pi_k$, sempre. Ser
+linear em $\mathbf{x}$ é uma propriedade da família escolhida.
+:::
+
+**A observação que fecha o bloco.** Um modelo generativo com suposições
+agressivas produz *exatamente a mesma forma funcional* que a regressão
+logística, que a Aula 6 vai obter por um caminho completamente diferente —
+estimando a fronteira diretamente, sem modelar $p(\mathbf{x})$ e sem supor
+independência de nada.
+
+**Dois caminhos, mesma forma, ajustes diferentes.** O generativo estima
+$\mathbf{w}$ indiretamente, via as densidades; o discriminativo estima
+$\mathbf{w}$ diretamente, maximizando a verossimilhança condicional. Quando a
+suposição generativa é boa, o primeiro é mais eficiente com poucos dados;
+quando ela é ruim, o segundo é assintoticamente melhor. Isso é a Aula 6
+antecipada em um parágrafo.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+$$ a_k(\mathbf{x}) = \ln\pi_k + \sum_{d=1}^{D}\ln p(x_d\mid\mathcal{C}_k) $$
+
+1. **Soma de evidências** — cada atributo deposita numa balança
+2. **Estável** — produto de 5.000 probabilidades dá *underflow*; a soma dos logs, não
+3. **Pode ser linear em $\mathbf{x}$** — para binários (PRML eqs. 4.81–4.82):
+
+$$ a_k(\mathbf{x}) = \sum_d x_d\ln\frac{\mu_{kd}}{1-\mu_{kd}} + \mathrm{const} $$
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+### Cuidado: a linearidade não vem do naive Bayes
+
+Ela vem da **família exponencial**. Dois caminhos distintos:
+
+- **Gaussianas com $\Sigma$ plena compartilhada** (§4.2.1) — os quadráticos cancelam.
+  **Não é naive Bayes.**
+- **Naive Bayes binário** (§4.2.3) — caso diagonal.
+
+Com fatores **Beta**, $a_k$ é linear em $\ln x_d$, **não** em $\mathbf{x}$.
+
+::: {.fragment}
+> Mesma forma funcional que a **regressão logística** (Aula 6), obtida por
+> caminho oposto. Dois caminhos, mesma forma, ajustes diferentes.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+# Atributos binarios: a_k linear em x  =>  fronteira linear
+g5 = np.random.default_rng(31)
+D_b = 2
+mu_k = {1: np.array([0.75, 0.70]), 0: np.array([0.30, 0.25])}
+
+xx, yy = np.meshgrid(np.linspace(-0.2, 1.2, 300), np.linspace(-0.2, 1.2, 300))
+G = np.c_[xx.ravel(), yy.ravel()]
+w = np.log(mu_k[1] / (1 - mu_k[1])) - np.log(mu_k[0] / (1 - mu_k[0]))
+w0 = np.sum(np.log(1 - mu_k[1])) - np.sum(np.log(1 - mu_k[0]))
+A = (G @ w + w0).reshape(xx.shape)
+
+fig, axes = plt.subplots(1, 2, figsize=(10.4, 4.2))
+
+ax = axes[0]
+im = ax.contourf(xx, yy, 1 / (1 + np.exp(-A)), levels=25, cmap="RdBu_r", alpha=0.75)
+ax.contour(xx, yy, A, levels=[0], colors=[COR_LIM], linewidths=2.6)
+for k, c in ((1, COR_A), (0, COR_B)):
+    pts = (g5.random((160, 2)) < mu_k[k]).astype(float) + g5.normal(0, 0.035, (160, 2))
+    ax.scatter(pts[:, 0], pts[:, 1], s=16, color=c, alpha=0.65, lw=0)
+ax.set_title("Atributos binários:\n$a_k$ linear $\\Rightarrow$ fronteira linear")
+ax.set_xlabel("$x_1$"); ax.set_ylabel("$x_2$")
+plt.colorbar(im, ax=ax, label=r"$\sigma(a)$")
+
+ax = axes[1]
+za = np.linspace(-8, 8, 400)
+ax.plot(za, 1 / (1 + np.exp(-za)), color=COR_LIM, lw=3.0)
+ax.axhline(0.5, color=COR_NEU, lw=0.9, ls=":")
+ax.axvline(0, color=COR_NEU, lw=0.9, ls=":")
+ax.set_xlabel(r"$a = \mathbf{w}^\top\mathbf{x} + w_0$")
+ax.set_ylabel(r"$p(\mathcal{C}_1\mid\mathbf{x})$")
+ax.set_title("A posteriori é uma sigmoide\nde uma função linear")
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+# Bloco 4 — Quando falha, e quando não importa
+
+## Passo 1 — A demonstração cruel
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Retome o modelo generativo do Bloco 2 e **amostre dele agora sob a suposição
+ingênua**. O contraste é o argumento mais convincente que existe de que o modelo
+está errado — e o mais eficiente, porque não exige conta nenhuma.
+
+Os dados têm correlação positiva forte entre renda e gasto: quem ganha mais
+gasta mais. O modelo naive ajusta corretamente cada **marginal** — a
+distribuição de renda está certa, a de gasto está certa — e depois as combina
+como se fossem independentes. O resultado são perfis sintéticos com renda do
+percentil 5 e gasto do percentil 95: cada atributo isolado é plausível, o
+conjunto é impossível.
+
+> **A suposição de independência é literalmente visível na amostra.**
+
+Em texto o efeito é ainda mais gritante: um gerador naive de e-mails produz
+mensagens em que cada palavra tem frequência correta e nenhuma sequência faz
+sentido.
+
+### A radicalização: duplicar um atributo {.unnumbered}
+
+Agora leve a falha ao limite. Duplique um atributo $m$ vezes, de modo que
+$x_1 = x_2 = \dots = x_m$. O termo $\ln p(x_1\mid\mathcal{C}_k)$ entra $m$ vezes
+na soma:
+
+$$
+a_k(\mathbf{x}) = \ln\pi_k + m\,\ln p(x_1\mid\mathcal{C}_k) + \sum_{d>m}\ln p(x_d\mid\mathcal{C}_k).
+$$
+
+A mesma evidência é contada $m$ vezes. A diferença $a_1 - a_2$ é multiplicada, e
+a posteriori corre para $0$ ou $1$. Nenhuma informação nova entrou — apenas foi
+copiada — e a confiança do modelo explodiu.
+
+> **Naive Bayes é sistematicamente superconfiante**, porque atributos
+> correlacionados carregam evidência redundante que o modelo trata como
+> independente.
+
+Guarde este mecanismo. No Passo 2 ele vai reaparecer de forma **quantitativa**,
+e vai explicar por que a acurácia sobrevive à catástrofe da calibração.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Amostrar do modelo **sob a suposição ingênua**:
+
+- cada **marginal** está correta
+- a **conjunta** é impossível: renda no percentil 5 com gasto no percentil 95
+
+> **A suposição de independência é literalmente visível na amostra.**
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+par_naive = ajusta_naive(X_TR, Y_TR)
+g6 = np.random.default_rng(44)
+
+fig, axes = plt.subplots(1, 3, figsize=(12.0, 4.2), sharex=True, sharey=True)
+
+conj = [("Dados observados", None, None),
+        ("Modelo generativo pleno", par_full, "-"),
+        ("Modelo NAIVE (independente)", par_naive, "--")]
+
+for ax, (tit, par, ls) in zip(axes, conj):
+    if par is None:
+        for k, c in ((1, COR_A), (0, COR_B)):
+            ax.scatter(X_TR[Y_TR == k, 0], X_TR[Y_TR == k, 1], s=9,
+                       color=c, alpha=0.4, lw=0)
+    else:
+        for k, c in ((1, COR_A), (0, COR_B)):
+            mu, S = par[k]
+            Z = g6.multivariate_normal(mu, S, 900)
+            ax.scatter(Z[:, 0], Z[:, 1], s=9, color=c, alpha=0.4, lw=0)
+            elipse(ax, mu, S, c, ls=ls)
+    ax.set_title(tit, fontsize=11)
+    ax.set_xlabel("$x_1$ — renda")
+    ax.set_aspect("equal")
+    ax.set_xlim(-5, 5); ax.set_ylim(-5, 5)
+
+axes[0].set_ylabel("$x_2$ — gasto")
+axes[2].annotate("impossível:\nrenda baixa,\ngasto altíssimo",
+                 xy=(-2.6, 2.6), xytext=(-4.6, 4.0), fontsize=8.5,
+                 color=COR_NEU, fontweight="bold",
+                 arrowprops=dict(arrowstyle="->", color=COR_NEU, lw=1.4))
+fig.suptitle("As marginais estão certas. A conjunta, não.", fontweight="bold")
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="revealjs"}
+
+### Radicalizando: duplicar um atributo $m$ vezes
+
+$$ a_k(\mathbf{x}) = \ln\pi_k + m\,\ln p(x_1\mid\mathcal{C}_k) + \sum_{d>m}\ln p(x_d\mid\mathcal{C}_k) $$
+
+- A mesma evidência é contada $m$ vezes
+- Nada de novo entrou — apenas foi **copiado**
+- A posteriori corre para $0$ ou $1$
+
+::: {.fragment}
+> **Naive Bayes é sistematicamente superconfiante.**
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+def nb_gauss_fit(X, y):
+    return [(X[y == k].mean(0), X[y == k].std(0) + 1e-9) for k in (0, 1)]
+
+
+def nb_gauss_prob(X, par):
+    ll = np.stack([(-0.5 * ((X - m) / s) ** 2 - np.log(s)).sum(1) for m, s in par])
+    return 1 / (1 + np.exp(-(ll[1] - ll[0])))
+
+
+ms = [1, 2, 3, 5, 8, 12, 20]
+accs, blls, brs = [], [], []
+for m in ms:
+    Xa = np.hstack([X_TR] + [X_TR[:, [0]]] * (m - 1))
+    Xb = np.hstack([X_TE] + [X_TE[:, [0]]] * (m - 1))
+    p1 = nb_gauss_prob(Xb, nb_gauss_fit(Xa, Y_TR))
+    accs.append(((p1 > 0.5).astype(int) == Y_TE).mean())
+    brs.append(np.mean((p1 - Y_TE) ** 2))
+    pc = np.clip(p1, 1e-12, 1 - 1e-12)
+    blls.append(-np.mean(Y_TE * np.log(pc) + (1 - Y_TE) * np.log(1 - pc)))
+
+fig, axes = plt.subplots(1, 3, figsize=(11.8, 3.9))
+
+ax = axes[0]
+ax.plot(ms, accs, "o-", color=COR_LIM, lw=2.6, ms=7)
+ax.set_xlabel("$m$ cópias do atributo 1")
+ax.set_ylabel("acurácia")
+ax.set_title("A acurácia mal se move")
+ax.set_ylim(0.5, 1.0)
+
+ax = axes[1]
+ax.plot(ms, blls, "o-", color=COR_A, lw=2.6, ms=7, label="log-loss")
+ax.plot(ms, brs, "s--", color=COR_B, lw=2.2, ms=6, label="Brier")
+ax.set_xlabel("$m$ cópias do atributo 1")
+ax.set_ylabel("erro probabilístico")
+ax.set_title("A calibração desaba")
+ax.legend(fontsize=8.5)
+
+ax = axes[2]
+for m, c in [(1, COR_LIM), (5, COR_B), (20, COR_A)]:
+    Xa = np.hstack([X_TR] + [X_TR[:, [0]]] * (m - 1))
+    Xb = np.hstack([X_TE] + [X_TE[:, [0]]] * (m - 1))
+    p1 = nb_gauss_prob(Xb, nb_gauss_fit(Xa, Y_TR))
+    ax.hist(p1, bins=40, histtype="step", lw=2.4, color=c, label=f"$m={m}$")
+ax.set_xlabel(r"$p(\mathcal{C}_1\mid\mathbf{x})$ predita")
+ax.set_ylabel("frequência")
+ax.set_title("Tudo empurrado para 0 e 1")
+ax.legend(fontsize=8.5)
+
+fig.suptitle("O experimento do atributo duplicado", fontweight="bold")
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Passo 2 — Por que ele funciona mesmo assim
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Escreva a correção de dependência, **sem aproximação nenhuma**. Defina
+
+$$
+R_k(\mathbf{x}) \;\equiv\; \frac{p(\mathbf{x}\mid\mathcal{C}_k)}{\prod_d p(x_d\mid\mathcal{C}_k)}
+\qquad\Longrightarrow\qquad
+p(\mathbf{x}\mid\mathcal{C}_k) = \Big[\prod_{d=1}^{D} p(x_d\mid\mathcal{C}_k)\Big]\cdot R_k(\mathbf{x}) .
+$$
+
+Isso é uma identidade, não um modelo: $R_k$ é exatamente **tudo aquilo que
+naive Bayes joga fora** — a cópula da classe $k$, na linguagem da estatística
+multivariada. Para duas classes, a decisão depende só da diferença das
+ativações:
+
+$$
+a_1(\mathbf{x}) - a_2(\mathbf{x})
+= \underbrace{\ln\frac{\pi_1}{\pi_2}
++ \sum_d \ln\frac{p(x_d\mid\mathcal{C}_1)}{p(x_d\mid\mathcal{C}_2)}}_{\text{o que naive Bayes calcula}}
+\;+\; \underbrace{\ln\frac{R_1(\mathbf{x})}{R_2(\mathbf{x})}}_{\text{o que ele ignora}} .
+$$
+
+**Se a estrutura de dependência for a mesma nas duas classes**, isto é
+$R_1(\mathbf{x}) = R_2(\mathbf{x})$ para todo $\mathbf{x}$, o último termo é
+**exatamente zero**, e a fronteira de decisão do naive Bayes coincide com a
+fronteira ótima — apesar de as duas posterioris estarem erradas.
+
+Este é o resultado da aula, e ele responde à pergunta de forma cirúrgica:
+
+- **A calibração degrada quase sempre.** As probabilidades produzidas são ruins
+  e superconfiantes, e isso não tem conserto dentro do modelo.
+- **A classificação só degrada quando a dependência entre atributos *difere*
+  entre as classes.** Correlação alta, por si só, não é o problema; correlação
+  com estrutura diferente por classe é.
+- O $\arg\max$ é **invariante a qualquer transformação monótona** da posteriori,
+  e é por isso que um modelo com probabilidades erradas ainda pode acertar o
+  rótulo.
+
+::: {.callout-warning}
+## Correção importante: covariância compartilhada **não** basta
+
+É tentador ilustrar $R_1 = R_2$ com "duas gaussianas com a mesma matriz de
+covariância $\Sigma$, não-diagonal". **Isso está errado**, e vale corrigir de
+forma explícita porque o erro é comum.
+
+Com $\Sigma$ compartilhada e $\mathbf{D} = \operatorname{diag}(\Sigma)$, ambas
+as fronteiras são hiperplanos que passam pelo mesmo ponto quando $\pi_1=\pi_2$,
+mas com **normais diferentes**:
+
+$$
+\mathbf{v}_{\text{ótimo}} = \Sigma^{-1}\Delta\boldsymbol\mu ,
+\qquad
+\mathbf{u}_{\text{naive}} = \mathbf{D}^{-1}\Delta\boldsymbol\mu ,
+\qquad \Delta\boldsymbol\mu = \boldsymbol\mu_1 - \boldsymbol\mu_2 .
+$$
+
+Para $\Sigma = \left(\begin{smallmatrix}1 & 0{,}9\\ 0{,}9 & 1\end{smallmatrix}\right)$ e
+$\Delta\boldsymbol\mu = (1,0)^\top$, temos
+$\mathbf{v} \propto (1,\,-0{,}9)$ e $\mathbf{u} \propto (1,\,0)$ — o ângulo
+entre elas é de $42^\circ$. As fronteiras são bem diferentes, e $R_1 \neq R_2$
+porque $R_k$ é função de $\mathbf{x}-\boldsymbol\mu_k$ e as médias diferem.
+
+**A condição correta**, para gaussianas com $\Sigma$ compartilhada:
+
+$$
+\boxed{\;\Sigma^{-1}\Delta\boldsymbol\mu \;=\; c\,\mathbf{D}^{-1}\Delta\boldsymbol\mu
+\quad\text{para algum } c>0\;}
+$$
+
+isto é, $\Delta\boldsymbol\mu$ é **autovetor de $\Sigma\mathbf{D}^{-1}$**. Com
+$\pi_1 = \pi_2$ isso é necessário e suficiente. Com prioris desiguais é preciso
+ainda $c = 1$, porque o deslocamento $\ln(\pi_1/\pi_2)$ é dividido por normais
+de magnitudes diferentes.
+
+O caso limpo que satisfaz a condição: $\Sigma$ **equicorrelacionada**,
+$\Sigma = \sigma^2[(1-\rho)I + \rho\,\mathbf{1}\mathbf{1}^\top]$, com
+$\Delta\boldsymbol\mu \propto \mathbf{1}$ — porque $\mathbf{1}$ é autovetor de
+$\Sigma$ e de $\mathbf{D}^{-1}$ simultaneamente.
+:::
+
+### O escalar $c$ é a superconfiança, medida {.unnumbered}
+
+Vale a pena olhar para o que $c$ significa. Sob a condição acima e com
+$\pi_1=\pi_2$,
+
+$$
+a^{\text{ótimo}}(\mathbf{x}) \;=\; c \cdot a^{\text{naive}}(\mathbf{x}),
+\qquad
+c = \frac{1}{(1-\rho) + \rho D} \;<\; 1 \ \text{ para } \rho > 0 .
+$$
+
+As duas ativações são **proporcionais**: mesma ordenação, mesma fronteira,
+magnitudes diferentes. Com $D = 5$ e $\rho = 0{,}8$, $c \approx 0{,}24$ — o
+logit do naive Bayes é cerca de **4,2 vezes maior** que o correto.
+
+Isso amarra o Passo 1 ao Passo 2 de forma exata. A superconfiança do naive
+Bayes é, neste caso, uma **temperatura errada** no logit — e o conserto é
+literalmente dividir por $1/c$, que é o *temperature scaling* que a Aula 1
+mencionou na discussão de calibração. Redundância entre atributos infla o
+logit; a decisão sobrevive porque o $\arg\max$ não vê escala, e a probabilidade
+não sobrevive porque ela vê.
+
+**Condição forte e raramente satisfeita de forma exata — diga isso.** Mas ela
+explica o fenômeno empírico que confunde todo mundo: naive Bayes é um
+classificador competitivo e um estimador de probabilidade péssimo.
+
+::: {.callout-note}
+## Consequência prática
+
+Se o produto final é uma **decisão binária**, naive Bayes pode servir.
+
+Se o produto final é um **escore** que vai alimentar uma política de corte, um
+preço ou um limite de crédito — isto é, se a *probabilidade em si* é o
+entregável — não use naive Bayes sem calibração posterior. E note que isso
+retoma exatamente o fecho da Aula 1: o limiar ótimo depende de prioris e
+custos, e essa conta pressupõe probabilidades calibradas. A Aula 11 tratará de
+calibração no contexto de SVM; o problema é o mesmo.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Identidade exata, sem aproximação:
+
+$$ R_k(\mathbf{x}) \equiv \frac{p(\mathbf{x}\mid\mathcal{C}_k)}{\prod_d p(x_d\mid\mathcal{C}_k)} $$
+
+$$ a_1 - a_2 = \underbrace{\ln\tfrac{\pi_1}{\pi_2} + \sum_d \ln\tfrac{p(x_d\mid\mathcal{C}_1)}{p(x_d\mid\mathcal{C}_2)}}_{\text{o que NB calcula}} + \underbrace{\ln\tfrac{R_1(\mathbf{x})}{R_2(\mathbf{x})}}_{\text{o que ele ignora}} $$
+
+::: {.fragment}
+Se $R_1 = R_2$, o último termo é **exatamente zero**: fronteira ótima,
+posterioris erradas.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+### Correção: covariância compartilhada **não** basta
+
+$$ \mathbf{v}_{\text{ótimo}} = \Sigma^{-1}\Delta\boldsymbol\mu, \qquad \mathbf{u}_{\text{naive}} = \mathbf{D}^{-1}\Delta\boldsymbol\mu $$
+
+Com $\Sigma = \left(\begin{smallmatrix}1&0{,}9\\0{,}9&1\end{smallmatrix}\right)$, $\Delta\boldsymbol\mu=(1,0)$:
+as normais fazem **42°** entre si.
+
+::: {.fragment}
+**Condição correta:** $\Sigma^{-1}\Delta\boldsymbol\mu = c\,\mathbf{D}^{-1}\Delta\boldsymbol\mu$,
+ou seja $\Delta\boldsymbol\mu$ autovetor de $\Sigma\mathbf{D}^{-1}$.
+
+Caso limpo: $\Sigma$ equicorrelacionada com $\Delta\boldsymbol\mu \propto \mathbf{1}$.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+### O escalar $c$ **é** a superconfiança
+
+$$ a^{\text{ótimo}} = c\cdot a^{\text{naive}}, \qquad c = \frac{1}{(1-\rho)+\rho D} < 1 $$
+
+- $D=5$, $\rho=0{,}8$: $c \approx 0{,}24$ $\Rightarrow$ logit **4,2× maior** que o correto
+- Mesma ordenação, mesma fronteira, **escala errada**
+- É literalmente uma **temperatura errada** — e *temperature scaling* conserta
+
+$\arg\max$ não vê escala. A probabilidade vê.
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+def fronteira_2d(ax, par, cor, ls, lab, pi1=0.5):
+    gx, gy = np.meshgrid(np.linspace(-5, 5, 300), np.linspace(-5, 5, 300))
+    Z = log_post_diff(np.c_[gx.ravel(), gy.ravel()], par, pi1).reshape(gx.shape)
+    cs = ax.contour(gx, gy, Z, levels=[0], colors=[cor], linewidths=2.8,
+                    linestyles=[ls])
+    ax.plot([], [], color=cor, lw=2.8, ls=ls, label=lab)
+
+
+rho_e = 0.8
+S_eq = (1 - rho_e) * np.eye(2) + rho_e * np.ones((2, 2))
+cenarios = [
+    ("(a) $\\Sigma$ compartilhada,\n$\\Delta\\mu$ genérico",
+     np.array([1.5, 0.0]), np.array([-1.5, 0.0]), SIG, SIG),
+    ("(b) $\\Sigma$ equicorrelacionada,\n$\\Delta\\mu \\propto \\mathbf{1}$",
+     np.array([1.0, 1.0]), np.array([-1.0, -1.0]), S_eq, S_eq),
+    ("(c) $\\Sigma$ DIFERENTE\npor classe",
+     np.array([1.0, 1.0]), np.array([-1.0, -1.0]), SIG,
+     np.array([[1.0, -0.85], [-0.85, 1.0]])),
+]
+
+fig, axes = plt.subplots(1, 3, figsize=(12.0, 4.3), sharex=True, sharey=True)
+g7 = np.random.default_rng(101)
+
+for ax, (tit, m1, m2, S1, S2) in zip(axes, cenarios):
+    Xc, yc = amostra_duas_classes(3000, m1, m2, S1, S2, gen=g7)
+    for k, c in ((1, COR_A), (0, COR_B)):
+        ax.scatter(Xc[yc == k, 0], Xc[yc == k, 1], s=6, color=c, alpha=0.25, lw=0)
+    par_o = {1: (m1, S1), 0: (m2, S2)}
+    par_n = {1: (m1, np.diag(np.diag(S1))), 0: (m2, np.diag(np.diag(S2)))}
+    fronteira_2d(ax, par_o, COR_LIM, "-", "fronteira ótima")
+    fronteira_2d(ax, par_n, COR_ALT, "--", "fronteira naive")
+    ax.set_title(tit, fontsize=10.5)
+    ax.set_xlabel("$x_1$")
+    ax.set_aspect("equal")
+    ax.set_xlim(-5, 5); ax.set_ylim(-5, 5)
+
+axes[0].set_ylabel("$x_2$")
+axes[0].legend(fontsize=8, loc="upper left")
+fig.suptitle("Quando a fronteira do naive Bayes coincide com a ótima — e quando não",
+             fontweight="bold")
+plt.tight_layout()
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+# O escalar c: mesma fronteira, escala do logit errada
+D_c, rho_c = 5, 0.8
+S_c = (1 - rho_c) * np.eye(D_c) + rho_c * np.ones((D_c, D_c))
+m1_c, m2_c = np.ones(D_c) * 0.6, -np.ones(D_c) * 0.6
+g8 = np.random.default_rng(202)
+Xc, yc = amostra_duas_classes(4000, m1_c, m2_c, S_c, S_c, gen=g8)
+
+par_o = {1: (m1_c, S_c), 0: (m2_c, S_c)}
+par_n = {1: (m1_c, np.diag(np.diag(S_c))), 0: (m2_c, np.diag(np.diag(S_c)))}
+a_o = log_post_diff(Xc, par_o)
+a_n = log_post_diff(Xc, par_n)
+c_teo = 1.0 / ((1 - rho_c) + rho_c * D_c)
+
+fig, axes = plt.subplots(1, 3, figsize=(12.0, 3.9))
+
+ax = axes[0]
+ax.scatter(a_n, a_o, s=6, color=COR_NEU, alpha=0.3, lw=0)
+lim = np.array([a_n.min(), a_n.max()])
+ax.plot(lim, c_teo * lim, color=COR_LIM, lw=2.6,
+        label=f"$a^{{ótimo}} = c\\,a^{{naive}}$,  $c={c_teo:.3f}$")
+ax.plot(lim, lim, color=COR_A, lw=1.4, ls=":", label="identidade")
+ax.set_xlabel("logit naive"); ax.set_ylabel("logit ótimo")
+ax.set_title("Proporcionais: mesma fronteira")
+ax.legend(fontsize=8)
+
+ax = axes[1]
+ax.hist(1 / (1 + np.exp(-a_o)), bins=40, histtype="step", lw=2.6,
+        color=COR_LIM, label="ótimo")
+ax.hist(1 / (1 + np.exp(-a_n)), bins=40, histtype="step", lw=2.6,
+        color=COR_ALT, label="naive")
+ax.set_xlabel(r"$p(\mathcal{C}_1\mid\mathbf{x})$")
+ax.set_ylabel("frequência")
+ax.set_title("A mesma decisão,\ncom confiança inflada")
+ax.legend(fontsize=8.5)
+
+ax = axes[2]
+bins = np.linspace(0, 1, 11)
+mid = (bins[:-1] + bins[1:]) / 2
+for a_, cor, lab in ((a_o, COR_LIM, "ótimo"), (a_n, COR_ALT, "naive"),
+                     (a_n * c_teo, COR_B, "naive + temperatura")):
+    p = 1 / (1 + np.exp(-a_))
+    idx = np.digitize(p, bins) - 1
+    obs = [yc[idx == b].mean() if (idx == b).sum() > 15 else np.nan
+           for b in range(10)]
+    ax.plot(mid, obs, "o-", color=cor, lw=2.2, ms=5, label=lab)
+ax.plot([0, 1], [0, 1], color=COR_NEU, lw=1.2, ls=":")
+ax.set_xlabel("probabilidade predita"); ax.set_ylabel("frequência observada")
+ax.set_title("Diagrama de confiabilidade")
+ax.legend(fontsize=8.5)
+
+fig.suptitle("A superconfiança é uma temperatura errada no logit", fontweight="bold")
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Passo 3 — Contagens zeradas, e um reencontro
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Um problema concreto e imediato na implementação. Se uma palavra do vocabulário
+**nunca apareceu** na classe "spam" no conjunto de treino, então
+$\hat{p}(x_d = 1 \mid \text{spam}) = 0$, o produto inteiro zera, e nenhuma
+evidência dos outros 4.999 atributos consegue recuperar. Em log-espaço:
+$\ln 0 = -\infty$, e a soma é $-\infty$ independentemente do resto.
+
+**Um único zero anula tudo.** E zeros são inevitáveis: com 5.000 palavras e
+alguns milhares de e-mails, muitas células de contagem ficam vazias por pura
+escassez amostral, não porque o evento seja impossível.
+
+O conserto padrão é a **suavização de Laplace**: some 1 a cada contagem. Mas
+vale mostrar de onde ela vem, porque é um reencontro.
+
+Coloque uma **priori Beta** sobre o parâmetro $\mu$ da Bernoulli de cada
+atributo. Observadas $m$ ocorrências em $N = m + l$ tentativas, a posteriori é
+(PRML, eq. 2.18, p. 72):
+
+$$
+p(\mu \mid m, l) \;=\; \operatorname{Beta}(\mu \mid m + a,\; l + b),
+$$
+
+porque a Beta é **conjugada** à Bernoulli — a forma funcional se preserva, e a
+atualização é uma soma de contagens nos hiperparâmetros. A média a posteriori é
+
+$$
+\mathbb{E}[\mu \mid m, l] = \frac{m + a}{m + a + l + b} ,
+\qquad\text{e com } a = b = 1: \quad \frac{m+1}{N+2}.
+$$
+
+> **A suavização "add-one" é a média a posteriori sob priori uniforme.**
+
+Não é um truque de engenharia; é inferência bayesiana com $\operatorname{Beta}(1,1)$.
+
+::: {.callout-tip}
+## O reencontro com a Aula 1
+
+A Aula 1 usou a Beta como **modelo dos dados** em $[0,1]$, e avisou
+explicitamente que o PRML a apresenta em outro papel — como priori conjugada
+sobre um parâmetro. Aqui ela aparece no papel original do PRML, e resolve um
+problema de engenharia concreto que os alunos acabaram de encontrar.
+
+Os hiperparâmetros $a$ e $b$ são, literalmente, um **número efetivo de
+observações imaginárias**: $a$ sucessos e $b$ fracassos que você finge ter
+visto antes de olhar os dados. Bishop dá essa interpretação na p. 72, e ela
+volta na Aula 7 como **regularização** — onde o "número de observações
+imaginárias" reaparece como a força de um termo de penalidade.
+
+Quando $N \to \infty$, a média a posteriori converge para a frequência
+amostral: a priori é lavada pelos dados, como deve ser.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Palavra nunca vista em "spam" $\Rightarrow$ $\hat p = 0$ $\Rightarrow$ produto inteiro zera.
+
+Em log-espaço: $\ln 0 = -\infty$. **Um único zero anula os outros 4.999 atributos.**
+
+::: {.fragment}
+Priori Beta sobre $\mu$ da Bernoulli. Posteriori (PRML eq. 2.18, p. 72):
+
+$$ p(\mu\mid m,l) = \operatorname{Beta}(\mu \mid m+a,\; l+b) \qquad \mathbb{E}[\mu] = \frac{m+a}{m+a+l+b} $$
+
+Com $a=b=1$: $\;\dfrac{m+1}{N+2}$.
+:::
+
+::: {.fragment}
+> **A suavização "add-one" é a média a posteriori sob priori uniforme.**
+
+$a, b$ = número efetivo de **observações imaginárias**. Volta na Aula 7, como regularização.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+fig, axes = plt.subplots(1, 2, figsize=(10.6, 4.0))
+xm = np.linspace(0, 1, 600)
+
+ax = axes[0]
+ax.plot(xm, stats.beta.pdf(xm, 1, 1), color=COR_NEU, lw=2.4,
+        label="priori  Beta$(1,1)$")
+for (m_, l_), c in [((0, 10), COR_A), ((2, 10), COR_B), ((20, 100), COR_LIM)]:
+    ax.plot(xm, stats.beta.pdf(xm, m_ + 1, l_ + 1), lw=2.6, color=c,
+            label=f"posteriori: $m={m_}$, $l={l_}$")
+    ax.axvline((m_ + 1) / (m_ + l_ + 2), color=c, lw=1.2, ls=":")
+ax.set_xlabel(r"$\mu$"); ax.set_ylabel("densidade")
+ax.set_title("A priori Beta é conjugada à Bernoulli")
+ax.legend(fontsize=8)
+ax.set_ylim(0, 12)
+
+ax = axes[1]
+Ns = np.arange(1, 60)
+ax.plot(Ns, np.zeros_like(Ns, dtype=float), color=COR_A, lw=2.6,
+        label=r"MLE: $m/N$ com $m=0$")
+ax.plot(Ns, 1 / (Ns + 2), color=COR_LIM, lw=2.6,
+        label=r"add-one: $(m{+}1)/(N{+}2)$")
+ax.set_xlabel("$N$ observações, nenhuma ocorrência")
+ax.set_ylabel(r"$\hat\mu$")
+ax.set_title("O MLE crava zero.\nA média a posteriori, não")
+ax.legend(fontsize=8.5)
+ax.set_ylim(-0.02, 0.36)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+# Fechamento e ponte
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+A aula cabe em três frases.
+
+1. **Em alta dimensão, estimar $p(\mathbf{x}\mid\mathcal{C}_k)$ sem suposições é
+   impossível.** A maldição da dimensionalidade não proíbe aprender; proíbe
+   aprender sem suposições.
+2. **Independência condicional derruba a contagem de parâmetros de exponencial
+   para linear**, e transforma o problema em $D$ cópias da Aula 1.
+3. **O preço é pago em calibração, quase sempre; e em acurácia apenas quando a
+   dependência entre atributos difere entre as classes** — ou, mais
+   precisamente, quando o desalinhamento entre $\Sigma^{-1}\Delta\boldsymbol\mu$
+   e $\mathbf{D}^{-1}\Delta\boldsymbol\mu$ é grande.
+
+### Ponte para a Aula 3 {.unnumbered}
+
+Naive Bayes fixa a fatoração **a priori**: o modelador decide, antes de ver os
+dados, que os atributos não interagem. É uma suposição forte, explícita e
+verificável — e essas três propriedades são virtudes.
+
+**Árvores de decisão** fazem o oposto. Elas não supõem independência de coisa
+alguma: aprendem a partição do espaço **a partir dos dados**, e cada divisão
+condiciona todas as divisões abaixo dela, o que é precisamente a capacidade de
+capturar interação que o naive Bayes descartou.
+
+O preço muda de lugar. Deixa de ser uma suposição estrutural e passa a ser: (i)
+a busca pela partição é **gulosa**, e não há garantia de otimalidade; (ii) a
+estimativa de densidade dentro de cada folha é **constante por partes**, o que
+produz fronteiras em degraus e probabilidades grosseiras; (iii) o modelo tem
+variância alta e precisa de poda ou de agregação.
+
+**Trocamos uma suposição forte e explícita por uma busca subótima.** Esse é o
+padrão que vai se repetir: cada algoritmo do curso é uma escolha diferente
+sobre onde pagar.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+1. Em alta dimensão, estimar $p(\mathbf{x}\mid\mathcal{C}_k)$ **sem suposições** é impossível
+2. Independência condicional: exponencial $\to$ **linear**; $D$ cópias da Aula 1
+3. O preço é **calibração** quase sempre; **acurácia** só quando a dependência
+   difere entre as classes
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+### Ponte para a Aula 3
+
+- **Naive Bayes** fixa a fatoração *a priori* — suposição forte, explícita, verificável
+- **Árvores** aprendem a partição *a partir dos dados* — capturam interação
+
+O preço muda de lugar: busca **gulosa**, densidade **constante por partes**,
+variância alta.
+
+> Trocamos uma suposição forte e explícita por uma busca subótima.
+
+:::
+
+---
+
+# Do quadro ao estado da arte
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Naive Bayes é frequentemente apresentado como uma curiosidade histórica — o
+classificador de spam dos anos 1990. A fatoração que o define, porém, é uma das
+ideias mais reutilizadas do aprendizado de máquina moderno, e a superconfiança
+que ela produz é um problema aberto em sistemas de produção hoje.
+
+### 1. Campo médio variacional é naive Bayes na posteriori
+
+A **inferência variacional de campo médio** aproxima uma posteriori intratável
+$p(\mathbf{z}\mid\mathbf{x})$ por uma família fatorada:
+
+$$
+q(\mathbf{z}) = \prod_{i} q_i(z_i).
+$$
+
+É **exatamente a mesma suposição** do Bloco 3, aplicada às variáveis latentes
+em vez dos atributos observados. E ela produz **exatamente a mesma patologia**,
+por exatamente a mesma razão: ao ignorar as correlações a posteriori, o campo
+médio **subestima sistematicamente a variância**. Minimizar
+$\mathrm{KL}(q\,\|\,p)$ força $q$ a se encaixar dentro de um dos modos de $p$, e
+a incerteza reportada fica pequena demais.
+
+Isso não é uma analogia: é o mesmo fenômeno. Um VAE com posteriori gaussiana
+diagonal $q(\mathbf{z}\mid\mathbf{x}) = \prod_i \mathcal{N}(z_i \mid \mu_i,
+\sigma_i^2)$ é um modelo naive na posteriori, e as consequências práticas —
+incerteza subestimada, decisões superconfiantes a jusante — são as do Passo 1
+deste bloco. É também por isso que existem *normalizing flows* aplicados à
+posteriori variacional, *full-covariance* e *structured* mean-field: são
+tentativas de recuperar o $R_k$ que a fatoração jogou fora.
+
+### 2. Fatoração autorregressiva: a mesma forma, sem a suposição
+
+Um LLM fatora a distribuição de uma sequência assim:
+
+$$
+p(x_1,\dots,x_T) \;=\; \prod_{t=1}^{T} p(x_t \mid x_{<t}).
+$$
+
+À primeira vista parece a mesma coisa. **Não é**, e a diferença é o ponto mais
+importante desta seção. Essa fatoração é a **regra da cadeia** — uma
+identidade, verdadeira para qualquer distribuição, sem suposição nenhuma. O
+naive Bayes fatora em $\prod_t p(x_t)$, que exige independência e é falso.
+
+O que se paga por não fazer a suposição: cada fator $p(x_t\mid x_{<t})$ é uma
+distribuição condicionada em um contexto de tamanho crescente, e representá-la
+exige um modelo enorme. **É por isso que existe o mecanismo de atenção.** A
+atenção é, literalmente, a maquinaria construída para modelar as dependências
+entre posições que o naive Bayes descarta.
+
+O contraste, dito de forma nítida: um modelo de *bag of words* é naive Bayes
+sobre texto — cada palavra contribui independentemente, e a ordem não existe.
+Um *transformer* é a fatoração honesta. A distância entre os dois é a distância
+entre 1998 e hoje.
+
+### 3. Superconfiança e calibração
+
+O Passo 2 mostrou que, no caso equicorrelacionado, o logit do naive Bayes é o
+logit ótimo multiplicado por $1/c > 1$ — uma temperatura errada. Redes
+profundas modernas exibem a **mesma assinatura**: são sistematicamente
+superconfiantes, e o *temperature scaling* — dividir os logits por um único
+escalar $T$ ajustado em validação — corrige a maior parte do problema com um
+único parâmetro.
+
+O paralelo é instrutivo. Uma rede profunda vê atributos massivamente
+redundantes (pixels vizinhos, *tokens* correlacionados) e, ao somar evidências
+correlacionadas, comete uma versão do erro do atributo duplicado. Que um
+**único** escalar conserte tanto sugere que a patologia é, em boa medida, de
+escala e não de ordenação — que é exatamente o que a decomposição
+$a^{\text{ótimo}} = c\, a^{\text{naive}}$ diz.
+
+E a lição da Aula 1 se fecha: o limiar ótimo depende de prioris e custos, e
+essa conta pressupõe probabilidades calibradas. **Um classificador que ordena
+bem e calibra mal não pode ter seu limiar escolhido por teoria da decisão** —
+só empiricamente.
+
+### 4. A maldição da dimensionalidade e a hipótese da variedade
+
+O Bloco 1 mostrou que $10^{10}$ células ficam vazias com 10.000 pontos. Redes
+profundas operam em $\mathbb{R}^{150000}$ e funcionam. A reconciliação é o Passo
+3: dados reais vivem em variedades de dimensão efetiva baixa, e a arquitetura
+das redes — convoluções, atenção, invariâncias — é uma forma de codificar
+suposições sobre essa variedade.
+
+Dito de outro modo: **a arquitetura é a suposição.** Uma CNN supõe localidade e
+invariância a translação; um *transformer* supõe que a relevância entre
+posições pode ser aprendida por produto interno; um modelo de difusão supõe uma
+cadeia de Markov de corrupção gradual. Nenhum deles aprende sem suposições,
+porque o Bloco 1 provou que isso é impossível.
+
+### O fecho
+
+$$
+\underbrace{\text{fatorar}}_{\text{escolher o que ignorar}}
+\;\longrightarrow\;
+\underbrace{\text{estimar barato}}_{\text{linear em } D}
+\;\longrightarrow\;
+\underbrace{\text{decidir bem}}_{\text{se } R_1 \approx R_2}
+\;\longrightarrow\;
+\underbrace{\text{calibrar mal}}_{\text{sempre}}
+$$
+
+Sessenta anos separam o naive Bayes do *transformer*, e a pergunta é a mesma:
+**quais dependências você pode se dar ao luxo de ignorar?**
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+### 1. Campo médio variacional **é** naive Bayes na posteriori
+
+$$ q(\mathbf{z}) = \prod_i q_i(z_i) $$
+
+- Mesma suposição, aplicada às **latentes** em vez dos atributos
+- Mesma patologia: $\mathrm{KL}(q\|p)$ **subestima a variância**
+- VAE com posteriori diagonal $=$ modelo naive na posteriori
+- *Flows* na posteriori, *structured* mean-field: tentativas de recuperar $R_k$
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+### 2. Fatoração autorregressiva: mesma forma, **sem** a suposição
+
+$$ p(x_1,\dots,x_T) = \prod_{t=1}^{T} p(x_t \mid x_{<t}) $$
+
+- Isso é a **regra da cadeia** — identidade, não suposição
+- Naive Bayes fatora em $\prod_t p(x_t)$ — suposição, e falsa
+
+::: {.fragment}
+O preço de **não** supor: cada fator condiciona em contexto crescente.
+
+> **É para isso que existe a atenção.**
+> *Bag of words* é naive Bayes sobre texto; o *transformer* é a fatoração honesta.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+### 3. Superconfiança e calibração
+
+- Redes profundas têm a **mesma assinatura**: logits inflados
+- *Temperature scaling*: **um** escalar conserta a maior parte
+- Compatível com $a^{\text{ótimo}} = c\,a^{\text{naive}}$ — o erro é de **escala**
+
+### 4. Maldição $\to$ hipótese da variedade
+
+> **A arquitetura é a suposição.**
+
+CNN: localidade e invariância. *Transformer*: relevância aprendida.
+Difusão: cadeia de Markov de corrupção.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+### O fecho
+
+$$ \underbrace{\text{fatorar}}_{\text{o que ignorar}} \to \underbrace{\text{estimar barato}}_{\propto D} \to \underbrace{\text{decidir bem}}_{\text{se } R_1\approx R_2} \to \underbrace{\text{calibrar mal}}_{\text{sempre}} $$
+
+> Sessenta anos separam o naive Bayes do *transformer*, e a pergunta é a mesma:
+> **quais dependências você pode se dar ao luxo de ignorar?**
+
+:::
+
+---
+
+# Laboratório computacional
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+1. **Reproduzir a falha.** Gerar dados com $D$ crescente e tentar estimar
+   $p(\mathbf{x}\mid\mathcal{C}_k)$ por histograma multidimensional. Plotar a
+   fração de células vazias contra $D$. A curva é o Bloco 1 em uma imagem.
+   Acrescentar: a menor dimensão $D$ para a qual a covariância amostral fica
+   singular com $N$ fixo.
+2. **Implementar naive Bayes do zero**, em log-espaço, com fatores escolhidos
+   por tipo de atributo — Bernoulli para binário, gaussiano para real, Beta para
+   $[0,1]$, reutilizando o código da Aula 1. Comparar com
+   `sklearn.naive_bayes` e verificar que batem.
+3. **Amostrar do modelo ajustado** e inspecionar os exemplos sintéticos.
+   Escrever *uma frase* explicando por que eles são incoerentes.
+4. **O experimento do atributo duplicado.** Replicar um atributo $m = 1, 2, 5,
+   20$ vezes e plotar duas curvas contra $m$: acurácia e log-verossimilhança
+   preditiva (ou Brier). **A acurácia mal se move; a calibração desaba.**
+5. **O experimento do cancelamento.** Construir três conjuntos sintéticos:
+   (a) $\Sigma$ compartilhada com $\Delta\boldsymbol\mu$ genérico — verificar que
+   as fronteiras **já diferem**, contrariando a intuição;
+   (b) $\Sigma$ equicorrelacionada com $\Delta\boldsymbol\mu \propto \mathbf{1}$
+   — verificar que coincidem;
+   (c) $\Sigma$ diferente por classe — verificar que a fronteira ótima é
+   quadrática e a naive é linear.
+   É a verificação empírica da derivação 2, com a correção incluída.
+6. **Diagrama de confiabilidade** antes e depois de calibração isotônica, e
+   antes e depois de *temperature scaling*. Comparar a AUC nos três casos e
+   observar que ela **não muda** — a calibração é monótona, e monótona não
+   altera ordenação. Conecta diretamente com o laboratório da Aula 1.
+
+Os itens 4 e 5 são o retorno intelectual do laboratório e não devem ser
+cortados.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+1. Reproduzir a falha: células vazias vs. $D$; e onde $\Sigma$ fica singular
+2. Naive Bayes do zero, em log-espaço, com fatores por tipo de atributo
+3. Amostrar e inspecionar os exemplos sintéticos
+4. **Atributo duplicado:** acurácia vs. log-loss contra $m$
+5. **Cancelamento:** $\Sigma$ compartilhada genérica / equicorrelacionada / diferente
+6. Confiabilidade antes e depois de isotônica e de temperatura — e a AUC não muda
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+# Verificacao numerica da condicao de coincidencia das fronteiras
+def angulo_normais(S, dmu):
+    v = np.linalg.solve(S, dmu)
+    u = np.linalg.solve(np.diag(np.diag(S)), dmu)
+    cos = abs(v @ u) / (np.linalg.norm(v) * np.linalg.norm(u))
+    return np.degrees(np.arccos(np.clip(cos, -1, 1)))
+
+
+rhos = np.linspace(0, 0.95, 60)
+ang_gen, ang_eq = [], []
+for r in rhos:
+    S = np.array([[1.0, r], [r, 1.0]])
+    ang_gen.append(angulo_normais(S, np.array([1.0, 0.0])))
+    ang_eq.append(angulo_normais(S, np.array([1.0, 1.0])))
+
+fig, axes = plt.subplots(1, 2, figsize=(10.6, 4.0))
+
+ax = axes[0]
+ax.plot(rhos, ang_gen, color=COR_A, lw=2.8,
+        label=r"$\Delta\mu = (1,0)$  — genérico")
+ax.plot(rhos, ang_eq, color=COR_LIM, lw=2.8,
+        label=r"$\Delta\mu = (1,1)$  — autovetor")
+ax.set_xlabel(r"correlação $\rho$ (compartilhada pelas duas classes)")
+ax.set_ylabel("ângulo entre as normais (graus)")
+ax.set_title("Covariância compartilhada NÃO basta")
+ax.legend(fontsize=8.5)
+ax.set_ylim(-2, 50)
+
+ax = axes[1]
+Ds_c = np.arange(1, 41)
+for r, c in [(0.3, COR_B), (0.6, COR_LIM), (0.9, COR_A)]:
+    ax.plot(Ds_c, 1 / ((1 - r) + r * Ds_c), lw=2.6, color=c,
+            label=fr"$\rho = {r}$")
+ax.axhline(1.0, color=COR_NEU, lw=1.2, ls=":")
+ax.set_xlabel("dimensão $D$")
+ax.set_ylabel(r"$c = a^{\mathrm{ótimo}} / a^{\mathrm{naive}}$")
+ax.set_title("Quanto o logit naive é inflado\n(caso equicorrelacionado)")
+ax.legend(fontsize=8.5)
+ax.set_ylim(0, 1.1)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+# Derivações no quadro
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Ordem de prioridade; cortar de baixo para cima.
+
+1. **$a_k(\mathbf{x}) = \ln\pi_k + \sum_d \ln p(x_d\mid\mathcal{C}_k)$** a
+   partir de Bayes. Obrigatória — é o classificador.
+2. **A decomposição com $R_k$ e o cancelamento exato quando $R_1 = R_2$.** Duas
+   linhas, e é o resultado conceitual da aula. Acrescentar a condição correta
+   para gaussianas, $\Sigma^{-1}\Delta\boldsymbol\mu \propto
+   \mathbf{D}^{-1}\Delta\boldsymbol\mu$ — sem isso, o exemplo mais natural que
+   ocorre à turma é um contraexemplo.
+3. **Linearidade de $a_k$ para atributos binários** (PRML, eqs. 4.81–4.82,
+   p. 202). Curta, e prepara a Aula 6.
+4. **Suavização de Laplace como média a posteriori sob priori Beta** (PRML,
+   eq. 2.18, p. 72).
+5. **Cancelamento dos termos quadráticos sob covariância compartilhada**
+   (PRML, eqs. 4.64–4.67, pp. 198–200). Boa, mas é a primeira a cair se o tempo
+   apertar; pode ir para a lista de exercícios.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+1. $a_k = \ln\pi_k + \sum_d \ln p(x_d\mid\mathcal{C}_k)$ *(obrigatória)*
+2. Decomposição com $R_k$ + a condição correta para gaussianas
+3. Linearidade de $a_k$ para binários (eqs. 4.81–4.82)
+4. Laplace como média a posteriori sob priori Beta (eq. 2.18)
+5. Cancelamento dos quadráticos sob $\Sigma$ compartilhada *(primeira a cair)*
+
+:::
+
+# Exercícios
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+- **PRML 1.16** (referenciado na p. 36) — crescimento $D^M$ do número de
+  coeficientes independentes de um polinômio de ordem $M$ em $D$ variáveis.
+- **PRML 4.11** (p. 222) — mostrar que, sob independência condicional com
+  codificação 1-de-$L$, as quantidades $a_k$ são funções lineares dos atributos.
+  Bishop registra no enunciado que este é justamente o modelo naive Bayes.
+- **PRML 4.9 / 4.10** (p. 222) — solução de máxima verossimilhança para as
+  prioris de classe e para os parâmetros das condicionais gaussianas.
+- **Exercício do curso (corrigido).** Sejam duas gaussianas bivariadas com a
+  **mesma** matriz de covariância $\Sigma$ não-diagonal e prioris iguais.
+  (a) Mostre que as fronteiras ótima e naive são ambas hiperplanos passando por
+  $(\boldsymbol\mu_1+\boldsymbol\mu_2)/2$, com normais
+  $\Sigma^{-1}\Delta\boldsymbol\mu$ e $\mathbf{D}^{-1}\Delta\boldsymbol\mu$.
+  (b) Conclua que elas coincidem **se e somente se** $\Delta\boldsymbol\mu$ é
+  autovetor de $\Sigma\mathbf{D}^{-1}$, e exiba um contraexemplo com
+  $\Delta\boldsymbol\mu$ genérico.
+  (c) Verifique que $\Sigma$ equicorrelacionada com
+  $\Delta\boldsymbol\mu\propto\mathbf{1}$ satisfaz a condição, calcule
+  $c$ explicitamente, e mostre que as **posterioris** ainda assim não coincidem.
+  (d) Mostre que, com prioris **desiguais**, a coincidência exige $c = 1$, e
+  portanto falha sempre que $\rho \neq 0$.
+- **Exercício do curso (extra).** Mostre que $R_1 = R_2$ é suficiente mas
+  **não** necessário para a coincidência das fronteiras, usando o item (c) acima
+  como contraexemplo.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+- **PRML 1.16** — crescimento $D^M$ dos coeficientes de um polinômio
+- **PRML 4.11** — $a_k$ linear sob independência condicional com 1-de-$L$
+- **PRML 4.9 / 4.10** — MLE das prioris e das condicionais gaussianas
+- **Curso** — condição exata de coincidência das fronteiras, com contraexemplo
+- **Curso (extra)** — $R_1 = R_2$ é suficiente, **não** necessário
+
+:::
+
+---
+
+# Notas de condução {.unnumbered}
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Notas para quem conduz a aula; não fazem parte do material do aluno.
+
+- **"Independente" vs. "condicionalmente independente"** é o erro conceitual
+  número um da aula. Repetir o exemplo altura/vocabulário/idade e voltar a ele
+  no Bloco 4.
+- **Não deixar a turma sair achando que alta dimensão é impossível.** O Passo 3
+  do Bloco 1 existe só para isso, e é o passo que a pressa costuma comer.
+- **Não atribuir a linearidade ao naive Bayes.** Ela vem da família exponencial.
+  Naive Bayes com fatores Beta não é linear em $\mathbf{x}$. Distinguir
+  explicitamente §4.2.1 (covariância plena compartilhada) de §4.2.3 (naive
+  binário) — os dois dão fronteira linear por razões diferentes.
+- **A correção do Bloco 4 precisa ser dita, não omitida.** Se a turma sair
+  acreditando que "covariância compartilhada ⟹ naive Bayes é ótimo", ela vai
+  aplicar isso em contextos em que é falso. A figura de três painéis existe
+  exatamente para isso, e o painel (a) é o mais importante dos três.
+- **A demonstração de amostragem do Bloco 2 precisa estar pronta e testada.**
+  Ela é reutilizada no Bloco 4 e o efeito depende do contraste entre as duas
+  rodadas.
+- **Ajuste gaussiano não é robusto a outliers**, e Bishop registra isso na
+  p. 202 remetendo à §2.3.7 — o mesmo argumento da Figura 2.16 que fechou o
+  Bloco 2 da Aula 1. Vale a menção de dez segundos: a fragilidade que eles viram
+  em 1D não some ao subir de dimensão.
+- **Se sobrar tempo, não começar modelos gráficos.** A Figura 8.24 é uma imagem,
+  não um tópico. O curso não tem espaço para $d$-separação, e prometer isso gera
+  dívida.
+- **Distribuição de tempo:** 5 min de abertura, 25 min do Bloco 1, 20 min do
+  Bloco 2, 25 min do Bloco 3, 20 min do Bloco 4, 5 min de fechamento. O Bloco 2
+  é o que absorve atraso com menor perda; o Bloco 4 é o que não pode ser
+  comprimido, porque é a competência declarada da aula.
+
+:::
+
+# Referências {.unnumbered}
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+| Tópico | Fonte | Seção | Páginas |
+|---|---|---|---|
+| Regras da soma e do produto; Bayes | Bishop & Bishop (2024) | §2.1.2–2.1.3 | 26–30 |
+| Priori, posteriori, variáveis independentes | Bishop & Bishop (2024) | §2.1.5–2.1.6 | 31–32 |
+| Maldição da dimensionalidade | Bishop (2006) | §1.4 | 33–38 |
+| Maldição da dimensionalidade (tratamento moderno) | Bishop & Bishop (2024) | §6.1.1 | 172–174 |
+| Independência condicional e o modelo naive Bayes | Bishop (2006) | §1.5.4, eqs. 1.84–1.85 | 46 |
+| Inferência e decisão; generativo vs. discriminativo | Bishop (2006) | §1.5.4 | 42–46 |
+| Classificadores generativos | Bishop & Bishop (2024) | §5.3, §5.3.1–5.3.2 | 150–156 |
+| Modelos generativos probabilísticos; sigmoide e softmax | Bishop (2006) | §4.2, eqs. 4.57–4.63 | 196–198 |
+| Entradas contínuas: covariância compartilhada → fronteira linear | Bishop (2006) | §4.2.1 | 198–200 |
+| Atributos discretos: $2^D-1$ parâmetros vs. $D$ | Bishop (2006) | §4.2.3, eqs. 4.81–4.82 | 202 |
+| Naive Bayes como grafo | Bishop (2006) | §8.2.2, Figura 8.24 | 380–381 |
+| Priori Beta conjugada à Bernoulli | Bishop (2006) | §2.1.1, eq. 2.18 | 71–74 |
+
+**Nota sobre as fontes.** Naive Bayes não é um tópico de primeira classe em
+nenhum dos dois livros. No PRML ele aparece três vezes, sempre de passagem:
+como exemplo em §1.5.4 (p. 46), como caso particular de modelo generativo com
+atributos discretos em §4.2.3 (p. 202), e como exemplo de grafo em §8.2.2
+(p. 380). O livro de 2024 segue a mesma estrutura em §5.3. Isso é uma
+**vantagem** para o desenho desta aula: o Bishop nunca trata naive Bayes como
+algoritmo, e sim como uma suposição estrutural aplicada a um modelo generativo.
+É exatamente o enquadramento do curso.
+
+Leituras complementares mencionadas no fechamento, fora da bibliografia
+obrigatória: o resultado clássico de Domingos e Pazzani sobre a otimalidade do
+classificador bayesiano simples sob perda 0–1; literatura sobre subestimação de
+variância em inferência variacional de campo médio; e trabalhos sobre calibração
+de redes profundas por *temperature scaling*.
+
+::: {.callout-caution}
+## Verifique as citações
+
+As localizações de seções, páginas, equações e figuras foram registradas a
+partir do plano de aula e não foram conferidas contra os PDFs nesta compilação.
+Confira-as antes de distribuir o material aos alunos.
+:::
+
+:::

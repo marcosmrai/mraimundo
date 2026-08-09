@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vitoria Guardieiro | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/authors/vitoria-guardieiro/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/authors/vitoria-guardieiro/index.xml" rel="self" type="application/rss+xml" />
-    <description>Vitoria Guardieiro</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <title>Vitória Guardieiro | Marcos M. Raimundo</title>
+    <link>http://localhost:1313/mraimundo/authors/vitoria-guardieiro/</link>
+      <atom:link href="http://localhost:1313/mraimundo/authors/vitoria-guardieiro/index.xml" rel="self" type="application/rss+xml" />
+    <description>Vitória Guardieiro</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
-      <title>Vitoria Guardieiro</title>
-      <link>http://ic.unicamp.br/mraimundo/authors/vitoria-guardieiro/</link>
+      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <title>Vitória Guardieiro</title>
+      <link>http://localhost:1313/mraimundo/authors/vitoria-guardieiro/</link>
     </image>
     
     <item>
-      <title>Best practices for responsible machine learning in credit scoring</title>
-      <link>http://ic.unicamp.br/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</link>
-      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://ic.unicamp.br/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</guid>
+      <title>Enforcing fairness using ensemble of diverse Pareto-optimal models</title>
+      <link>http://localhost:1313/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory&#39;s Invariance</title>
+      <link>http://localhost:1313/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</guid>
       <description></description>
     </item>
     

@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Luan Silveira | Marcos M. Raimundo</title>
-    <link>http://ic.unicamp.br/mraimundo/authors/luan/</link>
-      <atom:link href="http://ic.unicamp.br/mraimundo/authors/luan/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/mraimundo/authors/luan/</link>
+      <atom:link href="http://localhost:1313/mraimundo/authors/luan/index.xml" rel="self" type="application/rss+xml" />
     <description>Luan Silveira</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
-      <url>http://ic.unicamp.br/mraimundo/authors/luan/avatar_hu_d56d898b0497c426.jpeg</url>
+      <url>http://localhost:1313/mraimundo/authors/luan/avatar_hu_d56d898b0497c426.jpeg</url>
       <title>Luan Silveira</title>
-      <link>http://ic.unicamp.br/mraimundo/authors/luan/</link>
+      <link>http://localhost:1313/mraimundo/authors/luan/</link>
     </image>
     
   </channel>
