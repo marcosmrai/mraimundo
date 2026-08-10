@@ -46,7 +46,7 @@ The primary goal of the course is to enable future computing professionals and r
 
 ### Part 1: Foundations of Computing and Ethics
 
-* **Lesson 1: Computing as a Socio-Technical System**
+* **[Lesson 1: Computing as a Socio-Technical System](../../society/aula01/notas.html)** ([Slides](../../society/aula01/slides.html))
     * **Objectives:** Understand that computing is not composed solely of technical elements (hardware and software), but constitutes a socio-technical system where technology, human beings, organizations, and culture mutually influence each other.
     * **Expected Competencies:** Ability to analyze computing artifacts within their broader social, cultural, and organizational contexts, identifying non-technical feedback loops and systemic impacts.
     * **Recommended Reading:**
