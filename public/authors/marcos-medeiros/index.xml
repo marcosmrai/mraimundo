@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marcos Medeiros | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/marcos-medeiros/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/marcos-medeiros/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/marcos-medeiros/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/marcos-medeiros/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcos Medeiros</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Marcos Medeiros</title>
-      <link>http://localhost:1313/mraimundo/authors/marcos-medeiros/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/marcos-medeiros/</link>
     </image>
     
     <item>
       <title>An algorithm for multi-task learning based on combinatorial optimization of U-curves</title>
-      <link>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</guid>
       <description></description>
     </item>
     

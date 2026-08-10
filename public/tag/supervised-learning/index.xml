@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Supervised Learning | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/tag/supervised-learning/</link>
-      <atom:link href="http://localhost:1313/mraimundo/tag/supervised-learning/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/tag/supervised-learning/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/tag/supervised-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Supervised Learning</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Supervised Learning</title>
-      <link>http://localhost:1313/mraimundo/tag/supervised-learning/</link>
+      <link>http://ic.unicamp.br/mraimundo/tag/supervised-learning/</link>
     </image>
     
     <item>
       <title>Supervised Learning</title>
-      <link>http://localhost:1313/mraimundo/teaching/supervised/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/supervised/</link>
       <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/supervised/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/supervised/</guid>
       <description>&lt;p&gt;This course explores the foundations of Supervised Machine Learning through a rigorous probabilistic and statistical lens. Students will learn how to predict labels and continuous targets from observed data, treating each algorithm not as a black box but as an estimator with explicit distributional assumptions, an associated likelihood, and quantifiable error behavior.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The goal is to provide a deep understanding of how supervised algorithms learn a mapping from inputs to outputs, and why they work. By the end of this course, students will be able to bridge algorithmic concepts like decision trees, regularization, ensembles, and neural networks with their theoretical statistical roots, including maximum likelihood estimation, Bayesian inference, the bias-variance decomposition, and constrained optimization.&lt;/p&gt;

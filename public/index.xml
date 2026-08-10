@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/</link>
-      <atom:link href="http://localhost:1313/mraimundo/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcos M. Raimundo</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 20 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Marcos M. Raimundo</title>
-      <link>http://localhost:1313/mraimundo/</link>
+      <link>http://ic.unicamp.br/mraimundo/</link>
     </image>
     
     <item>
       <title>Example Event</title>
-      <link>http://localhost:1313/mraimundo/talk/example-event/</link>
+      <link>http://ic.unicamp.br/mraimundo/talk/example-event/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/talk/example-event/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/talk/example-event/</guid>
       <description>&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Wowchemy&amp;rsquo;s &lt;a href=&#34;https://docs.hugoblox.com/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
@@ -29,9 +29,9 @@
     
     <item>
       <title>Computing and Society</title>
-      <link>http://localhost:1313/mraimundo/teaching/society/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/society/</link>
       <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/society/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/society/</guid>
       <description>&lt;p&gt;This course proposes a critical and applied reflection on the transformative role of technology in the contemporary world. Far from being a purely technical or neutral activity, computing is approached as a deeply human and social practice whose architectural choices, algorithms, and business models directly impact people&amp;rsquo;s lives, democracy, the environment, and labor relations.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The primary goal of the course is to enable future computing professionals and researchers to expand their analytical and ethical repertory. By offering concepts, methodologies, and tools to anticipate moral conflicts, identify algorithmic biases, and integrate social values into the software development lifecycle, students transition from philosophical and normative foundations to practical methodologies for responsible innovation and ethical design.&lt;/p&gt;
@@ -40,14 +40,15 @@
 &lt;h3 id=&#34;part-1-foundations-of-computing-and-ethics&#34;&gt;Part 1: Foundations of Computing and Ethics&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lesson 1: Computing as a Socio-Technical System&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../society/aula01/notas.html&#34;&gt;Lesson 1: Computing as a Socio-Technical System&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../society/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Understand that computing is not composed solely of technical elements (hardware and software), but constitutes a socio-technical system where technology, human beings, organizations, and culture mutually influence each other.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to analyze computing artifacts within their broader social, cultural, and organizational contexts, identifying non-technical feedback loops and systemic impacts.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 1: The Responsibilities of Engineers&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 2: Análise Cultural de Sistemas Computacionais&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 1: The Responsibilities of Engineers&lt;/em&gt; (esp. §1.6, &amp;ldquo;The Social Context of Technological Development&amp;rdquo;).&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 10: Cultura na Prática da Computação&lt;/em&gt; — &lt;strong&gt;correção&lt;/strong&gt;: a referência original (&amp;ldquo;Vol. 2, Capítulo 2: Análise Cultural de Sistemas Computacionais&amp;rdquo;) não existe no livro; o Vol. 2 não tem Capítulo 2 (a numeração começa no Cap. 9), e o Capítulo 2 do Vol. 1 é sobre pós-graduação, sem relação com o tema. Substituído pelo capítulo real mais próximo tematicamente.&lt;/li&gt;
+&lt;li&gt;Steen (2022) – &lt;em&gt;Chapter 3: Is Technology a Neutral Tool?&lt;/em&gt; — leitura complementar adicionada nesta sessão; cobre exatamente a tese da não-neutralidade e da coformação mútua entre pessoas e tecnologia.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date and Speaker:&lt;/strong&gt; TBD | Marcos M. Raimundo&lt;/li&gt;
@@ -134,8 +135,8 @@
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to audit datasets and algorithmic models for unfair bias, identifying historical disparities encoded in data pipelines.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Marc Steen (2022) – &lt;em&gt;Chapter 2: Ethics of Consequences&lt;/em&gt; (applied sections).&lt;/li&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 2: Análise Cultural de Sistemas Computacionais&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Marc Steen (2022) – &lt;em&gt;Chapter 2: Ethics of Consequences&lt;/em&gt; (applied sections). &lt;strong&gt;Verificar quando chegarmos nesta aula:&lt;/strong&gt; o sumário real do EthTech não tem capítulo com esse título no Cap. 2 (que é &amp;ldquo;What do we mean with ethics?&amp;rdquo;); o mais próximo é o Cap. 9 &amp;ldquo;Consequences and outcomes&amp;rdquo; (p. 67) — mesmo padrão de citação quebrada encontrado na Aula 1, ainda não corrigido aqui.&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 10: Cultura na Prática da Computação&lt;/em&gt; — corrigido nesta sessão (era &amp;ldquo;Capítulo 2: Análise Cultural de Sistemas Computacionais&amp;rdquo;, que não existe; ver nota na Aula 1).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date and Speaker:&lt;/strong&gt; TBD | TBA&lt;/li&gt;
@@ -226,8 +227,8 @@
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to apply critical data analysis methods that account for power dynamics, context, and cross-disciplinary perspectives.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 1, &lt;em&gt;Capítulo 4: Gênero, Ciência e Tecnologia&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 2: Análise Cultural de Sistemas Computacionais&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 1, &lt;em&gt;Capítulo 4: Gênero e Tecnologias&lt;/em&gt; (título real; a ementa original dizia &amp;ldquo;Gênero, Ciência e Tecnologia&amp;rdquo; — próximo o suficiente, mesmo capítulo).&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 10: Cultura na Prática da Computação&lt;/em&gt; — corrigido nesta sessão (ver nota na Aula 1).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date and Speaker:&lt;/strong&gt; TBD | TBA&lt;/li&gt;
@@ -266,9 +267,9 @@
     
     <item>
       <title>Optimization and Linear Algebra for Machine Learning</title>
-      <link>http://localhost:1313/mraimundo/teaching/algebra_opt/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/algebra_opt/</link>
       <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/algebra_opt/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/algebra_opt/</guid>
       <description>&lt;p&gt;This course explores the mathematical foundations of Machine Learning, bridging theoretical Linear Algebra and Continuous Optimization with modern algorithmic design. Rather than treating mathematics as an isolated abstract exercise, concepts are introduced strictly in tandem with their practical utility in machine learning models, scaling from classical closed-form estimators to state-of-the-art neural network optimizers.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The primary goal is to provide students with a deep geometric and analytical understanding of how machine learning models process data and navigate error landscapes. By the end of the course, students will be able to translate abstract machine learning objectives into formal optimization problems, analyze convergence guarantees, understand preconditioned search spaces, handle non-smooth regularization, and write clean, vectorized Python code to implement algorithms from first principles.&lt;/p&gt;
@@ -425,9 +426,9 @@
     
     <item>
       <title>Supervised Learning</title>
-      <link>http://localhost:1313/mraimundo/teaching/supervised/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/supervised/</link>
       <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/supervised/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/supervised/</guid>
       <description>&lt;p&gt;This course explores the foundations of Supervised Machine Learning through a rigorous probabilistic and statistical lens. Students will learn how to predict labels and continuous targets from observed data, treating each algorithm not as a black box but as an estimator with explicit distributional assumptions, an associated likelihood, and quantifiable error behavior.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The goal is to provide a deep understanding of how supervised algorithms learn a mapping from inputs to outputs, and why they work. By the end of this course, students will be able to bridge algorithmic concepts like decision trees, regularization, ensembles, and neural networks with their theoretical statistical roots, including maximum likelihood estimation, Bayesian inference, the bias-variance decomposition, and constrained optimization.&lt;/p&gt;
@@ -557,9 +558,9 @@
     
     <item>
       <title>Unsupervised Learning</title>
-      <link>http://localhost:1313/mraimundo/teaching/unsupervised/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/unsupervised/</link>
       <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/unsupervised/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/unsupervised/</guid>
       <description>&lt;p&gt;This course explores the foundations of Unsupervised Machine Learning and Representation Learning through a rigorous probabilistic and statistical lens. Students will learn how to extract patterns, model underlying distributions, and discover hidden structures in unlabeled data using advanced statistical frameworks and information theory.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The goal is to provide a deep understanding of how machine learning algorithms discover structure in data without human supervision. By the end of this course, students will be able to bridge algorithmic concepts like clustering, dimensionality reduction, and self-supervised learning with their theoretical statistical roots, including density estimation, generative modeling, and mutual information maximization.&lt;/p&gt;
@@ -568,7 +569,7 @@
 &lt;h3 id=&#34;part-1-density-structures-and-clustering&#34;&gt;Part 1: Density Structures and Clustering&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lesson 1: Data Space, Parametric Generative Models, and Anomalies&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../unsupervised/aula01/notas.html&#34;&gt;Lesson 1: Data Space, Parametric Generative Models, and Anomalies&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../unsupervised/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; What it means to &amp;ldquo;model data&amp;rdquo; without labels. Profiling to identify atypical behaviors.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Empirical vs. theoretical distribution. Assuming observed data was generated by a known theoretical distribution (e.g., Multivariate Gaussian). Using the likelihood of a point under the fitted model to define statistical exclusion regions (anomaly thresholds based on probability tails).&lt;/li&gt;
@@ -689,9 +690,9 @@
     
     <item>
       <title>Gradient-based Algorithms for Multi-objective Optimization</title>
-      <link>http://localhost:1313/mraimundo/projects/mol/</link>
+      <link>http://ic.unicamp.br/mraimundo/projects/mol/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/projects/mol/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/projects/mol/</guid>
       <description>&lt;p&gt;This project addresses the fundamental mathematical challenge of optimizing vector-valued functions without reducing them to a single scalar objective a priori. The core research question is: &lt;strong&gt;how do we define and efficiently follow a descent direction when objectives conflict?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;While scalar optimization relies on setting the gradient to zero, multi-objective optimization operates under the &lt;strong&gt;Karush-Kuhn-Tucker (KKT)&lt;/strong&gt; conditions for Pareto optimality. Our research focuses on developing rigorous, efficient algorithms to reach these stationary points in continuous, differentiable spaces.&lt;/p&gt;
 &lt;h3 id=&#34;key-research-topics&#34;&gt;Key Research Topics:&lt;/h3&gt;
@@ -706,9 +707,9 @@
     
     <item>
       <title>Gradient-based Algorithms for Multi-objective Optimization</title>
-      <link>http://localhost:1313/mraimundo/projects/moo/</link>
+      <link>http://ic.unicamp.br/mraimundo/projects/moo/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/projects/moo/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/projects/moo/</guid>
       <description>&lt;p&gt;This project addresses the fundamental mathematical challenge of optimizing vector-valued functions without reducing them to a single scalar objective a priori. The core research question is: &lt;strong&gt;how do we define and efficiently follow a descent direction when objectives conflict?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;While scalar optimization relies on setting the gradient to zero, multi-objective optimization operates under the &lt;strong&gt;Karush-Kuhn-Tucker (KKT)&lt;/strong&gt; conditions for Pareto optimality. Our research focuses on developing rigorous, efficient algorithms to reach these stationary points in continuous, differentiable spaces.&lt;/p&gt;
 &lt;h3 id=&#34;key-research-topics&#34;&gt;Key Research Topics:&lt;/h3&gt;
@@ -723,57 +724,57 @@
     
     <item>
       <title>Combinatorial U-Curve Optimization for Multi-Task Learning: A Task Selection Approach</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CounterCrime - Using Counterfactual Explanations to Explore Crime Reduction Scenarios</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>M²FGB: A Min-Max Gradient Boosting Framework for Subgroup Fairness</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria Rank-based Aggregation for Explainable AI</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pareto sensitivity, most-changing sub-fronts, and knee solutions</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reasoning Distillation and Structural Alignment for Improved Code Generation</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ethical Machine Learning (2024)</title>
-      <link>http://localhost:1313/mraimundo/teaching/ai_ethics_2024/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/ai_ethics_2024/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</guid>
       <description>&lt;p&gt;The course empowers students to identify and mitigate negative impacts of data and machine learning tools on vulnerable groups, promoting transparency and ethical solutions. It involves data analysis, application of machine learning models, and understanding optimization problems, with an initial assessment and leveling classes to ensure the necessary foundation.&lt;/p&gt;
 &lt;h2 id=&#34;terminal-objectives&#34;&gt;Terminal Objectives&lt;/h2&gt;
 &lt;p&gt;Students should be able to identify the use of data and machine learning tools that harm individuals and vulnerable groups and use and propose tools that reduce the impact and increase the transparency of such data and tools.&lt;/p&gt;
@@ -851,9 +852,9 @@
     
     <item>
       <title>Object-Oriented Programming - MC322</title>
-      <link>http://localhost:1313/mraimundo/teaching/poo/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/poo/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/poo/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/poo/</guid>
       <description>&lt;p&gt;The course aims to introduce and develop object-oriented thinking in students. It covers fundamental OO concepts such as classes, objects, encapsulation, inheritance, and polymorphism, as well as good practices for designing and implementing classes. It also teaches how to use UML for modeling and apply design patterns, preparing students to create robust and scalable software.&lt;/p&gt;
 &lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;
 &lt;ul&gt;
@@ -888,25 +889,25 @@
     
     <item>
       <title>Best practices for responsible machine learning in credit scoring</title>
-      <link>http://localhost:1313/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring the Trade-off Between Model Performance and Explanation Plausibility of Text Classifiers Using Human Rationales</title>
-      <link>http://localhost:1313/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Aprendizado de Máquina Ético (2022/2023) - Ethical ML</title>
-      <link>http://localhost:1313/mraimundo/teaching/ai_ethics_2022/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/ai_ethics_2022/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</guid>
       <description>&lt;p&gt;A disciplina capacita alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina em grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização, com uma avaliação inicial e aulas niveladoras para garantir a base necessária.&lt;/p&gt;
 &lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis e utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.&lt;/p&gt;
@@ -989,65 +990,65 @@
     
     <item>
       <title>Enforcing fairness using ensemble of diverse Pareto-optimal models</title>
-      <link>http://localhost:1313/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>http://localhost:1313/mraimundo/contact/</link>
+      <link>http://ic.unicamp.br/mraimundo/contact/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/contact/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/contact/</guid>
       <description></description>
     </item>
     
     <item>
       <title>People</title>
-      <link>http://localhost:1313/mraimundo/people/</link>
+      <link>http://ic.unicamp.br/mraimundo/people/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/people/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/people/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tour</title>
-      <link>http://localhost:1313/mraimundo/_tour/</link>
+      <link>http://ic.unicamp.br/mraimundo/_tour/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/_tour/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/_tour/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fair and Transparent Credit Scoring</title>
-      <link>http://localhost:1313/mraimundo/projects/credit/</link>
+      <link>http://ic.unicamp.br/mraimundo/projects/credit/</link>
       <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/projects/credit/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/projects/credit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An algorithm for multi-task learning based on combinatorial optimization of U-curves</title>
-      <link>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory&#39;s Invariance</title>
-      <link>http://localhost:1313/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EEI744 - Pesquisa Operacional II (UFRJ)</title>
-      <link>http://localhost:1313/mraimundo/teaching/po_ii_2021/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/po_ii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/po_ii_2021/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/po_ii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização para problemas de estoques, grafos e filas usando otimização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -1056,9 +1057,9 @@
     
     <item>
       <title>EEI946 - Pesquisa Operacional III (UFRJ)</title>
-      <link>http://localhost:1313/mraimundo/teaching/po_iii_2021/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/po_iii_2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/po_iii_2021/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/po_iii_2021/</guid>
       <description>&lt;h2 id=&#34;objetivos-terminais&#34;&gt;Objetivos Terminais&lt;/h2&gt;
 &lt;p&gt;O aluno deverá ser capaz de criar modelos de otmização não linear, linear, linear-inteira e programação dinâmica.&lt;/p&gt;
 &lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
@@ -1067,33 +1068,33 @@
     
     <item>
       <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
-      <link>http://localhost:1313/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring multiobjective training in multiclass classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mining Pareto-optimal counterfactual antecedents with a branch-and-bound model-agnostic algorithm</title>
-      <link>http://localhost:1313/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jian Yang and Monica Hall Win the Best Paper Award at Wowchemy 2020</title>
-      <link>http://localhost:1313/mraimundo/post/20-12-02-icml-best-paper/</link>
+      <link>http://ic.unicamp.br/mraimundo/post/20-12-02-icml-best-paper/</link>
       <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/post/20-12-02-icml-best-paper/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/post/20-12-02-icml-best-paper/</guid>
       <description>&lt;p&gt;Congratulations to Jian Yang and Monica Hall for winning the Best Paper Award at the 2020 Conference on Wowchemy for their paper “Learning Wowchemy”.&lt;/p&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim, arcu nisl suscipit ante, at accumsan sapien nisl eu eros.&lt;/p&gt;
 &lt;p&gt;Sed eu dui nec ligula bibendum dapibus. Nullam imperdiet auctor tortor, vel cursus mauris malesuada non. Quisque ultrices euismod dapibus. Aenean sed gravida risus. Sed nisi tortor, vulputate nec quam non, placerat porta nisl. Nunc varius lobortis urna, condimentum facilisis ipsum molestie eu. Ut molestie eleifend ligula sed dignissim. Duis ut tellus turpis. Praesent tincidunt, nunc sed congue malesuada, mauris enim maximus massa, eget interdum turpis urna et ante. Morbi sem nisl, cursus quis mollis et, interdum luctus augue. Aliquam laoreet, leo et accumsan tincidunt, libero neque aliquet lectus, a ultricies lorem mi a orci.&lt;/p&gt;
@@ -1102,9 +1103,9 @@
     
     <item>
       <title>Richard Hendricks Wins First Place in the Wowchemy Prize</title>
-      <link>http://localhost:1313/mraimundo/post/20-12-01-wowchemy-prize/</link>
+      <link>http://ic.unicamp.br/mraimundo/post/20-12-01-wowchemy-prize/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/post/20-12-01-wowchemy-prize/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/post/20-12-01-wowchemy-prize/</guid>
       <description>&lt;p&gt;Congratulations to Richard Hendricks for winning first place in the Wowchemy Prize.&lt;/p&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim, arcu nisl suscipit ante, at accumsan sapien nisl eu eros.&lt;/p&gt;
 &lt;p&gt;Sed eu dui nec ligula bibendum dapibus. Nullam imperdiet auctor tortor, vel cursus mauris malesuada non. Quisque ultrices euismod dapibus. Aenean sed gravida risus. Sed nisi tortor, vulputate nec quam non, placerat porta nisl. Nunc varius lobortis urna, condimentum facilisis ipsum molestie eu. Ut molestie eleifend ligula sed dignissim. Duis ut tellus turpis. Praesent tincidunt, nunc sed congue malesuada, mauris enim maximus massa, eget interdum turpis urna et ante. Morbi sem nisl, cursus quis mollis et, interdum luctus augue. Aliquam laoreet, leo et accumsan tincidunt, libero neque aliquet lectus, a ultricies lorem mi a orci.&lt;/p&gt;
@@ -1113,73 +1114,73 @@
     
     <item>
       <title>Ethical AI</title>
-      <link>http://localhost:1313/mraimundo/projects/ethicalai/</link>
+      <link>http://ic.unicamp.br/mraimundo/projects/ethicalai/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/projects/ethicalai/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/projects/ethicalai/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria analysis involving Pareto-optimal misclassification tradeoffs on imbalanced datasets</title>
-      <link>http://localhost:1313/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ant genera identification using an ensemble of convolutional neural networks</title>
-      <link>http://localhost:1313/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Investigating multiobjective methods in multitask classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An extension of the non-inferior set estimation algorithm for many objectives</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Many-Objective Ensemble-Based Multilabel Classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/mraimundo/admin/config.yml</link>
+      <link>http://ic.unicamp.br/mraimundo/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/admin/config.yml</guid>
+      <guid>http://ic.unicamp.br/mraimundo/admin/config.yml</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/mraimundo/teaching/claude/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/claude/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/claude/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/claude/</guid>
       <description>&lt;h1 id=&#34;fluxo-de-trabalho--geração-de-aulas&#34;&gt;Fluxo de trabalho — geração de aulas&lt;/h1&gt;
 &lt;p&gt;Este projeto é a pasta &lt;code&gt;teaching/&lt;/code&gt;, que contém MÚLTIPLAS disciplinas,
 cada uma em sua própria subpasta na raiz (ex: &lt;code&gt;supervised/&lt;/code&gt;,
@@ -1404,9 +1405,9 @@ aprovado nela (plano de aula / fontes / aula completa).&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>http://localhost:1313/mraimundo/teaching/quarto_prompt/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/quarto_prompt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/quarto_prompt/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/quarto_prompt/</guid>
       <description>&lt;p&gt;Atue como um professor especialista e crie um material didático completo utilizando a linguagem Quarto (.qmd). O documento deve funcionar simultaneamente como um artigo/apostila detalhada e como uma apresentação de slides profissional.&lt;/p&gt;
 &lt;p&gt;Tema da Aula: [INSIRA O TEMA DA AULA AQUI]
 Público-alvo: [EX: Alunos de Graduação/Pós-Graduação em Computação/Engenharia]&lt;/p&gt;
@@ -1471,9 +1472,9 @@ Ao final da aula, faça uma conexão prática ligando toda a teoria matemática 
     
     <item>
       <title></title>
-      <link>http://localhost:1313/mraimundo/teaching/readme/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/readme/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/readme/</guid>
       <description></description>
     </item>
     

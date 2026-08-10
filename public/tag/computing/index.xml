@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Computing | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/tag/computing/</link>
-      <atom:link href="http://localhost:1313/mraimundo/tag/computing/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/tag/computing/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/tag/computing/index.xml" rel="self" type="application/rss+xml" />
     <description>Computing</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Computing</title>
-      <link>http://localhost:1313/mraimundo/tag/computing/</link>
+      <link>http://ic.unicamp.br/mraimundo/tag/computing/</link>
     </image>
     
     <item>
       <title>Computing and Society</title>
-      <link>http://localhost:1313/mraimundo/teaching/society/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/society/</link>
       <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/society/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/society/</guid>
       <description>&lt;p&gt;This course proposes a critical and applied reflection on the transformative role of technology in the contemporary world. Far from being a purely technical or neutral activity, computing is approached as a deeply human and social practice whose architectural choices, algorithms, and business models directly impact people&amp;rsquo;s lives, democracy, the environment, and labor relations.&lt;/p&gt;
 &lt;h2 id=&#34;final-objectives&#34;&gt;Final Objectives&lt;/h2&gt;
 &lt;p&gt;The primary goal of the course is to enable future computing professionals and researchers to expand their analytical and ethical repertory. By offering concepts, methodologies, and tools to anticipate moral conflicts, identify algorithmic biases, and integrate social values into the software development lifecycle, students transition from philosophical and normative foundations to practical methodologies for responsible innovation and ethical design.&lt;/p&gt;
@@ -25,14 +25,15 @@
 &lt;h3 id=&#34;part-1-foundations-of-computing-and-ethics&#34;&gt;Part 1: Foundations of Computing and Ethics&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lesson 1: Computing as a Socio-Technical System&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../society/aula01/notas.html&#34;&gt;Lesson 1: Computing as a Socio-Technical System&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../society/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Understand that computing is not composed solely of technical elements (hardware and software), but constitutes a socio-technical system where technology, human beings, organizations, and culture mutually influence each other.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to analyze computing artifacts within their broader social, cultural, and organizational contexts, identifying non-technical feedback loops and systemic impacts.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 1: The Responsibilities of Engineers&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 2: Análise Cultural de Sistemas Computacionais&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 1: The Responsibilities of Engineers&lt;/em&gt; (esp. §1.6, &amp;ldquo;The Social Context of Technological Development&amp;rdquo;).&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 10: Cultura na Prática da Computação&lt;/em&gt; — &lt;strong&gt;correção&lt;/strong&gt;: a referência original (&amp;ldquo;Vol. 2, Capítulo 2: Análise Cultural de Sistemas Computacionais&amp;rdquo;) não existe no livro; o Vol. 2 não tem Capítulo 2 (a numeração começa no Cap. 9), e o Capítulo 2 do Vol. 1 é sobre pós-graduação, sem relação com o tema. Substituído pelo capítulo real mais próximo tematicamente.&lt;/li&gt;
+&lt;li&gt;Steen (2022) – &lt;em&gt;Chapter 3: Is Technology a Neutral Tool?&lt;/em&gt; — leitura complementar adicionada nesta sessão; cobre exatamente a tese da não-neutralidade e da coformação mútua entre pessoas e tecnologia.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date and Speaker:&lt;/strong&gt; TBD | Marcos M. Raimundo&lt;/li&gt;
@@ -119,8 +120,8 @@
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to audit datasets and algorithmic models for unfair bias, identifying historical disparities encoded in data pipelines.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Marc Steen (2022) – &lt;em&gt;Chapter 2: Ethics of Consequences&lt;/em&gt; (applied sections).&lt;/li&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 2: Análise Cultural de Sistemas Computacionais&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Marc Steen (2022) – &lt;em&gt;Chapter 2: Ethics of Consequences&lt;/em&gt; (applied sections). &lt;strong&gt;Verificar quando chegarmos nesta aula:&lt;/strong&gt; o sumário real do EthTech não tem capítulo com esse título no Cap. 2 (que é &amp;ldquo;What do we mean with ethics?&amp;rdquo;); o mais próximo é o Cap. 9 &amp;ldquo;Consequences and outcomes&amp;rdquo; (p. 67) — mesmo padrão de citação quebrada encontrado na Aula 1, ainda não corrigido aqui.&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 10: Cultura na Prática da Computação&lt;/em&gt; — corrigido nesta sessão (era &amp;ldquo;Capítulo 2: Análise Cultural de Sistemas Computacionais&amp;rdquo;, que não existe; ver nota na Aula 1).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date and Speaker:&lt;/strong&gt; TBD | TBA&lt;/li&gt;
@@ -211,8 +212,8 @@
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to apply critical data analysis methods that account for power dynamics, context, and cross-disciplinary perspectives.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 1, &lt;em&gt;Capítulo 4: Gênero, Ciência e Tecnologia&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 2: Análise Cultural de Sistemas Computacionais&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 1, &lt;em&gt;Capítulo 4: Gênero e Tecnologias&lt;/em&gt; (título real; a ementa original dizia &amp;ldquo;Gênero, Ciência e Tecnologia&amp;rdquo; — próximo o suficiente, mesmo capítulo).&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 2, &lt;em&gt;Capítulo 10: Cultura na Prática da Computação&lt;/em&gt; — corrigido nesta sessão (ver nota na Aula 1).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date and Speaker:&lt;/strong&gt; TBD | TBA&lt;/li&gt;

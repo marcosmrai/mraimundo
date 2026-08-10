@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Anderson De Rezende Rocha | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/anderson-de-rezende-rocha/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/anderson-de-rezende-rocha/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/anderson-de-rezende-rocha/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/anderson-de-rezende-rocha/index.xml" rel="self" type="application/rss+xml" />
     <description>Anderson De Rezende Rocha</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Anderson De Rezende Rocha</title>
-      <link>http://localhost:1313/mraimundo/authors/anderson-de-rezende-rocha/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/anderson-de-rezende-rocha/</link>
     </image>
     
     <item>
       <title>Reasoning Distillation and Structural Alignment for Improved Code Generation</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</guid>
       <description></description>
     </item>
     

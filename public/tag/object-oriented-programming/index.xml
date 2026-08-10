@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Object-Oriented Programming | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/tag/object-oriented-programming/</link>
-      <atom:link href="http://localhost:1313/mraimundo/tag/object-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/tag/object-oriented-programming/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/tag/object-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
     <description>Object-Oriented Programming</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Object-Oriented Programming</title>
-      <link>http://localhost:1313/mraimundo/tag/object-oriented-programming/</link>
+      <link>http://ic.unicamp.br/mraimundo/tag/object-oriented-programming/</link>
     </image>
     
     <item>
       <title>Object-Oriented Programming - MC322</title>
-      <link>http://localhost:1313/mraimundo/teaching/poo/</link>
+      <link>http://ic.unicamp.br/mraimundo/teaching/poo/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/teaching/poo/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/teaching/poo/</guid>
       <description>&lt;p&gt;The course aims to introduce and develop object-oriented thinking in students. It covers fundamental OO concepts such as classes, objects, encapsulation, inheritance, and polymorphism, as well as good practices for designing and implementing classes. It also teaches how to use UML for modeling and apply design patterns, preparing students to create robust and scalable software.&lt;/p&gt;
 &lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;
 &lt;ul&gt;

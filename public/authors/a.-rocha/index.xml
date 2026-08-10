@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A. Rocha | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/authors/a.-rocha/</link>
-      <atom:link href="http://localhost:1313/mraimundo/authors/a.-rocha/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/authors/a.-rocha/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/authors/a.-rocha/index.xml" rel="self" type="application/rss+xml" />
     <description>A. Rocha</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>A. Rocha</title>
-      <link>http://localhost:1313/mraimundo/authors/a.-rocha/</link>
+      <link>http://ic.unicamp.br/mraimundo/authors/a.-rocha/</link>
     </image>
     
     <item>
       <title>Exploring multiobjective training in multiclass classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</guid>
       <description></description>
     </item>
     

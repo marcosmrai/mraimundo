@@ -2,173 +2,173 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications | Marcos M. Raimundo</title>
-    <link>http://localhost:1313/mraimundo/publication/</link>
-      <atom:link href="http://localhost:1313/mraimundo/publication/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://ic.unicamp.br/mraimundo/publication/</link>
+      <atom:link href="http://ic.unicamp.br/mraimundo/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
+      <url>http://ic.unicamp.br/mraimundo/media/icon_hu_137bf69bee98546a.png</url>
       <title>Publications</title>
-      <link>http://localhost:1313/mraimundo/publication/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/</link>
     </image>
     
     <item>
       <title>Combinatorial U-Curve Optimization for Multi-Task Learning: A Task Selection Approach</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CounterCrime - Using Counterfactual Explanations to Explore Crime Reduction Scenarios</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>M²FGB: A Min-Max Gradient Boosting Framework for Subgroup Fairness</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria Rank-based Aggregation for Explainable AI</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pareto sensitivity, most-changing sub-fronts, and knee solutions</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reasoning Distillation and Structural Alignment for Improved Code Generation</title>
-      <link>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Best practices for responsible machine learning in credit scoring</title>
-      <link>http://localhost:1313/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring the Trade-off Between Model Performance and Explanation Plausibility of Text Classifiers Using Human Rationales</title>
-      <link>http://localhost:1313/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Enforcing fairness using ensemble of diverse Pareto-optimal models</title>
-      <link>http://localhost:1313/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An algorithm for multi-task learning based on combinatorial optimization of U-curves</title>
-      <link>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory&#39;s Invariance</title>
-      <link>http://localhost:1313/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CriPAV: Street-Level Crime Patterns Analysis and Visualization</title>
-      <link>http://localhost:1313/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring multiobjective training in multiclass classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mining Pareto-optimal counterfactual antecedents with a branch-and-bound model-agnostic algorithm</title>
-      <link>http://localhost:1313/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-criteria analysis involving Pareto-optimal misclassification tradeoffs on imbalanced datasets</title>
-      <link>http://localhost:1313/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ant genera identification using an ensemble of convolutional neural networks</title>
-      <link>http://localhost:1313/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Investigating multiobjective methods in multitask classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An extension of the non-inferior set estimation algorithm for many objectives</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Many-Objective Ensemble-Based Multilabel Classification</title>
-      <link>http://localhost:1313/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</link>
+      <link>http://ic.unicamp.br/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</guid>
+      <guid>http://ic.unicamp.br/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</guid>
       <description></description>
     </item>
     

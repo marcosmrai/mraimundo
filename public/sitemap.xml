@@ -2,590 +2,590 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/mraimundo/talk/example-event/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/talk/example-event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/event/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/computing/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/computing/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/society/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/society/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/ethics/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/ethics/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/human-centered-design/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/human-centered-design/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/admin/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/admin/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/responsible-innovation/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/responsible-innovation/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tags/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tags/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/technology-and-society/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/technology-and-society/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/ai/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/ai/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/disciplines/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/disciplines/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/linear-algebra/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/linear-algebra/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/machine-learning/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/machine-learning/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/optimization/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/optimization/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/algebra_opt/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/algebra_opt/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/statistics/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/statistics/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/supervised-learning/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/supervised-learning/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/supervised/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/supervised/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/unsupervised-learning/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/unsupervised-learning/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/unsupervised/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/unsupervised/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/bilevel-optimization/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/bilevel-optimization/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/continuous-optimization/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/continuous-optimization/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/projects/mol/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/projects/mol/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/projects/moo/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/projects/moo/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/jax/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/jax/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/mathematical-programming/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/mathematical-programming/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/numerical-analysis/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/numerical-analysis/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication-type/2/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication-type/2/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/amir-jalilifard/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/amir-jalilifard/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/anderson-de-rezende-rocha/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/anderson-de-rezende-rocha/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2025-combinatorial-u-curve-optimization-for-multi-task-/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2025-countercrime-using-counterfactual-explanations-to-/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/everton-romanzini-colombo/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/everton-romanzini-colombo/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/g.-k.-bonas/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/g.-k.-bonas/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/germain-garcia-zanabria/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/germain-garcia-zanabria/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/giovani-valdrighi/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/giovani-valdrighi/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/j.-s.-b.-pereira/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/j.-s.-b.-pereira/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/jorge-poco/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/jorge-poco/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/l.-g.-nonato/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/l.-g.-nonato/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/luis-nunes-vicente/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/luis-nunes-vicente/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/m.-m.-raimundo/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/m.-m.-raimundo/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2025-m-fgb-a-min-max-gradient-boosting-framework-for-su/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/marcelo-s.-reis/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/marcelo-s.-reis/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2025-multi-criteria-rank-based-aggregation-for-explaina/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2025-pareto-sensitivity-most-changing-sub-fronts-and-kn/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication_types/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication_types/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2025-reasoning-distillation-and-structural-alignment-fo/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/sujoy-chatterjee/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/sujoy-chatterjee/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/tommaso-giovannelli/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/tommaso-giovannelli/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/</loc>
     <lastmod>2024-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/projects/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/projects/</loc>
     <lastmod>2024-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/</loc>
     <lastmod>2024-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/ai_ethics_2024/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2024/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/object-oriented-programming/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/object-oriented-programming/</loc>
     <lastmod>2024-03-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/poo/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/poo/</loc>
     <lastmod>2024-03-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/arthur-hendricks/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/arthur-hendricks/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/athyrson-m.-ribeiro/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/athyrson-m.-ribeiro/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2024-best-practices-for-responsible-machine-learning-in/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/decio-miranda-filho/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/decio-miranda-filho/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2024-exploring-the-trade-off-between-model-performance-/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/felipe-f.-bocca/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/felipe-f.-bocca/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/jansen-s.-b.-pereira/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/jansen-s.-b.-pereira/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/juan-david-nieto-garcia/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/juan-david-nieto-garcia/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/lucas-resck/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/lucas-resck/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/lucas-wanner/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/lucas-wanner/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/marcos-medeiros-raimundo/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/marcos-medeiros-raimundo/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/thalita-b.-veronese/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/thalita-b.-veronese/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/vitoria-guardieiro/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/vitoria-guardieiro/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/aprendizado-de-maquina/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/aprendizado-de-maquina/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/ai_ethics_2022/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/ai_ethics_2022/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/categories/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/categories/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/category/disciplinas/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/category/disciplinas/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/disciplinas/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/disciplinas/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/ia/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/ia/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2023-enforcing-fairness-using-ensemble-of-diverse-paret/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/vitoria-guardieiro/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/vitoria-guardieiro/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/contact/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/contact/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/people/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/people/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/_tour/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/_tour/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/credit-scoring/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/credit-scoring/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/projects/credit/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/projects/credit/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/fairness/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/fairness/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/interpretability/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/interpretability/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/social-good/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/social-good/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2022-an-algorithm-for-multi-task-learning-based-on-comb/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2022-analyzing-the-equity-of-the-brazilian-national-hig/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/giovana-kerche-bonas/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/giovana-kerche-bonas/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/i.-d.-computacao/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/i.-d.-computacao/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/marcelo-da/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/marcelo-da/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/marcos-medeiros/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/marcos-medeiros/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/silva-reis/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/silva-reis/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/po_ii_2021/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/po_ii_2021/</loc>
     <lastmod>2022-04-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/po_iii_2021/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/po_iii_2021/</loc>
     <lastmod>2022-04-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/otimizacao/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/otimizacao/</loc>
     <lastmod>2022-04-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/pesquisa-operacional/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/pesquisa-operacional/</loc>
     <lastmod>2022-04-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/a.-c.-r.-marques/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/a.-c.-r.-marques/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/a.-rocha/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/a.-rocha/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/christiano-lyra/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/christiano-lyra/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/claudio-t.-silva/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/claudio-t.-silva/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2021-cripav-street-level-crime-patterns-analysis-and-vi/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2021-exploring-multiobjective-training-in-multiclass-cl/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/f.-j.-zuben/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/f.-j.-zuben/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/m.-nery/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/m.-nery/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2021-mining-pareto-optimal-counterfactual-antecedents-w/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/s.-adorno/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/s.-adorno/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/thalita-f.-drumond/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/thalita-f.-drumond/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/post/20-12-02-icml-best-paper/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/post/20-12-02-icml-best-paper/</loc>
     <lastmod>2020-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/post/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/post/</loc>
     <lastmod>2020-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/post/20-12-01-wowchemy-prize/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/post/20-12-01-wowchemy-prize/</loc>
     <lastmod>2020-12-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/projects/ethicalai/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/projects/ethicalai/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/privacy/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/privacy/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/transparence/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/tag/transparence/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2020-multi-criteria-analysis-involving-pareto-optimal-m/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2018-ant-genera-identification-using-an-ensemble-of-con/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/ellen-marianne-b-cavalheiro/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/ellen-marianne-b-cavalheiro/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/fernando-j-von-zuben/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/fernando-j-von-zuben/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2018-investigating-multiobjective-methods-in-multitask-/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/luis-f-p-salles/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/luis-f-p-salles/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/marcos-m-raimundo/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/marcos-m-raimundo/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2017-an-extension-of-the-non-inferior-set-estimation-al/</loc>
     <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2017-ensembles-of-multiobjective-based-classifiers-for-/</loc>
     <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/f.-s.-beserra/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/f.-s.-beserra/</loc>
     <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/publication/2017-many-objective-ensemble-based-multilabel-classific/</loc>
     <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/p.-ferreira/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/p.-ferreira/</loc>
     <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/admin/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/admin/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/claude/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/claude/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/quarto_prompt/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/quarto_prompt/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/teaching/readme/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/teaching/readme/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/alexandre/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/alexandre/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/aline/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/aline/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/arthur/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/arthur/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/athyrson/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/athyrson/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/beatriz/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/beatriz/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/caio_lima/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/caio_lima/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/caio_porto/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/caio_porto/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/caio_prado/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/caio_prado/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/daniel/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/daniel/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/decio/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/decio/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/giovani/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/giovani/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/jansen/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/jansen/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/joao_guimaraes/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/joao_guimaraes/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/joao_victor/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/joao_victor/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/juan/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/juan/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/kamila/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/kamila/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/larissa/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/larissa/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/leodecio/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/leodecio/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/luan/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/luan/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/lucas_cardoso/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/lucas_cardoso/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/maria_clara/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/maria_clara/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/raphael/</loc>
+    <loc>http://ic.unicamp.br/mraimundo/authors/raphael/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
