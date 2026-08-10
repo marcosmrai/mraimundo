@@ -16,11 +16,9 @@ format:
   revealjs:
     output-dir: "output"
     slide-number: true
-    smaller: true
+    smaller: true 
     scrollable: true
     theme: simple
-    fig-width: 6
-    fig-height: 3.5
 jupyter: python3
 execute:
   warning: false
@@ -104,7 +102,7 @@ $\mathcal{D} = \{(x_n, y_n)\}_{n=1}^{N}$. Queremos uma função $f : X \to Y$ qu
 A escolha de tratar o assunto estatisticamente e não algoritmicamente tem uma
 consequência prática imediata: quando um modelo falha, a pergunta deixa de ser
 "qual hiperparâmetro eu ajusto?" e passa a ser "qual das três peças está
-errada?". Quase sempre é a primeira — a suposição distributiva.
+errada?".
 
 **Bibliografia principal.** Bishop, C. M. (2006), *Pattern Recognition and
 Machine Learning*, Springer — referido como PRML. Bishop, C. M. & Bishop, H.
@@ -135,11 +133,11 @@ A aula de hoje abre com uma pergunta cuja resposta parece óbvia e não é:
 - Par $(x, y)$ com distribuição conjunta desconhecida $p(x, y)$ e amostra $\mathcal{D} = \{(x_n, y_n)\}_{n=1}^N$.
 - **Classificação ($Y \in \mathbb{N}$ adaptado) vs. Regressão ($Y \subseteq \mathbb{R}$):** A diferença estrutural está quase inteiramente na escolha da distribuição do resíduo $Y - f(X)$.
 
-| Prática do dia a dia | Formalismo estatístico underlying | Aula |
-|---|---|---|
-| Mínimos Quadrados | Máxima Verossimilhança sob erro Gaussiano | Aula 5 |
-| Regularização (L1 / L2) | Inferência Bayesiana com Priori (Laplace / Gaussiana) | Aula 7 |
-| Resíduo de previsão | Gradiente da log-verossimilhança | Aula 10 |
+| Prática do dia a dia | Formalismo estatístico underlying
+|---|---|
+| Mínimos Quadrados | Máxima Verossimilhança sob erro Gaussiano |
+| Regularização (L1 / L2) | Inferência Bayesiana com Priori (Laplace / Gaussiana) |
+| Resíduo de previsão | Gradiente da log-verossimilhança |
 
 :::
 
@@ -230,17 +228,12 @@ A mesma ideia sobrevive intacta em duas dimensões. O histograma vira uma nuvem
 de pontos e a curva vira um conjunto de curvas de nível. O objeto é o mesmo; só
 a dimensão do espaço mudou.
 
-Duas observações a guardar, ambas sementes de aulas futuras. Primeira: em duas
-dimensões ainda dá para desenhar, e o desenho continua informativo. Segunda: em
-vinte dimensões não dá — e o problema não é apenas gráfico. Estimar o formato
-de uma nuvem em $\mathbb{R}^{20}$ com dados finitos é um problema
-qualitativamente diferente, e é o assunto da Aula 2. A saída mais barata para
-esse problema é impor estrutura, e a primeira estrutura que o curso impõe é o
-Naive Bayes — o tema central daquela aula.
+Duas observações a guardar, ambas sementes de aulas futuras. Primeira: em duas dimensões ainda dá para desenhar, e o desenho continua informativo. Segunda: em vinte dimensões não dá — e o problema não é apenas gráfico. Estimar o formato de uma nuvem em $\mathbb{R}^{20}$ com dados finitos é um problema qualitativamente diferente, o que vamos discutir em aulas futuras.
 
 :::
 
 ::: {.content-visible when-format="revealjs"}
+
 
 **O mesmo objeto, em mais dimensões**
 
@@ -403,13 +396,6 @@ melhor limiar; ela apenas gasta mais para chegar ao mesmo lugar.
 **Atenção:** "Tipo I/II" só existe depois de declarar a **hipótese nula**.
 Aqui: A = normal (nula), B = anômala.
 :::
-
-::: {.fragment}
-**Mover o corte troca uma área pela outra. Nenhum corte zera as duas.**
-
-$\Rightarrow$ erro de Bayes: irredutível, é propriedade dos dados.
-:::
-
 :::
 
 ```{python}
@@ -440,12 +426,21 @@ ax.set_xlim(0, 1)
 plt.tight_layout()
 plt.show()
 ```
+---
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
 
 A figura seguinte torna o compromisso quantitativo: para cada posição do corte,
 a fração de cada tipo de erro. As duas curvas são monótonas em direções opostas
 e não se anulam simultaneamente em ponto algum do domínio.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+**Mover o corte troca uma área pela outra. Nenhum corte zera as duas.**
+
+$\Rightarrow$ erro de Bayes: irredutível, é propriedade dos dados.
 
 :::
 
@@ -519,7 +514,7 @@ alarmes = [fa1, fa2]
 escapes = [es1, es2]
 xpos = np.arange(2)
 
-fig, ax = plt.subplots(figsize=(5, 3.0))
+fig, ax = plt.subplots(figsize=(6.0, 4.0))
 b1 = ax.bar(xpos, alarmes, 0.55, color=COR_A, alpha=0.85,
             label="alarmes falsos (Tipo I)")
 b2 = ax.bar(xpos, escapes, 0.55, bottom=alarmes, color=COR_B, alpha=0.85,
@@ -554,10 +549,6 @@ exatamente onde a justificativa verbal falhou: *igualmente plausíveis* estava
 sendo confundido com *igualmente prováveis*. São coisas diferentes, e a
 diferença é a frequência das classes.
 
-Uma nota de conduta, para quem for reproduzir esta aula: **esta contagem
-precisa estar pré-computada.** O efeito está em ver o número cair, não em
-produzir o número ao vivo.
-
 :::
 
 ::: {.content-visible when-format="revealjs"}
@@ -576,8 +567,6 @@ Onde a justificativa verbal falhou:
 
 :::
 
----
-
 # Regra do Produto, Marginais e Teorema de Bayes
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
@@ -590,10 +579,12 @@ Considere duas variáveis aleatórias: uma variável contínua $X \in \mathcal{X
 
 ### Distribuição Conjunta: $p(x, \mathcal{C}_k)$
 A distribuição conjunta descreve a probabilidade de **duas coisas acontecerem simultaneamente**: a observação pertencer à classe $\mathcal{C}_k$ **e** o valor medido cair nas proximidades de $x$.
+
 - Em termos geométricos, é a curva (ou superfície) que leva em conta tanto o formato dos dados quanto a frequência relativa da classe no espaço original de amostragem.
 
 ### Distribuição Condicional: $p(x \mid \mathcal{C}_k)$ e $p(\mathcal{C}_k \mid x)$
 A distribuição condicional descreve o comportamento de uma variável **dado que a outra é fixada ou conhecida**:
+
 - $p(x \mid \mathcal{C}_k)$ é a **densidade condicional de classe** (ou verossimilhança): responde *"sabendo que a observação vem da classe $\mathcal{C}_k$, qual é a distribuição dos valores $x$?"*.
 - $p(\mathcal{C}_k \mid x)$ é a **probabilidade a posteriori**: responde a pergunta inversa e crucial do aprendizado supervisionado — *"dado que observei o valor $x$, qual é a probabilidade de ele ter vindo da classe $\mathcal{C}_k$?"*.
 
@@ -660,9 +651,8 @@ $$\text{Posteriori} \;\propto\; \text{Verossimilhança} \;\times\; \text{Priori}
 
 :::
 
-## A importancia da priori e Bayes
-
 ::: {.content-visible when-format="html" unless-format="revealjs"}
+## A importancia da priori e Bayes
 
 Por que o corte no cruzamento falhou? Porque as curvas que desenhamos descrevem
 o formato de cada classe **isoladamente**. Elas respondem à pergunta "*se* o
@@ -732,31 +722,19 @@ faz sentido depois do percurso, e não antes.
 :::
 
 ::: {.content-visible when-format="revealjs"}
-
-**Por que falhou:** as curvas descrevem cada classe *isoladamente*.
-
-**O correção:** escalar cada curva pela frequência da sua classe.
-
-. . .
-
 - priori: $\pi_k = p(\mathcal{C}_k)$
 - condicional de classe: $p(x \mid \mathcal{C}_k)$
 - conjunta: $p(x,\mathcal{C}_k) = p(x\mid\mathcal{C}_k)\,\pi_k$
 - decidir pela conjunta maior $=$ decidir pela **posteriori** maior
 
-::: {.fragment}
-$$ p(\mathcal{C}_k \mid x) = \frac{p(x \mid \mathcal{C}_k)\,p(\mathcal{C}_k)}{p(x)} $$
-
-Bayes como **resumo**, não como axioma.
-:::
-
+---
 :::
 
 ```{python}
 #| echo: false
 #| fig-align: center
 
-fig, axes = plt.subplots(1, 2, figsize=(6.4, 3.2), sharex=True)
+fig, axes = plt.subplots(1, 2, figsize=(8.4, 3.8), sharex=True)
 
 ax = axes[0]
 ax.plot(grade, fa, color=COR_A, lw=2.6, label=r"$p(x \mid \mathcal{C}_A)$")
@@ -791,7 +769,7 @@ plt.show()
 erro_tot = PI_A * (1 - DIST_A.cdf(ts)) + PI_B * DIST_B.cdf(ts)
 i_min = int(np.argmin(erro_tot))
 
-fig, ax = plt.subplots(figsize=(4.0, 2.0))
+fig, ax = plt.subplots(figsize=(8.4, 3.8))
 ax.plot(ts, erro_tot, color=COR_NEU, lw=2.8, label="erro total esperado")
 ax.axvline(T_COND, color=COR_A, lw=1.8, ls=":",
            label=f"cruzamento das condicionais ({T_COND:.2f})")
@@ -822,9 +800,11 @@ saudáveis ($\text{falso positivo} = 0{,}03$). Uma pessoa testa positivo. Qual a
 probabilidade de que esteja doente?
 
 $$
-p(D \mid +) = \frac{p(+ \mid D)\,p(D)}{p(+ \mid D)\,p(D) + p(+ \mid \bar{D})\,p(\bar{D})}
-= \frac{0{,}90 \times 0{,}01}{0{,}90 \times 0{,}01 + 0{,}03 \times 0{,}99}
-= \frac{0{,}0090}{0{,}0387} \approx 0{,}233 .
+\begin{aligned}
+p(D \mid +) &= \frac{p(+ \mid D)\,p(D)}{p(+ \mid D)\,p(D) + p(+ \mid \bar{D})\,p(\bar{D})}\\
+& = \frac{0{,}90 \times 0{,}01}{0{,}90 \times 0{,}01 + 0{,}03 \times 0{,}99}\\
+& = \frac{0{,}0090}{0{,}0387} \approx 0{,}233 .
+\end{aligned}
 $$
 
 Cerca de **23%** — não 90%, que é a resposta que a maioria dá. A intuição
@@ -871,7 +851,7 @@ doentes = N * prev
 vp, fn_ = doentes * sens, doentes * (1 - sens)
 fp, vn = (N - doentes) * fpr_t, (N - doentes) * (1 - fpr_t)
 
-fig, axes = plt.subplots(1, 2, figsize=(4.4, 2.2))
+fig, axes = plt.subplots(1, 2, figsize=(6.4, 3.8))
 
 ax = axes[0]
 ax.bar(["doentes", "saudáveis"], [doentes, N - doentes],
@@ -893,8 +873,6 @@ for i, v in enumerate([vp, fp]):
 plt.tight_layout()
 plt.show()
 ```
-
----
 
 # Propriedades de Distribuições Contínuas
 
@@ -947,9 +925,7 @@ A **cauda** da distribuição descreve a taxa de decaimento de $p(x)$ quando $|x
 
 ::: {.content-visible when-format="revealjs"}
 
-## Fundamentos das Distribuições Contínuas
-
-### Densidade vs. Probabilidade
+## Densidade vs. Probabilidade
 
 - $P(X = x) = 0$ para qualquer ponto isolado.
 - Probabilidade é a **área sob a curva**: $P(a \le X \le b) = \int_a^b p(x)\,\mathrm{d}x$.
@@ -957,9 +933,9 @@ A **cauda** da distribuição descreve a taxa de decaimento de $p(x)$ quando $|x
 - **Mudança de variável exige Jacobiano:** $p_Y(y) = p_X(x) \left|\frac{\mathrm{d}x}{\mathrm{d}y}\right|$.
   - Consequência: a **moda** da densidade depende da parametrização!
 
-. . .
+---
 
-### Os Momentos da Distribuição
+## Os Momentos da Distribuição
 
 - **Média ($\mu$):** Primeiro momento $\mathbb{E}[X]$ — centro de massa.
 - **Variância ($\sigma^2$):** Segundo momento central $\mathbb{E}[(X-\mu)^2]$ — dispersão.
@@ -981,23 +957,13 @@ O comportamento de $p(x)$ quando $|x| \to \infty$ define a sensibilidade a event
 
 :::
 
----
-
-# Detecção de Outliers usando Distribuição Beta
+# Detecção de Outliers
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
 
-Muitas variáveis de interesse vivem confinadas em $[0,1]$: escores de crédito
-normalizados, taxas de inadimplência, proporções de uso, frações de tempo,
-probabilidades calibradas na saída de um classificador. Para todas elas, a
-Gaussiana é uma escolha ruim — e o problema não é estético.
+Muitas variáveis de interesse vivem confinadas em $[0,1]$: escores de crédito normalizados, taxas de inadimplência, proporções de uso, frações de tempo, probabilidades calibradas na saída de um classificador. Para todas elas, a Gaussiana é uma escolha ruim — e o problema não é estético.
 
-Uma Gaussiana ajustada a dados em $[0,1]$ coloca massa fora do suporte. Se a
-média estimada for $0{,}15$ e o desvio $0{,}12$, o modelo atribui cerca de 10%
-de probabilidade a valores negativos, que são impossíveis. Pior: um limiar
-calculado como quantil desse modelo pode cair **fora do domínio** — um limiar
-em $-0{,}03$ não é conservador, é sem sentido, e o código que o usa não vai
-reclamar.
+Uma Gaussiana ajustada a dados em $[0,1]$ coloca massa fora do suporte. Se a média estimada for $0{,}15$ e o desvio $0{,}12$, o modelo atribui cerca de 10% de probabilidade a valores negativos, que são impossíveis. Pior: um limiar calculado como quantil desse modelo pode cair **fora do domínio** — um limiar em $-0{,}03$ não é conservador, é sem sentido, e o código que o usa não vai reclamar.
 
 > **O suporte do modelo é uma decisão de modelagem, não uma tecnicalidade.**
 
@@ -1025,19 +991,15 @@ Com apenas dois parâmetros, a família cobre uma variedade de formatos notável
 ::: {.callout-warning}
 ## Aviso de leitura — PRML §2.1.1
 
-O PRML introduz a Beta como **priori conjugada sobre o parâmetro $\mu$ de uma
-Bernoulli**, não como densidade de dados observados. Aqui usamos a Beta como
-modelo de **observações contínuas** em $[0,1]$.
+O PRML introduz a Beta como **priori conjugada sobre o parâmetro $\mu$ de uma Bernoulli**, não como densidade de dados observados. Aqui usamos a Beta como modelo de **observações contínuas** em $[0,1]$.
 
-A matemática é a mesma; a interpretação não é. No PRML, o argumento da Beta é
-um parâmetro desconhecido; aqui, é um dado medido. Quem for ler §2.1.1 sem esse
-aviso vai se perder — e o DLFC não ajuda, porque **não cobre a Beta em lugar
-nenhum**.
+A matemática é a mesma; a interpretação não é. No PRML, o argumento da Beta é um parâmetro desconhecido; aqui, é um dado medido. Quem for ler §2.1.1 sem esse aviso vai se perder — e o DLFC não ajuda, porque **não cobre a Beta em lugar nenhum**.
 :::
 
 :::
 
 ::: {.content-visible when-format="revealjs"}
+## Qual distribuição para dados em $[0,1]$?
 
 Dados em $[0,1]$: escores normalizados, taxas, proporções, probabilidades calibradas.
 
@@ -1052,22 +1014,11 @@ $$ \operatorname{Beta}(x\mid a,b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\,x^{a
 
 :::
 
-::: {.content-visible when-format="revealjs"}
-
-**Aviso de leitura**
-
-- PRML §2.1.1 apresenta a Beta como **priori conjugada** sobre $\mu$ da Bernoulli
-- Aqui ela é **modelo dos dados** em $[0,1]$
-- Mesma matemática, **interpretação diferente**
-- DLFC **não cobre** a Beta
-
-:::
-
 ```{python}
 #| echo: false
 #| fig-align: center
 
-fig, axes = plt.subplots(1, 3, figsize=(11.6, 3.7), sharey=True)
+fig, axes = plt.subplots(1, 3, figsize=(11.6, 4.7), sharey=True)
 xb = np.linspace(0.001, 0.999, 900)
 
 conjuntos = [
@@ -1138,19 +1089,9 @@ próximo bloco, que é sobre pontos *novos*, não sobre robustez do ajuste).
 
 ::: {.content-visible when-format="revealjs"}
 
-**Momentos — forma fechada.** Com média $m$ e variância $v$ amostrais, se $v < m(1-m)$:
-
-$$ \hat a = m\!\left(\tfrac{m(1-m)}{v}-1\right), \qquad \hat b = (1-m)\!\left(\tfrac{m(1-m)}{v}-1\right) $$
-
-::: {.fragment}
+**Momentos — forma fechada.** Com média $m$ e variância $v$ amostrais, se $v < m(1-m)$.
 **Máxima verossimilhança — *não* tem forma fechada.** Resolvida numericamente
-via `scipy.stats.beta.fit`. Não prometa uma fórmula que não existe.
-:::
-
-::: {.fragment}
-> Forma fechada e otimalidade são **propriedades diferentes**.
-:::
-
+via `scipy.stats.beta.fit`. Não prometa uma fórmula que não existe. 
 :::
 
 ::: {.content-visible when-format="revealjs"}
@@ -1294,17 +1235,13 @@ $$ \text{Tipo I} = P(x>t) = 1 - I_t(a,b) \qquad\Longrightarrow\qquad t_\alpha = 
 
 O limiar é um **quantil do modelo**; $\alpha$ vale por construção.
 
-:::
-
-::: {.content-visible when-format="revealjs"}
-
-### O ponto central da aula
-
 > **Com uma única densidade ajustada, o erro Tipo II não está definido.**
 
 - Bloco 1: **duas** curvas $\Rightarrow$ dois erros, duas áreas
 - Aqui: **uma** curva $\Rightarrow$ só uma área existe
 - Não há modelo de anomalia $\Rightarrow$ não há $P(\text{escape})$
+
+---
 
 :::
 
@@ -1329,7 +1266,7 @@ dist_norm = stats.beta(a_n, b_n)
 alphas = [0.10, 0.05, 0.01]
 cores_a = ["#F5B041", "#E67E22", "#922B21"]
 
-fig, axes = plt.subplots(1, 2, figsize=(5.0, 2.0))
+fig, axes = plt.subplots(1, 2, figsize=(8.0, 3.5))
 
 ax = axes[0]
 ax.plot(grade, dist_norm.pdf(grade), color=COR_A, lw=2.6,
@@ -1339,7 +1276,7 @@ for al, c in zip(alphas, cores_a):
     msk = grade > t_al
     ax.fill_between(grade[msk], dist_norm.pdf(grade[msk]), color=c, alpha=0.55)
     ax.axvline(t_al, color=c, lw=1.6, ls="--")
-    ax.text(t_al, 2.6 - 0.5 * alphas.index(al),
+    ax.text(t_al, 1.6 - 0.5 * alphas.index(al),
             f"  $\\alpha={al}$\n  $t={t_al:.3f}$", color=c,
             fontsize=8.5, fontweight="bold")
 ax.set_xlabel("$x$"); ax.set_ylabel("densidade")
@@ -1363,236 +1300,7 @@ plt.tight_layout()
 plt.show()
 ```
 
----
-
-## Custo e limiar
-
-::: {.content-visible when-format="html" unless-format="revealjs"}
-
-Um alarme falso e um escape raramente custam a mesma coisa. Negar crédito a um
-bom pagador custa margem perdida; conceder crédito a um inadimplente custa o
-principal. Uma triagem que erra para o lado do exame adicional custa dinheiro;
-uma que erra para o outro lado custa vidas.
-
-O formalismo é a **matriz de perda** $L_{kj}$ = custo de decidir $j$ quando a
-verdade é $k$ (PRML §1.5.2, p. 41; DLFC §5.2.2, p. 140). A perda esperada é
-
-$$
-\mathbb{E}[L] = \sum_k \sum_j \int_{\mathcal{R}_j} L_{kj}\; p(x, \mathcal{C}_k)\,\mathrm{d}x .
-$$
-
-Pelo mesmo argumento ponto a ponto do Passo 5, a decisão ótima em cada $x$ é
-
-$$
-j^\star(x) = \arg\min_j \sum_k L_{kj}\, p(\mathcal{C}_k \mid x).
-$$
-
-No caso binário com $L_{AA} = L_{BB} = 0$, escrevendo $c_{\mathrm{I}} = L_{AB}$
-(custo do alarme falso) e $c_{\mathrm{II}} = L_{BA}$ (custo do escape), a
-fronteira ótima satisfaz
-
-$$
-\boxed{\;
-c_{\mathrm{I}}\;p(x \mid \mathcal{C}_A)\,\pi_A
-\;=\;
-c_{\mathrm{II}}\;p(x \mid \mathcal{C}_B)\,\pi_B
-\;}
-\qquad\Longleftrightarrow\qquad
-\frac{p(x \mid \mathcal{C}_B)}{p(x \mid \mathcal{C}_A)}
-= \frac{c_{\mathrm{I}}\,\pi_A}{c_{\mathrm{II}}\,\pi_B}.
-$$
-
-Ou seja: **custo e priori entram exatamente da mesma forma**, multiplicando o
-limiar da razão de verossimilhanças. Uma classe rara por um fator 19 e uma
-classe cara por um fator 19 produzem a mesma fronteira. Isso é operacionalmente
-útil — permite compensar desbalanceamento com custo — e conceitualmente
-importante, porque mostra que o "problema do desbalanceamento" não é um problema
-estatístico, e sim um problema de decisão mal especificado.
-
-### Matriz de confusão, precisão, recall e a curva ROC {.unnumbered}
-
-Antes da opção de rejeição, vale nomear o vocabulário que serve para
-**relatar** esse mesmo limiar a alguém que não vai abrir a densidade — um
-gerente, um comitê de crédito, um artigo. No limiar ótimo $t = t_{\text{conj}}$
-encontrado antes, os dois erros da aula (alarme falso e escape) se organizam
-numa **matriz de confusão** (DLFC §5.2.5, pp. 147–148):
-
-|            | previsto A                    | previsto B                |
-|---|---|---|
-| **real A** | verdadeiro negativo (TN)      | falso positivo (FP) — alarme falso |
-| **real B** | falso negativo (FN) — escape  | verdadeiro positivo (TP)  |
-
-Dela saem quatro taxas — todas frações da mesma tabela, nenhuma ideia nova:
-
-$$
-\text{precisão} = \frac{TP}{TP+FP}, \qquad
-\text{recall} = \text{TPR} = \frac{TP}{TP+FN}, \qquad
-\text{FPR} = \frac{FP}{FP+TN}, \qquad
-\text{FDR} = \frac{FP}{TP+FP} = 1 - \text{precisão}.
-$$
-
-**Acurácia sozinha esconde o desbalanceamento que abriu a aula.** Um
-classificador que sempre prevê "A" — nunca declara anomalia — acerta em
-$\pi_A = 95\%$ dos casos e tem recall exatamente $0$. Acurácia alta não é
-evidência de nada quando uma classe já é rara por construção; é por isso que
-precisão e recall existem separadamente, e é por isso que reportar só a
-acurácia de um detector de fraude ou de doença rara é, na prática,
-desinformação.
-
-A **curva ROC** (DLFC §5.2.6, pp. 148–150) não introduz nenhum objeto novo:
-é o mesmo gráfico do Bloco 1 — Tipo I e Tipo II em função do limiar $t$ —
-replotado como Tipo I ($=$ FPR) no eixo $x$ contra $1-$Tipo II ($=$ TPR,
-recall) no eixo $y$, varrendo o mesmo $t$. A curva é propriedade das duas
-densidades ajustadas; o ponto marcado nela é a escolha de operação, feita
-pelo custo e pela priori.
-
-### A opção de rejeição {.unnumbered}
-
-Às vezes a ação de menor custo é **não decidir** (PRML §1.5.3, p. 42). Se
-errar custa $1$ e recusar-se a decidir custa $\lambda < 1$, a regra ótima é a
-de Chow: decidir quando $\max_k p(\mathcal{C}_k \mid x) \ge 1 - \lambda$, e
-rejeitar caso contrário. O custo de decidir em $x$ é $1 - \max_k
-p(\mathcal{C}_k\mid x)$; basta compará-lo com $\lambda$. Encaminhar o caso a um
-humano, pedir mais um exame, coletar mais um dado — tudo isso é a opção de
-rejeição, e ela tem preço explícito.
-
-### Frase de fechamento do bloco {.unnumbered}
-
-> **O limiar não é um hiperparâmetro para ser varrido no *grid search*. É a
-> solução de um problema de decisão definido pelas densidades ajustadas, pelas
-> prioris e pelos custos.**
-
-Varrer o limiar por validação cruzada e escolher o que maximiza a acurácia é
-uma forma indireta e ruidosa de resolver esse problema, sob a suposição
-implícita — quase sempre falsa — de que $c_{\mathrm{I}} = c_{\mathrm{II}}$.
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
-Alarme falso e escape **não custam a mesma coisa**. Matriz de perda $L_{kj}$:
-
-$$ \mathbb{E}[L] = \sum_k\sum_j \int_{\mathcal{R}_j} L_{kj}\,p(x,\mathcal{C}_k)\,\mathrm{d}x $$
-
-::: {.fragment}
-Fronteira ótima:
-$$ c_{\mathrm{I}}\,p(x\mid\mathcal{C}_A)\,\pi_A = c_{\mathrm{II}}\,p(x\mid\mathcal{C}_B)\,\pi_B $$
-
-**Custo e priori entram do mesmo jeito.** Classe 19× mais rara $\equiv$ classe 19× mais cara.
-:::
-
-::: {.fragment}
-**Matriz de confusão** — vocabulário para relatar o limiar:
-
-$$ \text{precisão} = \tfrac{TP}{TP+FP} \qquad \text{recall} = \tfrac{TP}{TP+FN} \qquad \text{FPR} = \tfrac{FP}{FP+TN} $$
-
-Prever sempre "A": acerta $\pi_A=95\%$, recall $=0$. **Acurácia sozinha esconde o desbalanceamento.**
-:::
-
-::: {.fragment}
-**Curva ROC = o mesmo gráfico do Bloco 1**, replotado: FPR no eixo $x$, TPR no eixo $y$, varrendo $t$.
-:::
-
-::: {.fragment}
-**Opção de rejeição:** decidir só se $\max_k p(\mathcal{C}_k\mid x) \ge 1-\lambda$.
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
-> **O limiar não é um hiperparâmetro para varrer no *grid search*.**
->
-> É a solução de um problema de decisão definido pelas **densidades**, pelas
-> **prioris** e pelos **custos**.
-
-:::
-
-```{python}
-#| echo: false
-#| fig-align: center
-
-# Matriz de confusão e curva ROC no limiar ótimo T_CONJ — reaproveita
-# fa2/es2 (Bloco "A conta que desmente a intuição") e tipo1/tipo2 (Bloco
-# "Tipos de erros"): é o mesmo sweep de limiar, replotado, não um novo cálculo.
-TP2, FN2, FP2, TN2 = N_B - es2, es2, fa2, N_A - fa2
-precisao = TP2 / (TP2 + FP2)
-recall_v = TP2 / (TP2 + FN2)
-fpr_v = FP2 / (FP2 + TN2)
-
-fig, axes = plt.subplots(1, 2, figsize=(9.4, 3.6))
-
-ax = axes[0]
-matriz = np.array([[TN2, FP2], [FN2, TP2]])
-ax.imshow(matriz, cmap="Purples", alpha=0.55, vmin=0)
-for i in range(2):
-    for j in range(2):
-        ax.text(j, i, f"{matriz[i, j]}", ha="center", va="center",
-                fontsize=13, fontweight="bold")
-ax.set_xticks([0, 1]); ax.set_xticklabels(["previsto A", "previsto B"])
-ax.set_yticks([0, 1]); ax.set_yticklabels(["real A", "real B"])
-ax.set_title(f"Matriz de confusão em $t={T_CONJ:.2f}$\n"
-             f"precisão={precisao:.2f}, recall={recall_v:.2f}")
-
-ax = axes[1]
-ax.plot(tipo1, 1 - tipo2, color=COR_LIM, lw=2.6, label="curva ROC")
-ax.plot(fpr_v, recall_v, "o", color=COR_A, ms=9, zorder=5,
-        label=f"limiar ótimo: ({fpr_v:.2f}, {recall_v:.2f})")
-ax.plot([0, 1], [0, 1], color=COR_NEU, lw=1.2, ls=":",
-        label="classificador aleatório")
-ax.set_xlabel("FPR (Tipo I)")
-ax.set_ylabel("TPR (recall)")
-ax.set_title("Curva ROC — mesmo sweep do Bloco 1, replotado")
-ax.legend(fontsize=8, loc="lower right")
-ax.set_xlim(0, 1); ax.set_ylim(0, 1)
-
-plt.tight_layout()
-plt.show()
-```
-
-```{python}
-#| echo: false
-#| fig-align: center
-
-razoes = [1, 5, 10, 25]
-cores_r = ["#5D6D7E", "#2471A3", "#117A65", "#922B21"]
-
-fig, axes = plt.subplots(1, 2, figsize=(11.0, 4.2))
-
-ax = axes[0]
-ax.plot(grade, PI_A * fa, color=COR_A, lw=2.4,
-        label=r"$\pi_A\,p(x\mid\mathcal{C}_A)$")
-for r, c in zip(razoes, cores_r):
-    ax.plot(grade, r * PI_B * fb, color=c, lw=2.0, alpha=0.9,
-            label=f"$c_{{II}}/c_{{I}} = {r}$")
-    t_r = cruzamento(lambda x, r=r: PI_A * DIST_A.pdf(x) - r * PI_B * DIST_B.pdf(x),
-                     0.20, 0.98)
-    ax.axvline(t_r, color=c, lw=1.3, ls="--")
-ax.set_xlabel("$x$"); ax.set_ylabel("densidade ponderada")
-ax.set_title("Encarecer o escape empurra a fronteira para a esquerda")
-ax.legend(fontsize=8, loc="upper right")
-ax.set_xlim(0, 1); ax.set_ylim(0, 1.6)
-
-ax = axes[1]
-rr = np.linspace(0.2, 60, 400)
-t_otimos = [cruzamento(lambda x, r=r: PI_A * DIST_A.pdf(x) - r * PI_B * DIST_B.pdf(x),
-                       1e-3, 0.999) for r in rr]
-ax.semilogx(rr, t_otimos, color=COR_LIM, lw=2.8)
-ax.axhline(T_CONJ, color=COR_NEU, lw=1.4, ls=":",
-           label=f"custos iguais ($t={T_CONJ:.2f}$)")
-ax.axvline(PI_A / PI_B, color=COR_A, lw=1.4, ls="--",
-           label=r"$c_{II}/c_{I} = \pi_A/\pi_B = 19$")
-ax.set_xlabel(r"razão de custos  $c_{II}/c_{I}$")
-ax.set_ylabel("limiar ótimo $t^\\star$")
-ax.set_title("Custo e priori são a mesma alavanca")
-ax.legend(fontsize=8.5)
-plt.tight_layout()
-plt.show()
-```
-
----
-
-# Fechamento e ponte
+# Conclusão
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
 
@@ -1640,6 +1348,7 @@ multidimensional.
 :::
 
 ::: {.content-visible when-format="revealjs"}
+## O que aprendemos
 
 1. **Distribuição** é o formato dos dados no espaço
 2. **Classificar** é comparar formatos ponderados pela frequência das classes
@@ -1649,13 +1358,9 @@ multidimensional.
 
 E o ponto negativo: com **uma** densidade, só o Tipo I é calculável.
 
-:::
+. . .
 
-::: {.content-visible when-format="revealjs"}
-
-### Ponte para a Aula 2
-
-Tudo isto usou **uma** variável. Com $d$ variáveis:
+**Proxima Aula:** Tudo isto usou **uma** variável. Com $d$ variáveis:
 
 $$ p(x\mid\mathcal{C}_k) \in \mathbb{R}^d \;\longrightarrow\; M^d \text{ células} $$
 

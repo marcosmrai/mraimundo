@@ -29,7 +29,17 @@ formas quadráticas). Nenhuma aula anterior do curso — é a Aula 1.
 - **Expected Competencies:** Ajustar uma Gaussiana multivariada a dados e
   definir limiares de anomalia robustos, baseados em probabilidade.
 
-## Plano de aula — Aula 1 (carga horária: ~110min)
+## Plano de aula — Aula 1 (carga horária: ~120min)
+
+**Ajuste (feedback do usuário sobre o rascunho anterior):** o Bloco 6
+original só definia um limiar fixo (dentro/fora) — faltava a pergunta mais
+fundamental de detecção de anomalia não-supervisionada: "qual a
+probabilidade de ver algo tão extremo quanto este ponto, se ele viesse do
+modelo ajustado?" Bloco 6 reescrito para responder isso via $p$-valor, e
+para contrastar a versão conjunta (Mahalanobis, cara) com a versão por
+dimensão sob suposição de independência (barata, cega à correlação) — o
+mesmo trade-off do Naive Bayes, agora em teste de hipótese. Tempo subiu de
+~110 para ~120 min.
 
 1.  **Abertura: modelar dados sem rótulos** (~10 min) — Contraste explícito
     com aprendizado supervisionado: não há $y$, só $\mathbf{x}_1,\dots,\mathbf{x}_N$.
@@ -71,14 +81,44 @@ formas quadráticas). Nenhuma aula anterior do curso — é a Aula 1.
     podem ter distâncias de Mahalanobis muito diferentes se um está ao
     longo do eixo de alta correlação e outro não.
 
-6.  **Limiares de Anomalia via Qui-Quadrado** (~20 min) — O resultado que
-    fecha a aula com rigor: se $\mathbf{x}\sim\mathcal{N}(\boldsymbol\mu,\Sigma)$,
-    então $D_M(\mathbf{x})^2 \sim \chi^2_d$. Isso dá um limiar exato,
-    $t_\alpha = \chi^2_{d,1-\alpha}$, com taxa de alarme falso $\alpha$ por
-    construção — a generalização direta, para $d$ dimensões com covariância,
-    do limiar por quantil já visto em uma dimensão. Visualizar: elipses de
-    contorno em 2D nos quantis de $\chi^2_2$, pontos fora marcados como
-    anomalia.
+6.  **Da posição ao $p$-valor: qual a probabilidade de ver algo tão
+    extremo?** (~30 min, ampliado) — O resultado que fecha a aula com
+    rigor: se $\mathbf{x}\sim\mathcal{N}(\boldsymbol\mu,\Sigma)$, então
+    $D_M(\mathbf{x})^2 \sim \chi^2_d$.
+
+    a. **Do limiar fixo ao escore contínuo.** Em vez de só "dentro/fora" a
+       $\alpha$ fixo, definir o **escore de anomalia como um $p$-valor**:
+       $p(\mathbf{x}) = P\big(D_M(\mathbf{X}')^2 \ge D_M(\mathbf{x})^2 \mid \mathbf{X}'\sim\mathcal{N}(\hat{\boldsymbol\mu},\hat\Sigma)\big) = 1 - F_{\chi^2_d}\big(D_M(\mathbf{x})^2\big)$
+       — literalmente "qual a probabilidade de um ponto do modelo ajustado
+       ser tão extremo (ou mais) quanto $\mathbf{x}$". O limiar fixo é o
+       caso particular $p(\mathbf{x}) < \alpha$; o $p$-valor é a versão
+       graduada, que ordena os pontos por quão surpreendentes eles são, não
+       só os separa em duas caixas.
+    b. **Armadilha de interpretação (anunciar explicitamente):**
+       $p(\mathbf{x})$ pequeno não significa "probabilidade de
+       $\mathbf{x}$ pertencer à distribuição verdadeira" — significa
+       "probabilidade de um ponto *do modelo ajustado* ser tão extremo
+       quanto $\mathbf{x}$". É uma afirmação sobre o modelo, condicional a
+       ele estar certo; não é uma afirmação sobre a origem de $\mathbf{x}$.
+    c. **Conjunta vs. por dimensão — o mesmo trade-off do Naive Bayes, agora
+       em teste de hipótese.** Calcular $D_M$ exige estimar e inverter
+       $\hat\Sigma$ ($d(d+1)/2$ parâmetros — cara e instável quando $N$ não
+       é $\gg d$, o mesmo alerta do Bloco 4). Alternativa mais barata:
+       supor independência entre dimensões e calcular um $p$-valor **por
+       dimensão**, $p_i(x_i) = P(|Z_i|\ge|z_i|)$, usando só a marginal
+       $\mathcal{N}(\hat\mu_i,\hat\sigma_i^2)$ ($d$ parâmetros, não
+       $d(d+1)/2$). Combinar os $d$ $p$-valores independentes via o teste
+       de Fisher, $-2\sum_i \ln p_i(x_i) \sim \chi^2_{2d}$ — a versão
+       "naive" do mesmo teste. **O preço:** um ponto que é normal em cada
+       dimensão isoladamente mas quebra a relação de correlação entre elas
+       (ex.: dois sensores que deveriam variar juntos, e não variam) passa
+       o teste por dimensão e é pego pelo teste conjunto. Mesma lição da
+       Aula 2 de "supervised" (preço da suposição de independência),
+       aplicada aqui a teste de hipótese em vez de classificação.
+
+    Visualizar: elipses de contorno em 2D nos quantis de $\chi^2_2$, um
+    ponto com $p(\mathbf{x})$ baixo mas que passaria os dois testes
+    marginais por dimensão — a ilustração concreta do item (c).
 
 7.  **Armadilhas e Ponte para a Aula 2** (~10 min) — O que pode quebrar
     tudo: (a) dados genuinamente multimodais (duas populações distintas)

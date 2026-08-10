@@ -1,5 +1,31 @@
-<div style="position: absolute; top: 15px; left: 20px; z-index: 1000;">
-  <a href="javascript:history.back()" title="Voltar à aula" style="font-size: 24px; font-weight: bold; color: rgb(0, 133, 202); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='rgb(255, 94, 0)'" onmouseout="this.style.color='rgb(0, 133, 202)'">
-    &#8592;
-  </a>
+<div class="quarto-back-arrow">
+  <a href="../" title="Voltar à página da aula">&#8592;</a>
 </div>
+
+<style>
+  .quarto-back-arrow {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    z-index: 1000;
+  }
+  
+  .quarto-back-arrow a {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(0, 133, 202);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .quarto-back-arrow a:hover {
+    color: rgb(255, 94, 0);
+  }
+
+  /* Garante um respiro no topo para o título não sobrepor a seta em telas pequenas */
+  @media (max-width: 768px) {
+    #title-block-header {
+      padding-top: 25px;
+    }
+  }
+</style>

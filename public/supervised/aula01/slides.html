@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Marcos M. Raimundo — Instituto de Computação, UNICAMP">
-  <meta name="dcterms.date" content="2026-08-09">
+  <meta name="dcterms.date" content="2026-08-10">
   <title>Dados, Distribuições e Detecção de Anomalias</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-336f80007a40514032c9d454ae0a5aad.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7422b2cf5763e4b9ee5aaa110c7b2408.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -148,7 +148,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 
-  <p class="date">2026-08-09</p>
+  <p class="date">2026-08-10</p>
 </section>
 <section>
 <section id="proposta-do-curso" class="title-slide slide level1 center">
@@ -172,32 +172,27 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </ul>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Prática do dia a dia</th>
 <th>Formalismo estatístico underlying</th>
-<th>Aula</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Mínimos Quadrados</td>
 <td>Máxima Verossimilhança sob erro Gaussiano</td>
-<td>Aula 5</td>
 </tr>
 <tr class="even">
 <td>Regularização (L1 / L2)</td>
 <td>Inferência Bayesiana com Priori (Laplace / Gaussiana)</td>
-<td>Aula 7</td>
 </tr>
 <tr class="odd">
 <td>Resíduo de previsão</td>
 <td>Gradiente da log-verossimilhança</td>
-<td>Aula 10</td>
 </tr>
 </tbody>
 </table>
@@ -233,16 +228,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <li>Histograma + curva suave que acompanha o histograma</li>
 <li>Sem fórmula, sem nome, sem família — <strong>ainda</strong></li>
 </ul>
-<div id="9e9458b4" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-3-output-1.png" class="quarto-figure quarto-figure-center" width="761" height="437"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="02-aula_files/figure-revealjs/cell-3-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section class="slide level2">
 
 <p><strong>O mesmo objeto, em mais dimensões</strong></p>
@@ -251,16 +238,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <li>Curva <span class="math inline">\(\to\)</span> curvas de nível</li>
 <li>Em 2D ainda dá para desenhar. Em 20D, <strong>não</strong> — Aula 4</li>
 </ul>
-<div id="736ac9e2" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="564" height="555"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="02-aula_files/figure-revealjs/cell-4-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="classificação-e-o-problema-da-discretizaçãocorte" class="slide level2">
 <h2>Classificação e o problema da discretização/corte</h2>
 <p>Regra mais simples possível: um <strong>limiar</strong> <span class="math inline">\(t\)</span>.</p>
@@ -269,16 +248,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <p>A resposta usual: <em>no cruzamento das curvas</em>.</p>
 <p><strong>Anote. Ela está errada.</strong></p>
 </div>
-<div id="b8d71ddd" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-5-output-1.png" class="quarto-figure quarto-figure-center" width="761" height="438"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="02-aula_files/figure-revealjs/cell-5-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="tipos-de-erros" class="slide level2">
 <h2>Tipos de erros</h2>
 <table class="caption-top">
@@ -305,40 +276,25 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <div class="fragment">
 <p><strong>Atenção:</strong> “Tipo I/II” só existe depois de declarar a <strong>hipótese nula</strong>. Aqui: A = normal (nula), B = anômala.</p>
 </div>
-<div class="fragment">
+
+<img data-src="02-aula_files/figure-revealjs/cell-6-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<section class="slide level2">
+
 <p><strong>Mover o corte troca uma área pela outra. Nenhum corte zera as duas.</strong></p>
 <p><span class="math inline">\(\Rightarrow\)</span> erro de Bayes: irredutível, é propriedade dos dados.</p>
-</div>
-<div id="34c4e9a7" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-6-output-1.png" class="quarto-figure quarto-figure-center" width="761" height="438"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="80378ce4" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-7-output-1.png" class="quarto-figure quarto-figure-center" width="761" height="437"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="02-aula_files/figure-revealjs/cell-7-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="a-conta-que-desmente-a-intuição" class="slide level2">
 <h2>A conta que desmente a intuição</h2>
 <p><strong>O que estava escondido:</strong> as classes não são igualmente frequentes.</p>
 <p><span class="math display">\[ 950 \text{ pontos da classe A} \qquad 50 \text{ pontos da classe B} \]</span></p>
 <div class="fragment">
 <p>Vamos <strong>contar os erros de verdade</strong> — no cruzamento e num corte deslocado.</p>
-<div id="bd5292fb" class="cell" data-execution_count="7">
+<div id="8b1738f8" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="02-aula_files/figure-html/cell-8-output-1.png" class="quarto-figure quarto-figure-center" width="632" height="373"></p>
+<p><img data-src="02-aula_files/figure-revealjs/cell-8-output-1.svg" class="img-fluid quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -352,9 +308,6 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <p><strong>“igualmente plausíveis”</strong> <span class="math inline">\(\ne\)</span> <strong>“igualmente prováveis”</strong></p>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="regra-do-produto-marginais-e-teorema-de-bayes" class="title-slide slide level1 center">
@@ -387,39 +340,31 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <ul>
 <li><strong>O denominador <span class="math inline">\(p(x)\)</span> não depende de <span class="math inline">\(k\)</span>:</strong> Para comparar classes em um ponto <span class="math inline">\(x\)</span> fixo, basta comparar as <strong>conjuntas</strong> <span class="math inline">\(p(x \mid \mathcal{C}_k)\,p(\mathcal{C}_k)\)</span>.</li>
 </ul>
-</div>
-</section>
-<section id="a-importancia-da-priori-e-bayes" class="slide level2">
-<h2>A importancia da priori e Bayes</h2>
-<p><strong>Por que falhou:</strong> as curvas descrevem cada classe <em>isoladamente</em>.</p>
-<p><strong>O correção:</strong> escalar cada curva pela frequência da sua classe.</p>
-<div class="fragment">
 <ul>
 <li>priori: <span class="math inline">\(\pi_k = p(\mathcal{C}_k)\)</span></li>
 <li>condicional de classe: <span class="math inline">\(p(x \mid \mathcal{C}_k)\)</span></li>
 <li>conjunta: <span class="math inline">\(p(x,\mathcal{C}_k) = p(x\mid\mathcal{C}_k)\,\pi_k\)</span></li>
 <li>decidir pela conjunta maior <span class="math inline">\(=\)</span> decidir pela <strong>posteriori</strong> maior</li>
 </ul>
-<div class="fragment">
-<p><span class="math display">\[ p(\mathcal{C}_k \mid x) = \frac{p(x \mid \mathcal{C}_k)\,p(\mathcal{C}_k)}{p(x)} \]</span></p>
-<p>Bayes como <strong>resumo</strong>, não como axioma.</p>
 </div>
-<div id="56f19229" class="cell" data-execution_count="8">
+</section>
+<section class="slide level2">
+
+<div id="58014a73" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="02-aula_files/figure-html/cell-9-output-1.png" class="quarto-figure quarto-figure-center" width="800" height="412"></p>
+<p><img data-src="02-aula_files/figure-revealjs/cell-9-output-1.svg" class="img-fluid quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="a72a1d55" class="cell" data-execution_count="9">
+<div id="a14b2a95" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="02-aula_files/figure-html/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="724" height="306"></p>
+<p><img data-src="02-aula_files/figure-revealjs/cell-10-output-1.svg" class="img-fluid quarto-figure quarto-figure-center"></p>
 </figure>
-</div>
 </div>
 </div>
 </div>
@@ -435,27 +380,15 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <div class="fragment">
 <p>Mesma lição do Passo 4, no caso discreto: <strong>a priori decide.</strong></p>
 </div>
-<div id="4cf170f8" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-11-output-1.png" class="quarto-figure quarto-figure-center" width="614" height="267"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
 
-</section></section>
+<img data-src="02-aula_files/figure-revealjs/cell-11-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section></section>
 <section>
 <section id="propriedades-de-distribuições-contínuas" class="title-slide slide level1 center">
 <h1>Propriedades de Distribuições Contínuas</h1>
 
 </section>
-<section id="fundamentos-das-distribuições-contínuas" class="slide level2">
-<h2>Fundamentos das Distribuições Contínuas</h2>
-<h3 id="densidade-vs.-probabilidade-1">Densidade vs.&nbsp;Probabilidade</h3>
+<section id="densidade-vs.-probabilidade-1" class="slide level2">
+<h2>Densidade vs.&nbsp;Probabilidade</h2>
 <ul>
 <li><span class="math inline">\(P(X = x) = 0\)</span> para qualquer ponto isolado.</li>
 <li>Probabilidade é a <strong>área sob a curva</strong>: <span class="math inline">\(P(a \le X \le b) = \int_a^b p(x)\,\mathrm{d}x\)</span>.</li>
@@ -465,7 +398,9 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <li>Consequência: a <strong>moda</strong> da densidade depende da parametrização!</li>
 </ul></li>
 </ul>
-<h3 id="os-momentos-da-distribuição">Os Momentos da Distribuição</h3>
+</section>
+<section id="os-momentos-da-distribuição" class="slide level2">
+<h2>Os Momentos da Distribuição</h2>
 <ul>
 <li><strong>Média (<span class="math inline">\(\mu\)</span>):</strong> Primeiro momento <span class="math inline">\(\mathbb{E}[X]\)</span> — centro de massa.</li>
 <li><strong>Variância (<span class="math inline">\(\sigma^2\)</span>):</strong> Segundo momento central <span class="math inline">\(\mathbb{E}[(X-\mu)^2]\)</span> — dispersão.</li>
@@ -488,13 +423,14 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <li><em>Outliers</em> têm probabilidade não desprezível.</li>
 </ul></li>
 </ul>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
-<section id="detecção-de-outliers-usando-distribuição-beta" class="title-slide slide level1 center">
-<h1>Detecção de Outliers usando Distribuição Beta</h1>
+<section id="detecção-de-outliers" class="title-slide slide level1 center">
+<h1>Detecção de Outliers</h1>
+
+</section>
+<section id="qual-distribuição-para-dados-em-01" class="slide level2">
+<h2>Qual distribuição para dados em <span class="math inline">\([0,1]\)</span>?</h2>
 <p>Dados em <span class="math inline">\([0,1]\)</span>: escores normalizados, taxas, proporções, probabilidades calibradas.</p>
 <ul>
 <li>Gaussiana ajustada aí <strong>coloca massa fora do suporte</strong></li>
@@ -506,35 +442,11 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <div class="fragment">
 <p><span class="math display">\[ \operatorname{Beta}(x\mid a,b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\,x^{a-1}(1-x)^{b-1} \]</span></p>
 </div>
-<p><strong>Aviso de leitura</strong></p>
-<ul>
-<li>PRML §2.1.1 apresenta a Beta como <strong>priori conjugada</strong> sobre <span class="math inline">\(\mu\)</span> da Bernoulli</li>
-<li>Aqui ela é <strong>modelo dos dados</strong> em <span class="math inline">\([0,1]\)</span></li>
-<li>Mesma matemática, <strong>interpretação diferente</strong></li>
-<li>DLFC <strong>não cobre</strong> a Beta</li>
-</ul>
-<div id="09d92d70" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-12-output-1.png" class="quarto-figure quarto-figure-center" width="1469" height="475"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="02-aula_files/figure-revealjs/cell-12-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="ajustar-a-beta" class="slide level2">
 <h2>Ajustar a Beta</h2>
-<p><strong>Momentos — forma fechada.</strong> Com média <span class="math inline">\(m\)</span> e variância <span class="math inline">\(v\)</span> amostrais, se <span class="math inline">\(v &lt; m(1-m)\)</span>:</p>
-<p><span class="math display">\[ \hat a = m\!\left(\tfrac{m(1-m)}{v}-1\right), \qquad \hat b = (1-m)\!\left(\tfrac{m(1-m)}{v}-1\right) \]</span></p>
-<div class="fragment">
-<p><strong>Máxima verossimilhança — <em>não</em> tem forma fechada.</strong> Resolvida numericamente via <code>scipy.stats.beta.fit</code>. Não prometa uma fórmula que não existe.</p>
-</div>
-<div class="fragment">
-<blockquote>
-<p>Forma fechada e otimalidade são <strong>propriedades diferentes</strong>.</p>
-</blockquote>
-</div>
+<p><strong>Momentos — forma fechada.</strong> Com média <span class="math inline">\(m\)</span> e variância <span class="math inline">\(v\)</span> amostrais, se <span class="math inline">\(v &lt; m(1-m)\)</span>. <strong>Máxima verossimilhança — <em>não</em> tem forma fechada.</strong> Resolvida numericamente via <code>scipy.stats.beta.fit</code>. Não prometa uma fórmula que não existe.</p>
 <p><strong>Armadilha: zeros e uns exatos</strong></p>
 <ul>
 <li>Se <span class="math inline">\(a&lt;1\)</span> ou <span class="math inline">\(b&lt;1\)</span>, a densidade <strong>diverge</strong> nas bordas</li>
@@ -542,23 +454,14 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <li>Dados reais em <span class="math inline">\([0,1]\)</span> têm zeros exatos o tempo todo</li>
 </ul>
 <p>Correções: <em>clipping</em> declarado, Smithson–Verkuilen, modelos <em>zero/one-inflated</em>.</p>
-<div id="d364ade6" class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-13-output-1.png" class="quarto-figure quarto-figure-center" width="784" height="451"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="detecção-de-anomalias-e-o-limiar" class="slide level2 scrollable">
+
+<img data-src="02-aula_files/figure-revealjs/cell-13-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<section id="detecção-de-anomalias-e-o-limiar" class="slide level2">
 <h2>Detecção de anomalias e o limiar</h2>
 <p>Sem anomalias rotuladas: ajustar <span class="math inline">\(p(x)\)</span> <strong>só nos dados normais</strong>.</p>
 <p>Região de exclusão: cauda <span class="math inline">\(\{x&gt;t\}\)</span> ou conjunto de nível <span class="math inline">\(\{x : p(x)&lt;\lambda\}\)</span>.</p>
 <p><span class="math display">\[ \text{Tipo I} = P(x&gt;t) = 1 - I_t(a,b) \qquad\Longrightarrow\qquad t_\alpha = I^{-1}_{1-\alpha}(a,b) \]</span></p>
 <p>O limiar é um <strong>quantil do modelo</strong>; <span class="math inline">\(\alpha\)</span> vale por construção.</p>
-<h3 id="o-ponto-central-da-aula-1">O ponto central da aula</h3>
 <blockquote>
 <p><strong>Com uma única densidade ajustada, o erro Tipo II não está definido.</strong></p>
 </blockquote>
@@ -567,70 +470,24 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <li>Aqui: <strong>uma</strong> curva <span class="math inline">\(\Rightarrow\)</span> só uma área existe</li>
 <li>Não há modelo de anomalia <span class="math inline">\(\Rightarrow\)</span> não há <span class="math inline">\(P(\text{escape})\)</span></li>
 </ul>
+</section>
+<section class="slide level2 scrollable">
+
 <h3 id="três-saídas-honestas-1">Três saídas honestas</h3>
 <ol type="1">
 <li><strong>Assumir</strong> um modelo de anomalia. Se uniforme: <span class="math display">\[ \frac{q(x)}{p(x)} = \frac{1}{p(x)} \]</span> <span class="math inline">\(\Rightarrow\)</span> <strong>cortar na cauda já supõe anomalias uniformes.</strong> A suposição sempre esteve lá.</li>
 <li><strong>Estimar</strong> com amostra contaminada rotulada — herda o viés de seleção</li>
 <li><strong>Aceitar</strong> e declarar: reportar só o Tipo I, dizendo que é só o Tipo I</li>
 </ol>
-<div id="9afc1f9a" class="cell" data-execution_count="13">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-14-output-1.png" class="quarto-figure quarto-figure-center" width="847" height="239"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="custo-e-limiar" class="slide level2">
-<h2>Custo e limiar</h2>
-<p>Alarme falso e escape <strong>não custam a mesma coisa</strong>. Matriz de perda <span class="math inline">\(L_{kj}\)</span>:</p>
-<p><span class="math display">\[ \mathbb{E}[L] = \sum_k\sum_j \int_{\mathcal{R}_j} L_{kj}\,p(x,\mathcal{C}_k)\,\mathrm{d}x \]</span></p>
-<div class="fragment">
-<p>Fronteira ótima: <span class="math display">\[ c_{\mathrm{I}}\,p(x\mid\mathcal{C}_A)\,\pi_A = c_{\mathrm{II}}\,p(x\mid\mathcal{C}_B)\,\pi_B \]</span></p>
-<p><strong>Custo e priori entram do mesmo jeito.</strong> Classe 19× mais rara <span class="math inline">\(\equiv\)</span> classe 19× mais cara.</p>
-</div>
-<div class="fragment">
-<p><strong>Matriz de confusão</strong> — vocabulário para relatar o limiar:</p>
-<p><span class="math display">\[ \text{precisão} = \tfrac{TP}{TP+FP} \qquad \text{recall} = \tfrac{TP}{TP+FN} \qquad \text{FPR} = \tfrac{FP}{FP+TN} \]</span></p>
-<p>Prever sempre “A”: acerta <span class="math inline">\(\pi_A=95\%\)</span>, recall <span class="math inline">\(=0\)</span>. <strong>Acurácia sozinha esconde o desbalanceamento.</strong></p>
-</div>
-<div class="fragment">
-<p><strong>Curva ROC = o mesmo gráfico do Bloco 1</strong>, replotado: FPR no eixo <span class="math inline">\(x\)</span>, TPR no eixo <span class="math inline">\(y\)</span>, varrendo <span class="math inline">\(t\)</span>.</p>
-</div>
-<div class="fragment">
-<p><strong>Opção de rejeição:</strong> decidir só se <span class="math inline">\(\max_k p(\mathcal{C}_k\mid x) \ge 1-\lambda\)</span>.</p>
-</div>
-<blockquote>
-<p><strong>O limiar não é um hiperparâmetro para varrer no <em>grid search</em>.</strong></p>
-<p>É a solução de um problema de decisão definido pelas <strong>densidades</strong>, pelas <strong>prioris</strong> e pelos <strong>custos</strong>.</p>
-</blockquote>
-<div id="ffae576d" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-15-output-1.png" class="quarto-figure quarto-figure-center" width="1126" height="450"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="5495632f" class="cell" data-execution_count="15">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-aula_files/figure-html/cell-16-output-1.png" class="quarto-figure quarto-figure-center" width="1412" height="528"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
 
-</section></section>
+<img data-src="02-aula_files/figure-revealjs/cell-14-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section></section>
 <section>
-<section id="fechamento-e-ponte" class="title-slide slide level1 center scrollable">
-<h1>Fechamento e ponte</h1>
+<section id="conclusão" class="title-slide slide level1 center">
+<h1>Conclusão</h1>
+
+</section>
+<section id="o-que-aprendemos" class="slide level2 scrollable">
+<h2>O que aprendemos</h2>
 <ol type="1">
 <li><strong>Distribuição</strong> é o formato dos dados no espaço</li>
 <li><strong>Classificar</strong> é comparar formatos ponderados pela frequência das classes</li>
@@ -639,9 +496,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <div class="fragment">
 <p>E o ponto negativo: com <strong>uma</strong> densidade, só o Tipo I é calculável.</p>
 </div>
-</section>
-<h3 id="ponte-para-a-aula-2-1">Ponte para a Aula 2</h3>
-<p>Tudo isto usou <strong>uma</strong> variável. Com <span class="math inline">\(d\)</span> variáveis:</p>
+<div class="fragment">
+<p><strong>Proxima Aula:</strong> Tudo isto usou <strong>uma</strong> variável. Com <span class="math inline">\(d\)</span> variáveis:</p>
 <p><span class="math display">\[ p(x\mid\mathcal{C}_k) \in \mathbb{R}^d \;\longrightarrow\; M^d \text{ células} \]</span></p>
 <div class="fragment">
 <p><strong>Naive Bayes</strong> — a primeira suposição estrutural do curso:</p>
@@ -649,7 +505,9 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <p>O <strong>preço</strong> dessa suposição é o assunto da próxima aula.</p>
 </div>
 
-</section>
+
+</div>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -868,7 +726,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
       });
     </script>
     <div class="custom-footer-logos">
-      <a href="javascript:history.back()" class="back-arrow-slide" title="Voltar à aula">←</a>
+      <a href="../" class="back-arrow-slide" title="Voltar à página da aula">←</a>
       <img src="../../logos/UNICAMP.png" alt="Unicamp">
       <img src="../../logos/IC.png" alt="Instituto de Computação">
     </div>

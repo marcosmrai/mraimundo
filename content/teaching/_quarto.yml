@@ -4,6 +4,10 @@ project:
   lib-dir: site_libs
   render:
     - "*.qmd"
+    - "**/*.qmd"
+    - "**/**/*.qmd"
+  preview:
+    watch-inputs: true
 
 execute:
   freeze: auto # 'auto' compila apenas os arquivos .qmd que foram alterados
@@ -12,6 +16,11 @@ format:
   html:
     theme: cosmo
     toc: true
+    toc-title: "Sumário"
+    toc-expand: true
+    smooth-scroll: true
+    fig-responsive: true    # Habilita CSS responsivo nativo nas imagens
+    fig-format: "svg"       # (Opcional) Usa SVG para gráficos sem perda de qualidade ao escalar
     code-fold: false
     html-math-method: mathjax
     output-file: "notas.html"
@@ -24,7 +33,11 @@ format:
     theme: [default, custom.scss]
     width: 1280
     height: 800
-    margin: 0.1
+    margin: 0.02
+    fig-width: 13           # Aumenta a largura nativa do SVG gerado para bater com 1280px
+    fig-height: 5.2         # Altura proporcional para ocupar o slide
+    fig-responsive: true    # Habilita CSS responsivo nativo nas imagens
+    fig-format: "svg"       # (Opcional) Usa SVG para gráficos sem perda de qualidade ao escalar
     footer: "UNICAMP — Instituto de Computação"
     include-after-body: ../../assets/media/logos.html
     title-slide-attributes:

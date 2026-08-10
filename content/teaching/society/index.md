@@ -50,8 +50,9 @@ The primary goal of the course is to enable future computing professionals and r
     * **Objectives:** Understand that computing is not composed solely of technical elements (hardware and software), but constitutes a socio-technical system where technology, human beings, organizations, and culture mutually influence each other.
     * **Expected Competencies:** Ability to analyze computing artifacts within their broader social, cultural, and organizational contexts, identifying non-technical feedback loops and systemic impacts.
     * **Recommended Reading:**
-        * Van de Poel & Royakkers (2011) – *Chapter 1: The Responsibilities of Engineers*.
-        * Maciel & Viterbo (2020) – Vol. 2, *Capítulo 2: Análise Cultural de Sistemas Computacionais*.
+        * Van de Poel & Royakkers (2011) – *Chapter 1: The Responsibilities of Engineers* (esp. §1.6, "The Social Context of Technological Development").
+        * Maciel & Viterbo (2020) – Vol. 2, *Capítulo 10: Cultura na Prática da Computação* — **correção**: a referência original ("Vol. 2, Capítulo 2: Análise Cultural de Sistemas Computacionais") não existe no livro; o Vol. 2 não tem Capítulo 2 (a numeração começa no Cap. 9), e o Capítulo 2 do Vol. 1 é sobre pós-graduação, sem relação com o tema. Substituído pelo capítulo real mais próximo tematicamente.
+        * Steen (2022) – *Chapter 3: Is Technology a Neutral Tool?* — leitura complementar adicionada nesta sessão; cobre exatamente a tese da não-neutralidade e da coformação mútua entre pessoas e tecnologia.
     * **Date and Speaker:** TBD | Marcos M. Raimundo
 
 * **Lesson 2: What is Ethics, and The Ethical Cycle**
@@ -102,8 +103,8 @@ The primary goal of the course is to enable future computing professionals and r
     * **Objectives:** Identify historical and operational sources of data bias, and evaluate the discriminatory effects that predictive models and algorithms can perpetuate or amplify in society.
     * **Expected Competencies:** Ability to audit datasets and algorithmic models for unfair bias, identifying historical disparities encoded in data pipelines.
     * **Recommended Reading:**
-        * Marc Steen (2022) – *Chapter 2: Ethics of Consequences* (applied sections).
-        * Maciel & Viterbo (2020) – Vol. 2, *Capítulo 2: Análise Cultural de Sistemas Computacionais*.
+        * Marc Steen (2022) – *Chapter 2: Ethics of Consequences* (applied sections). **Verificar quando chegarmos nesta aula:** o sumário real do EthTech não tem capítulo com esse título no Cap. 2 (que é "What do we mean with ethics?"); o mais próximo é o Cap. 9 "Consequences and outcomes" (p. 67) — mesmo padrão de citação quebrada encontrado na Aula 1, ainda não corrigido aqui.
+        * Maciel & Viterbo (2020) – Vol. 2, *Capítulo 10: Cultura na Prática da Computação* — corrigido nesta sessão (era "Capítulo 2: Análise Cultural de Sistemas Computacionais", que não existe; ver nota na Aula 1).
     * **Date and Speaker:** TBD | TBA
 
 * **Lesson 8: Automated Decision-Making, Optimization, AI, and Risk**
@@ -158,8 +159,8 @@ The primary goal of the course is to enable future computing professionals and r
     * **Objectives:** Present critical perspectives in data science (such as *Data Feminism* principles) and discuss how interdisciplinary dialogue is essential to reveal and challenge power structures embedded in data and systems.
     * **Expected Competencies:** Ability to apply critical data analysis methods that account for power dynamics, context, and cross-disciplinary perspectives.
     * **Recommended Reading:**
-        * Maciel & Viterbo (2020) – Vol. 1, *Capítulo 4: Gênero, Ciência e Tecnologia*.
-        * Maciel & Viterbo (2020) – Vol. 2, *Capítulo 2: Análise Cultural de Sistemas Computacionais*.
+        * Maciel & Viterbo (2020) – Vol. 1, *Capítulo 4: Gênero e Tecnologias* (título real; a ementa original dizia "Gênero, Ciência e Tecnologia" — próximo o suficiente, mesmo capítulo).
+        * Maciel & Viterbo (2020) – Vol. 2, *Capítulo 10: Cultura na Prática da Computação* — corrigido nesta sessão (ver nota na Aula 1).
     * **Date and Speaker:** TBD | TBA
 
 * **Lesson 14: Commons: Free Software, Licensing, and Open Knowledge**
