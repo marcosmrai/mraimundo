@@ -25,7 +25,7 @@
 &lt;h3 id=&#34;part-1-data-driven-linear-algebra&#34;&gt;Part 1: Data-Driven Linear Algebra&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../algebra/aula1/livro.html&#34;&gt;Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../algebra/aula1/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../algebra_opt/aula01/notas.html&#34;&gt;Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../algebra_opt/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Distance-based similarity and spatial modeling in $k$-Nearest Neighbors ($k$-NN).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Vector spaces, inner products, and vector/matrix norms ($L_1$, $L_2$, $L_\infty$). Geometric interpretation of similarity through inner products and cosine distance.&lt;/li&gt;
@@ -34,7 +34,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 2: Matrix Representations, Linear Systems, and Independence&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 2: Matrix Representations, Linear Systems, and Independence&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Multivariable data matrix representations and Multiple Linear Regression.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Matrix-vector operations, rank, linear independence, and system solvability ($Ax = b$).&lt;/li&gt;
@@ -43,7 +43,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 3: Orthogonal Projections and Subspaces&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 3: Orthogonal Projections and Subspaces&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Closed-form solutions for Ordinary Least Squares (OLS) regression.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Subspaces, orthogonal complements, projection matrices, and the Normal Equations ($X^T X \hat{w} = X^T y$).&lt;/li&gt;
@@ -52,7 +52,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-4/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 4: Eigenvalues, Eigenvectors, and Symmetric Matrices&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 4: Eigenvalues, Eigenvectors, and Symmetric Matrices&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Feature variance, spatial deformations, and directional scaling.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Eigendecomposition, characteristic polynomials, real spectral theorem for symmetric matrices, and positive definiteness.&lt;/li&gt;
@@ -61,7 +61,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-5/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 5: Singular Value Decomposition (SVD) and Low-Rank Approximations&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 5: Singular Value Decomposition (SVD) and Low-Rank Approximations&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Principal Component Analysis (PCA) and Collaborative Filtering for Recommendation Systems.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Full and Truncated SVD ($A = U \Sigma V^T$), low-rank matrix approximations (Eckart-Young-Mirsky Theorem), and connections to Polar Decomposition.&lt;/li&gt;
@@ -74,7 +74,7 @@
 &lt;h3 id=&#34;part-2-calculus-of-differentiable-optimization&#34;&gt;Part 2: Calculus of Differentiable Optimization&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-6/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 6: Partial Derivatives, Jacobians, and Gradient Vectors&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 6: Partial Derivatives, Jacobians, and Gradient Vectors&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Model sensitivity analysis and parametric error surfaces.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Directional derivatives, the Gradient vector $\nabla f(x)$ as the path of steepest ascent, and the Jacobian matrix $J$.&lt;/li&gt;
@@ -83,7 +83,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-7/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 7: Convexity and the Hessian Matrix&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 7: Convexity and the Hessian Matrix&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Global convergence guarantees in regularized models (e.g., Ridge Regression).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Convex sets, convex functions, the Hessian matrix $\nabla^2 f(x)$, positive semi-definiteness, and first/second-order convexity conditions.&lt;/li&gt;
@@ -92,7 +92,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-8/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 8: Unconstrained Optimization and Steepest Descent&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 8: Unconstrained Optimization and Steepest Descent&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Iterative parameter updating in Logistic Regression (Cross-Entropy Loss).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; The Gradient Descent (GD) algorithm, step-size selection (learning rate), and first-order necessary optimality conditions.&lt;/li&gt;
@@ -101,7 +101,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-9/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 9: Taylor Expansions and the Multivariate Chain Rule&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 9: Taylor Expansions and the Multivariate Chain Rule&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Local linearizations in Multilayer Perceptrons (MLPs).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; First- and second-order Taylor series approximations, composition of functions, and multi-variable chain rule derivations.&lt;/li&gt;
@@ -110,7 +110,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-10/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 10: Automatic Differentiation and Computational Graphs&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 10: Automatic Differentiation and Computational Graphs&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Backpropagation engines in deep learning frameworks.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Directed Acyclic Graphs (DAGs) for computation, forward-mode vs. reverse-mode automatic differentiation, and memory complexity of intermediate adjoints.&lt;/li&gt;
@@ -123,7 +123,7 @@
 &lt;h3 id=&#34;part-3-advanced-optimization-dynamics-and-large-scale-learning&#34;&gt;Part 3: Advanced Optimization Dynamics and Large-Scale Learning&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-11/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 11: Stochastic Gradient Descent (SGD) and Mini-Batching&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 11: Stochastic Gradient Descent (SGD) and Mini-Batching&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Large-scale learning under computational and memory constraints.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Expectation of stochastic gradients, mini-batch variance, learning rate decay schedules, and stochastic approximation theory.&lt;/li&gt;
@@ -132,7 +132,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-12/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 12: Momentum and Accelerated Gradient Methods&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 12: Momentum and Accelerated Gradient Methods&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Escaping ill-conditioned ravines and saddle points in complex landscapes.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Heavy-ball momentum, Nesterov Accelerated Gradient (NAG), physical analogies of inertia, and second-order linear difference equations.&lt;/li&gt;
@@ -141,7 +141,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-13/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 13: Second-Order Optimization and Diagonal Preconditioning&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 13: Second-Order Optimization and Diagonal Preconditioning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Newton&amp;rsquo;s method vs. adaptive learning rate optimizers (RMSProp, Adam).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Classical Newton-Raphson updates ($w_{t+1} = w_t - [\nabla^2 f(w_t)]^{-1} \nabla f(w_t)$), coordinate-wise diagonal preconditioning, and running exponential averages of squared gradients.&lt;/li&gt;
@@ -150,7 +150,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-14/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 14: Structured Preconditioning and Matrix Ortogonalization (Shampoo &amp;amp; Muon)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 14: Structured Preconditioning and Matrix Ortogonalization (Shampoo &amp;amp; Muon)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Modern full-matrix/tensor preconditioning for deep neural network layers.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Kronecker-factored covariance statistics (Shampoo), orthogonalization of weight update matrices via polar decomposition, and GPU-accelerated Newton-Schulz polynomial iterations ($X_{k+1} = \frac{1}{2} X_k (3I - X_k^T X_k)$).&lt;/li&gt;
@@ -159,7 +159,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-15/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 15: Non-Smooth Optimization, Subgradients, and Proximal Operators&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 15: Non-Smooth Optimization, Subgradients, and Proximal Operators&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; $L_1$ Regularization (Lasso), feature selection, and inducing model sparsity.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Subgradients, subdifferentials of non-differentiable convex functions, Proximal Operators ($\text{prox}_f(x)$), Soft-Thresholding, and the ISTA/FISTA (Iterative Shrinkage-Thresholding Algorithm) framework.&lt;/li&gt;
@@ -184,7 +184,7 @@
 &lt;h3 id=&#34;part-1-foundations-of-probability-and-partitioning&#34;&gt;Part 1: Foundations of Probability and Partitioning&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-1/&#34;&gt;Lesson 1: Data, Distributions, and Anomaly Detection&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../supervised/aula01/notas.html&#34;&gt;Lesson 1: Data, Distributions, and Anomaly Detection&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../supervised/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; One-dimensional binary classification and outlier detection.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Fitting continuous densities to bounded data (Beta distribution) and defining decision thresholds from low-probability regions. The unavoidable trade-off between Type I and Type II errors as a consequence of overlapping class-conditional densities.&lt;/li&gt;
@@ -193,7 +193,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-2/&#34;&gt;Lesson 2: Conditional Distributions and Generative Models&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../supervised/aula02/notas.html&#34;&gt;Lesson 2: Conditional Distributions and Generative Models&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../supervised/aula02/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Multidimensional classification under the assumption of feature independence (Naive Bayes).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Bayes&amp;rsquo; theorem decomposed into prior, likelihood, and posterior. The distinction between joint and conditional distributions, and the conditional independence assumption as a deliberate simplification to mitigate the curse of dimensionality.&lt;/li&gt;
@@ -202,7 +202,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-3/&#34;&gt;Lesson 3: Decision Trees — Greedy Partitioning&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 3: Decision Trees — Greedy Partitioning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; The CART algorithm for classification and regression.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Non-parametric estimation of the conditional density as a piecewise-constant function. Impurity measures (Entropy and Gini) interpreted as the uncertainty of categorical distributions, and splits understood as the greedy maximization of a profile log-likelihood.&lt;/li&gt;
@@ -211,7 +211,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-4/&#34;&gt;Lesson 4: Model Selection and Resampling Techniques&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 4: Model Selection and Resampling Techniques&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Model validation and overfitting prevention.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Empirical error versus expected generalization error. Cross-validation framed as a simulation of repeated samples from the joint distribution \(P(X,Y)\), and the Bootstrap as a tool for estimating the sampling variance of an estimator.&lt;/li&gt;
@@ -224,7 +224,7 @@
 &lt;h3 id=&#34;part-2-the-parametric-linear-story&#34;&gt;Part 2: The Parametric Linear Story&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-5/&#34;&gt;Lesson 5: Linear Regression and Maximum Likelihood&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 5: Linear Regression and Maximum Likelihood&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Prediction of continuous targets via hyperplanes.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; The homoscedastic Gaussian noise model \(Y \mid X \sim \mathcal{N}(\beta^T X, \sigma^2)\), the construction of the likelihood function, and the mathematical proof that Ordinary Least Squares (OLS) and Maximum Likelihood Estimation (MLE) coincide under normality.&lt;/li&gt;
@@ -233,7 +233,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-6/&#34;&gt;Lesson 6: Logistic Regression and the GLM Framework&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 6: Logistic Regression and the GLM Framework&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Parametric binary classification.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; The Bernoulli distribution, the link function (&lt;em&gt;logit&lt;/em&gt;) that maps a linear combination into a valid probability, and the derivation of cross-entropy loss directly from the Bernoulli log-likelihood.&lt;/li&gt;
@@ -242,7 +242,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-7/&#34;&gt;Lesson 7: Regularization and Bayesian MAP Estimation&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 7: Regularization and Bayesian MAP Estimation&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Ridge (\(L_2\)) and Lasso (\(L_1\)) penalties for complexity control.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; The transition from frequentist to Bayesian thinking (parameters as random variables), Maximum A Posteriori (MAP) estimation, and the equivalence of Ridge to a Gaussian prior and of Lasso to a Laplace prior (which induces sparsity).&lt;/li&gt;
@@ -251,7 +251,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-8/&#34;&gt;Lesson 8: The Theoretical Bias-Variance Tradeoff&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 8: The Theoretical Bias-Variance Tradeoff&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Mathematical analysis of the capacity and limits of learning algorithms.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Formal decomposition of the expected mean squared error into three predictive components: squared bias, estimator variance, and irreducible error (\(\sigma^2\)).&lt;/li&gt;
@@ -264,7 +264,7 @@
 &lt;h3 id=&#34;part-3-advanced-models-and-optimization&#34;&gt;Part 3: Advanced Models and Optimization&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-9/&#34;&gt;Lesson 9: Ensemble Theory and Variance Reduction&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 9: Ensemble Theory and Variance Reduction&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Bagging and Random Forests.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Statistical properties of the average of random variables, the variance formula for a sum of correlated variables (\(\rho\)), and how feature subsampling mathematically breaks that correlation.&lt;/li&gt;
@@ -273,7 +273,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-10/&#34;&gt;Lesson 10: Gradient Boosting and Numerical Optimization&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 10: Gradient Boosting and Numerical Optimization&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; AdaBoost and Gradient Boosting.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Sequential additive modeling aimed at bias reduction, approximation of loss functions via Taylor expansion, and the interpretation of residuals and pseudo-residuals as the negative gradient of the loss in function space.&lt;/li&gt;
@@ -282,7 +282,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-11/&#34;&gt;Lesson 11: Support Vector Machines (SVM)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 11: Support Vector Machines (SVM)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Maximum-margin classifiers and the kernel trick.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Constrained optimization via the Lagrangian dual formulation, non-probabilistic loss functions (&lt;em&gt;Hinge Loss&lt;/em&gt;, which induces sparsity in the support vectors), and the need for subsequent statistical calibration (such as Platt scaling) to recover probabilities.&lt;/li&gt;
@@ -291,7 +291,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-12/&#34;&gt;Lesson 12: Neural Networks and Representation Learning&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 12: Neural Networks and Representation Learning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Multilayer Perceptrons (MLPs) and backpropagation.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Neural networks as a hierarchical, chained composition of GLMs; final activation functions (such as &lt;em&gt;Softmax&lt;/em&gt;) defining the parameters of multinomial distributions; and gradient computation via the chain rule for the optimization of the global likelihood.&lt;/li&gt;
@@ -316,7 +316,7 @@
 &lt;h3 id=&#34;part-1-density-structures-and-clustering&#34;&gt;Part 1: Density Structures and Clustering&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-1/&#34;&gt;Lesson 1: Data Space, Parametric Generative Models, and Anomalies&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 1: Data Space, Parametric Generative Models, and Anomalies&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; What it means to &amp;ldquo;model data&amp;rdquo; without labels. Profiling to identify atypical behaviors.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Empirical vs. theoretical distribution. Assuming observed data was generated by a known theoretical distribution (e.g., Multivariate Gaussian). Using the likelihood of a point under the fitted model to define statistical exclusion regions (anomaly thresholds based on probability tails).&lt;/li&gt;
@@ -325,7 +325,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-2/&#34;&gt;Lesson 2: Vector Spaces, KNN, and Kernel Density Estimation (KDE)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 2: Vector Spaces, KNN, and Kernel Density Estimation (KDE)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; High-dimensional nearest neighbor search (ANN) and local density estimation.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; The curse of dimensionality and concentration of measure (analysis of \(L_1\), \(L_2\), and Cosine metrics). The core of the lesson: showing that the distance to the \(k\)-th nearest neighbor, \(d_k(x)\), is inversely proportional to the local density (\(p(x) \propto 1/d_k(x)^d\)). Transitioning from this hard count to KDE, where density is smoothed by a local Gaussian weight function.&lt;/li&gt;
@@ -334,7 +334,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-3/&#34;&gt;Lesson 3: Density Topography and Graphs: Hierarchical Clustering and HDBSCAN&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 3: Density Topography and Graphs: Hierarchical Clustering and HDBSCAN&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Identifying clusters of arbitrary shapes and isolating stochastic noise.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Non-parametric estimation of density level sets (\(p(x) \ge \lambda\)). Using the \(k\)-neighbor distance property (Lesson 2) as a density metric to build graph paths (Minimum Spanning Tree). The concept of statistical persistence in HDBSCAN to cut the density tree where clusters are real rather than sample fluctuations.&lt;/li&gt;
@@ -343,7 +343,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-4/&#34;&gt;Lesson 4: Gaussian Mixture Models (GMM) and the EM Algorithm&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 4: Gaussian Mixture Models (GMM) and the EM Algorithm&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Probabilistic clustering (Soft Clustering) for overlapping sample spaces.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; KMeans viewed as the limiting case of a GMM with identical spherical covariances and variance approaching zero. Introduction to Latent Variables (from which hidden population the point was born). The Expectation-Maximization (EM) algorithm to infer posterior probabilities (E-Step) and update parameters via weighted maximum likelihood (M-Step).&lt;/li&gt;
@@ -352,7 +352,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-5/&#34;&gt;Lesson 5: Model Selection and Introduction to Variational Inference&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 5: Model Selection and Introduction to Variational Inference&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Choosing the optimal number of components (\(K\)) and evaluating latent models.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; The collapse of pure likelihood in complex models. Using BIC as an asymptotic approximation of Model Evidence. Introducing Variational Inference and KL Divergence as tools to bypass the intractability of true Evidence, establishing the Evidence Lower Bound (ELBO) as the definitive criterion for selecting and fitting models with hidden variables.&lt;/li&gt;
@@ -365,7 +365,7 @@
 &lt;h3 id=&#34;part-2-dimensionality-reduction-and-self-supervision&#34;&gt;Part 2: Dimensionality Reduction and Self-Supervision&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-6/&#34;&gt;Lesson 6: The Linear World: Traditional PCA, PPCA, and Linear Autoencoders&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 6: The Linear World: Traditional PCA, PPCA, and Linear Autoencoders&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Linear dimensionality reduction and feature projection.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Maximizing projected variance via spectral decomposition of the sample covariance matrix. Probabilistic PCA (PPCA) formulated as a generative model of linear Gaussian latent variables with isotropic noise. Mathematical proof that the linear Autoencoder shares the same projection subspace as PCA.&lt;/li&gt;
@@ -374,7 +374,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-7/&#34;&gt;Lesson 7: The Non-Linear World: Traditional and Variational Autoencoders (VAE)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 7: The Non-Linear World: Traditional and Variational Autoencoders (VAE)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Non-linear dimensionality reduction and deep data generation.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Introducing non-linear activation functions creating complex network bottlenecks. Applying Variational Inference and the ELBO (learned in Lesson 5) in the non-linear scenario (VAE): using the reparameterization trick to force the deep latent space to conform to a clean Gaussian prior, without needing to focus on algebraic derivation massacres.&lt;/li&gt;
@@ -383,7 +383,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-8/&#34;&gt;Lesson 8: Reduction for Visualization: MDS and t-SNE&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 8: Reduction for Visualization: MDS and t-SNE&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Collapsing high dimensions into interpretable 2D or 3D visual maps.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Proximity graph optimization. The contrast between preserving raw geometric distances (Stress in MDS) and preserving probabilistic neighborhood structures (t-SNE). Using asymmetric KL Divergence combined with the heavy-tailed Student&amp;rsquo;s t-distribution to solve the crowding problem.&lt;/li&gt;
@@ -396,7 +396,7 @@
 &lt;h3 id=&#34;part-3-information-discovery-and-large-scale-structures&#34;&gt;Part 3: Information Discovery and Large-Scale Structures&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-9/&#34;&gt;Lesson 9: Bayesian Networks and Probabilistic Graphical Models (PGMs) for Frequent Item Mining&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 9: Bayesian Networks and Probabilistic Graphical Models (PGMs) for Frequent Item Mining&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Association rules (Support, Confidence, Lift) in massive and sparse binary data.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Translating business rules into joint probabilities, conditionals, and independence tests. Using PGMs to model directed dependencies, isolating and eliminating spurious associations caused by latent confounding variables.&lt;/li&gt;
@@ -405,7 +405,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-10/&#34;&gt;Lesson 10: Recommendation Systems: Matrix Factorization (SVD and NMF)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 10: Recommendation Systems: Matrix Factorization (SVD and NMF)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Collaborative filtering and preference prediction in matrices with missing data.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Geometric and additive approach for hidden factors. Presenting Truncated SVD for matrix approximation and NMF (Non-Negative Matrix Factorization) focused on the statistical intuition that positivity constraints completely change the interpretation of components (additive parts vs. abstract combinations that cancel out).&lt;/li&gt;
@@ -414,7 +414,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-11/&#34;&gt;Lesson 11: Distribution Alignment and Domain Shift (Data Drift) Detection&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 11: Distribution Alignment and Domain Shift (Data Drift) Detection&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Monitoring models in production and ensuring stochastic data consistency.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; High-dimensional non-parametric hypothesis testing to evaluate whether two population samples belong to the same underlying PDF (\(P(X_{\text{train}}) \stackrel{?}{=} P(X_{\text{test}})\)). Introduction to Maximum Mean Discrepancy (MMD) using kernel tricks to compare statistical moments directly in Hilbert spaces.&lt;/li&gt;
@@ -423,7 +423,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;lesson-12/&#34;&gt;Lesson 12: Foundations of Contrastive Representation Learning&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 12: Foundations of Contrastive Representation Learning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Extracting meaning and creating robust feature vectors (embeddings) from unstructured data without human supervision.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Optimization grounded in Information Theory. Using the InfoNCE loss to maximize the lower bound of Mutual Information between different stochastic views and perturbations of the same data object.&lt;/li&gt;

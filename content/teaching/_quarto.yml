@@ -1,8 +1,12 @@
 project:
   type: website
   output-dir: "../../static/"
+  lib-dir: site_libs
   render:
     - "*.qmd"
+
+execute:
+  freeze: auto # 'auto' compila apenas os arquivos .qmd que foram alterados
 
 format:
   html:
@@ -11,6 +15,7 @@ format:
     code-fold: false
     html-math-method: mathjax
     output-file: "notas.html"
+    include-before-body: ../../assets/media/back-notes.html
   revealjs:
     transition: slide
     scrollable: false

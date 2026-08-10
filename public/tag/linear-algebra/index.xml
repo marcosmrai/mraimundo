@@ -25,7 +25,7 @@
 &lt;h3 id=&#34;part-1-data-driven-linear-algebra&#34;&gt;Part 1: Data-Driven Linear Algebra&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../algebra/aula1/livro.html&#34;&gt;Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../algebra/aula1/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../algebra_opt/aula01/notas.html&#34;&gt;Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../algebra_opt/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Distance-based similarity and spatial modeling in $k$-Nearest Neighbors ($k$-NN).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Vector spaces, inner products, and vector/matrix norms ($L_1$, $L_2$, $L_\infty$). Geometric interpretation of similarity through inner products and cosine distance.&lt;/li&gt;
@@ -34,7 +34,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 2: Matrix Representations, Linear Systems, and Independence&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 2: Matrix Representations, Linear Systems, and Independence&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Multivariable data matrix representations and Multiple Linear Regression.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Matrix-vector operations, rank, linear independence, and system solvability ($Ax = b$).&lt;/li&gt;
@@ -43,7 +43,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 3: Orthogonal Projections and Subspaces&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 3: Orthogonal Projections and Subspaces&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Closed-form solutions for Ordinary Least Squares (OLS) regression.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Subspaces, orthogonal complements, projection matrices, and the Normal Equations ($X^T X \hat{w} = X^T y$).&lt;/li&gt;
@@ -52,7 +52,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-4/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 4: Eigenvalues, Eigenvectors, and Symmetric Matrices&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 4: Eigenvalues, Eigenvectors, and Symmetric Matrices&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Feature variance, spatial deformations, and directional scaling.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Eigendecomposition, characteristic polynomials, real spectral theorem for symmetric matrices, and positive definiteness.&lt;/li&gt;
@@ -61,7 +61,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-5/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 5: Singular Value Decomposition (SVD) and Low-Rank Approximations&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 5: Singular Value Decomposition (SVD) and Low-Rank Approximations&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Principal Component Analysis (PCA) and Collaborative Filtering for Recommendation Systems.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Full and Truncated SVD ($A = U \Sigma V^T$), low-rank matrix approximations (Eckart-Young-Mirsky Theorem), and connections to Polar Decomposition.&lt;/li&gt;
@@ -74,7 +74,7 @@
 &lt;h3 id=&#34;part-2-calculus-of-differentiable-optimization&#34;&gt;Part 2: Calculus of Differentiable Optimization&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-6/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 6: Partial Derivatives, Jacobians, and Gradient Vectors&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 6: Partial Derivatives, Jacobians, and Gradient Vectors&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Model sensitivity analysis and parametric error surfaces.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Directional derivatives, the Gradient vector $\nabla f(x)$ as the path of steepest ascent, and the Jacobian matrix $J$.&lt;/li&gt;
@@ -83,7 +83,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-7/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 7: Convexity and the Hessian Matrix&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 7: Convexity and the Hessian Matrix&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Global convergence guarantees in regularized models (e.g., Ridge Regression).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Convex sets, convex functions, the Hessian matrix $\nabla^2 f(x)$, positive semi-definiteness, and first/second-order convexity conditions.&lt;/li&gt;
@@ -92,7 +92,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-8/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 8: Unconstrained Optimization and Steepest Descent&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 8: Unconstrained Optimization and Steepest Descent&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Iterative parameter updating in Logistic Regression (Cross-Entropy Loss).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; The Gradient Descent (GD) algorithm, step-size selection (learning rate), and first-order necessary optimality conditions.&lt;/li&gt;
@@ -101,7 +101,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-9/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 9: Taylor Expansions and the Multivariate Chain Rule&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 9: Taylor Expansions and the Multivariate Chain Rule&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Local linearizations in Multilayer Perceptrons (MLPs).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; First- and second-order Taylor series approximations, composition of functions, and multi-variable chain rule derivations.&lt;/li&gt;
@@ -110,7 +110,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-10/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 10: Automatic Differentiation and Computational Graphs&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 10: Automatic Differentiation and Computational Graphs&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Backpropagation engines in deep learning frameworks.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Directed Acyclic Graphs (DAGs) for computation, forward-mode vs. reverse-mode automatic differentiation, and memory complexity of intermediate adjoints.&lt;/li&gt;
@@ -123,7 +123,7 @@
 &lt;h3 id=&#34;part-3-advanced-optimization-dynamics-and-large-scale-learning&#34;&gt;Part 3: Advanced Optimization Dynamics and Large-Scale Learning&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-11/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 11: Stochastic Gradient Descent (SGD) and Mini-Batching&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 11: Stochastic Gradient Descent (SGD) and Mini-Batching&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Large-scale learning under computational and memory constraints.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Expectation of stochastic gradients, mini-batch variance, learning rate decay schedules, and stochastic approximation theory.&lt;/li&gt;
@@ -132,7 +132,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-12/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 12: Momentum and Accelerated Gradient Methods&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 12: Momentum and Accelerated Gradient Methods&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Escaping ill-conditioned ravines and saddle points in complex landscapes.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Heavy-ball momentum, Nesterov Accelerated Gradient (NAG), physical analogies of inertia, and second-order linear difference equations.&lt;/li&gt;
@@ -141,7 +141,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-13/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 13: Second-Order Optimization and Diagonal Preconditioning&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 13: Second-Order Optimization and Diagonal Preconditioning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Newton&amp;rsquo;s method vs. adaptive learning rate optimizers (RMSProp, Adam).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Classical Newton-Raphson updates ($w_{t+1} = w_t - [\nabla^2 f(w_t)]^{-1} \nabla f(w_t)$), coordinate-wise diagonal preconditioning, and running exponential averages of squared gradients.&lt;/li&gt;
@@ -150,7 +150,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-14/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 14: Structured Preconditioning and Matrix Ortogonalization (Shampoo &amp;amp; Muon)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 14: Structured Preconditioning and Matrix Ortogonalization (Shampoo &amp;amp; Muon)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Modern full-matrix/tensor preconditioning for deep neural network layers.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Kronecker-factored covariance statistics (Shampoo), orthogonalization of weight update matrices via polar decomposition, and GPU-accelerated Newton-Schulz polynomial iterations ($X_{k+1} = \frac{1}{2} X_k (3I - X_k^T X_k)$).&lt;/li&gt;
@@ -159,7 +159,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/search?q=lesson-15/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lesson 15: Non-Smooth Optimization, Subgradients, and Proximal Operators&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson 15: Non-Smooth Optimization, Subgradients, and Proximal Operators&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; $L_1$ Regularization (Lasso), feature selection, and inducing model sparsity.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mathematical Concept:&lt;/strong&gt; Subgradients, subdifferentials of non-differentiable convex functions, Proximal Operators ($\text{prox}_f(x)$), Soft-Thresholding, and the ISTA/FISTA (Iterative Shrinkage-Thresholding Algorithm) framework.&lt;/li&gt;

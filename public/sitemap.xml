@@ -10,11 +10,43 @@
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/ai/</loc>
-    <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/mraimundo/authors/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/</loc>
+    <loc>http://localhost:1313/mraimundo/tag/computing/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/teaching/society/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/tag/ethics/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/tag/human-centered-design/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/authors/admin/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/tag/responsible-innovation/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/tags/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/tag/technology-and-society/</loc>
+    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/tag/ai/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -27,10 +59,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/mraimundo/tag/machine-learning/</loc>
-    <lastmod>2026-07-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/mraimundo/authors/admin/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -51,10 +79,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/mraimundo/teaching/supervised/</loc>
-    <lastmod>2026-07-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/mraimundo/tags/</loc>
     <lastmod>2026-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -310,10 +334,6 @@
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/mraimundo/tag/ethics/</loc>
-    <lastmod>2022-05-01T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>http://localhost:1313/mraimundo/projects/credit/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -491,6 +511,9 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/mraimundo/admin/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/mraimundo/teaching/claude/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/mraimundo/teaching/quarto_prompt/</loc>

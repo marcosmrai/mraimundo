@@ -1,0 +1,817 @@
+---
+title: "Distribuições Condicionais e Modelos Generativos"
+subtitle: "Aula 2 — Fundamentos Estatísticos do Aprendizado Supervisionado"
+author: "Marcos M. Raimundo — Instituto de Computação, UNICAMP"
+date: today
+lang: pt-BR
+format:
+  html:
+    output-dir: "output"
+    code-fold: false
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    fig-width: 6
+    fig-height: 3.5
+  revealjs:
+    output-dir: "output"
+    slide-number: true
+    smaller: true
+    scrollable: true
+    theme: simple
+    fig-width: 6
+    fig-height: 3.5
+jupyter: python3
+execute:
+  warning: false
+  message: false
+---
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+# =====================================================================
+# SETUP GLOBAL — executado uma vez, estado compartilhado pelos chunks
+# =====================================================================
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Ellipse
+from scipy import stats
+
+plt.style.use('seaborn-v0_8-whitegrid')
+plt.rcParams.update({
+    "figure.dpi": 130,
+    "font.size": 11,
+    "axes.titlesize": 12,
+    "axes.titleweight": "bold",
+    "legend.frameon": True,
+    "legend.framealpha": 0.9,
+})
+
+rng = np.random.default_rng(20260810)
+
+# --- Paleta única, consistente com a Aula 1 ------------------------
+COR_A   = "#C0392B"   # classe A
+COR_B   = "#2471A3"   # classe B
+COR_LIM = "#117A65"   # fronteira ótima
+COR_NEU = "#5D6D7E"   # elementos neutros
+COR_ALT = "#B9770E"   # fronteira naive / alternativa
+
+
+def simular_populacao(n, mu_a, mu_b, sigma, pi_a=0.5, gen=None):
+    """Amostra rotulada de duas gaussianas com covariância compartilhada."""
+    g = gen if gen is not None else rng
+    y = (g.random(n) < pi_a).astype(int)          # 1 = classe A, 0 = classe B
+    X = np.empty((n, 2))
+    n_a = int(y.sum())
+    X[y == 1] = g.multivariate_normal(mu_a, sigma, n_a)
+    X[y == 0] = g.multivariate_normal(mu_b, sigma, n - n_a)
+    return X, y
+
+
+def ajustar_gaussiana_plena(X, y):
+    """Verossimilhança máxima com covariância completa por classe."""
+    return {k: (X[y == k].mean(0), np.cov(X[y == k].T)) for k in (0, 1)}
+
+
+def ajustar_gaussiana_naive(X, y):
+    """Naive Bayes gaussiano: covariância diagonal (variâncias marginais)."""
+    return {k: (X[y == k].mean(0), np.diag(X[y == k].var(0, ddof=1)))
+            for k in (0, 1)}
+
+
+def log_razao_posteriori(X, ajuste, pi_a=0.5):
+    """log[p(A|x)/p(B|x)] a menos de uma constante, para um ajuste {0,1: (mu,Sigma)}."""
+    out = np.full(len(X), np.log(pi_a / (1 - pi_a)))
+    mu_a, S_a = ajuste[1]
+    mu_b, S_b = ajuste[0]
+    out += stats.multivariate_normal(mu_a, S_a, allow_singular=True).logpdf(X)
+    out -= stats.multivariate_normal(mu_b, S_b, allow_singular=True).logpdf(X)
+    return out
+
+
+def desenhar_elipse(ax, mu, sigma, cor, ls="-", lw=2.0, n_dp=(1, 2)):
+    vals, vecs = np.linalg.eigh(sigma)
+    ang = np.degrees(np.arctan2(vecs[1, -1], vecs[0, -1]))
+    for k in n_dp:
+        ax.add_patch(Ellipse(mu, 2 * k * np.sqrt(vals[-1]), 2 * k * np.sqrt(vals[0]),
+                              angle=ang, fill=False, edgecolor=cor, lw=lw, ls=ls, alpha=0.9))
+
+
+def acuracia(X, y, ajuste, pi_a=0.5):
+    pred = (log_razao_posteriori(X, ajuste, pi_a) > 0).astype(int)
+    return float((pred == y).mean())
+```
+
+# Abertura — a pergunta que ficou em aberto
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+A Aula 1 terminou com uma receita que funcionava, provada sem nenhuma
+suposição de família paramétrica: ajuste uma densidade $p(x\mid\mathcal{C}_k)$
+por classe, pondere pela priori $\pi_k$, decida pela conjunta maior. A prova
+não fez nenhuma menção à dimensão de $x$ — ela continua válida trocando $x$
+por $\mathbf{x}\in\mathbb{R}^d$.
+
+> **Então a receita funciona em alta dimensão? É só trocar $x$ por $\mathbf{x}$?**
+
+A resposta que quase toda turma dá é *sim*. E, no sentido estrito, é
+verdade: a regra "decida pela conjunta maior" continua sendo a decisão
+ótima. O problema não está na regra. Está em conseguir **estimar** o objeto
+do qual ela depende — a densidade condicional de classe — quando esse
+objeto vive em $\mathbb{R}^d$ e $d$ não é pequeno.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+A Aula 1 provou uma receita **sem usar a dimensão de $x$** em lugar nenhum.
+
+> **Ela funciona em alta dimensão? É só trocar $x$ por $\mathbf{x}$?**
+
+. . .
+
+A regra continua ótima. O problema é **estimar** o objeto do qual ela
+depende, não a regra em si.
+
+:::
+
+# A maldição da dimensionalidade
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Suponha que você tente estimar $p(\mathbf{x}\mid\mathcal{C}_k)$ do jeito mais
+ingênuo possível: um histograma multidimensional. Divida cada um dos $d$
+eixos em $M$ células. O histograma completo tem
+
+$$
+M^d \text{ células.}
+$$
+
+Com $d=1$, $M=10$ células bastam para uma resolução razoável. Com $d=10$,
+já são $10^{10}$ células — mais do que qualquer conjunto de dados real terá
+de pontos. A vasta maioria das células fica vazia, e uma célula vazia não
+estima densidade alguma; estima zero, o que está quase certamente errado.
+
+::: {.callout-note}
+## O ponto não é "compute mais rápido"
+
+Não é um problema de poder computacional. É um problema de **dados**: o
+número de observações necessárias para preencher as células cresce
+exponencialmente com $d$, e nenhum orçamento de coleta razoável acompanha
+isso. A saída não é um histograma mais eficiente — é abandonar o
+histograma como estratégia de estimação em alta dimensão.
+:::
+
+Isto é exatamente a promessa que a Aula 1 fez ao fechar (PRML §1.4, pp.
+33–38; DLFC §6.1.1, pp. 172–174, tratamento moderno): sem impor nenhuma
+estrutura sobre $p(\mathbf{x}\mid\mathcal{C}_k)$, ela não é estimável com
+dados finitos a partir de $d$ moderado.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Histograma multidimensional: $M$ células por eixo, $d$ eixos $\Rightarrow$
+
+$$ M^d \text{ células} $$
+
+::: {.fragment}
+$d=1$: $M=10$ células bastam.
+$d=10$: $10^{10}$ células — mais que qualquer dataset real.
+:::
+
+::: {.fragment}
+**Não é falta de poder computacional. É falta de dados** — o problema é
+estrutural, não de engenharia.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+M = 10
+d_range = np.arange(1, 13)
+celulas = M ** d_range.astype(float)
+
+fig, ax = plt.subplots(figsize=(5.2, 3.2))
+ax.semilogy(d_range, celulas, "o-", color=COR_A, lw=2.4, ms=5)
+ax.axhline(1e6, color=COR_NEU, lw=1.4, ls="--", label="1 milhão de pontos (dataset grande)")
+ax.set_xlabel("dimensão $d$")
+ax.set_ylabel(f"células do histograma ($M={M}$ por eixo)")
+ax.set_title("$M^d$ cresce mais rápido que qualquer dataset real")
+ax.legend(fontsize=9)
+plt.tight_layout()
+plt.show()
+```
+
+# Bayes formal para $K$ classes
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Tudo que a Aula 1 construiu para duas classes generaliza sem atrito para
+$K$ classes $\mathcal{C}_1,\dots,\mathcal{C}_K$ (PRML §1.2, pp. 14–24; DLFC
+§2.1.2, pp. 26–28, mesma base usada na Aula 1). A regra da soma dá a
+marginal, a regra do produto dá o Teorema de Bayes:
+
+$$
+p(\mathcal{C}_k \mid \mathbf{x}) \;=\; \frac{p(\mathbf{x}\mid\mathcal{C}_k)\,\pi_k}{\sum_{j=1}^K p(\mathbf{x}\mid\mathcal{C}_j)\,\pi_j}, \qquad \pi_k = p(\mathcal{C}_k).
+$$
+
+A regra de decisão que minimiza a probabilidade de erro continua sendo
+"decida pela conjunta maior": $\arg\max_k p(\mathbf{x}\mid\mathcal{C}_k)\,\pi_k$.
+A prova da Aula 1 foi ponto a ponto e nunca usou $K=2$ como hipótese — ela
+generaliza para $K$ classes exatamente do mesmo jeito.
+
+O modelo generativo por trás disto tem uma leitura em duas etapas: primeiro
+a natureza sorteia uma classe segundo $\pi_k$, depois sorteia $\mathbf{x}$
+segundo $p(\mathbf{x}\mid\mathcal{C}_k)$.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Generaliza sem atrito para $K$ classes:
+
+$$ p(\mathcal{C}_k \mid \mathbf{x}) = \frac{p(\mathbf{x}\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(\mathbf{x}\mid\mathcal{C}_j)\,\pi_j} $$
+
+::: {.fragment}
+Regra ótima: $\arg\max_k p(\mathbf{x}\mid\mathcal{C}_k)\,\pi_k$ — a prova da
+Aula 1 nunca usou $K=2$.
+:::
+
+:::
+
+```{mermaid}
+%%| fig-align: center
+flowchart LR
+    pi["priori π_k"] --> esc["a natureza escolhe 𝒞_k"]
+    esc --> x["gera x ~ p(x ∣ 𝒞_k)"]
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O diagrama acima é o **modelo generativo**: primeiro a classe, depois os
+atributos, condicionados na classe. Todo o resto da aula é sobre como
+modelar essa segunda etapa — $p(\mathbf{x}\mid\mathcal{C}_k)$ — quando
+$\mathbf{x}$ tem muitas coordenadas.
+
+:::
+
+# Naive Bayes: a suposição estrutural
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O exemplo canônico: classificar um e-mail como **spam** a partir da
+presença ou ausência de $d$ palavras de um vocabulário,
+$\mathbf{x} \in \{0,1\}^d$. Modelar $p(\mathbf{x}\mid\mathcal{C}_k)$ sem
+estrutura significa modelar a distribuição conjunta de $d$ variáveis
+binárias — um objeto com $2^d - 1$ parâmetros livres **por classe** (o $-1$
+vem da restrição de que as $2^d$ probabilidades somam 1). Para
+$d=20$ palavras, isso já é mais de um milhão de parâmetros por classe, para
+um vocabulário de brinquedo.
+
+Naive Bayes é a suposição mais brutal possível para resolver isso:
+**independência condicional entre atributos, dada a classe** (PRML §1.5.4,
+eqs. 1.84–1.85, p. 46; DLFC §5.3, §5.3.1–5.3.2, pp. 150–156):
+
+$$
+p(\mathbf{x}\mid\mathcal{C}_k) \;=\; \prod_{i=1}^d p(x_i \mid \mathcal{C}_k).
+$$
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+**Spam:** $\mathbf{x}\in\{0,1\}^d$, presença/ausência de $d$ palavras.
+
+Sem estrutura: $2^d-1$ parâmetros **por classe**. Com $d=20$: mais de 1
+milhão.
+
+::: {.fragment}
+**Naive Bayes** — independência condicional dada a classe:
+$$ p(\mathbf{x}\mid\mathcal{C}_k) = \prod_{i=1}^d p(x_i\mid\mathcal{C}_k) $$
+:::
+
+:::
+
+```{mermaid}
+%%| fig-align: center
+flowchart TD
+    C(("𝒞_k")) --> x1["x₁ (\"grátis\")"]
+    C --> x2["x₂ (\"reunião\")"]
+    C --> x3["x₃ (\"urgente\")"]
+    C --> xd["x_d"]
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O diagrama não tem **nenhuma** seta entre os $x_i$ — essa ausência é a
+suposição inteira, desenhada. Ela troca $2^d-1$ parâmetros por $d$: linear
+em vez de exponencial.
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+d_range2 = np.arange(1, 21)
+completo = 2.0 ** d_range2 - 1
+naive_p = d_range2.astype(float)
+
+fig, ax = plt.subplots(figsize=(5.4, 3.2))
+ax.semilogy(d_range2, completo, "o-", color=COR_A, lw=2.4, ms=4, label="conjunta completa: $2^d-1$")
+ax.semilogy(d_range2, naive_p, "o-", color=COR_LIM, lw=2.4, ms=4, label="Naive Bayes: $d$")
+ax.set_xlabel("número de palavras $d$")
+ax.set_ylabel("parâmetros livres por classe")
+ax.set_title("Naive Bayes troca crescimento exponencial por linear")
+ax.legend(fontsize=9)
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Um exemplo numérico pequeno, para tornar concreto. Vocabulário de 8
+palavras; cada palavra tem uma probabilidade de aparecer dado spam e dado
+não-spam. Simulamos e-mails e ajustamos essas probabilidades por contagem.
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+palavras = ["grátis", "clique", "comprar", "urgente",
+            "ganhador", "reunião", "prazo", "relatório"]
+theta_spam = np.array([0.85, 0.75, 0.55, 0.65, 0.60, 0.05, 0.05, 0.03])
+theta_ham  = np.array([0.03, 0.04, 0.10, 0.05, 0.02, 0.55, 0.60, 0.50])
+
+N_SPAM, N_HAM = 400, 600
+Xs = (rng.random((N_SPAM, 8)) < theta_spam).astype(int)
+Xh = (rng.random((N_HAM, 8)) < theta_ham).astype(int)
+
+# Laplace smoothing: evita theta_hat exatamente 0 ou 1
+theta_spam_hat = (Xs.sum(0) + 1) / (N_SPAM + 2)
+theta_ham_hat  = (Xh.sum(0) + 1) / (N_HAM + 2)
+
+fig, ax = plt.subplots(figsize=(6.2, 3.4))
+xpos = np.arange(8)
+ax.bar(xpos - 0.18, theta_spam_hat, width=0.35, color=COR_A, alpha=0.85, label="$\\hat\\theta$ | spam")
+ax.bar(xpos + 0.18, theta_ham_hat, width=0.35, color=COR_B, alpha=0.85, label="$\\hat\\theta$ | não-spam")
+ax.set_xticks(xpos)
+ax.set_xticklabels(palavras, rotation=30, ha="right")
+ax.set_ylabel("probabilidade estimada de presença")
+ax.set_title("Probabilidades ajustadas por palavra e por classe")
+ax.legend(fontsize=9)
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+::: {.callout-important}
+## A mesma armadilha da Aula 1, em outra forma
+
+Se alguma palavra nunca aparecer nos e-mails de uma classe na amostra de
+treino, a contagem bruta dá $\hat\theta = 0$, e um único e-mail de teste com
+essa palavra zera o produto inteiro — $\ln 0 = -\infty$, exatamente o
+problema dos zeros exatos na Beta da Aula 1, só que aqui em forma discreta.
+A correção padrão é a **suavização de Laplace**: somar 1 ao numerador e 2 ao
+denominador (equivalente a uma priori Beta$(1,1)$ sobre cada $\theta_i$),
+garantindo $0 < \hat\theta < 1$ sempre. É por isso que o ajuste acima já usa
+a versão suavizada.
+:::
+
+Com as probabilidades ajustadas, a regra de decisão para um e-mail novo
+$\mathbf{x}$ é comparar
+
+$$
+\log\frac{p(\text{spam}\mid\mathbf{x})}{p(\text{não-spam}\mid\mathbf{x})}
+\;=\;
+\log\frac{\pi_{\text{spam}}}{\pi_{\text{ham}}}
+\;+\;
+\sum_{i=1}^d \left[ x_i \log\frac{\theta^{\text{spam}}_i}{\theta^{\text{ham}}_i}
++ (1-x_i)\log\frac{1-\theta^{\text{spam}}_i}{1-\theta^{\text{ham}}_i}\right]
+$$
+
+contra zero. Guarde esta fórmula — o Bloco de teoria da decisão vai mostrar
+que ela é **linear em $\mathbf{x}$**, e por que isso não é coincidência.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+::: {.fragment}
+**Mesma armadilha da Aula 1:** palavra nunca vista numa classe $\Rightarrow$
+$\hat\theta=0 \Rightarrow \ln 0 = -\infty$. Correção: suavização de Laplace
+($+1$ no numerador, $+2$ no denominador).
+:::
+
+::: {.fragment}
+Decisão: comparar $\log\dfrac{p(\text{spam}\mid\mathbf{x})}{p(\text{não-spam}\mid\mathbf{x})}$
+contra zero — uma soma de termos, um por palavra.
+:::
+
+:::
+
+# O preço da suposição
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Palavras correlacionadas existem — "grátis" e "ganhador" tendem a aparecer
+juntas. Naive Bayes finge que não. A pergunta honesta: **o que essa
+suposição falsa custa?**
+
+Para responder com precisão, trocamos o exemplo discreto por um contínuo,
+onde dá para desenhar a fronteira: dois atributos reais e correlacionados,
+duas classes com a **mesma** matriz de covariância $\Sigma$ (não-diagonal).
+Ajustamos dois classificadores à mesma amostra:
+
+* **pleno:** estima a covariância completa $\Sigma$ por classe (PRML
+  §4.2.1, pp. 198–200);
+* **naive:** estima só a diagonal de $\Sigma$ — as variâncias marginais,
+  descartando a correlação (PRML §4.2.3, eqs. 4.81–4.82, p. 202, versão
+  contínua do mesmo princípio usado no spam).
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Palavras correlacionadas existem. Naive Bayes finge que não.
+
+> **O que essa suposição falsa custa?**
+
+::: {.fragment}
+Trocamos para 2 atributos contínuos e correlacionados, mesma $\Sigma$ nas
+duas classes. Dois ajustes: **pleno** ($\Sigma$ completa) vs. **naive**
+(só a diagonal de $\Sigma$).
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+SIGMA = np.array([[1.0, 0.85], [0.85, 1.0]])
+
+# Cenário 1 — Δμ alinhado a um autovetor de Σ: as fronteiras coincidem
+mu_a1, mu_b1 = np.array([1.0, 1.0]), np.array([-1.0, -1.0])
+X1, y1 = simular_populacao(1500, mu_a1, mu_b1, SIGMA)
+Xte1, yte1 = simular_populacao(4000, mu_a1, mu_b1, SIGMA)
+
+# Cenário 2 — Δμ genérico, não alinhado: as fronteiras divergem
+mu_a2, mu_b2 = np.array([1.4, 0.2]), np.array([-1.4, -0.2])
+X2, y2 = simular_populacao(1500, mu_a2, mu_b2, SIGMA)
+Xte2, yte2 = simular_populacao(4000, mu_a2, mu_b2, SIGMA)
+
+plena1, naive1 = ajustar_gaussiana_plena(X1, y1), ajustar_gaussiana_naive(X1, y1)
+plena2, naive2 = ajustar_gaussiana_plena(X2, y2), ajustar_gaussiana_naive(X2, y2)
+
+gx, gy = np.mgrid[-4:4:300j, -4:4:300j]
+grade_xy = np.dstack((gx, gy))
+
+fig, axes = plt.subplots(1, 2, figsize=(9.5, 4.4))
+
+for ax, (X, y, plena, naive, titulo) in zip(
+    axes,
+    [(X1, y1, plena1, naive1, "Δμ alinhado — fronteiras coincidem"),
+     (X2, y2, plena2, naive2, "Δμ genérico — fronteiras divergem")],
+):
+    ax.scatter(X[y == 1, 0], X[y == 1, 1], s=8, color=COR_A, alpha=0.35, lw=0)
+    ax.scatter(X[y == 0, 0], X[y == 0, 1], s=8, color=COR_B, alpha=0.35, lw=0)
+    z_plena = log_razao_posteriori(grade_xy.reshape(-1, 2), plena).reshape(gx.shape)
+    z_naive = log_razao_posteriori(grade_xy.reshape(-1, 2), naive).reshape(gx.shape)
+    ax.contour(gx, gy, z_plena, levels=[0], colors=COR_LIM, linewidths=2.4)
+    ax.contour(gx, gy, z_naive, levels=[0], colors=COR_ALT, linewidths=2.0, linestyles="--")
+    ax.set_title(titulo, fontsize=10.5)
+    ax.set_xlabel("$x_1$"); ax.set_ylabel("$x_2$")
+    ax.set_xlim(-4, 4); ax.set_ylim(-4, 4); ax.set_aspect("equal")
+
+axes[0].plot([], [], color=COR_LIM, lw=2.4, label="fronteira plena")
+axes[0].plot([], [], color=COR_ALT, lw=2.0, ls="--", label="fronteira naive")
+axes[0].legend(fontsize=8, loc="upper left")
+fig.suptitle("Mesma covariância compartilhada, duas fronteiras — quando elas coincidem?", fontweight="bold", y=1.02)
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O painel da esquerda usa $\Delta\boldsymbol\mu = \boldsymbol\mu_A-\boldsymbol\mu_B \propto (1,1)$
+— um **autovetor** da matriz equicorrelacionada $\Sigma$ (o outro autovetor é
+$(1,-1)$). Nesse caso, a fronteira naive e a fronteira plena são a **mesma
+reta**: a suposição de independência não custou nada em termos de
+fronteira, mesmo estimando a covariância errada. O painel da direita usa um
+$\Delta\boldsymbol\mu$ genérico, fora dos dois autovetores, e as fronteiras
+divergem visivelmente.
+
+::: {.callout-note}
+## A condição exata (verificável por conta própria)
+
+Para duas gaussianas com priori igual e covariância $\Sigma$ compartilhada,
+a fronteira plena tem direção $\Sigma^{-1}\Delta\boldsymbol\mu$ e a naive tem
+direção $D^{-1}\Delta\boldsymbol\mu$, com $D=\text{diag}(\Sigma)$. As duas
+coincidem em direção **se e somente se** $\Delta\boldsymbol\mu$ é autovetor
+de $\Sigma D^{-1}$. Isso é uma propriedade de onde as médias das classes
+estão relativas aos eixos de correlação — não algo que se possa garantir em
+geral. Mesmo quando as fronteiras coincidem, vale registrar: as
+**posterioris** ainda podem diferir (a naive superestima ou subestima a
+confiança, mesmo decidindo certo).
+:::
+
+Em qualquer um dos dois cenários, o que importa na prática é a **acurácia**,
+não a coincidência exata das fronteiras:
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+**Cenário 1** ($\Delta\mu$ autovetor de $\Sigma$): fronteiras **coincidem**
+— a suposição não custa nada aqui.
+
+**Cenário 2** ($\Delta\mu$ genérico): fronteiras **divergem**.
+
+::: {.fragment}
+Condição exata: coincidem $\iff$ $\Delta\boldsymbol\mu$ é autovetor de
+$\Sigma D^{-1}$, $D=\text{diag}(\Sigma)$. Mesmo coincidindo, as
+**posterioris** podem diferir.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+acc_plena1, acc_naive1 = acuracia(Xte1, yte1, plena1), acuracia(Xte1, yte1, naive1)
+acc_plena2, acc_naive2 = acuracia(Xte2, yte2, plena2), acuracia(Xte2, yte2, naive2)
+
+fig, ax = plt.subplots(figsize=(4.6, 3.0))
+xpos = np.arange(2)
+ax.bar(xpos - 0.18, [acc_plena1, acc_plena2], width=0.35, color=COR_LIM, alpha=0.85, label="pleno")
+ax.bar(xpos + 0.18, [acc_naive1, acc_naive2], width=0.35, color=COR_ALT, alpha=0.85, label="naive")
+ax.set_xticks(xpos)
+ax.set_xticklabels(["Cenário 1\n(alinhado)", "Cenário 2\n(genérico)"])
+ax.set_ylabel("acurácia (dados de teste)")
+ax.set_ylim(0.5, 1.0)
+ax.set_title("O custo real: quase sempre pequeno, raramente zero")
+ax.legend(fontsize=9)
+for i, (p, n) in enumerate([(acc_plena1, acc_naive1), (acc_plena2, acc_naive2)]):
+    ax.text(i - 0.18, p + 0.01, f"{p:.3f}", ha="center", fontsize=8)
+    ax.text(i + 0.18, n + 0.01, f"{n:.3f}", ha="center", fontsize=8)
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+**A lição não é "Naive Bayes está sempre certo por sorte".** É que a
+diferença de acurácia entre a fronteira certa e a fronteira naive depende de
+o quanto elas divergem — e a divergência é geométrica, não é uma
+propriedade fixa da suposição de independência. Em muitos problemas reais de
+alta dimensão, pequenas divergências de fronteira individuais se cancelam
+parcialmente ao somar sobre muitos atributos, o que ajuda a explicar por que
+Naive Bayes tende a funcionar melhor na prática do que a suposição
+"deveria" permitir — sem que isso signifique que a suposição virou
+verdadeira.
+
+O próprio PRML registra essa mesma ressalva, na seção que também dá nome
+ao grafo do Naive Bayes (§8.2.2, p. 381):
+
+> "Nevertheless, even if this assumption is not precisely satisfied, the
+> model may still give good classification performance in practice
+> because the decision boundaries can be insensitive to some of the
+> details in the class-conditional densities."
+
+:::
+
+# Teoria da decisão, e quando ela é linear
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+A Aula 1 tratou teoria da decisão de forma ad-hoc: duas classes, perda 0-1
+ou uma matriz $2\times2$ com custos escalares $c_{\mathrm{I}}, c_{\mathrm{II}}$.
+Chegou a hora de nomear o objeto geral — ele vale para $K$ classes, para
+perdas arbitrárias, e explica por que as fronteiras do bloco anterior saíram
+retas.
+
+## O objeto geral
+
+Uma **regra de decisão** $\delta$ mapeia cada observação $\mathbf{x}$ para
+uma ação $a \in \mathcal{A}$ — o **espaço de ações**, que não precisa
+coincidir com o espaço de classes $\mathcal{Y}=\{\mathcal{C}_1,\dots,\mathcal{C}_K\}$.
+A opção de rejeição da Aula 1 já era um exemplo de $\mathcal{A}\neq\mathcal{Y}$:
+$\mathcal{A} = \mathcal{Y}\cup\{\text{recusar}\}$.
+
+Dada uma **função de perda** $L:\mathcal{Y}\times\mathcal{A}\to\mathbb{R}$
+($L(k,a)$ = custo de tomar a ação $a$ quando a verdade é $\mathcal{C}_k$), o
+**risco posterior** de uma ação $a$ em $\mathbf{x}$ é
+
+$$
+\rho(a\mid\mathbf{x}) \;=\; \sum_{k=1}^K L(k,a)\, p(\mathcal{C}_k\mid\mathbf{x}).
+$$
+
+A regra que minimiza a perda esperada global minimiza $\rho(a\mid\mathbf{x})$
+**ponto a ponto** (PRML §1.5, §1.5.2–1.5.3, pp. 38–42, agora em sua forma
+geral — o mesmo argumento ponto a ponto que provou a Aula 1):
+
+$$
+\boxed{\;\delta^\star(\mathbf{x}) = \arg\min_{a\in\mathcal{A}} \rho(a\mid\mathbf{x})\;}
+$$
+
+## O caso binário recupera exatamente a Aula 1
+
+Com $\mathcal{A}=\mathcal{Y}=\{\mathcal{C}_A,\mathcal{C}_B\}$, perda
+$L(A,A)=L(B,B)=0$, $L(A,B)=c_{\mathrm{I}}$, $L(B,A)=c_{\mathrm{II}}$: comparar
+$\rho(A\mid\mathbf{x})$ com $\rho(B\mid\mathbf{x})$ dá exatamente
+
+$$
+c_{\mathrm{I}}\,p(\mathbf{x}\mid\mathcal{C}_A)\,\pi_A \;\gtrless\; c_{\mathrm{II}}\,p(\mathbf{x}\mid\mathcal{C}_B)\,\pi_B
+\qquad\Longleftrightarrow\qquad
+\frac{p(\mathbf{x}\mid\mathcal{C}_B)}{p(\mathbf{x}\mid\mathcal{C}_A)} \gtrless \frac{c_{\mathrm{I}}\,\pi_A}{c_{\mathrm{II}}\,\pi_B}.
+$$
+
+**Toda regra de decisão binária é um teste de razão de verossimilhanças
+contra um limiar** que depende só de custo e priori — nunca de
+$\mathbf{x}$. Isso é o que a Aula 1 fez sem nomear; agora tem nome.
+
+## Quando essa razão é linear em $\mathbf{x}$
+
+A pergunta que o bloco anterior deixou pendente. Para as gaussianas com
+covariância $\Sigma$ **compartilhada** entre classes (pleno **ou** naive —
+a distinção não importa aqui, só importa que a mesma $\Sigma$ vale para as
+duas classes):
+
+$$
+\log\frac{p(\mathbf{x}\mid\mathcal{C}_A)}{p(\mathbf{x}\mid\mathcal{C}_B)}
+= \log\frac{\pi_A}{\pi_B}
+- \tfrac12(\mathbf{x}-\boldsymbol\mu_A)^\top\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu_A)
++ \tfrac12(\mathbf{x}-\boldsymbol\mu_B)^\top\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu_B).
+$$
+
+Expandindo os quadrados, o termo $\mathbf{x}^\top\Sigma^{-1}\mathbf{x}$
+aparece **duas vezes com sinais opostos** e cancela exatamente — porque
+$\Sigma$ é a mesma nos dois termos. Sobra
+
+$$
+\boxed{\;\mathbf{x}^\top\Sigma^{-1}(\boldsymbol\mu_A-\boldsymbol\mu_B) + \text{const}\;}
+$$
+
+— **linear em $\mathbf{x}$**. É por isso que as duas fronteiras do bloco
+anterior eram retas em ambos os painéis: a linearidade vem de a covariância
+ser compartilhada, não de qual covariância (plena ou diagonal) foi usada. A
+naive só erra a *direção* do vetor de coeficientes ($D^{-1}\Delta\boldsymbol\mu$
+em vez de $\Sigma^{-1}\Delta\boldsymbol\mu$), nunca o fato de ser linear.
+
+O mesmo mecanismo explica a fórmula do spam no bloco anterior: com
+atributos binários, o log da razão soma um termo por palavra — linear em
+$\mathbf{x}$ pela mesma razão estrutural, agora em atributos discretos
+(PRML §4.2.3, eqs. 4.81–4.82, p. 202; §4.2, eqs. 4.57–4.63, pp. 196–198,
+para a leitura via softmax no caso de $K$ classes). Este é exatamente o
+discriminante que a Aula 6 (regressão logística) vai construir de novo, por
+um caminho diferente — sem passar por densidades condicionais.
+
+## Generalizando: $K$ classes, matriz $K\times K$, rejeição
+
+Com $K$ classes e uma matriz de perda $K\times K$ arbitrária, nada muda na
+regra $\delta^\star(\mathbf{x}) = \arg\min_a \rho(a\mid\mathbf{x})$ — só a
+soma em $\rho$ passa a ter $K$ termos. A opção de rejeição (PRML §1.5.3,
+p. 42) é o caso $\mathcal{A}=\mathcal{Y}\cup\{\text{recusar}\}$,
+$L(k,\text{recusar})=\lambda$ para todo $k$: recusar quando nenhuma classe
+tem risco posterior menor que $\lambda$.
+
+## Risco de Bayes
+
+$$
+R^\star \;=\; \mathbb{E}_{\mathbf{X}}\!\left[\min_{a\in\mathcal{A}} \rho(a\mid\mathbf{X})\right]
+$$
+
+generaliza o erro de Bayes da Aula 1 (que era o caso particular de perda 0-1)
+para perda arbitrária: é o menor risco esperado possível, **dado o modelo
+verdadeiro** — nenhuma regra de decisão, por mais sofisticada, faz melhor.
+
+## A ressalva que fecha o loop com o bloco anterior
+
+"Dado o modelo verdadeiro" é a palavra que importa. A regra de Bayes é
+ótima **se** $p(\mathcal{C}_k\mid\mathbf{x})$ estiver certa. O bloco
+anterior mostrou Naive Bayes estimando essa posteriori **errada** — a
+covariância diagonal não é a covariância real — e ainda assim classificando
+quase tão bem quanto o modelo certo, no cenário alinhado até *exatamente*
+tão bem. Teoria da decisão garante a otimalidade da regra dado o modelo;
+**não** garante que o modelo esteja certo. São duas perguntas diferentes,
+e confundi-las é o erro mais comum ao avaliar um classificador generativo.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Formalizando: o objeto geral
+
+Regra $\delta:\mathbf{x}\mapsto a\in\mathcal{A}$ (espaço de **ações**, não
+necessariamente de classes). Perda $L(k,a)$. Risco posterior:
+
+$$ \rho(a\mid\mathbf{x}) = \sum_k L(k,a)\,p(\mathcal{C}_k\mid\mathbf{x}) $$
+
+::: {.fragment}
+$$ \delta^\star(\mathbf{x}) = \arg\min_a \rho(a\mid\mathbf{x}) $$
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## O binário recupera a Aula 1
+
+$$ c_{\mathrm{I}}\,p(\mathbf{x}\mid\mathcal{C}_A)\pi_A \gtrless c_{\mathrm{II}}\,p(\mathbf{x}\mid\mathcal{C}_B)\pi_B $$
+
+**Toda decisão binária = teste de razão de verossimilhanças** contra um
+limiar que só depende de custo e priori.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Quando a razão é linear?
+
+$\Sigma$ **compartilhada** (plena ou diagonal) $\Rightarrow$ os termos
+$\mathbf{x}^\top\Sigma^{-1}\mathbf{x}$ cancelam:
+
+$$ \mathbf{x}^\top\Sigma^{-1}(\boldsymbol\mu_A-\boldsymbol\mu_B) + \text{const} $$
+
+::: {.fragment}
+Linear **porque a covariância é compartilhada**, não porque é diagonal. A
+naive só erra a direção, nunca a linearidade.
+:::
+
+::: {.fragment}
+Mesmo mecanismo no spam: atributos binários $\Rightarrow$ soma linear de
+termos por palavra.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## $K$ classes, rejeição, risco de Bayes
+
+- $K\times K$: mesma regra, soma com $K$ termos.
+- Rejeição: $\mathcal{A}=\mathcal{Y}\cup\{\text{recusar}\}$, perda $\lambda$.
+- $R^\star = \mathbb{E}_X[\min_a \rho(a\mid X)]$ — generaliza o erro de Bayes.
+
+::: {.fragment}
+**Ótima dado o modelo — não garante que o modelo esteja certo.** O bloco
+anterior mostrou exatamente essa lacuna.
+:::
+
+:::
+
+# Fechamento e ponte
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Três frases resumem a aula:
+
+1. **A regra da Aula 1 generaliza sem atrito para $K$ classes** — o que não
+   generaliza de graça é a **estimação** da densidade em alta dimensão.
+2. **Naive Bayes troca $2^d-1$ parâmetros por $d$**, impondo independência
+   condicional dada a classe — falsa em geral, mas o custo em acurácia
+   depende da geometria (o quanto $\Delta\boldsymbol\mu$ se desvia dos eixos
+   de correlação), não é fixo.
+3. **Teoria da decisão dá a regra ótima dado o modelo**, não garante que o
+   modelo esteja certo — e a linearidade das fronteiras vem de covariância
+   compartilhada, não da suposição de independência em si.
+
+### Ponte para a Aula 3 {.unnumbered}
+
+Naive Bayes e a fronteira linear gaussiana compartilham uma limitação: a
+forma da fronteira é decidida **antes** de ver os dados — linear, sempre,
+por construção. Árvores de decisão (Aula 3) particionam o espaço de outro
+jeito: sem suposição paramétrica sobre $p(\mathbf{x}\mid\mathcal{C}_k)$,
+construindo a fronteira greedily a partir dos próprios dados. O preço dessa
+liberdade — e onde ela também pode custar caro — é o assunto de lá.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+1. A regra generaliza para $K$ classes sem atrito — o que custa é
+   **estimar** em alta dimensão.
+2. Naive Bayes: $2^d-1 \to d$. Custo em acurácia depende da **geometria**,
+   não é fixo.
+3. Teoria da decisão é ótima **dado o modelo** — não garante o modelo.
+
+::: {.fragment}
+### Ponte para a Aula 3
+
+Fronteira linear, decidida antes dos dados. Árvores (Aula 3): sem suposição
+paramétrica, fronteira construída greedily a partir dos dados. O preço da
+liberdade é o assunto de lá.
+:::
+
+:::

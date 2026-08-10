@@ -24,7 +24,7 @@ sections:
       title: Teaching
       subtitle:
       text:
-      count: 3
+      count: 4
       filters:
         author: ''
         category: ''
