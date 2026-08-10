@@ -1,0 +1,779 @@
+[
+  {
+    "objectID": "supervised/aula02/slides.html#formalizando-o-objeto-geral",
+    "href": "supervised/aula02/slides.html#formalizando-o-objeto-geral",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "Formalizando: o objeto geral",
+    "text": "Formalizando: o objeto geral\nRegra \\(\\delta:\\mathbf{x}\\mapsto a\\in\\mathcal{A}\\) (espaço de ações, não necessariamente de classes). Perda \\(L(k,a)\\). Risco posterior:\n\\[ \\rho(a\\mid\\mathbf{x}) = \\sum_k L(k,a)\\,p(\\mathcal{C}_k\\mid\\mathbf{x}) \\]\n\n\\[ \\delta^\\star(\\mathbf{x}) = \\arg\\min_a \\rho(a\\mid\\mathbf{x}) \\]"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#o-binário-recupera-a-aula-1",
+    "href": "supervised/aula02/slides.html#o-binário-recupera-a-aula-1",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "O binário recupera a Aula 1",
+    "text": "O binário recupera a Aula 1\n\\[ c_{\\mathrm{I}}\\,p(\\mathbf{x}\\mid\\mathcal{C}_A)\\pi_A \\gtrless c_{\\mathrm{II}}\\,p(\\mathbf{x}\\mid\\mathcal{C}_B)\\pi_B \\]\nToda decisão binária = teste de razão de verossimilhanças contra um limiar que só depende de custo e priori."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#quando-a-razão-é-linear",
+    "href": "supervised/aula02/slides.html#quando-a-razão-é-linear",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "Quando a razão é linear?",
+    "text": "Quando a razão é linear?\n\\(\\Sigma\\) compartilhada (plena ou diagonal) \\(\\Rightarrow\\) os termos \\(\\mathbf{x}^\\top\\Sigma^{-1}\\mathbf{x}\\) cancelam:\n\\[ \\mathbf{x}^\\top\\Sigma^{-1}(\\boldsymbol\\mu_A-\\boldsymbol\\mu_B) + \\text{const} \\]\n\nLinear porque a covariância é compartilhada, não porque é diagonal. A naive só erra a direção, nunca a linearidade.\n\n\nMesmo mecanismo no spam: atributos binários \\(\\Rightarrow\\) soma linear de termos por palavra."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#k-classes-rejeição-risco-de-bayes",
+    "href": "supervised/aula02/slides.html#k-classes-rejeição-risco-de-bayes",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "\\(K\\) classes, rejeição, risco de Bayes",
+    "text": "\\(K\\) classes, rejeição, risco de Bayes\n\n\\(K\\times K\\): mesma regra, soma com \\(K\\) termos.\nRejeição: \\(\\mathcal{A}=\\mathcal{Y}\\cup\\{\\text{recusar}\\}\\), perda \\(\\lambda\\).\n\\(R^\\star = \\mathbb{E}_X[\\min_a \\rho(a\\mid X)]\\) — generaliza o erro de Bayes.\n\n\nÓtima dado o modelo — não garante que o modelo esteja certo. O bloco anterior mostrou exatamente essa lacuna."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html",
+    "href": "supervised/aula02/notas.html",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "",
+    "text": "←"
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#o-objeto-geral",
+    "href": "supervised/aula02/notas.html#o-objeto-geral",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "6.1 O objeto geral",
+    "text": "6.1 O objeto geral\nUma regra de decisão \\(\\delta\\) mapeia cada observação \\(\\mathbf{x}\\) para uma ação \\(a \\in \\mathcal{A}\\) — o espaço de ações, que não precisa coincidir com o espaço de classes \\(\\mathcal{Y}=\\{\\mathcal{C}_1,\\dots,\\mathcal{C}_K\\}\\). A opção de rejeição da Aula 1 já era um exemplo de \\(\\mathcal{A}\\neq\\mathcal{Y}\\): \\(\\mathcal{A} = \\mathcal{Y}\\cup\\{\\text{recusar}\\}\\).\nDada uma função de perda \\(L:\\mathcal{Y}\\times\\mathcal{A}\\to\\mathbb{R}\\) (\\(L(k,a)\\) = custo de tomar a ação \\(a\\) quando a verdade é \\(\\mathcal{C}_k\\)), o risco posterior de uma ação \\(a\\) em \\(\\mathbf{x}\\) é\n\\[\n\\rho(a\\mid\\mathbf{x}) \\;=\\; \\sum_{k=1}^K L(k,a)\\, p(\\mathcal{C}_k\\mid\\mathbf{x}).\n\\]\nA regra que minimiza a perda esperada global minimiza \\(\\rho(a\\mid\\mathbf{x})\\) ponto a ponto (PRML §1.5, §1.5.2–1.5.3, pp. 38–42, agora em sua forma geral — o mesmo argumento ponto a ponto que provou a Aula 1):\n\\[\n\\boxed{\\;\\delta^\\star(\\mathbf{x}) = \\arg\\min_{a\\in\\mathcal{A}} \\rho(a\\mid\\mathbf{x})\\;}\n\\]"
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#o-caso-binário-recupera-exatamente-a-aula-1",
+    "href": "supervised/aula02/notas.html#o-caso-binário-recupera-exatamente-a-aula-1",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "6.2 O caso binário recupera exatamente a Aula 1",
+    "text": "6.2 O caso binário recupera exatamente a Aula 1\nCom \\(\\mathcal{A}=\\mathcal{Y}=\\{\\mathcal{C}_A,\\mathcal{C}_B\\}\\), perda \\(L(A,A)=L(B,B)=0\\), \\(L(A,B)=c_{\\mathrm{I}}\\), \\(L(B,A)=c_{\\mathrm{II}}\\): comparar \\(\\rho(A\\mid\\mathbf{x})\\) com \\(\\rho(B\\mid\\mathbf{x})\\) dá exatamente\n\\[\nc_{\\mathrm{I}}\\,p(\\mathbf{x}\\mid\\mathcal{C}_A)\\,\\pi_A \\;\\gtrless\\; c_{\\mathrm{II}}\\,p(\\mathbf{x}\\mid\\mathcal{C}_B)\\,\\pi_B\n\\qquad\\Longleftrightarrow\\qquad\n\\frac{p(\\mathbf{x}\\mid\\mathcal{C}_B)}{p(\\mathbf{x}\\mid\\mathcal{C}_A)} \\gtrless \\frac{c_{\\mathrm{I}}\\,\\pi_A}{c_{\\mathrm{II}}\\,\\pi_B}.\n\\]\nToda regra de decisão binária é um teste de razão de verossimilhanças contra um limiar que depende só de custo e priori — nunca de \\(\\mathbf{x}\\). Isso é o que a Aula 1 fez sem nomear; agora tem nome."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#quando-essa-razão-é-linear-em-mathbfx",
+    "href": "supervised/aula02/notas.html#quando-essa-razão-é-linear-em-mathbfx",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "6.3 Quando essa razão é linear em \\(\\mathbf{x}\\)",
+    "text": "6.3 Quando essa razão é linear em \\(\\mathbf{x}\\)\nA pergunta que o bloco anterior deixou pendente. Para as gaussianas com covariância \\(\\Sigma\\) compartilhada entre classes (pleno ou naive — a distinção não importa aqui, só importa que a mesma \\(\\Sigma\\) vale para as duas classes):\n\\[\n\\log\\frac{p(\\mathbf{x}\\mid\\mathcal{C}_A)}{p(\\mathbf{x}\\mid\\mathcal{C}_B)}\n= \\log\\frac{\\pi_A}{\\pi_B}\n- \\tfrac12(\\mathbf{x}-\\boldsymbol\\mu_A)^\\top\\Sigma^{-1}(\\mathbf{x}-\\boldsymbol\\mu_A)\n+ \\tfrac12(\\mathbf{x}-\\boldsymbol\\mu_B)^\\top\\Sigma^{-1}(\\mathbf{x}-\\boldsymbol\\mu_B).\n\\]\nExpandindo os quadrados, o termo \\(\\mathbf{x}^\\top\\Sigma^{-1}\\mathbf{x}\\) aparece duas vezes com sinais opostos e cancela exatamente — porque \\(\\Sigma\\) é a mesma nos dois termos. Sobra\n\\[\n\\boxed{\\;\\mathbf{x}^\\top\\Sigma^{-1}(\\boldsymbol\\mu_A-\\boldsymbol\\mu_B) + \\text{const}\\;}\n\\]\n— linear em \\(\\mathbf{x}\\). É por isso que as duas fronteiras do bloco anterior eram retas em ambos os painéis: a linearidade vem de a covariância ser compartilhada, não de qual covariância (plena ou diagonal) foi usada. A naive só erra a direção do vetor de coeficientes (\\(D^{-1}\\Delta\\boldsymbol\\mu\\) em vez de \\(\\Sigma^{-1}\\Delta\\boldsymbol\\mu\\)), nunca o fato de ser linear.\nO mesmo mecanismo explica a fórmula do spam no bloco anterior: com atributos binários, o log da razão soma um termo por palavra — linear em \\(\\mathbf{x}\\) pela mesma razão estrutural, agora em atributos discretos (PRML §4.2.3, eqs. 4.81–4.82, p. 202; §4.2, eqs. 4.57–4.63, pp. 196–198, para a leitura via softmax no caso de \\(K\\) classes). Este é exatamente o discriminante que a Aula 6 (regressão logística) vai construir de novo, por um caminho diferente — sem passar por densidades condicionais."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#generalizando-k-classes-matriz-ktimes-k-rejeição",
+    "href": "supervised/aula02/notas.html#generalizando-k-classes-matriz-ktimes-k-rejeição",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "6.4 Generalizando: \\(K\\) classes, matriz \\(K\\times K\\), rejeição",
+    "text": "6.4 Generalizando: \\(K\\) classes, matriz \\(K\\times K\\), rejeição\nCom \\(K\\) classes e uma matriz de perda \\(K\\times K\\) arbitrária, nada muda na regra \\(\\delta^\\star(\\mathbf{x}) = \\arg\\min_a \\rho(a\\mid\\mathbf{x})\\) — só a soma em \\(\\rho\\) passa a ter \\(K\\) termos. A opção de rejeição (PRML §1.5.3, p. 42) é o caso \\(\\mathcal{A}=\\mathcal{Y}\\cup\\{\\text{recusar}\\}\\), \\(L(k,\\text{recusar})=\\lambda\\) para todo \\(k\\): recusar quando nenhuma classe tem risco posterior menor que \\(\\lambda\\)."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#risco-de-bayes",
+    "href": "supervised/aula02/notas.html#risco-de-bayes",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "6.5 Risco de Bayes",
+    "text": "6.5 Risco de Bayes\n\\[\nR^\\star \\;=\\; \\mathbb{E}_{\\mathbf{X}}\\!\\left[\\min_{a\\in\\mathcal{A}} \\rho(a\\mid\\mathbf{X})\\right]\n\\]\ngeneraliza o erro de Bayes da Aula 1 (que era o caso particular de perda 0-1) para perda arbitrária: é o menor risco esperado possível, dado o modelo verdadeiro — nenhuma regra de decisão, por mais sofisticada, faz melhor."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#a-ressalva-que-fecha-o-loop-com-o-bloco-anterior",
+    "href": "supervised/aula02/notas.html#a-ressalva-que-fecha-o-loop-com-o-bloco-anterior",
+    "title": "Distribuições Condicionais e Modelos Generativos",
+    "section": "6.6 A ressalva que fecha o loop com o bloco anterior",
+    "text": "6.6 A ressalva que fecha o loop com o bloco anterior\n“Dado o modelo verdadeiro” é a palavra que importa. A regra de Bayes é ótima se \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) estiver certa. O bloco anterior mostrou Naive Bayes estimando essa posteriori errada — a covariância diagonal não é a covariância real — e ainda assim classificando quase tão bem quanto o modelo certo, no cenário alinhado até exatamente tão bem. Teoria da decisão garante a otimalidade da regra dado o modelo; não garante que o modelo esteja certo. São duas perguntas diferentes, e confundi-las é o erro mais comum ao avaliar um classificador generativo."
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html",
+    "href": "unsupervised/aula01/notas.html",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "",
+    "text": "←"
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#do-limiar-fixo-ao-escore-contínuo",
+    "href": "unsupervised/aula01/notas.html#do-limiar-fixo-ao-escore-contínuo",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "6.1 Do limiar fixo ao escore contínuo",
+    "text": "6.1 Do limiar fixo ao escore contínuo\nSe \\(\\mathbf{x}\\sim\\mathcal{N}(\\boldsymbol\\mu,\\Sigma)\\), então \\(D_M(\\mathbf{x})^2 \\sim \\chi^2_d\\) — soma de \\(d\\) quadrados de normais padrão independentes, que é a própria definição da qui-quadrado. (Este resultado é estatística multivariada clássica; não está em PRML ou DLFC — verificação: \\(\\mathbf{Y}=\\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu)\\sim\\mathcal{N}(0,I_d)\\), logo \\(\\mathbf{Y}^T\\mathbf{Y}=\\sum_i Y_i^2 = D_M(\\mathbf{X})^2 \\sim \\chi^2_d\\) por definição.)\nEm vez de só “dentro/fora” de um limiar fixo, isso permite definir o escore de anomalia como um \\(p\\)-valor:\n\\[\np(\\mathbf{x}) = P\\big(D_M(\\mathbf{X}')^2 \\ge D_M(\\mathbf{x})^2 \\mid \\mathbf{X}'\\sim\\mathcal{N}(\\hat{\\boldsymbol\\mu},\\hat\\Sigma)\\big)\n= 1 - F_{\\chi^2_d}\\big(D_M(\\mathbf{x})^2\\big),\n\\]\nliteralmente: qual a probabilidade de um ponto do modelo ajustado ser tão extremo, ou mais, quanto \\(\\mathbf{x}\\). O limiar fixo é o caso particular \\(p(\\mathbf{x}) &lt; \\alpha\\); o \\(p\\)-valor ordena todos os pontos por quão surpreendentes eles são, em vez de só separá-los em duas caixas.\n\n\n\n\n\n\nAvisoArmadilha de interpretação\n\n\n\n\\(p(\\mathbf{x})\\) pequeno não significa “probabilidade de \\(\\mathbf{x}\\) pertencer à distribuição verdadeira”. Significa “probabilidade de um ponto do modelo ajustado ser tão extremo quanto \\(\\mathbf{x}\\)”. É uma afirmação sobre o modelo, condicional a ele estar certo — não é uma afirmação sobre a origem de \\(\\mathbf{x}\\). Se o modelo estiver errado (Bloco 7), o \\(p\\)-valor também estará."
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese",
+    "href": "unsupervised/aula01/notas.html#conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "6.2 Conjunta vs. por dimensão — o mesmo trade-off do Naive Bayes, agora em teste de hipótese",
+    "text": "6.2 Conjunta vs. por dimensão — o mesmo trade-off do Naive Bayes, agora em teste de hipótese\nCalcular \\(D_M\\) exige estimar e inverter \\(\\hat\\Sigma\\) — \\(d(d+1)/2\\) parâmetros, caro e instável quando \\(N\\) não é \\(\\gg d\\) (a armadilha do Bloco 4). A alternativa mais barata: supor independência entre dimensões (PRML discute exatamente essa restrição — \\(\\Sigma\\) diagonal — em §2.3, p. 84, como uma forma de “tornar a inversão da matriz de covariância uma operação muito mais rápida”, ao custo de “limitar a capacidade do modelo de capturar correlações interessantes nos dados”). Sob essa suposição, calcula-se um \\(p\\)-valor por dimensão, \\(p_i(x_i) = P(|Z_i|\\ge|z_i|)\\) usando só a marginal \\(\\mathcal{N}(\\hat\\mu_i,\\hat\\sigma_i^2)\\) — \\(d\\) parâmetros, não \\(d(d+1)/2\\) — e combinam-se os \\(d\\) \\(p\\)-valores independentes pelo teste de Fisher, \\(-2\\sum_i\\ln p_i(x_i) \\sim \\chi^2_{2d}\\) (também estatística clássica, não coberta por PRML/DLFC — combinação padrão de \\(p\\)-valores independentes).\n\n\n\n\n\nflowchart TD\n    X[\"ponto novo x\"] --&gt; Q{\"supor independência&lt;br/&gt;entre dimensões?\"}\n    Q --&gt;|\"sim\"| M1[\"p-valor por dimensão&lt;br/&gt;(d parâmetros)\"]\n    M1 --&gt; F1[\"combinar via Fisher&lt;br/&gt;-2 Σ ln p_i ~ χ²_2d\"]\n    Q --&gt;|\"não\"| M2[\"distância de Mahalanobis&lt;br/&gt;(d(d+1)/2 parâmetros)\"]\n    M2 --&gt; F2[\"p-valor conjunto&lt;br/&gt;via χ²_d\"]\n    F1 --&gt; R[\"cego à correlação entre dimensões\"]\n    F2 --&gt; R2[\"sensível à correlação — mais caro\"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nO gráfico mostra o erro nas duas direções. No ponto B, cada coordenada isolada já parece grande (o teste por dimensão dá um \\(p\\)-valor baixo), mas a combinação é exatamente o que a correlação prevê — o teste conjunto reconhece isso e dá um \\(p\\)-valor bem maior: falso alarme do teste por dimensão. No ponto C, cada coordenada isolada parece perfeitamente normal (o teste por dimensão dá um \\(p\\)-valor alto, tranquilizador), mas a combinação quebra a correlação — o teste conjunto enxerga isso e dá um \\(p\\)-valor baixo: anomalia real que o teste por dimensão deixa passar. Nenhum dos dois testes está “certo” em geral; a suposição de independência é uma escolha, com um preço que depende de onde a anomalia acontece — a mesma lição do preço da suposição de independência do Naive Bayes, agora em teste de hipótese em vez de classificação."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html",
+    "href": "algebra_opt/aula01/notas.html",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "",
+    "text": "←"
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#contexto-teórico-e-motivação",
+    "href": "algebra_opt/aula01/notas.html#contexto-teórico-e-motivação",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "1.1 Contexto Teórico e Motivação",
+    "text": "1.1 Contexto Teórico e Motivação\nSistemas computacionais não compreendem conceitos abstratos do mundo real como “cor da pele”, “sentimento de um texto”, “transação financeira suspeita” ou “música suave”. Para que um algoritmo de Aprendizado de Máquina (Machine Learning - ML) processe informações, o mundo real precisa ser quantificado e mapeado em representações numéricas estruturadas.\nCada atributo medido de um objeto do mundo real é chamado de característica (feature). Quando agrupamos \\(d\\) características quantitativas de uma mesma observação em uma ordenação específica, formamos um vetor de características (feature vector).\n\nImagens: Uma imagem em escala de cinza de tamanho \\(28 \\times 28\\) pixels é traduzida em um vetor de \\(784\\) dimensões (\\(28 \\times 28 = 784\\)), onde cada componente é um escalar representando a intensidade de brilho do pixel (\\([0, 255]\\) ou \\([0.0, 1.0]\\)).\nDados Tabulares (Saúde/Crédito): Um paciente pode ser representado pelo vetor de atributos \\(\\mathbf{x} = [\\text{idade}, \\text{pressão arterial}, \\text{glicose}, \\text{IMC}]^T \\in \\mathbb{R}^4\\).\nTexto (Processamento de Linguagem Natural): Em abordagens clássicas (Bag of Words), um documento é um vetor onde cada posição corresponde à frequência de uma palavra específica de um vocabulário. Em redes modernas, é representado por um embedding contínuo em \\(\\mathbb{R}^{768}\\) ou \\(\\mathbb{R}^{1536}\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#definições-matemáticas-fundamentais",
+    "href": "algebra_opt/aula01/notas.html#definições-matemáticas-fundamentais",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "1.2 Definições Matemáticas Fundamentais",
+    "text": "1.2 Definições Matemáticas Fundamentais\n\n1.2.1 Escalares e Vetores\nUm escalar é um elemento do corpo dos números reais, denotado por \\(c \\in \\mathbb{R}\\). Representa magnitudes puras sem direção associada (ex: temperatura, idade, taxa de aprendizado).\nUm vetor de dimensão \\(d\\) (ou \\(d\\)-vetor) é uma tupla ordenada de \\(d\\) números reais. Convenciona-se rigorosamente no contexto de ML e Álgebra Linear que todo vetor padrão é um vetor-coluna:\n\\[\\mathbf{x} = \\begin{bmatrix} x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_d \\end{bmatrix} \\in \\mathbb{R}^d\\]\nSeu transposto, \\(\\mathbf{x}^T = [x_1, x_2, \\dots, x_d]\\), é um vetor-linha em \\(\\mathbb{R}^{1 \\times d}\\). O componente \\(x_i \\in \\mathbb{R}\\) denota a \\(i\\)-ésima característica (feature) da observação \\(\\mathbf{x}\\).\n\n\n1.2.2 Operações Elementares de Vetores\n\nAdição de Vetores (Composição de Sinais): Dados \\(\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^d\\), a soma é realizada componente a componente: \\[\\mathbf{u} + \\mathbf{v} = \\begin{bmatrix} u_1 + v_1 \\\\ u_2 + v_2 \\\\ \\vdots \\\\ u_d + v_d \\end{bmatrix}\\] Interpretação em ML: Acúmulo ou superposição de efeitos/deslocamentos no espaço de características.\nMultiplicação por Escalar (Escalonamento/Modulação): Dado um escalar \\(\\alpha \\in \\mathbb{R}\\) e um vetor \\(\\mathbf{v} \\in \\mathbb{R}^d\\): \\[\\alpha \\mathbf{v} = \\begin{bmatrix} \\alpha v_1 \\\\ \\alpha v_2 \\\\ \\vdots \\\\ \\alpha v_d \\end{bmatrix}\\] Interpretação em ML: Redimensionamento de importância, ajuste de amplitude de sinal ou passo de atualização em algoritmos de otimização (ex: learning rate \\(\\eta \\cdot \\nabla f\\))."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#representação-visual-o-espaço-de-características-feature-space",
+    "href": "algebra_opt/aula01/notas.html#representação-visual-o-espaço-de-características-feature-space",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "1.3 Representação Visual: O Espaço de Características (Feature Space)",
+    "text": "1.3 Representação Visual: O Espaço de Características (Feature Space)\nQuando organizamos dados tabulares, cada linha do dataset é representada como um ponto isolado no espaço de características \\(d\\)-dimensional (\\(\\mathbb{R}^d\\)).\nAbaixo, utilizamos o ambiente em Python para importar as funções auxiliares do nosso módulo local src e visualizar graficamente a transição de um dataset tabular de imobiliária para pontos geométricos no espaço \\(\\mathbb{R}^2\\) (Área \\(m^2\\) vs. Preço por \\(m^2\\))."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#geometria-das-operações-vetoriais-em-mathbbr2",
+    "href": "algebra_opt/aula01/notas.html#geometria-das-operações-vetoriais-em-mathbbr2",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "1.4 Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)",
+    "text": "1.4 Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)\nA soma e a multiplicação por escalar possuem interpretações geométricas intuitivas e cruciais para a compreensão da movimentação e transformação de dados no espaço:\n\nSoma (\\(\\mathbf{u} + \\mathbf{v}\\)): Regra do paralelogramo. Representa o deslocamento consecutivo no espaço de atributos.\nMultiplicação (\\(\\alpha \\mathbf{u}\\)): Mantém a direção do vetor (se \\(\\alpha &gt; 0\\)), alterando apenas seu comprimento (ou invertendo o sentido se \\(\\alpha &lt; 0\\))."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#contexto-teórico-o-problema-de-aprendizado-supervisionado",
+    "href": "algebra_opt/aula01/notas.html#contexto-teórico-o-problema-de-aprendizado-supervisionado",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "2.1 Contexto Teórico: O Problema de Aprendizado Supervisionado",
+    "text": "2.1 Contexto Teórico: O Problema de Aprendizado Supervisionado\nO objetivo fundamental do Aprendizado de Máquina Supervisionado é construir uma função de mapeamento (ou hipótese) \\(f: \\mathcal{X} \\to \\mathcal{Y}\\) a partir de um conjunto de dados de treino observado:\n\\[\\mathcal{D} = \\{(\\mathbf{x}_1, y_1), (\\mathbf{x}_2, y_2), \\dots, (\\mathbf{x}_N, y_N)\\}\\]\nonde:\n\n\\(\\mathbf{x}_i \\in \\mathcal{X} = \\mathbb{R}^d\\) representa o vetor de características (feature vector) da \\(i\\)-ésima observação.\n\\(y_i \\in \\mathcal{Y}\\) representa o rótulo ou alvo (target) associado ao vetor \\(\\mathbf{x}_i\\).\n\nEm Classificação, \\(\\mathcal{Y} = \\{1, 2, \\dots, C\\} \\subset \\mathbb{N}\\) é um conjunto finito de categorias discretas.\nEm Regressão, \\(\\mathcal{Y} = \\mathbb{R}\\) é um conjunto contínuo de valores numéricos.\n\n\nDado um novo ponto não observado \\(\\mathbf{x}_{\\text{novo}} \\in \\mathbb{R}^d\\), como inferir o valor correspondente \\(\\hat{y}_{\\text{novo}} = f(\\mathbf{x}_{\\text{novo}})\\) sem conhecer a função geradora real \\(f\\)?\n\n2.1.1 A Hipótese de Suavidade e o Princípio da Vizinhança\nPara tornar a inferência possível, assumimos a Hipótese de Suavidade (Smoothness Assumption): pontos que estão próximos no espaço de características \\(\\mathbb{R}^d\\) tendem a possuir rótulos \\(y\\) semelhantes no espaço de saída \\(\\mathcal{Y}\\).\nEsta intuição é a base teórica do algoritmo \\(k\\)-Nearest Neighbors (\\(k\\)-NN), um dos métodos não paramétricos (instance-based learning) mais fundamentais de Machine Learning."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#formalização-do-k-nn",
+    "href": "algebra_opt/aula01/notas.html#formalização-do-k-nn",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "2.2 Formalização do \\(k\\)-NN",
+    "text": "2.2 Formalização do \\(k\\)-NN\nDado um ponto de consulta \\(\\mathbf{x}_{\\text{novo}}\\) e um hiperparâmetro \\(k \\in \\mathbb{Z}^+\\):\n\nOrdenação por Distância: Calcula-se a distância \\(d(\\mathbf{x}_{\\text{novo}}, \\mathbf{x}_i)\\) entre o novo ponto e todos os pontos do conjunto de treino \\(\\mathcal{D}\\), utilizando uma métrica definida no espaço vetorial (ex: Euclidiana).\nSeleção dos Vizinhos: Identifica-se o conjunto \\(\\mathcal{N}_k(\\mathbf{x}_{\\text{novo}}) \\subset \\mathcal{D}\\) composto pelas \\(k\\) amostras com as \\[\\hat{y}_{\\text{novo}} = \\frac{1}{k} \\sum_{i \\in \\mathcal{N}_k(\\mathbf{x}_{\\text{novo}})} y_i\\]"
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#ilustração-prática-encontrando-os-k-vizinhos-em-mathbbr2",
+    "href": "algebra_opt/aula01/notas.html#ilustração-prática-encontrando-os-k-vizinhos-em-mathbbr2",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "2.3 Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)",
+    "text": "2.3 Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)\nNo código a seguir, geramos um cenário sintético de classificação binária em \\(\\mathbb{R}^2\\) para visualizar como a escolha de \\(k\\) seleciona a vizinhança e altera o rótulo previsto para um ponto de teste \\(\\mathbf{x}_{\\text{novo}}\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#a-estrutura-rígida-espaços-e-subespaços-vetoriais",
+    "href": "algebra_opt/aula01/notas.html#a-estrutura-rígida-espaços-e-subespaços-vetoriais",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "3.1 A Estrutura Rígida: Espaços e Subespaços Vetoriais",
+    "text": "3.1 A Estrutura Rígida: Espaços e Subespaços Vetoriais\nUm espaço vetorial formaliza um ambiente onde podemos realizar combinações lineares de forma irrestrita. Matematicamente, se \\(V\\) é um espaço vetorial, qualquer operação de adição entre dois de seus vetores ou multiplicação por um escalar resultará em um novo vetor que ainda pertence a \\(V\\).\nNa busca por reduzir a dimensionalidade dos nossos dados de forma linear (como no PCA), não procuramos apenas agrupamentos, mas sim Subespaços Vetoriais. Um subconjunto \\(U \\subseteq V\\) é um subespaço vetorial se herdar a mesma estrutura rígida e perfeitamente plana de \\(V\\).\nPara provar que um subconjunto \\(U\\) é um subespaço válido, ele deve passar no teste do fechamento:\n\nOrigem: O vetor nulo deve estar no subconjunto (\\(\\mathbf{0} \\in U\\)).\nFechamento sob adição: Para quaisquer \\(\\mathbf{x}, \\mathbf{y} \\in U\\), a soma \\(\\mathbf{x} + \\mathbf{y} \\in U\\).\nFechamento sob multiplicação por escalar: Para qualquer \\(\\mathbf{x} \\in U\\) e \\(\\lambda \\in \\mathbb{R}\\), \\(\\lambda \\mathbf{x} \\in U\\).\n\nDemonstração de um Subespaço Válido: O conjunto de todas as soluções de um sistema linear homogêneo \\(A\\mathbf{x} = \\mathbf{0}\\) é um subespaço de \\(\\mathbb{R}^n\\).\nProva:\n\n\\(A\\mathbf{0} = \\mathbf{0}\\), logo \\(\\mathbf{0}\\) pertence ao conjunto.\nSe \\(A\\mathbf{x} = \\mathbf{0}\\) e \\(A\\mathbf{y} = \\mathbf{0}\\), então \\(A(\\mathbf{x} + \\mathbf{y}) = A\\mathbf{x} + A\\mathbf{y} = \\mathbf{0} + \\mathbf{0} = \\mathbf{0}\\) (fechado para soma).\nSe \\(A\\mathbf{x} = \\mathbf{0}\\), então \\(A(\\lambda\\mathbf{x}) = \\lambda(A\\mathbf{x}) = \\lambda\\mathbf{0} = \\mathbf{0}\\) (fechado para escalar).\n\nGeometricamente em \\(\\mathbb{R}^3\\), um subespaço só pode ser a origem, uma reta infinita passando pela origem, um plano infinito passando pela origem ou o próprio espaço 3D. Subespaços não fazem curvas."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#o-espaço-real-dos-dados-variedades-manifolds",
+    "href": "algebra_opt/aula01/notas.html#o-espaço-real-dos-dados-variedades-manifolds",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "3.2 O Espaço Real dos Dados: Variedades (Manifolds)",
+    "text": "3.2 O Espaço Real dos Dados: Variedades (Manifolds)\nSe dados complexos vivessem nativamente em subespaços vetoriais, o Aprendizado de Máquina seria resolvido inteiramente com modelos lineares. A realidade é que os dados residem em Variedades (Manifolds).\nUma variedade é um espaço topológico que, localmente, se assemelha a um espaço Euclidiano plano, mas globalmente pode ser curvo e dobrado.\nVariedade não é Subespaço: A falha fundamental em tratar uma variedade curva como um subespaço vetorial está no teste de fechamento. Considere os dados dispostos na superfície de uma esfera ou no Swiss Roll. Se você pegar dois vetores \\(\\mathbf{x}\\) e \\(\\mathbf{y}\\) que pertencem à superfície da variedade e somá-los matematicamente em \\(\\mathbb{R}^3\\), o vetor resultante \\(\\mathbf{x} + \\mathbf{y}\\) cairá no espaço vazio, completamente fora da variedade. Uma variedade curva viola a regra do fechamento sob adição."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#a-hipótese-da-variedade-e-a-busca-pelo-subespaço-latente",
+    "href": "algebra_opt/aula01/notas.html#a-hipótese-da-variedade-e-a-busca-pelo-subespaço-latente",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "3.3 A Hipótese da Variedade e a Busca pelo Subespaço Latente",
+    "text": "3.3 A Hipótese da Variedade e a Busca pelo Subespaço Latente\nA Hipótese da Variedade postula que conjuntos de dados de alta dimensão concentram-se em variedades de dimensão intrínseca muito menor, embutidas no espaço de alta dimensão original.\nComo isso define os algoritmos que usamos?\n\nQuando a variedade é aproximadamente plana: Ela atua de fato como um subespaço afim ou vetorial. Neste caso, algoritmos lineares como o PCA funcionam perfeitamente, projetando os dados sobre esse subespaço de forma ótima.\nQuando a variedade é curva: Algoritmos lineares falham porque tentam forçar um plano rígido em uma geometria distorcida. A solução não é forçar os dados em um subespaço no espaço original.\nO papel da Não-Linearidade: Modelos modernos (Redes Neurais) aplicam transformações não-lineares sequenciais. O objetivo geómetrico real desses modelos é desamassar o manifold e mapeá-lo para um novo espaço, chamado de espaço latente. É somente neste novo espaço latente que a variedade original se torna aproximadamente plana, permitindo que ela assuma finalmente a forma matemática de um subespaço vetorial."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#normas-quantificando-a-magnitude-versão-livro",
+    "href": "algebra_opt/aula01/notas.html#normas-quantificando-a-magnitude-versão-livro",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "4.1 Normas: Quantificando a Magnitude (Versão Livro)",
+    "text": "4.1 Normas: Quantificando a Magnitude (Versão Livro)\nEm espaços vetoriais, precisamos de uma ferramenta matemática rigorosa para medir o “tamanho” ou “comprimento” de um vetor. Uma norma em um espaço vetorial \\(V\\) é uma função \\(\\|\\cdot\\|: V \\rightarrow \\mathbb{R}\\) que atribui um comprimento \\(\\|x\\|\\) a cada vetor \\(x\\).\nPara ser considerada uma norma válida, a função deve satisfazer três propriedades fundamentais:\n\nHomogeneidade Absoluta: \\(\\|\\lambda x\\| = |\\lambda|\\|x\\|\\), garantindo que se escalarmos o vetor, seu tamanho escalará proporcionalmente.\nDesigualdade Triangular: \\(\\|x + y\\| \\leq \\|x\\| + \\|y\\|\\), indicando que o caminho direto é sempre o mais curto.\nPositiva Definida: \\(\\|x\\| \\geq 0\\) e \\(\\|x\\| = 0 \\Leftrightarrow x = \\mathbf{0}\\).\n\nAs normas mais frequentes em Aprendizado de Máquina são:\n\nNorma \\(L_1\\) (Norma Manhattan): Definida como \\(\\|x\\|_1 := \\sum_{i=1}^n |x_i|\\). Induz a geometria de movimentação em blocos (como táxis em uma cidade planejada em grade).\nNorma \\(L_2\\) (Norma Euclidiana): Definida como \\(\\|x\\|_2 := \\sqrt{\\sum_{i=1}^n x_i^2}\\), computando a distância em linha reta desde a origem.\nNorma \\(L_\\infty\\) (Norma do Máximo): Mede o tamanho do vetor baseando-se unicamente em seu maior componente em valor absoluto, \\(\\|x\\|_\\infty := \\max_i |x_i|\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#demonstração-visual-as-geometrias-das-normas",
+    "href": "algebra_opt/aula01/notas.html#demonstração-visual-as-geometrias-das-normas",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "4.2 Demonstração Visual: As Geometrias das Normas",
+    "text": "4.2 Demonstração Visual: As Geometrias das Normas\nA escolha da norma altera fundamentalmente a “forma” do espaço. Para visualizar isso, plotamos as Bolas Unitárias (Unit Balls) em \\(\\mathbb{R}^2\\), ou seja, o conjunto de todos os pontos onde a norma é exatamente igual a \\(1\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#definição-formal-de-métrica",
+    "href": "algebra_opt/aula01/notas.html#definição-formal-de-métrica",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "5.1 Definição Formal de Métrica",
+    "text": "5.1 Definição Formal de Métrica\nEm análise matemática e Aprendizado de Máquina, uma métrica é uma função que formaliza a noção intuitiva de distância entre quaisquer dois pontos de um conjunto. Rigorosamente, seja \\(X\\) um conjunto; uma função \\(d: X \\times X \\to \\mathbb{R}\\) é denominada uma métrica (ou distância) se, para quaisquer elementos \\(x, y, z \\in X\\), satisfizer os seguintes axiomas fundamentais:\n\nNão-negatividade: \\(d(x, y) \\geq 0\\), e \\(d(x, y) = 0\\) se e somente se \\(x = y\\).\nSimetria: \\(d(x, y) = d(y, x)\\).\nDesigualdade Triangular: \\(d(x, z) \\leq d(x, y) + d(y, z)\\).\n\nQuando um espaço vetorial \\(V\\) é equipado com uma norma \\(\\|\\cdot\\|\\), podemos induzir uma métrica de forma natural através da diferença entre os vetores:\n\\[d(x, y) = \\|x - y\\|\\]\nEsta formulação garante que a distância entre dois pontos seja o tamanho do vetor deslocamento que os conecta, herdando diretamente as propriedades geométricas da norma escolhida (como a distância Euclidiana induzida pela norma \\(L_2\\))."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#distância-euclidiana-e-a-maldição-de-alta-dimensão",
+    "href": "algebra_opt/aula01/notas.html#distância-euclidiana-e-a-maldição-de-alta-dimensão",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "5.2 Distância Euclidiana e a Maldição de Alta Dimensão",
+    "text": "5.2 Distância Euclidiana e a Maldição de Alta Dimensão\nA distância Euclidiana (\\(d_2(x, y) = \\|x - y\\|_2\\)) é a métrica mais intuitiva porque reflete o nosso mundo físico tridimensional. Ela assume que o espaço de características é plano, homogêneo e que todas as direções possuem o mesmo peso informacional.\nNo entanto, quando migramos para espaços vetoriais de altíssima dimensão (\\(d \\gg 1000\\), comum em textos, embeddings e imagens), a distância Euclidiana sofre degradações severas provocadas pela concentração de medidas:\n\nPerda de Contraste: À medida que a dimensionalidade cresce, a razão entre a distância do ponto mais próximo e a do ponto mais distante de uma consulta tende aconvergir para \\(1\\). Em termos práticos, todos os pontos passam a parecer equidistantemente afastados.\nSensibilidade à Magnitude: A norma \\(L_2\\) acumula somas quadráticas de todas as coordenadas. Se um vetor possui componentes com escalas maiores ou ruídos de amplitude, a distância Euclidiana passa a refletir a energia ou o tamanho absoluto do vetor, e não o seu conteúdo semântico estrutural."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#similaridade-do-cosseno-em-alta-dimensão",
+    "href": "algebra_opt/aula01/notas.html#similaridade-do-cosseno-em-alta-dimensão",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "5.3 Similaridade do Cosseno em Alta Dimensão",
+    "text": "5.3 Similaridade do Cosseno em Alta Dimensão\nEm espaços de alta dimensão e em variedades complexas, o conteúdo informacional frequentemente reside na direção do vetor de características, e não em seu comprimento (magnitude). É aqui que a Similaridade do Cosseno se torna indispensável.\nFormalmente definida através do produto interno normalizado:\n\\[\\text{Sim}_{\\cos}(x, y) = \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = \\cos(\\theta)\\]\nA métrica de distância baseada no cosseno é dada por \\(d_{\\cos}(x, y) = 1 - \\text{Sim}_{\\cos}(x, y)\\). As razões formais pelas quais ela supera a Euclidiana em alta dimensão incluem:\n\nInvariância à Escala (Magnitude): Em Processamento de Linguagem Natural (NLP), por exemplo, um documento longo repete as mesmas palavras várias vezes, gerando um vetor de contagem com norma \\(L_2\\) gigantesca comparado a um documento curto sobre o mesmo tema. A distância Euclidiana apontaria uma distância enorme entre eles; já o cosseno ignora o comprimento e avalia estritamente o ângulo (a proporção de termos), reconhecendo que ambos tratam do mesmo assunto.\nAlinhamento na Variedade: Sob a Hipótese da Variedade, transições semânticas suaves (como mudar a intensidade de um conceito semântico) correspondem a rotações no espaço vetorial. O cosseno mede diretamente o grau de orientação angular na superfície do manifold, isolando o sinal útil do ruído de amplitude."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#a-distância-do-cosseno-métrica-ou-quase-métrica",
+    "href": "algebra_opt/aula01/notas.html#a-distância-do-cosseno-métrica-ou-quase-métrica",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "5.4 A Distância do Cosseno: Métrica ou Quase-Métrica?",
+    "text": "5.4 A Distância do Cosseno: Métrica ou Quase-Métrica?\nPara que uma medida de dessimilaridade baseada na Similaridade do Cosseno possa ser rigorosamente classificada como uma métrica, ela deve satisfazer todos os axiomas formais de métrica apresentados anteriormente.\nDefinimos a Distância do Cosseno entre dois vetores não nulos \\(x, y \\in \\mathbb{R}^n \\setminus \\{\\mathbf{0}\\}\\) como:\n\\[d_{\\cos}(x, y) = 1 - \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = 1 - \\cos(\\theta)\\]\nVamos verificar os três axiomas — e a desigualdade triangular vai revelar algo que a intuição não avisa.\n\nNão-negatividade: Pela Desigualdade de Cauchy-Schwarz, sabemos que \\(|\\langle x, y \\rangle| \\leq \\|x\\|_2 \\|y\\|_2\\), o que implica diretamente que: \\[-1 \\leq \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} \\leq 1 \\implies -1 \\leq \\cos(\\theta) \\leq 1\\] Substituindo na fórmula da distância, temos \\(0 \\leq d_{\\cos}(x, y) \\leq 2\\). Além disso, \\(d_{\\cos}(x, y) = 0 \\iff \\cos(\\theta) = 1 \\iff \\theta = 0^\\circ\\), o que significa que \\(x\\) e \\(y\\) apontam exatamente para a mesma direção (são linearmente dependentes com escalar positivo: \\(x = c y\\) para \\(c &gt; 0\\)).\nSimetria: Como o produto interno e a norma Euclidiana são comutativos e simétricos: \\[d_{\\cos}(x, y) = 1 - \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = 1 - \\frac{\\langle y, x \\rangle}{\\|y\\|_2 \\|x\\|_2} = d_{\\cos}(y, x)\\]\nDesigualdade Triangular — aqui \\(d_{\\cos}\\) falha: Seja a normalização de qualquer vetor não nulo definida como o vetor unitário correspondente: \\[\\hat{x} = \\frac{x}{\\|x\\|_2}, \\quad \\hat{y} = \\frac{y}{\\|y\\|_2}, \\quad \\hat{z} = \\frac{z}{\\|z\\|_2}\\]\nA distância Euclidiana ao quadrado entre dois vetores unitários guarda uma relação direta com \\(d_{\\cos}\\): \\[\\|\\hat{x} - \\hat{y}\\|_2^2 = \\|\\hat{x}\\|_2^2 + \\|\\hat{y}\\|_2^2 - 2\\langle \\hat{x}, \\hat{y} \\rangle = 1 + 1 - 2\\cos(\\theta_{xy}) = 2\\,d_{\\cos}(x, y)\\]\nou seja, \\(\\sqrt{2\\,d_{\\cos}(x, y)} = \\|\\hat{x} - \\hat{y}\\|_2\\) — a raiz de \\(2d_{\\cos}\\) é literalmente a distância Euclidiana entre os vetores normalizados. Como \\(\\|\\cdot\\|_2\\) satisfaz a desigualdade triangular ordinária: \\[\\|\\hat{x} - \\hat{z}\\|_2 \\leq \\|\\hat{x} - \\hat{y}\\|_2 + \\|\\hat{y} - \\hat{z}\\|_2 \\;\\Longrightarrow\\; \\sqrt{2\\,d_{\\cos}(x, z)} \\leq \\sqrt{2\\,d_{\\cos}(x, y)} + \\sqrt{2\\,d_{\\cos}(y, z)}.\\]\nIsso prova que \\(\\sqrt{2\\,d_{\\cos}}\\) é uma métrica válida — não prova nada sobre \\(d_{\\cos}\\) em si. Elevar ao quadrado uma desigualdade entre somas de raízes não preserva a desigualdade sem o termo cruzado \\(2\\sqrt{d_{\\cos}(x,y)\\,d_{\\cos}(y,z)}\\), que é estritamente positivo em geral. Um contraexemplo concreto mostra que \\(d_{\\cos}\\) de fato viola a desigualdade triangular: tome três vetores unitários em \\(\\mathbb{R}^2\\) a \\(0^\\circ\\), \\(90^\\circ\\) e \\(135^\\circ\\). Então \\(d_{\\cos}(x,y) = 1-\\cos 90^\\circ = 1\\), \\(d_{\\cos}(y,z) = 1-\\cos 45^\\circ \\approx 0{,}293\\), mas \\(d_{\\cos}(x,z) = 1-\\cos 135^\\circ \\approx 1{,}707 &gt; 1 + 0{,}293\\). A desigualdade falha.\n\n\n\n\n\n\nImportanteConclusão correta (o texto original desta aula concluía o oposto)\n\n\n\n\\(d_{\\cos}(x,y) = 1-\\cos\\theta\\) não é uma métrica em geral — é uma medida de dessimilaridade útil, mas informal. O que é uma métrica de verdade é a distância cordal \\(\\sqrt{2\\,d_{\\cos}(x,y)} = \\Vert \\hat x - \\hat y\\Vert_2\\) (distância Euclidiana entre os vetores normalizados), ou a distância angular \\(\\arccos(\\cos\\theta) = \\theta\\) (o arco geodésico na esfera unitária), que também satisfaz desigualdade triangular por ser um comprimento de arco. Na prática (busca vetorial, RAG), quase sempre se usa \\(1-\\cos\\theta\\) mesmo assim, porque o que importa ali é a ordenação dos vizinhos por similaridade, não os axiomas formais de métrica — mas vale saber que, tecnicamente, não é uma."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#fechamento-teórico-e-garantias-de-funcionamento",
+    "href": "algebra_opt/aula01/notas.html#fechamento-teórico-e-garantias-de-funcionamento",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "6.1 Fechamento Teórico e Garantias de Funcionamento",
+    "text": "6.1 Fechamento Teórico e Garantias de Funcionamento\nAo encadearmos os conceitos construídos nesta aula — desde os espaços vetoriais até as métricas e variedades —, compreendemos formalmente as fundações e os limites do algoritmo \\(k\\)-Nearest Neighbors (\\(k\\)-NN):\n\nA Hipótese de Planicidade Local: Rodar o \\(k\\)-NN utilizando a distância Euclidiana (\\(L_2\\)) assume implicitamente que o subespaço entre a consulta e seus vizinhos é plano. Como vimos, em manifolds curvos, essa premissa só se sustenta sob a garantia de alta densidade amostral.\nGarantias Operacionais: Se o conjunto de dados for suficientemente denso, as distâncias entre os pontos vizinhos tornam-se infinitesimais, fazendo com que o algoritmo opere estritamente sobre a porção localmente plana da variedade. Nesse regime, a topologia Euclidiana aproxima-se perfeitamente da geometria real dos dados.\nImpacto Prático (Fronteiras de Voronoi e Feature Scaling):\n\nAs fronteiras de decisão do \\(k\\)-NN particionam o espaço em células de Voronoi baseadas puramente nas distâncias geométricas.\nSe as características possuem ordens de grandeza diferentes (ex: salário em R$ 10.000 vs. idade em 30 anos), a escala maior dominará totalmente o cálculo da norma \\(L_2\\), distorcendo a geometria do espaço. A normalização (Feature Scaling) é obrigatória para restaurar a isotropia geométrica."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#exemplo-1",
+    "href": "algebra_opt/aula01/notas.html#exemplo-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "6.2 Exemplo 1",
+    "text": "6.2 Exemplo 1\nMesmo quando os dados formam distribuições complexas e não-lineares (como duas luas emaranhadas), o \\(k\\)-NN consegue operar com sucesso se o valor de \\(k\\) for pequeno e a densidade for alta. Isso ocorre porque, ao restringir a busca a poucos vizinhos muito próximos, o algoritmo explora apenas o trecho localmente plano do manifold de cada lua."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#rag-retrieval-augmented-generation-é-um-k-nn-para-texto",
+    "href": "algebra_opt/aula01/notas.html#rag-retrieval-augmented-generation-é-um-k-nn-para-texto",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "6.3 RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto",
+    "text": "6.3 RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto\nPara consolidar a importância prática de tudo o que vimos nesta aula (espaços vetoriais, normas, alta dimensionalidade e métricas de similaridade), vale notar que uma das tecnologias mais revolucionárias da atualidade — o RAG (Retrieval-Augmented Generation), usado em arquiteturas modernas de Inteligência Artificial — nada mais é do que uma aplicação direta e em larga escala do \\(k\\)-NN.\n\nComo funciona: Documentos corporativos, livros ou artigos são fatiados e convertidos em vetores densos de alta dimensão (os chamados embeddings, em \\(\\mathbb{R}^{1536}\\)) por um modelo de linguagem. Esses vetores habitam uma variedade latente complexa.\nA Busca Vetorial: Quando um usuário faz uma pergunta, a consulta é convertida em um vetor no mesmo espaço. O sistema executa um algoritmo de vizinhança equivalente ao \\(k\\)-NN (usando similaridade de cosseno ou norma \\(L_2\\) otimizada) para recuperar os \\(k\\) trechos de texto mais próximos.\nA Conclusão da Aula: A eficácia de um sistema de RAG de ponta depende exatamente dos tópicos que cobrimos hoje: escolher a métrica adequada (geralmente Cosseno para resistir à alta dimensionalidade) e compreender que a proximidade vetorial na base de dados reflete a proximidade semântica no manifold da linguagem."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html",
+    "href": "supervised/aula01/notas.html",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "",
+    "text": "←"
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#o-que-é-uma-distribuição",
+    "href": "supervised/aula01/notas.html#o-que-é-uma-distribuição",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "2.1 O que é uma distribuição",
+    "text": "2.1 O que é uma distribuição\nConsidere duas populações medidas em uma única variável \\(x\\) — pense em um escore normalizado, de modo que \\(x \\in [0,1]\\). Cada população produz um histograma, e sobre cada histograma podemos desenhar uma curva suave que acompanha o formato do histograma. Neste momento a definição operacional é deliberadamente pobre:\n\nUma distribuição é o formato que os dados assumem no espaço.\n\nNada além disso, por enquanto. Não há fórmula, não há família paramétrica, não há nome próprio. A curva é um resumo geométrico do histograma. Toda a maquinaria — famílias, parâmetros, estimadores — virá depois, e virá quando fizer falta.\nVale notar já o que a curva não é. Ela não é uma probabilidade: a altura da curva em um ponto não é “a chance de \\(x\\) valer aquilo”. Voltaremos a esse ponto com cuidado no Bloco 2, porque ele causa confusão real.\n\n\n\n\n\n\n\n\n\n\nA mesma ideia sobrevive intacta em duas dimensões. O histograma vira uma nuvem de pontos e a curva vira um conjunto de curvas de nível. O objeto é o mesmo; só a dimensão do espaço mudou.\nDuas observações a guardar, ambas sementes de aulas futuras. Primeira: em duas dimensões ainda dá para desenhar, e o desenho continua informativo. Segunda: em vinte dimensões não dá — e o problema não é apenas gráfico. Estimar o formato de uma nuvem em \\(\\mathbb{R}^{20}\\) com dados finitos é um problema qualitativamente diferente, o que vamos discutir em aulas futuras."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#classificação-e-o-problema-da-discretizaçãocorte",
+    "href": "supervised/aula01/notas.html#classificação-e-o-problema-da-discretizaçãocorte",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "2.2 Classificação e o problema da discretização/corte",
+    "text": "2.2 Classificação e o problema da discretização/corte\nDe volta a uma dimensão. As duas curvas se sobrepõem em uma faixa central. Um ponto que cai nessa faixa poderia ter vindo de qualquer uma das duas populações.\nSuponha que você precise decidir, para cada novo \\(x\\), se ele veio de A ou de B. A regra mais simples possível é um limiar: escolher um valor \\(t\\) e declarar “classe A” quando \\(x \\le t\\), “classe B” quando \\(x &gt; t\\).\n\nA pergunta: onde você corta?\n\nAntes de continuar, responda. A resposta que quase toda turma dá é no ponto em que as duas curvas se cruzam. É uma resposta com boa aparência: é o ponto onde “as duas populações são igualmente plausíveis”, e ele tem a virtude de ser simétrico e de não exigir arbitragem.\nAnote essa resposta. Ela está errada, e o resto do bloco existe para mostrar por quê e para mostrar qual é a correção."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#tipos-de-erros",
+    "href": "supervised/aula01/notas.html#tipos-de-erros",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "2.3 Tipos de erros",
+    "text": "2.3 Tipos de erros\nFixado o corte no cruzamento, existem exatamente dois tipos de erro, e eles correspondem a duas áreas na figura:\n\npontos da classe A que caem à direita do corte e são declarados B;\npontos da classe B que caem à esquerda do corte e são declarados A.\n\nO vocabulário vem em duas camadas — primeiro a intuitiva, depois a técnica:\n\n\n\nIntuitivo\nTécnico\nTambém chamado\n\n\n\n\nalarme falso\nerro Tipo I\nfalso positivo\n\n\nescape, o que passou batido\nerro Tipo II\nfalso negativo\n\n\n\nAdvertência necessária. Os rótulos “Tipo I” e “Tipo II” não são propriedades da figura. Eles só ficam definidos depois que você declara qual classe é a hipótese nula. Em detecção de anomalia a convenção é natural: a nula é “normal”, e portanto o alarme falso é sinalizar anomalia onde não havia. Em um problema simétrico — dois dígitos manuscritos, duas espécies — a atribuição é pura convenção e precisa ser anunciada antes do uso, sob pena de a discussão inteira ficar ambígua. Nesta aula fixamos: A é a nula (normal), B é a alternativa (anômala).\nO primeiro resultado real da aula é geométrico, não algébrico. Olhe as duas áreas hachuradas e mova o corte mentalmente:\n\nDeslocar \\(t\\) para a esquerda aumenta a área de alarme falso e diminui a área de escape. Deslocar para a direita faz o oposto. Não existe \\(t\\) que zere as duas.\n\nEsse é o compromisso fundamental da decisão sob sobreposição, e ele não é uma limitação do método: é uma propriedade das distribuições. Enquanto houver sobreposição, haverá erro irredutível — o chamado erro de Bayes. Nenhum classificador, por mais sofisticado, o elimina. Uma rede neural com um bilhão de parâmetros aplicada a este problema unidimensional não erra menos do que o melhor limiar; ela apenas gasta mais para chegar ao mesmo lugar.\n\n\n\n\n\n\n\n\n\n\nA figura seguinte torna o compromisso quantitativo: para cada posição do corte, a fração de cada tipo de erro. As duas curvas são monótonas em direções opostas e não se anulam simultaneamente em ponto algum do domínio."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#a-conta-que-desmente-a-intuição",
+    "href": "supervised/aula01/notas.html#a-conta-que-desmente-a-intuição",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "2.4 A conta que desmente a intuição",
+    "text": "2.4 A conta que desmente a intuição\nAté aqui uma informação foi omitida de propósito: as duas classes não são igualmente frequentes. Na amostra simulada há 950 pontos da classe A e 50 da classe B, num total de 1.000. A razão é 19 para 1.\nIsso não muda nada nas curvas desenhadas — elas descrevem cada classe isoladamente, e continuam válidas. Mas muda tudo na contagem de erros, porque a contagem é feita sobre a amostra inteira, e nela A é dezenove vezes mais numerosa.\nVamos contar os erros de verdade, sobre os pontos simulados, em duas posições do corte: no cruzamento das curvas, que foi a resposta da turma, e num corte deslocado para a direita.\n\n\n\n\n\n\n\n\n\nO corte deslocado erra muito menos. E ele não foi escolhido por tentativa e erro: sai de um princípio, que é o assunto do próximo passo.\nO desconforto aqui é o ponto pedagógico. A resposta “corte no cruzamento” era intuitivamente óbvia, tinha justificativa verbal razoável — “é onde as duas são igualmente plausíveis” — e os dados acabaram de desmenti-la. Vale registrar exatamente onde a justificativa verbal falhou: igualmente plausíveis estava sendo confundido com igualmente prováveis. São coisas diferentes, e a diferença é a frequência das classes."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#um-pouco-de-teoria-de-probabilidade",
+    "href": "supervised/aula01/notas.html#um-pouco-de-teoria-de-probabilidade",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "3.1 Um pouco de teoria de probabilidade",
+    "text": "3.1 Um pouco de teoria de probabilidade\nConsidere duas variáveis aleatórias: uma variável contínua \\(X \\in \\mathcal{X}\\) (as nossas medições) e uma variável discreta \\(Y \\in \\{\\mathcal{C}_1, \\dots, \\mathcal{C}_K\\}\\) (os rótulos de classe).\n\n3.1.1 Distribuição Conjunta: \\(p(x, \\mathcal{C}_k)\\)\nA distribuição conjunta descreve a probabilidade de duas coisas acontecerem simultaneamente: a observação pertencer à classe \\(\\mathcal{C}_k\\) e o valor medido cair nas proximidades de \\(x\\).\n\nEm termos geométricos, é a curva (ou superfície) que leva em conta tanto o formato dos dados quanto a frequência relativa da classe no espaço original de amostragem.\n\n\n\n3.1.2 Distribuição Condicional: \\(p(x \\mid \\mathcal{C}_k)\\) e \\(p(\\mathcal{C}_k \\mid x)\\)\nA distribuição condicional descreve o comportamento de uma variável dado que a outra é fixada ou conhecida:\n\n\\(p(x \\mid \\mathcal{C}_k)\\) é a densidade condicional de classe (ou verossimilhança): responde “sabendo que a observação vem da classe \\(\\mathcal{C}_k\\), qual é a distribuição dos valores \\(x\\)?”.\n\\(p(\\mathcal{C}_k \\mid x)\\) é a probabilidade a posteriori: responde a pergunta inversa e crucial do aprendizado supervisionado — “dado que observei o valor \\(x\\), qual é a probabilidade de ele ter vindo da classe \\(\\mathcal{C}_k\\)?”.\n\n\n\n3.1.3 Distribuição Marginal: \\(p(x)\\)\nA distribuição marginal (ou evidência) representa a distribuição de \\(X\\) ignorando a qual classe cada ponto pertence. Obtemos a marginal somando (ou integrando) a conjunta sobre todos os estados da outra variável (Regra da Soma):\n\\[\np(x) \\;=\\; \\sum_{j=1}^{K} p(x, \\mathcal{C}_j) \\;=\\; \\sum_{j=1}^{K} p(x \\mid \\mathcal{C}_j)\\,p(\\mathcal{C}_j).\n\\]\n\n\n3.1.4 A Regra do Produto e o Teorema de Bayes\nA Regra do Produto relaciona a conjunta às condicionais e prioris:\n\\[\np(x, \\mathcal{C}_k) \\;=\\; p(x \\mid \\mathcal{C}_k)\\,p(\\mathcal{C}_k) \\;=\\; p(\\mathcal{C}_k \\mid x)\\,p(x).\n\\]\nIgualando as duas formas de reescrever a distribuição conjunta e isolando a posteriori \\(p(\\mathcal{C}_k \\mid x)\\), obtemos o Teorema de Bayes:\n\\[\n\\boxed{\\;p(\\mathcal{C}_k \\mid x) \\;=\\; \\frac{p(x \\mid \\mathcal{C}_k)\\,p(\\mathcal{C}_k)}{p(x)} \\;=\\; \\frac{p(x \\mid \\mathcal{C}_k)\\,p(\\mathcal{C}_k)}{\\sum_{j} p(x \\mid \\mathcal{C}_j)\\,p(\\mathcal{C}_j)}\\;}\n\\]\nA leitura dos quatro papéis do Teorema de Bayes:\n\nPriori \\(p(\\mathcal{C}_k)\\): O conhecimento sobre a prevalência da classe antes de medir \\(x\\).\nVerossimilhança \\(p(x \\mid \\mathcal{C}_k)\\): A compatibilidade da medição \\(x\\) com a classe \\(\\mathcal{C}_k\\).\nEvidência \\(p(x)\\): Um fator de normalização que garante que \\(\\sum_k p(\\mathcal{C}_k \\mid x) = 1\\).\nPosteriori \\(p(\\mathcal{C}_k \\mid x)\\): A incerteza atualizada sobre a classe após observar a evidência \\(x\\)."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#a-importancia-da-priori-e-bayes",
+    "href": "supervised/aula01/notas.html#a-importancia-da-priori-e-bayes",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "3.2 A importancia da priori e Bayes",
+    "text": "3.2 A importancia da priori e Bayes\nPor que o corte no cruzamento falhou? Porque as curvas que desenhamos descrevem o formato de cada classe isoladamente. Elas respondem à pergunta “se o ponto veio de A, onde ele tende a cair? (\\(P(x \\mid \\mathcal{C}_A)\\))”. Não respondem à pergunta que importa, que é “de onde este ponto veio? (\\(P(\\mathcal{C}_k \\mid x)\\))”.\nPara responder à segunda pergunta é preciso incorporar a informação que estava faltando: uma das classes é dezenove vezes mais frequente. A correção é literalmente escalar cada curva pela frequência da sua classe e cortar no cruzamento das curvas escaladas.\nAgora, com os objetos já em cima da mesa, vale nomeá-los.\n\nA frequência de cada classe é a priori: \\(\\pi_k = p(\\mathcal{C}_k)\\), com \\(\\pi_A = 0{,}95\\) e \\(\\pi_B = 0{,}05\\).\nA curva isolada é a densidade condicional de classe: \\(p(x \\mid \\mathcal{C}_k)\\).\nA curva escalada é a conjunta: \\[p(x, \\mathcal{C}_k) \\;=\\; p(x \\mid \\mathcal{C}_k)\\, \\pi_k .\\]\nDecidir pela conjunta maior é decidir pela posteriori maior, porque \\[p(\\mathcal{C}_k \\mid x) \\;=\\; \\frac{p(x \\mid \\mathcal{C}_k)\\,\\pi_k}{p(x)}\\] \\[\\qquad\\text{e } p(x) = \\sum_j p(x \\mid \\mathcal{C}_j)\\,\\pi_j\n\\text{ não depende de } k .\\]\n\n\nA prova de que o cruzamento das conjuntas é ótimo\nUma regra de decisão binária é uma partição \\(\\mathcal{X} = \\mathcal{R}_A \\cup\n\\mathcal{R}_B\\), com \\(\\mathcal{R}_A \\cap \\mathcal{R}_B = \\emptyset\\). A probabilidade de erro é (PRML, eqs. 1.78–1.79, pp. 39–40)\n\\[\np(\\text{erro})\n= \\int_{\\mathcal{R}_A} p(x, \\mathcal{C}_B)\\,\\mathrm{d}x\n+ \\int_{\\mathcal{R}_B} p(x, \\mathcal{C}_A)\\,\\mathrm{d}x .\n\\]\nCada ponto \\(x\\) contribui para exatamente uma das duas integrais, e a escolha de qual delas é livre e independente ponto a ponto. Logo o mínimo é obtido atribuindo cada \\(x\\) à região cuja contribuição é menor:\n\\[\nx \\in \\mathcal{R}_A \\iff p(x, \\mathcal{C}_A) &gt; p(x, \\mathcal{C}_B)\n\\iff p(\\mathcal{C}_A \\mid x) &gt; p(\\mathcal{C}_B \\mid x).\n\\]\nA fronteira ótima é, portanto, o conjunto \\(\\{x : p(x,\\mathcal{C}_A) =\np(x,\\mathcal{C}_B)\\}\\) — o cruzamento das conjuntas. Em termos de razão de verossimilhanças, a mesma condição é\n\\[\n\\frac{p(x \\mid \\mathcal{C}_B)}{p(x \\mid \\mathcal{C}_A)} \\;=\\; \\frac{\\pi_A}{\\pi_B}\n\\;=\\; 19 ,\n\\]\no que explica quantitativamente por que o corte se deslocou tanto para a direita: só vale declarar B quando a evidência a favor de B for dezenove vezes mais forte, porque B é dezenove vezes mais rara.\nNote o que o argumento não usou: nenhuma família paramétrica, nenhuma suposição de normalidade, nenhuma condição de regularidade além da existência das densidades. O resultado é geral.\nReferência para a figura. PRML, Figura 1.24, p. 40, e §1.5.1, pp. 39–41. Atenção ao ler: essa figura plota as conjuntas, não as condicionais. Essa é exatamente a distinção que este bloco construiu, e é por isso que a figura só faz sentido depois do percurso, e não antes."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#exemplo-triagem-médica",
+    "href": "supervised/aula01/notas.html#exemplo-triagem-médica",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "3.3 Exemplo: triagem médica",
+    "text": "3.3 Exemplo: triagem médica\nO mesmo fenômeno, agora no caso discreto e num contexto familiar. O exemplo é de DLFC §2.1.1, pp. 25–26, retomado em §2.1.4, p. 30.\nUma doença tem prevalência de 1 em 100. Um teste detecta a doença em 90% dos doentes (\\(\\text{sensibilidade} = 0{,}90\\)) e produz resultado positivo em 3% dos saudáveis (\\(\\text{falso positivo} = 0{,}03\\)). Uma pessoa testa positivo. Qual a probabilidade de que esteja doente?\n\\[\n\\begin{aligned}\np(D \\mid +) &= \\frac{p(+ \\mid D)\\,p(D)}{p(+ \\mid D)\\,p(D) + p(+ \\mid \\bar{D})\\,p(\\bar{D})}\\\\\n& = \\frac{0{,}90 \\times 0{,}01}{0{,}90 \\times 0{,}01 + 0{,}03 \\times 0{,}99}\\\\\n& = \\frac{0{,}0090}{0{,}0387} \\approx 0{,}233 .\n\\end{aligned}\n\\]\nCerca de 23% — não 90%, que é a resposta que a maioria dá. A intuição falha aqui exatamente como falhou no Passo 4, e pela mesma razão: a verossimilhança \\(p(+ \\mid D) = 0{,}90\\) é alta, mas a priori \\(p(D) = 0{,}01\\) é baixíssima, e o produto é o que decide.\nEm contagens absolutas, sobre 10.000 pessoas: 100 doentes, das quais 90 testam positivo; 9.900 saudáveis, das quais 297 testam positivo. Total de 387 positivos, 90 dos quais realmente doentes — 23%.\nEsta é a segunda aparição do mesmo fenômeno em poucos minutos, e não a primeira. É por isso que ela funciona: a turma já sabe que a raridade da classe muda a conclusão, e aqui apenas reencontra o fato no caso discreto."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#densidade-vs.-probabilidade",
+    "href": "supervised/aula01/notas.html#densidade-vs.-probabilidade",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "4.1 Densidade vs. Probabilidade",
+    "text": "4.1 Densidade vs. Probabilidade\nPara uma variável aleatória contínua, a probabilidade de um valor exato é zero (\\(P(X = x) = 0\\)). O objeto fundamental é a função densidade de probabilidade (PDF) \\(p(x)\\) (DLFC §2.2, pp. 32–33):\n\\[\nP(a \\le X \\le b) = \\int_a^b p(x)\\,\\mathrm{d}x, \\qquad p(x) \\ge 0, \\qquad \\int_{-\\infty}^{\\infty} p(x)\\,\\mathrm{d}x = 1.\n\\]\nDuas consequências imediatas essenciais para o resto do curso:\n\nA densidade pode exceder \\(1\\): A restrição de integração a 1 limita a área, não a altura. Uma distribuição Uniforme no intervalo \\([0, 0{,}01]\\) possui densidade constante \\(p(x) = 100\\). Aqui está o trecho com a formatação original em Markdown, sem as tags do LaTeX, pronto para você substituir no seu documento Quarto:\nMudança de variável e o Jacobiano: Diferente de uma probabilidade discreta, a densidade se altera quando “esticamos” ou “encolhemos” o espaço para garantir que a probabilidade total (a área sob a curva) seja preservada. Se \\(y = g(x)\\) for uma transformação bijetora e diferenciável, a probabilidade em um pequeno intervalo deve ser a mesma nos dois espaços: \\(p_Y(y)\\,\\mathrm{d}y = p_X(x)\\,\\mathrm{d}x\\). Isolando \\(p_Y(y)\\), obtemos a regra da mudança de variável, que inclui o Jacobiano (o fator que mede a distorção do espaço):\n\n\\[p_Y(y) \\;=\\; p_X\\big(g^{-1}(y)\\big) \\left\\vert{} \\frac{\\mathrm{d}g^{-1}(y)}{\\mathrm{d}y} \\right\\vert{}.\\]\nExemplo prático: Seja \\(X\\) uma variável com densidade uniforme no intervalo \\([0, 2]\\), ou seja, \\(p_X(x) = 0{,}5\\). Se aplicarmos a transformação quadrática \\(y = x^2\\) (bijetora para \\(x \\ge 0\\)), a função inversa é \\(x = \\sqrt{y}\\). A derivada é \\(\\frac{\\mathrm{d}x}{\\mathrm{d}y} = \\frac{1}{2\\sqrt{y}}\\). A nova densidade não é apenas o valor antigo realocado, mas sim multiplicada pela distorção:\n\\[p_Y(y) \\;=\\; 0{,}5 \\times \\left\\vert{} \\frac{1}{2\\sqrt{y}} \\right\\vert{} \\;=\\; \\frac{1}{4\\sqrt{y}} \\quad \\text{para } y \\in (0, 4].\\]\nO problema da moda: O exemplo acima mostra que uma densidade constante (plana) se transformou em uma curva que diverge perto de \\(y=0\\). Por carregar este Jacobiano, a moda de uma densidade não é invariante a reparametrizações. O pico da distribuição muda de lugar dependendo de como o espaço é medido, enquanto a decisão discreta de classificação (\\(\\arg\\max_k p(\\mathcal{C}_k \\mid x)\\)) permanece imune a isso."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#resumos-populacionais-os-momentos",
+    "href": "supervised/aula01/notas.html#resumos-populacionais-os-momentos",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "4.2 Resumos Populacionais: Os Momentos",
+    "text": "4.2 Resumos Populacionais: Os Momentos\nOs momentos são resumos numéricos que descrevem a localização, dispersão e forma da densidade \\(p(x)\\).\n\nMomento de Ordem \\(k\\) (em relação à origem): \\[\n\\mu_k' = \\mathbb{E}[X^k] = \\int_{-\\infty}^{\\infty} x^k p(x)\\,\\mathrm{d}x.\n\\]\nPrimeiro Momento (Média / Valor Esperado): \\(\\mu = \\mathbb{E}[X]\\). Define o centro de massa da distribuição.\nMomentos Centrais de Ordem \\(k\\) (em relação à média): \\[\n\\mu_k = \\mathbb{E}[(X - \\mu)^k] = \\int_{-\\infty}^{\\infty} (x - \\mu)^k p(x)\\,\\mathrm{d}x.\n\\]\nSegundo Momento Central (Variância): \\(\\sigma^2 = \\operatorname{Var}[X] = \\mathbb{E}[(X - \\mu)^2] = \\mathbb{E}[X^2] - \\mu^2\\). Mede a dispersão ao redor do centro.\nTerceiro Momento Central Padronizado (Assimetria / Skewness): \\(\\gamma_1 = \\mathbb{E}\\!\\left[\\left(\\frac{X - \\mu}{\\sigma}\\right)^3\\right]\\). Mede o desequilíbrio das caudas em relação ao centro (\\(\\gamma_1 = 0\\) para distribuições simétricas).\nQuarto Momento Central Padronizado (Curtose / Kurtosis): \\(\\gamma_2 = \\mathbb{E}\\!\\left[\\left(\\frac{X - \\mu}{\\sigma}\\right)^4\\right] - 3\\). Mede a concentração no centro e o peso relativo das caudas em comparação à Gaussiana (\\(\\gamma_2 = 0\\))."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#caudas-de-uma-distribuição",
+    "href": "supervised/aula01/notas.html#caudas-de-uma-distribuição",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "4.3 Caudas de uma Distribuição",
+    "text": "4.3 Caudas de uma Distribuição\nA cauda da distribuição descreve a taxa de decaimento de \\(p(x)\\) quando \\(|x| \\to \\infty\\). O comportamento assintótico da cauda dita a probabilidade atribuída a eventos extremos (valores muito distantes da média).\n\nCaudas Leves (Exponenciais ou Sub-gaussianas): O decaimento ocorre na taxa de \\(\\exp(-x^2)\\) ou \\(\\exp(-x)\\). Exemplos: Gaussiana, Exponencial. Eventos a \\(5\\sigma\\) da média são praticamente impossíveis.\nCaudas Pesadas (Polinomiais / Sub-exponenciais): O decaimento ocorre a uma taxa de potência \\(x^{-\\nu}\\). Exemplo: \\(t\\) de Student, Pareto. A probabilidade de observações extremas decai muito devagar, tornando o surgimento de outliers um fenômeno estrutural e esperado."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#ajustar-a-beta",
+    "href": "supervised/aula01/notas.html#ajustar-a-beta",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "5.1 Ajustar a Beta",
+    "text": "5.1 Ajustar a Beta\nNão há solução em forma fechada para Beta, e é preciso resolvê-lo numericamente — Newton, ou scipy.stats.beta.fit. O problema é bem comportado (\\(\\ell\\) é côncava nesta parametrização), mas isso não produz uma fórmula.\nNote que as estatísticas suficientes são \\(\\sum_n \\ln x_n\\) e \\(\\sum_n \\ln(1-x_n)\\) — médias logarítmicas, não a média aritmética. É por isso que momentos e MLE dão respostas diferentes, e é por isso que zeros e uns exatos são fatais: \\(\\ln 0 = -\\infty\\).\nEste contraste é o primeiro encontro do curso com uma distinção que retorna nas Aulas 5 e 7:\n\nForma fechada e otimalidade são propriedades diferentes. O estimador de momentos tem fórmula e não é eficiente; o de máxima verossimilhança é assintoticamente eficiente e não tem fórmula.\n\n\n\n\n\n\n\nImportanteArmadilha prática: zeros e uns exatos\n\n\n\nQuando \\(a &lt; 1\\) ou \\(b &lt; 1\\), a densidade da Beta diverge nas extremidades, e uma observação exatamente igual a \\(0\\) ou \\(1\\) torna a verossimilhança infinita ou indefinida. Dados reais limitados a \\([0,1]\\) contêm zeros exatos com enorme frequência — taxas de inadimplência de carteiras sem eventos, proporções de uso nulo, escores saturados.\nCorreções honestas: (i) clipping para \\([\\varepsilon, 1-\\varepsilon]\\), declarando \\(\\varepsilon\\); (ii) a transformação de Smithson–Verkuilen, \\(x' = \\big(x(N-1) + 1/2\\big)/N\\); (iii) modelos zero/one-inflated, que tratam as bordas como uma componente discreta separada. A pior opção é descobrir isso em silêncio no laboratório e mexer no dado até o fit parar de reclamar.\n\n\nNota rápida — a família também importa para robustez, não só para o suporte. O mesmo raciocínio de “qual família assumir” que escolheu a Beta pelo suporte tem uma segunda dimensão: o gradiente da log-verossimilhança da Gaussiana cresce linearmente com a distância do ponto ao centro e nunca satura, enquanto o da \\(t\\) de Student satura e vai a zero quando o ponto está muito longe — por isso a \\(t\\) é o ajuste padrão quando se espera outliers no próprio processo de estimação (não confundir com a detecção de anomalias do próximo bloco, que é sobre pontos novos, não sobre robustez do ajuste)."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#detecção-de-anomalias-e-o-limiar",
+    "href": "supervised/aula01/notas.html#detecção-de-anomalias-e-o-limiar",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "5.2 Detecção de anomalias e o limiar",
+    "text": "5.2 Detecção de anomalias e o limiar\nMude agora o cenário. Suponha que você não tenha exemplos rotulados de anomalia — o caso realista na maior parte das aplicações de monitoramento. Você dispõe apenas de uma amostra do comportamento normal.\nO procedimento padrão: ajustar uma densidade \\(p(x)\\) somente aos dados normais e declarar anômalo o que cai numa região de exclusão. Duas formas usuais de definir essa região:\n\ncauda: \\(\\{x &gt; t\\}\\) — apropriada quando a anomalia é direcional;\nconjunto de nível: \\(\\{x : p(x) &lt; \\lambda\\}\\) — apropriada em geral, e a única que generaliza para \\(\\mathbb{R}^d\\).\n\nCom a Beta ajustada, a taxa de alarme falso é exatamente calculável, porque é uma integral da densidade ajustada:\n\\[\n\\text{Tipo I} \\;=\\; P(x &gt; t) \\;=\\; 1 - I_t(a, b),\n\\]\nonde \\(I_t(a,b) = B(t; a, b)/B(a,b)\\) é a função beta incompleta regularizada — a CDF da Beta. Invertendo, o limiar que produz exatamente uma taxa de alarme falso \\(\\alpha\\) é o quantil\n\\[\nt_\\alpha = I^{-1}_{1-\\alpha}(a, b).\n\\]\nOu seja: o limiar deixa de ser um número escolhido a olho e passa a ser um quantil do modelo ajustado, com taxa de alarme falso \\(\\alpha\\) por construção.\n\nA limitação que o Bloco 1 tornou visível\n\n\n\n\n\n\nNotaO ponto central da aula\n\n\n\nCom uma única densidade ajustada, o erro Tipo II não está definido.\nNão existe modelo do que é uma anomalia. Logo, a probabilidade de deixar passar uma anomalia — \\(P(x \\le t \\mid \\text{anômalo})\\) — não pode ser calculada, porque a distribuição condicionante não existe.\n\n\nCompare com o Bloco 1: lá havia duas curvas, e os dois erros eram duas áreas, ambas mensuráveis. Aqui há uma curva, e só uma das áreas existe. A assimetria não é um defeito do método — é uma consequência direta de não haver dados da segunda classe.\nEste é o momento de maior retorno da aula, e ele só funciona nesta ordem. Se a detecção de anomalia viesse antes do caso de duas classes, a ausência da segunda curva não seria sentida como ausência — seria apenas a forma como as coisas são.\n\n\nTrês saídas honestas\n1. Assumir um modelo de anomalia. A escolha mais simples é a uniforme, \\(q(x) = 1\\) em \\([0,1]\\). Nesse caso a razão de verossimilhanças fica\n\\[\n\\frac{q(x)}{p(x)} = \\frac{1}{p(x)} ,\n\\]\ne o teste ótimo “declarar anomalia quando \\(q(x)/p(x) &gt; \\tau\\)” é idêntico a “declarar anomalia quando \\(p(x) &lt; 1/\\tau\\)” — isto é, ao conjunto de nível.\nA conclusão merece ser dita em voz alta: cortar na cauda já é supor, implicitamente, que anomalias são uniformes. A suposição estava lá o tempo todo, apenas escondida. Isso importa porque a suposição é frequentemente ruim — em muitos domínios as anomalias se concentram em regiões específicas, e uma uniforme é a pior descrição possível desse fato.\n2. Estimar empiricamente. Se houver uma amostra contaminada com anomalias rotuladas, ainda que pequena e enviesada, o Tipo II pode ser estimado nela. A estimativa herda todos os vieses da amostra rotulada — e em domínios com seleção (crédito, fraude, triagem) esses vieses são severos, porque só se observa o rótulo de quem foi aprovado.\n3. Aceitar e declarar. Reportar apenas a taxa de alarme falso, deixando explícito que a taxa de detecção é desconhecida. Isso é legítimo, desde que declarado. O que não é legítimo é apresentar um número de “detecção” derivado de uma suposição não anunciada."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#motivação-traduzindo-o-mundo-real",
+    "href": "algebra_opt/aula01/slides.html#motivação-traduzindo-o-mundo-real",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Motivação: Traduzindo o Mundo Real",
+    "text": "Motivação: Traduzindo o Mundo Real\n\nA máquina só processa números: Conceitos do mundo real precisam ser codificados quantitativamente.\nAtributos (\\(Features\\)): Variáveis mensuráveis de um fenômeno.\nExemplos de representação vetorial:\n\nImagens: Pixels achatados em um vetor longo (\\(\\mathbb{R}^{784}\\) para \\(28 \\times 28\\)).\nDados Tabulares: Atributos de pacientes/clientes (\\(\\mathbf{x} \\in \\mathbb{R}^d\\)).\nTexto/NLP: Contagem de palavras ou embeddings (\\(\\mathbb{R}^{1536}\\))."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#escalares-vs.-vetores",
+    "href": "algebra_opt/aula01/slides.html#escalares-vs.-vetores",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Escalares vs. Vetores",
+    "text": "Escalares vs. Vetores\n\nEscalar (\\(c \\in \\mathbb{R}\\)): Número real único (ex: learning rate, temperatura).\nVetor-coluna (\\(\\mathbf{x} \\in \\mathbb{R}^d\\)): Arranjo ordenado de \\(d\\) características:\n\n\\[\\mathbf{x} = \\begin{bmatrix} x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_d \\end{bmatrix}\\]\n\nOperações Básicas (Element-wise):\n\nSoma: \\(\\mathbf{u} + \\mathbf{v} = [u_1 + v_1, \\dots, u_d + v_d]^T\\) (composição)\nEscalar: \\(\\alpha \\mathbf{v} = [\\alpha v_1, \\dots, \\alpha v_d]^T\\) (escala/redimensionamento)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#representação-visual-o-espaço-de-características-feature-space",
+    "href": "algebra_opt/aula01/slides.html#representação-visual-o-espaço-de-características-feature-space",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Representação Visual: O Espaço de Características (Feature Space)",
+    "text": "Representação Visual: O Espaço de Características (Feature Space)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#geometria-das-operações-vetoriais-em-mathbbr2",
+    "href": "algebra_opt/aula01/slides.html#geometria-das-operações-vetoriais-em-mathbbr2",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)",
+    "text": "Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)\n\nSoma (\\(\\mathbf{u} + \\mathbf{v}\\)): Combinação linear de forças/direções (Regra do Paralelogramo).\nMultiplicação por Escalar (\\(\\alpha \\mathbf{u}\\)): Amplificação ou atenuamento de magnitude sem alterar a linha de ação."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#o-problema-de-aprendizado-supervisionado",
+    "href": "algebra_opt/aula01/slides.html#o-problema-de-aprendizado-supervisionado",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "O Problema de Aprendizado Supervisionado",
+    "text": "O Problema de Aprendizado Supervisionado\n\nConjunto de Treino: \\(\\mathcal{D} = \\{(\\mathbf{x}_i, y_i)\\}_{i=1}^N\\), onde \\(\\mathbf{x}_i \\in \\mathbb{R}^d\\) e \\(y_i \\in \\mathcal{Y}\\).\nClassificação: \\(y_i \\in \\{1, 2, \\dots, C\\}\\) (rótulos discretos).\nRegressão: \\(y_i \\in \\mathbb{R}\\) (valores contínuos).\nObjetivo: Prever \\(\\hat{y}_{\\text{novo}}\\) para um novo vetor de características \\(\\mathbf{x}_{\\text{novo}}\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#a-intuição-do-k-nn",
+    "href": "algebra_opt/aula01/slides.html#a-intuição-do-k-nn",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "A Intuição do \\(k\\)-NN",
+    "text": "A Intuição do \\(k\\)-NN\n\nPrincípio da Vizinhança: Observações próximas no espaço de características compartilham propriedades semelhantes.\nNão Paramétrico: O \\(k\\)-NN não assume uma forma funcional pré-definida para \\(f(\\mathbf{x})\\); o próprio conjunto de treino \\(\\mathcal{D}\\) define o modelo.\nMecânica Básica:\n\nEncontrar os \\(k\\) pontos de treino mais próximos de \\(\\mathbf{x}_{\\text{novo}}\\).\nAgregar seus rótulos por votação (classificação) ou média (regressão)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#formalização-do-k-nn",
+    "href": "algebra_opt/aula01/slides.html#formalização-do-k-nn",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Formalização do \\(k\\)-NN",
+    "text": "Formalização do \\(k\\)-NN\n\nConjunto de \\(k\\) Vizinhos: \\(\\mathcal{N}_k(\\mathbf{x}_{\\text{novo}}) \\subset \\mathcal{D}\\) contendo as \\(k\\) amostras com menores \\(d(\\mathbf{x}_{\\text{novo}}, \\mathbf{x}_i)\\).\nClassificação (Votação Majoritária): \\[\\hat{y}_{\\text{novo}} = \\arg\\max_{c} \\sum_{i \\in \\mathcal{N}_k} \\mathbb{I}(y_i = c)\\]\nRegressão (Média Aritmética): \\[\\hat{y}_{\\text{novo}} = \\frac{1}{k} \\sum_{i \\in \\mathcal{N}_k} y_i\\]"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#ilustração-prática-encontrando-os-k-vizinhos-em-mathbbr2",
+    "href": "algebra_opt/aula01/slides.html#ilustração-prática-encontrando-os-k-vizinhos-em-mathbbr2",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)",
+    "text": "Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#subespaços-vetoriais",
+    "href": "algebra_opt/aula01/slides.html#subespaços-vetoriais",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Subespaços Vetoriais",
+    "text": "Subespaços Vetoriais\n\nDefinição: Subconjunto \\(U \\subseteq V\\) que preserva a estrutura linear plana de um espaço vetorial.\nCondições (Regras de Fechamento):\n\nContém o vetor nulo (\\(\\mathbf{0} \\in U\\)).\nFechado para adição (\\(\\mathbf{x} + \\mathbf{y} \\in U\\)).\nFechado para escalar (\\(\\lambda \\mathbf{x} \\in U\\)).\n\nGeometria: Retas e planos infinitos passando necessariamente pela origem. Não possuem curvatura.\nExemplo Válido: Solução de \\(A\\mathbf{x} = \\mathbf{0}\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#o-espaço-real-dos-dados-variedades-manifolds",
+    "href": "algebra_opt/aula01/slides.html#o-espaço-real-dos-dados-variedades-manifolds",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "O Espaço Real dos Dados: Variedades (Manifolds)",
+    "text": "O Espaço Real dos Dados: Variedades (Manifolds)\n\nO que é um Manifold? Um espaço localmente plano, mas globalmente curvo.\nO Fim da Linearidade: Uma variedade curva viola a definição de Subespaço Vetorial.\nA Falha no Fechamento: Se você somar dois vetores \\(\\mathbf{x}\\) e \\(\\mathbf{y}\\) que estão sobre uma superfície curva (ex: esfera), o vetor resultante \\(\\mathbf{x} + \\mathbf{y}\\) apontará para fora da superfície, caindo no espaço nulo."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#a-hipótese-da-variedade-e-a-busca-pelo-subespaço-latente",
+    "href": "algebra_opt/aula01/slides.html#a-hipótese-da-variedade-e-a-busca-pelo-subespaço-latente",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "A Hipótese da Variedade e a Busca pelo Subespaço Latente",
+    "text": "A Hipótese da Variedade e a Busca pelo Subespaço Latente\n\nSe o Manifold é Plano: Ele é um subespaço afim/vetorial. Métodos de projeção linear (como PCA) funcionam perfeitamente.\nSe o Manifold é Curvo: Forçar um plano rígido destrói a informação dos dados.\nA Solução do Deep Learning: Redes neurais aplicam mapas não-lineares para “desamassar” a variedade curva original, enviando-a para um espaço latente.\nO Subespaço Final: No espaço latente final, a variedade desamassada vira um subespaço perfeitamente plano, onde a distância Euclidiana volta a funcionar."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#normas-o-tamanho-do-vetor",
+    "href": "algebra_opt/aula01/slides.html#normas-o-tamanho-do-vetor",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Normas: O Tamanho do Vetor",
+    "text": "Normas: O Tamanho do Vetor\n\nO que é uma norma? Uma função \\(\\|\\cdot\\|: V \\rightarrow \\mathbb{R}\\) que mede o comprimento de um vetor.\nPropriedades Obrigatórias:\n\nHomogeneidade Absoluta (\\(\\|\\lambda x\\| = |\\lambda|\\|x\\|\\)).\nDesigualdade Triangular (\\(\\|x + y\\| \\leq \\|x\\| + \\|y\\|\\)).\nPositiva Definida (\\(\\|x\\| \\geq 0\\) e \\(\\|x\\| = 0 \\Leftrightarrow x = \\mathbf{0}\\)).\n\nTipos Comuns em ML:\n\n\\(L_1\\) (Manhattan): \\(\\|x\\|_1 := \\sum_{i=1}^n |x_i|\\).\n\\(L_2\\) (Euclidiana): \\(\\|x\\|_2 := \\sqrt{\\sum_{i=1}^n x_i^2}\\).\n\\(L_\\infty\\) (Chebyshev/Máximo): \\(\\|x\\|_\\infty := \\max_i |x_i|\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#demonstração-visual-as-geometrias-das-normas",
+    "href": "algebra_opt/aula01/slides.html#demonstração-visual-as-geometrias-das-normas",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Demonstração Visual: As Geometrias das Normas",
+    "text": "Demonstração Visual: As Geometrias das Normas"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#definição-formal-de-métrica-1",
+    "href": "algebra_opt/aula01/slides.html#definição-formal-de-métrica-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Definição Formal de Métrica",
+    "text": "Definição Formal de Métrica\n\nO que é uma métrica? Uma função \\(d: X \\times X \\to \\mathbb{R}\\) que quantifica a separação entre objetos.\nAxiomas Obrigatórios:\n\nNão-negatividade (\\(d(x, y) \\geq 0\\) e \\(d(x, y) = 0 \\iff x = y\\)).\nSimetria (\\(d(x, y) = d(y, x)\\)).\nDesigualdade Triangular (\\(d(x, z) \\leq d(x, y) + d(y, z)\\)).\n\nMétrica Induzida por Norma: \\[d(x, y) = \\|x - y\\|\\]"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#distância-euclidiana-e-a-maldição-de-alta-dimensão",
+    "href": "algebra_opt/aula01/slides.html#distância-euclidiana-e-a-maldição-de-alta-dimensão",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Distância Euclidiana e a Maldição de Alta Dimensão",
+    "text": "Distância Euclidiana e a Maldição de Alta Dimensão\n\nIntuição Física: Excelente para espaços de baixa dimensão (\\(\\mathbb{R}^2, \\mathbb{R}^3\\)).\nO Colapso em Alta Dimensão (\\(d \\gg 1000\\)):\n\nConcentração de Distâncias: O ponto mais próximo e o mais distante tornam-se quase indistinguíveis.\nViés de Magnitude: O valor da norma \\(L_2\\) é dominado pelo tamanho absoluto (energia) dos vetores, mascarando o padrão real."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#similaridade-do-cosseno-em-alta-dimensão",
+    "href": "algebra_opt/aula01/slides.html#similaridade-do-cosseno-em-alta-dimensão",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Similaridade do Cosseno em Alta Dimensão",
+    "text": "Similaridade do Cosseno em Alta Dimensão\n\nFórmula Formal: \\[\\text{Sim}_{\\cos}(x, y) = \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = \\cos(\\theta)\\]\nPor que funciona melhor em alta dimensão?\n\nInvariância de Escala: Ignora o tamanho absoluto do vetor, focando na proporção das características.\nGeometria de Orientação: Em espaços latentes e textuais, a semântica é codificada pelo ângulo (direção), e não pelo comprimento do vetor."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#a-distância-do-cosseno-métrica-ou-quase-métrica",
+    "href": "algebra_opt/aula01/slides.html#a-distância-do-cosseno-métrica-ou-quase-métrica",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "A Distância do Cosseno: Métrica ou Quase-Métrica?",
+    "text": "A Distância do Cosseno: Métrica ou Quase-Métrica?\n\nFórmula Base: \\[d_{\\cos}(x, y) = 1 - \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = 1 - \\cos(\\theta)\\]\n1. Não-negatividade: Como \\(-1 \\leq \\cos(\\theta) \\leq 1\\), temos que \\(0 \\leq d_{\\cos}(x, y) \\leq 2\\).\n2. Simetria: Decorre diretamente da simetria do produto interno: \\(\\langle x, y \\rangle = \\langle y, x \\rangle\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#k-nn-limitações-geométricas-e-prática",
+    "href": "algebra_opt/aula01/slides.html#k-nn-limitações-geométricas-e-prática",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "\\(k\\)-NN: Limitações Geométricas e Prática",
+    "text": "\\(k\\)-NN: Limitações Geométricas e Prática\n\nPremissa do \\(L_2\\): Assume que o espaço local é plano.\nGarantias: Funciona com dados densos o suficiente para operar na porção localmente plana do manifold.\nDesafios Práticos:\n\nFronteiras de Voronoi: Particionamento espacial baseado em distâncias.\nFeature Scaling: Essencial para evitar que características de alta escala distorçam a geometria da norma."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#exemplo-1",
+    "href": "algebra_opt/aula01/slides.html#exemplo-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Exemplo 1",
+    "text": "Exemplo 1"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#rag-retrieval-augmented-generation-é-um-k-nn-para-texto",
+    "href": "algebra_opt/aula01/slides.html#rag-retrieval-augmented-generation-é-um-k-nn-para-texto",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto",
+    "text": "RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto\n\nA Arquitetura: Documentos e perguntas são mapeados como vetores densos em um espaço latente de alta dimensão.\nO Motor de Busca: A etapa de Retrieval (Recuperação) do RAG é um \\(k\\)-NN em larga escala, utilizando similaridade de cosseno ou distâncias normadas.\nSíntese: Toda a teoria de espaços vetoriais, normas e métricas que estudamos hoje é o motor matemático por trás dos sistemas modernos de IA generativa baseados em conhecimento externo."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#do-limiar-ao-p-valor",
+    "href": "unsupervised/aula01/slides.html#do-limiar-ao-p-valor",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Do limiar ao \\(p\\)-valor",
+    "text": "Do limiar ao \\(p\\)-valor\n\\(D_M(\\mathbf{x})^2 \\sim \\chi^2_d\\) (resultado clássico, verificado no 01-fontes.md, não vem de PRML/DLFC).\n\\[ p(\\mathbf{x}) = 1 - F_{\\chi^2_d}\\big(D_M(\\mathbf{x})^2\\big) \\]\n“Probabilidade de um ponto do modelo ajustado ser tão extremo quanto \\(\\mathbf{x}\\)” — não “probabilidade de \\(\\mathbf{x}\\) vir do modelo certo”.\n\nLimiar fixo = caso particular \\(p(\\mathbf{x})&lt;\\alpha\\). \\(p\\)-valor ordena por surpresa em vez de só separar em duas caixas."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#conjunta-vs.-por-dimensão",
+    "href": "unsupervised/aula01/slides.html#conjunta-vs.-por-dimensão",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Conjunta vs. por dimensão",
+    "text": "Conjunta vs. por dimensão\n\\(\\hat\\Sigma\\) diagonal = supor independência (PRML p. 84: mais rápido de inverter, mas “limita a capacidade de capturar correlações interessantes”).\n\nPor dimensão: \\(p_i(x_i)\\) da marginal \\(\\mathcal{N}(\\hat\\mu_i,\\hat\\sigma_i^2)\\). Combinado por Fisher: \\(-2\\sum_i\\ln p_i \\sim \\chi^2_{2d}\\).\n\n\n\n\n\n\nflowchart TD\n    X[\"ponto novo x\"] --&gt; Q{\"supor independência&lt;br/&gt;entre dimensões?\"}\n    Q --&gt;|\"sim\"| M1[\"p-valor por dimensão&lt;br/&gt;(d parâmetros)\"]\n    M1 --&gt; F1[\"combinar via Fisher&lt;br/&gt;-2 Σ ln p_i ~ χ²_2d\"]\n    Q --&gt;|\"não\"| M2[\"distância de Mahalanobis&lt;br/&gt;(d(d+1)/2 parâmetros)\"]\n    M2 --&gt; F2[\"p-valor conjunto&lt;br/&gt;via χ²_d\"]\n    F1 --&gt; R[\"cego à correlação entre dimensões\"]\n    F2 --&gt; R2[\"sensível à correlação — mais caro\"]"
+  },
+  {
+    "objectID": "society/aula01/notas.html",
+    "href": "society/aula01/notas.html",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "",
+    "text": "←\n\n\n\n\n\n\n\n\n1 Challenger — um desastre “técnico”?\nEm janeiro de 1985, o engenheiro Roger Boisjoly, da Morton Thiokol, alertou por escrito sobre um problema nos anéis de vedação (O-rings) do foguete Challenger: em baixas temperaturas, o material perde elasticidade e não veda mais a junta do foguete propulsor, deixando escapar gases quentes.\n\n“I am really afraid that if we do not take immediate steps we will place both the flight and the launching pad in serious danger. The consequences would be catastrophic and human lives would be put at risk.” (Van de Poel & Royakkers, 2011, p. 7)\n\nA recomendação técnica era clara: não lançar em temperatura baixa. Na véspera do lançamento de janeiro de 1986, sob pressão organizacional — risco político e financeiro de mais um atraso — quatro gerentes da Thiokol decidiram por voto, sem os engenheiros presentes, recomendar o lançamento. A manhã do lançamento estava quase 4°C abaixo do ponto de congelamento. O Challenger explodiu 73 segundos depois, matando os sete astronautas a bordo — incluindo a professora Christa McAuliffe, a primeira civil selecionada para ir ao espaço, o que tinha atraído atenção de mídia bem acima do normal para aquele lançamento.\n\n\n\n\n\nflowchart LR\n    A[\"jul/1985&lt;br/&gt;memo de Boisjoly&lt;br/&gt;alerta sobre o O-ring\"] --&gt; B[\"27/jan/1986&lt;br/&gt;véspera do lançamento&lt;br/&gt;4 gerentes votam sem&lt;br/&gt;os engenheiros\"]\n    B --&gt; C[\"28/jan/1986&lt;br/&gt;lançamento&lt;br/&gt;explosão em 73s\"]\n    C --&gt; D[\"comissão presidencial&lt;br/&gt;'inadequate communication&lt;br/&gt;at NASA'\"]\n    D --&gt; E[\"2 anos de programa&lt;br/&gt;parado + engenheiros&lt;br/&gt;ganham poder de veto\"]\n\n\n\n\n\n\nA comissão presidencial que investigou o desastre não concluiu “o anel de vedação falhou” — concluiu:\n\n“A Presidential Commission determined that the whole disaster was due to inadequate communication at NASA.” (p. 9)\n\nE o desfecho institucional reforça o ponto: a Thiokol não perdeu o contrato com a NASA, mas a agência mudou como funcionava —\n\n“Engineers were given more of a say in matters. In the future, they will have the power to halt a flight if they had their doubts.” (p. 9)\n\n\n\n\n\n\n\nNotaA pergunta que abre a aula\n\n\n\nSe a causa raiz de um dos maiores desastres da história da engenharia não foi um erro técnico isolado, em que sentido isso ainda é um problema de engenharia? A resposta desta aula: porque engenharia — e computação — nunca foi só técnica.\n\n\n\n\n2 O que é um Sistema Sociotécnico\nComputação não é feita só de hardware e software. É um sistema sociotécnico: tecnologia, pessoas, organizações e cultura se influenciam mutuamente — nenhuma delas determina as outras isoladamente.\n\n“We shape our tools and thereafter they shape us”, disse John Culkin numa entrevista com o teórico da mídia Marshall McLuhan (citado em Steen, 2022, p. 29).\n\nEssa ideia de coformação mútua rejeita duas posições mais simples e mais confortáveis, que Steen (2022, p. 30) nomeia explicitamente:\n\n“An instrumental view on technology is mistaken; we cannot use technologies as neutral instruments. A deterministic view is also erroneous; technologies do not determine our behaviours. Rather, the design and usage of technologies are embedded in a web of more or less intentional decisions, of both designers and users, and these decisions have effects on the ways in which people use these technologies.”\n\nOu seja: não é “a tecnologia é só uma ferramenta neutra, o problema é sempre humano” (visão instrumental), e não é “a tecnologia determina o comportamento, a sociedade só reage” (visão determinista). É uma teia de decisões — de quem projeta e de quem usa — que se afetam mutuamente.\nO Challenger é exatamente essa tese em ação, num só caso: a cultura organizacional (medo político de mais um atraso, hierarquia que excluiu os engenheiros da votação) moldou a decisão técnica (lançar mesmo com o alerta). E a decisão técnica — via o desastre — depois remoldou a cultura organizacional: dois anos de programa parado, e uma política nova para encorajar que engenheiros levantassem dúvidas. Não é uma linha reta de causa e efeito — é um laço.\n\n\n3 Tecnologia Não é Neutra\nSe tecnologia não é neutra, como isso aparece concretamente, em objetos do dia a dia? Duas ilustrações do Cap. 3 de Steen (2022) — uma dramática, uma banal, para mostrar que a tese vale nos dois extremos.\n\n\n\n\n\n\nImportanteAs pontes de Robert Moses\n\n\n\nRobert Moses ocupou cargos-chave no planejamento urbano de Nova York entre os anos 1920 e 1960. Ele mandou construir uma série de viadutos sobre as parkways deliberadamente baixos:\n\n“These bridges were so low that they prevented buses from going underneath. Effectively, these bridges prevented poor people, who typically could not afford cars and depended on buses, mostly people of colour, from visiting the parks and beaches. Moses used technology to achieve racist outcomes.” (Winner, apud Steen, 2022, p. 29)\n\nA altura de um viaduto de concreto — um detalhe de engenharia civil, aparentemente neutro — foi o mecanismo de uma política de exclusão racial. Nenhuma linha de código, nenhum algoritmo: só concreto. A tese vale igualmente, ou mais, para sistemas computacionais.\n\n\nA segunda ilustração é deliberadamente banal, para mostrar que o fenômeno não exige um vilão nem uma intenção política explícita — só projeto (Steen, 2022, pp. 29–30):\n\n“Shavers for men used to have screws, which suggests that men are able to do maintenance or repairs. Shavers for women, in contrast, have no screws, which suggests that they are unable to maintain or repair these devices. […] These features are referred to as scripts or affordances; these prescribe, to a smaller or larger extent, what people can and cannot do with these products.”\n\nUm parafuso — ou a ausência dele — carrega uma suposição sobre quem tem permissão (ou capacidade) de abrir, entender e reparar um objeto. Em software, a mesma lógica aparece em toda parte: uma opção de configuração escondida, uma API fechada, um formato de arquivo proprietário são scripts — decisões de projeto que prescrevem o que o usuário pode e não pode fazer, silenciosamente.\nO historiador da tecnologia Melvin Kranzberg resumiu isso numa frase (citada em Steen, 2022, p. 30):\n\n“Technology is neither good nor bad; nor is it neutral.”\n\n\n\n4 O Mapa de Atores do Desenvolvimento Tecnológico\nSe tecnologia não é neutra e não se desenvolve isolada da sociedade, quem, concretamente, participa dessa formação mútua? Van de Poel & Royakkers (2011, §1.6, p. 25) chamam de ator qualquer pessoa ou grupo que pode decidir como agir e agir sobre essa decisão:\n\n“We use the term actor here for any person or group that can make a decision how to act and that can act on that decision.”\n\nQuatro categorias de ator aparecem tipicamente no desenvolvimento tecnológico:\n\nDesenvolvedores e produtores — empresas de engenharia, laboratórios, universidades.\nUsuários — quem usa a tecnologia e formula exigências sobre seu funcionamento.\nReguladores — governos e agências que formulam regras (segurança, concorrência).\nOutros atores — associações profissionais, sindicatos, grupos de interesse.\n\nDistinto de ator: interessado (stakeholder) é quem tem interesse no resultado, mas não necessariamente pode influenciá-lo:\n\n“Stakeholders are actors that have an interest (‘a stake’) in the development of a technology, but who cannot necessarily influence the direction of technological development.” (p. 26)\n\n\n\n\n\n\nflowchart TB\n    U[\"Usuários\"] --&gt; TD[\"Desenvolvimento&lt;br/&gt;Tecnológico\"]\n    D[\"Desenvolvedores&lt;br/&gt;e produtores\"] --&gt; TD\n    R[\"Reguladores\"] --&gt; TD\n    O[\"Outros atores&lt;br/&gt;(associações, sindicatos)\"] --&gt; TD\n    TD -.-&gt;|\"afeta, mas não&lt;br/&gt;necessariamente influencia\"| S[\"Interessados&lt;br/&gt;(stakeholders)\"]\n\n\n\n\n\n\n(Diagrama recriado a partir da Figura 1.6 de Van de Poel & Royakkers, 2011, p. 26 — “Technological development map of actors” — com a adição da seta para interessados, que não está na figura original mas foi discutida no texto que a segue.)\nOs interesses desses atores frequentemente conflitam, então não há acordo automático sobre a direção “certa” do desenvolvimento tecnológico. E mesmo quando todos concordam, o resultado pode ser imprevisível — o caso do Teflon é o exemplo do livro: descoberto por acidente em 1938 (um químico da DuPont tentando desenvolver um refrigerante), décadas depois seu uso mais difundido — frigideiras antiaderentes — trouxe uma preocupação de saúde (o composto PFOA, “likely carcinogenic” segundo a EPA em 2005) que ninguém em 1938 tinha meios de prever. Esse é o dilema de Collingridge: não se pode prever as consequências no início do desenvolvimento tecnológico, mas quando elas aparecem, a tecnologia já está tão entranhada na sociedade que é difícil mudar de direção.\nUma resposta institucional a esse dilema, que vale nomear mesmo sem detalhar (Van de Poel & Royakkers, 2011, p. 28):\n\n“The idea behind Constructive Technology Assessment (CTA) is that TA-like efforts are to be carried out parallel to the process of technological development and are fed back to the development and design process of technology. […] CTA aims at broadening the design process, both in terms of actors involved and in terms of interests, considerations and values taken into account in technological development.”\n\nOu seja: em vez de só prever consequências antes (impossível) ou lamentar depois (tarde demais), trazer mais atores e mais valores para dentro do próprio processo de design, continuamente — não uma vacina contra o dilema de Collingridge, mas uma forma de conviver com ele.\n\n\n5 Feedback Loop, Responsabilidade, e Ponte para a Aula 2\nUm exemplo contemporâneo de computação, para fechar. Algoritmos de redes sociais otimizados para tempo de tela usam, nas palavras de Steen (2022, p. 32):\n\n“decades of knowledge from the domain of gambling and slot machines. With buzzing sounds and flashing icons, they grab our attention as often as possible. With infinite scrolling and seductive suggestions (‘watch next’), they hold our attention as long as possible.”\n\nNão é acusação abstrata — tem nome de quem trabalhou por dentro e saiu para denunciar:\n\n“Former Google designer Tristan Harris is one of the people who helped to expose such practices. We are vulnerable to how these designs activate our behavioural impulses. Our brains have evolved to be activated by novel or interesting sensory input.” (Steen, 2022, p. 32)\n\nO comportamento capturado gera os dados que retreinam o algoritmo, que fica melhor em capturar atenção — um feedback loop não-técnico entre projeto de produto e comportamento humano em massa, sem que nenhuma linha de código isolada “cause” o resultado.\n\n\n\n\n\nflowchart LR\n    A[\"projeto do algoritmo&lt;br/&gt;(otimizado para atenção)\"] --&gt; B[\"comportamento do usuário&lt;br/&gt;capturado\"]\n    B --&gt; C[\"dados de engajamento\"]\n    C --&gt; D[\"retreinamento&lt;br/&gt;do algoritmo\"]\n    D --&gt; A\n\n\n\n\n\n\nIsso nos leva de volta à pergunta de responsabilidade que o Challenger já tinha levantado. Van de Poel & Royakkers (2011, p. 28) chegam a uma conclusão quase contraintuitiva:\n\n“In one sense, it diminishes the responsibility of engineers because it makes clear that engineers are just one of the many actors involved in technology development and cannot alone determine technological development and its social consequences. In another sense, however, it extends the responsibility of engineers because they have to take into account a range of stakeholders and their interests.”\n\nO contexto social diminui a responsabilidade individual (você é só um entre muitos atores) e, ao mesmo tempo, amplia essa responsabilidade (você precisa considerar interessados que não estão na sala). Não são a mesma pergunta, e confundir uma com a outra é o erro mais comum ao discutir “de quem é a culpa” quando um sistema falha.\n\nPonte para a Aula 2\nFalta uma ferramenta: se ninguém decide isoladamente, e as consequências são difíceis de prever, como raciocinar sistematicamente sobre o que é certo fazer dentro dessa teia sociotécnica? É o assunto da Aula 2 — as principais correntes da ética normativa (consequencialismo, deontologia, ética das virtudes) e o Ciclo Ético como método de deliberação."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-caso-do-changeler-1986",
+    "href": "society/aula01/slides.html#o-caso-do-changeler-1986",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O caso do Changeler (1986)",
+    "text": "O caso do Changeler (1986)\nChallenger, 1986. O engenheiro Roger Boisjoly alertou por escrito sobre os anéis de vedação em baixa temperatura.\n\n“The consequences would be catastrophic and human lives would be put at risk.” (memo de Boisjoly, 1985)\n\n\nRecomendação: não lançar. Decisão final: lançar — 4 gerentes votaram, sem os engenheiros.\n\n\nComissão presidencial: causa foi “inadequate communication at NASA” — não um erro técnico isolado.\n\n\nSe a causa não foi técnica, por que isso é um problema de engenharia/computação?"
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-caso-do-challenger-1986",
+    "href": "society/aula01/slides.html#o-caso-do-challenger-1986",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O caso do Challenger (1986)",
+    "text": "O caso do Challenger (1986)\nO engenheiro Roger Boisjoly alertou por escrito, com 6 meses de antecedência, sobre os anéis de vedação em baixa temperatura.\n\n“The consequences would be catastrophic and human lives would be put at risk.” (memo de Boisjoly, jul/1985)\n\n\nA véspera do lançamento: manhã quase 4°C abaixo do congelamento.\nRecomendação técnica: não lançar.\n\n\nDecisão final: lançar — 4 gerentes votaram, sem os engenheiros.\n73 segundos depois: o Challenger explode. Sete astronautas morrem, incluindo Christa McAuliffe, a primeira civil selecionada para o espaço.\n\n\nComissão presidencial: causa foi “inadequate communication at NASA” — não um erro técnico isolado."
+  },
+  {
+    "objectID": "society/aula01/slides.html#sistema-sociotécnico",
+    "href": "society/aula01/slides.html#sistema-sociotécnico",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "Sistema Sociotécnico",
+    "text": "Sistema Sociotécnico\nTecnologia, pessoas, organizações e cultura se influenciam mutuamente — nenhuma decide isolada.\n\n“We shape our tools and thereafter they shape us.” (Culkin sobre McLuhan, em Steen 2022, p. 29)\n\nDuas posições simples demais — ambas erradas (Steen, 2022, p. 30):\n\n\nVisão instrumental: “a tecnologia é neutra, o problema é sempre humano.” — Errada.\nVisão determinista: “a tecnologia determina o comportamento.” — Também errada.\nA tese certa: uma teia de decisões — de quem projeta e de quem usa — que se afetam mutuamente."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#a-tese-central-do-curso",
+    "href": "supervised/aula01/slides.html#a-tese-central-do-curso",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "A tese central do curso",
+    "text": "A tese central do curso\n\nTodo algoritmo supervisionado é a composição de três peças: uma suposição distributiva, uma verossimilhança e uma regra de decisão.\n\n\nObjetivo: Não é aprender algoritmos novos, mas entender o que os que você já usa realmente fazem.\nDiagnóstico de falha: Quando um modelo falha, a pergunta correta não é “qual hiperparâmetro eu ajusto?”, mas “qual das três peças está errada?” (quase sempre é a suposição distributiva).\n\n\nA formulação estatística do aprendizado\n\nPar \\((x, y)\\) com distribuição conjunta desconhecida \\(p(x, y)\\) e amostra \\(\\mathcal{D} = \\{(x_n, y_n)\\}_{n=1}^N\\).\nClassificação (\\(Y \\in \\mathbb{N}\\) adaptado) vs. Regressão (\\(Y \\subseteq \\mathbb{R}\\)): A diferença estrutural está quase inteiramente na escolha da distribuição do resíduo \\(Y - f(X)\\).\n\n\n\n\n\n\n\n\nPrática do dia a dia\nFormalismo estatístico underlying\n\n\n\n\nMínimos Quadrados\nMáxima Verossimilhança sob erro Gaussiano\n\n\nRegularização (L1 / L2)\nInferência Bayesiana com Priori (Laplace / Gaussiana)\n\n\nResíduo de previsão\nGradiente da log-verossimilhança"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#fundamentação-e-pergunta-de-partida",
+    "href": "supervised/aula01/slides.html#fundamentação-e-pergunta-de-partida",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Fundamentação e pergunta de partida",
+    "text": "Fundamentação e pergunta de partida\nBibliografia de referência\n\nPRML — Bishop, C. M. (2006), Pattern Recognition and Machine Learning\nDLFC — Bishop, C. M. & Bishop, H. (2024), Deep Learning: Foundations and Concepts\n\nUsados em paralelo. Divergências de notação ou ênfase são discutidas explicitamente.\nA provocação conceitual\n\nO que exatamente significa “aprender a distribuição dos dados”?\n\n\nA tentação algorítmica: ajustar um hiperplano, otimizar uma perda, minimizar uma distância.\nA perspectiva desta aula: entender como a geometria das densidades e a frequência das classes ditam a fronteira ótima antes de qualquer algoritmo rodar."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-que-é-uma-distribuição",
+    "href": "supervised/aula01/slides.html#o-que-é-uma-distribuição",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O que é uma distribuição",
+    "text": "O que é uma distribuição\nUma distribuição é o formato que os dados assumem no espaço.\n\nDuas populações, uma variável \\(x \\in [0,1]\\)\nHistograma + curva suave que acompanha o histograma\nSem fórmula, sem nome, sem família — ainda"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#classificação-e-o-problema-da-discretizaçãocorte",
+    "href": "supervised/aula01/slides.html#classificação-e-o-problema-da-discretizaçãocorte",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Classificação e o problema da discretização/corte",
+    "text": "Classificação e o problema da discretização/corte\nRegra mais simples possível: um limiar \\(t\\).\n\\[ x \\le t \\;\\Rightarrow\\; \\text{classe A} \\qquad x &gt; t \\;\\Rightarrow\\; \\text{classe B} \\]\n\nA resposta usual: no cruzamento das curvas.\nAnote. Ela está errada."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#tipos-de-erros",
+    "href": "supervised/aula01/slides.html#tipos-de-erros",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Tipos de erros",
+    "text": "Tipos de erros\n\n\n\nIntuitivo\nTécnico\nTambém chamado\n\n\n\n\nalarme falso\nTipo I\nfalso positivo\n\n\nescape\nTipo II\nfalso negativo\n\n\n\n\nAtenção: “Tipo I/II” só existe depois de declarar a hipótese nula. Aqui: A = normal (nula), B = anômala."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#a-conta-que-desmente-a-intuição",
+    "href": "supervised/aula01/slides.html#a-conta-que-desmente-a-intuição",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "A conta que desmente a intuição",
+    "text": "A conta que desmente a intuição\nO que estava escondido: as classes não são igualmente frequentes.\n\\[ 950 \\text{ pontos da classe A} \\qquad 50 \\text{ pontos da classe B} \\]\n\nVamos contar os erros de verdade — no cruzamento e num corte deslocado.\n\n\n\n\n\n\n\n\n\n\nO corte deslocado erra muito menos.\nE ele não veio de tentativa e erro — vem de um princípio.\n\n\nOnde a justificativa verbal falhou:\n“igualmente plausíveis” \\(\\ne\\) “igualmente prováveis”"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#a-linguagem-formal-as-regras-do-jogo",
+    "href": "supervised/aula01/slides.html#a-linguagem-formal-as-regras-do-jogo",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "A linguagem formal: As regras do jogo",
+    "text": "A linguagem formal: As regras do jogo\nTodas as escolhas da aula derivam de duas regras básicas:\n\nRegra da Soma (Marginalização): \\(p(x) = \\sum_{j} p(x, \\mathcal{C}_j)\\)\nRegra do Produto: \\(p(x, \\mathcal{C}_k) = p(x \\mid \\mathcal{C}_k)\\,p(\\mathcal{C}_k)\\)\n\n\nOs 4 objetos fundamentais\n\nConjunta \\(p(x, \\mathcal{C}_k)\\): Probabilidade de observar \\(x\\) e pertencer à classe \\(\\mathcal{C}_k\\).\nVerossimilhança \\(p(x \\mid \\mathcal{C}_k)\\): Formato dos dados \\(x\\) dentro da classe \\(\\mathcal{C}_k\\).\nPriori \\(p(\\mathcal{C}_k)\\): Prevalência da classe na população geral.\nEvidência \\(p(x)\\): Densidade total de \\(x\\) ao longo de todas as classes (\\(p(x) = \\sum_j p(x \\mid \\mathcal{C}_j) p(\\mathcal{C}_j)\\))."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-teorema-de-bayes",
+    "href": "supervised/aula01/slides.html#o-teorema-de-bayes",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O Teorema de Bayes",
+    "text": "O Teorema de Bayes\nInvertendo a regra do produto (\\(p(x, \\mathcal{C}_k) = p(\\mathcal{C}_k \\mid x)\\,p(x)\\)):\n\\[ \\boxed{p(\\mathcal{C}_k \\mid x) = \\frac{p(x \\mid \\mathcal{C}_k)\\,p(\\mathcal{C}_k)}{p(x)}} \\]\n\n\\[\\text{Posteriori} \\;\\propto\\; \\text{Verossimilhança} \\;\\times\\; \\text{Priori}\\]\n\nO denominador \\(p(x)\\) não depende de \\(k\\): Para comparar classes em um ponto \\(x\\) fixo, basta comparar as conjuntas \\(p(x \\mid \\mathcal{C}_k)\\,p(\\mathcal{C}_k)\\).\n\n\npriori: \\(\\pi_k = p(\\mathcal{C}_k)\\)\ncondicional de classe: \\(p(x \\mid \\mathcal{C}_k)\\)\nconjunta: \\(p(x,\\mathcal{C}_k) = p(x\\mid\\mathcal{C}_k)\\,\\pi_k\\)\ndecidir pela conjunta maior \\(=\\) decidir pela posteriori maior"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#exemplo-triagem-médica",
+    "href": "supervised/aula01/slides.html#exemplo-triagem-médica",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Exemplo: triagem médica",
+    "text": "Exemplo: triagem médica\nPrevalência \\(p(D) = 0{,}01\\). Sensibilidade \\(p(+\\mid D) = 0{,}90\\). Falso positivo \\(p(+\\mid\\bar D) = 0{,}03\\).\nTeste positivo. Probabilidade de estar doente?\n\n\\[ p(D\\mid+) = \\frac{0{,}90 \\times 0{,}01}{0{,}90\\times0{,}01 + 0{,}03\\times0{,}99} \\approx \\mathbf{0{,}233} \\]\nEm 10.000 pessoas: 90 verdadeiros positivos contra 297 falsos positivos.\n\n\nMesma lição do Passo 4, no caso discreto: a priori decide."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#densidade-vs.-probabilidade-1",
+    "href": "supervised/aula01/slides.html#densidade-vs.-probabilidade-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Densidade vs. Probabilidade",
+    "text": "Densidade vs. Probabilidade\n\n\\(P(X = x) = 0\\) para qualquer ponto isolado.\nProbabilidade é a área sob a curva: \\(P(a \\le X \\le b) = \\int_a^b p(x)\\,\\mathrm{d}x\\).\nDensidade \\(p(x)\\) pode passar de \\(1\\) (ex: Uniforme em \\([0, 0{,}01] \\implies p(x) = 100\\)).\nMudança de variável exige Jacobiano: \\(p_Y(y) = p_X(x) \\left|\\frac{\\mathrm{d}x}{\\mathrm{d}y}\\right|\\).\n\nConsequência: a moda da densidade depende da parametrização!"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#os-momentos-da-distribuição",
+    "href": "supervised/aula01/slides.html#os-momentos-da-distribuição",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Os Momentos da Distribuição",
+    "text": "Os Momentos da Distribuição\n\nMédia (\\(\\mu\\)): Primeiro momento \\(\\mathbb{E}[X]\\) — centro de massa.\nVariância (\\(\\sigma^2\\)): Segundo momento central \\(\\mathbb{E}[(X-\\mu)^2]\\) — dispersão.\nAssimetria (Skewness): Terceiro momento padronizado \\(\\mathbb{E}\\!\\left[\\left(\\frac{X-\\mu}{\\sigma}\\right)^3\\right]\\) — inclinação das caudas.\nCurtose (Kurtosis): Quarto momento padronizado \\(\\mathbb{E}\\!\\left[\\left(\\frac{X-\\mu}{\\sigma}\\right)^4\\right] - 3\\) — peso relativo das caudas."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-comportamento-de-cauda",
+    "href": "supervised/aula01/slides.html#o-comportamento-de-cauda",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O Comportamento de Cauda",
+    "text": "O Comportamento de Cauda\nO comportamento de \\(p(x)\\) quando \\(|x| \\to \\infty\\) define a sensibilidade a eventos extremos.\n\nCaudas Leves (Decaimento Exponencial/Quadrático):\n\n\\(p(x) \\sim \\exp(-x^2)\\) (Gaussiana) ou \\(\\exp(-|x|)\\) (Laplace).\nValores a \\(5\\sigma\\) são virtualmente impossíveis.\n\nCaudas Pesadas (Decaimento Polinomial):\n\n\\(p(x) \\sim x^{-\\nu}\\) (\\(t\\) de Student com \\(\\nu\\) graus de liberdade).\nOutliers têm probabilidade não desprezível."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#qual-distribuição-para-dados-em-01",
+    "href": "supervised/aula01/slides.html#qual-distribuição-para-dados-em-01",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Qual distribuição para dados em \\([0,1]\\)?",
+    "text": "Qual distribuição para dados em \\([0,1]\\)?\nDados em \\([0,1]\\): escores normalizados, taxas, proporções, probabilidades calibradas.\n\nGaussiana ajustada aí coloca massa fora do suporte\nLimiar como quantil pode cair fora do domínio — e o código não reclama\n\n\nO suporte do modelo é uma decisão de modelagem, não uma tecnicalidade.\n\n\n\\[ \\operatorname{Beta}(x\\mid a,b) = \\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}\\,x^{a-1}(1-x)^{b-1} \\]"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#ajustar-a-beta",
+    "href": "supervised/aula01/slides.html#ajustar-a-beta",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Ajustar a Beta",
+    "text": "Ajustar a Beta\nMomentos — forma fechada. Com média \\(m\\) e variância \\(v\\) amostrais, se \\(v &lt; m(1-m)\\). Máxima verossimilhança — não tem forma fechada. Resolvida numericamente via scipy.stats.beta.fit. Não prometa uma fórmula que não existe.\nArmadilha: zeros e uns exatos\n\nSe \\(a&lt;1\\) ou \\(b&lt;1\\), a densidade diverge nas bordas\n\\(\\ln 0 = -\\infty\\) quebra a verossimilhança\nDados reais em \\([0,1]\\) têm zeros exatos o tempo todo\n\nCorreções: clipping declarado, Smithson–Verkuilen, modelos zero/one-inflated."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#detecção-de-anomalias-e-o-limiar",
+    "href": "supervised/aula01/slides.html#detecção-de-anomalias-e-o-limiar",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Detecção de anomalias e o limiar",
+    "text": "Detecção de anomalias e o limiar\nSem anomalias rotuladas: ajustar \\(p(x)\\) só nos dados normais.\nRegião de exclusão: cauda \\(\\{x&gt;t\\}\\) ou conjunto de nível \\(\\{x : p(x)&lt;\\lambda\\}\\).\n\\[ \\text{Tipo I} = P(x&gt;t) = 1 - I_t(a,b) \\qquad\\Longrightarrow\\qquad t_\\alpha = I^{-1}_{1-\\alpha}(a,b) \\]\nO limiar é um quantil do modelo; \\(\\alpha\\) vale por construção.\n\nCom uma única densidade ajustada, o erro Tipo II não está definido.\n\n\nBloco 1: duas curvas \\(\\Rightarrow\\) dois erros, duas áreas\nAqui: uma curva \\(\\Rightarrow\\) só uma área existe\nNão há modelo de anomalia \\(\\Rightarrow\\) não há \\(P(\\text{escape})\\)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-que-aprendemos",
+    "href": "supervised/aula01/slides.html#o-que-aprendemos",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O que aprendemos",
+    "text": "O que aprendemos\n\nDistribuição é o formato dos dados no espaço\nClassificar é comparar formatos ponderados pela frequência das classes\nO limiar é uma decisão, com custo explícito\n\n\nE o ponto negativo: com uma densidade, só o Tipo I é calculável.\n\n\nProxima Aula: Tudo isto usou uma variável. Com \\(d\\) variáveis:\n\\[ p(x\\mid\\mathcal{C}_k) \\in \\mathbb{R}^d \\;\\longrightarrow\\; M^d \\text{ células} \\]\n\nNaive Bayes — a primeira suposição estrutural do curso:\n\\[ p(x\\mid\\mathcal{C}_k) = \\prod_{i=1}^d p(x_i\\mid\\mathcal{C}_k) \\]\nO preço dessa suposição é o assunto da próxima aula."
+  },
+  {
+    "objectID": "society/aula01/slides.html#tecnologia-não-é-neutra-1",
+    "href": "society/aula01/slides.html#tecnologia-não-é-neutra-1",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "Tecnologia Não é Neutra",
+    "text": "Tecnologia Não é Neutra\nDuas ilustrações — uma dramática, uma banal.\nAs pontes de Robert Moses (Nova York, séc. XX): viadutos deliberadamente baixos, impediam ônibus.\n\n“Moses used technology to achieve racist outcomes.” — excluíam pessoas pobres e negras do acesso a parques e praias."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-mapa-de-atores",
+    "href": "society/aula01/slides.html#o-mapa-de-atores",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O Mapa de Atores",
+    "text": "O Mapa de Atores\nAtor: quem pode decidir como agir e agir sobre a decisão.\n\nDesenvolvedores e produtores\nUsuários\nReguladores\nOutros atores (associações, sindicatos)\n\n\nInteressado (stakeholder): tem interesse no resultado, mas não necessariamente pode influenciá-lo.\n\n\n\n\n\n\nflowchart TB\n    U[\"Usuários\"] --&gt; TD[\"Desenvolvimento&lt;br/&gt;Tecnológico\"]\n    D[\"Desenvolvedores&lt;br/&gt;e produtores\"] --&gt; TD\n    R[\"Reguladores\"] --&gt; TD\n    O[\"Outros atores&lt;br/&gt;(associações, sindicatos)\"] --&gt; TD\n    TD -.-&gt;|\"afeta, mas não&lt;br/&gt;necessariamente influencia\"| S[\"Interessados&lt;br/&gt;(stakeholders)\"]\n\n\n\n\n\n\n\nInteresses conflitam — sem acordo automático sobre a direção “certa”."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-feedback-loop-das-redes-sociais",
+    "href": "society/aula01/slides.html#o-feedback-loop-das-redes-sociais",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O Feedback Loop das Redes Sociais",
+    "text": "O Feedback Loop das Redes Sociais\nAlgoritmos usam “décadas de conhecimento do domínio de jogos de azar” para capturar atenção (Steen, 2022, p. 32).\n\nTristan Harris, ex-designer do Google: “we are vulnerable to how these designs activate our behavioural impulses.”\n\n\n\n\n\n\nflowchart LR\n    A[\"projeto do algoritmo&lt;br/&gt;(otimizado para atenção)\"] --&gt; B[\"comportamento do usuário&lt;br/&gt;capturado\"]\n    B --&gt; C[\"dados de engajamento\"]\n    C --&gt; D[\"retreinamento&lt;br/&gt;do algoritmo\"]\n    D --&gt; A"
+  },
+  {
+    "objectID": "society/aula01/slides.html#responsabilidade-e-ponte",
+    "href": "society/aula01/slides.html#responsabilidade-e-ponte",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "Responsabilidade e Ponte",
+    "text": "Responsabilidade e Ponte\n\nResponsabilidade: contexto social diminui (você é 1 entre muitos atores) e amplia (precisa considerar interessados fora da sala) ao mesmo tempo.\n\n\nPonte para a Aula 2\nFalta uma ferramenta para raciocinar sobre o que é certo fazer dentro dessa teia. Aula 2: ética normativa e o Ciclo Ético."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-caso-do-challenger-1986---o-desfecho-institucional",
+    "href": "society/aula01/slides.html#o-caso-do-challenger-1986---o-desfecho-institucional",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O caso do Challenger (1986) - O desfecho institucional:",
+    "text": "O caso do Challenger (1986) - O desfecho institucional:\n\nPrograma espacial parado por 2 anos.\n\n\nEngenheiros passam a ter poder de veto sobre um lançamento.\n\n\nSe a causa não foi técnica, por que isso é um problema de engenharia/computação?"
+  },
+  {
+    "objectID": "society/aula01/slides.html#challenger-1986---o-desfecho-institucional",
+    "href": "society/aula01/slides.html#challenger-1986---o-desfecho-institucional",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "Challenger (1986) - O desfecho institucional",
+    "text": "Challenger (1986) - O desfecho institucional\n\nPrograma espacial parado por 2 anos.\n\n\nEngenheiros passam a ter poder de veto sobre um lançamento.\n\n\nSe a causa não foi técnica, por que isso é um problema de engenharia/computação?"
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-caso-challenger-revisto",
+    "href": "society/aula01/slides.html#o-caso-challenger-revisto",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O caso Challenger, revisto:",
+    "text": "O caso Challenger, revisto:\ncultura organizacional → moldou a decisão técnica → o desastre remoldou a cultura (2 anos parado, engenheiros com poder de veto).\n\nUm laço, não uma linha reta."
+  },
+  {
+    "objectID": "society/aula01/slides.html#as-pontes-de-robert-moses-1",
+    "href": "society/aula01/slides.html#as-pontes-de-robert-moses-1",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "As pontes de Robert Moses",
+    "text": "As pontes de Robert Moses\nA tese na prática: a tecnologia não é neutra (uma ilustração dramática)\n\n\nO Projeto (Nova York, séc. XX) Robert Moses projetou dezenas de viadutos sobre as parkways de Long Island com uma altura deliberadamente baixa.\nO Mecanismo Físico A altura impedia fisicamente a passagem de ônibus de transporte público, permitindo apenas a circulação de carros de passeio.\n\n\nO Efeito Social Populações negras e de baixa renda dependiam de ônibus. Assim, a engenharia civil barrou o acesso dessas pessoas a áreas públicas de lazer, como Jones Beach.\n\n\n\n“Moses used technology to achieve racist outcomes.”\n— Langdon Winner (apud Steen, 2022, p. 29)\n\n\n\n\n\n\n\nImportante\n\n\nConclusão: Nenhuma lei segregacionista escrita, nenhuma linha de código. A exclusão social foi codificada no concreto."
+  },
+  {
+    "objectID": "society/aula01/slides.html#aparelhos-de-barbear-com-e-sem-parafuso-steen-2022-pp.-2930",
+    "href": "society/aula01/slides.html#aparelhos-de-barbear-com-e-sem-parafuso-steen-2022-pp.-2930",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "Aparelhos de barbear, com e sem parafuso (Steen, 2022, pp. 29–30):",
+    "text": "Aparelhos de barbear, com e sem parafuso (Steen, 2022, pp. 29–30):\n\nMasculino: parafusos → sugere manutenção/reparo.\n\n\nFeminino: sem parafusos → sugere descarte, não reparo.\n\n\nScripts/affordances: o objeto prescreve o que se pode fazer com ele — sem intenção política nenhuma, só projeto."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-design-do-cotidiano-parafusos-e-scripts",
+    "href": "society/aula01/slides.html#o-design-do-cotidiano-parafusos-e-scripts",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O design do cotidiano: Parafusos e Scripts",
+    "text": "O design do cotidiano: Parafusos e Scripts\nA tese na prática: a tecnologia não é neutra (uma ilustração banal)\n(Steen, 2022, pp. 29–30)\n\n\nAparelhos Masculinos Possuem parafusos visíveis.  A mensagem silenciosa: O usuário é capaz (e encorajado) a abrir, entender, fazer manutenção e reparar o objeto.\n\n\nAparelhos Femininos Carcaça selada, sem parafusos.  A mensagem silenciosa: O usuário não tem capacidade técnica. O produto deve ser usado até quebrar e, então, descartado.\n\n\n\n\n\n\nScripts ou Affordances: As decisões de projeto prescrevem o que as pessoas podem ou não fazer. Neste caso, não há necessariamente um “vilão” ou uma intenção política declarada — há apenas o projeto (design)."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-elo-invisível-quem-projeta-a-tecnologia",
+    "href": "society/aula01/slides.html#o-elo-invisível-quem-projeta-a-tecnologia",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O elo invisível: Quem projeta a tecnologia?",
+    "text": "O elo invisível: Quem projeta a tecnologia?\n\n\n“Technology is neither good nor bad; nor is it neutral.”\n— A Primeira Lei de Kranzberg\n\n\n\n\nSe a tecnologia não é neutra, e se mesmo decisões “banais” (como um parafuso) embutem visões de mundo (como estereótipos de gênero), a pergunta central passa a ser:\n\n\n\n\n\nAviso\n\n\nQuem estava na sala quando a decisão de projeto foi tomada? A falta de diversidade entre os atores que desenvolvem a tecnologia é o que permite que vieses (muitas vezes inconscientes) se tornem “enganos” codificados no produto final."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-mapa-de-atores-do-desenvolvimento",
+    "href": "society/aula01/slides.html#o-mapa-de-atores-do-desenvolvimento",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O Mapa de Atores do Desenvolvimento",
+    "text": "O Mapa de Atores do Desenvolvimento\nQuem estava na sala? Para entender as decisões, precisamos mapear quem participa dessa “teia”.\n\n\n Ator: Quem pode decidir como agir e executar essa decisão.\n\nDesenvolvedores\nUsuários\nReguladores\nAssociações/Sindicatos\n\n\n Interessado (Stakeholder): Sofre os impactos e tem interesse no resultado, mas não tem o poder de influenciar a direção do projeto.\n\n\n\n\n\n\n\nflowchart TB\n    %% Atores\n    D[\"Desenvolvedores&lt;br/&gt;e produtores\"]\n    U[\"Usuários\"]\n    R[\"Reguladores\"]\n    O[\"Outros atores&lt;br/&gt;(associações, sindicatos)\"]\n    \n    %% Processo\n    DT[\"Desenvolvimento&lt;br/&gt;Tecnológico\"]\n    \n    %% Impactados\n    S[\"Interessados&lt;br/&gt;(Stakeholders)\"]\n    \n    %% Conexões\n    D --&gt; DT\n    U --&gt; DT\n    R --&gt; DT\n    O --&gt; DT\n    \n    DT -.-&gt;|\"Afeta, mas não&lt;br/&gt;necessariamente influencia\"| S\n    \n    %% Estilização do Diagrama (mantendo as cores para não ficar cinza/sem graça)\n    classDef atores fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;\n    classDef processo fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;\n    classDef stake fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;\n    \n    class D,U,R,O atores;\n    class DT processo;\n    class S stake;\n\n\n\n\n\n\n\n\nInteresses conflitam — sem acordo automático sobre a direção “certa”."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-paradoxo-da-inovação-o-caso-teflon",
+    "href": "society/aula01/slides.html#o-paradoxo-da-inovação-o-caso-teflon",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O Paradoxo da Inovação: O Caso Teflon",
+    "text": "O Paradoxo da Inovação: O Caso Teflon\n\n\n1938: A Descoberta Criado por acidente por um químico da DuPont que tentava desenvolver um novo gás refrigerante.\n\n\n2005: A Consequência O uso massivo (frigideiras antiaderentes) levanta graves riscos à saúde (o PFOA é classificado como “likely carcinogenic” pela EPA).\n\n\n\n Ninguém em 1938 tinha meios de prever isso. Este é o núcleo do problema:\n\n\n\n\n\nImportante\n\n\nO Dilema de Collingridge\n\nFase inicial: Não é possível prever as consequências sociais e reais da tecnologia.\nFase tardia: Quando as consequências aparecem, a tecnologia já está tão entranhada na sociedade que é tarde demais para mudar de direção."
+  },
+  {
+    "objectID": "society/aula01/slides.html#como-conviver-com-o-dilema",
+    "href": "society/aula01/slides.html#como-conviver-com-o-dilema",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "Como conviver com o Dilema?",
+    "text": "Como conviver com o Dilema?\n\nSe prever o futuro é impossível e mudar o fim é difícil demais, a engenharia precisa mudar o meio do processo.\n\n\n\nConstructive Technology Assessment (CTA)\nUma resposta institucional de avaliação tecnológica contínua.\n\n\nEm vez de desenhar a tecnologia isoladamente e “jogar” para a sociedade:\n\nExpande-se a mesa: Trazemos mais atores e stakeholders para o processo de design desde o início.\nExpandem-se os valores: Considerações sociais andam em paralelo ao desenvolvimento técnico.\n\n\n\n\n\n\n\nResumo: O CTA não é uma vacina que resolve o dilema, mas um método que nos ajuda a conviver com ele, permitindo correções de rota mais cedo."
+  },
+  {
+    "objectID": "society/aula01/slides.html#redes-sociais-o-sequestro-da-atenção",
+    "href": "society/aula01/slides.html#redes-sociais-o-sequestro-da-atenção",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "Redes Sociais: O Sequestro da Atenção",
+    "text": "Redes Sociais: O Sequestro da Atenção\n\n\n“Algoritmos usam décadas de conhecimento do domínio de jogos de azar e caça-níqueis. Com ícones brilhantes e rolagem infinita, eles capturam nossa atenção o máximo possível.”\n— Marc Steen (2022, p. 32)\n\n\n\n\n\n\n\nAviso\n\n\nO depoimento de quem estava na sala de projeto: “Somos vulneráveis à forma como esses designs ativam nossos impulsos comportamentais. Nossos cérebros evoluíram para serem ativados por estímulos sensoriais novos.” (Tristan Harris, ex-designer de ética do Google)"
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-feedback-loop-sociotécnico",
+    "href": "society/aula01/slides.html#o-feedback-loop-sociotécnico",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O Feedback Loop Sociotécnico",
+    "text": "O Feedback Loop Sociotécnico\nComo a tecnologia (código) e a sociedade (comportamento) se co-formam em tempo real e em escala global:\n\n\n\n\n\nflowchart TB\n    %% Nós do laço\n    A[\"💻 Projeto do&lt;br/&gt;Algoritmo\"]\n    B[\"🧠 Comportamento&lt;br/&gt;do Usuário\"]\n    C[\"📊 Dados de&lt;br/&gt;Engajamento\"]\n    D[\"⚙️ Retreinamento&lt;br/&gt;(Machine Learning)\"]\n\n    %% Conexões\n    A --&gt;|\"induz\"| B\n    B --&gt;|\"gera\"| C\n    C --&gt;|\"alimenta\"| D\n    D --&gt;|\"reforça\"| A\n    \n    %% Estilização\n    classDef tech fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;\n    classDef human fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;\n    classDef data fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;\n    \n    class A tech;\n    class B human;\n    class C data;\n    class D tech;\n\n\n\n\n\n\n\n\n\n\nConclusão: Nenhuma linha de código isolada “causa” o vício. O problema emerge do ciclo contínuo — o código molda o comportamento, que gera dados, que reescrevem o código."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-paradoxo-da-responsabilidade",
+    "href": "society/aula01/slides.html#o-paradoxo-da-responsabilidade",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O Paradoxo da Responsabilidade",
+    "text": "O Paradoxo da Responsabilidade\nSe a tecnologia é uma teia complexa, de quem é a “culpa” quando o sistema falha?\n\n\n\n🔻 Diminui a responsabilidade individual Você é apenas um entre muitos atores. O desenvolvedor isolado não determina todas as consequências sociais do produto.\n\n\n\n🔺 Amplia a responsabilidade profissional Como as decisões técnicas afetam a sociedade, você passa a ter o dever de considerar stakeholders e interesses que não estão na sala de projeto.\n\n\n\n\n\n\nImportante\n\n\nO Erro Comum: Confundir essas duas coisas. Não ser o único culpado não significa estar isento de responsabilidade moral sobre o que se projeta."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-que-nos-falta-ponte-para-a-aula-2",
+    "href": "society/aula01/slides.html#o-que-nos-falta-ponte-para-a-aula-2",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O que nos falta? (Ponte para a Aula 2)",
+    "text": "O que nos falta? (Ponte para a Aula 2)\n\nO cenário está montado: Nenhum engenheiro decide de forma isolada, e as consequências finais de um projeto são difíceis de prever.\n\n\n\n\n\n\nO Problema: Como raciocinar de forma sistemática e lógica sobre o que é certo fazer dentro dessa teia sociotécnica, no dia a dia do projeto?\n\n\n\n\n\n\n\n\nDica\n\n\nNa Aula 2:\n\nAs bases da Ética Normativa (Consequencialismo, Deontologia, Ética das Virtudes).\nO Ciclo Ético como nossa principal ferramenta e método de deliberação prática."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-desastre-do-challenger-1986",
+    "href": "society/aula01/slides.html#o-desastre-do-challenger-1986",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O Desastre do Challenger (1986)",
+    "text": "O Desastre do Challenger (1986)\nO Alerta (6 meses antes) O engenheiro Roger Boisjoly documenta a falha dos anéis de vedação em baixas temperaturas:\n\n“The consequences would be catastrophic and human lives would be put at risk.”\n\n\n A Véspera do Lançamento (Manhã a -4°C)\n\n\n\n\n\n\nRecomendação Técnica\n\n\nNÃO LANÇAR. Engenheiros reforçam o risco iminente de falha material devido ao frio.\n\n\n\n\n\n\n\n\n\nDecisão Gerencial\n\n\nLANÇAR. Sob pressão, 4 gerentes votam pela decolagem, sem os engenheiros na sala.\n\n\n\n\n\n\n\n O Desfecho e a Investigação\n\n73 segundos depois: O Challenger explode. Sete mortos (incluindo a civil Christa McAuliffe).\nComissão Presidencial: A causa raiz não foi o anel de vedação isolado, mas sim “inadequate communication at NASA”."
+  },
+  {
+    "objectID": "society/aula01/slides.html#challenger-o-desfecho-institucional",
+    "href": "society/aula01/slides.html#challenger-o-desfecho-institucional",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "Challenger: O Desfecho Institucional",
+    "text": "Challenger: O Desfecho Institucional\n\nA resposta ao desastre não foi apenas refazer a engenharia mecânica, mas reestruturar o fluxo de decisão:\n\n\n\n\n\nA Paralisação O programa espacial ficou totalmente parado por 2 anos.\n\n\n\nA Mudança de Poder Os engenheiros passaram a ter poder de veto direto sobre as decisões de lançamento.\n\n\n\n\n\n\nA pergunta central da aula\n\n\nSe a causa raiz não foi um erro técnico isolado, por que isso é um problema de engenharia/computação?\n(A resposta: porque a tecnologia nunca foi feita apenas de técnica)"
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-que-é-um-sistema-sociotécnico",
+    "href": "society/aula01/slides.html#o-que-é-um-sistema-sociotécnico",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O que é um Sistema Sociotécnico?",
+    "text": "O que é um Sistema Sociotécnico?\nTecnologia, pessoas, organizações e cultura se influenciam mutuamente — nenhuma opera isolada.\n\n\n“We shape our tools and thereafter they shape us.”\n— John Culkin (sobre a obra de Marshall McLuhan)\n\n\n\n\nAs duas visões extremas (ambas erradas):\n\n\n\n\n\n\nVisão Instrumental\n\n\n“A tecnologia é neutra, é apenas uma ferramenta. O problema ou a virtude está sempre no uso humano.”\n\n\n\n\n\n\n\n\n\nVisão Determinista\n\n\n“A tecnologia dita as regras. Ela determina como a sociedade e as pessoas vão obrigatoriamente se comportar.”\n\n\n\n\n\n\n\n\n\n\nA Tese Certa: Coformação Mútua\n\n\nA realidade é uma teia de decisões — da parte de quem projeta e da parte de quem usa — que se afetam, se moldam e se transformam mutuamente e o tempo todo."
+  },
+  {
+    "objectID": "society/aula01/slides.html#o-challenger-revisto-a-coformação-em-ação",
+    "href": "society/aula01/slides.html#o-challenger-revisto-a-coformação-em-ação",
+    "title": "Aula 1: Computação como Sistema Sociotécnico",
+    "section": "O Challenger Revisto: A Coformação em Ação",
+    "text": "O Challenger Revisto: A Coformação em Ação\nO desastre não foi apenas causa e efeito. Foi a prova de como a organização e a tecnologia se afetam continuamente:\n\n\n\n\n\n\nflowchart TB\n    A[\"🏢 Cultura&lt;br/&gt;Organizacional\"]\n    B[\"⚙️ Decisão&lt;br/&gt;Técnica\"]\n    C[\"💥 O Desastre&lt;br/&gt;Físico\"]\n    D[\"🔄 Cultura&lt;br/&gt;Remoldada\"]\n\n    A --&gt;|\"Molda\"| B\n    B --&gt;|\"Causa\"| C\n    C --&gt;|\"Provoca\"| D\n    D --&gt;|\"Altera\"| A\n\n    %% Estilização do Diagrama\n    classDef org fill:#f59e0b,stroke:#b45309,stroke-width:2px,color:#fff;\n    classDef tech fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;\n    classDef disaster fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;\n    classDef remold fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;\n\n    class A org;\n    class B tech;\n    class C disaster;\n    class D remold;\n\n\n\n\n\n\n\n\n\n\n\nConclusão: É um laço, não uma linha reta. A cultura da NASA moldou a decisão técnica, e o resultado material dessa decisão (a explosão) forçou a mudança na estrutura de poder organizacional da agência."
+  }
+]

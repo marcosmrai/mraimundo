@@ -891,11 +891,21 @@ $$
 Duas consequências imediatas essenciais para o resto do curso:
 
 1. **A densidade pode exceder $1$:** A restrição de integração a 1 limita a *área*, não a *altura*. Uma distribuição Uniforme no intervalo $[0, 0{,}01]$ possui densidade constante $p(x) = 100$.
-2. **Mudança de variável e o Jacobiano:** A densidade não é uma função escalar ordinária sob transformações. Se $y = g(x)$ for uma transformação bijetora e diferenciável, a preservação de probabilidade em um elemento infinitesimal exige $p_Y(y)\,\mathrm{d}y = p_X(x)\,\mathrm{d}x$, de modo que:
-   $$
-   p_Y(y) \;=\; p_X\big(g^{-1}(y)\big) \left| \frac{\mathrm{d}g^{-1}(y)}{\mathrm{d}y} \right|.
-   $$
-   Por carregar o Jacobiano, a **moda de uma densidade não é invariante a reparametrizações**, enquanto a decisão discreta entre classes ($\arg\max_k p(\mathcal{C}_k \mid x)$) é.
+Aqui está o trecho com a formatação original em Markdown, sem as tags do LaTeX, pronto para você substituir no seu documento Quarto:
+
+2. **Mudança de variável e o Jacobiano:** Diferente de uma probabilidade discreta, a densidade se altera quando "esticamos" ou "encolhemos" o espaço para garantir que a probabilidade total (a área sob a curva) seja preservada. Se $y = g(x)$ for uma transformação bijetora e diferenciável, a probabilidade em um pequeno intervalo deve ser a mesma nos dois espaços: $p_Y(y)\,\mathrm{d}y = p_X(x)\,\mathrm{d}x$. Isolando $p_Y(y)$, obtemos a regra da mudança de variável, que inclui o Jacobiano (o fator que mede a distorção do espaço):
+
+$$p_Y(y) \;=\; p_X\big(g^{-1}(y)\big) \left\vert{} \frac{\mathrm{d}g^{-1}(y)}{\mathrm{d}y} \right\vert{}.$$
+
+
+
+**Exemplo prático:** Seja $X$ uma variável com densidade uniforme no intervalo $[0, 2]$, ou seja, $p_X(x) = 0{,}5$. Se aplicarmos a transformação quadrática $y = x^2$ (bijetora para $x \ge 0$), a função inversa é $x = \sqrt{y}$. A derivada é $\frac{\mathrm{d}x}{\mathrm{d}y} = \frac{1}{2\sqrt{y}}$. A nova densidade não é apenas o valor antigo realocado, mas sim multiplicada pela distorção:
+
+$$p_Y(y) \;=\; 0{,}5 \times \left\vert{} \frac{1}{2\sqrt{y}} \right\vert{} \;=\; \frac{1}{4\sqrt{y}} \quad \text{para } y \in (0, 4].$$
+
+
+
+**O problema da moda:** O exemplo acima mostra que uma densidade constante (plana) se transformou em uma curva que diverge perto de $y=0$. Por carregar este Jacobiano, **a moda de uma densidade não é invariante a reparametrizações**. O pico da distribuição muda de lugar dependendo de como o espaço é medido, enquanto a decisão discreta de classificação ($\arg\max_k p(\mathcal{C}_k \mid x)$) permanece imune a isso.
 
 ## Resumos Populacionais: Os Momentos
 

@@ -69,7 +69,7 @@
 ---
 
 ### Fonte 4: Steen (2022), Cap. 3, p. 30
-**Uso pretendido:** conclusão quotável sobre não-neutralidade (Bloco 3).
+**Uso pretendido:** conclusão quotável sobre não-neutralidade (Bloco 3); a mesma citação também sustenta a distinção "visão instrumental vs. determinista, ambas erradas" usada no Bloco 2 (enriquecimento desta sessão).
 
 **Trecho:**
 > "Cars, bridges, and shavers, and indeed all technologies, are not
@@ -151,6 +151,44 @@
 > its social consequences. In another sense, however, it extends the
 > responsibility of engineers because they have to take into account a
 > range of stakeholders and their interests."
+
+---
+
+### Fonte 9: Steen (2022), Cap. 3, pp. 29–30 *(adicionada no enriquecimento desta sessão)*
+**Uso pretendido:** segunda ilustração de não-neutralidade — *scripts*/affordances em aparelhos de barbear (Bloco 3).
+
+**Trecho:**
+> "Typically, shavers for men used to have screws, which suggests that
+> men are able to do maintenance or repairs. Shavers for women, in
+> contrast, have no screws, which suggests that they are unable to
+> maintain or repair these devices. [...] These features are referred to
+> as scripts or affordances; these prescribe, to a smaller or larger
+> extent, what people can and cannot do with these products."
+
+---
+
+### Fonte 10: Van de Poel & Royakkers (2011), Cap. 1, p. 28 *(adicionada no enriquecimento desta sessão)*
+**Uso pretendido:** Constructive Technology Assessment (CTA) como resposta institucional ao dilema de Collingridge (Bloco 4).
+
+**Trecho:**
+> "The idea behind Constructive Technology Assessment (CTA) is that
+> TA-like efforts are to be carried out parallel to the process of
+> technological development and are fed back to the development and
+> design process of technology (Schot, 1992; Schot and Rip, 1997). CTA
+> aims at broadening the design process, both in terms of actors involved
+> and in terms of interests, considerations and values taken into account
+> in technological development."
+
+---
+
+### Fonte 11: Steen (2022), Cap. 3, p. 32 *(adicionada no enriquecimento desta sessão)*
+**Uso pretendido:** nomear uma voz crítica concreta no exemplo do *feedback loop* de redes sociais (Bloco 5).
+
+**Trecho:**
+> "Former Google designer Tristan Harris is one of the people who helped
+> to expose such practices. We are vulnerable to how these designs
+> activate our behavioural impulses. Our brains have evolved to be
+> activated by novel or interesting sensory input."
 
 ---
 
