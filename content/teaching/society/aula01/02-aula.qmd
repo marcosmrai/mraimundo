@@ -188,9 +188,38 @@ O Challenger é exatamente essa tese em ação, num só caso: a **cultura
 organizacional** (medo político de mais um atraso, hierarquia que excluiu
 os engenheiros da votação) moldou a **decisão técnica** (lançar mesmo com
 o alerta). E a decisão técnica — via o desastre — depois **remoldou a
-cultura organizacional**: dois anos de programa parado, e uma política
-nova para encorajar que engenheiros levantassem dúvidas. Não é uma linha
-reta de causa e efeito — é um laço.
+cultura organizacional**: a resposta da NASA não foi só refazer a
+engenharia mecânica do anel de vedação, foi reestruturar o próprio fluxo
+de decisão (dois anos de programa parado, engenheiros com poder de veto).
+Não é uma linha reta de causa e efeito — é um laço:
+
+```{mermaid}
+%%| fig-align: center
+flowchart TB
+    A["🏢 Cultura<br/>Organizacional"]
+    B["⚙️ Decisão<br/>Técnica"]
+    C["💥 O Desastre<br/>Físico"]
+    D["🔄 Cultura<br/>Remoldada"]
+
+    A -->|"Molda"| B
+    B -->|"Causa"| C
+    C -->|"Provoca"| D
+    D -->|"Altera"| A
+
+    classDef org fill:#f59e0b,stroke:#b45309,stroke-width:2px,color:#fff;
+    classDef tech fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+    classDef disaster fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+    classDef remold fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+
+    class A org;
+    class B tech;
+    class C disaster;
+    class D remold;
+```
+
+A cultura da NASA moldou a decisão técnica, e o resultado material dessa
+decisão (a explosão) forçou a mudança na estrutura de poder organizacional
+da agência.
 
 :::
 
@@ -302,10 +331,12 @@ sobre as *parkways* deliberadamente baixos:
 > colour, from visiting the parks and beaches. Moses used technology to
 > achieve racist outcomes." (Winner, apud Steen, 2022, p. 29)
 
-A altura de um viaduto de concreto — um detalhe de engenharia civil,
-aparentemente neutro — foi o mecanismo de uma política de exclusão
-racial. Nenhuma linha de código, nenhum algoritmo: só concreto. A tese
-vale igualmente, ou mais, para sistemas computacionais.
+Os viadutos ficavam nas *parkways* de Long Island que davam acesso a
+Jones Beach — a praia pública mais famosa da região. A altura de um
+viaduto de concreto — um detalhe de engenharia civil, aparentemente
+neutro — foi o mecanismo de uma política de exclusão racial. Nenhuma lei
+segregacionista escrita, nenhuma linha de código, nenhum algoritmo: só
+concreto. A tese vale igualmente, ou mais, para sistemas computacionais.
 :::
 
 A segunda ilustração é deliberadamente banal, para mostrar que o
@@ -331,6 +362,13 @@ O historiador da tecnologia Melvin Kranzberg resumiu isso numa frase
 
 > **"Technology is neither good nor bad; nor is it neutral."**
 
+Se mesmo uma decisão "banal" de projeto — um parafuso — embute uma visão
+de mundo sobre gênero, a pergunta que importa deixa de ser só "a
+tecnologia é boa ou má" e passa a ser **quem estava na sala quando a
+decisão foi tomada**. A falta de diversidade entre quem projeta é o que
+permite que vieses, muitas vezes inconscientes, se tornem "detalhes"
+codificados no produto final — um fio que a Aula 9 (gênero e diversidade
+em computação) retoma com mais profundidade.
 :::
 
 ::: {.content-visible when-format="revealjs"}
@@ -458,6 +496,34 @@ resultado, mas não necessariamente pode influenciá-lo:
 > development of a technology, but who cannot necessarily influence the
 > direction of technological development." (p. 26)
 
+```{mermaid}
+%%| fig-align: center
+flowchart TB
+    D["Desenvolvedores<br/>e produtores"]
+    U["Usuários"]
+    R["Reguladores"]
+    O["Outros atores<br/>(associações, sindicatos)"]
+
+    DT["Desenvolvimento<br/>Tecnológico"]
+
+    S["Interessados<br/>(Stakeholders)"]
+
+    D --> DT
+    U --> DT
+    R --> DT
+    O --> DT
+
+    DT -.->|"Afeta, mas não<br/>necessariamente influencia"| S
+
+    classDef atores fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+    classDef processo fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+    classDef stake fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+
+    class D,U,R,O atores;
+    class DT processo;
+    class S stake;
+```
+
 :::
 
 ::: {.content-visible when-format="revealjs"}
@@ -521,14 +587,16 @@ flowchart TB
 ```
 :::
 
+::::
+
 :::
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
 
-*(Diagrama recriado a partir da Figura 1.6 de Van de Poel & Royakkers,
-2011, p. 26 — "Technological development map of actors" — com a adição da
-seta para interessados, que não está na figura original mas foi discutida
-no texto que a segue.)*
+*(Diagrama acima recriado a partir da Figura 1.6 de Van de Poel &
+Royakkers, 2011, p. 26 — "Technological development map of actors" — com
+a adição da seta para interessados, que não está na figura original mas
+foi discutida no texto que a segue.)*
 
 Os interesses desses atores **frequentemente conflitam**, então não há
 acordo automático sobre a direção "certa" do desenvolvimento tecnológico.
@@ -553,10 +621,14 @@ detalhar (Van de Poel & Royakkers, 2011, p. 28):
 > considerations and values taken into account in technological
 > development."
 
-Ou seja: em vez de só prever consequências antes (impossível) ou lamentar
-depois (tarde demais), trazer mais atores e mais valores para dentro do
-próprio processo de design, continuamente — não uma vacina contra o
-dilema de Collingridge, mas uma forma de conviver com ele.
+Ou seja: se prever o futuro é impossível e mudar o fim é tarde demais, a
+resposta é mudar o **meio** do processo, continuamente — em duas frentes:
+
+- **Expande-se a mesa** — mais atores e *stakeholders* dentro do processo de design desde o início, não só ao final.
+- **Expandem-se os valores** — considerações sociais avaliadas em paralelo ao desenvolvimento técnico, não depois dele.
+
+Não é uma vacina contra o dilema de Collingridge — é uma forma de
+conviver com ele, corrigindo a rota mais cedo.
 
 :::
 
@@ -655,8 +727,34 @@ para denunciar:
 
 O comportamento capturado gera os dados que retreinam o algoritmo, que
 fica melhor em capturar atenção — um *feedback loop* não-técnico entre
-projeto de produto e comportamento humano em massa, sem que nenhuma linha
-de código isolada "cause" o resultado.
+projeto de produto e comportamento humano em massa:
+
+```{mermaid}
+%%| fig-align: center
+flowchart TB
+    A["💻 Projeto do<br/>Algoritmo"]
+    B["🧠 Comportamento<br/>do Usuário"]
+    C["📊 Dados de<br/>Engajamento"]
+    D["⚙️ Retreinamento<br/>(Machine Learning)"]
+
+    A -->|"induz"| B
+    B -->|"gera"| C
+    C -->|"alimenta"| D
+    D -->|"reforça"| A
+
+    classDef tech fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+    classDef human fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+    classDef data fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+
+    class A tech;
+    class B human;
+    class C data;
+    class D tech;
+```
+
+Nenhuma linha de código isolada "causa" o resultado — ele emerge do
+ciclo contínuo: o código molda o comportamento, que gera dados, que
+reescrevem o código.
 
 :::
 
@@ -734,10 +832,13 @@ conclusão quase contraintuitiva:
 > account a range of stakeholders and their interests."
 
 O contexto social **diminui** a responsabilidade individual (você é só um
-entre muitos atores) e, ao mesmo tempo, **amplia** essa responsabilidade
-(você precisa considerar interessados que não estão na sala). Não são a
-mesma pergunta, e confundir uma com a outra é o erro mais comum ao
-discutir "de quem é a culpa" quando um sistema falha.
+entre muitos atores; o desenvolvedor isolado não determina todas as
+consequências sociais do produto) e, ao mesmo tempo, **amplia** essa
+responsabilidade (você precisa considerar interessados que não estão na
+sala). Não são a mesma pergunta, e confundir uma com a outra é o erro
+mais comum ao discutir "de quem é a culpa" quando um sistema falha: **não
+ser o único culpado não significa estar isento** de responsabilidade
+moral sobre o que se projeta.
 
 ### Ponte para a Aula 2 {.unnumbered}
 

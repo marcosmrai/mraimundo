@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: "../../static/"
+  output-dir: "../../static/teaching/"
   lib-dir: site_libs
   render:
     - "*.qmd"
@@ -39,7 +39,7 @@ format:
     fig-responsive: true    # Habilita CSS responsivo nativo nas imagens
     fig-format: "svg"       # (Opcional) Usa SVG para gráficos sem perda de qualidade ao escalar
     footer: "UNICAMP — Instituto de Computação"
-    include-after-body: ../../assets/media/logos.html
+    include-after-body: ../../../../assets/media/logos.html
     title-slide-attributes:
       data-background-image: "../../logos/UNICAMP.png, ../../logos/IC.png"
       data-background-size: "140px, 140px"

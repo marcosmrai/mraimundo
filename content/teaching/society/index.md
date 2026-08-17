@@ -46,7 +46,7 @@ The primary goal of the course is to enable future computing professionals and r
 
 ### Part 1: Foundations of Computing and Ethics
 
-* **[Lesson 1: Computing as a Socio-Technical System](../../society/aula01/notas.html)** ([Slides](../../society/aula01/slides.html))
+* **[Lesson 1: Computing as a Socio-Technical System](../society/aula01/notas.html)** ([Slides](../society/aula01/slides.html))
     * **Objectives:** Understand that computing is not composed solely of technical elements (hardware and software), but constitutes a socio-technical system where technology, human beings, organizations, and culture mutually influence each other.
     * **Expected Competencies:** Ability to analyze computing artifacts within their broader social, cultural, and organizational contexts, identifying non-technical feedback loops and systemic impacts.
     * **Recommended Reading:**
@@ -55,19 +55,19 @@ The primary goal of the course is to enable future computing professionals and r
         * Steen (2022) – *Chapter 3: Is Technology a Neutral Tool?* — leitura complementar adicionada nesta sessão; cobre exatamente a tese da não-neutralidade e da coformação mútua entre pessoas e tecnologia.
     * **Date and Speaker:** TBD | Marcos M. Raimundo
 
-* **Lesson 2: What is Ethics, and The Ethical Cycle**
+* **[Lesson 2: What is Ethics, and The Ethical Cycle](../society/aula02/notas.html)** ([Slides](../society/aula02/slides.html))
     * **Objectives:** Introduce the main branches of normative ethics (consequentialism, deontology, and virtue ethics) and train students in using the "Ethical Cycle" as a methodological tool to analyze and resolve moral dilemmas in IT.
     * **Expected Competencies:** Ability to apply ethical frameworks systematically to resolve complex technology-related moral dilemmas using structured deliberation steps.
     * **Recommended Reading:**
-        * Van de Poel & Royakkers (2011) – *Chapter 3: Normative Ethical Theories* & *Chapter 4: The Ethical Cycle*.
-        * Marc Steen (2022) – *Chapter 6: Ethical Reflection, Inquiry, and Deliberation*.
+        * Van de Poel & Royakkers (2011) – *Chapter 3: Normative Ethics* & *Chapter 5: The Ethical Cycle* — **correção**: a ementa original dizia "Chapter 4: The Ethical Cycle"; pelo sumário real, o Cap. 4 é "Normative Argumentation" e o Ciclo Ético é o Cap. 5 (p. 133).
+        * Marc Steen (2022) – *Chapter 16: Methods to 'do ethics' in your project* — **correção**: a ementa original dizia "Chapter 6: Ethical Reflection, Inquiry, and Deliberation", título que não existe no livro (o Cap. 6 real é "Privacy is about more than 'privacy'"; a frase citada é o tema recorrente do livro, introduzido no Cap. 2 e detalhado no Cap. 16).
     * **Date and Speaker:** TBD | Marcos M. Raimundo
 
 * **Lesson 3: Computing, Its Domains, and Professional Responsibility**
     * **Objectives:** Map the field of computing, discuss the relevance and application of professional codes of ethics (ACM, SBC, IEEE), and examine the scope of active and passive professional responsibilities toward society.
     * **Expected Competencies:** Ability to align technical practices with established professional codes of ethics and evaluate individual liability in software failure or societal harm scenarios.
     * **Recommended Reading:**
-        * Maciel & Viterbo (2020) – Vol. 1, *Capítulo 1: Panorama do Ensino Superior em Computação no Brasil* & *Capítulo 5: O Exercício da Profissão em Computação e os Aspectos Regulatórios no Brasil*.
+        * Maciel & Viterbo (2020) – Vol. 1, *Capítulo 1: A Formação em Computação*, *Capítulo 5: Regulamentação da Profissão*, & *Capítulo 7: Ética Profissional em Computação* — **correção**: a ementa original citava títulos que não existem no livro ("Panorama do Ensino Superior em Computação no Brasil" para o Cap. 1; "O Exercício da Profissão em Computação e os Aspectos Regulatórios no Brasil" para o Cap. 5); corrigidos para os títulos reais, e adicionado o Cap. 7, que cobre diretamente ética profissional em computação — antes ausente da leitura recomendada.
         * Van de Poel & Royakkers (2011) – *Chapter 2: Codes of Conduct*.
     * **Date and Speaker:** TBD | TBA
 

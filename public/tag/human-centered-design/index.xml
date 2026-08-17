@@ -25,7 +25,7 @@
 &lt;h3 id=&#34;part-1-foundations-of-computing-and-ethics&#34;&gt;Part 1: Foundations of Computing and Ethics&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../society/aula01/notas.html&#34;&gt;Lesson 1: Computing as a Socio-Technical System&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../society/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../society/aula01/notas.html&#34;&gt;Lesson 1: Computing as a Socio-Technical System&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../society/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Understand that computing is not composed solely of technical elements (hardware and software), but constitutes a socio-technical system where technology, human beings, organizations, and culture mutually influence each other.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to analyze computing artifacts within their broader social, cultural, and organizational contexts, identifying non-technical feedback loops and systemic impacts.&lt;/li&gt;
@@ -40,14 +40,14 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lesson 2: What is Ethics, and The Ethical Cycle&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../society/aula02/notas.html&#34;&gt;Lesson 2: What is Ethics, and The Ethical Cycle&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../society/aula02/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Introduce the main branches of normative ethics (consequentialism, deontology, and virtue ethics) and train students in using the &amp;ldquo;Ethical Cycle&amp;rdquo; as a methodological tool to analyze and resolve moral dilemmas in IT.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to apply ethical frameworks systematically to resolve complex technology-related moral dilemmas using structured deliberation steps.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 3: Normative Ethical Theories&lt;/em&gt; &amp;amp; &lt;em&gt;Chapter 4: The Ethical Cycle&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Marc Steen (2022) – &lt;em&gt;Chapter 6: Ethical Reflection, Inquiry, and Deliberation&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 3: Normative Ethics&lt;/em&gt; &amp;amp; &lt;em&gt;Chapter 5: The Ethical Cycle&lt;/em&gt; — &lt;strong&gt;correção&lt;/strong&gt;: a ementa original dizia &amp;ldquo;Chapter 4: The Ethical Cycle&amp;rdquo;; pelo sumário real, o Cap. 4 é &amp;ldquo;Normative Argumentation&amp;rdquo; e o Ciclo Ético é o Cap. 5 (p. 133).&lt;/li&gt;
+&lt;li&gt;Marc Steen (2022) – &lt;em&gt;Chapter 16: Methods to &amp;lsquo;do ethics&amp;rsquo; in your project&lt;/em&gt; — &lt;strong&gt;correção&lt;/strong&gt;: a ementa original dizia &amp;ldquo;Chapter 6: Ethical Reflection, Inquiry, and Deliberation&amp;rdquo;, título que não existe no livro (o Cap. 6 real é &amp;ldquo;Privacy is about more than &amp;lsquo;privacy&amp;rsquo;&amp;rdquo;; a frase citada é o tema recorrente do livro, introduzido no Cap. 2 e detalhado no Cap. 16).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date and Speaker:&lt;/strong&gt; TBD | Marcos M. Raimundo&lt;/li&gt;
@@ -60,7 +60,7 @@
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to align technical practices with established professional codes of ethics and evaluate individual liability in software failure or societal harm scenarios.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 1, &lt;em&gt;Capítulo 1: Panorama do Ensino Superior em Computação no Brasil&lt;/em&gt; &amp;amp; &lt;em&gt;Capítulo 5: O Exercício da Profissão em Computação e os Aspectos Regulatórios no Brasil&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 1, &lt;em&gt;Capítulo 1: A Formação em Computação&lt;/em&gt;, &lt;em&gt;Capítulo 5: Regulamentação da Profissão&lt;/em&gt;, &amp;amp; &lt;em&gt;Capítulo 7: Ética Profissional em Computação&lt;/em&gt; — &lt;strong&gt;correção&lt;/strong&gt;: a ementa original citava títulos que não existem no livro (&amp;ldquo;Panorama do Ensino Superior em Computação no Brasil&amp;rdquo; para o Cap. 1; &amp;ldquo;O Exercício da Profissão em Computação e os Aspectos Regulatórios no Brasil&amp;rdquo; para o Cap. 5); corrigidos para os títulos reais, e adicionado o Cap. 7, que cobre diretamente ética profissional em computação — antes ausente da leitura recomendada.&lt;/li&gt;
 &lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 2: Codes of Conduct&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;

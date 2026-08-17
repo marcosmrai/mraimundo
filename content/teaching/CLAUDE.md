@@ -77,8 +77,34 @@ blocos `::: {.content-visible when-format="..."}`:
 - **HTML** (`unless-format="revealjs"`): prosa corrida, completa,
   com as provas/derivações por extenso, citações de página do livro,
   avisos de leitura e notas de rodapé pedagógicas.
-- **RevealJS**: versão condensada em bullets/fragmentos (`. . .`,
-  `::: {.fragment}`), sem prosa longa, para uso em sala.
+- **RevealJS**: densa e completa, não um resumo de tópicos — os slides
+  precisam sustentar a aula sozinhos em sala, não só sinalizar
+  *highlights* ("só highlights é complicado para trabalhar", feedback
+  explícito do usuário). Usar bullets/fragmentos (`. . .`,
+  `::: {.fragment}`) para revelar progressivamente e organizar uma ideia
+  por slide, mas sem cortar explicações, derivações e nuances
+  essenciais — o corte em relação à versão HTML é de ritmo e organização
+  visual, não de profundidade de conteúdo. Conceitos não-triviais
+  (ex: teoria kantiana, normas *prima facie*) precisam do mesmo cuidado
+  explicativo nos slides que têm nas notas — não vale simplificar a
+  ponto de distorcer.
+
+## Citações e trechos de fontes: sempre traduzidos no `.qmd`
+
+Fontes bibliográficas em inglês (comum neste projeto) devem ter seus
+trechos **traduzidos para português** no `02-aula.qmd` — tanto nas notas
+quanto nos slides. Deixar a citação em inglês tem um custo alto de troca
+de idioma para quem lê ou apresenta em português (feedback explícito do
+usuário).
+
+- Em `01-fontes.md`, o "Trecho" continua na língua original da fonte,
+  literal, sem tradução — é o registro de verificação direta contra o
+  PDF (Etapa 3, não mexer nisso).
+- No `02-aula.qmd`, usar a tradução para português do trecho, deixando
+  claro que é tradução nossa (ex.: "tradução nossa"), não uma citação
+  literal de outra fonte. Termos técnicos sem tradução direta e estável
+  (ex.: *prima facie*, em latim) podem ficar no original, com uma
+  explicação ao lado na primeira aparição.
 
 Código Python (ou R) é embutido nos mesmos chunks, gerando as figuras
 que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do
@@ -133,6 +159,33 @@ usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos
 dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver
 claro que o diagrama ajuda mais do que texto.
 
+## Exercícios (obrigatório em toda aula)
+
+Toda aula precisa de exercícios — em dois formatos distintos, um por
+saída, que não devem ser confundidos entre si:
+
+- **Notas (HTML):** terminar o arquivo com uma seção de **Exercícios**
+  (dentro do bloco `content-visible` exclusivo de HTML), com algumas
+  questões que exercitem o conteúdo da aula como um todo. Pode
+  reaproveitar questões de fim de capítulo das próprias fontes
+  bibliográficas (citando de onde vieram, como já se faz com trechos
+  citados) ou propor questões originais — nesse caso, sinalizar que são
+  originais, não da fonte. Ficam sem solução no arquivo (é trabalho para
+  o aluno resolver por conta, fora da aula).
+
+- **Slides (RevealJS):** intercalar, **no meio** da sequência de slides
+  (não só ao final), pequenos exercícios de checagem/acompanhamento —
+  uma pergunta objetiva e rápida sobre o que acabou de ser apresentado,
+  para o aluno testar se acompanhou o conteúdo em tempo real. Cada
+  exercício desses deve ser seguido **imediatamente** (no slide
+  seguinte) pela solução/resposta discutida — não deixar para o fim da
+  aula. Isso é diferente das "provocações" de fim de subseção já
+  praticadas em aulas anteriores (perguntas abertas, para discussão em
+  sala, sem resposta fechada no arquivo): exercícios de checagem têm
+  resposta objetiva, aparecem espalhados ao longo dos slides (não
+  concentrados num só lugar), e resolvem-se ali mesmo, no slide
+  seguinte.
+
 ---
 
 ## Para cada aula (repetir o ciclo)
@@ -172,9 +225,12 @@ Formato:
 Gerar `aulaNN/01-fontes.md` listando cada fonte usada, com:
 - referência (livro, capítulo, seção, páginas);
 - **o uso pretendido** daquele trecho na aula;
-- **o trecho citado literalmente**, extraído do PDF/slide antigo —
-  nunca reescrito de memória ou paraphraseado nesta etapa, para que a
-  checagem do usuário seja direta.
+- **o trecho citado literalmente**, extraído do PDF/slide antigo,
+  **na língua original da fonte** — nunca reescrito de memória, nunca
+  paraphraseado, nunca traduzido nesta etapa, para que a checagem do
+  usuário seja direta contra o PDF. A tradução para português (ver seção
+  "Citações e trechos de fontes" acima) é feita depois, só no
+  `02-aula.qmd` (Etapa 4).
 
 Formato:
 
@@ -213,7 +269,10 @@ Gerar `aulaNN/02-aula.qmd`: arquivo único com saída dupla
 HTML/RevealJS, código Python embutido, seguindo o estilo descrito
 acima, o tom do(s) arquivo(s) de referência em `fontes/exemplos-estilo/`,
 e a estrutura de blocos definida em `00-plano-aula.md`. Incluir
-diagramas Mermaid onde fizer sentido (ver seção acima). **PARAR.**
+diagramas Mermaid onde fizer sentido (ver seção acima), e os
+exercícios obrigatórios (ver seção "Exercícios" acima: seção de
+exercícios ao fim das notas HTML; exercícios de checagem intercalados
+nos slides, cada um seguido da solução no slide seguinte). **PARAR.**
 
 ### 5. Atualizar o `index.md` da disciplina
 Após o usuário aprovar `02-aula.qmd` (fim da Etapa 4), propor a

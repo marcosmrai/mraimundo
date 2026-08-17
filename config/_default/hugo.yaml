@@ -63,3 +63,10 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
+module:
+  mounts:
+    - source: content
+      target: content
+      excludeFiles:
+        - '**/_freeze/**'
+        - '**/site_libs/**'

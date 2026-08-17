@@ -56,6 +56,11 @@ a:hover {
   display: none !important;
 }
 
+.reveal .mermaid svg,
+.reveal svg[id^="mermaid"] {
+  text, .nodeLabel, .edgeLabel { font-size: 16px !important; font-family: arial, sans-serif !important; }
+}
+
 /*-- scss:rules --*/
 
 // Container do Rodapé (Logos + Seta)

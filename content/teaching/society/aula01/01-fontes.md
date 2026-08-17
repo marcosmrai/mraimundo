@@ -66,6 +66,15 @@
 > visiting the parks and beaches. Moses used technology to achieve racist
 > outcomes."
 
+**Nota de precisão (enriquecimento desta sessão):** o `02-aula.qmd` cita
+"Jones Beach" como a praia específica bloqueada pelos viadutos de Moses.
+Esse nome **não está no trecho acima** — é um detalhe factual bem
+documentado do caso Robert Moses na literatura padrão sobre o tema (Robert
+Caro, *The Power Broker*; o próprio ensaio de Langdon Winner, "Do
+Artifacts Have Politics?"), mas **não foi verificado contra a página
+específica deste livro (Steen, 2022)**. Sinalizado, não removido — mas
+não tratar como citação literal desta fonte.
+
 ---
 
 ### Fonte 4: Steen (2022), Cap. 3, p. 30

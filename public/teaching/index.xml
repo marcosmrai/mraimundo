@@ -25,7 +25,7 @@
 &lt;h3 id=&#34;part-1-foundations-of-computing-and-ethics&#34;&gt;Part 1: Foundations of Computing and Ethics&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../society/aula01/notas.html&#34;&gt;Lesson 1: Computing as a Socio-Technical System&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../society/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../society/aula01/notas.html&#34;&gt;Lesson 1: Computing as a Socio-Technical System&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../society/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Understand that computing is not composed solely of technical elements (hardware and software), but constitutes a socio-technical system where technology, human beings, organizations, and culture mutually influence each other.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to analyze computing artifacts within their broader social, cultural, and organizational contexts, identifying non-technical feedback loops and systemic impacts.&lt;/li&gt;
@@ -40,14 +40,14 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lesson 2: What is Ethics, and The Ethical Cycle&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../society/aula02/notas.html&#34;&gt;Lesson 2: What is Ethics, and The Ethical Cycle&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../society/aula02/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Objectives:&lt;/strong&gt; Introduce the main branches of normative ethics (consequentialism, deontology, and virtue ethics) and train students in using the &amp;ldquo;Ethical Cycle&amp;rdquo; as a methodological tool to analyze and resolve moral dilemmas in IT.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to apply ethical frameworks systematically to resolve complex technology-related moral dilemmas using structured deliberation steps.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 3: Normative Ethical Theories&lt;/em&gt; &amp;amp; &lt;em&gt;Chapter 4: The Ethical Cycle&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Marc Steen (2022) – &lt;em&gt;Chapter 6: Ethical Reflection, Inquiry, and Deliberation&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 3: Normative Ethics&lt;/em&gt; &amp;amp; &lt;em&gt;Chapter 5: The Ethical Cycle&lt;/em&gt; — &lt;strong&gt;correção&lt;/strong&gt;: a ementa original dizia &amp;ldquo;Chapter 4: The Ethical Cycle&amp;rdquo;; pelo sumário real, o Cap. 4 é &amp;ldquo;Normative Argumentation&amp;rdquo; e o Ciclo Ético é o Cap. 5 (p. 133).&lt;/li&gt;
+&lt;li&gt;Marc Steen (2022) – &lt;em&gt;Chapter 16: Methods to &amp;lsquo;do ethics&amp;rsquo; in your project&lt;/em&gt; — &lt;strong&gt;correção&lt;/strong&gt;: a ementa original dizia &amp;ldquo;Chapter 6: Ethical Reflection, Inquiry, and Deliberation&amp;rdquo;, título que não existe no livro (o Cap. 6 real é &amp;ldquo;Privacy is about more than &amp;lsquo;privacy&amp;rsquo;&amp;rdquo;; a frase citada é o tema recorrente do livro, introduzido no Cap. 2 e detalhado no Cap. 16).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date and Speaker:&lt;/strong&gt; TBD | Marcos M. Raimundo&lt;/li&gt;
@@ -60,7 +60,7 @@
 &lt;li&gt;&lt;strong&gt;Expected Competencies:&lt;/strong&gt; Ability to align technical practices with established professional codes of ethics and evaluate individual liability in software failure or societal harm scenarios.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Recommended Reading:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 1, &lt;em&gt;Capítulo 1: Panorama do Ensino Superior em Computação no Brasil&lt;/em&gt; &amp;amp; &lt;em&gt;Capítulo 5: O Exercício da Profissão em Computação e os Aspectos Regulatórios no Brasil&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Maciel &amp;amp; Viterbo (2020) – Vol. 1, &lt;em&gt;Capítulo 1: A Formação em Computação&lt;/em&gt;, &lt;em&gt;Capítulo 5: Regulamentação da Profissão&lt;/em&gt;, &amp;amp; &lt;em&gt;Capítulo 7: Ética Profissional em Computação&lt;/em&gt; — &lt;strong&gt;correção&lt;/strong&gt;: a ementa original citava títulos que não existem no livro (&amp;ldquo;Panorama do Ensino Superior em Computação no Brasil&amp;rdquo; para o Cap. 1; &amp;ldquo;O Exercício da Profissão em Computação e os Aspectos Regulatórios no Brasil&amp;rdquo; para o Cap. 5); corrigidos para os títulos reais, e adicionado o Cap. 7, que cobre diretamente ética profissional em computação — antes ausente da leitura recomendada.&lt;/li&gt;
 &lt;li&gt;Van de Poel &amp;amp; Royakkers (2011) – &lt;em&gt;Chapter 2: Codes of Conduct&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -966,8 +966,33 @@ blocos &lt;code&gt;::: {.content-visible when-format=&amp;quot;...&amp;quot;}&lt
 &lt;li&gt;&lt;strong&gt;HTML&lt;/strong&gt; (&lt;code&gt;unless-format=&amp;quot;revealjs&amp;quot;&lt;/code&gt;): prosa corrida, completa,
 com as provas/derivações por extenso, citações de página do livro,
 avisos de leitura e notas de rodapé pedagógicas.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;RevealJS&lt;/strong&gt;: versão condensada em bullets/fragmentos (&lt;code&gt;. . .&lt;/code&gt;,
-&lt;code&gt;::: {.fragment}&lt;/code&gt;), sem prosa longa, para uso em sala.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RevealJS&lt;/strong&gt;: densa e completa, não um resumo de tópicos — os slides
+precisam sustentar a aula sozinhos em sala, não só sinalizar
+&lt;em&gt;highlights&lt;/em&gt; (&amp;ldquo;só highlights é complicado para trabalhar&amp;rdquo;, feedback
+explícito do usuário). Usar bullets/fragmentos (&lt;code&gt;. . .&lt;/code&gt;,
+&lt;code&gt;::: {.fragment}&lt;/code&gt;) para revelar progressivamente e organizar uma ideia
+por slide, mas sem cortar explicações, derivações e nuances
+essenciais — o corte em relação à versão HTML é de ritmo e organização
+visual, não de profundidade de conteúdo. Conceitos não-triviais
+(ex: teoria kantiana, normas &lt;em&gt;prima facie&lt;/em&gt;) precisam do mesmo cuidado
+explicativo nos slides que têm nas notas — não vale simplificar a
+ponto de distorcer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;citações-e-trechos-de-fontes-sempre-traduzidos-no-qmd&#34;&gt;Citações e trechos de fontes: sempre traduzidos no &lt;code&gt;.qmd&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Fontes bibliográficas em inglês (comum neste projeto) devem ter seus
+trechos &lt;strong&gt;traduzidos para português&lt;/strong&gt; no &lt;code&gt;02-aula.qmd&lt;/code&gt; — tanto nas notas
+quanto nos slides. Deixar a citação em inglês tem um custo alto de troca
+de idioma para quem lê ou apresenta em português (feedback explícito do
+usuário).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Em &lt;code&gt;01-fontes.md&lt;/code&gt;, o &amp;ldquo;Trecho&amp;rdquo; continua na língua original da fonte,
+literal, sem tradução — é o registro de verificação direta contra o
+PDF (Etapa 3, não mexer nisso).&lt;/li&gt;
+&lt;li&gt;No &lt;code&gt;02-aula.qmd&lt;/code&gt;, usar a tradução para português do trecho, deixando
+claro que é tradução nossa (ex.: &amp;ldquo;tradução nossa&amp;rdquo;), não uma citação
+literal de outra fonte. Termos técnicos sem tradução direta e estável
+(ex.: &lt;em&gt;prima facie&lt;/em&gt;, em latim) podem ficar no original, com uma
+explicação ao lado na primeira aparição.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Código Python (ou R) é embutido nos mesmos chunks, gerando as figuras
 que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do
@@ -1010,6 +1035,35 @@ caminhos alternativos (ex: &amp;ldquo;três saídas honestas para um problema&am
 usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos
 dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver
 claro que o diagrama ajuda mais do que texto.&lt;/p&gt;
+&lt;h2 id=&#34;exercícios-obrigatório-em-toda-aula&#34;&gt;Exercícios (obrigatório em toda aula)&lt;/h2&gt;
+&lt;p&gt;Toda aula precisa de exercícios — em dois formatos distintos, um por
+saída, que não devem ser confundidos entre si:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Notas (HTML):&lt;/strong&gt; terminar o arquivo com uma seção de &lt;strong&gt;Exercícios&lt;/strong&gt;
+(dentro do bloco &lt;code&gt;content-visible&lt;/code&gt; exclusivo de HTML), com algumas
+questões que exercitem o conteúdo da aula como um todo. Pode
+reaproveitar questões de fim de capítulo das próprias fontes
+bibliográficas (citando de onde vieram, como já se faz com trechos
+citados) ou propor questões originais — nesse caso, sinalizar que são
+originais, não da fonte. Ficam sem solução no arquivo (é trabalho para
+o aluno resolver por conta, fora da aula).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Slides (RevealJS):&lt;/strong&gt; intercalar, &lt;strong&gt;no meio&lt;/strong&gt; da sequência de slides
+(não só ao final), pequenos exercícios de checagem/acompanhamento —
+uma pergunta objetiva e rápida sobre o que acabou de ser apresentado,
+para o aluno testar se acompanhou o conteúdo em tempo real. Cada
+exercício desses deve ser seguido &lt;strong&gt;imediatamente&lt;/strong&gt; (no slide
+seguinte) pela solução/resposta discutida — não deixar para o fim da
+aula. Isso é diferente das &amp;ldquo;provocações&amp;rdquo; de fim de subseção já
+praticadas em aulas anteriores (perguntas abertas, para discussão em
+sala, sem resposta fechada no arquivo): exercícios de checagem têm
+resposta objetiva, aparecem espalhados ao longo dos slides (não
+concentrados num só lugar), e resolvem-se ali mesmo, no slide
+seguinte.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;para-cada-aula-repetir-o-ciclo&#34;&gt;Para cada aula (repetir o ciclo)&lt;/h2&gt;
 &lt;h3 id=&#34;1-identificar-a-aula-no-planejamento&#34;&gt;1. Identificar a aula no planejamento&lt;/h3&gt;
@@ -1042,9 +1096,12 @@ com uma pergunta sem resposta, que o Bloco 2 resolve&amp;rdquo;).&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;referência (livro, capítulo, seção, páginas);&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;o uso pretendido&lt;/strong&gt; daquele trecho na aula;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;o trecho citado literalmente&lt;/strong&gt;, extraído do PDF/slide antigo —
-nunca reescrito de memória ou paraphraseado nesta etapa, para que a
-checagem do usuário seja direta.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;o trecho citado literalmente&lt;/strong&gt;, extraído do PDF/slide antigo,
+&lt;strong&gt;na língua original da fonte&lt;/strong&gt; — nunca reescrito de memória, nunca
+paraphraseado, nunca traduzido nesta etapa, para que a checagem do
+usuário seja direta contra o PDF. A tradução para português (ver seção
+&amp;ldquo;Citações e trechos de fontes&amp;rdquo; acima) é feita depois, só no
+&lt;code&gt;02-aula.qmd&lt;/code&gt; (Etapa 4).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Formato:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;## Fontes usadas — Aula N
@@ -1077,7 +1134,10 @@ projeto continuar funcionando se a pasta for movida.&lt;/p&gt;
 HTML/RevealJS, código Python embutido, seguindo o estilo descrito
 acima, o tom do(s) arquivo(s) de referência em &lt;code&gt;fontes/exemplos-estilo/&lt;/code&gt;,
 e a estrutura de blocos definida em &lt;code&gt;00-plano-aula.md&lt;/code&gt;. Incluir
-diagramas Mermaid onde fizer sentido (ver seção acima). &lt;strong&gt;PARAR.&lt;/strong&gt;&lt;/p&gt;
+diagramas Mermaid onde fizer sentido (ver seção acima), e os
+exercícios obrigatórios (ver seção &amp;ldquo;Exercícios&amp;rdquo; acima: seção de
+exercícios ao fim das notas HTML; exercícios de checagem intercalados
+nos slides, cada um seguido da solução no slide seguinte). &lt;strong&gt;PARAR.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;5-atualizar-o-indexmd-da-disciplina&#34;&gt;5. Atualizar o &lt;code&gt;index.md&lt;/code&gt; da disciplina&lt;/h3&gt;
 &lt;p&gt;Após o usuário aprovar &lt;code&gt;02-aula.qmd&lt;/code&gt; (fim da Etapa 4), propor a
 atualização do &lt;code&gt;index.md&lt;/code&gt; da disciplina — um markdown para Hugo com o

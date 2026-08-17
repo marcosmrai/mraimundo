@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: August 10, 2026 --><html lang="en-us" >
+<!-- Last Published: August 17, 2026 --><html lang="en-us" >
 
 
 <head>
@@ -842,8 +842,33 @@ blocos <code>::: {.content-visible when-format=&quot;...&quot;}</code>:</p>
 <li><strong>HTML</strong> (<code>unless-format=&quot;revealjs&quot;</code>): prosa corrida, completa,
 com as provas/derivações por extenso, citações de página do livro,
 avisos de leitura e notas de rodapé pedagógicas.</li>
-<li><strong>RevealJS</strong>: versão condensada em bullets/fragmentos (<code>. . .</code>,
-<code>::: {.fragment}</code>), sem prosa longa, para uso em sala.</li>
+<li><strong>RevealJS</strong>: densa e completa, não um resumo de tópicos — os slides
+precisam sustentar a aula sozinhos em sala, não só sinalizar
+<em>highlights</em> (&ldquo;só highlights é complicado para trabalhar&rdquo;, feedback
+explícito do usuário). Usar bullets/fragmentos (<code>. . .</code>,
+<code>::: {.fragment}</code>) para revelar progressivamente e organizar uma ideia
+por slide, mas sem cortar explicações, derivações e nuances
+essenciais — o corte em relação à versão HTML é de ritmo e organização
+visual, não de profundidade de conteúdo. Conceitos não-triviais
+(ex: teoria kantiana, normas <em>prima facie</em>) precisam do mesmo cuidado
+explicativo nos slides que têm nas notas — não vale simplificar a
+ponto de distorcer.</li>
+</ul>
+<h2 id="citações-e-trechos-de-fontes-sempre-traduzidos-no-qmd">Citações e trechos de fontes: sempre traduzidos no <code>.qmd</code></h2>
+<p>Fontes bibliográficas em inglês (comum neste projeto) devem ter seus
+trechos <strong>traduzidos para português</strong> no <code>02-aula.qmd</code> — tanto nas notas
+quanto nos slides. Deixar a citação em inglês tem um custo alto de troca
+de idioma para quem lê ou apresenta em português (feedback explícito do
+usuário).</p>
+<ul>
+<li>Em <code>01-fontes.md</code>, o &ldquo;Trecho&rdquo; continua na língua original da fonte,
+literal, sem tradução — é o registro de verificação direta contra o
+PDF (Etapa 3, não mexer nisso).</li>
+<li>No <code>02-aula.qmd</code>, usar a tradução para português do trecho, deixando
+claro que é tradução nossa (ex.: &ldquo;tradução nossa&rdquo;), não uma citação
+literal de outra fonte. Termos técnicos sem tradução direta e estável
+(ex.: <em>prima facie</em>, em latim) podem ficar no original, com uma
+explicação ao lado na primeira aparição.</li>
 </ul>
 <p>Código Python (ou R) é embutido nos mesmos chunks, gerando as figuras
 que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do
@@ -886,6 +911,35 @@ caminhos alternativos (ex: &ldquo;três saídas honestas para um problema&rdquo;
 usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos
 dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver
 claro que o diagrama ajuda mais do que texto.</p>
+<h2 id="exercícios-obrigatório-em-toda-aula">Exercícios (obrigatório em toda aula)</h2>
+<p>Toda aula precisa de exercícios — em dois formatos distintos, um por
+saída, que não devem ser confundidos entre si:</p>
+<ul>
+<li>
+<p><strong>Notas (HTML):</strong> terminar o arquivo com uma seção de <strong>Exercícios</strong>
+(dentro do bloco <code>content-visible</code> exclusivo de HTML), com algumas
+questões que exercitem o conteúdo da aula como um todo. Pode
+reaproveitar questões de fim de capítulo das próprias fontes
+bibliográficas (citando de onde vieram, como já se faz com trechos
+citados) ou propor questões originais — nesse caso, sinalizar que são
+originais, não da fonte. Ficam sem solução no arquivo (é trabalho para
+o aluno resolver por conta, fora da aula).</p>
+</li>
+<li>
+<p><strong>Slides (RevealJS):</strong> intercalar, <strong>no meio</strong> da sequência de slides
+(não só ao final), pequenos exercícios de checagem/acompanhamento —
+uma pergunta objetiva e rápida sobre o que acabou de ser apresentado,
+para o aluno testar se acompanhou o conteúdo em tempo real. Cada
+exercício desses deve ser seguido <strong>imediatamente</strong> (no slide
+seguinte) pela solução/resposta discutida — não deixar para o fim da
+aula. Isso é diferente das &ldquo;provocações&rdquo; de fim de subseção já
+praticadas em aulas anteriores (perguntas abertas, para discussão em
+sala, sem resposta fechada no arquivo): exercícios de checagem têm
+resposta objetiva, aparecem espalhados ao longo dos slides (não
+concentrados num só lugar), e resolvem-se ali mesmo, no slide
+seguinte.</p>
+</li>
+</ul>
 <hr>
 <h2 id="para-cada-aula-repetir-o-ciclo">Para cada aula (repetir o ciclo)</h2>
 <h3 id="1-identificar-a-aula-no-planejamento">1. Identificar a aula no planejamento</h3>
@@ -918,9 +972,12 @@ com uma pergunta sem resposta, que o Bloco 2 resolve&rdquo;).</li>
 <ul>
 <li>referência (livro, capítulo, seção, páginas);</li>
 <li><strong>o uso pretendido</strong> daquele trecho na aula;</li>
-<li><strong>o trecho citado literalmente</strong>, extraído do PDF/slide antigo —
-nunca reescrito de memória ou paraphraseado nesta etapa, para que a
-checagem do usuário seja direta.</li>
+<li><strong>o trecho citado literalmente</strong>, extraído do PDF/slide antigo,
+<strong>na língua original da fonte</strong> — nunca reescrito de memória, nunca
+paraphraseado, nunca traduzido nesta etapa, para que a checagem do
+usuário seja direta contra o PDF. A tradução para português (ver seção
+&ldquo;Citações e trechos de fontes&rdquo; acima) é feita depois, só no
+<code>02-aula.qmd</code> (Etapa 4).</li>
 </ul>
 <p>Formato:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## Fontes usadas — Aula N
@@ -953,7 +1010,10 @@ projeto continuar funcionando se a pasta for movida.</p>
 HTML/RevealJS, código Python embutido, seguindo o estilo descrito
 acima, o tom do(s) arquivo(s) de referência em <code>fontes/exemplos-estilo/</code>,
 e a estrutura de blocos definida em <code>00-plano-aula.md</code>. Incluir
-diagramas Mermaid onde fizer sentido (ver seção acima). <strong>PARAR.</strong></p>
+diagramas Mermaid onde fizer sentido (ver seção acima), e os
+exercícios obrigatórios (ver seção &ldquo;Exercícios&rdquo; acima: seção de
+exercícios ao fim das notas HTML; exercícios de checagem intercalados
+nos slides, cada um seguido da solução no slide seguinte). <strong>PARAR.</strong></p>
 <h3 id="5-atualizar-o-indexmd-da-disciplina">5. Atualizar o <code>index.md</code> da disciplina</h3>
 <p>Após o usuário aprovar <code>02-aula.qmd</code> (fim da Etapa 4), propor a
 atualização do <code>index.md</code> da disciplina — um markdown para Hugo com o

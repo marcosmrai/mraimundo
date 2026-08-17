@@ -66,6 +66,54 @@ sem relação com o tema.
 Link da Aula 1 adicionado (não existia nenhum antes). Mesmo padrão das
 outras disciplinas: `../../society/aula01/notas.html` (+ Slides).
 
-## Aulas 2–15
+## Aula 2 — What is Ethics, and The Ethical Cycle
+
+- [x] `00-plano-aula.md` — 5 blocos, ~50 min nominais (nota explícita no
+      próprio plano: conteúdo de texto/slides é mais profundo do que cabe
+      em 50 min falados, igual à Aula 1).
+- [x] `01-fontes.md` — 29 fontes (Van de Poel & Royakkers Caps. 3 e 5,
+      Steen Cap. 16), passou por **duas rodadas**: a segunda incorporou
+      feedback do usuário — trocou o exemplo de conflito de normas
+      kantiano (trabalho infantil/IKEA, considerado ruim) pelo exemplo já
+      do livro (provas de alunos vs. amigo) + o assassino à porta de Kant
+      (sinalizado como externo ao livro-base); aprofundou ética do
+      cuidado; usou o Ford Pinto como caso central atravessando três das
+      quatro teorias, mostrando profundidade revertendo conclusões dentro
+      de cada teoria (não só entre teorias); adicionou provocações de
+      fim de subseção (nos slides) usando Study/Discussion Questions do
+      próprio livro (pp. 107–108); expandiu "quando voltar" no Ciclo
+      Ético em três mecanismos nomeados, com honestidade explícita sobre
+      quais são citação literal do livro (Seta 2) vs. reconstrução nossa
+      (Setas 1 e 3).
+- [x] `02-aula.qmd` — sem código Python, só prosa + Mermaid. Passou por
+      **duas rodadas completas**: a primeira gerou o conteúdo inicial; a
+      segunda (pedido explícito do usuário: "recomece desde
+      planejamento, mas não precisa das minhas intervenções") reescreveu
+      substancialmente os Blocos 2, 3 e 5 incorporando todo o feedback
+      listado acima, sem parar para aprovação intermediária. Corrigido
+      também um bug de numeração de seções (`###` pulando `##`, gerando
+      "3.0.1" em vez de "3.1" no sumário). Validado com
+      `quarto render --to html` e `--to revealjs`, sem erro, div-balance
+      verificado por script Python a cada rodada.
+- [x] Etapa 5 (`index.md`) — **ainda não feita**, pendente aprovação do
+      usuário sobre o conteúdo final desta segunda rodada.
+
+### Nota de infraestrutura: `output-dir` do `_quarto.yml`
+
+Durante esta rodada, `content/teaching/_quarto.yml` foi encontrado com
+uma alteração não commitada: `output-dir` mudou de `"../../static/"`
+para `"../../teaching/static/"`. Perguntado ao usuário, que confirmou
+**manter** o novo valor. Efeito prático: a partir desta rodada, os
+HTMLs renderizados da Aula 2 foram gravados em
+`mraimundo/teaching/static/society/aula02/` (novo local), não mais em
+`mraimundo/static/society/aula02/` (local antigo, usado pela Aula 1 e
+pelas primeiras renderizações da própria Aula 2 nesta sessão — ficou
+com uma cópia desatualizada, não removida). Se o Hugo do site espera os
+HTMLs em `mraimundo/static/`, os links do `index.md` (Etapa 5) e a
+publicação real do site podem quebrar até que a Aula 1 e as outras
+disciplinas também migrem para o novo caminho, ou até o `_quarto.yml`
+volte ao valor antigo — vale confirmar com o usuário antes de publicar.
+
+## Aulas 3–15
 
 Não iniciadas.

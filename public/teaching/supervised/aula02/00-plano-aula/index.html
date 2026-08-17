@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: August 17, 2026 --><html lang="en-us" >
+
+
+<head><script src="/mraimundo/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=mraimundo/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/mraimundo/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mraimundo/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/mraimundo/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/mraimundo/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Marcos M. Raimundo" />
+
+
+
+
+
+  
+
+<meta name="description" content="Resumo — Aula 2: Distribuições Condicionais e Modelos Generativos (Aula 2 começou do zero nesta rodada — o 02-aula.qmd anterior foi descartado a pedido do usuário; recuperável do histórico do git, commit a66e239, se algum dia necessário.)
+" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/mraimundo/teaching/supervised/aula02/00-plano-aula/" />
+<link rel="canonical" href="http://localhost:1313/mraimundo/teaching/supervised/aula02/00-plano-aula/" />
+
+
+
+  <link rel="manifest" href="/mraimundo/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/mraimundo/media/icon_hu_5cf9d8fdd8df3b57.png" />
+<link rel="apple-touch-icon" type="image/png" href="/mraimundo/media/icon_hu_c58c21d2f6d42643.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+
+  <meta property="twitter:site" content="@GetResearchDev" />
+  <meta property="twitter:creator" content="@GetResearchDev" />
+<meta property="twitter:image" content="http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png" />
+
+
+
+  
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Marcos M. Raimundo" />
+<meta property="og:url" content="http://localhost:1313/mraimundo/teaching/supervised/aula02/00-plano-aula/" />
+<meta property="og:title" content="Marcos M. Raimundo" />
+<meta property="og:description" content="Resumo — Aula 2: Distribuições Condicionais e Modelos Generativos
+(Aula 2 começou do zero nesta rodada — o 02-aula.qmd anterior foi
+descartado a pedido do usuário; recuperável do histórico do git, commit
+a66e239, se algum dia necessário.)" /><meta property="og:image" content="http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png" /><meta property="og:locale" content="en-us" />
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Marcos M. Raimundo</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="aebfdd4a197b0bd1e715ca54c631ff0e" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/mraimundo/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/mraimundo/">Marcos M. Raimundo</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/mraimundo/">Marcos M. Raimundo</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/teaching"><span>Teaching</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/people"><span>People</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/event"><span>Events</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/publication"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1></h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 1, 0001
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h2 id="resumo--aula-2-distribuições-condicionais-e-modelos-generativos">Resumo — Aula 2: Distribuições Condicionais e Modelos Generativos</h2>
+<p><em>(Aula 2 começou do zero nesta rodada — o <code>02-aula.qmd</code> anterior foi
+descartado a pedido do usuário; recuperável do histórico do git, commit
+<code>a66e239</code>, se algum dia necessário.)</em></p>
+<h3 id="posição-no-curso">Posição no curso</h3>
+<p>A Aula 1 fechou com uma pergunta em aberto: a receita de classificar por
+densidades ponderadas pela priori funciona em alta dimensão, só trocando $x$
+por $\mathbf{x}$? A Aula 2 responde que a regra continua válida, mas o objeto
+do qual ela depende — a densidade condicional de classe em $\mathbb{R}^d$ —
+deixa de ser estimável sem uma suposição estrutural. Naive Bayes é essa
+suposição: independência condicional entre atributos dado a classe. A aula
+também retoma teoria da decisão (introduzida de forma ad-hoc na Aula 1, só
+para duas classes com perda 0-1 e um custo escalar) e a formaliza como
+ferramenta geral — função de perda, risco posterior, risco de Bayes — que
+recupera tudo que já foi usado como caso particular.</p>
+<h3 id="pré-requisitos">Pré-requisitos</h3>
+<p>Aula 1 completa (densidades condicionais por classe, regra do posterior
+máximo, teorema de Bayes em uma dimensão, teoria da decisão binária informal
+com matriz de perda $2\times2$, ROC e matriz de confusão). Álgebra linear
+básica (produto interno, autovalores/autovetores de matrizes simétricas, para
+covariância compartilhada vs. diagonal no Bloco 4). Probabilidade
+multivariada elementar.</p>
+<h3 id="objetivos-de-aprendizagem">Objetivos de aprendizagem</h3>
+<ul>
+<li><strong>ML Concept:</strong> Multidimensional classification under the assumption of feature independence (Naive Bayes).</li>
+<li><strong>Statistical Concept:</strong> Bayes&rsquo; theorem decomposto em priori/verossimilhança/posteriori; distinção conjunta vs. condicional; independência condicional como simplificação deliberada para mitigar a maldição da dimensionalidade.</li>
+<li><strong>Objectives:</strong> Entender a abordagem generativa à classificação e o custo-benefício da suposição de independência em alta dimensão.</li>
+<li><strong>Expected Competencies:</strong> Derivar o classificador Naive Bayes a partir do Teorema de Bayes; explicar quando a suposição de independência degrada — ou não — o desempenho preditivo.</li>
+</ul>
+<p><em>(fonte dos objetivos: <code>../index.md</code>, Lesson 2 — planejamento fixo do
+semestre)</em></p>
+<h3 id="compromissos-herdados-da-aula-1-já-aprovada">Compromissos herdados da Aula 1 (já aprovada)</h3>
+<p>A ponte de fechamento da Aula 1 promete três coisas que travam a abertura
+desta aula:</p>
+<ol>
+<li>Abrir com a maldição da dimensionalidade ($M^d$ células, inestimável sem
+estrutura).</li>
+<li>Apresentar Naive Bayes como a suposição estrutural:
+$p(\mathbf{x}\mid\mathcal{C}_k) = \prod_i p(x_i\mid\mathcal{C}_k)$.</li>
+<li>Cobrir o preço da suposição — quando é inofensiva, quando é desastrosa,
+por que classifica bem mesmo com probabilidades ruins — e formalizar a
+razão de verossimilhanças no caso multidimensional.</li>
+</ol>
+<h2 id="plano-de-aula--aula-2-carga-horária-130min">Plano de aula — Aula 2 (carga horária: ~130min)</h2>
+<p><strong>Aviso de conta (atualizado após escrever <code>02-aula.qmd</code>).</strong> Com o Bloco 1
+encurtado e os antigos Blocos 5+6 fundidos (o usuário notou que os dois
+cobriam o mesmo objeto sob duas formas: razão de verossimilhanças e regra
+de Bayes), a estimativa antes de escrever era ~105 min. Na escrita real, o
+Bloco 5 fundido saiu mais longo do que os ~38 min estimados (a formalização
+completa de teoria da decisão, com a ressalva ligando ao Bloco 4, precisou
+de mais espaço) — o total final ficou em <strong>~130 min</strong>, igual à Aula 1.
+<strong>Aprovado pelo usuário</strong> aceitar aulas mais longas em vez de cortar mais.</p>
+<h3 id="bloco-0--abertura-5-min">Bloco 0 — Abertura (5 min)</h3>
+<p>Recapitular a pergunta que fechou a Aula 1: &ldquo;a receita funciona em alta
+dimensão? É só trocar $x$ por $\mathbf{x}$?&rdquo; — sem responder ainda.</p>
+<h3 id="bloco-1--a-maldição-da-dimensionalidade-10-min-encurtado">Bloco 1 — A maldição da dimensionalidade (10 min, encurtado)</h3>
+<p>Por que estimar $p(\mathbf{x}\mid\mathcal{C}_k)$ sem estrutura é inviável:
+histograma com $M$ células por eixo exige $M^d$ células — a promessa exata
+que a Aula 1 fez. Uma figura, uma conta, sem se demorar: é motivação para o
+resto da aula, não o assunto dela.</p>
+<h3 id="bloco-2--bayes-formal-para-k-classes-10-min">Bloco 2 — Bayes formal para $K$ classes (10 min)</h3>
+<p>Extensão direta do que já foi construído na Aula 1 (soma/produto/Bayes) para
+$K&gt;2$ classes — não rederivar do zero, só generalizar a notação:
+$p(\mathcal{C}_k\mid\mathbf{x}) \propto p(\mathbf{x}\mid\mathcal{C}_k),\pi_k$.</p>
+<h3 id="bloco-3--naive-bayes-a-suposição-estrutural-15-min">Bloco 3 — Naive Bayes: a suposição estrutural (15 min)</h3>
+<p>$p(\mathbf{x}\mid\mathcal{C}_k) = \prod_i p(x_i\mid\mathcal{C}_k)$ — a
+promessa da Aula 1. Torna o problema linear em $d$ em vez de exponencial.
+Exemplo motivador: <strong>spam</strong>, $\mathbf{x}\in{0,1}^d$ (presença/ausência de
+palavras de vocabulário) — clássico de Naive Bayes, e já citado na ponte da
+Aula 1.</p>
+<h3 id="bloco-4--o-preço-da-suposição-22-min">Bloco 4 — O preço da suposição (22 min)</h3>
+<p>O bloco mais importante pedagogicamente: geometria de covariância
+compartilhada vs. diagonal (Naive Bayes = fronteira que ignora correlação
+entre atributos); mostrar com atributos correlacionados que a fronteira de
+decisão pode continuar boa mesmo com densidades condicionais erradas —
+&ldquo;classifica bem, estima mal&rdquo; (Domingos &amp; Pazzani — citado na Aula 1 como
+leitura complementar, usado de fato aqui).</p>
+<h3 id="bloco-5--teoria-da-decisão-geral-e-quando-ela-é-linear-em-mathbfx-38-min-fusão-dos-antigos-blocos-56">Bloco 5 — Teoria da decisão geral, e quando ela é linear em $\mathbf{x}$ (38 min, fusão dos antigos Blocos 5+6)</h3>
+<p>O usuário notou, revisando o rascunho, que &ldquo;razão de verossimilhanças
+multidimensional&rdquo; e &ldquo;teoria da decisão para $K$ classes&rdquo; são o mesmo objeto
+visto de duas formas — exatamente como a Aula 1 percebeu que matriz de
+confusão e ROC eram o mesmo sweep replotado. Fundidos numa sequência só:</p>
+<ol>
+<li><strong>O objeto geral.</strong> Espaço de decisões $\mathcal{A}$ (não precisa
+coincidir com o espaço de classes — a opção de rejeição já é o primeiro
+exemplo de $\mathcal{A} \neq \mathcal{Y}$), função de perda
+$L: \mathcal{Y}\times\mathcal{A} \to \mathbb{R}$, regra de decisão
+$\delta(\mathbf{x}) \in \mathcal{A}$. Risco posterior
+$\rho(a\mid\mathbf{x}) = \sum_k L(k,a),p(\mathcal{C}_k\mid\mathbf{x})$;
+regra de Bayes $\delta^\star(\mathbf{x}) = \arg\min_a \rho(a\mid\mathbf{x})$
+— o nome formal do que a Aula 1 já fez informalmente para $K=2$.</li>
+<li><strong>O caso binário recupera exatamente a razão de verossimilhanças da
+Aula 1.</strong> Perda 0-1 vs. matriz $2\times2$: a regra de Bayes se escreve
+como um teste $p(\mathbf{x}\mid\mathcal{C}_B)/p(\mathbf{x}\mid\mathcal{C}_A)
+\gtrless$ limiar, onde o limiar depende só de custo e priori — nunca de
+$\mathbf{x}$. Esta é a ponte: toda regra de decisão binária <em>é</em> um teste
+de razão de verossimilhanças contra um limiar.</li>
+<li><strong>Pergunta que emerge naturalmente daqui — antigo Bloco 5:</strong> sob que
+suposições sobre $p(\mathbf{x}\mid\mathcal{C}_k)$ esse log-razão é
+<strong>linear</strong> em $\mathbf{x}$? Duas respostas que o curso já preparou,
+lado a lado: (a) Gaussianas com covariância $\Sigma$ <strong>compartilhada</strong>
+entre classes (os termos quadráticos cancelam — liga direto ao Bloco 4);
+(b) Naive Bayes com atributos <strong>binários</strong> (cada log da razão
+condicional soma linearmente). Ligação com a Aula 6 (regressão
+logística), que vai construir esse mesmo discriminante linear por outro
+caminho.</li>
+<li><strong>Generalização para $K$ classes e matriz de perda $K\times K$;</strong> opção
+de rejeição como $\mathcal{A} = \mathcal{Y}\cup{\text{recusar}}$ com
+perda $\lambda$.</li>
+<li><strong>Risco de Bayes</strong> $R^\star = \mathbb{E}_X[\min_a \rho(a\mid X)]$ —
+generaliza o erro de Bayes da Aula 1 para perda arbitrária. Nenhuma
+regra de decisão faz melhor, <em>dado o modelo verdadeiro</em>.</li>
+<li><strong>A ressalva que fecha o loop com o Bloco 4:</strong> a regra de Bayes é ótima
+<strong>se</strong> a posteriori estiver certa. O Bloco 4 mostrou Naive Bayes
+estimando posteriori errado e ainda classificando bem sob perda 0-1 —
+teoria da decisão dá a regra ótima <em>dado</em> o modelo; não protege contra
+erro de modelo.</li>
+</ol>
+<h3 id="bloco-6--fechamento-e-ponte-5-min">Bloco 6 — Fechamento e ponte (5 min)</h3>
+<p>Naive Bayes funciona bem e é barato, mas a fronteira ainda é limitada pela
+suposição; ponte para a Aula 3 (árvores, que não impõem essa suposição e
+particionam o espaço de outro jeito).</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F00-plano-aula%2F&amp;text=" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F00-plano-aula%2F&amp;t=" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F00-plano-aula%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F00-plano-aula%2F&amp;title=" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=%20http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F00-plano-aula%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F00-plano-aula%2F&amp;title=" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="/mraimundo/authors/admin/"><img class="avatar mr-3 avatar-circle" src="/mraimundo/authors/admin/avatar_hu_cf7b5f173f3aefc3.jpg" alt="Marcos M. Raimundo"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/mraimundo/authors/admin/">Marcos M. Raimundo</a></h5>
+      <h6 class="card-subtitle">Professor of Machine Learning and Optimization</h6>
+      <p class="card-text">My research interests include Machine Learning, Multi-objective Optimization, Ethical AI, mathematical programming.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com.br/citations?user=ibe0jfQAAAAJ&amp;hl=pt-BR" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/marcosmrai" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/marcos-medeiros-raimundo-866b8731/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://lattes.cnpq.br/1605909137233786" target="_blank" rel="noopener">
+        <i class="ai ai-lattes"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/marcosmrai" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2026 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/mraimundo/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/mraimundo/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/mraimundo/en/js/wowchemy.min.js"></script>
+
+
+
+  <script src="/mraimundo/js/wowchemy-map.js" type="module"></script>
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/mraimundo/js/wowchemy-publication.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

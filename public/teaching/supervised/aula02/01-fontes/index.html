@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: August 17, 2026 --><html lang="en-us" >
+
+
+<head><script src="/mraimundo/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=mraimundo/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/mraimundo/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mraimundo/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/mraimundo/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/mraimundo/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Marcos M. Raimundo" />
+
+
+
+
+
+  
+
+<meta name="description" content="Fontes usadas — Aula 2 Trechos literais preenchidos em 2026-08-09 a partir dos PDFs em ../fontes/prml.pdf (Bishop, 2006) e ../fontes/dlfc.pdf (Bishop &amp; Bishop, 2024), agora linkados. Atenção: o offset entre página impressa e página do arquivo PDF é &#43;20 para os dois livros na maior parte do texto (confirmado nos capítulos 1–5), mas cai para &#43;18 no DLFC por volta do capítulo 6 (provavelmente uma página de abertura de parte não numerada) — as páginas abaixo foram confirmadas lendo o número impresso em cada página, não assumidas por offset fixo.
+" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/mraimundo/teaching/supervised/aula02/01-fontes/" />
+<link rel="canonical" href="http://localhost:1313/mraimundo/teaching/supervised/aula02/01-fontes/" />
+
+
+
+  <link rel="manifest" href="/mraimundo/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/mraimundo/media/icon_hu_5cf9d8fdd8df3b57.png" />
+<link rel="apple-touch-icon" type="image/png" href="/mraimundo/media/icon_hu_c58c21d2f6d42643.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+
+  <meta property="twitter:site" content="@GetResearchDev" />
+  <meta property="twitter:creator" content="@GetResearchDev" />
+<meta property="twitter:image" content="http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png" />
+
+
+
+  
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Marcos M. Raimundo" />
+<meta property="og:url" content="http://localhost:1313/mraimundo/teaching/supervised/aula02/01-fontes/" />
+<meta property="og:title" content="Marcos M. Raimundo" />
+<meta property="og:description" content="Fontes usadas — Aula 2
+
+Trechos literais preenchidos em 2026-08-09 a partir dos PDFs em
+../fontes/prml.pdf (Bishop, 2006) e ../fontes/dlfc.pdf (Bishop &amp;
+Bishop, 2024), agora linkados. Atenção: o offset entre página
+impressa e página do arquivo PDF é &#43;20 para os dois livros na maior
+parte do texto (confirmado nos capítulos 1–5), mas cai para &#43;18 no DLFC
+por volta do capítulo 6 (provavelmente uma página de abertura de parte
+não numerada) — as páginas abaixo foram confirmadas lendo o número
+impresso em cada página, não assumidas por offset fixo." /><meta property="og:image" content="http://localhost:1313/mraimundo/media/icon_hu_137bf69bee98546a.png" /><meta property="og:locale" content="en-us" />
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Marcos M. Raimundo</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="f0a4ccbb580e9d33c252b9afbf0e4b6a" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/mraimundo/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/mraimundo/">Marcos M. Raimundo</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/mraimundo/">Marcos M. Raimundo</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/teaching"><span>Teaching</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/people"><span>People</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/event"><span>Events</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/publication"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/mraimundo/contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1></h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 1, 0001
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h1 id="fontes-usadas--aula-2">Fontes usadas — Aula 2</h1>
+<blockquote>
+<p>Trechos literais preenchidos em 2026-08-09 a partir dos PDFs em
+<code>../fontes/prml.pdf</code> (Bishop, 2006) e <code>../fontes/dlfc.pdf</code> (Bishop &amp;
+Bishop, 2024), agora linkados. <strong>Atenção:</strong> o offset entre página
+impressa e página do arquivo PDF é +20 para os dois livros na maior
+parte do texto (confirmado nos capítulos 1–5), mas cai para +18 no DLFC
+por volta do capítulo 6 (provavelmente uma página de abertura de parte
+não numerada) — as páginas abaixo foram confirmadas lendo o número
+impresso em cada página, não assumidas por offset fixo.</p>
+<p>Numeração de blocos conforme <code>00-plano-aula.md</code> (Blocos 0–6, já com o
+Bloco 1 encurtado e os antigos Blocos 5+6 fundidos).</p>
+</blockquote>
+<h3 id="fonte-1-bishop-2006-prml-14-pp-3338">Fonte 1: Bishop (2006, PRML), §1.4, pp. 33–38</h3>
+<p><strong>Uso pretendido:</strong> a maldição da dimensionalidade — $M^d$ células, intuição geométrica do volume concentrado na casca (Bloco 1).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;The problem with an exponentially large number of cells is that we
+would need an exponentially large quantity of training data in order to
+ensure that the cells are not empty.&rdquo; (p. 35)</p>
+<p>&ldquo;we arrive at the remarkable result that, in spaces of high
+dimensionality, most of the volume of a sphere is concentrated in a thin
+shell near the surface!&rdquo; (p. 36)</p>
+<p>&ldquo;The severe difficulty that can arise in spaces of many dimensions is
+sometimes called the curse of dimensionality (Bellman, 1961).&rdquo; (p. 36)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-2-bishop--bishop-2024-dlfc-611-pp-172174">Fonte 2: Bishop &amp; Bishop (2024, DLFC), §6.1.1, pp. 172–174</h3>
+<p><strong>Uso pretendido:</strong> tratamento moderno da maldição da dimensionalidade (Bloco 1).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;The challenge with an exponentially large number of cells is that we
+would need an exponentially large quantity of training data to ensure
+that the cells are not empty.&rdquo; (p. 174 impressa — ver aviso de offset no
+topo deste arquivo)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-3-bishop-2006-prml-12-pp-1424">Fonte 3: Bishop (2006, PRML), §1.2, pp. 14–24</h3>
+<p><strong>Uso pretendido:</strong> regra da soma e do produto — mesma fonte da Aula 1 (Fonte 9), agora generalizada para $K$ classes (Bloco 2).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;sum rule  p(X) = ∑Y p(X, Y)  (1.10)
+product rule  p(X, Y) = p(Y|X)p(X).  (1.11)&rdquo; (p. 14)</p>
+<p>&ldquo;p(Y|X) = p(X|Y)p(Y) / p(X)  (1.12)</p>
+<p>which is called Bayes&rsquo; theorem and which plays a central role in pattern
+recognition and machine learning.&rdquo; (p. 15)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-4-bishop--bishop-2024-dlfc-215216-pp-3132">Fonte 4: Bishop &amp; Bishop (2024, DLFC), §2.1.5–2.1.6, pp. 31–32</h3>
+<p><strong>Uso pretendido:</strong> priori, posteriori, variáveis independentes — extensão a $K$ classes (Bloco 2).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;In this example, the prior probability of having cancer is 1%. However,
+once we have observed that the test result is positive, we find that
+the posterior probability of cancer is now 23%, which is a substantially
+higher probability of cancer, as we would intuitively expect.&rdquo; (p. 31)</p>
+<p>&ldquo;Finally, if the joint distribution of two variables factorizes into the
+product of the marginals, so that p(X, Y) = p(X)p(Y), then X and Y are
+said to be independent.&rdquo; (p. 31)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-5-bishop-2006-prml-154-eqs-184185-p-46">Fonte 5: Bishop (2006, PRML), §1.5.4, eqs. 1.84–1.85, p. 46</h3>
+<p><strong>Uso pretendido:</strong> independência condicional e o modelo Naive Bayes — definição formal (Bloco 3). Mesmo exemplo do diagnóstico por radiografia + sangue que a Aula 1 poderia ter usado; aqui é a primeira aparição de fato.</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;p(xI, xB|Ck) = p(xI|Ck)p(xB|Ck).  (1.84)</p>
+<p>This is an example of conditional independence property, because the
+independence holds when the distribution is conditioned on the class
+Ck.&rdquo; (p. 46)</p>
+<p>&ldquo;The particular conditional independence assumption (1.84) is an example
+of the naive Bayes model.&rdquo; (p. 46)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-6-bishop--bishop-2024-dlfc-53-531532-pp-150156">Fonte 6: Bishop &amp; Bishop (2024, DLFC), §5.3, §5.3.1–5.3.2, pp. 150–156</h3>
+<p><strong>Uso pretendido:</strong> classificadores generativos, tratamento moderno (Bloco 3).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;We turn next to a probabilistic view of classification and show how
+models with linear decision boundaries arise from simple assumptions
+about the distribution of the data.&rdquo; (p. 150)</p>
+<p>&ldquo;We see that the quadratic terms in x from the exponents of the Gaussian
+densities have cancelled (due to the assumption of common covariance
+matrices), leading to a linear function of x in the argument of the
+logistic sigmoid.&rdquo; (p. 152)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-7-bishop-2006-prml-421-pp-198200">Fonte 7: Bishop (2006, PRML), §4.2.1, pp. 198–200</h3>
+<p><strong>Uso pretendido:</strong> entradas contínuas com covariância compartilhada → fronteira linear (Bloco 4 e Bloco 5, item 3 — a mesma matemática serve às duas perguntas: &ldquo;o que a suposição custa&rdquo; e &ldquo;quando a razão é linear&rdquo;).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;Let us assume that the class-conditional densities are Gaussian and
+then explore the resulting form for the posterior probabilities. To
+start with, we shall assume that all classes share the same covariance
+matrix.&rdquo; (p. 198)</p>
+<p>&ldquo;We see that the quadratic terms in x from the exponents of the Gaussian
+densities have cancelled (due to the assumption of common covariance
+matrices) leading to a linear function of x in the argument of the
+logistic sigmoid.&rdquo; (p. 198)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-8-bishop-2006-prml-423-eqs-481482-p-202">Fonte 8: Bishop (2006, PRML), §4.2.3, eqs. 4.81–4.82, p. 202</h3>
+<p><strong>Uso pretendido:</strong> atributos discretos/binários sob Naive Bayes → fronteira linear (Bloco 4 e Bloco 5, item 3, mesmo motivo da Fonte 7).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;Here we will make the naive Bayes assumption in which the feature
+values are treated as independent, conditioned on the class Ck. Thus we
+have class-conditional distributions of the form</p>
+<p>p(x|Ck) = ∏(i=1 to D) μki^xi (1 − μki)^(1−xi)  (4.81)</p>
+<p>which contain D independent parameters for each class.&rdquo; (p. 202)</p>
+<p>&ldquo;ak(x) = ∑(i=1 to D) {xi ln μki + (1 − xi) ln(1 − μki)} + ln p(Ck)  (4.82)</p>
+<p>which again are linear functions of the input values xi.&rdquo; (p. 202)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-9-bishop-2006-prml-42-eqs-457463-pp-196198">Fonte 9: Bishop (2006, PRML), §4.2, eqs. 4.57–4.63, pp. 196–198</h3>
+<p><strong>Uso pretendido:</strong> modelos generativos probabilísticos; a posteriori como softmax de funções lineares das ativações — liga a linearidade do Bloco 5 ao caso $K$-classes (Bloco 5).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;For the case of K &gt; 2 classes we have</p>
+<p>p(Ck|x) = exp(ak) / ∑j exp(aj),  (4.62)</p>
+<p>which is known as the normalized exponential and can be regarded as a
+multiclass generalization of the logistic sigmoid.&rdquo; (p. 198)</p>
+<p>&ldquo;The normalized exponential is also known as the softmax function, as it
+represents a smoothed version of the &lsquo;max&rsquo; function.&rdquo; (p. 198)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-10-bishop-2006-prml-15-152153-pp-3842">Fonte 10: Bishop (2006, PRML), §1.5, §1.5.2–1.5.3, pp. 38–42</h3>
+<p><strong>Uso pretendido:</strong> teoria da decisão geral — espaço de decisões, perda esperada, opção de rejeição — generalizada aqui para $K$ classes e espaço de ações arbitrário (Bloco 5, itens 1, 2 e 4). Mesma seção já citada na Aula 1 (Fontes 4 e 5), agora usada na sua forma geral, não só no caso binário.</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;Here we turn to a discussion of decision theory that, when combined
+with probability theory, allows us to make optimal decisions in
+situations involving uncertainty such as those encountered in pattern
+recognition.&rdquo; (p. 38)</p>
+<p>&ldquo;We can formalize such issues through the introduction of a loss
+function, also called a cost function, which is a single, overall
+measure of loss incurred in taking any of the available decisions or
+actions.&rdquo; (p. 41)</p>
+<p>&ldquo;We can achieve this by introducing a threshold θ and rejecting those
+inputs x for which the largest of the posterior probabilities p(Ck|x) is
+less than or equal to θ.&rdquo; (p. 42)</p>
+</blockquote>
+<hr>
+<h3 id="fonte-11-opcional--ver-pendência-abaixo-bishop-2006-prml-822-figura-824-pp-380381">Fonte 11 <em>(opcional — ver pendência abaixo)</em>: Bishop (2006, PRML), §8.2.2, Figura 8.24, pp. 380–381</h3>
+<p><strong>Uso pretendido:</strong> Naive Bayes como grafo probabilístico — mencionado no fechamento do Bloco 3, se houver tempo (não é essencial ao argumento).</p>
+<p><strong>Trecho:</strong></p>
+<blockquote>
+<p>&ldquo;Figure 8.24 A graphical representation of the &rsquo;naive Bayes&rsquo; model for
+classification. Conditioned on the class label z, the components of the
+observed vector x = (x1,&hellip;,xD)^T are assumed to be independent.&rdquo; (p. 380)</p>
+</blockquote>
+<p><strong>Bônus não planejado, mas relevante para o Bloco 4:</strong> a mesma seção (p. 381)
+contém a frase que resolve a pendência da fonte externa abaixo — ver nota.</p>
+<hr>
+<h2 id="resolvido-classifica-bem-estima-mal-bloco-4--sem-fonte-externa">Resolvido: &ldquo;classifica bem, estima mal&rdquo; (Bloco 4) — sem fonte externa</h2>
+<p>Decisão anterior (usuário): demonstrar o fenômeno só com simulação, sem
+citar Domingos &amp; Pazzani (1997) formalmente. Ao ler PRML §8.2.2 para a
+Fonte 11 (acima), apareceu — sem que eu tivesse procurado por isso — uma
+frase do próprio PRML que sustenta exatamente esse argumento, na mesma
+página da figura do grafo Naive Bayes:</p>
+<blockquote>
+<p>&ldquo;Nevertheless, even if this assumption is not precisely satisfied, the
+model may still give good classification performance in practice because
+the decision boundaries can be insensitive to some of the details in the
+class-conditional densities, as illustrated in Figure 1.27.&rdquo; (p. 381)</p>
+</blockquote>
+<p>Isso é melhor do que a solução planejada: em vez de &ldquo;sem citação formal&rdquo;,
+o Bloco 4 agora tem uma citação literal do PRML que diz precisamente a
+mesma coisa que a simulação demonstra. Não precisa do artigo de Domingos &amp;
+Pazzani. Adicionar esta fonte como uma <strong>Fonte 12</strong> informal (mesma
+localização da Fonte 11, §8.2.2, p. 381) se o bloco citar isso
+explicitamente no <code>02-aula.qmd</code>.</p>
+<h2 id="notas-sobre-as-fontes">Notas sobre as fontes</h2>
+<p>Naive Bayes não é um tópico de primeira classe em nenhum dos dois livros.
+No PRML ele aparece de passagem: como exemplo em §1.5.4 (p. 46), como caso
+particular de modelo generativo com atributos discretos em §4.2.3 (p. 202),
+e como exemplo de grafo em §8.2.2 (p. 380, Fonte 11, opcional). O livro de
+2024 segue a mesma estrutura em §5.3. Isso é tratado como vantagem para o
+desenho da aula: o Bishop nunca trata Naive Bayes como algoritmo, e sim como
+suposição estrutural aplicada a um modelo generativo — exatamente o
+enquadramento do curso.</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F01-fontes%2F&amp;text=" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F01-fontes%2F&amp;t=" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F01-fontes%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F01-fontes%2F&amp;title=" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=%20http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F01-fontes%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fmraimundo%2Fteaching%2Fsupervised%2Faula02%2F01-fontes%2F&amp;title=" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="/mraimundo/authors/admin/"><img class="avatar mr-3 avatar-circle" src="/mraimundo/authors/admin/avatar_hu_cf7b5f173f3aefc3.jpg" alt="Marcos M. Raimundo"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/mraimundo/authors/admin/">Marcos M. Raimundo</a></h5>
+      <h6 class="card-subtitle">Professor of Machine Learning and Optimization</h6>
+      <p class="card-text">My research interests include Machine Learning, Multi-objective Optimization, Ethical AI, mathematical programming.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com.br/citations?user=ibe0jfQAAAAJ&amp;hl=pt-BR" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/marcosmrai" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/marcos-medeiros-raimundo-866b8731/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://lattes.cnpq.br/1605909137233786" target="_blank" rel="noopener">
+        <i class="ai ai-lattes"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/marcosmrai" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2026 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/mraimundo/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/mraimundo/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/mraimundo/en/js/wowchemy.min.js"></script>
+
+
+
+  <script src="/mraimundo/js/wowchemy-map.js" type="module"></script>
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/mraimundo/js/wowchemy-publication.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
