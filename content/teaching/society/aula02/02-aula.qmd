@@ -1050,18 +1050,6 @@ cálculo que a Ford escolheu.
 
 ::: {.content-visible when-format="revealjs"}
 
-## Provocação
-
-::: {.callout-tip icon=false}
-*"Quanto devemos levar em conta as possíveis consequências ao fazer uma escolha ética? Quanto esforço devemos empregar para garantir que a avaliação dos resultados esteja correta?"*
-
-— Van de Poel & Royakkers (2011, Discussion Question 4, p. 108)
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
 ## Teoria Kantiana: Três Ideias, em Ordem
 
 ::: {.fragment}
@@ -1251,18 +1239,6 @@ dever pesa mais que o outro. Muda a situação, pode inverter.
 
 ::: {.content-visible when-format="revealjs"}
 
-## Provocação
-
-::: {.callout-tip icon=false}
-*"Existem regras absolutas que nunca deveriam ser quebradas, sejam quais forem as circunstâncias? Defenda seu ponto de vista."*
-
-— Van de Poel & Royakkers (2011, Discussion Question 1, p. 108)
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
 ## Ética das Virtudes: o Caráter de Quem Age
 
 ::: {.fragment}
@@ -1339,20 +1315,6 @@ Ele avisa advogados, seguradoras e a prefeitura **voluntariamente**,
 arriscando a própria reputação — *"foi preciso muita coragem [...]
 abertura à crítica."*
 :::
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
-## Provocação
-
-::: {.callout-tip icon=false}
-James, engenheiro, é pressionado pelo chefe a abandonar testes cruciais para entregar um relatório mais rápido a um cliente importante. Ele decide seguir a ordem.
-
-**Quais virtudes são relevantes aqui — pelo menos quatro? Qual ação elas sustentam?**
-
-— adaptado de Van de Poel & Royakkers (2011, Study Question 10, p. 108)
 :::
 
 :::
@@ -1440,18 +1402,6 @@ cooperatividade, criatividade, gestão de projeto.
 ::: {.callout-note icon=false}
 Desloca a responsabilidade moral do indivíduo isolado para o **arranjo social** em que a engenharia acontece.
 :::
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
-## Provocação
-
-::: {.callout-tip icon=false}
-*"Descreva a ideia central da ética do cuidado. Que crítica os pensadores da ética do cuidado fazem ao utilitarismo e à ética kantiana?"*
-
-— Van de Poel & Royakkers (2011, Study Question 7, p. 108)
 :::
 
 :::
@@ -1892,16 +1842,6 @@ Não é linear — é iterativo, com retornos a fases anteriores. Fio condutor d
 
 ::: {.content-visible when-format="revealjs"}
 
-## Provocação
-
-::: {.callout-tip icon=false}
-Pense numa decisão técnica recente que pareça "só prática". Ela poderia esconder uma dimensão moral?
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
 ## Fase 2: Analisar — Três Elementos
 
 :::: {.columns}
@@ -1938,16 +1878,6 @@ Fato incerto não paralisa: formule de forma hipotética — *"se x, opção A; 
 
 ::: {.content-visible when-format="revealjs"}
 
-## Provocação
-
-::: {.callout-tip icon=false}
-Numa decisão que você conhece, quem são os interessados sem poder de influenciá-la, mas afetados por ela mesmo assim?
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
 ## Fase 3: Opções — Cuidado com o Preto-no-Branco
 
 ::: {.fragment}
@@ -1969,16 +1899,6 @@ Só duas opções (agir ou não). *"Em situações mais complexas, é simplista 
 ::: {.fragment}
 <br/>
 **Denúncia pública (*whistle-blowing*):** último recurso — custo alto para todos.
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
-## Provocação
-
-::: {.callout-tip icon=false}
-Lembre de uma decisão binária que você viu alguém tomar. Consultando outros interessados, que outras opções apareceriam?
 :::
 
 :::
@@ -2020,16 +1940,6 @@ Diretora sob pressão para relaxar o código de obras. **Kant:** máxima não po
 
 ::: {.content-visible when-format="revealjs"}
 
-## Provocação
-
-::: {.callout-tip icon=false}
-Aplique dois frameworks (ex.: utilitarismo de ato e teste de respeito) a uma decisão que você conhece. Eles discordam?
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
 ## Fase 5: Reflexão — Equilíbrio Reflexivo Amplo
 
 ::: {.fragment}
@@ -2042,16 +1952,6 @@ Coerência entre três tipos de crença: **julgamentos ponderados**, **princípi
 ::: {.callout-tip icon=false}
 Duas perguntas: o *framework* sustenta minha intuição? Ele captura os aspectos moralmente relevantes — ou deixa algum de fora?
 :::
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
-## Provocação
-
-::: {.callout-tip icon=false}
-Se dois frameworks discordarem sobre uma decisão sua, qual das duas perguntas de reflexão você usaria primeiro?
 :::
 
 :::
@@ -2080,16 +1980,6 @@ Se dois frameworks discordarem sobre uma decisão sua, qual das duas perguntas d
 ::: {.callout-tip icon=false}
 Veremos as três, ao vivo, no caso Highway Safety a seguir.
 :::
-:::
-
-:::
-
-::: {.content-visible when-format="revealjs"}
-
-## Provocação
-
-::: {.callout-tip icon=false}
-Das três setas, qual é mais fácil de reconhecer na prática — e qual mais fácil de ignorar por pressa?
 :::
 
 :::
