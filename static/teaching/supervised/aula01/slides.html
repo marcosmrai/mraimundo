@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Marcos M. Raimundo — Instituto de Computação, UNICAMP">
-  <meta name="dcterms.date" content="2026-08-17">
+  <meta name="dcterms.date" content="2026-08-19">
   <title>Dados, Distribuições e Detecção de Anomalias</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7422b2cf5763e4b9ee5aaa110c7b2408.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8c26d432394c45b47640ac4edfcb49a3.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -148,7 +148,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 
-  <p class="date">2026-08-17</p>
+  <p class="date">2026-08-19</p>
 </section>
 <section>
 <section id="proposta-do-curso" class="title-slide slide level1 center">
@@ -164,8 +164,9 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <li><strong>Objetivo:</strong> Não é aprender algoritmos novos, mas entender o que os que você já usa <em>realmente</em> fazem.</li>
 <li><strong>Diagnóstico de falha:</strong> Quando um modelo falha, a pergunta correta não é “qual hiperparâmetro eu ajusto?”, mas <strong>“qual das três peças está errada?”</strong> (quase sempre é a suposição distributiva).</li>
 </ul>
-<div class="fragment">
-<h3 id="a-formulação-estatística-do-aprendizado">A formulação estatística do aprendizado</h3>
+</section>
+<section id="a-formulação-estatística-do-aprendizado" class="slide level2">
+<h2>A formulação estatística do aprendizado</h2>
 <ul>
 <li>Par <span class="math inline">\((x, y)\)</span> com distribuição conjunta desconhecida <span class="math inline">\(p(x, y)\)</span> e amostra <span class="math inline">\(\mathcal{D} = \{(x_n, y_n)\}_{n=1}^N\)</span>.</li>
 <li><strong>Classificação (<span class="math inline">\(Y \in \mathbb{N}\)</span> adaptado) vs.&nbsp;Regressão (<span class="math inline">\(Y \subseteq \mathbb{R}\)</span>):</strong> A diferença estrutural está quase inteiramente na escolha da distribuição do resíduo <span class="math inline">\(Y - f(X)\)</span>.</li>
@@ -196,7 +197,6 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="fundamentação-e-pergunta-de-partida" class="slide level2">
 <h2>Fundamentação e pergunta de partida</h2>
@@ -230,8 +230,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </ul>
 
 <img data-src="02-aula_files/figure-html/cell-3-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
-<section class="slide level2">
-
+<section id="o-que-é-uma-distribuição-2d" class="slide level2">
+<h2>O que é uma Distribuição (2D)</h2>
 <p><strong>O mesmo objeto, em mais dimensões</strong></p>
 <ul>
 <li>Histograma <span class="math inline">\(\to\)</span> nuvem de pontos</li>
@@ -278,8 +278,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 
 <img data-src="02-aula_files/figure-html/cell-6-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
-<section class="slide level2">
-
+<section id="o-compromisso-quantitativo" class="slide level2">
+<h2>O compromisso quantitativo</h2>
 <p><strong>Mover o corte troca uma área pela outra. Nenhum corte zera as duas.</strong></p>
 <p><span class="math inline">\(\Rightarrow\)</span> erro de Bayes: irredutível, é propriedade dos dados.</p>
 
@@ -290,7 +290,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <p><span class="math display">\[ 950 \text{ pontos da classe A} \qquad 50 \text{ pontos da classe B} \]</span></p>
 <div class="fragment">
 <p>Vamos <strong>contar os erros de verdade</strong> — no cruzamento e num corte deslocado.</p>
-<div id="b3a1abae" class="cell" data-execution_count="7">
+<div id="a6d1473b" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -299,6 +299,10 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="o-corte-deslocado-erra-menos" class="slide level2">
+<h2>O corte deslocado erra menos</h2>
 <div class="fragment">
 <p>O corte deslocado erra <strong>muito</strong> menos.</p>
 <p>E ele não veio de tentativa e erro — vem de um princípio.</p>
@@ -306,6 +310,79 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <div class="fragment">
 <p>Onde a justificativa verbal falhou:</p>
 <p><strong>“igualmente plausíveis”</strong> <span class="math inline">\(\ne\)</span> <strong>“igualmente prováveis”</strong></p>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Por que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?</strong></p>
+</div>
+<div class="callout-content">
+<p>Escreva, com suas palavras, e compare a sua frase com a de um colega antes de avançar (2 min).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cruzamento-de-condicionais-vs.-conjuntas" class="slide level2 scrollable">
+<h2>Cruzamento de condicionais vs.&nbsp;conjuntas</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>O ponto de cruzamento das condicionais é a fronteira ótima quando as classes têm frequências diferentes.</li>
+<li>A área de alarme falso e a área de escape podem, ambas, ser reduzidas a zero pela escolha certa do limiar <span class="math inline">\(t\)</span>.</li>
+<li>Aumentar a frequência relativa da classe B desloca a fronteira ótima para a esquerda.</li>
+<li>Ignorar a frequência das classes é o mesmo que assumir <span class="math inline">\(\pi_A = \pi_B\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="cruzamento-de-condicionais-vs.-conjuntas-resposta" class="slide level2 scrollable">
+<h2>Cruzamento de condicionais vs.&nbsp;conjuntas — Resposta</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<ol type="a">
+<li><strong>Falso</strong> — só é ótima quando <span class="math inline">\(\pi_A = \pi_B\)</span>.</li>
+<li><strong>Falso</strong> — enquanto houver sobreposição das densidades, existe erro irredutível (erro de Bayes); nenhum <span class="math inline">\(t\)</span> zera as duas áreas.</li>
+<li><strong>Verdadeiro</strong> — se B fica mais frequente, é preciso <em>menos</em> evidência relativa a favor de B para declará-la (o limiar de razão de verossimilhanças <span class="math inline">\(\pi_A/\pi_B\)</span> cai), então a região de B cresce e a fronteira se desloca para a <strong>esquerda</strong>, tomando território de A.</li>
+<li><strong>Verdadeiro</strong> — cortar no cruzamento das condicionais é exatamente agir como se as duas classes fossem igualmente prováveis.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="por-que-o-corte-no-cruzamento-das-curvas-está-errado-e-o-que-falta-entrar-na-conta-1" class="slide level2">
+<h2>Por que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment">
+<p><em>(Escreva uma frase. Compare com um colega antes de avançar — 2 min.)</em></p>
+</div>
+</div>
 </div>
 </div>
 </section></section>
@@ -348,9 +425,9 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </ul>
 </div>
 </section>
-<section class="slide level2">
-
-<div id="3e90d6a4" class="cell" data-execution_count="8">
+<section id="o-cruzamento-das-conjuntas-funciona" class="slide level2">
+<h2>O cruzamento das conjuntas funciona</h2>
+<div id="e7a3b67a" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -359,7 +436,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 </div>
-<div id="d3e376b0" class="cell" data-execution_count="9">
+<div id="c4112e08" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -381,7 +458,81 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <p>Mesma lição do Passo 4, no caso discreto: <strong>a priori decide.</strong></p>
 </div>
 
-<img data-src="02-aula_files/figure-html/cell-11-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section></section>
+<img data-src="02-aula_files/figure-html/cell-11-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"><div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>No exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?</strong></p>
+</div>
+<div class="callout-content">
+<p>Escreva os três nomes ao lado dos três números do enunciado, e confira com um colega (2 min).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="teorema-de-bayes-priori-verossimilhança-e-evidência" class="slide level2 scrollable">
+<h2>Teorema de Bayes: priori, verossimilhança e evidência</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>A priori <span class="math inline">\(\pi_k = p(\mathcal{C}_k)\)</span> é o conhecimento sobre a prevalência da classe <em>antes</em> de observar <span class="math inline">\(x\)</span>.</li>
+<li>A evidência <span class="math inline">\(p(x)\)</span> depende de qual classe <span class="math inline">\(k\)</span> está sendo avaliada no numerador do Teorema de Bayes.</li>
+<li>A posteriori <span class="math inline">\(p(\mathcal{C}_k \mid x)\)</span> é proporcional ao produto entre verossimilhança e priori.</li>
+<li>Se <span class="math inline">\(\pi_A = \pi_B\)</span>, decidir pela conjunta maior é o mesmo que decidir pela condicional maior.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="teorema-de-bayes-priori-verossimilhança-e-evidência-resposta" class="slide level2 scrollable">
+<h2>Teorema de Bayes: priori, verossimilhança e evidência — Resposta</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<ol type="a">
+<li><strong>Verdadeiro</strong> — é exatamente essa a definição de priori.</li>
+<li><strong>Falso</strong> — <span class="math inline">\(p(x) = \sum_j p(x\mid\mathcal{C}_j)\,\pi_j\)</span> soma sobre todas as classes; é o mesmo denominador para qualquer <span class="math inline">\(k\)</span>.</li>
+<li><strong>Verdadeiro</strong> — <span class="math inline">\(p(\mathcal{C}_k\mid x) \propto p(x\mid\mathcal{C}_k)\,\pi_k\)</span>.</li>
+<li><strong>Verdadeiro</strong> — com priori iguais, a conjunta é a condicional escalada pela mesma constante para as duas classes, então a comparação não muda.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="no-exemplo-da-triagem-médica-qual-número-é-a-priori-qual-é-a-verossimilhança-qual-é-a-evidência-1" class="slide level2">
+<h2>No exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment">
+<p><em>(Escreva os três nomes ao lado dos três números. Confira com um colega.)</em></p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
 <section>
 <section id="propriedades-de-distribuições-contínuas" class="title-slide slide level1 center">
 <h1>Propriedades de Distribuições Contínuas</h1>
@@ -423,6 +574,37 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <li><em>Outliers</em> têm probabilidade não desprezível.</li>
 </ul></li>
 </ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Por que ajustar uma Gaussiana a escores de crédito normalizados em <span class="math inline">\([0,1]\)</span> é, no mínimo, arriscado?</strong></p>
+</div>
+<div class="callout-content">
+<p>Escreva um argumento em uma frase, sem usar a palavra “feio” (2 min).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="por-que-ajustar-uma-gaussiana-a-escores-de-crédito-normalizados-em-01-é-no-mínimo-arriscado-1" class="slide level2">
+<h2>Por que ajustar uma Gaussiana a escores de crédito normalizados em <span class="math inline">\([0,1]\)</span> é, no mínimo, arriscado?</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment">
+<p><em>(Uma frase, sem usar a palavra “feio”. Compare com um colega.)</em></p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="detecção-de-outliers" class="title-slide slide level1 center">
@@ -456,6 +638,49 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <p>Correções: <em>clipping</em> declarado, Smithson–Verkuilen, modelos <em>zero/one-inflated</em>.</p>
 
 <img data-src="02-aula_files/figure-html/cell-13-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<section class="slide level2 scrollable">
+
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>A distribuição Beta</strong></p>
+</div>
+<div class="callout-content">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>A densidade <span class="math inline">\(\operatorname{Beta}(x\mid a,b)\)</span> tem suporte em <span class="math inline">\([0,1]\)</span> por construção.</li>
+<li>Quando <span class="math inline">\(a=b=1\)</span>, a Beta se reduz à distribuição Uniforme em <span class="math inline">\([0,1]\)</span>.</li>
+<li>O estimador de máxima verossimilhança da Beta tem fórmula fechada, assim como o estimador de momentos.</li>
+<li>Se <span class="math inline">\(a&lt;1\)</span>, uma observação exatamente igual a <span class="math inline">\(0\)</span> torna a verossimilhança infinita ou indefinida.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="a-distribuição-beta-resposta" class="slide level2 scrollable">
+<h2>A distribuição Beta — Resposta</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<ol type="a">
+<li><strong>Verdadeiro</strong> — é exatamente por isso que ela é a escolha natural para dados confinados em <span class="math inline">\([0,1]\)</span>.</li>
+<li><strong>Verdadeiro</strong> — <span class="math inline">\(\operatorname{Beta}(x\mid 1,1) = 1\)</span> para todo <span class="math inline">\(x\in[0,1]\)</span>, a densidade uniforme.</li>
+<li><strong>Falso</strong> — o estimador de momentos tem fórmula fechada; o MLE precisa de solução numérica (as estatísticas suficientes são médias logarítmicas, não a média aritmética).</li>
+<li><strong>Verdadeiro</strong> — a densidade diverge nas bordas quando <span class="math inline">\(a&lt;1\)</span> ou <span class="math inline">\(b&lt;1\)</span>, e <span class="math inline">\(\ln 0 = -\infty\)</span> quebra a verossimilhança.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
 <section id="detecção-de-anomalias-e-o-limiar" class="slide level2">
 <h2>Detecção de anomalias e o limiar</h2>
 <p>Sem anomalias rotuladas: ajustar <span class="math inline">\(p(x)\)</span> <strong>só nos dados normais</strong>.</p>

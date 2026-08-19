@@ -422,7 +422,7 @@
 &lt;h3 id=&#34;part-1-foundations-of-probability-and-partitioning&#34;&gt;Part 1: Foundations of Probability and Partitioning&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../supervised/aula01/notas.html&#34;&gt;Lesson 1: Data, Distributions, and Anomaly Detection&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../supervised/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../supervised/aula01/notas.html&#34;&gt;Lesson 1: Data, Distributions, and Anomaly Detection&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../supervised/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; One-dimensional binary classification and outlier detection.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Fitting continuous densities to bounded data (Beta distribution) and defining decision thresholds from low-probability regions. The unavoidable trade-off between Type I and Type II errors as a consequence of overlapping class-conditional densities.&lt;/li&gt;
@@ -431,7 +431,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../supervised/aula02/notas.html&#34;&gt;Lesson 2: Conditional Distributions and Generative Models&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../supervised/aula02/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../supervised/aula02/notas.html&#34;&gt;Lesson 2: Conditional Distributions and Generative Models&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../supervised/aula02/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Multidimensional classification under the assumption of feature independence (Naive Bayes).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Bayes&amp;rsquo; theorem decomposed into prior, likelihood, and posterior. The distinction between joint and conditional distributions, and the conditional independence assumption as a deliberate simplification to mitigate the curse of dimensionality.&lt;/li&gt;
@@ -440,7 +440,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lesson 3: Decision Trees — Greedy Partitioning&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../supervised/aula03/notas.html&#34;&gt;Lesson 3: Decision Trees — Greedy Partitioning&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../supervised/aula03/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; The CART algorithm for classification and regression.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Non-parametric estimation of the conditional density as a piecewise-constant function. Impurity measures (Entropy and Gini) interpreted as the uncertainty of categorical distributions, and splits understood as the greedy maximization of a profile log-likelihood.&lt;/li&gt;

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Marcos M. Raimundo — Instituto de Computação, UNICAMP">
-  <meta name="dcterms.date" content="2026-08-17">
+  <meta name="dcterms.date" content="2026-08-19">
   <title>Independência, Naive Bayes e Teoria da Decisão</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-9cb75aa8df28261782c26569387c52ed.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8c26d432394c45b47640ac4edfcb49a3.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -151,7 +151,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 
-  <p class="date">2026-08-17</p>
+  <p class="date">2026-08-19</p>
 </section>
 <section>
 <section id="teorema-de-bayes-e-modelos-generativos" class="title-slide slide level1 center">
@@ -179,7 +179,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <p>Já havendo estimado os dados. Duas chamadas ao gerador aleatório, na ordem. Um modelo assim se chama <strong>generativo</strong> porque dele se pode <em>gerar</em>.</p>
 </div>
 
-<img data-src="02-aula_files/figure-revealjs/cell-3-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-html/cell-3-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="modelos-generativos-discriminativos-e-ia-generativa" class="slide level2">
 <h2>Modelos Generativos, Discriminativos e IA Generativa</h2>
 <p>Regressão logística (Aula 6) modela <span class="math inline">\(p(\mathcal{C}_k\mid\mathbf{x})\)</span> <strong>direto</strong> — nunca constrói <span class="math inline">\(p(\mathbf{x}\mid\mathcal{C}_k)\)</span>.</p>
@@ -228,6 +228,80 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 <div class="fragment">
 <p>Mudou a <strong>família de distribuições</strong>, não o conceito. E precisa de bilhões de parâmetros porque <span class="math inline">\(\mathbf{x}\)</span> tem dimensão altíssima — o problema do histograma, de novo.</p>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?</strong></p>
+</div>
+<div class="callout-content">
+<p>Uma frase. Compare com um colega antes de avançar (2 min).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="bayes-para-k-classes-e-modelos-generativos" class="slide level2 scrollable">
+<h2>Bayes para <span class="math inline">\(K\)</span> classes e modelos generativos</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>A regra “decida pela conjunta maior” só vale para <span class="math inline">\(K=2\)</span> classes; para <span class="math inline">\(K&gt;2\)</span> é preciso um argumento novo.</li>
+<li>Um modelo generativo descreve, em duas etapas, como a natureza sorteia primeiro a classe e depois o valor <span class="math inline">\(\mathbf{x}\)</span>.</li>
+<li><span class="math inline">\(\sum_{j=1}^K p(\mathbf{x}\mid\mathcal{C}_j)\,\pi_j\)</span> é a mesma quantidade que aparece no denominador do Teorema de Bayes para qualquer classe <span class="math inline">\(k\)</span> do numerador.</li>
+<li>Trocar a família de distribuições usada (gaussiana por uma rede neural, por exemplo) muda o conceito de “modelo generativo”.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="bayes-para-k-classes-e-modelos-generativos-resposta" class="slide level2 scrollable">
+<h2>Bayes para <span class="math inline">\(K\)</span> classes e modelos generativos — Resposta</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<ol type="a">
+<li><strong>Falso</strong> — a prova da Aula 1 nunca usou <span class="math inline">\(K=2\)</span> como hipótese; ela generaliza sem atrito.</li>
+<li><strong>Verdadeiro</strong> — é exatamente a leitura em duas etapas construída neste bloco.</li>
+<li><strong>Verdadeiro</strong> — é a evidência <span class="math inline">\(p(\mathbf{x})\)</span>, a mesma para todo <span class="math inline">\(k\)</span>.</li>
+<li><strong>Falso</strong> — muda só a família de distribuições; o conceito (gerar a classe, depois os dados) permanece o mesmo.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="o-que-muda-entre-um-modelo-generativo-gaussiano-de-5-parâmetros-e-uma-ia-generativa-moderna-com-bilhões-o-conceito-ou-só-a-família-de-distribuições-1" class="slide level2">
+<h2>O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment">
+<p><em>(Uma frase. Compare com um colega antes de avançar.)</em></p>
+</div>
+</div>
+</div>
 </div>
 </section></section>
 <section>
@@ -328,7 +402,39 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </ul>
 </div>
 
-<img data-src="02-aula_files/figure-revealjs/cell-4-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section></section>
+<img data-src="02-aula_files/figure-html/cell-4-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"><div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Por que “faltam dados” para estimar <span class="math inline">\(p(\mathbf{x}\mid\mathcal{C}_k)\)</span> em alta dimensão é diferente de “falta poder computacional”?</strong></p>
+</div>
+<div class="callout-content">
+<p>Explique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="faltam-dados-é-o-mesmo-problema-que-falta-poder-computacional" class="slide level2">
+<h2>“Faltam dados” é o mesmo problema que “falta poder computacional”?</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<p>Comprar 100× mais GPUs resolveria?</p>
+<div class="fragment">
+<p><em>(Uma frase. Compare com um colega.)</em></p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
 <section>
 <section id="independência-e-naive-bayes" class="title-slide slide level1 center">
 <h1>Independência e Naive Bayes</h1>
@@ -369,7 +475,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </div></div>
 </div>
 
-<img data-src="02-aula_files/figure-revealjs/cell-5-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-html/cell-5-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="bayes-sob-independência-condicional" class="slide level2 scrollable">
 <h2>Bayes sob independência condicional</h2>
 <p><span class="math display">\[ p(\mathbf{x}\mid\mathcal{C}_k) = \prod_{i=1}^{d} p(x_i\mid\mathcal{C}_k) \]</span></p>
@@ -393,7 +499,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 <p><strong>Naive Bayes</strong> — independência condicional dada a classe: <span class="math display">\[ p(\mathbf{x}\mid\mathcal{C}_k) = \prod_{i=1}^d p(x_i\mid\mathcal{C}_k) \]</span></p>
 </div>
 
-<img data-src="02-aula_files/figure-revealjs/cell-6-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-html/cell-6-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="inferencia-em-naive-bayes" class="slide level2">
 <h2>Inferencia em Naive Bayes</h2>
 <div class="cell" data-reveal="true" data-layout-align="center">
@@ -413,7 +519,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </div>
 </div>
 
-<img data-src="02-aula_files/figure-revealjs/cell-7-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"><div class="fragment">
+<img data-src="02-aula_files/figure-html/cell-7-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"><div class="fragment">
 <p><strong>Mesma armadilha da Aula 1:</strong> palavra nunca vista numa classe <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\hat\theta=0 \Rightarrow \ln 0 = -\infty\)</span>. Correção: suavização de Laplace (<span class="math inline">\(+1\)</span> no numerador, <span class="math inline">\(+2\)</span> no denominador).</p>
 </div>
 <div class="fragment">
@@ -498,6 +604,81 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 <div class="fragment">
 <p>Famílias <strong>diferentes por coluna</strong> são permitidas — idade, estado civil e “tem cartão” convivem. O passo 3 soma os logs indiferentemente.</p>
 </div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável</strong></p>
+</div>
+<div class="callout-content">
+<p>Escreva os dois exemplos, num problema que você conheça.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="independência-e-naive-bayes-1" class="slide level2 scrollable">
+<h2>Independência e Naive Bayes</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>Independência (não condicional) entre <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_2\)</span> significa que <span class="math inline">\(p(x_1, x_2) = p(x_1)\,p(x_2)\)</span>.</li>
+<li>Independência condicional dada a classe, <span class="math inline">\(p(x_1, x_2 \mid \mathcal{C}_k)
+= p(x_1\mid\mathcal{C}_k)\,p(x_2\mid\mathcal{C}_k)\)</span>, implica independência não condicional entre <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_2\)</span>.</li>
+<li>O Naive Bayes assume independência condicional dada a classe, não independência incondicional entre os atributos.</li>
+<li>Um zero em qualquer atributo categórico pode fazer o score de uma classe inteira ir a <span class="math inline">\(-\infty\)</span> na soma de logs.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="independência-e-naive-bayes-resposta" class="slide level2 scrollable">
+<h2>Independência e Naive Bayes — Resposta</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<ol type="a">
+<li><strong>Verdadeiro</strong> — é a própria definição de independência.</li>
+<li><strong>Falso</strong> — as duas noções são diferentes; independência condicional dada a classe pode conviver com forte dependência marginal entre <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_2\)</span> (a classe é um confusor comum).</li>
+<li><strong>Verdadeiro</strong> — exatamente a suposição construída neste bloco.</li>
+<li><strong>Verdadeiro</strong> — <span class="math inline">\(\log 0 = -\infty\)</span> na soma dos logs; corrigido com contagens fictícias (suavização), como na Aula 1.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="dê-um-exemplo-de-par-de-atributos-em-que-a-independência-condicional-do-naive-bayes-parece-particularmente-errada-e-outro-em-que-parece-razoável-1" class="slide level2">
+<h2>Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment">
+<p><em>(Compare os dois exemplos com um colega.)</em></p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="teoria-da-decisão" class="title-slide slide level1 center">
@@ -539,7 +720,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </blockquote>
 </div>
 
-<img data-src="02-aula_files/figure-revealjs/cell-8-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-html/cell-8-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="escolher-custo-escolher-qual-erro-cometer" class="slide level2">
 <h2>Escolher custo = escolher qual erro cometer</h2>
 <p>Nenhum limiar reduz os dois erros ao mesmo tempo.</p>
@@ -580,7 +761,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 <p>Difícil fixar? Reporte o sistema para toda a faixa de <span class="math inline">\(t\)</span> e deixe a escolha explícita.</p>
 </div>
 
-<img data-src="02-aula_files/figure-revealjs/cell-9-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-html/cell-9-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="risco-de-bayes" class="slide level2">
 <h2>Risco de Bayes</h2>
 <p><span class="math display">\[ R^\star = \mathbb{E}_{\mathbf{X}}\!\left[\min_{a} \rho(a\mid\mathbf{X})\right] \]</span></p>
@@ -593,6 +774,49 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 <p>Otimalidade da regra e correção do modelo são <strong>perguntas separadas</strong>.</p>
 </blockquote>
 <p>E a lacuna aparece justamente quando os custos ficam assimétricos: aí o limiar sai de <span class="math inline">\(0{,}5\)</span> e passa a depender do <strong>valor</strong> da posteriori.</p>
+</div>
+</section>
+<section id="teoria-da-decisão-e-risco-de-bayes" class="slide level2 scrollable">
+<h2>Teoria da decisão e risco de Bayes</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>O risco posterior <span class="math inline">\(\rho(a\mid\mathbf{x})\)</span> é uma média das perdas <span class="math inline">\(L(k,a)\)</span> ponderada pela posteriori <span class="math inline">\(p(\mathcal{C}_k\mid\mathbf{x})\)</span>.</li>
+<li>Sob perda 0-1, a regra de Bayes <span class="math inline">\(\delta^\star\)</span> coincide com a regra do posterior máximo.</li>
+<li>Mudar a matriz de perda <span class="math inline">\(L\)</span> pode mudar a regra de decisão ótima sem que a posteriori <span class="math inline">\(p(\mathcal{C}_k\mid\mathbf{x})\)</span> mude em nada.</li>
+<li>O risco de Bayes <span class="math inline">\(R^\star\)</span> mede o quão bem o modelo <span class="math inline">\(p(\mathbf{x},\mathcal{C}_k)\)</span> está especificado.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="teoria-da-decisão-e-risco-de-bayes-resposta" class="slide level2 scrollable">
+<h2>Teoria da decisão e risco de Bayes — Resposta</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Dica</strong></p>
+</div>
+<div class="callout-content">
+<ol type="a">
+<li><strong>Verdadeiro</strong> — é exatamente a definição de risco posterior.</li>
+<li><strong>Verdadeiro</strong> — com perda 0-1, minimizar o risco posterior é escolher a classe de maior posteriori.</li>
+<li><strong>Verdadeiro</strong> — os custos entram só pelo limiar de decisão; a posteriori não depende de <span class="math inline">\(L\)</span>.</li>
+<li><strong>Falso</strong> — o risco de Bayes é a perda esperada da regra ótima <em>dado</em> o modelo; ele não avalia se o modelo está certo, só otimiza dado que ele está.</li>
+</ol>
+</div>
+</div>
 </div>
 </section>
 <section id="fechamento" class="slide level2 scrollable">

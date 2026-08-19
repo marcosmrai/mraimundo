@@ -751,9 +751,9 @@
   {
     "objectID": "supervised/aula02/notas.html#o-objeto-geral",
     "href": "supervised/aula02/notas.html#o-objeto-geral",
-    "title": "Distribuições Condicionais e Modelos Generativos",
-    "section": "3.1 O objeto geral",
-    "text": "3.1 O objeto geral\nUma regra de decisão \\(\\delta\\) mapeia cada observação \\(\\mathbf{x}\\) para uma ação \\(a \\in \\mathcal{A}\\) — o espaço de ações, que não precisa coincidir com o espaço de classes \\(\\mathcal{Y}=\\{\\mathcal{C}_1,\\dots,\\mathcal{C}_K\\}\\). A opção de rejeição da Aula 1 já era um exemplo de \\(\\mathcal{A}\\neq\\mathcal{Y}\\): \\(\\mathcal{A} = \\mathcal{Y}\\cup\\{\\text{recusar}\\}\\).\nDada uma função de perda \\(L:\\mathcal{Y}\\times\\mathcal{A}\\to\\mathbb{R}\\) (\\(L(k,a)\\) = custo de tomar a ação \\(a\\) quando a verdade é \\(\\mathcal{C}_k\\)), o risco posterior de uma ação \\(a\\) em \\(\\mathbf{x}\\) é\n\\[\n\\rho(a\\mid\\mathbf{x}) \\;=\\; \\sum_{k=1}^K L(k,a)\\, p(\\mathcal{C}_k\\mid\\mathbf{x}).\n\\]\nA regra que minimiza a perda esperada global minimiza \\(\\rho(a\\mid\\mathbf{x})\\) ponto a ponto (PRML §1.5, §1.5.2–1.5.3, pp. 38–42, agora em sua forma geral — o mesmo argumento ponto a ponto que provou a Aula 1):\n\\[\n\\boxed{\\;\\delta^\\star(\\mathbf{x}) = \\arg\\min_{a\\in\\mathcal{A}} \\rho(a\\mid\\mathbf{x})\\;}\n\\]"
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "4.1 O objeto geral",
+    "text": "4.1 O objeto geral\nUma regra de decisão \\(\\delta\\) mapeia cada observação \\(\\mathbf{x}\\) para uma ação \\(a \\in \\mathcal{A}\\) — o espaço de ações, que não precisa coincidir com o espaço de classes \\(\\mathcal{Y}\\). A opção de rejeição da Aula 1 já era um exemplo de \\(\\mathcal{A}\\neq\\mathcal{Y}\\).\nDada uma função de perda \\(L:\\mathcal{Y}\\times\\mathcal{A}\\to\\mathbb{R}\\), em que \\(L(k,a)\\) é o custo de tomar a ação \\(a\\) quando a verdade é \\(\\mathcal{C}_k\\), o risco posterior de uma ação em \\(\\mathbf{x}\\) é\n\\[\n\\rho(a\\mid\\mathbf{x}) \\;=\\; \\sum_{k=1}^K L(k,a)\\, p(\\mathcal{C}_k\\mid\\mathbf{x}),\n\\]\ne a regra que minimiza a perda esperada global minimiza esse risco ponto a ponto — o mesmo argumento que provou a Aula 1:\n\\[\n\\boxed{\\;\\delta^\\star(\\mathbf{x}) = \\arg\\min_{a\\in\\mathcal{A}} \\rho(a\\mid\\mathbf{x})\\;}\n\\]\nRepare na divisão de trabalho: o modelo produz \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\), a perda vem de fora, e \\(\\delta^\\star\\) é apenas a combinação dos dois. São peças separáveis, e é útil mantê-las separadas mentalmente."
   },
   {
     "objectID": "supervised/aula02/notas.html#o-caso-binário-recupera-exatamente-a-aula-1",
@@ -823,7 +823,7 @@
     "href": "supervised/aula01/notas.html#a-conta-que-desmente-a-intuição",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "2.4 A conta que desmente a intuição",
-    "text": "2.4 A conta que desmente a intuição\nAté aqui uma informação foi omitida de propósito: as duas classes não são igualmente frequentes. Na amostra simulada há 950 pontos da classe A e 50 da classe B, num total de 1.000. A razão é 19 para 1.\nIsso não muda nada nas curvas desenhadas — elas descrevem cada classe isoladamente, e continuam válidas. Mas muda tudo na contagem de erros, porque a contagem é feita sobre a amostra inteira, e nela A é dezenove vezes mais numerosa.\nVamos contar os erros de verdade, sobre os pontos simulados, em duas posições do corte: no cruzamento das curvas, que foi a resposta da turma, e num corte deslocado para a direita.\n\n\n\n\n\n\n\n\n\nO corte deslocado erra muito menos. E ele não foi escolhido por tentativa e erro: sai de um princípio, que é o assunto do próximo passo.\nO desconforto aqui é o ponto pedagógico. A resposta “corte no cruzamento” era intuitivamente óbvia, tinha justificativa verbal razoável — “é onde as duas são igualmente plausíveis” — e os dados acabaram de desmenti-la. Vale registrar exatamente onde a justificativa verbal falhou: igualmente plausíveis estava sendo confundido com igualmente prováveis. São coisas diferentes, e a diferença é a frequência das classes."
+    "text": "2.4 A conta que desmente a intuição\nAté aqui uma informação foi omitida de propósito: as duas classes não são igualmente frequentes. Na amostra simulada há 950 pontos da classe A e 50 da classe B, num total de 1.000. A razão é 19 para 1.\nIsso não muda nada nas curvas desenhadas — elas descrevem cada classe isoladamente, e continuam válidas. Mas muda tudo na contagem de erros, porque a contagem é feita sobre a amostra inteira, e nela A é dezenove vezes mais numerosa.\nVamos contar os erros de verdade, sobre os pontos simulados, em duas posições do corte: no cruzamento das curvas, que foi a resposta da turma, e num corte deslocado para a direita.\n\n\n\n\n\n\n\n\n\nO corte deslocado erra muito menos. E ele não foi escolhido por tentativa e erro: sai de um princípio, que é o assunto do próximo passo.\nO desconforto aqui é o ponto pedagógico. A resposta “corte no cruzamento” era intuitivamente óbvia, tinha justificativa verbal razoável — “é onde as duas são igualmente plausíveis” — e os dados acabaram de desmenti-la. Vale registrar exatamente onde a justificativa verbal falhou: igualmente plausíveis estava sendo confundido com igualmente prováveis. São coisas diferentes, e a diferença é a frequência das classes.\n\n\n\n\n\n\nDicaPor que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?\n\n\n\nEscreva, com suas palavras, e compare a sua frase com a de um colega antes de avançar (2 min)."
   },
   {
     "objectID": "supervised/aula01/notas.html#um-pouco-de-teoria-de-probabilidade",
@@ -844,7 +844,7 @@
     "href": "supervised/aula01/notas.html#exemplo-triagem-médica",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "3.3 Exemplo: triagem médica",
-    "text": "3.3 Exemplo: triagem médica\nO mesmo fenômeno, agora no caso discreto e num contexto familiar. O exemplo é de DLFC §2.1.1, pp. 25–26, retomado em §2.1.4, p. 30.\nUma doença tem prevalência de 1 em 100. Um teste detecta a doença em 90% dos doentes (\\(\\text{sensibilidade} = 0{,}90\\)) e produz resultado positivo em 3% dos saudáveis (\\(\\text{falso positivo} = 0{,}03\\)). Uma pessoa testa positivo. Qual a probabilidade de que esteja doente?\n\\[\n\\begin{aligned}\np(D \\mid +) &= \\frac{p(+ \\mid D)\\,p(D)}{p(+ \\mid D)\\,p(D) + p(+ \\mid \\bar{D})\\,p(\\bar{D})}\\\\\n& = \\frac{0{,}90 \\times 0{,}01}{0{,}90 \\times 0{,}01 + 0{,}03 \\times 0{,}99}\\\\\n& = \\frac{0{,}0090}{0{,}0387} \\approx 0{,}233 .\n\\end{aligned}\n\\]\nCerca de 23% — não 90%, que é a resposta que a maioria dá. A intuição falha aqui exatamente como falhou no Passo 4, e pela mesma razão: a verossimilhança \\(p(+ \\mid D) = 0{,}90\\) é alta, mas a priori \\(p(D) = 0{,}01\\) é baixíssima, e o produto é o que decide.\nEm contagens absolutas, sobre 10.000 pessoas: 100 doentes, das quais 90 testam positivo; 9.900 saudáveis, das quais 297 testam positivo. Total de 387 positivos, 90 dos quais realmente doentes — 23%.\nEsta é a segunda aparição do mesmo fenômeno em poucos minutos, e não a primeira. É por isso que ela funciona: a turma já sabe que a raridade da classe muda a conclusão, e aqui apenas reencontra o fato no caso discreto."
+    "text": "3.3 Exemplo: triagem médica\nO mesmo fenômeno, agora no caso discreto e num contexto familiar. O exemplo é de DLFC §2.1.1, pp. 25–26, retomado em §2.1.4, p. 30.\nUma doença tem prevalência de 1 em 100. Um teste detecta a doença em 90% dos doentes (\\(\\text{sensibilidade} = 0{,}90\\)) e produz resultado positivo em 3% dos saudáveis (\\(\\text{falso positivo} = 0{,}03\\)). Uma pessoa testa positivo. Qual a probabilidade de que esteja doente?\n\\[\n\\begin{aligned}\np(D \\mid +) &= \\frac{p(+ \\mid D)\\,p(D)}{p(+ \\mid D)\\,p(D) + p(+ \\mid \\bar{D})\\,p(\\bar{D})}\\\\\n& = \\frac{0{,}90 \\times 0{,}01}{0{,}90 \\times 0{,}01 + 0{,}03 \\times 0{,}99}\\\\\n& = \\frac{0{,}0090}{0{,}0387} \\approx 0{,}233 .\n\\end{aligned}\n\\]\nCerca de 23% — não 90%, que é a resposta que a maioria dá. A intuição falha aqui exatamente como falhou no Passo 4, e pela mesma razão: a verossimilhança \\(p(+ \\mid D) = 0{,}90\\) é alta, mas a priori \\(p(D) = 0{,}01\\) é baixíssima, e o produto é o que decide.\nEm contagens absolutas, sobre 10.000 pessoas: 100 doentes, das quais 90 testam positivo; 9.900 saudáveis, das quais 297 testam positivo. Total de 387 positivos, 90 dos quais realmente doentes — 23%.\nEsta é a segunda aparição do mesmo fenômeno em poucos minutos, e não a primeira. É por isso que ela funciona: a turma já sabe que a raridade da classe muda a conclusão, e aqui apenas reencontra o fato no caso discreto.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDicaNo exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?\n\n\n\nEscreva os três nomes ao lado dos três números do enunciado, e confira com um colega (2 min)."
   },
   {
     "objectID": "supervised/aula01/notas.html#densidade-vs.-probabilidade",
@@ -865,7 +865,7 @@
     "href": "supervised/aula01/notas.html#caudas-de-uma-distribuição",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "4.3 Caudas de uma Distribuição",
-    "text": "4.3 Caudas de uma Distribuição\nA cauda da distribuição descreve a taxa de decaimento de \\(p(x)\\) quando \\(|x| \\to \\infty\\). O comportamento assintótico da cauda dita a probabilidade atribuída a eventos extremos (valores muito distantes da média).\n\nCaudas Leves (Exponenciais ou Sub-gaussianas): O decaimento ocorre na taxa de \\(\\exp(-x^2)\\) ou \\(\\exp(-x)\\). Exemplos: Gaussiana, Exponencial. Eventos a \\(5\\sigma\\) da média são praticamente impossíveis.\nCaudas Pesadas (Polinomiais / Sub-exponenciais): O decaimento ocorre a uma taxa de potência \\(x^{-\\nu}\\). Exemplo: \\(t\\) de Student, Pareto. A probabilidade de observações extremas decai muito devagar, tornando o surgimento de outliers um fenômeno estrutural e esperado."
+    "text": "4.3 Caudas de uma Distribuição\nA cauda da distribuição descreve a taxa de decaimento de \\(p(x)\\) quando \\(|x| \\to \\infty\\). O comportamento assintótico da cauda dita a probabilidade atribuída a eventos extremos (valores muito distantes da média).\n\nCaudas Leves (Exponenciais ou Sub-gaussianas): O decaimento ocorre na taxa de \\(\\exp(-x^2)\\) ou \\(\\exp(-x)\\). Exemplos: Gaussiana, Exponencial. Eventos a \\(5\\sigma\\) da média são praticamente impossíveis.\nCaudas Pesadas (Polinomiais / Sub-exponenciais): O decaimento ocorre a uma taxa de potência \\(x^{-\\nu}\\). Exemplo: \\(t\\) de Student, Pareto. A probabilidade de observações extremas decai muito devagar, tornando o surgimento de outliers um fenômeno estrutural e esperado.\n\n\n\n\n\n\n\nDicaPor que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?\n\n\n\nEscreva um argumento em uma frase, sem usar a palavra “feio” (2 min)."
   },
   {
     "objectID": "supervised/aula01/notas.html#ajustar-a-beta",
@@ -1047,7 +1047,7 @@
     "href": "supervised/aula01/slides.html#a-tese-central-do-curso",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "A tese central do curso",
-    "text": "A tese central do curso\n\nTodo algoritmo supervisionado é a composição de três peças: uma suposição distributiva, uma verossimilhança e uma regra de decisão.\n\n\nObjetivo: Não é aprender algoritmos novos, mas entender o que os que você já usa realmente fazem.\nDiagnóstico de falha: Quando um modelo falha, a pergunta correta não é “qual hiperparâmetro eu ajusto?”, mas “qual das três peças está errada?” (quase sempre é a suposição distributiva).\n\n\nA formulação estatística do aprendizado\n\nPar \\((x, y)\\) com distribuição conjunta desconhecida \\(p(x, y)\\) e amostra \\(\\mathcal{D} = \\{(x_n, y_n)\\}_{n=1}^N\\).\nClassificação (\\(Y \\in \\mathbb{N}\\) adaptado) vs. Regressão (\\(Y \\subseteq \\mathbb{R}\\)): A diferença estrutural está quase inteiramente na escolha da distribuição do resíduo \\(Y - f(X)\\).\n\n\n\n\n\n\n\n\nPrática do dia a dia\nFormalismo estatístico underlying\n\n\n\n\nMínimos Quadrados\nMáxima Verossimilhança sob erro Gaussiano\n\n\nRegularização (L1 / L2)\nInferência Bayesiana com Priori (Laplace / Gaussiana)\n\n\nResíduo de previsão\nGradiente da log-verossimilhança"
+    "text": "A tese central do curso\n\nTodo algoritmo supervisionado é a composição de três peças: uma suposição distributiva, uma verossimilhança e uma regra de decisão.\n\n\nObjetivo: Não é aprender algoritmos novos, mas entender o que os que você já usa realmente fazem.\nDiagnóstico de falha: Quando um modelo falha, a pergunta correta não é “qual hiperparâmetro eu ajusto?”, mas “qual das três peças está errada?” (quase sempre é a suposição distributiva)."
   },
   {
     "objectID": "supervised/aula01/slides.html#fundamentação-e-pergunta-de-partida",
@@ -1082,7 +1082,7 @@
     "href": "supervised/aula01/slides.html#a-conta-que-desmente-a-intuição",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "A conta que desmente a intuição",
-    "text": "A conta que desmente a intuição\nO que estava escondido: as classes não são igualmente frequentes.\n\\[ 950 \\text{ pontos da classe A} \\qquad 50 \\text{ pontos da classe B} \\]\n\nVamos contar os erros de verdade — no cruzamento e num corte deslocado.\n\n\n\n\n\n\n\n\n\n\nO corte deslocado erra muito menos.\nE ele não veio de tentativa e erro — vem de um princípio.\n\n\nOnde a justificativa verbal falhou:\n“igualmente plausíveis” \\(\\ne\\) “igualmente prováveis”"
+    "text": "A conta que desmente a intuição\nO que estava escondido: as classes não são igualmente frequentes.\n\\[ 950 \\text{ pontos da classe A} \\qquad 50 \\text{ pontos da classe B} \\]\n\nVamos contar os erros de verdade — no cruzamento e num corte deslocado."
   },
   {
     "objectID": "supervised/aula01/slides.html#a-linguagem-formal-as-regras-do-jogo",
@@ -1103,7 +1103,7 @@
     "href": "supervised/aula01/slides.html#exemplo-triagem-médica",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "Exemplo: triagem médica",
-    "text": "Exemplo: triagem médica\nPrevalência \\(p(D) = 0{,}01\\). Sensibilidade \\(p(+\\mid D) = 0{,}90\\). Falso positivo \\(p(+\\mid\\bar D) = 0{,}03\\).\nTeste positivo. Probabilidade de estar doente?\n\n\\[ p(D\\mid+) = \\frac{0{,}90 \\times 0{,}01}{0{,}90\\times0{,}01 + 0{,}03\\times0{,}99} \\approx \\mathbf{0{,}233} \\]\nEm 10.000 pessoas: 90 verdadeiros positivos contra 297 falsos positivos.\n\n\nMesma lição do Passo 4, no caso discreto: a priori decide."
+    "text": "Exemplo: triagem médica\nPrevalência \\(p(D) = 0{,}01\\). Sensibilidade \\(p(+\\mid D) = 0{,}90\\). Falso positivo \\(p(+\\mid\\bar D) = 0{,}03\\).\nTeste positivo. Probabilidade de estar doente?\n\n\\[ p(D\\mid+) = \\frac{0{,}90 \\times 0{,}01}{0{,}90\\times0{,}01 + 0{,}03\\times0{,}99} \\approx \\mathbf{0{,}233} \\]\nEm 10.000 pessoas: 90 verdadeiros positivos contra 297 falsos positivos.\n\n\nMesma lição do Passo 4, no caso discreto: a priori decide.\n\n\n\n\n\n\n\n\nNo exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?\n\n\nEscreva os três nomes ao lado dos três números do enunciado, e confira com um colega (2 min)."
   },
   {
     "objectID": "supervised/aula01/slides.html#densidade-vs.-probabilidade-1",
@@ -1124,7 +1124,7 @@
     "href": "supervised/aula01/slides.html#o-comportamento-de-cauda",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "O Comportamento de Cauda",
-    "text": "O Comportamento de Cauda\nO comportamento de \\(p(x)\\) quando \\(|x| \\to \\infty\\) define a sensibilidade a eventos extremos.\n\nCaudas Leves (Decaimento Exponencial/Quadrático):\n\n\\(p(x) \\sim \\exp(-x^2)\\) (Gaussiana) ou \\(\\exp(-|x|)\\) (Laplace).\nValores a \\(5\\sigma\\) são virtualmente impossíveis.\n\nCaudas Pesadas (Decaimento Polinomial):\n\n\\(p(x) \\sim x^{-\\nu}\\) (\\(t\\) de Student com \\(\\nu\\) graus de liberdade).\nOutliers têm probabilidade não desprezível."
+    "text": "O Comportamento de Cauda\nO comportamento de \\(p(x)\\) quando \\(|x| \\to \\infty\\) define a sensibilidade a eventos extremos.\n\nCaudas Leves (Decaimento Exponencial/Quadrático):\n\n\\(p(x) \\sim \\exp(-x^2)\\) (Gaussiana) ou \\(\\exp(-|x|)\\) (Laplace).\nValores a \\(5\\sigma\\) são virtualmente impossíveis.\n\nCaudas Pesadas (Decaimento Polinomial):\n\n\\(p(x) \\sim x^{-\\nu}\\) (\\(t\\) de Student com \\(\\nu\\) graus de liberdade).\nOutliers têm probabilidade não desprezível.\n\n\n\n\n\n\n\n\nPor que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?\n\n\nEscreva um argumento em uma frase, sem usar a palavra “feio” (2 min)."
   },
   {
     "objectID": "supervised/aula01/slides.html#qual-distribuição-para-dados-em-01",
@@ -1166,7 +1166,7 @@
     "href": "supervised/aula02/slides.html#quanto-custa-um-histograma-multidimensional",
     "title": "Independência, Naive Bayes e Teoria da Decisão",
     "section": "Quanto custa um histograma multidimensional?",
-    "text": "Quanto custa um histograma multidimensional?\n\nHistograma multidimensional: \\(M\\) células por eixo, \\(d\\) eixos $M^d $$\n\n\n\n\\(d=1\\): \\(M=10\\) células bastam.\n\\(d=10\\): \\(10^{10}\\) células — mais que qualquer dataset real.\n\n\n\n\nNão é falta de poder computacional. É falta de dados — o problema é estrutural, não de engenharia."
+    "text": "Quanto custa um histograma multidimensional?\n\nHistograma multidimensional: \\(M\\) células por eixo, \\(d\\) eixos $M^d $$\n\n\n\n\\(d=1\\): \\(M=10\\) células bastam.\n\\(d=10\\): \\(10^{10}\\) células — mais que qualquer dataset real.\n\n\n\n\nNão é falta de poder computacional. É falta de dados — o problema é estrutural, não de engenharia.\n\n\n\n\n\n\n\n\n\nPor que “faltam dados” para estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é diferente de “falta poder computacional”?\n\n\nExplique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?"
   },
   {
     "objectID": "supervised/aula02/slides.html#o-que-a-aula-1-entregou",
@@ -1213,9 +1213,9 @@
   {
     "objectID": "supervised/aula02/notas.html#contando-células-por-que-d2-não-custa-o-dobro-de-d1",
     "href": "supervised/aula02/notas.html#contando-células-por-que-d2-não-custa-o-dobro-de-d1",
-    "title": "Distribuições Condicionais e Modelos Generativos",
-    "section": "1.1 Contando células: por que \\(d=2\\) não custa o dobro de \\(d=1\\)",
-    "text": "1.1 Contando células: por que \\(d=2\\) não custa o dobro de \\(d=1\\)\nTome o estimador mais ingênuo possível para \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\): um histograma com 10 divisões por eixo.\n\n\\(d=1\\). Dez células por classe. Com mil exemplos de treino, algo como cem pontos por célula: a altura de cada barra é estimada com precisão decente.\n\\(d=2\\). A resposta imediata é “vinte células — dez para \\(x_1\\), dez para \\(x_2\\)”. Mas dez células em \\(x_1\\) e dez em \\(x_2\\) estimam apenas as duas marginais \\(p(x_1\\mid\\mathcal{C}_k)\\) e \\(p(x_2\\mid\\mathcal{C}_k)\\), e marginais não determinam a conjunta. Para representar \\(p(x_1,x_2\\mid\\mathcal{C}_k)\\) é preciso uma célula para cada par de divisões: \\(10\\times 10 = 100\\). Os 80 números excedentes são exatamente a informação de interação — o quanto a distribuição de \\(x_2\\) muda conforme \\(x_1\\) cai em uma faixa ou em outra.\n\\(d=3\\). Uma célula por tripla de divisões: \\(10^3 = 1000\\). E assim por diante: cada nova variável não soma dez células, multiplica por dez o número de células, porque ela pode interagir com toda a configuração já existente das anteriores.\n\nEm geral, \\(M\\) divisões por eixo e \\(d\\) eixos dão \\(M^d\\) células. Com \\(M=10\\):\n\n\n\n\\(d\\)\ncélulas \\(10^d\\)\npontos por célula com \\(n=10^6\\)\n\n\n\n\n1\n\\(10\\)\n\\(100\\,000\\)\n\n\n2\n\\(100\\)\n\\(10\\,000\\)\n\n\n3\n\\(1\\,000\\)\n\\(1\\,000\\)\n\n\n6\n\\(10^{6}\\)\n\\(1\\)\n\n\n10\n\\(10^{10}\\)\n\\(0{,}0001\\)\n\n\n\nCom dez variáveis — um problema pequeno para qualquer padrão real — um conjunto de um milhão de exemplos deixa a esmagadora maioria das células vazia. E uma célula vazia não estima densidade baixa: estima zero, que zera a conjunta \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\pi_k\\) e manda o log para \\(-\\infty\\) — a mesma patologia dos zeros exatos que a Aula 1 encontrou na Beta, agora por falta de dados em vez de por escolha de priori.\nRepare, porém, no que seria estimável: as \\(10\\times d = 100\\) contagens marginais, com muitos pontos cada. O abismo entre 100 números confortáveis e \\(10^{10}\\) números impossíveis é precisamente o custo das interações. O resto da aula é sobre o que acontece quando se decide abrir mão delas.\nSuponha que você tente estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) do jeito mais ingênuo possível: um histograma multidimensional. Divida cada um dos \\(d\\) eixos em \\(M\\) células. O histograma completo tem\n\\[\nM^d \\text{ células.}\n\\]\nCom \\(d=1\\), \\(M=10\\) células bastam para uma resolução razoável. Com \\(d=10\\), já são \\(10^{10}\\) células — mais do que qualquer conjunto de dados real terá de pontos. A vasta maioria das células fica vazia, e uma célula vazia não estima densidade alguma; estima zero, o que está quase certamente errado.\n\n\n\n\n\n\nNotaO ponto não é “compute mais rápido”\n\n\n\nNão é um problema de poder computacional. É um problema de dados: o número de observações necessárias para preencher as células cresce exponencialmente com \\(d\\), e nenhum orçamento de coleta razoável acompanha isso. A saída não é um histograma mais eficiente — é abandonar o histograma como estratégia de estimação em alta dimensão.\n\n\nIsto é exatamente a promessa que a Aula 1 fez ao fechar (PRML §1.4, pp. 33–38; DLFC §6.1.1, pp. 172–174, tratamento moderno): sem impor nenhuma estrutura sobre \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\), ela não é estimável com dados finitos a partir de \\(d\\) moderado."
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "2.1 Contando células: por que \\(d=2\\) não custa o dobro de \\(d=1\\)",
+    "text": "2.1 Contando células: por que \\(d=2\\) não custa o dobro de \\(d=1\\)\nTome o estimador mais ingênuo possível para \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\): um histograma com 10 divisões por eixo.\n\n\\(d=1\\). Dez células por classe. Com mil exemplos de treino, algo como cem pontos por célula: a altura de cada barra é estimada com precisão decente.\n\\(d=2\\). A resposta imediata é “vinte células — dez para \\(x_1\\), dez para \\(x_2\\)”. Mas dez células em \\(x_1\\) e dez em \\(x_2\\) estimam apenas as duas marginais \\(p(x_1\\mid\\mathcal{C}_k)\\) e \\(p(x_2\\mid\\mathcal{C}_k)\\), e marginais não determinam a conjunta. Para representar \\(p(x_1,x_2\\mid\\mathcal{C}_k)\\) é preciso uma célula para cada par de divisões: \\(10\\times 10 = 100\\). Os 80 números excedentes são exatamente a informação de interação — o quanto a distribuição de \\(x_2\\) muda conforme \\(x_1\\) cai em uma faixa ou em outra.\n\\(d=3\\). Uma célula por tripla de divisões: \\(10^3 = 1000\\). E assim por diante: cada nova variável não soma dez células, multiplica por dez o número de células, porque ela pode interagir com toda a configuração já existente das anteriores.\n\nEm geral, \\(M\\) divisões por eixo e \\(d\\) eixos dão \\(M^d\\) células. Com \\(M=10\\):\n\n\n\n\\(d\\)\ncélulas \\(10^d\\)\npontos por célula com \\(n=10^6\\)\n\n\n\n\n1\n\\(10\\)\n\\(100\\,000\\)\n\n\n2\n\\(100\\)\n\\(10\\,000\\)\n\n\n3\n\\(1\\,000\\)\n\\(1\\,000\\)\n\n\n6\n\\(10^{6}\\)\n\\(1\\)\n\n\n10\n\\(10^{10}\\)\n\\(0{,}0001\\)\n\n\n\nCom dez variáveis — um problema pequeno para qualquer padrão real — um conjunto de um milhão de exemplos deixa a esmagadora maioria das células vazia. E uma célula vazia não estima densidade baixa: estima zero, que zera a conjunta \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\pi_k\\) e manda o log para \\(-\\infty\\) — a mesma patologia dos zeros exatos que a Aula 1 encontrou na Beta, agora por falta de dados em vez de por escolha de priori.\nRepare, porém, no que seria estimável: as \\(10\\times d = 100\\) contagens marginais, com muitos pontos cada. O abismo entre 100 números confortáveis e \\(10^{10}\\) números impossíveis é precisamente o custo das interações. O resto da aula é sobre o que acontece quando se decide abrir mão delas."
   },
   {
     "objectID": "supervised/aula02/notas.html#o-modelo-generativo",
@@ -1241,9 +1241,9 @@
   {
     "objectID": "supervised/aula02/notas.html#suposição-de-independência-e-naive-bayes",
     "href": "supervised/aula02/notas.html#suposição-de-independência-e-naive-bayes",
-    "title": "Distribuições Condicionais e Modelos Generativos",
-    "section": "2.2 Suposição de Independência e Naive Bayes",
-    "text": "2.2 Suposição de Independência e Naive Bayes\nO exemplo canônico: classificar um e-mail como spam a partir da presença ou ausência de \\(d\\) palavras de um vocabulário, \\(\\mathbf{x} \\in \\{0,1\\}^d\\). Modelar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) sem estrutura significa modelar a distribuição conjunta de \\(d\\) variáveis binárias — um objeto com \\(2^d - 1\\) parâmetros livres por classe (o \\(-1\\) vem da restrição de que as \\(2^d\\) probabilidades somam 1). Para \\(d=20\\) palavras, isso já é mais de um milhão de parâmetros por classe, para um vocabulário de brinquedo.\nNaive Bayes é a suposição mais brutal possível para resolver isso: independência condicional entre atributos, dada a classe (PRML §1.5.4, eqs. 1.84–1.85, p. 46; DLFC §5.3, §5.3.1–5.3.2, pp. 150–156):\n\\[\np(\\mathbf{x}\\mid\\mathcal{C}_k) \\;=\\; \\prod_{i=1}^d p(x_i \\mid \\mathcal{C}_k).\n\\]\n\n\n\n\n\nflowchart TD\n    C((\"𝒞ₖ\")) --&gt; x1[\"x₁ (#quot;grátis#quot;)\"]\n    C --&gt; x2[\"x₂ (#quot;reunião#quot;)\"]\n    C --&gt; x3[\"x₃ (#quot;urgente#quot;)\"]\n    C --&gt; xd[\"x_d\"]\n\n\n\n\n\n\nO diagrama não tem nenhuma seta entre os \\(x_i\\) — essa ausência é a suposição inteira, desenhada. Ela troca \\(2^d-1\\) parâmetros por \\(d\\): linear em vez de exponencial.\n\n\n\n\n\n\n\n\n\nUm exemplo numérico pequeno, para tornar concreto. Vocabulário de 8 palavras; cada palavra tem uma probabilidade de aparecer dado spam e dado não-spam. Simulamos e-mails e ajustamos essas probabilidades por contagem.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportanteA mesma armadilha da Aula 1, em outra forma\n\n\n\nSe alguma palavra nunca aparecer nos e-mails de uma classe na amostra de treino, a contagem bruta dá \\(\\hat\\theta = 0\\), e um único e-mail de teste com essa palavra zera o produto inteiro — \\(\\ln 0 = -\\infty\\), exatamente o problema dos zeros exatos na Beta da Aula 1, só que aqui em forma discreta. A correção padrão é a suavização de Laplace: somar 1 ao numerador e 2 ao denominador (equivalente a uma priori Beta\\((1,1)\\) sobre cada \\(\\theta_i\\)), garantindo \\(0 &lt; \\hat\\theta &lt; 1\\) sempre. É por isso que o ajuste acima já usa a versão suavizada.\n\n\nCom as probabilidades ajustadas, a regra de decisão para um e-mail novo \\(\\mathbf{x}\\) é comparar\n\\[\n\\log\\frac{p(\\text{spam}\\mid\\mathbf{x})}{p(\\text{não-spam}\\mid\\mathbf{x})}\n\\;=\\;\n\\log\\frac{\\pi_{\\text{spam}}}{\\pi_{\\text{ham}}}\n\\;+\\;\n\\sum_{i=1}^d \\left[ x_i \\log\\frac{\\theta^{\\text{spam}}_i}{\\theta^{\\text{ham}}_i}\n+ (1-x_i)\\log\\frac{1-\\theta^{\\text{spam}}_i}{1-\\theta^{\\text{ham}}_i}\\right]\n\\]\ncontra zero. Guarde esta fórmula — o Bloco de teoria da decisão vai mostrar que ela é linear em \\(\\mathbf{x}\\), e por que isso não é coincidência."
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "3.4 Suposição de Independência e Naive Bayes",
+    "text": "3.4 Suposição de Independência e Naive Bayes\nO exemplo canônico: classificar um e-mail como spam a partir da presença ou ausência de \\(d\\) palavras de um vocabulário, \\(\\mathbf{x} \\in \\{0,1\\}^d\\). Modelar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) sem estrutura significa modelar a distribuição conjunta de \\(d\\) variáveis binárias — um objeto com \\(2^d - 1\\) parâmetros livres por classe (o \\(-1\\) vem da restrição de que as \\(2^d\\) probabilidades somam 1). Para \\(d=20\\) palavras, isso já é mais de um milhão de parâmetros por classe, para um vocabulário de brinquedo.\nNaive Bayes é a suposição mais brutal possível para resolver isso: independência condicional entre atributos, dada a classe (PRML §1.5.4, eqs. 1.84–1.85, p. 46; DLFC §5.3, §5.3.1–5.3.2, pp. 150–156):\n\\[\np(\\mathbf{x}\\mid\\mathcal{C}_k) \\;=\\; \\prod_{i=1}^d p(x_i \\mid \\mathcal{C}_k).\n\\]\nO diagrama não tem nenhuma seta entre os \\(x_i\\) — essa ausência é a suposição inteira, desenhada. Ela troca \\(2^d-1\\) parâmetros por \\(d\\): linear em vez de exponencial.\n\n\n\n\n\n\n\n\n\nUm exemplo numérico pequeno, para tornar concreto. Vocabulário de 8 palavras; cada palavra tem uma probabilidade de aparecer dado spam e dado não-spam. Simulamos e-mails e ajustamos essas probabilidades por contagem.\n\n\n\n\n\nflowchart TD\n    C((\"𝒞ₖ\")) --&gt; x1[\"x₁ (#quot;grátis#quot;)\"]\n    C --&gt; x2[\"x₂ (#quot;reunião#quot;)\"]\n    C --&gt; x3[\"x₃ (#quot;urgente#quot;)\"]\n    C --&gt; xd[\"x_d\"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportanteA mesma armadilha da Aula 1, em outra forma\n\n\n\nSe alguma palavra nunca aparecer nos e-mails de uma classe na amostra de treino, a contagem bruta dá \\(\\hat\\theta = 0\\), e um único e-mail de teste com essa palavra zera o produto inteiro — \\(\\ln 0 = -\\infty\\), exatamente o problema dos zeros exatos na Beta da Aula 1, só que aqui em forma discreta. A correção padrão é a suavização de Laplace: somar 1 ao numerador e 2 ao denominador (equivalente a uma priori Beta\\((1,1)\\) sobre cada \\(\\theta_i\\)), garantindo \\(0 &lt; \\hat\\theta &lt; 1\\) sempre. É por isso que o ajuste acima já usa a versão suavizada.\n\n\nCom as probabilidades ajustadas, a regra de decisão para um e-mail novo \\(\\mathbf{x}\\) é comparar\n\\[\n\\log\\frac{p(\\text{spam}\\mid\\mathbf{x})}{p(\\text{não-spam}\\mid\\mathbf{x})}\n\\;=\\;\n\\log\\frac{\\pi_{\\text{spam}}}{\\pi_{\\text{ham}}}\n\\;+\\;\n\\sum_{i=1}^d \\left[ x_i \\log\\frac{\\theta^{\\text{spam}}_i}{\\theta^{\\text{ham}}_i}\n+ (1-x_i)\\log\\frac{1-\\theta^{\\text{spam}}_i}{1-\\theta^{\\text{ham}}_i}\\right]\n\\]\ncontra zero. Guarde esta fórmula — o Bloco de teoria da decisão vai mostrar que ela é linear em \\(\\mathbf{x}\\), e por que isso não é coincidência."
   },
   {
     "objectID": "supervised/aula02/notas.html#o-preço-da-suposição",
@@ -1306,7 +1306,7 @@
     "href": "supervised/aula02/slides.html#modelos-generativos-discriminativos-e-ia-generativa",
     "title": "Independência, Naive Bayes e Teoria da Decisão",
     "section": "Modelos Generativos, Discriminativos e IA Generativa",
-    "text": "Modelos Generativos, Discriminativos e IA Generativa\nRegressão logística (Aula 6) modela \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) direto — nunca constrói \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\).\n\n\nPergunte a ela: “me dê um \\(\\mathbf{x}\\) plausível da classe 2”.\nA pergunta não faz sentido — ela nunca representou como \\(\\mathbf{x}\\) se distribui.\n\n\nDiscriminativo decide. Generativo decide e sonha.\n\n\n\nÉ a mesma palavra em “IA generativa”\n\n\n\n\n\n\n\n\n\nesta aula\nmodelo moderno\n\n\n\n\ncondição\n\\(\\mathcal{C}_k \\sim \\pi_k\\)\nprompt / latente\n\n\ngera\n\\(\\mathbf{x}\\in\\mathbb{R}^2\\)\nimagem, tokens\n\n\n\\(p(\\mathbf{x}\\mid\\cdot)\\)\ngaussiana, 5 params\nrede, \\(10^9\\)+ params\n\n\n\n\n\nMudou a família de distribuições, não o conceito. E precisa de bilhões de parâmetros porque \\(\\mathbf{x}\\) tem dimensão altíssima — o problema do histograma, de novo."
+    "text": "Modelos Generativos, Discriminativos e IA Generativa\nRegressão logística (Aula 6) modela \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) direto — nunca constrói \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\).\n\n\nPergunte a ela: “me dê um \\(\\mathbf{x}\\) plausível da classe 2”.\nA pergunta não faz sentido — ela nunca representou como \\(\\mathbf{x}\\) se distribui.\n\n\nDiscriminativo decide. Generativo decide e sonha.\n\n\n\nÉ a mesma palavra em “IA generativa”\n\n\n\n\n\n\n\n\n\nesta aula\nmodelo moderno\n\n\n\n\ncondição\n\\(\\mathcal{C}_k \\sim \\pi_k\\)\nprompt / latente\n\n\ngera\n\\(\\mathbf{x}\\in\\mathbb{R}^2\\)\nimagem, tokens\n\n\n\\(p(\\mathbf{x}\\mid\\cdot)\\)\ngaussiana, 5 params\nrede, \\(10^9\\)+ params\n\n\n\n\n\nMudou a família de distribuições, não o conceito. E precisa de bilhões de parâmetros porque \\(\\mathbf{x}\\) tem dimensão altíssima — o problema do histograma, de novo.\n\n\n\n\n\n\n\nO que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?\n\n\nUma frase. Compare com um colega antes de avançar (2 min)."
   },
   {
     "objectID": "supervised/aula02/slides.html#a-conta-quebra-rápido",
@@ -1439,7 +1439,7 @@
     "href": "supervised/aula02/slides.html#a-escolha-do-passo-2",
     "title": "Independência, Naive Bayes e Teoria da Decisão",
     "section": "A escolha do passo 2",
-    "text": "A escolha do passo 2\n\n\n\n\n\n\n\n\natributo\nfamília\npor classe\n\n\n\n\nbinário\nBernoulli\n1 prob.\n\n\ncategórico (\\(M\\) níveis)\nCategórica\n\\(M-1\\)\n\n\ncontagem\nMultinomial\ntaxa/termo\n\n\ncontínuo, forma conhecida\nGaussiana 1-D\n\\(\\mu_{ik}, \\sigma^2_{ik}\\)\n\n\ncontínuo, forma livre\nhistograma / KDE\n\\(M\\) contagens\n\n\n\n\nFamílias diferentes por coluna são permitidas — idade, estado civil e “tem cartão” convivem. O passo 3 soma os logs indiferentemente."
+    "text": "A escolha do passo 2\n\n\n\n\n\n\n\n\natributo\nfamília\npor classe\n\n\n\n\nbinário\nBernoulli\n1 prob.\n\n\ncategórico (\\(M\\) níveis)\nCategórica\n\\(M-1\\)\n\n\ncontagem\nMultinomial\ntaxa/termo\n\n\ncontínuo, forma conhecida\nGaussiana 1-D\n\\(\\mu_{ik}, \\sigma^2_{ik}\\)\n\n\ncontínuo, forma livre\nhistograma / KDE\n\\(M\\) contagens\n\n\n\n\nFamílias diferentes por coluna são permitidas — idade, estado civil e “tem cartão” convivem. O passo 3 soma os logs indiferentemente.\n\n\n\n\n\n\n\nDê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável\n\n\nEscreva os dois exemplos, num problema que você conheça."
   },
   {
     "objectID": "supervised/aula02/slides.html#o-objeto-geral-1",
@@ -1650,5 +1650,754 @@
     "title": "Aula 2: O Que é Ética, e o Ciclo Ético",
     "section": "Seta 3 Acontecendo: o Teste de Reciprocidade Exige Checar um Fato",
     "text": "Seta 3 Acontecendo: o Teste de Reciprocidade Exige Checar um Fato\n\n\n“O segundo imperativo categórico de Kant […] é difícil de aplicar a este caso […] a racionalidade dos outros não está em questão.”\n— Van de Poel & Royakkers (2011, p. 152)\n\n\n\n\n\n\n\nNota\n\n\nA checagem desse fato pertence à Fase 2. O livro não nomeia isso como “voltar” — é nossa leitura do que o texto faz implicitamente."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#questões-discursivas",
+    "href": "supervised/aula01/notas.html#questões-discursivas",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "7.1 Questões discursivas",
+    "text": "7.1 Questões discursivas\n\nUm colega afirma: “se as duas classes têm o mesmo número de exemplos, o corte no cruzamento das condicionais e o corte no cruzamento das conjuntas coincidem.” Essa afirmação é verdadeira? Justifique usando a relação entre conjunta, condicional e priori construída no Bloco 2.\nUm detector de fraude é treinado apenas com transações legítimas (não há exemplos rotulados de fraude disponíveis). Explique, em termos de \\(p(x \\mid \\mathcal{C}_A)\\) e \\(p(x \\mid \\mathcal{C}_B)\\), por que a taxa de detecção (Tipo II) desse sistema não pode ser calculada — apenas estimada sob uma suposição adicional. Que suposição seria essa?\n(De PRML, Exercício 1.24, adaptado) Considere um problema de decisão de duas classes em que a perda de classificar incorretamente um exemplo da classe \\(\\mathcal{C}_A\\) como \\(\\mathcal{C}_B\\) é \\(\\lambda\\) vezes maior que o erro oposto. Reformule a regra de decisão da Fase 2 (cruzamento das conjuntas) para incorporar esse custo assimétrico. O que muda na conta do exemplo da triagem médica se falso negativo custar 10 vezes mais que falso positivo?"
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#questões-de-verdadeirofalso",
+    "href": "supervised/aula01/notas.html#questões-de-verdadeirofalso",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "7.2 Questões de Verdadeiro/Falso",
+    "text": "7.2 Questões de Verdadeiro/Falso\nCada bloco de 4 itens trata do mesmo tema. A questão só é considerada correta se todos os 4 itens forem julgados corretamente (deixar em branco tem penalidade de 20% da nota da questão).\n\n\n\n\n\n\nDicaDistribuições, priori e fronteira de decisão\n\n\n\n\n( ) O ponto onde \\(p(x \\mid \\mathcal{C}_A) = p(x \\mid \\mathcal{C}_B)\\) é sempre a fronteira de decisão ótima, independentemente da frequência relativa das classes.\n( ) Se as classes forem igualmente frequentes (\\(\\pi_A = \\pi_B\\)), o cruzamento das condicionais e o cruzamento das conjuntas coincidem.\n( ) A densidade \\(p(x \\mid \\mathcal{C}_k)\\) pode assumir valores maiores que 1 sem contradizer os axiomas de probabilidade.\n( ) Deslocar o limiar de decisão para a direita nunca pode, ao mesmo tempo, reduzir a taxa de erro Tipo I e aumentar a taxa de erro Tipo II.\n\n\n\n\n\n\n\n\n\nDicaTeorema de Bayes e o exemplo da triagem médica\n\n\n\n\n( ) No exemplo da triagem médica, \\(p(D \\mid +) \\approx 0{,}90\\) porque a sensibilidade do teste é \\(0{,}90\\).\n( ) Mantendo a sensibilidade e a taxa de falso positivo fixas, reduzir a prevalência da doença sempre reduz \\(p(D \\mid +)\\).\n( ) A evidência \\(p(+)\\) no denominador do Teorema de Bayes depende da classe \\(\\mathcal{C}_k\\) que está sendo avaliada no numerador.\n( ) É possível ter um teste com sensibilidade de 99% e, ainda assim, a maioria dos resultados positivos ser de falsos positivos.\n\n\n\n\n\n\n\n\n\nDicaA distribuição Beta e detecção de anomalias\n\n\n\n\n( ) A distribuição Beta é uma escolha adequada para modelar dados confinados ao intervalo \\([0,1]\\), como escores normalizados.\n( ) O estimador de momentos e o estimador de máxima verossimilhança da Beta coincidem, porque ambos maximizam a mesma verossimilhança.\n( ) Treinar um detector de anomalias apenas com dados “normais” permite calcular tanto a taxa de alarme falso (Tipo I) quanto a taxa de detecção (Tipo II) diretamente dos dados de treino.\n( ) Uma observação exatamente igual a \\(0\\) ou \\(1\\) pode quebrar a verossimilhança de uma Beta com \\(a&lt;1\\) ou \\(b&lt;1\\).\n\n\n\n\n\n\n\n\n\nDicaTipos de erro e o limiar de decisão\n\n\n\n\n( ) Os rótulos “erro Tipo I” e “erro Tipo II” só têm significado depois de se declarar qual classe é a hipótese nula.\n( ) Deslocar o limiar \\(t\\) para a direita sempre reduz a taxa de erro Tipo I (alarme falso).\n( ) É possível escolher um limiar que zere simultaneamente as duas taxas de erro, desde que as densidades das duas classes não se sobreponham em nenhum ponto do domínio.\n( ) A atribuição de qual classe é “Tipo I” e qual é “Tipo II” é uma propriedade fixa da figura, independente de qual classe se escolhe como hipótese nula.\n\n\n\n\n\n\n\n\n\nDicaPriori, verossimilhança, evidência e posteriori\n\n\n\n\n( ) A priori \\(\\pi_k = p(\\mathcal{C}_k)\\) representa o conhecimento sobre a prevalência da classe antes de observar \\(x\\).\n( ) A verossimilhança \\(p(x\\mid\\mathcal{C}_k)\\) responde à pergunta “qual a probabilidade de a classe ser \\(\\mathcal{C}_k\\), dado que observei \\(x\\)?”\n( ) A evidência \\(p(x)\\) é obtida somando a conjunta \\(p(x,\\mathcal{C}_j)\\) sobre todas as classes \\(j\\).\n( ) A posteriori \\(p(\\mathcal{C}_k\\mid x)\\) é proporcional ao produto entre a verossimilhança e a priori.\n\n\n\n\n\n\n\n\n\nDicaDensidade vs. probabilidade\n\n\n\n\n( ) Para uma variável aleatória contínua, \\(P(X=x)=0\\) para qualquer ponto isolado \\(x\\).\n( ) A densidade \\(p(x)\\) nunca pode exceder o valor \\(1\\), pois isso violaria os axiomas de probabilidade.\n( ) \\(P(a\\le X\\le b) = \\int_a^b p(x)\\,\\mathrm{d}x\\).\n( ) Uma distribuição Uniforme no intervalo \\([0,\\,0{,}01]\\) tem densidade constante \\(p(x)=100\\) dentro do intervalo.\n\n\n\n\n\n\n\n\n\nDicaMudança de variável e o Jacobiano\n\n\n\n\n( ) Se \\(y=g(x)\\) é uma transformação bijetora e diferenciável, então \\(p_Y(y) = p_X(g^{-1}(y))\\), sem nenhum fator de correção adicional.\n( ) A moda de uma densidade é invariante a reparametrizações do espaço de medição.\n( ) A decisão discreta de classificação \\(\\arg\\max_k p(\\mathcal{C}_k\\mid x)\\) permanece imune à reparametrização de \\(x\\), mesmo quando a moda da densidade não é.\n( ) Se \\(X\\sim\\text{Uniforme}[0,2]\\) e \\(y=x^2\\), então \\(p_Y(y) = \\frac{1}{4\\sqrt{y}}\\) para \\(y\\in(0,4]\\).\n\n\n\n\n\n\n\n\n\nDicaMomentos de uma distribuição\n\n\n\n\n( ) O primeiro momento \\(\\mathbb{E}[X]\\) é o centro de massa da distribuição.\n( ) A variância é o segundo momento em relação à origem, \\(\\mathbb{E}[X^2]\\).\n( ) Distribuições simétricas em torno da média têm assimetria (skewness) igual a zero.\n( ) Curtose em excesso (\\(\\gamma_2\\)) igual a zero indica uma cauda comparável à da distribuição Gaussiana.\n\n\n\n\n\n\n\n\n\nDicaCaudas leves vs. pesadas\n\n\n\n\n( ) Caudas leves decaem a uma taxa exponencial ou mais rápida, como \\(\\exp(-x^2)\\).\n( ) A distribuição \\(t\\) de Student tem cauda mais pesada que a Gaussiana, com decaimento polinomial.\n( ) Para distribuições de cauda pesada, eventos a \\(5\\sigma\\) de distância da média são praticamente impossíveis.\n( ) “Cauda pesada” é sinônimo de “a distribuição não tem variância finita”.\n\n\n\n\n\n\n\n\n\nDicaForma fechada vs. máxima verossimilhança (Beta)\n\n\n\n\n( ) O estimador de momentos da distribuição Beta tem fórmula fechada.\n( ) O estimador de máxima verossimilhança da Beta também tem fórmula fechada, assim como o estimador de momentos.\n( ) As estatísticas suficientes da Beta são as médias aritméticas dos dados, \\(\\frac{1}{N}\\sum_n x_n\\).\n( ) O estimador de máxima verossimilhança é assintoticamente eficiente; o estimador de momentos, em geral, não é.\n\n\n\n\n\n\n\n\n\nDicaArmadilha de zeros e uns exatos\n\n\n\n\n( ) Quando \\(a&lt;1\\) ou \\(b&lt;1\\), a densidade da Beta diverge nas extremidades \\(0\\) e \\(1\\).\n( ) Uma observação exatamente igual a \\(0\\) sempre torna a verossimilhança da Beta finita e bem definida, mesmo quando \\(a&lt;1\\).\n( ) O clipping para \\([\\varepsilon,\\,1-\\varepsilon]\\) é uma correção honesta, desde que o valor de \\(\\varepsilon\\) seja declarado.\n( ) Dados reais confinados a \\([0,1]\\) raramente contêm zeros ou uns exatos, então essa armadilha é apenas uma preocupação teórica.\n\n\n\n\n\n\n\n\n\nDicaErro de Bayes e detecção com uma única densidade\n\n\n\n\n( ) O erro de Bayes é irredutível sempre que há sobreposição entre as densidades das classes envolvidas.\n( ) Um classificador arbitrariamente complexo (por exemplo, uma rede neural com bilhões de parâmetros) pode, em princípio, eliminar completamente o erro de Bayes num problema com sobreposição de densidades.\n( ) Todo número de “taxa de detecção” produzido por um detector treinado apenas com dados normais depende de alguma suposição sobre as anomalias.\n( ) Se as densidades de duas classes não se sobrepõem em nenhum ponto do domínio, existe um limiar que classifica todos os pontos corretamente."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#aviso",
+    "href": "supervised/aula01/notas.html#aviso",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "7.3 Aviso",
+    "text": "7.3 Aviso\nAs questões de Verdadeiro/Falso e discursivas ficam sem solução neste arquivo — são para resolução autônoma do aluno, fora do horário de aula."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#exercício-de-checagem",
+    "href": "supervised/aula01/slides.html#exercício-de-checagem",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Exercício de checagem",
+    "text": "Exercício de checagem\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO ponto de cruzamento das condicionais é a fronteira ótima quando as classes têm frequências diferentes.\nA área de alarme falso e a área de escape podem, ambas, ser reduzidas a zero pela escolha certa do limiar \\(t\\).\nAumentar a frequência relativa da classe B desloca a fronteira ótima para a esquerda.\nIgnorar a frequência das classes é o mesmo que assumir \\(\\pi_A = \\pi_B\\)."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#solução",
+    "href": "supervised/aula01/slides.html#solução",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Solução",
+    "text": "Solução\n\nFalso — só é ótima quando \\(\\pi_A = \\pi_B\\).\nFalso — enquanto houver sobreposição das densidades, existe erro irredutível (erro de Bayes); nenhum \\(t\\) zera as duas áreas.\nVerdadeiro — se B fica mais frequente, é preciso menos evidência relativa a favor de B para declará-la (o limiar de razão de verossimilhanças \\(\\pi_A/\\pi_B\\) cai), então a região de B cresce e a fronteira se desloca para a esquerda, tomando território de A.\nVerdadeiro — cortar no cruzamento das condicionais é exatamente agir como se as duas classes fossem igualmente prováveis."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#pausa-ativa",
+    "href": "supervised/aula01/slides.html#pausa-ativa",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Pausa ativa",
+    "text": "Pausa ativa\nAntes de seguir (2 min): por que ajustar uma Gaussiana a escores de crédito em \\([0,1]\\) é arriscado?\n\n(Uma frase, sem usar a palavra “feio”. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#pausa-ativa-1",
+    "href": "supervised/aula01/slides.html#pausa-ativa-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Pausa ativa",
+    "text": "Pausa ativa\nAntes de seguir (2 min): por que ajustar uma Gaussiana a escores de crédito em \\([0,1]\\) é arriscado?\n\n(Uma frase, sem usar a palavra “feio”. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#pausa-ativa-2",
+    "href": "supervised/aula01/slides.html#pausa-ativa-2",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Pausa ativa",
+    "text": "Pausa ativa\nAntes de seguir (2 min): por que ajustar uma Gaussiana a escores de crédito em \\([0,1]\\) é arriscado?\n\n(Uma frase, sem usar a palavra “feio”. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pausa-ativa",
+    "href": "supervised/aula02/slides.html#pausa-ativa",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pausa ativa",
+    "text": "Pausa ativa\nAntes de seguir (2 min): o que muda entre a gaussiana de 5 parâmetros e uma IA generativa moderna — o conceito, ou a família de distribuições?\n\n(Uma frase. Compare com um colega antes de avançar.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pausa-ativa-1",
+    "href": "supervised/aula02/slides.html#pausa-ativa-1",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pausa ativa",
+    "text": "Pausa ativa\nAntes de seguir (2 min): “faltam dados” é o mesmo problema que “falta poder computacional”? Comprar 100× mais GPUs resolveria?\n\n(Uma frase. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#exercício-de-checagem",
+    "href": "supervised/aula02/slides.html#exercício-de-checagem",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Exercício de checagem",
+    "text": "Exercício de checagem\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nIndependência (não condicional) entre \\(X_1\\) e \\(X_2\\) significa que \\(p(x_1, x_2) = p(x_1)\\,p(x_2)\\).\nIndependência condicional dada a classe, \\(p(x_1, x_2 \\mid \\mathcal{C}_k)\n= p(x_1\\mid\\mathcal{C}_k)\\,p(x_2\\mid\\mathcal{C}_k)\\), implica independência não condicional entre \\(X_1\\) e \\(X_2\\).\nO Naive Bayes assume independência condicional dada a classe, não independência incondicional entre os atributos.\nUm zero em qualquer atributo categórico pode fazer o score de uma classe inteira ir a \\(-\\infty\\) na soma de logs."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#solução",
+    "href": "supervised/aula02/slides.html#solução",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Solução",
+    "text": "Solução\n\nVerdadeiro — é a própria definição de independência.\nFalso — as duas noções são diferentes; independência condicional dada a classe pode conviver com forte dependência marginal entre \\(X_1\\) e \\(X_2\\) (a classe é um confusor comum).\nVerdadeiro — exatamente a suposição construída neste bloco.\nVerdadeiro — \\(\\log 0 = -\\infty\\) na soma dos logs; corrigido com contagens fictícias (suavização), como na Aula 1."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pausa-ativa-2",
+    "href": "supervised/aula02/slides.html#pausa-ativa-2",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pausa ativa",
+    "text": "Pausa ativa\nAntes de seguir (2 min): dê um exemplo de par de atributos em que a suposição de independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável.\n\n(Compare os dois exemplos com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#modelo-generativo",
+    "href": "supervised/aula02/notas.html#modelo-generativo",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "1.2 Modelo generativo",
+    "text": "1.2 Modelo generativo\nRepare no que o Teorema de Bayes exige que você tenha em mãos. Para calcular \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) é preciso \\(\\pi_k\\) e \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) — e esses dois objetos, juntos, são mais do que um classificador. Eles são uma descrição completa de como os dados vieram a existir:\n\nsorteie uma classe \\(\\mathcal{C}_k\\) com probabilidade \\(\\pi_k\\);\ndada a classe, sorteie \\(\\mathbf{x} \\sim p(\\mathbf{x}\\mid\\mathcal{C}_k)\\).\n\nIsso é literalmente uma receita executável. Nada aí é metafórico: são duas chamadas a um gerador de números aleatórios, na ordem. Um modelo que especifica os dois passos é chamado generativo porque dele se pode gerar — produzir pares \\((\\mathbf{x}, y)\\) novos, que nunca estiveram no conjunto de treino."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#o-teste-jogue-fora-os-dados",
+    "href": "supervised/aula02/notas.html#o-teste-jogue-fora-os-dados",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "1.3 O teste: jogue fora os dados",
+    "text": "1.3 O teste: jogue fora os dados\nA figura abaixo executa esse teste com três classes gaussianas em \\(\\mathbb{R}^2\\). Observamos 900 pares rotulados (painel 1). Ajustamos por máxima verossimilhança e guardamos apenas \\(\\hat\\pi_k\\), \\(\\hat{\\boldsymbol\\mu}_k\\) e \\(\\hat\\Sigma_k\\) — 17 números ao todo, contra os 1800 valores dos dados originais (painel 2). Então descartamos os dados, e pedimos ao modelo 900 pares novos, executando os dois passos da receita (painel 3).\n\n\n\n\n\n\n\n\n\nO painel 3 não é uma cópia do painel 1 — nenhum ponto se repete, e não há mais nenhum dado guardado em lugar nenhum. Mesmo assim, a nuvem tem a mesma estrutura: três grupos, nas mesmas posições, com as mesmas orientações e as mesmas proporções relativas. O modelo comprimiu 1800 números em 17 e reteve o que era estrutural.\nCompare com o painel 1 e você já enxerga também as limitações do modelo: se os dados reais tivessem caudas pesadas, assimetria, ou um grupo em forma de banana, o painel 3 continuaria devolvendo elipses. Um modelo generativo é uma teoria sobre a origem dos dados, e o que ele gera é o retrato mais honesto dessa teoria — inclusive de onde ela está errada. Essa é, aliás, a forma mais barata de diagnosticar um modelo generativo: gere, e olhe.\n\n\n\n\n\n\nNotaO contraste que dá nome à família\n\n\n\nNem todo classificador é generativo. A regressão logística (Aula 6) modela \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) diretamente, sem nunca construir \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) — é um modelo discriminativo. Ele responde muito bem “que classe é este \\(\\mathbf{x}\\)?”, e é incapaz de responder “me dê um \\(\\mathbf{x}\\) plausível da classe 2”. A pergunta sequer faz sentido para ele: ele nunca representou como \\(\\mathbf{x}\\) se distribui.\nDiscriminativo decide. Generativo decide e sonha."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#a-ponte-para-ia-generativa",
+    "href": "supervised/aula02/notas.html#a-ponte-para-ia-generativa",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "1.4 A ponte para “IA generativa”",
+    "text": "1.4 A ponte para “IA generativa”\nQuando se fala em modelo generativo em IA — texto, imagem, áudio — o significado da palavra é exatamente este, sem nenhuma extensão metafórica. A estrutura é a mesma de duas etapas:\n\n\n\n\n\n\n\n\n\nmodelo gaussiano desta aula\nmodelo generativo moderno\n\n\n\n\ncondição\nclasse \\(\\mathcal{C}_k\\), sorteada de \\(\\pi_k\\)\nprompt, rótulo, ou ruído latente\n\n\nobjeto gerado\n\\(\\mathbf{x}\\in\\mathbb{R}^2\\)\nimagem, sequência de tokens, áudio\n\n\n\\(p(\\mathbf{x}\\mid\\text{condição})\\)\ngaussiana, 5 parâmetros por classe\nrede neural, \\(10^9\\)–\\(10^{12}\\) parâmetros\n\n\ngerar =\n2 chamadas ao gerador aleatório\namostragem da rede, passo a passo\n\n\n\nO que mudou entre as duas colunas não foi o conceito, foi a família de distribuições usada para representar \\(p(\\mathbf{x}\\mid\\text{condição})\\). E a razão de a segunda coluna precisar de bilhões de parâmetros é a que a seção anterior já estabeleceu: \\(\\mathbf{x}\\) ali tem dimensão altíssima — um milhão de pixels, milhares de tokens — e a densidade conjunta nessa dimensão é o objeto que nenhum histograma alcança.\nToda a história dos modelos generativos é a história das respostas a essa mesma pergunta: como representar \\(p(\\mathbf{x})\\) em alta dimensão sem contar células? O resto desta aula apresenta a resposta mais brutal e mais antiga — Naive Bayes: suponha que as coordenadas não interagem. É uma resposta ruim, e é instrutivo entender exatamente quão ruim, porque a mesma tensão reaparece, em forma mais sofisticada, em tudo que veio depois.\n\n\n\n\n\n\nDicaO que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?\n\n\n\nUma frase. Compare com um colega antes de avançar (2 min)."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#o-ponto-não-é-compute-mais-rápido",
+    "href": "supervised/aula02/notas.html#o-ponto-não-é-compute-mais-rápido",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "2.2 O ponto não é “compute mais rápido”",
+    "text": "2.2 O ponto não é “compute mais rápido”\nNão é um problema de poder computacional. É um problema de dados: o número de observações necessárias para preencher as células cresce exponencialmente com \\(d\\), e nenhum orçamento de coleta razoável acompanha isso. A saída não é um histograma mais eficiente — é abandonar o histograma como estratégia de estimação em alta dimensão.\nIsto é exatamente a promessa que a Aula 1 fez ao fechar (PRML §1.4, pp. 33–38; DLFC §6.1.1, pp. 172–174, tratamento moderno): sem impor nenhuma estrutura sobre \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\), ela não é estimável com dados finitos a partir de \\(d\\) moderado.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDicaPor que “faltam dados” para estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é diferente de “falta poder computacional”?\n\n\n\nExplique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?"
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#independência",
+    "href": "supervised/aula02/notas.html#independência",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "3.1 Independência",
+    "text": "3.1 Independência\nDuas variáveis \\(x_i, x_j\\) são independentes quando\n\\[\np(x_i, x_j) = p(x_i)\\,p(x_j),\n\\]\no que, pela regra do produto, é o mesmo que \\(p(x_i \\mid x_j) = p(x_i)\\).\nEsta segunda forma é a que dá a intuição: observar \\(x_j\\) não altera em nada a sua crença sobre \\(x_i\\). Informação sobre um não é informação sobre o outro."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#independência-condicional",
+    "href": "supervised/aula02/notas.html#independência-condicional",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "3.2 Independência condicional",
+    "text": "3.2 Independência condicional\n\\(x_i\\) e \\(x_j\\) são condicionalmente independentes dado \\(z\\) quando\n\\[\np(x_i, x_j \\mid z) = p(x_i \\mid z)\\, p(x_j \\mid z),\n\\]\nequivalentemente \\(p(x_i \\mid x_j, z) = p(x_i \\mid z)\\).\nA leitura muda: uma vez conhecido \\(z\\), observar \\(x_j\\) não acrescenta nada sobre \\(x_i\\). Não que \\(x_j\\) seja irrelevante — ela pode ser muito informativa sobre \\(x_i\\); é que toda essa informação já está contida em \\(z\\)."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#as-duas-não-são-a-mesma-coisa",
+    "href": "supervised/aula02/notas.html#as-duas-não-são-a-mesma-coisa",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "3.3 As duas não são a mesma coisa",
+    "text": "3.3 As duas não são a mesma coisa\nNenhuma das duas implica a outra, e vale ver os dois contraexemplos.\n(a) Causa comum. Sejam “grátis” e “ganhador” condicionalmente independentes dada a classe, com \\(\\pi_{\\text{spam}}=0{,}5\\) e \\(p(x_1{=}1\\mid\\text{spam})=0{,}85\\), \\(p(x_2{=}1\\mid\\text{spam})=0{,}60\\), contra \\(0{,}03\\) e \\(0{,}02\\) em ham. Marginalizando a classe pela regra da soma, as duas palavras aparecem juntas com probabilidade \\(0{,}255\\), contra \\(0{,}44 \\times 0{,}31 = 0{,}136\\) se fossem independentes. São fortemente dependentes no corpus, ainda que condicionalmente independentes: ver “grátis” aumenta a crença em spam, que aumenta a crença em “ganhador”.\n(b) XOR. Sejam \\(x_1, x_2\\) moedas honestas independentes e \\(\\mathcal{C} = x_1 \\oplus x_2\\). Marginalmente elas são independentes. Mas dado \\(\\mathcal{C}=1\\) temos \\(x_2 = 1-x_1\\) com certeza — dependência perfeita. Condicionar criou dependência onde não havia."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#o-algoritmo-naive-bayes",
+    "href": "supervised/aula02/notas.html#o-algoritmo-naive-bayes",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "3.5 O algoritmo Naive Bayes",
+    "text": "3.5 O algoritmo Naive Bayes\nA fatoração já dá o classificador inteiro. Note que ela não diz qual distribuição usar para cada \\(p(x_i\\mid\\mathcal{C}_k)\\) — essa escolha é sua, e é o único ponto do método em que se coloca conhecimento sobre o problema.\n\n\n\n\n\n\nDicaNaive Bayes\n\n\n\nEntrada: dados \\(\\{(\\mathbf{x}^{(n)}, y^{(n)})\\}_{n=1}^{N}\\), com \\(d\\) atributos e \\(K\\) classes.\nEscolha de modelagem: para cada atributo \\(i\\), uma família de distribuições \\(\\mathcal{F}_i\\) para \\(p(x_i\\mid\\mathcal{C}_k)\\).\nTreino\n\nPara cada classe \\(k\\): \\(\\quad\\hat\\pi_k = N_k / N\\), com \\(N_k\\) o número de exemplos da classe \\(k\\).\nPara cada classe \\(k\\) e cada atributo \\(i\\): ajuste \\(\\hat p(x_i\\mid\\mathcal{C}_k)\\) dentro da família \\(\\mathcal{F}_i\\), usando apenas a coluna \\(i\\) das linhas da classe \\(k\\).\n\nPredição — dado um novo \\(\\mathbf{x}\\)\n\nPara cada classe \\(k\\): \\(\\quad s_k = \\log\\hat\\pi_k + \\sum_{i=1}^{d} \\log \\hat p(x_i\\mid\\mathcal{C}_k)\\).\nDevolva \\(\\arg\\max_k s_k\\).\n\n\n\nTrês observações sobre o algoritmo:\n\nO passo 2 são \\(d \\times K\\) ajustes unidimensionais independentes, cada um com todos os \\(N_k\\) exemplos da classe à disposição. Nenhum deles vê mais de uma coluna por vez. É por isso que o método escala trivialmente com \\(d\\).\nO passo 3 usa logaritmo, não o produto direto. Com \\(d\\) grande, o produto de centenas de números menores que 1 gera underflow numérico; a soma dos logs, não.\nZeros precisam de tratamento. Se algum \\(\\hat p(x_i\\mid\\mathcal{C}_k)=0\\), aquele atributo sozinho zera a conjunta e manda \\(s_k\\) para \\(-\\infty\\), independentemente do que os outros \\(d-1\\) atributos digam. A correção é a da Aula 1: uma priori que soma contagens fictícias antes de normalizar.\n\n\n3.5.1 A escolha do passo 2, em concreto\n\n\n\n\n\n\n\n\ntipo do atributo \\(x_i\\)\nfamília típica \\(\\mathcal{F}_i\\)\no que se estima por classe\n\n\n\n\nbinário (palavra presente / ausente)\nBernoulli\n1 probabilidade\n\n\ncategórico com \\(M\\) níveis\nCategórica\n\\(M-1\\) probabilidades\n\n\ncontagem (frequência de palavra)\nMultinomial\ntaxa por termo\n\n\ncontínuo, forma conhecida\nGaussiana 1-D\n\\(\\mu_{ik}, \\sigma^2_{ik}\\)\n\n\ncontínuo, forma desconhecida\nhistograma 1-D ou KDE\n\\(M\\) contagens\n\n\n\nNada obriga a usar a mesma família em todas as colunas: um problema com idade (contínua), estado civil (categórico) e “tem cartão de crédito” (binário) usa três famílias diferentes, uma por coluna, e o passo 3 soma os logs de todas indiferentemente. Essa modularidade é a vantagem prática mais subestimada do método.\n\n\n\n\n\n\nDicaDê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável\n\n\n\nEscreva os dois exemplos, num problema que você conheça."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#o-caso-binário-custo-e-priori-viram-um-limiar",
+    "href": "supervised/aula02/notas.html#o-caso-binário-custo-e-priori-viram-um-limiar",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "4.2 O caso binário: custo e priori viram um limiar",
+    "text": "4.2 O caso binário: custo e priori viram um limiar\nCom \\(\\mathcal{A}=\\mathcal{Y}=\\{\\mathcal{C}_A,\\mathcal{C}_B\\}\\), acertos sem custo, \\(L(A,B)=c_{\\mathrm{I}}\\) (a verdade era \\(A\\) e decidimos \\(B\\)) e \\(L(B,A)=c_{\\mathrm{II}}\\), os dois riscos são \\(\\rho(A\\mid\\mathbf{x}) = c_{\\mathrm{II}}\\,p(\\mathcal{C}_B\\mid\\mathbf{x})\\) e \\(\\rho(B\\mid\\mathbf{x}) = c_{\\mathrm{I}}\\,p(\\mathcal{C}_A\\mid\\mathbf{x})\\). Decidir \\(A\\) quando o primeiro é menor equivale a\n\\[\np(\\mathcal{C}_A\\mid\\mathbf{x}) \\;&gt;\\; \\underbrace{\\frac{c_{\\mathrm{II}}}{c_{\\mathrm{I}}+c_{\\mathrm{II}}}}_{\\text{limiar } t},\n\\]\nou, na forma equivalente que a Aula 1 usou,\n\\[\n\\frac{p(\\mathbf{x}\\mid\\mathcal{C}_A)}{p(\\mathbf{x}\\mid\\mathcal{C}_B)} \\;&gt;\\; \\frac{c_{\\mathrm{II}}\\,\\pi_B}{c_{\\mathrm{I}}\\,\\pi_A}.\n\\]\nToda regra de decisão binária é um teste de razão de verossimilhanças contra um limiar — e o limiar depende só de custos e prioris, nunca de \\(\\mathbf{x}\\). Note também que só a razão \\(c_{\\mathrm{II}}/c_{\\mathrm{I}}\\) importa: dobrar os dois custos não muda decisão nenhuma.\n\n\n\n\n\n\n\n\n\nO painel da direita é o ponto central da seção. A curva \\(p(\\mathcal{C}_A\\mid x)\\) é o que o modelo sabe: ela não se move quando os custos mudam. O que se move é o corte. Com custos simétricos, corta-se em \\(t=0{,}5\\); se bloquear um cliente legítimo custa 20 vezes mais do que deixar passar uma fraude, o limiar sobe para \\(t = 20/21 \\approx 0{,}95\\) e o sistema só age quando está quase certo.\nIsso separa duas discussões que na prática vivem confundidas: “o modelo está bom?” é uma pergunta sobre a curva; “onde cortar?” é uma pergunta sobre custos, e a resposta não está nos dados — está no domínio."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#escolher-custos-é-escolher-qual-erro-cometer",
+    "href": "supervised/aula02/notas.html#escolher-custos-é-escolher-qual-erro-cometer",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "4.3 Escolher custos é escolher qual erro cometer",
+    "text": "4.3 Escolher custos é escolher qual erro cometer\nNão existe limiar que reduza os dois tipos de erro ao mesmo tempo. Deslocar \\(t\\) troca um pelo outro, sempre:\nAs duas curvas do painel (a) se cruzam exatamente em \\(c_{\\mathrm{II}}/c_{\\mathrm{I}}=1\\), a perda 0-1 — que é, portanto, uma escolha de custo como qualquer outra, e não um estado neutro. Usar acurácia como métrica é declarar que os dois erros custam o mesmo. Quase nunca custam.\n\n\n\n\n\n\nNotaDe onde vêm os números\n\n\n\nOs custos não são estimáveis a partir dos dados: eles são uma declaração sobre consequências, e cabe ao domínio fornecê-los. Um esboço plausível em detecção de fraude:\n\n\n\n\n\n\n\n\n\nconsequência\nordem de grandeza\n\n\n\n\n\\(c_{\\mathrm{I}}\\): deixa passar fraude\nperda do valor transacionado\nR$ 800\n\n\n\\(c_{\\mathrm{II}}\\): bloqueia legítima\natendimento + risco de churn\nR$ 40\n\n\n\nRazão \\(c_{\\mathrm{II}}/c_{\\mathrm{I}} = 0{,}05\\), logo \\(t \\approx 0{,}048\\): o sistema deve bloquear com pouca evidência. Inverta o cenário para triagem médica de baixa prevalência, em que um falso positivo dispara uma cascata cara de exames invasivos, e a razão se inverte junto.\nQuando os custos são difíceis de fixar — e frequentemente são — o caminho usual é não fixar \\(t\\), e sim reportar o comportamento do sistema para toda a faixa de \\(t\\), deixando a escolha explícita para quem responde pela decisão."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#risco-de-bayes-e-a-ressalva-que-importa",
+    "href": "supervised/aula02/notas.html#risco-de-bayes-e-a-ressalva-que-importa",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "4.4 Risco de Bayes, e a ressalva que importa",
+    "text": "4.4 Risco de Bayes, e a ressalva que importa\n\\[\nR^\\star \\;=\\; \\mathbb{E}_{\\mathbf{X}}\\!\\left[\\min_{a\\in\\mathcal{A}} \\rho(a\\mid\\mathbf{X})\\right]\n\\]\ngeneraliza o erro de Bayes da Aula 1 — que era o caso particular de perda 0-1 — para perda arbitrária: é o menor risco esperado possível, dado o modelo verdadeiro.\nE “dado o modelo verdadeiro” é a expressão que carrega o peso. A regra de Bayes é ótima se \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) estiver certa. O bloco anterior mostrou Naive Bayes estimando essa posteriori de um jeito estruturalmente errado, e ainda assim decidindo razoavelmente bem — o que mostra que a otimalidade da regra e a correção do modelo são duas perguntas separadas. Confundi-las é o erro mais comum ao avaliar um classificador probabilístico: uma posteriori mal calibrada pode acertar a decisão sob perda 0-1 e errar feio assim que os custos ficam assimétricos, justamente porque aí o limiar sai de \\(0{,}5\\) e passa a depender do valor da posteriori, não só de qual é a maior.\nTrês frases resumem a aula:\n\nA regra da Aula 1 generaliza sem atrito para \\(K\\) classes — o que não generaliza de graça é a estimação de \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão, porque o número de células cresce como \\(M^d\\).\nNaive Bayes troca \\(2^d-1\\) parâmetros por \\(d\\), impondo independência condicional dada a classe. A suposição é falsa e cobra um preço fixo em acurácia; o que muda com \\(d\\) não é o preço, é o fato de a alternativa deixar de estar disponível.\nTeoria da decisão dá a regra ótima dado o modelo, e os custos entram só pelo limiar — decidir bem e modelar bem são perguntas separadas.\n\n\nPonte para a Aula 3\nNaive Bayes decide a estrutura da densidade antes de ver os dados: as coordenadas não interagem, e ponto. Árvores de decisão (Aula 3) fazem o oposto — não supõem nada sobre \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) e constroem as divisões gulosamente a partir dos próprios dados, inclusive as interações que Naive Bayes descarta por decreto. O preço dessa liberdade é o assunto de lá."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#questões-discursivas",
+    "href": "supervised/aula02/notas.html#questões-discursivas",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "5.1 Questões discursivas",
+    "text": "5.1 Questões discursivas\n\nUm colega propõe estimar \\(p(\\mathbf{x} \\mid \\mathcal{C}_k)\\) em \\(\\mathbb{R}^{15}\\) ajustando um histograma multidimensional com \\(M=8\\) células por eixo. Calcule o número de células e explique, em termos do argumento construído no Bloco 2, por que essa abordagem é inviável mesmo com um dataset de 10 milhões de pontos.\nO Naive Bayes assume \\(p(\\mathbf{x}\\mid\\mathcal{C}_k) =\n\\prod_i p(x_i\\mid\\mathcal{C}_k)\\). Descreva uma situação de classificação (pode ser hipotética) em que essa suposição é fortemente violada, mas o classificador ainda assim tem boa acurácia. Que propriedade da fronteira de decisão explica essa aparente contradição?\n(Adaptado de PRML, Exercício 1.25) Considere um problema de decisão de \\(K\\) classes com uma matriz de perda \\(L\\) arbitrária (não necessariamente 0-1). Escreva o risco posterior \\(\\rho(a\\mid\\mathbf{x})\\) e a regra de Bayes correspondente. Em que condições sobre \\(L\\) a regra de Bayes se reduz à regra do posterior máximo (0-1)?"
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#questões-de-verdadeirofalso",
+    "href": "supervised/aula02/notas.html#questões-de-verdadeirofalso",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "5.2 Questões de Verdadeiro/Falso",
+    "text": "5.2 Questões de Verdadeiro/Falso\nCada bloco de 4 itens trata do mesmo tema. A questão só é considerada correta se todos os 4 itens forem julgados corretamente (deixar em branco tem penalidade de 20% da nota da questão).\n\n\n\n\n\n\nDicaAlta dimensão e Naive Bayes\n\n\n\n\n( ) Um histograma multidimensional com \\(M\\) células por eixo em \\(d\\) dimensões exige \\(M^d\\) células, um crescimento exponencial em \\(d\\).\n( ) O problema de estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é fundamentalmente de poder computacional, não de escassez de dados.\n( ) O Naive Bayes reduz o número de parâmetros de exponencial em \\(d\\) para linear em \\(d\\), ao custo de assumir independência condicional dada a classe.\n( ) Independência condicional dada a classe implica independência marginal (incondicional) entre os atributos.\n\n\n\n\n\n\n\n\n\nDicaTeoria da decisão e risco\n\n\n\n\n( ) O risco posterior \\(\\rho(a\\mid\\mathbf{x})\\) depende apenas da função de perda \\(L\\), não da distribuição posterior \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\).\n( ) Sob perda 0-1, a regra de Bayes coincide com a regra do posterior máximo.\n( ) Mudar os custos de uma matriz de perda pode alterar a regra de decisão ótima sem alterar a posteriori \\(p(\\mathcal{C}_k \\mid \\mathbf{x})\\).\n( ) O risco de Bayes \\(R^\\star\\) é sempre zero quando o modelo \\(p(\\mathbf{x}, \\mathcal{C}_k)\\) está corretamente especificado.\n\n\n\n\n\n\n\n\n\nDicaBayes para \\(K\\) classes e modelos generativos\n\n\n\n\n( ) A regra “decida pela conjunta maior” exige \\(K=2\\) classes; para \\(K&gt;2\\) é preciso reformular o argumento da Aula 1 do zero.\n( ) Num modelo generativo, a classe é sorteada primeiro (segundo \\(\\pi_k\\)) e só depois \\(\\mathbf{x}\\) é sorteado, condicional à classe.\n( ) A evidência \\(p(\\mathbf{x}) = \\sum_j p(\\mathbf{x}\\mid\\mathcal{C}_j)\\,\\pi_j\\) é a mesma para qualquer classe \\(k\\) avaliada no numerador do Teorema de Bayes.\n( ) Substituir a família gaussiana por uma rede neural profunda muda o conceito de modelo generativo, não só a família de distribuições.\n\n\n\n\n\n\n\n\n\nDicaO modelo generativo em duas etapas\n\n\n\n\n( ) Um modelo generativo descreve, em duas etapas, como a natureza sorteia primeiro a classe e depois \\(\\mathbf{x}\\), condicional à classe sorteada.\n( ) “Jogar fora os dados” e ajustar só a fronteira de decisão diretamente é uma alternativa discriminativa ao modelo generativo.\n( ) Um modelo generativo permite gerar novos dados sintéticos \\(\\mathbf{x}\\) amostrando de \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\).\n( ) Um modelo discriminativo modela diretamente \\(p(\\mathbf{x})\\), sem nunca considerar a classe.\n\n\n\n\n\n\n\n\n\nDicaGenerativo, discriminativo e “IA generativa”\n\n\n\n\n( ) Um classificador puramente discriminativo dispensa a estimação de \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\).\n( ) Modelos modernos de “IA generativa” usam o mesmo conceito de modelo generativo desta aula, mudando a família de distribuições usada, não o conceito.\n( ) Um modelo discriminativo sempre precisa de mais parâmetros que um modelo generativo equivalente para o mesmo problema.\n( ) Se o objetivo final é só classificar, um modelo discriminativo pode bastar sem nunca estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) explicitamente.\n\n\n\n\n\n\n\n\n\nDicaContando células: a maldição da dimensionalidade\n\n\n\n\n( ) Um histograma multidimensional com \\(M\\) células por eixo em \\(d\\) dimensões tem, ao todo, \\(M^d\\) células.\n( ) Em \\(d=1\\), \\(M=10\\) células já bastam para uma estimativa razoável; em \\(d=10\\), \\(M^d\\) chega à ordem de \\(10^{10}\\).\n( ) O problema de estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é, fundamentalmente, de poder computacional insuficiente.\n( ) Comprar mais capacidade computacional (mais GPUs, por exemplo) resolveria o problema da maldição da dimensionalidade apresentado nesta aula.\n\n\n\n\n\n\n\n\n\nDicaIndependência vs. independência condicional\n\n\n\n\n( ) Independência (não condicional) entre \\(X_1\\) e \\(X_2\\) significa \\(p(x_1,x_2) = p(x_1)\\,p(x_2)\\).\n( ) Independência condicional dada a classe implica, em geral, independência marginal (incondicional) entre os atributos.\n( ) O Naive Bayes assume independência condicional dada a classe, não independência incondicional entre os atributos.\n( ) Duas variáveis podem ser fortemente dependentes marginalmente e, ainda assim, condicionalmente independentes dada uma terceira variável (como a classe).\n\n\n\n\n\n\n\n\n\nDicaO algoritmo Naive Bayes\n\n\n\n\n( ) O Naive Bayes soma logaritmos das verossimilhanças condicionais por atributo, em vez de multiplicar as verossimilhanças diretamente.\n( ) Um único atributo com probabilidade estimada zero pode fazer o score de uma classe inteira ir a \\(-\\infty\\).\n( ) A correção padrão para esse problema é remover do modelo o atributo que produziu a probabilidade zero.\n( ) Contagens fictícias (suavização), aplicadas antes de normalizar, evitam que uma probabilidade estimada seja exatamente zero.\n\n\n\n\n\n\n\n\n\nDicaA escolha de família por atributo\n\n\n\n\n( ) O Naive Bayes exige que todos os atributos usem a mesma família de distribuição (por exemplo, todos Gaussianos).\n( ) Um atributo categórico com \\(M\\) níveis é tipicamente modelado por uma distribuição Categórica, com \\(M-1\\) parâmetros livres por classe.\n( ) Um atributo contínuo de forma desconhecida pode ser modelado, dentro do Naive Bayes, por um histograma ou por KDE.\n( ) Misturar famílias diferentes por coluna (idade Gaussiana, estado civil Categórico, por exemplo) quebra a soma de logs do passo 3 do algoritmo.\n\n\n\n\n\n\n\n\n\nDicaO objeto geral da teoria da decisão\n\n\n\n\n( ) O espaço de decisões \\(\\mathcal{A}\\) sempre coincide com o espaço de classes \\(\\mathcal{Y}\\).\n( ) O risco posterior \\(\\rho(a\\mid\\mathbf{x})\\) é a perda esperada de tomar a decisão \\(a\\), ponderada pela posteriori \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\).\n( ) A regra de Bayes \\(\\delta^\\star(\\mathbf{x})\\) minimiza o risco posterior para cada \\(\\mathbf{x}\\).\n( ) A opção de rejeição é um exemplo em que \\(\\mathcal{A} \\neq\n\\mathcal{Y}\\).\n\n\n\n\n\n\n\n\n\nDicaO caso binário: custo e priori viram um limiar\n\n\n\n\n( ) Sob perda 0-1, a regra de Bayes coincide com a regra do posterior máximo.\n( ) Custos assimétricos entre os dois tipos de erro deslocam o limiar de decisão para longe de \\(0{,}5\\) na posteriori.\n( ) Mudar os custos da matriz de perda muda a posteriori \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\).\n( ) Um custo \\(c_{II}/c_I\\) maior que \\(1\\) significa que o erro Tipo II é considerado mais grave que o erro Tipo I.\n\n\n\n\n\n\n\n\n\nDicaRisco de Bayes e a ressalva que importa\n\n\n\n\n( ) O risco de Bayes \\(R^\\star\\) generaliza o erro de Bayes da Aula 1 para uma função de perda arbitrária.\n( ) A regra de Bayes é ótima incondicionalmente, mesmo que o modelo \\(p(\\mathbf{x},\\mathcal{C}_k)\\) usado esteja errado.\n( ) O Naive Bayes do Bloco 3 pode estimar mal a posteriori e, ainda assim, classificar bem sob perda 0-1.\n( ) A teoria da decisão garante que o modelo usado para calcular a posteriori está correto."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#aviso",
+    "href": "supervised/aula02/notas.html#aviso",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "5.3 Aviso",
+    "text": "5.3 Aviso\nAs questões de Verdadeiro/Falso e discursivas ficam sem solução neste arquivo — são para resolução autônoma do aluno, fora do horário de aula."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#a-formulação-estatística-do-aprendizado",
+    "href": "supervised/aula01/slides.html#a-formulação-estatística-do-aprendizado",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "A formulação estatística do aprendizado",
+    "text": "A formulação estatística do aprendizado\n\nPar \\((x, y)\\) com distribuição conjunta desconhecida \\(p(x, y)\\) e amostra \\(\\mathcal{D} = \\{(x_n, y_n)\\}_{n=1}^N\\).\nClassificação (\\(Y \\in \\mathbb{N}\\) adaptado) vs. Regressão (\\(Y \\subseteq \\mathbb{R}\\)): A diferença estrutural está quase inteiramente na escolha da distribuição do resíduo \\(Y - f(X)\\).\n\n\n\n\n\n\n\n\nPrática do dia a dia\nFormalismo estatístico underlying\n\n\n\n\nMínimos Quadrados\nMáxima Verossimilhança sob erro Gaussiano\n\n\nRegularização (L1 / L2)\nInferência Bayesiana com Priori (Laplace / Gaussiana)\n\n\nResíduo de previsão\nGradiente da log-verossimilhança"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-que-é-uma-distribuição-2d",
+    "href": "supervised/aula01/slides.html#o-que-é-uma-distribuição-2d",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O que é uma Distribuição (2D)",
+    "text": "O que é uma Distribuição (2D)\nO mesmo objeto, em mais dimensões\n\nHistograma \\(\\to\\) nuvem de pontos\nCurva \\(\\to\\) curvas de nível\nEm 2D ainda dá para desenhar. Em 20D, não — Aula 4"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-compromisso-quantitativo",
+    "href": "supervised/aula01/slides.html#o-compromisso-quantitativo",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O compromisso quantitativo",
+    "text": "O compromisso quantitativo\nMover o corte troca uma área pela outra. Nenhum corte zera as duas.\n\\(\\Rightarrow\\) erro de Bayes: irredutível, é propriedade dos dados."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-corte-deslocado-erra-menos",
+    "href": "supervised/aula01/slides.html#o-corte-deslocado-erra-menos",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O corte deslocado erra menos",
+    "text": "O corte deslocado erra menos\n\nO corte deslocado erra muito menos.\nE ele não veio de tentativa e erro — vem de um princípio.\n\n\nOnde a justificativa verbal falhou:\n“igualmente plausíveis” \\(\\ne\\) “igualmente prováveis”\n\n\n\n\n\n\n\nPor que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?\n\n\nEscreva, com suas palavras, e compare a sua frase com a de um colega antes de avançar (2 min)."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#perguntas",
+    "href": "supervised/aula01/slides.html#perguntas",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Perguntas",
+    "text": "Perguntas\n\n\n\n\n\n\nPor que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?\n\n\nEscreva, com suas palavras, e compare a sua frase com a de um colega antes de avançar (2 min).\n\n\n\n\n\n\n\n\n\nCruzamento de condicionais vs. conjuntas\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO ponto de cruzamento das condicionais é a fronteira ótima quando as classes têm frequências diferentes.\nA área de alarme falso e a área de escape podem, ambas, ser reduzidas a zero pela escolha certa do limiar \\(t\\).\nAumentar a frequência relativa da classe B desloca a fronteira ótima para a esquerda.\nIgnorar a frequência das classes é o mesmo que assumir \\(\\pi_A = \\pi_B\\)."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#resposta",
+    "href": "supervised/aula01/slides.html#resposta",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nA distribuição Beta — Resposta\n\n\n\nVerdadeiro — é exatamente por isso que ela é a escolha natural para dados confinados em \\([0,1]\\).\nVerdadeiro — \\(\\operatorname{Beta}(x\\mid 1,1) = 1\\) para todo \\(x\\in[0,1]\\), a densidade uniforme.\nFalso — o estimador de momentos tem fórmula fechada; o MLE precisa de solução numérica (as estatísticas suficientes são médias logarítmicas, não a média aritmética).\nVerdadeiro — a densidade diverge nas bordas quando \\(a&lt;1\\) ou \\(b&lt;1\\), e \\(\\ln 0 = -\\infty\\) quebra a verossimilhança."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#a-prova-de-que-o-cruzamento-das-conjuntas-é-ótimo-1",
+    "href": "supervised/aula01/slides.html#a-prova-de-que-o-cruzamento-das-conjuntas-é-ótimo-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "A prova de que o cruzamento das conjuntas é ótimo",
+    "text": "A prova de que o cruzamento das conjuntas é ótimo"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-cruzamento-das-conjuntas-é-ótimo",
+    "href": "supervised/aula01/slides.html#o-cruzamento-das-conjuntas-é-ótimo",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O cruzamento das conjuntas é ótimo",
+    "text": "O cruzamento das conjuntas é ótimo"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#o-cruzamento-das-conjuntas-funciona",
+    "href": "supervised/aula01/slides.html#o-cruzamento-das-conjuntas-funciona",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "O cruzamento das conjuntas funciona",
+    "text": "O cruzamento das conjuntas funciona"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#perguntas-1",
+    "href": "supervised/aula01/slides.html#perguntas-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Perguntas",
+    "text": "Perguntas\n\n\n\n\n\n\nNo exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?\n\n\nEscreva os três nomes ao lado dos três números do enunciado, e confira com um colega (2 min).\n\n\n\n\n\n\n\n\n\nTeorema de Bayes: priori, verossimilhança e evidência\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA priori \\(\\pi_k = p(\\mathcal{C}_k)\\) é o conhecimento sobre a prevalência da classe antes de observar \\(x\\).\nA evidência \\(p(x)\\) depende de qual classe \\(k\\) está sendo avaliada no numerador do Teorema de Bayes.\nA posteriori \\(p(\\mathcal{C}_k \\mid x)\\) é proporcional ao produto entre verossimilhança e priori.\nSe \\(\\pi_A = \\pi_B\\), decidir pela conjunta maior é o mesmo que decidir pela condicional maior."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#perguntas-2",
+    "href": "supervised/aula01/slides.html#perguntas-2",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Perguntas",
+    "text": "Perguntas\n\n\n\n\n\n\nPor que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?\n\n\nEscreva um argumento em uma frase, sem usar a palavra “feio” (2 min).\n\n\n\n\n\n\n\n\n\nPor que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?\n\n\n\n(Uma frase, sem usar a palavra “feio”. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#perguntas",
+    "href": "supervised/aula02/slides.html#perguntas",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Perguntas",
+    "text": "Perguntas\n\n\n\n\n\n\nO que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?\n\n\nUma frase. Compare com um colega antes de avançar (2 min).\n\n\n\n\n\n\n\n\n\nBayes para \\(K\\) classes e modelos generativos\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA regra “decida pela conjunta maior” só vale para \\(K=2\\) classes; para \\(K&gt;2\\) é preciso um argumento novo.\nUm modelo generativo descreve, em duas etapas, como a natureza sorteia primeiro a classe e depois o valor \\(\\mathbf{x}\\).\n\\(\\sum_{j=1}^K p(\\mathbf{x}\\mid\\mathcal{C}_j)\\,\\pi_j\\) é a mesma quantidade que aparece no denominador do Teorema de Bayes para qualquer classe \\(k\\) do numerador.\nTrocar a família de distribuições usada (gaussiana por uma rede neural, por exemplo) muda o conceito de “modelo generativo”."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#peguntas",
+    "href": "supervised/aula02/slides.html#peguntas",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Peguntas",
+    "text": "Peguntas\n\n\n\n\n\n\nPor que “faltam dados” para estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é diferente de “falta poder computacional”?\n\n\nExplique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?\n\n\n\n\n\n\n\n\n\n“Faltam dados” é o mesmo problema que “falta poder computacional”?\n\n\nComprar 100× mais GPUs resolveria?\n\n(Uma frase. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#perguntas-1",
+    "href": "supervised/aula02/slides.html#perguntas-1",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Perguntas",
+    "text": "Perguntas\n\n\n\n\n\n\nPor que “faltam dados” para estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é diferente de “falta poder computacional”?\n\n\nExplique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?\n\n\n\n\n\n\n\n\n\n“Faltam dados” é o mesmo problema que “falta poder computacional”?\n\n\nComprar 100× mais GPUs resolveria?\n\n(Uma frase. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#respostas",
+    "href": "supervised/aula02/slides.html#respostas",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Respostas",
+    "text": "Respostas\n\n\n\n\n\n\nIndependência e Naive Bayes — Resposta\n\n\n\nVerdadeiro — é a própria definição de independência.\nFalso — as duas noções são diferentes; independência condicional dada a classe pode conviver com forte dependência marginal entre \\(X_1\\) e \\(X_2\\) (a classe é um confusor comum).\nVerdadeiro — exatamente a suposição construída neste bloco.\nVerdadeiro — \\(\\log 0 = -\\infty\\) na soma dos logs; corrigido com contagens fictícias (suavização), como na Aula 1.\n\n\n\n\n\n\n\n\n\n\nDê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável\n\n\n\n(Compare os dois exemplos com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#perguntas",
+    "href": "supervised/aula02/notas.html#perguntas",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "1.5 Perguntas",
+    "text": "1.5 Perguntas\n\n\n\n\n\n\nDicaO que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?\n\n\n\nUma frase. Compare com um colega antes de avançar (2 min)."
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#peguntas",
+    "href": "supervised/aula02/notas.html#peguntas",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "2.3 Peguntas",
+    "text": "2.3 Peguntas\n\n\n\n\n\n\nDicaPor que “faltam dados” para estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é diferente de “falta poder computacional”?\n\n\n\nExplique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?"
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#perguntas-1",
+    "href": "supervised/aula02/notas.html#perguntas-1",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "2.3 Perguntas",
+    "text": "2.3 Perguntas\n\n\n\n\n\n\nDicaPor que “faltam dados” para estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é diferente de “falta poder computacional”?\n\n\n\nExplique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?"
+  },
+  {
+    "objectID": "supervised/aula02/notas.html#respostas",
+    "href": "supervised/aula02/notas.html#respostas",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "3.6 Respostas",
+    "text": "3.6 Respostas"
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#perguntas",
+    "href": "supervised/aula01/notas.html#perguntas",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "2.5 Perguntas",
+    "text": "2.5 Perguntas\n\n\n\n\n\n\nDicaPor que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?\n\n\n\nEscreva, com suas palavras, e compare a sua frase com a de um colega antes de avançar (2 min)."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#perguntas-1",
+    "href": "supervised/aula01/notas.html#perguntas-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "3.4 Perguntas",
+    "text": "3.4 Perguntas\n\n\n\n\n\n\nDicaNo exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?\n\n\n\nEscreva os três nomes ao lado dos três números do enunciado, e confira com um colega (2 min)."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#respostas",
+    "href": "supervised/aula01/slides.html#respostas",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Respostas",
+    "text": "Respostas\n\n\n\n\n\n\nCruzamento de condicionais vs. conjuntas — Resposta\n\n\n\nFalso — só é ótima quando \\(\\pi_A = \\pi_B\\).\nFalso — enquanto houver sobreposição das densidades, existe erro irredutível (erro de Bayes); nenhum \\(t\\) zera as duas áreas.\nVerdadeiro — se B fica mais frequente, é preciso menos evidência relativa a favor de B para declará-la (o limiar de razão de verossimilhanças \\(\\pi_A/\\pi_B\\) cai), então a região de B cresce e a fronteira se desloca para a esquerda, tomando território de A.\nVerdadeiro — cortar no cruzamento das condicionais é exatamente agir como se as duas classes fossem igualmente prováveis.\n\n\n\n\n\n\n\n\n\n\nPor que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?\n\n\n\n(Escreva uma frase. Compare com um colega antes de avançar — 2 min.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#pergunta",
+    "href": "supervised/aula01/slides.html#pergunta",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nA distribuição Beta\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA densidade \\(\\operatorname{Beta}(x\\mid a,b)\\) tem suporte em \\([0,1]\\) por construção.\nQuando \\(a=b=1\\), a Beta se reduz à distribuição Uniforme em \\([0,1]\\).\nO estimador de máxima verossimilhança da Beta tem fórmula fechada, assim como o estimador de momentos.\nSe \\(a&lt;1\\), uma observação exatamente igual a \\(0\\) torna a verossimilhança infinita ou indefinida."
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#respostas",
+    "href": "supervised/aula01/notas.html#respostas",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "2.5 Respostas",
+    "text": "2.5 Respostas"
+  },
+  {
+    "objectID": "supervised/aula01/notas.html#perguntas-2",
+    "href": "supervised/aula01/notas.html#perguntas-2",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "4.4 Perguntas",
+    "text": "4.4 Perguntas\n\n\n\n\n\n\nDicaPor que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?\n\n\n\nEscreva um argumento em uma frase, sem usar a palavra “feio” (2 min)."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#cruzamento-de-condicionais-vs.-conjuntas",
+    "href": "supervised/aula01/slides.html#cruzamento-de-condicionais-vs.-conjuntas",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Cruzamento de condicionais vs. conjuntas",
+    "text": "Cruzamento de condicionais vs. conjuntas\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO ponto de cruzamento das condicionais é a fronteira ótima quando as classes têm frequências diferentes.\nA área de alarme falso e a área de escape podem, ambas, ser reduzidas a zero pela escolha certa do limiar \\(t\\).\nAumentar a frequência relativa da classe B desloca a fronteira ótima para a esquerda.\nIgnorar a frequência das classes é o mesmo que assumir \\(\\pi_A = \\pi_B\\)."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#cruzamento-de-condicionais-vs.-conjuntas-resposta",
+    "href": "supervised/aula01/slides.html#cruzamento-de-condicionais-vs.-conjuntas-resposta",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Cruzamento de condicionais vs. conjuntas — Resposta",
+    "text": "Cruzamento de condicionais vs. conjuntas — Resposta\n\n\n\n\n\n\nDica\n\n\n\nFalso — só é ótima quando \\(\\pi_A = \\pi_B\\).\nFalso — enquanto houver sobreposição das densidades, existe erro irredutível (erro de Bayes); nenhum \\(t\\) zera as duas áreas.\nVerdadeiro — se B fica mais frequente, é preciso menos evidência relativa a favor de B para declará-la (o limiar de razão de verossimilhanças \\(\\pi_A/\\pi_B\\) cai), então a região de B cresce e a fronteira se desloca para a esquerda, tomando território de A.\nVerdadeiro — cortar no cruzamento das condicionais é exatamente agir como se as duas classes fossem igualmente prováveis."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#por-que-o-corte-no-cruzamento-das-curvas-está-errado-e-o-que-falta-entrar-na-conta-1",
+    "href": "supervised/aula01/slides.html#por-que-o-corte-no-cruzamento-das-curvas-está-errado-e-o-que-falta-entrar-na-conta-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Por que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?",
+    "text": "Por que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?\n\n\n\n\n\n\nDica\n\n\n\n(Escreva uma frase. Compare com um colega antes de avançar — 2 min.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#teorema-de-bayes-priori-verossimilhança-e-evidência",
+    "href": "supervised/aula01/slides.html#teorema-de-bayes-priori-verossimilhança-e-evidência",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Teorema de Bayes: priori, verossimilhança e evidência",
+    "text": "Teorema de Bayes: priori, verossimilhança e evidência\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA priori \\(\\pi_k = p(\\mathcal{C}_k)\\) é o conhecimento sobre a prevalência da classe antes de observar \\(x\\).\nA evidência \\(p(x)\\) depende de qual classe \\(k\\) está sendo avaliada no numerador do Teorema de Bayes.\nA posteriori \\(p(\\mathcal{C}_k \\mid x)\\) é proporcional ao produto entre verossimilhança e priori.\nSe \\(\\pi_A = \\pi_B\\), decidir pela conjunta maior é o mesmo que decidir pela condicional maior."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#no-exemplo-da-triagem-médica-qual-número-é-a-priori-qual-é-a-verossimilhança-qual-é-a-evidência-1",
+    "href": "supervised/aula01/slides.html#no-exemplo-da-triagem-médica-qual-número-é-a-priori-qual-é-a-verossimilhança-qual-é-a-evidência-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "No exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?",
+    "text": "No exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?\n\n\n\n\n\n\nDica\n\n\n\n(Escreva os três nomes ao lado dos três números. Confira com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#por-que-ajustar-uma-gaussiana-a-escores-de-crédito-normalizados-em-01-é-no-mínimo-arriscado-1",
+    "href": "supervised/aula01/slides.html#por-que-ajustar-uma-gaussiana-a-escores-de-crédito-normalizados-em-01-é-no-mínimo-arriscado-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Por que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?",
+    "text": "Por que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?\n\n\n\n\n\n\nDica\n\n\n\n(Uma frase, sem usar a palavra “feio”. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#a-distribuição-beta-resposta",
+    "href": "supervised/aula01/slides.html#a-distribuição-beta-resposta",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "A distribuição Beta — Resposta",
+    "text": "A distribuição Beta — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é exatamente por isso que ela é a escolha natural para dados confinados em \\([0,1]\\).\nVerdadeiro — \\(\\operatorname{Beta}(x\\mid 1,1) = 1\\) para todo \\(x\\in[0,1]\\), a densidade uniforme.\nFalso — o estimador de momentos tem fórmula fechada; o MLE precisa de solução numérica (as estatísticas suficientes são médias logarítmicas, não a média aritmética).\nVerdadeiro — a densidade diverge nas bordas quando \\(a&lt;1\\) ou \\(b&lt;1\\), e \\(\\ln 0 = -\\infty\\) quebra a verossimilhança."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#bayes-para-k-classes-e-modelos-generativos",
+    "href": "supervised/aula02/slides.html#bayes-para-k-classes-e-modelos-generativos",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Bayes para \\(K\\) classes e modelos generativos",
+    "text": "Bayes para \\(K\\) classes e modelos generativos\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA regra “decida pela conjunta maior” só vale para \\(K=2\\) classes; para \\(K&gt;2\\) é preciso um argumento novo.\nUm modelo generativo descreve, em duas etapas, como a natureza sorteia primeiro a classe e depois o valor \\(\\mathbf{x}\\).\n\\(\\sum_{j=1}^K p(\\mathbf{x}\\mid\\mathcal{C}_j)\\,\\pi_j\\) é a mesma quantidade que aparece no denominador do Teorema de Bayes para qualquer classe \\(k\\) do numerador.\nTrocar a família de distribuições usada (gaussiana por uma rede neural, por exemplo) muda o conceito de “modelo generativo”."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#o-que-muda-entre-um-modelo-generativo-gaussiano-de-5-parâmetros-e-uma-ia-generativa-moderna-com-bilhões-o-conceito-ou-só-a-família-de-distribuições-1",
+    "href": "supervised/aula02/slides.html#o-que-muda-entre-um-modelo-generativo-gaussiano-de-5-parâmetros-e-uma-ia-generativa-moderna-com-bilhões-o-conceito-ou-só-a-família-de-distribuições-1",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?",
+    "text": "O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?\n\n\n\n\n\n\nDica\n\n\n\n(Uma frase. Compare com um colega antes de avançar.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#faltam-dados-é-o-mesmo-problema-que-falta-poder-computacional",
+    "href": "supervised/aula02/slides.html#faltam-dados-é-o-mesmo-problema-que-falta-poder-computacional",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "“Faltam dados” é o mesmo problema que “falta poder computacional”?",
+    "text": "“Faltam dados” é o mesmo problema que “falta poder computacional”?\n\n\n\n\n\n\nDica\n\n\nComprar 100× mais GPUs resolveria?\n\n(Uma frase. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#independência-e-naive-bayes-1",
+    "href": "supervised/aula02/slides.html#independência-e-naive-bayes-1",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Independência e Naive Bayes",
+    "text": "Independência e Naive Bayes\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nIndependência (não condicional) entre \\(X_1\\) e \\(X_2\\) significa que \\(p(x_1, x_2) = p(x_1)\\,p(x_2)\\).\nIndependência condicional dada a classe, \\(p(x_1, x_2 \\mid \\mathcal{C}_k)\n= p(x_1\\mid\\mathcal{C}_k)\\,p(x_2\\mid\\mathcal{C}_k)\\), implica independência não condicional entre \\(X_1\\) e \\(X_2\\).\nO Naive Bayes assume independência condicional dada a classe, não independência incondicional entre os atributos.\nUm zero em qualquer atributo categórico pode fazer o score de uma classe inteira ir a \\(-\\infty\\) na soma de logs."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#independência-e-naive-bayes-resposta",
+    "href": "supervised/aula02/slides.html#independência-e-naive-bayes-resposta",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Independência e Naive Bayes — Resposta",
+    "text": "Independência e Naive Bayes — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é a própria definição de independência.\nFalso — as duas noções são diferentes; independência condicional dada a classe pode conviver com forte dependência marginal entre \\(X_1\\) e \\(X_2\\) (a classe é um confusor comum).\nVerdadeiro — exatamente a suposição construída neste bloco.\nVerdadeiro — \\(\\log 0 = -\\infty\\) na soma dos logs; corrigido com contagens fictícias (suavização), como na Aula 1."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#dê-um-exemplo-de-par-de-atributos-em-que-a-independência-condicional-do-naive-bayes-parece-particularmente-errada-e-outro-em-que-parece-razoável-1",
+    "href": "supervised/aula02/slides.html#dê-um-exemplo-de-par-de-atributos-em-que-a-independência-condicional-do-naive-bayes-parece-particularmente-errada-e-outro-em-que-parece-razoável-1",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável",
+    "text": "Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável\n\n\n\n\n\n\nDica\n\n\n\n(Compare os dois exemplos com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#teoria-da-decisão-e-risco-de-bayes",
+    "href": "supervised/aula02/slides.html#teoria-da-decisão-e-risco-de-bayes",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Teoria da decisão e risco de Bayes",
+    "text": "Teoria da decisão e risco de Bayes\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO risco posterior \\(\\rho(a\\mid\\mathbf{x})\\) é uma média das perdas \\(L(k,a)\\) ponderada pela posteriori \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\).\nSob perda 0-1, a regra de Bayes \\(\\delta^\\star\\) coincide com a regra do posterior máximo.\nMudar a matriz de perda \\(L\\) pode mudar a regra de decisão ótima sem que a posteriori \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) mude em nada.\nO risco de Bayes \\(R^\\star\\) mede o quão bem o modelo \\(p(\\mathbf{x},\\mathcal{C}_k)\\) está especificado."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#teoria-da-decisão-e-risco-de-bayes-resposta",
+    "href": "supervised/aula02/slides.html#teoria-da-decisão-e-risco-de-bayes-resposta",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Teoria da decisão e risco de Bayes — Resposta",
+    "text": "Teoria da decisão e risco de Bayes — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é exatamente a definição de risco posterior.\nVerdadeiro — com perda 0-1, minimizar o risco posterior é escolher a classe de maior posteriori.\nVerdadeiro — os custos entram só pelo limiar de decisão; a posteriori não depende de \\(L\\).\nFalso — o risco de Bayes é a perda esperada da regra ótima dado o modelo; ele não avalia se o modelo está certo, só otimiza dado que ele está."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#teorema-de-bayes-priori-verossimilhança-e-evidência-resposta",
+    "href": "supervised/aula01/slides.html#teorema-de-bayes-priori-verossimilhança-e-evidência-resposta",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Teorema de Bayes: priori, verossimilhança e evidência — Resposta",
+    "text": "Teorema de Bayes: priori, verossimilhança e evidência — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é exatamente essa a definição de priori.\nFalso — \\(p(x) = \\sum_j p(x\\mid\\mathcal{C}_j)\\,\\pi_j\\) soma sobre todas as classes; é o mesmo denominador para qualquer \\(k\\).\nVerdadeiro — \\(p(\\mathcal{C}_k\\mid x) \\propto p(x\\mid\\mathcal{C}_k)\\,\\pi_k\\).\nVerdadeiro — com priori iguais, a conjunta é a condicional escalada pela mesma constante para as duas classes, então a comparação não muda."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#bayes-para-k-classes-e-modelos-generativos-resposta",
+    "href": "supervised/aula02/slides.html#bayes-para-k-classes-e-modelos-generativos-resposta",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Bayes para \\(K\\) classes e modelos generativos — Resposta",
+    "text": "Bayes para \\(K\\) classes e modelos generativos — Resposta\n\n\n\n\n\n\nDica\n\n\n\nFalso — a prova da Aula 1 nunca usou \\(K=2\\) como hipótese; ela generaliza sem atrito.\nVerdadeiro — é exatamente a leitura em duas etapas construída neste bloco.\nVerdadeiro — é a evidência \\(p(\\mathbf{x})\\), a mesma para todo \\(k\\).\nFalso — muda só a família de distribuições; o conceito (gerar a classe, depois os dados) permanece o mesmo."
+  },
+  {
+    "objectID": "supervised/aula03/notas.html",
+    "href": "supervised/aula03/notas.html",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "",
+    "text": "←"
+  },
+  {
+    "objectID": "supervised/aula03/notas.html#crescimento-guloso-por-que-não-otimizar-tudo-de-uma-vez",
+    "href": "supervised/aula03/notas.html#crescimento-guloso-por-que-não-otimizar-tudo-de-uma-vez",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "3.1 Crescimento guloso: por que não otimizar tudo de uma vez",
+    "text": "3.1 Crescimento guloso: por que não otimizar tudo de uma vez\nSe a partição do espaço já está dada, calcular o \\(y_\\tau\\) ótimo em cada folha é trivial (é só tirar a média). O problema difícil é escolher a partição em si — quais variáveis cortar, com que limiares, em que ordem. Otimizar a estrutura inteira de uma árvore de uma só vez, mesmo com um número fixo de nós, é computacionalmente inviável: o número de estruturas possíveis explode combinatorialmente com o número de nós e de variáveis candidatas.\nA saída prática é gulosa: comece com um único nó (toda a região de entrada), e cresça a árvore adicionando um par de folhas de cada vez. Para decidir o próximo corte, faça uma busca exaustiva sobre (a) qual variável cortar e (b) que limiar usar — para cada combinação candidata, calcule o \\(Q_\\tau\\) resultante nas duas folhas geradas, e escolha a combinação que resulta no menor \\(Q\\) somado. A figura abaixo ilustra essa busca para uma única variável: percorrendo os candidatos a limiar, a soma de quadrados residual tem um mínimo bem definido.\n\n\n\n\n\n\n\n\n\nRepare que essa busca é míope por construção: ela escolhe o corte que minimiza \\(Q\\) agora, sem olhar para o que esse corte habilita (ou impede) nos próximos níveis da árvore. O Bloco 4 volta a esse ponto.\nVamos agora crescer uma árvore de regressão de verdade sobre uma função mais complexa (uma senoide com ruído), variando o número de folhas permitido, para ver o que acontece quando a árvore cresce demais ou de menos.\n\n\n\n\n\n\n\n\n\nCom poucas folhas, a árvore mal acompanha a curva; com mais folhas, ela aproxima bem — mas nunca deixa de ser uma função em degraus, descontínua nos limiares. Guarde essa observação: ela volta, como limitação estrutural, no Bloco 5.\n\n\n\n\n\n\nDicaSe duas folhas de uma árvore de regressão têm o mesmo número de pontos, a que tem maior soma de quadrados residuais \\(Q_\\tau\\) tem, necessariamente, maior variância dos alvos dentro dela?\n\n\n\nPense antes de responder: \\(Q_\\tau\\) e a variância amostral diferem só por uma constante?"
+  },
+  {
+    "objectID": "supervised/aula03/notas.html#um-contraexemplo-deliberado-por-que-não-usar-a-taxa-de-erro-bruta",
+    "href": "supervised/aula03/notas.html#um-contraexemplo-deliberado-por-que-não-usar-a-taxa-de-erro-bruta",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "4.1 Um contraexemplo deliberado: por que não usar a taxa de erro bruta?",
+    "text": "4.1 Um contraexemplo deliberado: por que não usar a taxa de erro bruta?\nA alternativa mais óbvia a entropia e Gini seria a taxa de erro de classificação em si — a fração de pontos mal classificados na folha, se prevermos sempre a classe majoritária. Ela é simples e intuitiva. O próximo exemplo mostra por que ela é uma escolha ruim para crescer a árvore, mesmo sendo aceitável para podar.\n\n\n\n\n\n\nDicaDiagnóstico: dois splits, qual você prefere?\n\n\n\nUm nó com 400 pontos de cada classe (800 no total) pode ser dividido de duas formas:\n\nSplit 1: folha esquerda com (300, 100), folha direita com (100,\n\n— ambas com 400 pontos.\n\nSplit 2: folha esquerda com (400, 200) — 600 pontos —, folha direita pura, com (0, 200) — 200 pontos.\n\nAntes de calcular: você acha que as duas opções têm a mesma qualidade, olhando só a taxa de erro de classificação?\n\n\n\ndef gini_idx(contagens):\n    n = sum(contagens)\n    p = contagens[0] / n\n    return 2 * p * (1 - p)\n\ndef entropia_idx(contagens):\n    n = sum(contagens)\n    ps = [c / n for c in contagens if c &gt; 0]\n    return -sum(p * np.log(p) for p in ps)\n\ndef erro_classificacao(contagens):\n    n = sum(contagens)\n    return 1 - max(contagens) / n\n\ndef medida_ponderada(medida, esq, dir_):\n    n_esq, n_dir = sum(esq), sum(dir_)\n    n = n_esq + n_dir\n    return (n_esq * medida(esq) + n_dir * medida(dir_)) / n\n\nsplit1 = ((300, 100), (100, 300))\nsplit2 = ((400, 200), (0, 200))\n\nfor nome, (esq, dir_) in [(\"Split 1\", split1), (\"Split 2\", split2)]:\n    print(f\"{nome}: erro={medida_ponderada(erro_classificacao, esq, dir_):.4f}  \"\n          f\"gini={medida_ponderada(gini_idx, esq, dir_):.4f}  \"\n          f\"entropia={medida_ponderada(entropia_idx, esq, dir_):.4f}\")\n\nSplit 1: erro=0.2500  gini=0.3750  entropia=0.5623\nSplit 2: erro=0.2500  gini=0.3333  entropia=0.4774\n\n\nAs duas opções têm exatamente a mesma taxa de erro de classificação ponderada (\\(0{,}25\\)) — a métrica bruta é cega para a diferença entre elas. Mas Gini e entropia preferem o Split 2 (valores menores): ele produz uma folha perfeitamente pura, o que a taxa de erro bruta simplesmente não enxerga, porque só olha quem “ganha a maioria”, não o quão desequilibrada é essa maioria.\nIsso explica a assimetria de uso: entropia e Gini são diferenciáveis e mais sensíveis à distribuição interna da folha, por isso são preferidas para crescer a árvore (o critério de otimização se beneficia de gradientes bem-comportados); a taxa de erro bruta, mais grosseira, é geralmente reservada para a fase de poda — assunto do próximo bloco.\n\n\n\n\n\n\nDicaJulgue V ou F: entropia, Gini e taxa de erro para crescer/podar árvores\n\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO MLE de uma distribuição categórica numa folha é a proporção empírica de cada classe.\nEntropia e Gini são preferidas para crescer a árvore porque são diferenciáveis e sensíveis à distribuição interna da folha.\nDois splits podem ter a mesma taxa de erro de classificação e, ainda assim, impurezas (Gini/entropia) diferentes.\nA taxa de erro de classificação bruta é a escolha usual para crescer a árvore, não para podá-la."
+  },
+  {
+    "objectID": "supervised/aula03/notas.html#splits-alinhados-aos-eixos-podem-ser-muito-subótimos",
+    "href": "supervised/aula03/notas.html#splits-alinhados-aos-eixos-podem-ser-muito-subótimos",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "6.1 Splits alinhados aos eixos podem ser muito subótimos",
+    "text": "6.1 Splits alinhados aos eixos podem ser muito subótimos\nToda fronteira de uma árvore é uma sequência de cortes paralelos aos eixos. Isso é ótimo quando a fronteira “verdadeira” também é alinhada aos eixos — e pode ser péssimo quando não é. O caso mais claro é exatamente aquele que a Aula 2 tratou como o caso fácil: duas classes gaussianas com covariância compartilhada e correlacionada, cuja fronteira ótima é uma única reta, não alinhada aos eixos.\n\n\n\n\n\n\n\n\n\nMesmo com 8 níveis de profundidade, a árvore aproxima a reta diagonal com uma escadinha de cortes horizontais e verticais — nunca alcança a reta em si, e precisa de folhas cada vez mais numerosas para chegar perto. A gaussiana da Aula 2 resolve o mesmo problema com uma única direção, porque sua forma paramétrica já é adequada a esse tipo de fronteira. É o espelho exato do argumento de abertura desta aula: a forma fixa é ótima quando acerta o formato certo, e a árvore é ótima quando não se sabe (ou não se quer assumir) qual é esse formato."
+  },
+  {
+    "objectID": "supervised/aula03/notas.html#instabilidade-pequenas-mudanças-árvores-bem-diferentes",
+    "href": "supervised/aula03/notas.html#instabilidade-pequenas-mudanças-árvores-bem-diferentes",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "6.2 Instabilidade: pequenas mudanças, árvores bem diferentes",
+    "text": "6.2 Instabilidade: pequenas mudanças, árvores bem diferentes\nUma segunda limitação, menos visível numa figura só, é que a estrutura aprendida é sensível a detalhes do conjunto de treino — remover ou adicionar poucos pontos pode mudar qual variável e qual limiar são escolhidos logo no primeiro corte (o corte da raiz, que reverbera por toda a árvore abaixo dele).\n\nX_inst, y_inst = X_diag.copy(), y_diag.copy()\n\narv_original = DecisionTreeClassifier(max_depth=2, random_state=0)\narv_original.fit(X_inst, y_inst)\n\n# Remove 5 pontos específicos (uma perturbação pequena, ~1% dos dados)\nidx_remover = rng.choice(len(X_inst), size=5, replace=False)\nmascara = np.ones(len(X_inst), dtype=bool)\nmascara[idx_remover] = False\n\narv_perturbada = DecisionTreeClassifier(max_depth=2, random_state=0)\narv_perturbada.fit(X_inst[mascara], y_inst[mascara])\n\ndef descreve_raiz(arvore):\n    var = arvore.tree_.feature[0]\n    limiar = arvore.tree_.threshold[0]\n    return f\"x_{var+1} &lt;= {limiar:.3f}\"\n\nprint(\"Corte da raiz, árvore original:   \", descreve_raiz(arv_original))\nprint(\"Corte da raiz, com 5 pontos a menos:\", descreve_raiz(arv_perturbada))\n\nCorte da raiz, árvore original:    x_2 &lt;= 0.014\nCorte da raiz, com 5 pontos a menos: x_2 &lt;= 0.014\n\n\nRemover menos de \\(2\\%\\) dos pontos já pode mudar qual variável entra primeiro, ou deslocar o limiar de forma perceptível — algo que não aconteceria com um ajuste de mínimos quadrados, cujo hiperplano se move suavemente com pequenas mudanças nos dados. Esta é exatamente a instabilidade que, mais adiante no curso (Aula 9, Ensemble Theory), deixa de ser só uma fraqueza: é o ingrediente que torna o bagging — a média de muitas árvores levemente diferentes — eficaz."
+  },
+  {
+    "objectID": "supervised/aula03/notas.html#partição-rígida-previsões-descontínuas",
+    "href": "supervised/aula03/notas.html#partição-rígida-previsões-descontínuas",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "6.3 Partição rígida: previsões descontínuas",
+    "text": "6.3 Partição rígida: previsões descontínuas\nA terceira limitação já apareceu no Bloco 2, na figura da senoide: cada ponto do espaço pertence a exatamente uma folha, e a previsão salta no limiar entre duas folhas vizinhas. Isso é neutro em classificação (uma fronteira sempre existe em algum lugar), mas é particularmente ruim em regressão, quando o alvo verdadeiro é uma função suave — a árvore produz descontinuidades exatamente onde a função verdadeira não tem nenhuma.\n\n\n\n\n\n\nDicaO que fica desta aula\n\n\n\nNenhum dos dois extremos — fronteira sempre linear (Aulas 1–2) ou totalmente livre (árvores) — é gratuito. A forma fixa é barata e estável, mas erra sistematicamente quando o formato certo não é o assumido; a árvore acerta qualquer formato, mas paga em instabilidade e miopia gulosa. A pergunta que abre a Aula 4 é: como escolher, de forma sistemática (não por tentativa e erro), o tanto de complexidade certo para um problema — seja o \\(\\lambda\\) de poda de uma árvore, seja qualquer outro hiperparâmetro de complexidade?\n\n\n\nRetomando as perguntas de abertura\n\nO que uma árvore está estimando? Uma função constante por partes — de \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) ou de \\(\\mathbb{E}[t\\mid\\mathbf{x}]\\) —, cuja própria forma (não só seus parâmetros) vem dos dados.\nPor que “reduzir a impureza” é maximizar verossimilhança? Porque a proporção empírica de classes numa folha é o MLE categórico, e maximizar essa log-verossimilhança é, algebricamente, minimizar a entropia — o mesmo argumento que já valia para a média (MLE gaussiano) em regressão.\nQue preço se paga pela liberdade? Splits alinhados aos eixos podem ser muito subótimos, a estrutura aprendida é instável a pequenas mudanças no treino, e a partição é rígida — produzindo descontinuidades que uma função suave não tem.\n\n\n\nPonte para a Aula 4\nToda árvore precisa de uma escolha de complexidade — quantas folhas, que \\(\\lambda\\) de poda — e essa escolha, até aqui, foi feita “olhando o gráfico” de uma divisão treino/validação específica. A Aula 4 formaliza esse procedimento: valida por reamostragem (cross-validation), trata o erro de validação como uma estimativa estatística de uma quantidade não observável (o erro de generalização), e usa o Bootstrap para quantificar a incerteza dessa estimativa.\n\n\n\n\n\n\nDicaJulgue V ou F: limites estruturais das árvores\n\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nUma árvore de profundidade suficientemente grande sempre alcança exatamente uma fronteira linear diagonal, sem aproximação em degraus.\nA estrutura de uma árvore pode mudar substancialmente com a remoção de uma pequena fração dos pontos de treino.\nA partição de uma árvore é rígida: cada ponto do espaço pertence a exatamente uma folha.\nDescontinuidades nas previsões de uma árvore de regressão são especialmente problemáticas quando o alvo verdadeiro é uma função suave."
+  },
+  {
+    "objectID": "supervised/aula03/notas.html#questões-discursivas",
+    "href": "supervised/aula03/notas.html#questões-discursivas",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "7.1 Questões discursivas",
+    "text": "7.1 Questões discursivas\n\nExplique, com suas próprias palavras, por que dizer “a árvore escolhe o corte que reduz mais a impureza” é equivalente a dizer “a árvore escolhe o corte que maximiza a log-verossimilhança dos dados na folha”. Sua explicação deve mencionar tanto o caso de regressão quanto o de classificação.\nConstrua (ou descreva) um par de splits de um nó de classificação com a mesma taxa de erro de classificação ponderada, mas com Gini ou entropia diferentes — diferente do exemplo usado na aula. Explique por que isso acontece.\nUm colega propõe usar apenas a taxa de erro de classificação (não Gini nem entropia) tanto para crescer quanto para podar uma árvore. Argumente por que essa escolha é razoável para podar, mas problemática para crescer."
+  },
+  {
+    "objectID": "supervised/aula03/notas.html#questões-de-verdadeirofalso",
+    "href": "supervised/aula03/notas.html#questões-de-verdadeirofalso",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "7.2 Questões de Verdadeiro/Falso",
+    "text": "7.2 Questões de Verdadeiro/Falso\nCada bloco de 4 itens trata do mesmo tema. A questão só é considerada correta se todos os 4 itens forem julgados corretamente (deixar em branco tem penalidade de 20% da nota da questão).\n\n\n\n\n\n\nDicaÁrvores como estimação não-paramétrica\n\n\n\n\n( ) Uma árvore de decisão particiona o espaço de entrada em regiões retangulares alinhadas aos eixos.\n( ) Uma árvore de decisão é um modelo probabilístico gráfico, com dependências explícitas entre as variáveis de entrada.\n( ) Dentro de cada região (folha), o modelo previsto é uma constante.\n( ) O número de parâmetros efetivos de uma árvore é fixado antes de olhar para os dados, como numa gaussiana ou num Naive Bayes.\n\n\n\n\n\n\n\n\n\nDicaO estimador ótimo numa folha de regressão\n\n\n\n\n( ) A predição que minimiza a soma de quadrados residuais dentro de uma folha é a mediana dos alvos ali contidos.\n( ) Sob um modelo gaussiano com média constante por folha e variância compartilhada, o MLE da média é a média amostral.\n( ) Minimizar a soma de quadrados residuais numa folha é equivalente a maximizar a log-verossimilhança gaussiana da mesma folha.\n( ) A busca pelo melhor corte, numa árvore de regressão, é feita testando exaustivamente combinações de variável e limiar.\n\n\n\n\n\n\n\n\n\nDicaCrescimento guloso e sua miopia\n\n\n\n\n( ) Otimizar a estrutura inteira de uma árvore de uma só vez, mesmo com número fixo de nós, é computacionalmente inviável em geral.\n( ) A busca gulosa escolhe, a cada passo, o corte que produz o maior ganho apenas naquele passo, sem considerar cortes futuros.\n( ) Um corte que não reduz o erro de forma perceptível nunca pode habilitar um corte seguinte que reduza o erro substancialmente.\n( ) Crescer a árvore nó a nó, adicionando um par de folhas por vez, é a estratégia prática usual, diante da inviabilidade da otimização conjunta.\n\n\n\n\n\n\n\n\n\nDicaMLE categórico e a conexão com entropia\n\n\n\n\n( ) O MLE de uma distribuição categórica numa folha, dados os dados observados, é a proporção empírica de cada classe.\n( ) A log-verossimilhança categórica maximizada numa folha é proporcional à entropia da distribuição de classes na folha, com sinal positivo.\n( ) Maximizar a log-verossimilhança categórica numa folha equivale a minimizar a entropia dessa folha.\n( ) A entropia \\(H(p) = -\\sum_k p_k\\ln p_k\\) vale zero quando a folha é perfeitamente pura (uma única classe presente).\n\n\n\n\n\n\n\n\n\nDicaEntropia e Gini: forma e interpretação\n\n\n\n\n( ) Tanto a entropia quanto o índice de Gini se anulam quando a folha é perfeitamente pura.\n( ) A entropia e o índice de Gini atingem seu valor máximo quando as classes estão igualmente representadas na folha.\n( ) O índice de Gini é, em geral, um estimador de máxima verossimilhança tão direto quanto a entropia.\n( ) O índice de Gini pode ser interpretado como a taxa de erro esperada de um classificador que sorteia rótulos segundo as proporções da própria folha.\n\n\n\n\n\n\n\n\n\nDicaPor que não usar a taxa de erro bruta para crescer a árvore\n\n\n\n\n( ) Dois splits distintos podem ter exatamente a mesma taxa de erro de classificação ponderada e, ainda assim, impurezas (Gini/entropia) diferentes.\n( ) A taxa de erro de classificação bruta é diferenciável em relação às probabilidades dos nós, assim como a entropia.\n( ) Entropia e Gini são mais sensíveis do que a taxa de erro bruta a mudanças na composição interna de uma folha.\n( ) A taxa de erro de classificação bruta é a escolha mais comum para a etapa de poda de uma árvore.\n\n\n\n\n\n\n\n\n\nDicaO critério de custo-complexidade\n\n\n\n\n( ) O critério de poda \\(C(T) = \\sum_\\tau Q_\\tau(T) + \\lambda|T|\\) penaliza árvores com mais folhas, para \\(\\lambda &gt; 0\\).\n( ) Com \\(\\lambda = 0\\), a árvore completa (sem poda) sempre minimiza \\(C(T)\\) entre todas as subárvores possíveis.\n( ) O valor de \\(\\lambda\\) usado na prática é derivado analiticamente a partir do número de variáveis do problema, não escolhido por validação cruzada.\n( ) Aumentar \\(\\lambda\\) tende a reduzir o número de folhas da árvore podada.\n\n\n\n\n\n\n\n\n\nDicaPor que crescer grande e depois podar\n\n\n\n\n( ) É empiricamente comum que um corte não produza redução perceptível de erro, mas habilite um corte seguinte com redução substancial.\n( ) Parar de crescer a árvore assim que um corte não reduzir muito o erro é uma estratégia livre de riscos de subajuste (underfitting).\n( ) A prática recomendada é crescer uma árvore grande e, só depois, podar por custo-complexidade.\n( ) A acurácia de treino, à medida que \\(\\lambda\\) aumenta e a árvore encolhe, tende a piorar ou manter-se, nunca a melhorar.\n\n\n\n\n\n\n\n\n\nDicaAcurácia de treino vs. validação sob poda\n\n\n\n\n( ) A acurácia de treino é, em geral, maior ou igual para árvores maiores (menos podadas) do que para árvores muito podadas.\n( ) A acurácia de validação, variando \\(\\lambda\\), tende a ter um único ponto ótimo, nem na árvore completa nem na mais podada possível.\n( ) Escolher \\(\\lambda\\) pela acurácia de treino, em vez da de validação, tende a favorecer árvores maiores do que o ideal.\n( ) Se a acurácia de validação piora tanto para \\(\\lambda\\) muito pequeno quanto para \\(\\lambda\\) muito grande, isso é evidência de overfitting e underfitting, respectivamente.\n\n\n\n\n\n\n\n\n\nDicaSplits alinhados aos eixos\n\n\n\n\n( ) Uma fronteira de decisão ótima alinhada aos eixos é aproximada por uma árvore com poucos cortes.\n( ) Uma fronteira de decisão ótima diagonal (a 45 graus dos eixos) é aproximada por uma árvore com um único corte, tão bem quanto uma fronteira alinhada aos eixos.\n( ) Uma árvore de profundidade suficiente pode aproximar arbitrariamente bem uma fronteira diagonal, ainda que nunca a alcance exatamente.\n( ) Uma gaussiana com covariância compartilhada resolve o caso da fronteira diagonal com uma única direção de corte.\n\n\n\n\n\n\n\n\n\nDicaInstabilidade estrutural\n\n\n\n\n( ) A estrutura de uma árvore de decisão é, em geral, insensível a pequenas mudanças no conjunto de treino.\n( ) Remover uma pequena fração dos pontos de treino pode mudar qual variável é escolhida no corte da raiz.\n( ) Um ajuste de mínimos quadrados (como uma reta de regressão) é, em geral, mais estável a pequenas mudanças no treino do que a estrutura de uma árvore.\n( ) A instabilidade estrutural das árvores é, mais adiante no curso, um ingrediente que torna o bagging eficaz.\n\n\n\n\n\n\n\n\n\nDicaPartição rígida e descontinuidades\n\n\n\n\n( ) Numa árvore, cada ponto do espaço de entrada pertence a exatamente uma folha.\n( ) A previsão de uma árvore de regressão pode ter descontinuidades exatamente nos limiares entre folhas vizinhas.\n( ) A rigidez da partição de uma árvore é um problema exclusivamente de classificação, não de regressão.\n( ) Aumentar o número de folhas de uma árvore de regressão elimina completamente as descontinuidades nas previsões."
+  },
+  {
+    "objectID": "supervised/aula03/notas.html#aviso",
+    "href": "supervised/aula03/notas.html#aviso",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "7.3 Aviso",
+    "text": "7.3 Aviso\nAs questões de Verdadeiro/Falso e discursivas ficam sem solução neste arquivo — são para resolução autônoma do aluno, fora do horário de aula."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#o-preço-da-forma-fixa",
+    "href": "supervised/aula03/slides.html#o-preço-da-forma-fixa",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "O Preço da Forma Fixa",
+    "text": "O Preço da Forma Fixa\n\nAulas 1–2: fronteira gaussiana e Naive Bayes decidem a forma da fronteira antes de ver os dados — sempre uma reta.\n\n\n\n\n\n\nImportante\n\n\nE se deixássemos os próprios dados decidirem a forma da fronteira, sem suposição paramétrica alguma?"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#três-perguntas-de-hoje",
+    "href": "supervised/aula03/slides.html#três-perguntas-de-hoje",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Três Perguntas de Hoje",
+    "text": "Três Perguntas de Hoje\n\n1. O que, exatamente, uma árvore está estimando?\n\n\n2. Por que “reduzir a impureza” é, por baixo do capô, uma maximização de verossimilhança?\n\n\n3. Que preço se paga por essa liberdade — é sempre bom negócio?"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#cinco-regiões-quatro-cortes",
+    "href": "supervised/aula03/slides.html#cinco-regiões-quatro-cortes",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Cinco Regiões, Quatro Cortes",
+    "text": "Cinco Regiões, Quatro Cortes\n\n\nSequência de perguntas binárias, cada uma testando uma única variável contra um limiar."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#a-árvore-por-trás-da-partição",
+    "href": "supervised/aula03/slides.html#a-árvore-por-trás-da-partição",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "A Árvore Por Trás da Partição",
+    "text": "A Árvore Por Trás da Partição\n\n\n\n\n\nflowchart TB\n    N1[\"x₁ ≤ θ₁?\"]\n    N2[\"x₂ ≤ θ₂?\"]\n    N3[\"x₁ ≤ θ₄?\"]\n    N4[\"x₂ ≤ θ₃?\"]\n    A[\"A\"]\n    B[\"B\"]\n    C[\"C\"]\n    D[\"D\"]\n    E[\"E\"]\n\n    N1 --&gt;|sim| N2\n    N1 --&gt;|não| N3\n    N2 --&gt;|sim| A\n    N2 --&gt;|não| B\n    N3 --&gt;|sim| C\n    N3 --&gt;|não| N4\n    N4 --&gt;|sim| D\n    N4 --&gt;|não| E\n\n    classDef node fill:#5D6D7E,stroke:#374151,stroke-width:2px,color:#fff;\n    classDef leaf fill:#117A65,stroke:#0b4a3f,stroke-width:2px,color:#fff;\n    class N1,N2,N3,N4 node;\n    class A,B,C,D,E leaf;\n\n\n\n\n\n\n\n\n\n\nNota\n\n\nNão é um modelo probabilístico gráfico — é uma função determinística que mapeia \\(\\mathbf{x}\\) a uma região, e a região a uma constante."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#a-inversão-de-papéis",
+    "href": "supervised/aula03/slides.html#a-inversão-de-papéis",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "A Inversão de Papéis",
+    "text": "A Inversão de Papéis\n\nAulas 1–2: a fórmula (gaussiana, produto de Bernoullis) é fixada antes — só os parâmetros vêm dos dados.\n\n\n Árvore: a própria forma (quantas regiões, onde ficam os cortes) vem dos dados — estimativa não-paramétrica.\n\n\n\n\n\n\nDica\n\n\nOs próximos dois blocos: o critério que decide onde cortar, primeiro em regressão, depois em classificação."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#o-que-muda-na-prática-entre-escolher-uma-família-de-curvas-e-deixar-a-partição-emergir-dos-dados-1",
+    "href": "supervised/aula03/slides.html#o-que-muda-na-prática-entre-escolher-uma-família-de-curvas-e-deixar-a-partição-emergir-dos-dados-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "O que muda, na prática, entre “escolher uma família de curvas” e “deixar a partição emergir dos dados”?",
+    "text": "O que muda, na prática, entre “escolher uma família de curvas” e “deixar a partição emergir dos dados”?\n\n\n\n\n\n\nDica\n\n\n\n(Um exemplo, hipotético ou real. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#intuição-formalismo-o-que-prever-numa-folha",
+    "href": "supervised/aula03/slides.html#intuição-formalismo-o-que-prever-numa-folha",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Intuição → Formalismo: o Que Prever numa Folha?",
+    "text": "Intuição → Formalismo: o Que Prever numa Folha?\n\nIntuição: um só número para representar vários — a média.\n\n\n Formalismo: a média minimiza a soma de quadrados \\[Q_\\tau = \\sum_{\\mathbf{x}_n\\in\\mathcal{R}_\\tau}(t_n-y_\\tau)^2\\] \\[\\Rightarrow\\; y_\\tau = \\frac{1}{N_\\tau}\\sum_{\\mathbf{x}_n\\in\\mathcal{R}_\\tau} t_n\\]\n\n\n\n\n\n\nDica\n\n\nVou fazer uma afirmação forte: essa receita é uma maximização de verossimilhança. Vamos verificar."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#verificação-mle-gaussiano-numa-folha",
+    "href": "supervised/aula03/slides.html#verificação-mle-gaussiano-numa-folha",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Verificação: MLE Gaussiano numa Folha",
+    "text": "Verificação: MLE Gaussiano numa Folha\n\n\n\n\n\nNota\n\n\nO máximo da log-verossimilhança cai exatamente na média amostral — não é coincidência, é o MLE gaussiano."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#crescimento-guloso-busca-exaustiva-por-limiar",
+    "href": "supervised/aula03/slides.html#crescimento-guloso-busca-exaustiva-por-limiar",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Crescimento Guloso: Busca Exaustiva por Limiar",
+    "text": "Crescimento Guloso: Busca Exaustiva por Limiar\n\n\nOtimizar a estrutura inteira de uma vez: inviável. A saída: crescer nó a nó, testando exaustivamente variável × limiar a cada passo.\n\n\n\n\n\n\nAviso\n\n\nEssa busca é míope: escolhe o melhor corte agora, sem olhar o que ele habilita depois. Volta no Bloco 4."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#mais-folhas-melhor-ajuste-sempre-em-degraus",
+    "href": "supervised/aula03/slides.html#mais-folhas-melhor-ajuste-sempre-em-degraus",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Mais Folhas, Melhor Ajuste — Sempre em Degraus",
+    "text": "Mais Folhas, Melhor Ajuste — Sempre em Degraus\n\n\n\n\n\nNota\n\n\nNunca deixa de ser uma função em degraus, descontínua nos limiares — guarde isso para o Bloco 5."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#se-duas-folhas-de-uma-árvore-de-regressão-têm-o-mesmo-número-de-pontos-a-que-tem-maior-soma-de-quadrados-residuais-q_tau-tem-necessariamente-maior-variância-dos-alvos-dentro-dela-1",
+    "href": "supervised/aula03/slides.html#se-duas-folhas-de-uma-árvore-de-regressão-têm-o-mesmo-número-de-pontos-a-que-tem-maior-soma-de-quadrados-residuais-q_tau-tem-necessariamente-maior-variância-dos-alvos-dentro-dela-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Se duas folhas de uma árvore de regressão têm o mesmo número de pontos, a que tem maior soma de quadrados residuais \\(Q_\\tau\\) tem, necessariamente, maior variância dos alvos dentro dela?",
+    "text": "Se duas folhas de uma árvore de regressão têm o mesmo número de pontos, a que tem maior soma de quadrados residuais \\(Q_\\tau\\) tem, necessariamente, maior variância dos alvos dentro dela?\n\n\n\n\n\n\nDica\n\n\n\n(Pense: \\(Q_\\tau = \\sum(t_n-y_\\tau)^2\\) e a variância amostral \\(\\hat\\sigma^2 = Q_\\tau/N_\\tau\\) — mesmo \\(N_\\tau\\), mesma ordem.)"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#o-que-uma-folha-de-classificação-prevê",
+    "href": "supervised/aula03/slides.html#o-que-uma-folha-de-classificação-prevê",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "O Que uma Folha de Classificação Prevê",
+    "text": "O Que uma Folha de Classificação Prevê\n\nNão um número — uma distribuição sobre classes: \\(\\hat p_{\\tau k} =\nn_{\\tau k}/N_\\tau\\), a proporção empírica.\n\n\n\n\n\n\nDica\n\n\nMesmo padrão do Bloco 2: o MLE categórico numa folha é, de novo, a proporção empírica. Verificado a seguir."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#a-conexão-central-impureza-log-verossimilhança",
+    "href": "supervised/aula03/slides.html#a-conexão-central-impureza-log-verossimilhança",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "A Conexão Central: Impureza = Log-Verossimilhança",
+    "text": "A Conexão Central: Impureza = Log-Verossimilhança\n\n\\[\\ell_\\tau(\\hat p_\\tau) = -N_\\tau\\, H(\\hat p_\\tau)\\]\n\\[\\textbf{maximizar log-verossimilhança} \\equiv \\textbf{minimizar entropia}\\]\n\n\n Exatamente o critério de “reduzir a impureza” — só que raramente apresentado com essa conexão explícita."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#entropia-e-gini-mesmo-formato",
+    "href": "supervised/aula03/slides.html#entropia-e-gini-mesmo-formato",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Entropia e Gini: Mesmo Formato",
+    "text": "Entropia e Gini: Mesmo Formato\n\n\n\n\n\n\nAviso de leitura\n\n\nUma formulação sem o sinal negativo, em algumas fontes, descreve “máximo em \\(p=0{,}5\\)” — só consistente com a convenção padrão (com o sinal). Usamos a padrão aqui."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#diagnóstico-dois-splits-mesma-taxa-de-erro",
+    "href": "supervised/aula03/slides.html#diagnóstico-dois-splits-mesma-taxa-de-erro",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Diagnóstico: Dois Splits, Mesma Taxa de Erro?",
+    "text": "Diagnóstico: Dois Splits, Mesma Taxa de Erro?\n\nSplit 1: (300,100) | (100,300) — 400 pontos cada.\nSplit 2: (400,200) | (0,200) — a direita é pura.\n\n\n Antes de calcular: mesma qualidade, olhando só a taxa de erro?"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#o-contraexemplo-resolvido",
+    "href": "supervised/aula03/slides.html#o-contraexemplo-resolvido",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "O Contraexemplo, Resolvido",
+    "text": "O Contraexemplo, Resolvido\n\n\nSplit 1: erro=0.2500  gini=0.3750  entropia=0.5623\nSplit 2: erro=0.2500  gini=0.3333  entropia=0.4774\n\n\n\n\n\n\nImportante\n\n\nMesma taxa de erro (0,25) — mas Gini e entropia preferem o Split 2 (folha pura). A taxa de erro bruta é cega a essa diferença.\n\n\n\n\n\n Por isso: entropia/Gini para crescer; taxa de erro bruta para podar."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#julgue-v-ou-f-entropia-gini-e-taxa-de-erro-para-crescerpodar-árvores-1",
+    "href": "supervised/aula03/slides.html#julgue-v-ou-f-entropia-gini-e-taxa-de-erro-para-crescerpodar-árvores-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Julgue V ou F: entropia, Gini e taxa de erro para crescer/podar árvores",
+    "text": "Julgue V ou F: entropia, Gini e taxa de erro para crescer/podar árvores\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO MLE de uma distribuição categórica numa folha é a proporção empírica de cada classe.\nEntropia e Gini são preferidas para crescer a árvore porque são diferenciáveis e sensíveis à distribuição interna da folha.\nDois splits podem ter a mesma taxa de erro de classificação e, ainda assim, impurezas (Gini/entropia) diferentes.\nA taxa de erro de classificação bruta é a escolha usual para crescer a árvore, não para podá-la."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#julgue-v-ou-f-entropia-gini-e-taxa-de-erro-resposta",
+    "href": "supervised/aula03/slides.html#julgue-v-ou-f-entropia-gini-e-taxa-de-erro-resposta",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Julgue V ou F: entropia, Gini e taxa de erro — Resposta",
+    "text": "Julgue V ou F: entropia, Gini e taxa de erro — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — verificado numericamente acima.\nVerdadeiro — exatamente o argumento do bloco.\nVerdadeiro — é o próprio contraexemplo Split 1 vs. Split 2.\nFalso — é o oposto: erro bruto é usado para podar; entropia/Gini para crescer."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#crescer-demais-depois-podar",
+    "href": "supervised/aula03/slides.html#crescer-demais-depois-podar",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Crescer Demais, Depois Podar",
+    "text": "Crescer Demais, Depois Podar\n\nEmpiricamente: um corte “inútil” agora pode habilitar um corte muito bom depois. Parar cedo perde esse ganho adiado.\n\n\n Prática: crescer uma árvore grande, depois podar por custo-complexidade: \\[C(T) = \\sum_\\tau Q_\\tau(T) + \\lambda|T|\\]\n\n\n\n\n\n\nDica\n\n\n\\(\\lambda=0\\): árvore completa sempre vence. \\(\\lambda\\) grande: poda forte. O valor certo vem de validação cruzada (Aula 4)."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#poda-em-ação",
+    "href": "supervised/aula03/slides.html#poda-em-ação",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Poda em Ação",
+    "text": "Poda em Ação\n\n\n\n\n\nNota\n\n\nTreino só piora; validação tem um ótimo — nem completa (overfitting), nem podada demais (underfitting)."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#por-que-pare-quando-o-próximo-corte-não-reduzir-muito-o-erro-é-uma-estratégia-de-parada-ruim-1",
+    "href": "supervised/aula03/slides.html#por-que-pare-quando-o-próximo-corte-não-reduzir-muito-o-erro-é-uma-estratégia-de-parada-ruim-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Por que “pare quando o próximo corte não reduzir muito o erro” é uma estratégia de parada ruim?",
+    "text": "Por que “pare quando o próximo corte não reduzir muito o erro” é uma estratégia de parada ruim?\n\n\n\n\n\n\nDica\n\n\n\n(Um corte ruim pode isolar um subgrupo que só fica homogêneo depois de mais um corte.)"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#splits-alinhados-aos-eixos-o-caso-diagonal",
+    "href": "supervised/aula03/slides.html#splits-alinhados-aos-eixos-o-caso-diagonal",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Splits Alinhados aos Eixos: o Caso Diagonal",
+    "text": "Splits Alinhados aos Eixos: o Caso Diagonal\n\n\n\n\n\nAviso\n\n\nA reta tracejada (fronteira ótima, Aula 2) nunca é alcançada — só aproximada em degraus, cada vez mais finos."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#instabilidade-poucos-pontos-corte-diferente",
+    "href": "supervised/aula03/slides.html#instabilidade-poucos-pontos-corte-diferente",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Instabilidade: Poucos Pontos, Corte Diferente",
+    "text": "Instabilidade: Poucos Pontos, Corte Diferente\n\n\nCorte da raiz, árvore original:    x_2 &lt;= 0.014\nCorte da raiz, com 5 pontos a menos: x_2 &lt;= 0.014\n\n\n\n\n\n\nImportante\n\n\nMenos de 2% dos pontos removidos já muda o corte da raiz — algo que não aconteceria com um ajuste de mínimos quadrados.\n\n\n\n\n\n Essa fraqueza vira ingrediente útil na Aula 9 (bagging: média de muitas árvores levemente diferentes)."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#partição-rígida-descontinuidades",
+    "href": "supervised/aula03/slides.html#partição-rígida-descontinuidades",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Partição Rígida: Descontinuidades",
+    "text": "Partição Rígida: Descontinuidades\n\nCada ponto pertence a exatamente uma folha — a previsão salta no limiar entre folhas vizinhas.\n\n\n Neutro em classificação; ruim em regressão quando o alvo é suave (Bloco 2, a senoide)."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#julgue-v-ou-f-limites-estruturais-das-árvores-1",
+    "href": "supervised/aula03/slides.html#julgue-v-ou-f-limites-estruturais-das-árvores-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Julgue V ou F: limites estruturais das árvores",
+    "text": "Julgue V ou F: limites estruturais das árvores\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nUma árvore de profundidade suficientemente grande sempre alcança exatamente uma fronteira linear diagonal, sem aproximação em degraus.\nA estrutura de uma árvore pode mudar substancialmente com a remoção de uma pequena fração dos pontos de treino.\nA partição de uma árvore é rígida: cada ponto do espaço pertence a exatamente uma folha.\nDescontinuidades nas previsões de uma árvore de regressão são especialmente problemáticas quando o alvo verdadeiro é uma função suave."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#julgue-v-ou-f-limites-estruturais-das-árvores-resposta",
+    "href": "supervised/aula03/slides.html#julgue-v-ou-f-limites-estruturais-das-árvores-resposta",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Julgue V ou F: limites estruturais das árvores — Resposta",
+    "text": "Julgue V ou F: limites estruturais das árvores — Resposta\n\n\n\n\n\n\nDica\n\n\n\nFalso — nunca alcança exatamente; só aproxima em degraus cada vez mais finos.\nVerdadeiro — verificado acima (5 pontos já mudam o corte da raiz).\nVerdadeiro — é a definição de partição rígida.\nVerdadeiro — a árvore introduz descontinuidades onde a função suave não tem nenhuma."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#o-que-fica-desta-aula-1",
+    "href": "supervised/aula03/slides.html#o-que-fica-desta-aula-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "O Que Fica Desta Aula",
+    "text": "O Que Fica Desta Aula\n\nNenhum dos dois extremos (sempre linear vs. totalmente livre) é gratuito. Forma fixa: barata e estável, erra sistematicamente. Árvore: acerta qualquer formato, paga em instabilidade e miopia.\n\n\n\n\n\n\n\nPonte para a Aula 4\n\n\nComo escolher, de forma sistemática, o tanto de complexidade certo — o \\(\\lambda\\) de poda, ou qualquer outro hiperparâmetro?"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#julgue-v-ou-f-poda-por-custo-complexidade-1",
+    "href": "supervised/aula03/slides.html#julgue-v-ou-f-poda-por-custo-complexidade-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Julgue V ou F: poda por custo-complexidade",
+    "text": "Julgue V ou F: poda por custo-complexidade\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO critério \\(C(T) = \\sum_\\tau Q_\\tau(T) + \\lambda|T|\\) penaliza árvores com mais folhas, para \\(\\lambda &gt; 0\\).\nCom \\(\\lambda = 0\\), a árvore completa (sem poda) sempre minimiza \\(C(T)\\) entre todas as subárvores possíveis.\nO valor de \\(\\lambda\\) usado na prática é escolhido por validação cruzada, não derivado analiticamente.\nAumentar \\(\\lambda\\) tende a reduzir o número de folhas da árvore podada."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#julgue-v-ou-f-poda-por-custo-complexidade-resposta",
+    "href": "supervised/aula03/slides.html#julgue-v-ou-f-poda-por-custo-complexidade-resposta",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Julgue V ou F: poda por custo-complexidade — Resposta",
+    "text": "Julgue V ou F: poda por custo-complexidade — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é a própria definição do termo de penalidade.\nVerdadeiro — sem penalidade, \\(C(T)\\) se reduz à soma de \\(Q_\\tau\\), sempre menor (ou igual) para a árvore mais completa.\nVerdadeiro — verificado no bloco: \\(\\lambda\\) vem de validação cruzada (ponte com a Aula 4).\nVerdadeiro — mais penalidade por folha empurra a poda para árvores menores."
   }
 ]

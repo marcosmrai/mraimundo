@@ -142,6 +142,8 @@ Regra ótima: $\arg\max_k p(\mathbf{x}\mid\mathcal{C}_k)\,\pi_k$ — a prova da
 Aula 1 nunca usou $K=2$.
 :::
 
+:::
+
 ## Modelo generativo
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
@@ -355,6 +357,61 @@ histograma, de novo.
 :::
 :::
 
+::: {.callout-tip}
+## O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?
+
+Uma frase. Compare com um colega antes de avançar (2 min).
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Bayes para $K$ classes e modelos generativos
+
+::: {.callout-tip}
+Julgue V ou F — a questão só conta se acertar os 4 itens:
+
+a. A regra "decida pela conjunta maior" só vale para $K=2$ classes; para
+   $K>2$ é preciso um argumento novo.
+b. Um modelo generativo descreve, em duas etapas, como a natureza
+   sorteia primeiro a classe e depois o valor $\mathbf{x}$.
+c. $\sum_{j=1}^K p(\mathbf{x}\mid\mathcal{C}_j)\,\pi_j$ é a mesma
+   quantidade que aparece no denominador do Teorema de Bayes para
+   qualquer classe $k$ do numerador.
+d. Trocar a família de distribuições usada (gaussiana por uma rede
+   neural, por exemplo) muda o conceito de "modelo generativo".
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Bayes para $K$ classes e modelos generativos — Resposta
+
+::: {.callout-tip}
+
+a. **Falso** — a prova da Aula 1 nunca usou $K=2$ como hipótese; ela
+   generaliza sem atrito.
+b. **Verdadeiro** — é exatamente a leitura em duas etapas construída
+   neste bloco.
+c. **Verdadeiro** — é a evidência $p(\mathbf{x})$, a mesma para todo $k$.
+d. **Falso** — muda só a família de distribuições; o conceito (gerar a
+   classe, depois os dados) permanece o mesmo.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?
+
+::: {.callout-tip}
+::: {.fragment}
+*(Uma frase. Compare com um colega antes de avançar.)*
+:::
+:::
+
+:::
+
 # O que fazer em alta dimensão?
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
@@ -533,6 +590,27 @@ ax.legend(fontsize=9)
 plt.tight_layout()
 plt.show()
 ```
+
+::: {.callout-tip}
+## Por que "faltam dados" para estimar $p(\mathbf{x}\mid\mathcal{C}_k)$ em alta dimensão é diferente de "falta poder computacional"?
+
+Explique a um colega em uma frase. Se comprássemos 100× mais GPUs, o
+problema desapareceria?
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## "Faltam dados" é o mesmo problema que "falta poder computacional"?
+
+::: {.callout-tip}
+Comprar 100× mais GPUs resolveria?
+
+::: {.fragment}
+*(Uma frase. Compare com um colega.)*
+:::
+:::
+
+:::
 
 # Independência e Naive Bayes
 
@@ -1019,6 +1097,61 @@ Famílias **diferentes por coluna** são permitidas — idade, estado civil e
 :::
 
 :::
+
+::: {.callout-tip}
+## Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável
+
+Escreva os dois exemplos, num problema que você conheça.
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Independência e Naive Bayes
+
+::: {.callout-tip}
+Julgue V ou F — a questão só conta se acertar os 4 itens:
+
+a. Independência (não condicional) entre $X_1$ e $X_2$ significa que
+   $p(x_1, x_2) = p(x_1)\,p(x_2)$.
+b. Independência condicional dada a classe, $p(x_1, x_2 \mid \mathcal{C}_k)
+   = p(x_1\mid\mathcal{C}_k)\,p(x_2\mid\mathcal{C}_k)$, implica
+   independência não condicional entre $X_1$ e $X_2$.
+c. O Naive Bayes assume independência condicional dada a classe, não
+   independência incondicional entre os atributos.
+d. Um zero em qualquer atributo categórico pode fazer o score de uma
+   classe inteira ir a $-\infty$ na soma de logs.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Independência e Naive Bayes — Resposta
+
+::: {.callout-tip}
+a. **Verdadeiro** — é a própria definição de independência.
+b. **Falso** — as duas noções são diferentes; independência condicional
+   dada a classe pode conviver com forte dependência marginal entre
+   $X_1$ e $X_2$ (a classe é um confusor comum).
+c. **Verdadeiro** — exatamente a suposição construída neste bloco.
+d. **Verdadeiro** — $\log 0 = -\infty$ na soma dos logs; corrigido com
+   contagens fictícias (suavização), como na Aula 1.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável
+
+::: {.callout-tip}
+::: {.fragment}
+*(Compare os dois exemplos com um colega.)*
+:::
+:::
+
+:::
+
 # Teoria da decisão
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
@@ -1287,6 +1420,8 @@ plt.tight_layout()
 plt.show()
 ```
 
+:::
+
 ::: {.content-visible when-format="html" unless-format="revealjs"}
 
 As duas curvas do painel (a) se cruzam exatamente em
@@ -1362,6 +1497,41 @@ limiar sai de $0{,}5$ e passa a depender do **valor** da posteriori.
 
 :::
 
+::: {.content-visible when-format="revealjs"}
+
+## Teoria da decisão e risco de Bayes
+
+::: {.callout-tip}
+Julgue V ou F — a questão só conta se acertar os 4 itens:
+
+a. O risco posterior $\rho(a\mid\mathbf{x})$ é uma média das perdas
+   $L(k,a)$ ponderada pela posteriori $p(\mathcal{C}_k\mid\mathbf{x})$.
+b. Sob perda 0-1, a regra de Bayes $\delta^\star$ coincide com a regra
+   do posterior máximo.
+c. Mudar a matriz de perda $L$ pode mudar a regra de decisão ótima sem
+   que a posteriori $p(\mathcal{C}_k\mid\mathbf{x})$ mude em nada.
+d. O risco de Bayes $R^\star$ mede o quão bem o modelo $p(\mathbf{x},\mathcal{C}_k)$
+   está especificado.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Teoria da decisão e risco de Bayes — Resposta
+
+::: {.callout-tip}
+a. **Verdadeiro** — é exatamente a definição de risco posterior.
+b. **Verdadeiro** — com perda 0-1, minimizar o risco posterior é
+   escolher a classe de maior posteriori.
+c. **Verdadeiro** — os custos entram só pelo limiar de decisão; a
+   posteriori não depende de $L$.
+d. **Falso** — o risco de Bayes é a perda esperada da regra ótima *dado*
+   o modelo; ele não avalia se o modelo está certo, só otimiza dado que
+   ele está.
+:::
+
+:::
 
 ::: {.content-visible when-format="html" unless-format="revealjs"}
 
@@ -1405,5 +1575,244 @@ Naive Bayes decide a estrutura **antes** dos dados. Árvores: nenhuma
 suposição sobre a densidade, divisões construídas gulosamente — inclusive
 as interações que o naive descartou. O preço da liberdade é o assunto de lá.
 :::
+
+:::
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+# Exercícios
+
+## Questões discursivas
+
+1. Um colega propõe estimar $p(\mathbf{x} \mid \mathcal{C}_k)$ em
+   $\mathbb{R}^{15}$ ajustando um histograma multidimensional com $M=8$
+   células por eixo. Calcule o número de células e explique, em termos do
+   argumento construído no Bloco 2, por que essa abordagem é inviável
+   mesmo com um dataset de 10 milhões de pontos.
+
+2. O Naive Bayes assume $p(\mathbf{x}\mid\mathcal{C}_k) =
+   \prod_i p(x_i\mid\mathcal{C}_k)$. Descreva uma situação de classificação
+   (pode ser hipotética) em que essa suposição é **fortemente violada**, mas
+   o classificador ainda assim tem boa acurácia. Que propriedade da
+   fronteira de decisão explica essa aparente contradição?
+
+3. (Adaptado de PRML, Exercício 1.25) Considere um problema de decisão de
+   $K$ classes com uma matriz de perda $L$ arbitrária (não necessariamente
+   0-1). Escreva o risco posterior $\rho(a\mid\mathbf{x})$ e a regra de
+   Bayes correspondente. Em que condições sobre $L$ a regra de Bayes se
+   reduz à regra do posterior máximo (0-1)?
+
+## Questões de Verdadeiro/Falso
+
+Cada bloco de 4 itens trata do mesmo tema. A questão só é considerada
+correta se todos os 4 itens forem julgados corretamente (deixar em branco
+tem penalidade de 20% da nota da questão).
+
+::: {.callout-tip}
+## Alta dimensão e Naive Bayes
+
+a. ( ) Um histograma multidimensional com $M$ células por eixo em $d$
+   dimensões exige $M^d$ células, um crescimento exponencial em $d$.
+
+b. ( ) O problema de estimar $p(\mathbf{x}\mid\mathcal{C}_k)$ em alta
+   dimensão é fundamentalmente de poder computacional, não de escassez de
+   dados.
+
+c. ( ) O Naive Bayes reduz o número de parâmetros de exponencial em $d$
+   para linear em $d$, ao custo de assumir independência condicional dada
+   a classe.
+
+d. ( ) Independência condicional dada a classe implica independência
+   marginal (incondicional) entre os atributos.
+:::
+
+::: {.callout-tip}
+## Teoria da decisão e risco
+
+a. ( ) O risco posterior $\rho(a\mid\mathbf{x})$ depende apenas da função
+   de perda $L$, não da distribuição posterior $p(\mathcal{C}_k\mid\mathbf{x})$.
+
+b. ( ) Sob perda 0-1, a regra de Bayes coincide com a regra do posterior
+   máximo.
+
+c. ( ) Mudar os custos de uma matriz de perda pode alterar a regra de
+   decisão ótima sem alterar a posteriori $p(\mathcal{C}_k \mid \mathbf{x})$.
+
+d. ( ) O risco de Bayes $R^\star$ é sempre zero quando o modelo
+   $p(\mathbf{x}, \mathcal{C}_k)$ está corretamente especificado.
+:::
+
+::: {.callout-tip}
+## Bayes para $K$ classes e modelos generativos
+
+a. ( ) A regra "decida pela conjunta maior" exige $K=2$ classes; para
+   $K>2$ é preciso reformular o argumento da Aula 1 do zero.
+
+b. ( ) Num modelo generativo, a classe é sorteada primeiro (segundo
+   $\pi_k$) e só depois $\mathbf{x}$ é sorteado, condicional à classe.
+
+c. ( ) A evidência $p(\mathbf{x}) = \sum_j p(\mathbf{x}\mid\mathcal{C}_j)\,\pi_j$
+   é a mesma para qualquer classe $k$ avaliada no numerador do Teorema
+   de Bayes.
+
+d. ( ) Substituir a família gaussiana por uma rede neural profunda muda
+   o conceito de modelo generativo, não só a família de distribuições.
+:::
+
+::: {.callout-tip}
+## O modelo generativo em duas etapas
+
+a. ( ) Um modelo generativo descreve, em duas etapas, como a natureza
+   sorteia primeiro a classe e depois $\mathbf{x}$, condicional à
+   classe sorteada.
+
+b. ( ) "Jogar fora os dados" e ajustar só a fronteira de decisão
+   diretamente é uma alternativa discriminativa ao modelo generativo.
+
+c. ( ) Um modelo generativo permite gerar novos dados sintéticos
+   $\mathbf{x}$ amostrando de $p(\mathbf{x}\mid\mathcal{C}_k)$.
+
+d. ( ) Um modelo discriminativo modela diretamente $p(\mathbf{x})$, sem
+   nunca considerar a classe.
+:::
+
+::: {.callout-tip}
+## Generativo, discriminativo e "IA generativa"
+
+a. ( ) Um classificador puramente discriminativo dispensa a estimação
+   de $p(\mathbf{x}\mid\mathcal{C}_k)$.
+
+b. ( ) Modelos modernos de "IA generativa" usam o mesmo conceito de
+   modelo generativo desta aula, mudando a família de distribuições
+   usada, não o conceito.
+
+c. ( ) Um modelo discriminativo sempre precisa de mais parâmetros que
+   um modelo generativo equivalente para o mesmo problema.
+
+d. ( ) Se o objetivo final é só classificar, um modelo discriminativo
+   pode bastar sem nunca estimar $p(\mathbf{x}\mid\mathcal{C}_k)$
+   explicitamente.
+:::
+
+::: {.callout-tip}
+## Contando células: a maldição da dimensionalidade
+
+a. ( ) Um histograma multidimensional com $M$ células por eixo em $d$
+   dimensões tem, ao todo, $M^d$ células.
+
+b. ( ) Em $d=1$, $M=10$ células já bastam para uma estimativa razoável;
+   em $d=10$, $M^d$ chega à ordem de $10^{10}$.
+
+c. ( ) O problema de estimar $p(\mathbf{x}\mid\mathcal{C}_k)$ em alta
+   dimensão é, fundamentalmente, de poder computacional insuficiente.
+
+d. ( ) Comprar mais capacidade computacional (mais GPUs, por exemplo)
+   resolveria o problema da maldição da dimensionalidade apresentado
+   nesta aula.
+:::
+
+::: {.callout-tip}
+## Independência vs. independência condicional
+
+a. ( ) Independência (não condicional) entre $X_1$ e $X_2$ significa
+   $p(x_1,x_2) = p(x_1)\,p(x_2)$.
+
+b. ( ) Independência condicional dada a classe implica, em geral,
+   independência marginal (incondicional) entre os atributos.
+
+c. ( ) O Naive Bayes assume independência condicional dada a classe,
+   não independência incondicional entre os atributos.
+
+d. ( ) Duas variáveis podem ser fortemente dependentes marginalmente e,
+   ainda assim, condicionalmente independentes dada uma terceira
+   variável (como a classe).
+:::
+
+::: {.callout-tip}
+## O algoritmo Naive Bayes
+
+a. ( ) O Naive Bayes soma logaritmos das verossimilhanças condicionais
+   por atributo, em vez de multiplicar as verossimilhanças diretamente.
+
+b. ( ) Um único atributo com probabilidade estimada zero pode fazer o
+   *score* de uma classe inteira ir a $-\infty$.
+
+c. ( ) A correção padrão para esse problema é remover do modelo o
+   atributo que produziu a probabilidade zero.
+
+d. ( ) Contagens fictícias (suavização), aplicadas antes de normalizar,
+   evitam que uma probabilidade estimada seja exatamente zero.
+:::
+
+::: {.callout-tip}
+## A escolha de família por atributo
+
+a. ( ) O Naive Bayes exige que todos os atributos usem a mesma família
+   de distribuição (por exemplo, todos Gaussianos).
+
+b. ( ) Um atributo categórico com $M$ níveis é tipicamente modelado por
+   uma distribuição Categórica, com $M-1$ parâmetros livres por classe.
+
+c. ( ) Um atributo contínuo de forma desconhecida pode ser modelado,
+   dentro do Naive Bayes, por um histograma ou por KDE.
+
+d. ( ) Misturar famílias diferentes por coluna (idade Gaussiana, estado
+   civil Categórico, por exemplo) quebra a soma de logs do passo 3 do
+   algoritmo.
+:::
+
+::: {.callout-tip}
+## O objeto geral da teoria da decisão
+
+a. ( ) O espaço de decisões $\mathcal{A}$ sempre coincide com o espaço
+   de classes $\mathcal{Y}$.
+
+b. ( ) O risco posterior $\rho(a\mid\mathbf{x})$ é a perda esperada de
+   tomar a decisão $a$, ponderada pela posteriori
+   $p(\mathcal{C}_k\mid\mathbf{x})$.
+
+c. ( ) A regra de Bayes $\delta^\star(\mathbf{x})$ minimiza o risco
+   posterior para cada $\mathbf{x}$.
+
+d. ( ) A opção de rejeição é um exemplo em que $\mathcal{A} \neq
+   \mathcal{Y}$.
+:::
+
+::: {.callout-tip}
+## O caso binário: custo e priori viram um limiar
+
+a. ( ) Sob perda 0-1, a regra de Bayes coincide com a regra do
+   posterior máximo.
+
+b. ( ) Custos assimétricos entre os dois tipos de erro deslocam o
+   limiar de decisão para longe de $0{,}5$ na posteriori.
+
+c. ( ) Mudar os custos da matriz de perda muda a posteriori
+   $p(\mathcal{C}_k\mid\mathbf{x})$.
+
+d. ( ) Um custo $c_{II}/c_I$ maior que $1$ significa que o erro Tipo II
+   é considerado mais grave que o erro Tipo I.
+:::
+
+::: {.callout-tip}
+## Risco de Bayes e a ressalva que importa
+
+a. ( ) O risco de Bayes $R^\star$ generaliza o erro de Bayes da Aula 1
+   para uma função de perda arbitrária.
+
+b. ( ) A regra de Bayes é ótima incondicionalmente, mesmo que o modelo
+   $p(\mathbf{x},\mathcal{C}_k)$ usado esteja errado.
+
+c. ( ) O Naive Bayes do Bloco 3 pode estimar mal a posteriori e, ainda
+   assim, classificar bem sob perda 0-1.
+
+d. ( ) A teoria da decisão garante que o modelo usado para calcular a
+   posteriori está correto.
+:::
+
+## Aviso
+
+As questões de Verdadeiro/Falso e discursivas ficam sem solução neste
+arquivo — são para resolução autônoma do aluno, fora do horário de aula.
 
 :::

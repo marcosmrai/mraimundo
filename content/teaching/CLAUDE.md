@@ -9,9 +9,8 @@ humana obrigatória em cada etapa. NUNCA pule uma etapa, NUNCA gere a
 etapa seguinte sem que o usuário tenha sinalizado aprovação explícita
 (ex: "pode seguir", "próxima etapa", "ok").
 
-O planejamento do semestre (`<disciplina>/planejamento-semestre.md`) é
-FIXO. Use-o apenas como referência para identificar tema, objetivos de
-aprendizagem e carga horária de cada aula — não proponha alterações nele.
+O planejamento do semestre (`<disciplina>/index.md`) é
+FIXO. Use-o apenas como referência para identificar tema, objetivos de aprendizagem e carga horária de cada aula — não proponha alterações nele a não ser que explicitamente dito ou aprovado pelo usuário.
 
 ---
 
@@ -42,7 +41,7 @@ teaching/
 
 Cada disciplina é autocontida na sua subpasta da raiz. Cada aula é uma
 subpasta própria dentro da disciplina, nomeada `aulaNN` (`aula01`,
-`aula02`, ...). O arquivo index.md tem o planejamento do semestre em md (formatado para hugo).
+`aula02`, ...).
 
 ---
 
@@ -65,6 +64,45 @@ subpasta de disciplina trabalhar nesta sessão.
 Todos os caminhos de arquivo nas etapas abaixo (`index.md`,
 `fontes/`, `aulaNN/`, `progresso.md`) são relativos à subpasta da
 disciplina identificada nesta etapa, não à raiz `teaching/`.
+
+---
+
+## Estrutura da aula
+
+### Estrutura macro (o "esqueleto" da aula)
+
+A espinha dorsal mais robusta é a de três movimentos:
+
+**1. Abertura (5–10 min)** — o objetivo é criar o "gancho" cognitivo:
+- **Organizador prévio** (Ausubel): uma ideia-ponte que conecta o novo conteúdo ao que já se sabe. Ex.: antes de modelos generativos, retomar "estimar densidade" como algo já visto em detecção de anomalias.
+- **Roteiro explícito**: dizer as 3–4 perguntas que a aula vai responder. Isso reduz carga cognitiva extrínseca porque o aluno para de gastar memória de trabalho tentando adivinhar para onde vai.
+- **Problema motivador** antes do formalismo, não depois.
+
+**2. Desenvolvimento (segmentado)** — o ponto crítico: não é um bloco contínuo.
+- **Segmentação em blocos de 10–15 min**, cada um com um único "ponto de aterrissagem". A atenção sustentada em exposição passiva degrada rapidamente; o corte periódico reinicia o ciclo.
+- **Pausas ativas** entre blocos: 1–2 min para o aluno escrever a ideia central com suas palavras, comparar com o colega, ou responder uma pergunta de checagem. É o intervalo que consolida, não a exposição. Apresentar como uma **pergunta direta**, sem rótulo genérico tipo "Pausa ativa" antes dela — o título do `callout-tip` é a própria pergunta:
+  ```
+  ::: {.callout-tip}
+  ## Por que o corte "no cruzamento das curvas" está errado, e o que falta entrar na conta?
+  :::
+  ```
+  **Nunca** colocar um título de slide separado *fora* da caixa antes do `callout-tip` (nem nas notas, nem nos slides) — isso cria um slide extra e vazio de conteúdo entre o bloco anterior e a pergunta. O título do próprio `callout-tip` já é o único título do slide; a pergunta (ou o V/F) e sua resposta devem ficar cada um em seu próprio slide **separado**, sem nenhum slide genérico "Pergunta"/"Resposta" no meio.
+- **Sinalização verbal**: "isto é o resultado central", "esta hipótese é a que vamos relaxar depois". Marcadores explícitos de hierarquia evitam que tudo pareça igualmente importante.
+
+**3. Fechamento (5 min)** — quase sempre o mais sacrificado e o mais valioso:
+- Retomar as perguntas da abertura e responder cada uma em uma frase.
+- Nomear explicitamente o que ficou em aberto e o que vem na próxima aula.
+
+### Técnicas de nível micro
+
+| Técnica | Para que serve |
+|---|---|
+| **Exemplo resolvido (worked example)** antes de exercício | Reduz carga cognitiva em conteúdo novo; a ordem inversa só funciona com alunos já proficientes |
+| **Contraexemplo deliberado** | Delimita a fronteira do conceito. "Onde este método falha?" ensina mais que três casos de sucesso |
+| **Duplo registro** (intuição → formalismo → volta à intuição) | Evita que a derivação matemática se torne um fim em si |
+| **Perguntas de diagnóstico** com alternativas plausíveis erradas | Revela concepções equivocadas; funciona melhor que "alguma dúvida?", que quase nunca produz resposta |
+| **Princípio da redundância** (Mayer) | Não ler o slide em voz alta — texto e narração idênticos competem pelo mesmo canal. Slide com pouco texto + fala elaborando |
+| **Explicitar a estrutura argumentativa** | "Vou fazer três suposições; a terceira é frágil e vou atacá-la no fim" |
 
 ---
 
@@ -106,9 +144,8 @@ usuário).
   (ex.: *prima facie*, em latim) podem ficar no original, com uma
   explicação ao lado na primeira aparição.
 
-Código Python (ou R) é embutido nos mesmos chunks, gerando as figuras
-que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do
-arquivo de referência em `fontes/exemplos-estilo/`:
+Código Python é embutido nos mesmos chunks, gerando as figuras
+que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do arquivo de referência em `fontes/exemplos-estilo/`:
 
 - Um único bloco de **setup global** no topo (imports, seed do RNG,
   paleta de cores fixa reutilizada em toda a aula, funções auxiliares).
@@ -134,57 +171,17 @@ format:
     output-file: slides.html
 ```
 
-## Preview local da aula
-
-Para visualizar a aula renderizada durante a edição, sem abrir
-navegador automaticamente e num processo isolado por porta (útil para
-ter várias aulas em preview simultâneo), usar:
-
-```bash
-uv run quarto preview <disciplina>/aulaNN/02-aula.qmd --to html --port 4200 --no-browser
-```
-
-Ajustar `--to` para `revealjs` ao querer visualizar a versão de
-slides, e `--port` para evitar conflito quando houver mais de um
-preview aberto ao mesmo tempo (ex: `4200` para a aula em edição,
-`4201` para uma aula anterior aberta para comparação).
-
 ## Sugestão de fluxogramas e diagramas
 
-Ao montar o bloco, se o conteúdo tiver estrutura sequencial, uma árvore
-de decisão, um processo com ramificações, ou uma comparação de
-caminhos alternativos (ex: "três saídas honestas para um problema"),
-**proponha um diagrama Mermaid** (` ```{mermaid} ` ), sem esperar o
-usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos
-dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver
-claro que o diagrama ajuda mais do que texto.
+Ao montar o bloco, se o conteúdo tiver estrutura sequencial, uma árvore de decisão, um processo com ramificações, ou uma comparação de caminhos alternativos (ex: "três saídas honestas para um problema"), **proponha um diagrama Mermaid** (` ```{mermaid} ` ), sem esperar o usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver claro que o diagrama ajuda mais do que texto.
 
 ## Exercícios (obrigatório em toda aula)
 
-Toda aula precisa de exercícios — em dois formatos distintos, um por
-saída, que não devem ser confundidos entre si:
+Toda aula precisa de exercícios — em dois formatos distintos, um por saída, que não devem ser confundidos entre si:
 
-- **Notas (HTML):** terminar o arquivo com uma seção de **Exercícios**
-  (dentro do bloco `content-visible` exclusivo de HTML), com algumas
-  questões que exercitem o conteúdo da aula como um todo. Pode
-  reaproveitar questões de fim de capítulo das próprias fontes
-  bibliográficas (citando de onde vieram, como já se faz com trechos
-  citados) ou propor questões originais — nesse caso, sinalizar que são
-  originais, não da fonte. Ficam sem solução no arquivo (é trabalho para
-  o aluno resolver por conta, fora da aula).
+- **Notas (HTML):** terminar o arquivo com uma seção de **Exercícios** (dentro do bloco `content-visible` exclusivo de HTML), com **exatamente 3 questões discursivas/conceituais** e **12 questões de V/F** (não 12 itens — **12 blocos de 4 itens cada**, ou seja, 48 itens ao todo, cada bloco num tema diferente da aula, cobrindo o conteúdo da aula de ponta a ponta) — quotas fixas, por aula. Pode reaproveitar questões de fim de capítulo das próprias fontes bibliográficas (citando de onde vieram, como já se faz com trechos citados) ou propor questões originais — nesse caso, sinalizar que são originais, não da fonte. Ficam sem solução no arquivo (é trabalho para o aluno resolver por conta, fora da aula). Cada questão de V/F tem 4 itens do mesmo tema, e só é considerada correta se todos os 4 forem acertados (na avaliação, o aluno pode deixar a questão em branco com punição de 20% da nota da questão). Cada uma das 12 questões (os 4 itens de um mesmo tema) fica dentro de um `::: {.callout-tip}` cujo título é o **tema** daquela questão (não um rótulo genérico) — deixa explícito que aquilo é uma unidade de questão.
 
-- **Slides (RevealJS):** intercalar, **no meio** da sequência de slides
-  (não só ao final), pequenos exercícios de checagem/acompanhamento —
-  uma pergunta objetiva e rápida sobre o que acabou de ser apresentado,
-  para o aluno testar se acompanhou o conteúdo em tempo real. Cada
-  exercício desses deve ser seguido **imediatamente** (no slide
-  seguinte) pela solução/resposta discutida — não deixar para o fim da
-  aula. Isso é diferente das "provocações" de fim de subseção já
-  praticadas em aulas anteriores (perguntas abertas, para discussão em
-  sala, sem resposta fechada no arquivo): exercícios de checagem têm
-  resposta objetiva, aparecem espalhados ao longo dos slides (não
-  concentrados num só lugar), e resolvem-se ali mesmo, no slide
-  seguinte.
+- **Slides (RevealJS):** intercalar, **no meio** da sequência de slides (não só ao final), pequenos exercícios de checagem/acompanhamento — uma pergunta objetiva e rápida sobre o que acabou de ser apresentado, para o aluno testar se acompanhou o conteúdo em tempo real. **No mínimo 3 desses exercícios de checagem por aula**, espalhados ao longo dos slides (não concentrados num só bloco). Cada um é um V/F de 4 itens (mesmo tema, mesma lógica das notas), com os 4 itens juntos em **um único slide**, dentro de um `::: {.callout-tip}` cujo título é o **tema** do bloco — seguido **imediatamente** (no slide seguinte) por **um único slide de resposta**, com a solução dos 4 itens junta, também em caixa (`::: {.callout-tip}`, título "*tema* — Resposta"). Não deixar nenhum desses três para o fim da aula.
 
 ---
 

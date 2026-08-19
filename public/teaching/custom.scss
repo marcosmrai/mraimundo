@@ -63,6 +63,14 @@ a:hover {
 
 /*-- scss:rules --*/
 
+// Ajusta a fonte de todos os callouts no Reveal.js
+// Força o tamanho da fonte no container e no conteúdo do callout
+.reveal div.callout,
+.reveal .callout-body,
+.reveal .callout-content p {
+  font-size: 1em !important; // Ajuste para o tamanho desejado (ex: 1em ou 100%)
+}
+
 // Container do Rodapé (Logos + Seta)
 .custom-footer-logos {
   position: absolute;

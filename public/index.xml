@@ -437,7 +437,7 @@
 &lt;h3 id=&#34;part-1-foundations-of-probability-and-partitioning&#34;&gt;Part 1: Foundations of Probability and Partitioning&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../supervised/aula01/notas.html&#34;&gt;Lesson 1: Data, Distributions, and Anomaly Detection&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../supervised/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../supervised/aula01/notas.html&#34;&gt;Lesson 1: Data, Distributions, and Anomaly Detection&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../supervised/aula01/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; One-dimensional binary classification and outlier detection.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Fitting continuous densities to bounded data (Beta distribution) and defining decision thresholds from low-probability regions. The unavoidable trade-off between Type I and Type II errors as a consequence of overlapping class-conditional densities.&lt;/li&gt;
@@ -446,7 +446,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../../supervised/aula02/notas.html&#34;&gt;Lesson 2: Conditional Distributions and Generative Models&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../../supervised/aula02/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../supervised/aula02/notas.html&#34;&gt;Lesson 2: Conditional Distributions and Generative Models&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../supervised/aula02/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; Multidimensional classification under the assumption of feature independence (Naive Bayes).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Bayes&amp;rsquo; theorem decomposed into prior, likelihood, and posterior. The distinction between joint and conditional distributions, and the conditional independence assumption as a deliberate simplification to mitigate the curse of dimensionality.&lt;/li&gt;
@@ -455,7 +455,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lesson 3: Decision Trees — Greedy Partitioning&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;../supervised/aula03/notas.html&#34;&gt;Lesson 3: Decision Trees — Greedy Partitioning&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;../supervised/aula03/slides.html&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ML Concept:&lt;/strong&gt; The CART algorithm for classification and regression.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Statistical Concept:&lt;/strong&gt; Non-parametric estimation of the conditional density as a piecewise-constant function. Impurity measures (Entropy and Gini) interpreted as the uncertainty of categorical distributions, and splits understood as the greedy maximization of a profile log-likelihood.&lt;/li&gt;
@@ -1189,9 +1189,8 @@ cada uma em sua própria subpasta na raiz (ex: &lt;code&gt;supervised/&lt;/code&
 humana obrigatória em cada etapa. NUNCA pule uma etapa, NUNCA gere a
 etapa seguinte sem que o usuário tenha sinalizado aprovação explícita
 (ex: &amp;ldquo;pode seguir&amp;rdquo;, &amp;ldquo;próxima etapa&amp;rdquo;, &amp;ldquo;ok&amp;rdquo;).&lt;/p&gt;
-&lt;p&gt;O planejamento do semestre (&lt;code&gt;&amp;lt;disciplina&amp;gt;/planejamento-semestre.md&lt;/code&gt;) é
-FIXO. Use-o apenas como referência para identificar tema, objetivos de
-aprendizagem e carga horária de cada aula — não proponha alterações nele.&lt;/p&gt;
+&lt;p&gt;O planejamento do semestre (&lt;code&gt;&amp;lt;disciplina&amp;gt;/index.md&lt;/code&gt;) é
+FIXO. Use-o apenas como referência para identificar tema, objetivos de aprendizagem e carga horária de cada aula — não proponha alterações nele a não ser que explicitamente dito ou aprovado pelo usuário.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;estrutura-de-pastas&#34;&gt;Estrutura de pastas&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;teaching/
@@ -1216,7 +1215,7 @@ aprendizagem e carga horária de cada aula — não proponha alterações nele.&
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── ...
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cada disciplina é autocontida na sua subpasta da raiz. Cada aula é uma
 subpasta própria dentro da disciplina, nomeada &lt;code&gt;aulaNN&lt;/code&gt; (&lt;code&gt;aula01&lt;/code&gt;,
-&lt;code&gt;aula02&lt;/code&gt;, &amp;hellip;). O arquivo index.md tem o planejamento do semestre em md (formatado para hugo).&lt;/p&gt;
+&lt;code&gt;aula02&lt;/code&gt;, &amp;hellip;).&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;etapa-0--identificar-a-disciplina-obrigatória-toda-sessão&#34;&gt;Etapa 0 — Identificar a disciplina (OBRIGATÓRIA, toda sessão)&lt;/h2&gt;
 &lt;p&gt;Antes de ler, editar ou gerar qualquer arquivo, é preciso saber em qual
@@ -1236,6 +1235,66 @@ a disciplina — não perguntar.&lt;/li&gt;
 &lt;p&gt;Todos os caminhos de arquivo nas etapas abaixo (&lt;code&gt;index.md&lt;/code&gt;,
 &lt;code&gt;fontes/&lt;/code&gt;, &lt;code&gt;aulaNN/&lt;/code&gt;, &lt;code&gt;progresso.md&lt;/code&gt;) são relativos à subpasta da
 disciplina identificada nesta etapa, não à raiz &lt;code&gt;teaching/&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;estrutura-da-aula&#34;&gt;Estrutura da aula&lt;/h2&gt;
+&lt;h3 id=&#34;estrutura-macro-o-esqueleto-da-aula&#34;&gt;Estrutura macro (o &amp;ldquo;esqueleto&amp;rdquo; da aula)&lt;/h3&gt;
+&lt;p&gt;A espinha dorsal mais robusta é a de três movimentos:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Abertura (5–10 min)&lt;/strong&gt; — o objetivo é criar o &amp;ldquo;gancho&amp;rdquo; cognitivo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Organizador prévio&lt;/strong&gt; (Ausubel): uma ideia-ponte que conecta o novo conteúdo ao que já se sabe. Ex.: antes de modelos generativos, retomar &amp;ldquo;estimar densidade&amp;rdquo; como algo já visto em detecção de anomalias.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Roteiro explícito&lt;/strong&gt;: dizer as 3–4 perguntas que a aula vai responder. Isso reduz carga cognitiva extrínseca porque o aluno para de gastar memória de trabalho tentando adivinhar para onde vai.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problema motivador&lt;/strong&gt; antes do formalismo, não depois.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2. Desenvolvimento (segmentado)&lt;/strong&gt; — o ponto crítico: não é um bloco contínuo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Segmentação em blocos de 10–15 min&lt;/strong&gt;, cada um com um único &amp;ldquo;ponto de aterrissagem&amp;rdquo;. A atenção sustentada em exposição passiva degrada rapidamente; o corte periódico reinicia o ciclo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pausas ativas&lt;/strong&gt; entre blocos: 1–2 min para o aluno escrever a ideia central com suas palavras, comparar com o colega, ou responder uma pergunta de checagem. É o intervalo que consolida, não a exposição. Apresentar como uma &lt;strong&gt;pergunta direta&lt;/strong&gt;, sem rótulo genérico tipo &amp;ldquo;Pausa ativa&amp;rdquo; antes dela — o título do &lt;code&gt;callout-tip&lt;/code&gt; é a própria pergunta:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;::: {.callout-tip}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## Por que o corte &amp;#34;no cruzamento das curvas&amp;#34; está errado, e o que falta entrar na conta?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:::
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;strong&gt;Nunca&lt;/strong&gt; colocar um título de slide separado &lt;em&gt;fora&lt;/em&gt; da caixa antes do &lt;code&gt;callout-tip&lt;/code&gt; (nem nas notas, nem nos slides) — isso cria um slide extra e vazio de conteúdo entre o bloco anterior e a pergunta. O título do próprio &lt;code&gt;callout-tip&lt;/code&gt; já é o único título do slide; a pergunta (ou o V/F) e sua resposta devem ficar cada um em seu próprio slide &lt;strong&gt;separado&lt;/strong&gt;, sem nenhum slide genérico &amp;ldquo;Pergunta&amp;rdquo;/&amp;ldquo;Resposta&amp;rdquo; no meio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sinalização verbal&lt;/strong&gt;: &amp;ldquo;isto é o resultado central&amp;rdquo;, &amp;ldquo;esta hipótese é a que vamos relaxar depois&amp;rdquo;. Marcadores explícitos de hierarquia evitam que tudo pareça igualmente importante.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;3. Fechamento (5 min)&lt;/strong&gt; — quase sempre o mais sacrificado e o mais valioso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Retomar as perguntas da abertura e responder cada uma em uma frase.&lt;/li&gt;
+&lt;li&gt;Nomear explicitamente o que ficou em aberto e o que vem na próxima aula.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;técnicas-de-nível-micro&#34;&gt;Técnicas de nível micro&lt;/h3&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Técnica&lt;/th&gt;
+					&lt;th&gt;Para que serve&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Exemplo resolvido (worked example)&lt;/strong&gt; antes de exercício&lt;/td&gt;
+					&lt;td&gt;Reduz carga cognitiva em conteúdo novo; a ordem inversa só funciona com alunos já proficientes&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Contraexemplo deliberado&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;Delimita a fronteira do conceito. &amp;ldquo;Onde este método falha?&amp;rdquo; ensina mais que três casos de sucesso&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Duplo registro&lt;/strong&gt; (intuição → formalismo → volta à intuição)&lt;/td&gt;
+					&lt;td&gt;Evita que a derivação matemática se torne um fim em si&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Perguntas de diagnóstico&lt;/strong&gt; com alternativas plausíveis erradas&lt;/td&gt;
+					&lt;td&gt;Revela concepções equivocadas; funciona melhor que &amp;ldquo;alguma dúvida?&amp;rdquo;, que quase nunca produz resposta&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Princípio da redundância&lt;/strong&gt; (Mayer)&lt;/td&gt;
+					&lt;td&gt;Não ler o slide em voz alta — texto e narração idênticos competem pelo mesmo canal. Slide com pouco texto + fala elaborando&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Explicitar a estrutura argumentativa&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;&amp;ldquo;Vou fazer três suposições; a terceira é frágil e vou atacá-la no fim&amp;rdquo;&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;formato-do-arquivo-de-aula&#34;&gt;Formato do arquivo de aula&lt;/h2&gt;
 &lt;p&gt;Cada aula é um &lt;strong&gt;único arquivo &lt;code&gt;.qmd&lt;/code&gt;&lt;/strong&gt;, não um par separado de slides
@@ -1273,9 +1332,8 @@ literal de outra fonte. Termos técnicos sem tradução direta e estável
 (ex.: &lt;em&gt;prima facie&lt;/em&gt;, em latim) podem ficar no original, com uma
 explicação ao lado na primeira aparição.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Código Python (ou R) é embutido nos mesmos chunks, gerando as figuras
-que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do
-arquivo de referência em &lt;code&gt;fontes/exemplos-estilo/&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Código Python é embutido nos mesmos chunks, gerando as figuras
+que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do arquivo de referência em &lt;code&gt;fontes/exemplos-estilo/&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Um único bloco de &lt;strong&gt;setup global&lt;/strong&gt; no topo (imports, seed do RNG,
 paleta de cores fixa reutilizada em toda a aula, funções auxiliares).&lt;/li&gt;
@@ -1297,50 +1355,16 @@ Etapa 5. Definir isso explicitamente no YAML do &lt;code&gt;.qmd&lt;/code&gt; co
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;output-file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;notas.html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;revealjs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;output-file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;slides.html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;preview-local-da-aula&#34;&gt;Preview local da aula&lt;/h2&gt;
-&lt;p&gt;Para visualizar a aula renderizada durante a edição, sem abrir
-navegador automaticamente e num processo isolado por porta (útil para
-ter várias aulas em preview simultâneo), usar:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;uv run quarto preview &amp;lt;disciplina&amp;gt;/aulaNN/02-aula.qmd --to html --port &lt;span class=&#34;m&#34;&gt;4200&lt;/span&gt; --no-browser
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ajustar &lt;code&gt;--to&lt;/code&gt; para &lt;code&gt;revealjs&lt;/code&gt; ao querer visualizar a versão de
-slides, e &lt;code&gt;--port&lt;/code&gt; para evitar conflito quando houver mais de um
-preview aberto ao mesmo tempo (ex: &lt;code&gt;4200&lt;/code&gt; para a aula em edição,
-&lt;code&gt;4201&lt;/code&gt; para uma aula anterior aberta para comparação).&lt;/p&gt;
-&lt;h2 id=&#34;sugestão-de-fluxogramas-e-diagramas&#34;&gt;Sugestão de fluxogramas e diagramas&lt;/h2&gt;
-&lt;p&gt;Ao montar o bloco, se o conteúdo tiver estrutura sequencial, uma árvore
-de decisão, um processo com ramificações, ou uma comparação de
-caminhos alternativos (ex: &amp;ldquo;três saídas honestas para um problema&amp;rdquo;),
-&lt;strong&gt;proponha um diagrama Mermaid&lt;/strong&gt; (&lt;code&gt;```{mermaid}&lt;/code&gt; ), sem esperar o
-usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos
-dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver
-claro que o diagrama ajuda mais do que texto.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sugestão-de-fluxogramas-e-diagramas&#34;&gt;Sugestão de fluxogramas e diagramas&lt;/h2&gt;
+&lt;p&gt;Ao montar o bloco, se o conteúdo tiver estrutura sequencial, uma árvore de decisão, um processo com ramificações, ou uma comparação de caminhos alternativos (ex: &amp;ldquo;três saídas honestas para um problema&amp;rdquo;), &lt;strong&gt;proponha um diagrama Mermaid&lt;/strong&gt; (&lt;code&gt;```{mermaid}&lt;/code&gt; ), sem esperar o usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver claro que o diagrama ajuda mais do que texto.&lt;/p&gt;
 &lt;h2 id=&#34;exercícios-obrigatório-em-toda-aula&#34;&gt;Exercícios (obrigatório em toda aula)&lt;/h2&gt;
-&lt;p&gt;Toda aula precisa de exercícios — em dois formatos distintos, um por
-saída, que não devem ser confundidos entre si:&lt;/p&gt;
+&lt;p&gt;Toda aula precisa de exercícios — em dois formatos distintos, um por saída, que não devem ser confundidos entre si:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Notas (HTML):&lt;/strong&gt; terminar o arquivo com uma seção de &lt;strong&gt;Exercícios&lt;/strong&gt;
-(dentro do bloco &lt;code&gt;content-visible&lt;/code&gt; exclusivo de HTML), com algumas
-questões que exercitem o conteúdo da aula como um todo. Pode
-reaproveitar questões de fim de capítulo das próprias fontes
-bibliográficas (citando de onde vieram, como já se faz com trechos
-citados) ou propor questões originais — nesse caso, sinalizar que são
-originais, não da fonte. Ficam sem solução no arquivo (é trabalho para
-o aluno resolver por conta, fora da aula).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notas (HTML):&lt;/strong&gt; terminar o arquivo com uma seção de &lt;strong&gt;Exercícios&lt;/strong&gt; (dentro do bloco &lt;code&gt;content-visible&lt;/code&gt; exclusivo de HTML), com &lt;strong&gt;exatamente 3 questões discursivas/conceituais&lt;/strong&gt; e &lt;strong&gt;12 questões de V/F&lt;/strong&gt; (não 12 itens — &lt;strong&gt;12 blocos de 4 itens cada&lt;/strong&gt;, ou seja, 48 itens ao todo, cada bloco num tema diferente da aula, cobrindo o conteúdo da aula de ponta a ponta) — quotas fixas, por aula. Pode reaproveitar questões de fim de capítulo das próprias fontes bibliográficas (citando de onde vieram, como já se faz com trechos citados) ou propor questões originais — nesse caso, sinalizar que são originais, não da fonte. Ficam sem solução no arquivo (é trabalho para o aluno resolver por conta, fora da aula). Cada questão de V/F tem 4 itens do mesmo tema, e só é considerada correta se todos os 4 forem acertados (na avaliação, o aluno pode deixar a questão em branco com punição de 20% da nota da questão). Cada uma das 12 questões (os 4 itens de um mesmo tema) fica dentro de um &lt;code&gt;::: {.callout-tip}&lt;/code&gt; cujo título é o &lt;strong&gt;tema&lt;/strong&gt; daquela questão (não um rótulo genérico) — deixa explícito que aquilo é uma unidade de questão.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Slides (RevealJS):&lt;/strong&gt; intercalar, &lt;strong&gt;no meio&lt;/strong&gt; da sequência de slides
-(não só ao final), pequenos exercícios de checagem/acompanhamento —
-uma pergunta objetiva e rápida sobre o que acabou de ser apresentado,
-para o aluno testar se acompanhou o conteúdo em tempo real. Cada
-exercício desses deve ser seguido &lt;strong&gt;imediatamente&lt;/strong&gt; (no slide
-seguinte) pela solução/resposta discutida — não deixar para o fim da
-aula. Isso é diferente das &amp;ldquo;provocações&amp;rdquo; de fim de subseção já
-praticadas em aulas anteriores (perguntas abertas, para discussão em
-sala, sem resposta fechada no arquivo): exercícios de checagem têm
-resposta objetiva, aparecem espalhados ao longo dos slides (não
-concentrados num só lugar), e resolvem-se ali mesmo, no slide
-seguinte.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Slides (RevealJS):&lt;/strong&gt; intercalar, &lt;strong&gt;no meio&lt;/strong&gt; da sequência de slides (não só ao final), pequenos exercícios de checagem/acompanhamento — uma pergunta objetiva e rápida sobre o que acabou de ser apresentado, para o aluno testar se acompanhou o conteúdo em tempo real. &lt;strong&gt;No mínimo 3 desses exercícios de checagem por aula&lt;/strong&gt;, espalhados ao longo dos slides (não concentrados num só bloco). Cada um é um V/F de 4 itens (mesmo tema, mesma lógica das notas), com os 4 itens juntos em &lt;strong&gt;um único slide&lt;/strong&gt;, dentro de um &lt;code&gt;::: {.callout-tip}&lt;/code&gt; cujo título é o &lt;strong&gt;tema&lt;/strong&gt; do bloco — seguido &lt;strong&gt;imediatamente&lt;/strong&gt; (no slide seguinte) por &lt;strong&gt;um único slide de resposta&lt;/strong&gt;, com a solução dos 4 itens junta, também em caixa (&lt;code&gt;::: {.callout-tip}&lt;/code&gt;, título &amp;ldquo;&lt;em&gt;tema&lt;/em&gt; — Resposta&amp;rdquo;). Não deixar nenhum desses três para o fim da aula.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;

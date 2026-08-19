@@ -56,22 +56,78 @@ dia necessário — não foi restaurado).
 
 ## Aula 3 — Decision Trees — Greedy Partitioning
 
-- [ ] `00-plano-aula.md`
-- [ ] `01-fontes.md`
-- [ ] `02-aula.qmd`
+- [x] `00-plano-aula.md` — reescrito a pedido do usuário ("não use os
+      livros tanto assim e tente de novo"): removidas quase todas as
+      citações inline de página/equação da prosa dos blocos, deixando a
+      exposição pedagógica original e reservando citação literal só para
+      `01-fontes.md`. 6 blocos (~110–120 min).
+- [x] `01-fontes.md` — deliberadamente enxuto: só 6 fontes (vs. 10+ nas
+      Aulas 1–2), cobrindo apenas definição/fórmulas/limitações
+      essenciais do PRML §14.4 (offset +20 confirmado de novo). Inclui
+      nota de precisão sobre a inconsistência de sinal na eq. 14.32
+      (cross-entropy impressa sem o sinal negativo padrão, mas descrita
+      em prosa como tendo máximo em p=0,5 — achado nosso, não errata
+      externa confirmada). ESL segue disponível como leitura opcional,
+      não citado nesta aula.
+- [x] `02-aula.qmd` — escrito com scikit-learn (`DecisionTreeRegressor`/
+      `DecisionTreeClassifier`/`cost_complexity_pruning_path`, v1.9.0).
+      Núcleo estatístico verificado numericamente antes de escrever:
+      MLE gaussiano numa folha = média amostral (regressão); MLE
+      categórico numa folha = proporção empírica, e maximizar essa
+      log-verossimilhança ≡ minimizar a entropia (classificação);
+      contraexemplo original mostrando que a taxa de erro bruta é cega
+      a uma diferença de qualidade entre dois splits (ambos com erro
+      ponderado 0,2500) que Gini/entropia corretamente distinguem.
+      Segue o novo paradigma de aula do `CLAUDE.md` (pausas ativas como
+      pergunta-título, 3 testes V/F nos slides cada um com slide de
+      resposta separado, 3 discursivas + 12 blocos de V/F nas notas).
+      Validado com `quarto render --to html` e `--to revealjs`
+      (precisa ativar `../../.venv` antes — o kernel jupyter "python3"
+      padrão do sistema não tem numpy/sklearn instalados).
 
-Fonte adicional já disponível: `fontes/esl.pdf` (ESL) foi linkado pelo
-usuário — cobre CART com mais profundidade que o PRML §14.4 (breve).
-Ainda não decidido se ESL entra como leitura obrigatória ou só de apoio.
+## Reformulação de pedagogia (Aulas 1–3, `CLAUDE.md` atualizado em 2026-08-18)
+
+As três aulas foram reescritas (ou, no caso da Aula 3, escritas desde o
+início) dentro do novo paradigma de `CLAUDE.md`: abertura com organizador
+prévio e roteiro explícito, desenvolvimento segmentado com pausas ativas
+entre blocos, exercícios de checagem intercalados nos slides (não só ao
+final), e fechamento retomando as perguntas de abertura.
+
+- **Quotas de exercícios corrigidas:** o `CLAUDE.md` foi ajustado para
+  deixar explícito que são **12 blocos de V/F** (4 itens cada, 48 itens
+  ao todo) nas notas, não 12 itens soltos — a primeira leitura da regra
+  levou a só 3 blocos nas Aulas 1–2, corrigido depois do usuário apontar.
+- **Achado técnico recorrente (Reveal.js):** um `##` usado como título de
+  um `callout-tip` vira `<div class="callout-title">`, não um heading
+  real — por isso é invisível para o corte de slides do Reveal.js, e o
+  conteúdo gruda no slide anterior. Fix: para o bloco `revealjs`, o `##`
+  fica **fora** da caixa, como heading real; para as notas HTML, o
+  título continua dentro da caixa (cosmético, sem esse problema).
+- **Segundo achado, mais sutil, encontrado na Aula 3:** se a mesma
+  pergunta/V-ou-F aparece tanto num bloco `html-only` (título dentro da
+  caixa) quanto num bloco `revealjs`-only (título hoisted fora da caixa)
+  *sem* que o primeiro esteja explicitamente restrito a
+  `unless-format="revealjs"`, ele também é renderizado no Reveal.js —
+  criando um slide duplicado da mesma pergunta. Verificado via extração
+  de `<section id=...>` do `slides.html` renderizado (sufixos `-1`
+  automáticos do pandoc para ids repetidos foram o sinal). Fix: todo
+  bloco de pergunta/V-ou-F que existe também em versão hoisted para
+  `revealjs` precisa estar explicitamente dentro de
+  `::: {.content-visible when-format="html" unless-format="revealjs"}`,
+  nunca solto sem essa restrição.
+- Aula 1 e Aula 2 já tinham passado por essa reescrita antes da Aula 3;
+  ambas revalidadas (balanço de divs + render duplo) depois dos ajustes
+  de quotas e do fix de heading-hoisting.
 
 ## Pendências gerais
 
-- **Resolvido:** Etapa 5 feita para as Aulas 1 e 2 — `index.md` agora linka
-  `../../supervised/aula01/notas.html` (+ Slides) e
-  `../../supervised/aula02/notas.html` (+ Slides), no formato exigido pelo
-  `CLAUDE.md`, com profundidade de caminho confirmada contra um exemplo já
-  funcionando em `algebra_opt/index.md`. Trecho mostrado no chat antes de
-  aplicar.
+## Pendências gerais
+
+- **Resolvido:** Etapa 5 feita para as Aulas 1, 2 e 3 — `index.md` linka
+  `../supervised/aulaNN/notas.html` (+ Slides), um único `../` (não
+  `../../`) — path corrigido pelo usuário na Aula 3; Aulas 1–2 já
+  estavam certas com essa mesma profundidade. Trecho mostrado no chat
+  antes de aplicar, em cada caso.
 - **Resolvido:** pastas órfãs removidas — `content/teaching/supervised/aula1/`,
   `aula2/` (nomes antigos, pré-rename) e `static/supervised/aula1/`,
   `aula2/` (output antigo, incluindo um diretório `aula2/` com arquivos

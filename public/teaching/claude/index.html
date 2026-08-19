@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: August 17, 2026 --><html lang="en-us" >
+<!-- Last Published: August 19, 2026 --><html lang="en-us" >
 
 
 <head>
@@ -786,9 +786,8 @@ cada uma em sua própria subpasta na raiz (ex: <code>supervised/</code>,
 humana obrigatória em cada etapa. NUNCA pule uma etapa, NUNCA gere a
 etapa seguinte sem que o usuário tenha sinalizado aprovação explícita
 (ex: &ldquo;pode seguir&rdquo;, &ldquo;próxima etapa&rdquo;, &ldquo;ok&rdquo;).</p>
-<p>O planejamento do semestre (<code>&lt;disciplina&gt;/planejamento-semestre.md</code>) é
-FIXO. Use-o apenas como referência para identificar tema, objetivos de
-aprendizagem e carga horária de cada aula — não proponha alterações nele.</p>
+<p>O planejamento do semestre (<code>&lt;disciplina&gt;/index.md</code>) é
+FIXO. Use-o apenas como referência para identificar tema, objetivos de aprendizagem e carga horária de cada aula — não proponha alterações nele a não ser que explicitamente dito ou aprovado pelo usuário.</p>
 <hr>
 <h2 id="estrutura-de-pastas">Estrutura de pastas</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">teaching/
@@ -813,7 +812,7 @@ aprendizagem e carga horária de cada aula — não proponha alterações nele.<
 </span></span><span class="line"><span class="cl">└── ...
 </span></span></code></pre></div><p>Cada disciplina é autocontida na sua subpasta da raiz. Cada aula é uma
 subpasta própria dentro da disciplina, nomeada <code>aulaNN</code> (<code>aula01</code>,
-<code>aula02</code>, &hellip;). O arquivo index.md tem o planejamento do semestre em md (formatado para hugo).</p>
+<code>aula02</code>, &hellip;).</p>
 <hr>
 <h2 id="etapa-0--identificar-a-disciplina-obrigatória-toda-sessão">Etapa 0 — Identificar a disciplina (OBRIGATÓRIA, toda sessão)</h2>
 <p>Antes de ler, editar ou gerar qualquer arquivo, é preciso saber em qual
@@ -833,6 +832,66 @@ a disciplina — não perguntar.</li>
 <p>Todos os caminhos de arquivo nas etapas abaixo (<code>index.md</code>,
 <code>fontes/</code>, <code>aulaNN/</code>, <code>progresso.md</code>) são relativos à subpasta da
 disciplina identificada nesta etapa, não à raiz <code>teaching/</code>.</p>
+<hr>
+<h2 id="estrutura-da-aula">Estrutura da aula</h2>
+<h3 id="estrutura-macro-o-esqueleto-da-aula">Estrutura macro (o &ldquo;esqueleto&rdquo; da aula)</h3>
+<p>A espinha dorsal mais robusta é a de três movimentos:</p>
+<p><strong>1. Abertura (5–10 min)</strong> — o objetivo é criar o &ldquo;gancho&rdquo; cognitivo:</p>
+<ul>
+<li><strong>Organizador prévio</strong> (Ausubel): uma ideia-ponte que conecta o novo conteúdo ao que já se sabe. Ex.: antes de modelos generativos, retomar &ldquo;estimar densidade&rdquo; como algo já visto em detecção de anomalias.</li>
+<li><strong>Roteiro explícito</strong>: dizer as 3–4 perguntas que a aula vai responder. Isso reduz carga cognitiva extrínseca porque o aluno para de gastar memória de trabalho tentando adivinhar para onde vai.</li>
+<li><strong>Problema motivador</strong> antes do formalismo, não depois.</li>
+</ul>
+<p><strong>2. Desenvolvimento (segmentado)</strong> — o ponto crítico: não é um bloco contínuo.</p>
+<ul>
+<li><strong>Segmentação em blocos de 10–15 min</strong>, cada um com um único &ldquo;ponto de aterrissagem&rdquo;. A atenção sustentada em exposição passiva degrada rapidamente; o corte periódico reinicia o ciclo.</li>
+<li><strong>Pausas ativas</strong> entre blocos: 1–2 min para o aluno escrever a ideia central com suas palavras, comparar com o colega, ou responder uma pergunta de checagem. É o intervalo que consolida, não a exposição. Apresentar como uma <strong>pergunta direta</strong>, sem rótulo genérico tipo &ldquo;Pausa ativa&rdquo; antes dela — o título do <code>callout-tip</code> é a própria pergunta:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">::: {.callout-tip}
+</span></span><span class="line"><span class="cl">## Por que o corte &#34;no cruzamento das curvas&#34; está errado, e o que falta entrar na conta?
+</span></span><span class="line"><span class="cl">:::
+</span></span></code></pre></div><strong>Nunca</strong> colocar um título de slide separado <em>fora</em> da caixa antes do <code>callout-tip</code> (nem nas notas, nem nos slides) — isso cria um slide extra e vazio de conteúdo entre o bloco anterior e a pergunta. O título do próprio <code>callout-tip</code> já é o único título do slide; a pergunta (ou o V/F) e sua resposta devem ficar cada um em seu próprio slide <strong>separado</strong>, sem nenhum slide genérico &ldquo;Pergunta&rdquo;/&ldquo;Resposta&rdquo; no meio.</li>
+<li><strong>Sinalização verbal</strong>: &ldquo;isto é o resultado central&rdquo;, &ldquo;esta hipótese é a que vamos relaxar depois&rdquo;. Marcadores explícitos de hierarquia evitam que tudo pareça igualmente importante.</li>
+</ul>
+<p><strong>3. Fechamento (5 min)</strong> — quase sempre o mais sacrificado e o mais valioso:</p>
+<ul>
+<li>Retomar as perguntas da abertura e responder cada uma em uma frase.</li>
+<li>Nomear explicitamente o que ficou em aberto e o que vem na próxima aula.</li>
+</ul>
+<h3 id="técnicas-de-nível-micro">Técnicas de nível micro</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Técnica</th>
+					<th>Para que serve</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Exemplo resolvido (worked example)</strong> antes de exercício</td>
+					<td>Reduz carga cognitiva em conteúdo novo; a ordem inversa só funciona com alunos já proficientes</td>
+			</tr>
+			<tr>
+					<td><strong>Contraexemplo deliberado</strong></td>
+					<td>Delimita a fronteira do conceito. &ldquo;Onde este método falha?&rdquo; ensina mais que três casos de sucesso</td>
+			</tr>
+			<tr>
+					<td><strong>Duplo registro</strong> (intuição → formalismo → volta à intuição)</td>
+					<td>Evita que a derivação matemática se torne um fim em si</td>
+			</tr>
+			<tr>
+					<td><strong>Perguntas de diagnóstico</strong> com alternativas plausíveis erradas</td>
+					<td>Revela concepções equivocadas; funciona melhor que &ldquo;alguma dúvida?&rdquo;, que quase nunca produz resposta</td>
+			</tr>
+			<tr>
+					<td><strong>Princípio da redundância</strong> (Mayer)</td>
+					<td>Não ler o slide em voz alta — texto e narração idênticos competem pelo mesmo canal. Slide com pouco texto + fala elaborando</td>
+			</tr>
+			<tr>
+					<td><strong>Explicitar a estrutura argumentativa</strong></td>
+					<td>&ldquo;Vou fazer três suposições; a terceira é frágil e vou atacá-la no fim&rdquo;</td>
+			</tr>
+	</tbody>
+</table>
 <hr>
 <h2 id="formato-do-arquivo-de-aula">Formato do arquivo de aula</h2>
 <p>Cada aula é um <strong>único arquivo <code>.qmd</code></strong>, não um par separado de slides
@@ -870,9 +929,8 @@ literal de outra fonte. Termos técnicos sem tradução direta e estável
 (ex.: <em>prima facie</em>, em latim) podem ficar no original, com uma
 explicação ao lado na primeira aparição.</li>
 </ul>
-<p>Código Python (ou R) é embutido nos mesmos chunks, gerando as figuras
-que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do
-arquivo de referência em <code>fontes/exemplos-estilo/</code>:</p>
+<p>Código Python é embutido nos mesmos chunks, gerando as figuras
+que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do arquivo de referência em <code>fontes/exemplos-estilo/</code>:</p>
 <ul>
 <li>Um único bloco de <strong>setup global</strong> no topo (imports, seed do RNG,
 paleta de cores fixa reutilizada em toda a aula, funções auxiliares).</li>
@@ -894,50 +952,16 @@ Etapa 5. Definir isso explicitamente no YAML do <code>.qmd</code> com
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">output-file</span><span class="p">:</span><span class="w"> </span><span class="l">notas.html</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">revealjs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">output-file</span><span class="p">:</span><span class="w"> </span><span class="l">slides.html</span><span class="w">
-</span></span></span></code></pre></div><h2 id="preview-local-da-aula">Preview local da aula</h2>
-<p>Para visualizar a aula renderizada durante a edição, sem abrir
-navegador automaticamente e num processo isolado por porta (útil para
-ter várias aulas em preview simultâneo), usar:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run quarto preview &lt;disciplina&gt;/aulaNN/02-aula.qmd --to html --port <span class="m">4200</span> --no-browser
-</span></span></code></pre></div><p>Ajustar <code>--to</code> para <code>revealjs</code> ao querer visualizar a versão de
-slides, e <code>--port</code> para evitar conflito quando houver mais de um
-preview aberto ao mesmo tempo (ex: <code>4200</code> para a aula em edição,
-<code>4201</code> para uma aula anterior aberta para comparação).</p>
-<h2 id="sugestão-de-fluxogramas-e-diagramas">Sugestão de fluxogramas e diagramas</h2>
-<p>Ao montar o bloco, se o conteúdo tiver estrutura sequencial, uma árvore
-de decisão, um processo com ramificações, ou uma comparação de
-caminhos alternativos (ex: &ldquo;três saídas honestas para um problema&rdquo;),
-<strong>proponha um diagrama Mermaid</strong> (<code>```{mermaid}</code> ), sem esperar o
-usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos
-dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver
-claro que o diagrama ajuda mais do que texto.</p>
+</span></span></span></code></pre></div><h2 id="sugestão-de-fluxogramas-e-diagramas">Sugestão de fluxogramas e diagramas</h2>
+<p>Ao montar o bloco, se o conteúdo tiver estrutura sequencial, uma árvore de decisão, um processo com ramificações, ou uma comparação de caminhos alternativos (ex: &ldquo;três saídas honestas para um problema&rdquo;), <strong>proponha um diagrama Mermaid</strong> (<code>```{mermaid}</code> ), sem esperar o usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver claro que o diagrama ajuda mais do que texto.</p>
 <h2 id="exercícios-obrigatório-em-toda-aula">Exercícios (obrigatório em toda aula)</h2>
-<p>Toda aula precisa de exercícios — em dois formatos distintos, um por
-saída, que não devem ser confundidos entre si:</p>
+<p>Toda aula precisa de exercícios — em dois formatos distintos, um por saída, que não devem ser confundidos entre si:</p>
 <ul>
 <li>
-<p><strong>Notas (HTML):</strong> terminar o arquivo com uma seção de <strong>Exercícios</strong>
-(dentro do bloco <code>content-visible</code> exclusivo de HTML), com algumas
-questões que exercitem o conteúdo da aula como um todo. Pode
-reaproveitar questões de fim de capítulo das próprias fontes
-bibliográficas (citando de onde vieram, como já se faz com trechos
-citados) ou propor questões originais — nesse caso, sinalizar que são
-originais, não da fonte. Ficam sem solução no arquivo (é trabalho para
-o aluno resolver por conta, fora da aula).</p>
+<p><strong>Notas (HTML):</strong> terminar o arquivo com uma seção de <strong>Exercícios</strong> (dentro do bloco <code>content-visible</code> exclusivo de HTML), com <strong>exatamente 3 questões discursivas/conceituais</strong> e <strong>12 questões de V/F</strong> (não 12 itens — <strong>12 blocos de 4 itens cada</strong>, ou seja, 48 itens ao todo, cada bloco num tema diferente da aula, cobrindo o conteúdo da aula de ponta a ponta) — quotas fixas, por aula. Pode reaproveitar questões de fim de capítulo das próprias fontes bibliográficas (citando de onde vieram, como já se faz com trechos citados) ou propor questões originais — nesse caso, sinalizar que são originais, não da fonte. Ficam sem solução no arquivo (é trabalho para o aluno resolver por conta, fora da aula). Cada questão de V/F tem 4 itens do mesmo tema, e só é considerada correta se todos os 4 forem acertados (na avaliação, o aluno pode deixar a questão em branco com punição de 20% da nota da questão). Cada uma das 12 questões (os 4 itens de um mesmo tema) fica dentro de um <code>::: {.callout-tip}</code> cujo título é o <strong>tema</strong> daquela questão (não um rótulo genérico) — deixa explícito que aquilo é uma unidade de questão.</p>
 </li>
 <li>
-<p><strong>Slides (RevealJS):</strong> intercalar, <strong>no meio</strong> da sequência de slides
-(não só ao final), pequenos exercícios de checagem/acompanhamento —
-uma pergunta objetiva e rápida sobre o que acabou de ser apresentado,
-para o aluno testar se acompanhou o conteúdo em tempo real. Cada
-exercício desses deve ser seguido <strong>imediatamente</strong> (no slide
-seguinte) pela solução/resposta discutida — não deixar para o fim da
-aula. Isso é diferente das &ldquo;provocações&rdquo; de fim de subseção já
-praticadas em aulas anteriores (perguntas abertas, para discussão em
-sala, sem resposta fechada no arquivo): exercícios de checagem têm
-resposta objetiva, aparecem espalhados ao longo dos slides (não
-concentrados num só lugar), e resolvem-se ali mesmo, no slide
-seguinte.</p>
+<p><strong>Slides (RevealJS):</strong> intercalar, <strong>no meio</strong> da sequência de slides (não só ao final), pequenos exercícios de checagem/acompanhamento — uma pergunta objetiva e rápida sobre o que acabou de ser apresentado, para o aluno testar se acompanhou o conteúdo em tempo real. <strong>No mínimo 3 desses exercícios de checagem por aula</strong>, espalhados ao longo dos slides (não concentrados num só bloco). Cada um é um V/F de 4 itens (mesmo tema, mesma lógica das notas), com os 4 itens juntos em <strong>um único slide</strong>, dentro de um <code>::: {.callout-tip}</code> cujo título é o <strong>tema</strong> do bloco — seguido <strong>imediatamente</strong> (no slide seguinte) por <strong>um único slide de resposta</strong>, com a solução dos 4 itens junta, também em caixa (<code>::: {.callout-tip}</code>, título &ldquo;<em>tema</em> — Resposta&rdquo;). Não deixar nenhum desses três para o fim da aula.</p>
 </li>
 </ul>
 <hr>
