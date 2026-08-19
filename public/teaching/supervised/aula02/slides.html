@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8c26d432394c45b47640ac4edfcb49a3.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-001457c4c9e0e018bea41a9dd3feb500.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -179,7 +179,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <p>Já havendo estimado os dados. Duas chamadas ao gerador aleatório, na ordem. Um modelo assim se chama <strong>generativo</strong> porque dele se pode <em>gerar</em>.</p>
 </div>
 
-<img data-src="02-aula_files/figure-html/cell-3-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-revealjs/cell-3-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="modelos-generativos-discriminativos-e-ia-generativa" class="slide level2">
 <h2>Modelos Generativos, Discriminativos e IA Generativa</h2>
 <p>Regressão logística (Aula 6) modela <span class="math inline">\(p(\mathcal{C}_k\mid\mathbf{x})\)</span> <strong>direto</strong> — nunca constrói <span class="math inline">\(p(\mathbf{x}\mid\mathcal{C}_k)\)</span>.</p>
@@ -229,29 +229,16 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <div class="fragment">
 <p>Mudou a <strong>família de distribuições</strong>, não o conceito. E precisa de bilhões de parâmetros porque <span class="math inline">\(\mathbf{x}\)</span> tem dimensão altíssima — o problema do histograma, de novo.</p>
 </div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?</strong></p>
-</div>
-<div class="callout-content">
-<p>Uma frase. Compare com um colega antes de avançar (2 min).</p>
-</div>
-</div>
-</div>
 </section>
-<section id="bayes-para-k-classes-e-modelos-generativos" class="slide level2 scrollable">
-<h2>Bayes para <span class="math inline">\(K\)</span> classes e modelos generativos</h2>
+<section id="pergunta" class="slide level2 scrollable">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Bayes para <span class="math inline">\(K\)</span> classes e modelos generativos</strong></p>
 </div>
 <div class="callout-content">
 <p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
@@ -265,15 +252,15 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 </section>
-<section id="bayes-para-k-classes-e-modelos-generativos-resposta" class="slide level2 scrollable">
-<h2>Bayes para <span class="math inline">\(K\)</span> classes e modelos generativos — Resposta</h2>
+<section id="resposta" class="slide level2 scrollable">
+<h2>Resposta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Bayes para <span class="math inline">\(K\)</span> classes e modelos generativos — Resposta</strong></p>
 </div>
 <div class="callout-content">
 <ol type="a">
@@ -286,15 +273,15 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 </section>
-<section id="o-que-muda-entre-um-modelo-generativo-gaussiano-de-5-parâmetros-e-uma-ia-generativa-moderna-com-bilhões-o-conceito-ou-só-a-família-de-distribuições-1" class="slide level2">
-<h2>O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?</h2>
+<section id="pergunta-1" class="slide level2">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?</strong></p>
 </div>
 <div class="callout-content">
 <div class="fragment">
@@ -402,29 +389,16 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </ul>
 </div>
 
-<img data-src="02-aula_files/figure-html/cell-4-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"><div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Por que “faltam dados” para estimar <span class="math inline">\(p(\mathbf{x}\mid\mathcal{C}_k)\)</span> em alta dimensão é diferente de “falta poder computacional”?</strong></p>
-</div>
-<div class="callout-content">
-<p>Explique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="faltam-dados-é-o-mesmo-problema-que-falta-poder-computacional" class="slide level2">
-<h2>“Faltam dados” é o mesmo problema que “falta poder computacional”?</h2>
+<img data-src="02-aula_files/figure-revealjs/cell-4-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<section id="pergunta-2" class="slide level2">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>“Faltam dados” é o mesmo problema que “falta poder computacional”?</strong></p>
 </div>
 <div class="callout-content">
 <p>Comprar 100× mais GPUs resolveria?</p>
@@ -475,7 +449,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </div></div>
 </div>
 
-<img data-src="02-aula_files/figure-html/cell-5-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-revealjs/cell-5-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="bayes-sob-independência-condicional" class="slide level2 scrollable">
 <h2>Bayes sob independência condicional</h2>
 <p><span class="math display">\[ p(\mathbf{x}\mid\mathcal{C}_k) = \prod_{i=1}^{d} p(x_i\mid\mathcal{C}_k) \]</span></p>
@@ -499,7 +473,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 <p><strong>Naive Bayes</strong> — independência condicional dada a classe: <span class="math display">\[ p(\mathbf{x}\mid\mathcal{C}_k) = \prod_{i=1}^d p(x_i\mid\mathcal{C}_k) \]</span></p>
 </div>
 
-<img data-src="02-aula_files/figure-html/cell-6-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-revealjs/cell-6-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="inferencia-em-naive-bayes" class="slide level2">
 <h2>Inferencia em Naive Bayes</h2>
 <div class="cell" data-reveal="true" data-layout-align="center">
@@ -519,7 +493,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </div>
 </div>
 
-<img data-src="02-aula_files/figure-html/cell-7-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"><div class="fragment">
+<img data-src="02-aula_files/figure-revealjs/cell-7-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"><div class="fragment">
 <p><strong>Mesma armadilha da Aula 1:</strong> palavra nunca vista numa classe <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\hat\theta=0 \Rightarrow \ln 0 = -\infty\)</span>. Correção: suavização de Laplace (<span class="math inline">\(+1\)</span> no numerador, <span class="math inline">\(+2\)</span> no denominador).</p>
 </div>
 <div class="fragment">
@@ -604,29 +578,16 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 <div class="fragment">
 <p>Famílias <strong>diferentes por coluna</strong> são permitidas — idade, estado civil e “tem cartão” convivem. O passo 3 soma os logs indiferentemente.</p>
 </div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável</strong></p>
-</div>
-<div class="callout-content">
-<p>Escreva os dois exemplos, num problema que você conheça.</p>
-</div>
-</div>
-</div>
 </section>
-<section id="independência-e-naive-bayes-1" class="slide level2 scrollable">
-<h2>Independência e Naive Bayes</h2>
+<section id="pergunta-3" class="slide level2 scrollable">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Independência e Naive Bayes</strong></p>
 </div>
 <div class="callout-content">
 <p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
@@ -641,15 +602,15 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </div>
 </div>
 </section>
-<section id="independência-e-naive-bayes-resposta" class="slide level2 scrollable">
-<h2>Independência e Naive Bayes — Resposta</h2>
+<section id="resposta-1" class="slide level2 scrollable">
+<h2>Resposta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Independência e Naive Bayes — Resposta</strong></p>
 </div>
 <div class="callout-content">
 <ol type="a">
@@ -662,15 +623,15 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </div>
 </div>
 </section>
-<section id="dê-um-exemplo-de-par-de-atributos-em-que-a-independência-condicional-do-naive-bayes-parece-particularmente-errada-e-outro-em-que-parece-razoável-1" class="slide level2">
-<h2>Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável</h2>
+<section id="pergunta-4" class="slide level2">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável</strong></p>
 </div>
 <div class="callout-content">
 <div class="fragment">
@@ -720,7 +681,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </blockquote>
 </div>
 
-<img data-src="02-aula_files/figure-html/cell-8-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-revealjs/cell-8-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="escolher-custo-escolher-qual-erro-cometer" class="slide level2">
 <h2>Escolher custo = escolher qual erro cometer</h2>
 <p>Nenhum limiar reduz os dois erros ao mesmo tempo.</p>
@@ -761,7 +722,7 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 <p>Difícil fixar? Reporte o sistema para toda a faixa de <span class="math inline">\(t\)</span> e deixe a escolha explícita.</p>
 </div>
 
-<img data-src="02-aula_files/figure-html/cell-9-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="02-aula_files/figure-revealjs/cell-9-output-1.svg" class="img-fluid quarto-figure quarto-figure-center r-stretch"></section>
 <section id="risco-de-bayes" class="slide level2">
 <h2>Risco de Bayes</h2>
 <p><span class="math display">\[ R^\star = \mathbb{E}_{\mathbf{X}}\!\left[\min_{a} \rho(a\mid\mathbf{X})\right] \]</span></p>
@@ -776,15 +737,15 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 <p>E a lacuna aparece justamente quando os custos ficam assimétricos: aí o limiar sai de <span class="math inline">\(0{,}5\)</span> e passa a depender do <strong>valor</strong> da posteriori.</p>
 </div>
 </section>
-<section id="teoria-da-decisão-e-risco-de-bayes" class="slide level2 scrollable">
-<h2>Teoria da decisão e risco de Bayes</h2>
+<section id="pergunta-5" class="slide level2 scrollable">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Teoria da decisão e risco de Bayes</strong></p>
 </div>
 <div class="callout-content">
 <p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
@@ -798,15 +759,15 @@ p(\mathcal{C}_k\mid x) = \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\math
 </div>
 </div>
 </section>
-<section id="teoria-da-decisão-e-risco-de-bayes-resposta" class="slide level2 scrollable">
-<h2>Teoria da decisão e risco de Bayes — Resposta</h2>
+<section id="resposta-2" class="slide level2 scrollable">
+<h2>Resposta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Teoria da decisão e risco de Bayes — Resposta</strong></p>
 </div>
 <div class="callout-content">
 <ol type="a">

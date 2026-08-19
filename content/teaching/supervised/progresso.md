@@ -119,6 +119,39 @@ final), e fechamento retomando as perguntas de abertura.
   ambas revalidadas (balanço de divs + render duplo) depois dos ajustes
   de quotas e do fix de heading-hoisting.
 
+**Correção de padrão de slide em 2026-08-19** (aplicada às Aulas 1, 2 e
+3, seguindo a mesma correção já feita em `unsupervised` e `algebra_opt`):
+as pausas ativas e os testes V/F nos slides RevealJS usavam a
+pergunta/tema inteiro como título real do slide, com a caixa
+`callout-tip` carregando só uma dica curta (ou, nos testes V/F, um
+título "— Resposta" repetido). O padrão correto, confirmado pelo
+usuário e documentado no `CLAUDE.md`, usa o rótulo genérico `Pergunta`
+(e `Resposta` no slide seguinte) como título real do slide, com a
+pergunta/tema específico como título do `callout-tip` dentro da caixa.
+Corrigidas 8 instâncias na Aula 1, 9 na Aula 2 e 13 na Aula 3 (30 no
+total), via um script Python que localiza, por rastreamento de
+aninhamento de divs, cada `callout-tip` dentro de um bloco
+`revealjs`-only sem heading interno, e faz a transformação de forma
+determinística — verificado antes num arquivo de teste, não direto nos
+originais.
+
+Um segundo bug, mais sério, apareceu no caminho: as Aulas 1 e 2 tinham
+3 `callout-tip` cada (das *pausas ativas* mais antigas dessas aulas,
+escritas antes mesmo da convenção `Pergunta`/`Resposta` existir) que
+não estavam restritos a `unless-format="revealjs"` — ou seja,
+renderizavam em **todos** os formatos, inclusive no RevealJS, onde já
+havia uma versão dedicada da mesma pergunta. Isso duplicava a pausa
+ativa no RevealJS (mesmo bug de fundo já visto antes na Aula 3, mas
+não pego nas Aulas 1–2 porque elas foram escritas antes desse
+achado). Corrigido envolvendo essas 6 caixas em
+`::: {.content-visible when-format="html" unless-format="revealjs"}`.
+
+Revalidado com `quarto render --to html` e `--to revealjs` nas três
+aulas; confirmado via extração de `<section id=...>` dos `slides.html`
+renderizados que todo slide `Pergunta` tem sua caixa logo abaixo, e
+que os V/F têm o `Resposta` correspondente imediatamente depois — sem
+nenhum id de slide duplicado ou vazio.
+
 ## Pendências gerais
 
 ## Pendências gerais

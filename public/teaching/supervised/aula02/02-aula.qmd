@@ -357,17 +357,21 @@ histograma, de novo.
 :::
 :::
 
+::: {.content-visible when-format="html" unless-format="revealjs"}
 ::: {.callout-tip}
 ## O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?
 
 Uma frase. Compare com um colega antes de avançar (2 min).
 :::
+:::
 
 ::: {.content-visible when-format="revealjs"}
 
-## Bayes para $K$ classes e modelos generativos
+## Pergunta
 
 ::: {.callout-tip}
+## Bayes para $K$ classes e modelos generativos
+
 Julgue V ou F — a questão só conta se acertar os 4 itens:
 
 a. A regra "decida pela conjunta maior" só vale para $K=2$ classes; para
@@ -385,9 +389,11 @@ d. Trocar a família de distribuições usada (gaussiana por uma rede
 
 ::: {.content-visible when-format="revealjs"}
 
-## Bayes para $K$ classes e modelos generativos — Resposta
+## Resposta
 
 ::: {.callout-tip}
+## Bayes para $K$ classes e modelos generativos — Resposta
+
 
 a. **Falso** — a prova da Aula 1 nunca usou $K=2$ como hipótese; ela
    generaliza sem atrito.
@@ -402,9 +408,11 @@ d. **Falso** — muda só a família de distribuições; o conceito (gerar a
 
 ::: {.content-visible when-format="revealjs"}
 
-## O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?
+## Pergunta
 
 ::: {.callout-tip}
+## O que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?
+
 ::: {.fragment}
 *(Uma frase. Compare com um colega antes de avançar.)*
 :::
@@ -591,18 +599,22 @@ plt.tight_layout()
 plt.show()
 ```
 
+::: {.content-visible when-format="html" unless-format="revealjs"}
 ::: {.callout-tip}
 ## Por que "faltam dados" para estimar $p(\mathbf{x}\mid\mathcal{C}_k)$ em alta dimensão é diferente de "falta poder computacional"?
 
 Explique a um colega em uma frase. Se comprássemos 100× mais GPUs, o
 problema desapareceria?
 :::
+:::
 
 ::: {.content-visible when-format="revealjs"}
 
-## "Faltam dados" é o mesmo problema que "falta poder computacional"?
+## Pergunta
 
 ::: {.callout-tip}
+## "Faltam dados" é o mesmo problema que "falta poder computacional"?
+
 Comprar 100× mais GPUs resolveria?
 
 ::: {.fragment}
@@ -1098,17 +1110,21 @@ Famílias **diferentes por coluna** são permitidas — idade, estado civil e
 
 :::
 
+::: {.content-visible when-format="html" unless-format="revealjs"}
 ::: {.callout-tip}
 ## Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável
 
 Escreva os dois exemplos, num problema que você conheça.
 :::
+:::
 
 ::: {.content-visible when-format="revealjs"}
 
-## Independência e Naive Bayes
+## Pergunta
 
 ::: {.callout-tip}
+## Independência e Naive Bayes
+
 Julgue V ou F — a questão só conta se acertar os 4 itens:
 
 a. Independência (não condicional) entre $X_1$ e $X_2$ significa que
@@ -1126,9 +1142,11 @@ d. Um zero em qualquer atributo categórico pode fazer o score de uma
 
 ::: {.content-visible when-format="revealjs"}
 
-## Independência e Naive Bayes — Resposta
+## Resposta
 
 ::: {.callout-tip}
+## Independência e Naive Bayes — Resposta
+
 a. **Verdadeiro** — é a própria definição de independência.
 b. **Falso** — as duas noções são diferentes; independência condicional
    dada a classe pode conviver com forte dependência marginal entre
@@ -1142,9 +1160,11 @@ d. **Verdadeiro** — $\log 0 = -\infty$ na soma dos logs; corrigido com
 
 ::: {.content-visible when-format="revealjs"}
 
-## Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável
+## Pergunta
 
 ::: {.callout-tip}
+## Dê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável
+
 ::: {.fragment}
 *(Compare os dois exemplos com um colega.)*
 :::
@@ -1499,9 +1519,11 @@ limiar sai de $0{,}5$ e passa a depender do **valor** da posteriori.
 
 ::: {.content-visible when-format="revealjs"}
 
-## Teoria da decisão e risco de Bayes
+## Pergunta
 
 ::: {.callout-tip}
+## Teoria da decisão e risco de Bayes
+
 Julgue V ou F — a questão só conta se acertar os 4 itens:
 
 a. O risco posterior $\rho(a\mid\mathbf{x})$ é uma média das perdas
@@ -1518,9 +1540,11 @@ d. O risco de Bayes $R^\star$ mede o quão bem o modelo $p(\mathbf{x},\mathcal{C
 
 ::: {.content-visible when-format="revealjs"}
 
-## Teoria da decisão e risco de Bayes — Resposta
+## Resposta
 
 ::: {.callout-tip}
+## Teoria da decisão e risco de Bayes — Resposta
+
 a. **Verdadeiro** — é exatamente a definição de risco posterior.
 b. **Verdadeiro** — com perda 0-1, minimizar o risco posterior é
    escolher a classe de maior posteriori.

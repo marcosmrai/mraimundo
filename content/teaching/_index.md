@@ -26,7 +26,7 @@ sections:
     content:
       title: Lastest Courses
       text: ""
-      count: 3
+      count: 4
       depth: 1
       filters:
         folders:

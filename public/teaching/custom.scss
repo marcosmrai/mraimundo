@@ -8,7 +8,7 @@ $selection-bg: rgb(255, 94, 0);       // Bright Orange
 
 // Tipografia e Tamanho de Fonte
 $font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$presentation-font-size-root: 40px;   // Reduz o tamanho base da fonte (padrão é 40px)
+$presentation-font-size-root: 30px;   // Reduz o tamanho base da fonte (padrão é 40px)
 $heading-color: rgb(0, 133, 202);     // Process Blue para títulos
 $code-color: rgb(255, 94, 0);         // Bright Orange para código inline
 
@@ -102,6 +102,17 @@ a:hover {
     &:hover {
       color: rgb(255, 94, 0) !important;
       transform: translateX(-3px);
+    }
+  }
+
+  .reveal .mermaid {
+  width: 100%;
+
+    svg {
+      display: block !important;
+      margin: 0 auto !important; /* Sobrescreve as margens inline do Mermaid e centraliza no slide */
+      max-width: 100% !important;
+      height: auto !important;
     }
   }
 }

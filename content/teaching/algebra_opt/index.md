@@ -46,7 +46,7 @@ The primary goal is to provide students with a deep geometric and analytical und
 
 ### Part 1: Data-Driven Linear Algebra
 
-* **[Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics](../../algebra_opt/aula01/notas.html)** ([Slides](../../algebra_opt/aula01/slides.html))
+* **[Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics](../algebra_opt/aula01/notas.html)** ([Slides](../algebra_opt/aula01/slides.html))
   * **ML Concept:** Distance-based similarity and spatial modeling in $k$-Nearest Neighbors ($k$-NN).
   * **Mathematical Concept:** Vector spaces, inner products, and vector/matrix norms ($L_1$, $L_2$, $L_\infty$). Geometric interpretation of similarity through inner products and cosine distance.
   * **Objectives:** Understand how structured data points are represented geometrically and how distance choices impact metric-based learning algorithms.

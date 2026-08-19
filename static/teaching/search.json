@@ -893,14 +893,14 @@
     "href": "unsupervised/aula01/notas.html#do-limiar-fixo-ao-escore-contínuo",
     "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
     "section": "6.1 Do limiar fixo ao escore contínuo",
-    "text": "6.1 Do limiar fixo ao escore contínuo\nSe \\(\\mathbf{x}\\sim\\mathcal{N}(\\boldsymbol\\mu,\\Sigma)\\), então \\(D_M(\\mathbf{x})^2 \\sim \\chi^2_d\\) — soma de \\(d\\) quadrados de normais padrão independentes, que é a própria definição da qui-quadrado. (Este resultado é estatística multivariada clássica; não está em PRML ou DLFC — verificação: \\(\\mathbf{Y}=\\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu)\\sim\\mathcal{N}(0,I_d)\\), logo \\(\\mathbf{Y}^T\\mathbf{Y}=\\sum_i Y_i^2 = D_M(\\mathbf{X})^2 \\sim \\chi^2_d\\) por definição.)\nEm vez de só “dentro/fora” de um limiar fixo, isso permite definir o escore de anomalia como um \\(p\\)-valor:\n\\[\np(\\mathbf{x}) = P\\big(D_M(\\mathbf{X}')^2 \\ge D_M(\\mathbf{x})^2 \\mid \\mathbf{X}'\\sim\\mathcal{N}(\\hat{\\boldsymbol\\mu},\\hat\\Sigma)\\big)\n= 1 - F_{\\chi^2_d}\\big(D_M(\\mathbf{x})^2\\big),\n\\]\nliteralmente: qual a probabilidade de um ponto do modelo ajustado ser tão extremo, ou mais, quanto \\(\\mathbf{x}\\). O limiar fixo é o caso particular \\(p(\\mathbf{x}) &lt; \\alpha\\); o \\(p\\)-valor ordena todos os pontos por quão surpreendentes eles são, em vez de só separá-los em duas caixas.\n\n\n\n\n\n\nAvisoArmadilha de interpretação\n\n\n\n\\(p(\\mathbf{x})\\) pequeno não significa “probabilidade de \\(\\mathbf{x}\\) pertencer à distribuição verdadeira”. Significa “probabilidade de um ponto do modelo ajustado ser tão extremo quanto \\(\\mathbf{x}\\)”. É uma afirmação sobre o modelo, condicional a ele estar certo — não é uma afirmação sobre a origem de \\(\\mathbf{x}\\). Se o modelo estiver errado (Bloco 7), o \\(p\\)-valor também estará."
+    "text": "6.1 Do limiar fixo ao escore contínuo\nAntes de definir o escore, vale entender por que a distância de Mahalanobis ao quadrado tem uma distribuição exata e conhecida quando o modelo está certo — é esse fato, não uma convenção arbitrária, que transforma o próximo passo (o \\(p\\)-valor) numa afirmação probabilística rigorosa.\nIntuição primeiro. A ideia é “desfazer” a elipse. Se existisse uma transformação que tomasse os dados gaussianos correlacionados e os devolvesse como uma nuvem esférica — sem correlação, variância \\(1\\) em toda direção —, a distância de Mahalanobis nessa nuvem esférica seria simplesmente a distância Euclidiana ao quadrado até o centro. E a distância Euclidiana ao quadrado de um ponto gaussiano padrão \\(d\\)-dimensional até a origem é, por definição, uma soma de \\(d\\) quadrados de normais padrão independentes — exatamente uma qui-quadrado com \\(d\\) graus de liberdade. O resto é só confirmar que essa transformação “desfazedora” existe e formalizar a conta.\nAgora formalmente. Seja \\(\\mathbf{X}\\sim\\mathcal{N}(\\boldsymbol\\mu,\\Sigma)\\). Como \\(\\Sigma\\) é simétrica e positiva definida, ela tem uma raiz quadrada matricial \\(\\Sigma^{1/2}\\) (via decomposição espectral) e uma inversa \\(\\Sigma^{-1/2}\\). Defina a variável branqueada \\[\n\\mathbf{Y} = \\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu).\n\\] Por ser uma transformação linear de um vetor gaussiano, \\(\\mathbf{Y}\\) também é gaussiano — só falta achar sua média e covariância: \\[\n\\mathbb{E}[\\mathbf{Y}] = \\Sigma^{-1/2}\\,\\mathbb{E}[\\mathbf{X}-\\boldsymbol\\mu] = \\mathbf{0},\n\\qquad\n\\text{Cov}(\\mathbf{Y}) = \\Sigma^{-1/2}\\,\\Sigma\\,\\Sigma^{-1/2}\n= \\Sigma^{-1/2}\\Sigma^{1/2}\\Sigma^{1/2}\\Sigma^{-1/2} = I_d.\n\\] Ou seja, \\(\\mathbf{Y}\\sim\\mathcal{N}(\\mathbf{0},I_d)\\): as \\(d\\) coordenadas de \\(\\mathbf{Y}\\) são normais padrão independentes entre si — para vetores gaussianos (só para eles), covariância zero já implica independência. Por definição, a soma dos quadrados de \\(d\\) normais padrão independentes é uma qui-quadrado com \\(d\\) graus de liberdade: \\[\n\\mathbf{Y}^T\\mathbf{Y} = \\sum_{i=1}^d Y_i^2 \\;\\sim\\; \\chi^2_d.\n\\] Falta uma última peça: mostrar que \\(\\mathbf{Y}^T\\mathbf{Y}\\) é, literalmente, a distância de Mahalanobis ao quadrado. \\[\n\\mathbf{Y}^T\\mathbf{Y}\n= \\big[\\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu)\\big]^T\\big[\\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu)\\big]\n= (\\mathbf{X}-\\boldsymbol\\mu)^T\\Sigma^{-1/2}\\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu)\n= (\\mathbf{X}-\\boldsymbol\\mu)^T\\Sigma^{-1}(\\mathbf{X}-\\boldsymbol\\mu)\n= D_M(\\mathbf{X})^2.\n\\] Logo \\(D_M(\\mathbf{X})^2 = \\mathbf{Y}^T\\mathbf{Y} \\sim \\chi^2_d\\). Este resultado é estatística multivariada clássica — não está no PRML nem no DLFC —, mas a conta acima é uma prova completa, não um apelo à autoridade; a verificação numérica logo abaixo confirma que ela bate com a prática, não só com a álgebra.\n\n\n\n\n\n\n\n\n\nO histograma simulado acompanha a curva teórica \\(\\chi^2_d\\) de perto — a prova algébrica acima e a simulação contam a mesma história por caminhos diferentes.\nEm vez de só “dentro/fora” de um limiar fixo, isso permite definir o escore de anomalia como um \\(p\\)-valor:\n\\[\np(\\mathbf{x}) = P\\big(D_M(\\mathbf{X}')^2 \\ge D_M(\\mathbf{x})^2 \\mid \\mathbf{X}'\\sim\\mathcal{N}(\\hat{\\boldsymbol\\mu},\\hat\\Sigma)\\big)\n= 1 - F_{\\chi^2_d}\\big(D_M(\\mathbf{x})^2\\big),\n\\]\nliteralmente: qual a probabilidade de um ponto do modelo ajustado ser tão extremo, ou mais, quanto \\(\\mathbf{x}\\). O limiar fixo é o caso particular \\(p(\\mathbf{x}) &lt; \\alpha\\); o \\(p\\)-valor ordena todos os pontos por quão surpreendentes eles são, em vez de só separá-los em duas caixas.\n\n\n\n\n\n\nAvisoArmadilha de interpretação\n\n\n\n\\(p(\\mathbf{x})\\) pequeno não significa “probabilidade de \\(\\mathbf{x}\\) pertencer à distribuição verdadeira”. Significa “probabilidade de um ponto do modelo ajustado ser tão extremo quanto \\(\\mathbf{x}\\)”. É uma afirmação sobre o modelo, condicional a ele estar certo — não é uma afirmação sobre a origem de \\(\\mathbf{x}\\). Se o modelo estiver errado (Bloco 7), o \\(p\\)-valor também estará.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDicaJulgue V ou F: distância de Mahalanobis e o \\(p\\)-valor de anomalia\n\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA distância de Mahalanobis reduz à distância Euclidiana quando \\(\\Sigma\\) é a matriz identidade.\nSe \\(\\mathbf{x}\\sim\\mathcal{N}(\\boldsymbol\\mu,\\Sigma)\\), então \\(D_M(\\mathbf{x})^2\\) segue uma distribuição qui-quadrado com \\(d\\) graus de liberdade.\nUm \\(p\\)-valor baixo para um ponto \\(\\mathbf{x}\\) significa que a probabilidade de \\(\\mathbf{x}\\) ter vindo da distribuição verdadeira é baixa.\nDois pontos igualmente distantes do centro em distância Euclidiana podem ter distâncias de Mahalanobis bem diferentes."
   },
   {
     "objectID": "unsupervised/aula01/notas.html#conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese",
     "href": "unsupervised/aula01/notas.html#conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese",
     "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
     "section": "6.2 Conjunta vs. por dimensão — o mesmo trade-off do Naive Bayes, agora em teste de hipótese",
-    "text": "6.2 Conjunta vs. por dimensão — o mesmo trade-off do Naive Bayes, agora em teste de hipótese\nCalcular \\(D_M\\) exige estimar e inverter \\(\\hat\\Sigma\\) — \\(d(d+1)/2\\) parâmetros, caro e instável quando \\(N\\) não é \\(\\gg d\\) (a armadilha do Bloco 4). A alternativa mais barata: supor independência entre dimensões (PRML discute exatamente essa restrição — \\(\\Sigma\\) diagonal — em §2.3, p. 84, como uma forma de “tornar a inversão da matriz de covariância uma operação muito mais rápida”, ao custo de “limitar a capacidade do modelo de capturar correlações interessantes nos dados”). Sob essa suposição, calcula-se um \\(p\\)-valor por dimensão, \\(p_i(x_i) = P(|Z_i|\\ge|z_i|)\\) usando só a marginal \\(\\mathcal{N}(\\hat\\mu_i,\\hat\\sigma_i^2)\\) — \\(d\\) parâmetros, não \\(d(d+1)/2\\) — e combinam-se os \\(d\\) \\(p\\)-valores independentes pelo teste de Fisher, \\(-2\\sum_i\\ln p_i(x_i) \\sim \\chi^2_{2d}\\) (também estatística clássica, não coberta por PRML/DLFC — combinação padrão de \\(p\\)-valores independentes).\n\n\n\n\n\nflowchart TD\n    X[\"ponto novo x\"] --&gt; Q{\"supor independência&lt;br/&gt;entre dimensões?\"}\n    Q --&gt;|\"sim\"| M1[\"p-valor por dimensão&lt;br/&gt;(d parâmetros)\"]\n    M1 --&gt; F1[\"combinar via Fisher&lt;br/&gt;-2 Σ ln p_i ~ χ²_2d\"]\n    Q --&gt;|\"não\"| M2[\"distância de Mahalanobis&lt;br/&gt;(d(d+1)/2 parâmetros)\"]\n    M2 --&gt; F2[\"p-valor conjunto&lt;br/&gt;via χ²_d\"]\n    F1 --&gt; R[\"cego à correlação entre dimensões\"]\n    F2 --&gt; R2[\"sensível à correlação — mais caro\"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nO gráfico mostra o erro nas duas direções. No ponto B, cada coordenada isolada já parece grande (o teste por dimensão dá um \\(p\\)-valor baixo), mas a combinação é exatamente o que a correlação prevê — o teste conjunto reconhece isso e dá um \\(p\\)-valor bem maior: falso alarme do teste por dimensão. No ponto C, cada coordenada isolada parece perfeitamente normal (o teste por dimensão dá um \\(p\\)-valor alto, tranquilizador), mas a combinação quebra a correlação — o teste conjunto enxerga isso e dá um \\(p\\)-valor baixo: anomalia real que o teste por dimensão deixa passar. Nenhum dos dois testes está “certo” em geral; a suposição de independência é uma escolha, com um preço que depende de onde a anomalia acontece — a mesma lição do preço da suposição de independência do Naive Bayes, agora em teste de hipótese em vez de classificação."
+    "text": "6.2 Conjunta vs. por dimensão — o mesmo trade-off do Naive Bayes, agora em teste de hipótese\nCalcular \\(D_M\\) exige estimar e inverter \\(\\hat\\Sigma\\) — \\(d(d+1)/2\\) parâmetros, caro e instável quando \\(N\\) não é \\(\\gg d\\) (a armadilha do Bloco 4). A alternativa mais barata: supor independência entre dimensões (PRML discute exatamente essa restrição — \\(\\Sigma\\) diagonal — em §2.3, p. 84, como uma forma de “tornar a inversão da matriz de covariância uma operação muito mais rápida”, ao custo de “limitar a capacidade do modelo de capturar correlações interessantes nos dados”). Sob essa suposição, calcula-se um \\(p\\)-valor por dimensão, \\(p_i(x_i) = P(|Z_i|\\ge|z_i|)\\) usando só a marginal \\(\\mathcal{N}(\\hat\\mu_i,\\hat\\sigma_i^2)\\) — \\(d\\) parâmetros, não \\(d(d+1)/2\\) — e combinam-se os \\(d\\) \\(p\\)-valores independentes pelo teste de Fisher, \\(-2\\sum_i\\ln p_i(x_i) \\sim \\chi^2_{2d}\\) (também estatística clássica, não coberta por PRML/DLFC — combinação padrão de \\(p\\)-valores independentes)."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html",
@@ -913,36 +913,36 @@
     "objectID": "algebra_opt/aula01/notas.html#contexto-teórico-e-motivação",
     "href": "algebra_opt/aula01/notas.html#contexto-teórico-e-motivação",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
-    "section": "1.1 Contexto Teórico e Motivação",
-    "text": "1.1 Contexto Teórico e Motivação\nSistemas computacionais não compreendem conceitos abstratos do mundo real como “cor da pele”, “sentimento de um texto”, “transação financeira suspeita” ou “música suave”. Para que um algoritmo de Aprendizado de Máquina (Machine Learning - ML) processe informações, o mundo real precisa ser quantificado e mapeado em representações numéricas estruturadas.\nCada atributo medido de um objeto do mundo real é chamado de característica (feature). Quando agrupamos \\(d\\) características quantitativas de uma mesma observação em uma ordenação específica, formamos um vetor de características (feature vector).\n\nImagens: Uma imagem em escala de cinza de tamanho \\(28 \\times 28\\) pixels é traduzida em um vetor de \\(784\\) dimensões (\\(28 \\times 28 = 784\\)), onde cada componente é um escalar representando a intensidade de brilho do pixel (\\([0, 255]\\) ou \\([0.0, 1.0]\\)).\nDados Tabulares (Saúde/Crédito): Um paciente pode ser representado pelo vetor de atributos \\(\\mathbf{x} = [\\text{idade}, \\text{pressão arterial}, \\text{glicose}, \\text{IMC}]^T \\in \\mathbb{R}^4\\).\nTexto (Processamento de Linguagem Natural): Em abordagens clássicas (Bag of Words), um documento é um vetor onde cada posição corresponde à frequência de uma palavra específica de um vocabulário. Em redes modernas, é representado por um embedding contínuo em \\(\\mathbb{R}^{768}\\) ou \\(\\mathbb{R}^{1536}\\)."
+    "section": "1.2 Contexto Teórico e Motivação",
+    "text": "1.2 Contexto Teórico e Motivação\nSistemas computacionais não compreendem conceitos abstratos do mundo real como “cor da pele”, “sentimento de um texto”, “transação financeira suspeita” ou “música suave”. Para que um algoritmo de Aprendizado de Máquina (Machine Learning - ML) processe informações, o mundo real precisa ser quantificado e mapeado em representações numéricas estruturadas.\nCada atributo medido de um objeto do mundo real é chamado de característica (feature). Quando agrupamos \\(d\\) características quantitativas de uma mesma observação em uma ordenação específica, formamos um vetor de características (feature vector).\n\nImagens: Uma imagem em escala de cinza de tamanho \\(28 \\times 28\\) pixels é traduzida em um vetor de \\(784\\) dimensões (\\(28 \\times 28 = 784\\)), onde cada componente é um escalar representando a intensidade de brilho do pixel (\\([0, 255]\\) ou \\([0.0, 1.0]\\)).\nDados Tabulares (Saúde/Crédito): Um paciente pode ser representado pelo vetor de atributos \\(\\mathbf{x} = [\\text{idade}, \\text{pressão arterial}, \\text{glicose}, \\text{IMC}]^T \\in \\mathbb{R}^4\\).\nDados Categóricos: Nem todo atributo é numérico por natureza. A cor de um produto, o bairro de um imóvel, o tipo de contrato de um cliente — nenhum desses tem uma ordem numérica natural. A codificação padrão é o one-hot encoding: cada categoria possível vira sua própria coordenada binária. A cor de um carro entre \\(\\{\\text{vermelho}, \\text{azul}, \\text{verde}\\}\\) vira um vetor em \\(\\mathbb{R}^3\\): vermelho \\(= [1,0,0]^T\\), azul \\(= [0,1,0]^T\\), verde \\(= [0,0,1]^T\\). Atribuir números arbitrários diretamente (vermelho\\(=1\\), azul\\(=2\\), verde\\(=3\\)) introduziria uma falsa noção de ordem e de distância entre categorias que não existe no fenômeno real — “verde” não é “o dobro” de “azul”.\nTexto (Processamento de Linguagem Natural): Em abordagens clássicas (Bag of Words), um documento é um vetor onde cada posição corresponde à frequência de uma palavra específica de um vocabulário. Em redes modernas, é representado por um embedding contínuo em \\(\\mathbb{R}^{768}\\) ou \\(\\mathbb{R}^{1536}\\)."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#definições-matemáticas-fundamentais",
     "href": "algebra_opt/aula01/notas.html#definições-matemáticas-fundamentais",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
-    "section": "1.2 Definições Matemáticas Fundamentais",
-    "text": "1.2 Definições Matemáticas Fundamentais\n\n1.2.1 Escalares e Vetores\nUm escalar é um elemento do corpo dos números reais, denotado por \\(c \\in \\mathbb{R}\\). Representa magnitudes puras sem direção associada (ex: temperatura, idade, taxa de aprendizado).\nUm vetor de dimensão \\(d\\) (ou \\(d\\)-vetor) é uma tupla ordenada de \\(d\\) números reais. Convenciona-se rigorosamente no contexto de ML e Álgebra Linear que todo vetor padrão é um vetor-coluna:\n\\[\\mathbf{x} = \\begin{bmatrix} x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_d \\end{bmatrix} \\in \\mathbb{R}^d\\]\nSeu transposto, \\(\\mathbf{x}^T = [x_1, x_2, \\dots, x_d]\\), é um vetor-linha em \\(\\mathbb{R}^{1 \\times d}\\). O componente \\(x_i \\in \\mathbb{R}\\) denota a \\(i\\)-ésima característica (feature) da observação \\(\\mathbf{x}\\).\n\n\n1.2.2 Operações Elementares de Vetores\n\nAdição de Vetores (Composição de Sinais): Dados \\(\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^d\\), a soma é realizada componente a componente: \\[\\mathbf{u} + \\mathbf{v} = \\begin{bmatrix} u_1 + v_1 \\\\ u_2 + v_2 \\\\ \\vdots \\\\ u_d + v_d \\end{bmatrix}\\] Interpretação em ML: Acúmulo ou superposição de efeitos/deslocamentos no espaço de características.\nMultiplicação por Escalar (Escalonamento/Modulação): Dado um escalar \\(\\alpha \\in \\mathbb{R}\\) e um vetor \\(\\mathbf{v} \\in \\mathbb{R}^d\\): \\[\\alpha \\mathbf{v} = \\begin{bmatrix} \\alpha v_1 \\\\ \\alpha v_2 \\\\ \\vdots \\\\ \\alpha v_d \\end{bmatrix}\\] Interpretação em ML: Redimensionamento de importância, ajuste de amplitude de sinal ou passo de atualização em algoritmos de otimização (ex: learning rate \\(\\eta \\cdot \\nabla f\\))."
+    "section": "1.3 Definições Matemáticas Fundamentais",
+    "text": "1.3 Definições Matemáticas Fundamentais\n\n1.3.1 Escalares e Vetores\nUm escalar é um elemento do corpo dos números reais, denotado por \\(c \\in \\mathbb{R}\\). Representa magnitudes puras sem direção associada (ex: temperatura, idade, taxa de aprendizado).\nUm vetor de dimensão \\(d\\) (ou \\(d\\)-vetor) é uma tupla ordenada de \\(d\\) números reais. Convenciona-se rigorosamente no contexto de ML e Álgebra Linear que todo vetor padrão é um vetor-coluna:\n\\[\\mathbf{x} = \\begin{bmatrix} x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_d \\end{bmatrix} \\in \\mathbb{R}^d\\]\nSeu transposto, \\(\\mathbf{x}^T = [x_1, x_2, \\dots, x_d]\\), é um vetor-linha em \\(\\mathbb{R}^{1 \\times d}\\). O componente \\(x_i \\in \\mathbb{R}\\) denota a \\(i\\)-ésima característica (feature) da observação \\(\\mathbf{x}\\).\n\n\n1.3.2 Operações Elementares de Vetores\n\nAdição de Vetores (Composição de Sinais): Dados \\(\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^d\\), a soma é realizada componente a componente: \\[\\mathbf{u} + \\mathbf{v} = \\begin{bmatrix} u_1 + v_1 \\\\ u_2 + v_2 \\\\ \\vdots \\\\ u_d + v_d \\end{bmatrix}\\] Interpretação em ML: Acúmulo ou superposição de efeitos/deslocamentos no espaço de características.\nMultiplicação por Escalar (Escalonamento/Modulação): Dado um escalar \\(\\alpha \\in \\mathbb{R}\\) e um vetor \\(\\mathbf{v} \\in \\mathbb{R}^d\\): \\[\\alpha \\mathbf{v} = \\begin{bmatrix} \\alpha v_1 \\\\ \\alpha v_2 \\\\ \\vdots \\\\ \\alpha v_d \\end{bmatrix}\\] Interpretação em ML: Redimensionamento de importância, ajuste de amplitude de sinal ou passo de atualização em algoritmos de otimização (ex: learning rate \\(\\eta \\cdot \\nabla f\\))."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#representação-visual-o-espaço-de-características-feature-space",
     "href": "algebra_opt/aula01/notas.html#representação-visual-o-espaço-de-características-feature-space",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
-    "section": "1.3 Representação Visual: O Espaço de Características (Feature Space)",
-    "text": "1.3 Representação Visual: O Espaço de Características (Feature Space)\nQuando organizamos dados tabulares, cada linha do dataset é representada como um ponto isolado no espaço de características \\(d\\)-dimensional (\\(\\mathbb{R}^d\\)).\nAbaixo, utilizamos o ambiente em Python para importar as funções auxiliares do nosso módulo local src e visualizar graficamente a transição de um dataset tabular de imobiliária para pontos geométricos no espaço \\(\\mathbb{R}^2\\) (Área \\(m^2\\) vs. Preço por \\(m^2\\))."
+    "section": "1.4 Representação Visual: O Espaço de Características (Feature Space)",
+    "text": "1.4 Representação Visual: O Espaço de Características (Feature Space)\nQuando organizamos dados tabulares, cada linha do dataset é representada como um ponto isolado no espaço de características \\(d\\)-dimensional (\\(\\mathbb{R}^d\\)).\nAbaixo, carregamos uma amostra real do California Housing Dataset (via Hugging Face Hub) para visualizar graficamente a transição de um dataset tabular de imóveis para pontos geométricos no espaço \\(\\mathbb{R}^2\\) (renda mediana do bairro vs. valor mediano do imóvel). Cada ponto representa um grupo de setores censitários da Califórnia (não um imóvel individual) — uma simplificação comum ao usar este dataset, mas que vale deixar explícita."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#geometria-das-operações-vetoriais-em-mathbbr2",
     "href": "algebra_opt/aula01/notas.html#geometria-das-operações-vetoriais-em-mathbbr2",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
-    "section": "1.4 Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)",
-    "text": "1.4 Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)\nA soma e a multiplicação por escalar possuem interpretações geométricas intuitivas e cruciais para a compreensão da movimentação e transformação de dados no espaço:\n\nSoma (\\(\\mathbf{u} + \\mathbf{v}\\)): Regra do paralelogramo. Representa o deslocamento consecutivo no espaço de atributos.\nMultiplicação (\\(\\alpha \\mathbf{u}\\)): Mantém a direção do vetor (se \\(\\alpha &gt; 0\\)), alterando apenas seu comprimento (ou invertendo o sentido se \\(\\alpha &lt; 0\\))."
+    "section": "1.5 Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)",
+    "text": "1.5 Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)\nA soma e a multiplicação por escalar possuem interpretações geométricas intuitivas e cruciais para a compreensão da movimentação e transformação de dados no espaço:\n\nSoma (\\(\\mathbf{u} + \\mathbf{v}\\)): Regra do paralelogramo. Representa o deslocamento consecutivo no espaço de atributos.\nMultiplicação (\\(\\alpha \\mathbf{u}\\)): Mantém a direção do vetor (se \\(\\alpha &gt; 0\\)), alterando apenas seu comprimento (ou invertendo o sentido se \\(\\alpha &lt; 0\\)).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDicaSe dois pontos estão próximos no espaço de características, seus rótulos são necessariamente parecidos? Que suposição isso exige?\n\n\n\nEscreva sua resposta em uma frase, e compare com um colega (2 min)."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#contexto-teórico-o-problema-de-aprendizado-supervisionado",
     "href": "algebra_opt/aula01/notas.html#contexto-teórico-o-problema-de-aprendizado-supervisionado",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
     "section": "2.1 Contexto Teórico: O Problema de Aprendizado Supervisionado",
-    "text": "2.1 Contexto Teórico: O Problema de Aprendizado Supervisionado\nO objetivo fundamental do Aprendizado de Máquina Supervisionado é construir uma função de mapeamento (ou hipótese) \\(f: \\mathcal{X} \\to \\mathcal{Y}\\) a partir de um conjunto de dados de treino observado:\n\\[\\mathcal{D} = \\{(\\mathbf{x}_1, y_1), (\\mathbf{x}_2, y_2), \\dots, (\\mathbf{x}_N, y_N)\\}\\]\nonde:\n\n\\(\\mathbf{x}_i \\in \\mathcal{X} = \\mathbb{R}^d\\) representa o vetor de características (feature vector) da \\(i\\)-ésima observação.\n\\(y_i \\in \\mathcal{Y}\\) representa o rótulo ou alvo (target) associado ao vetor \\(\\mathbf{x}_i\\).\n\nEm Classificação, \\(\\mathcal{Y} = \\{1, 2, \\dots, C\\} \\subset \\mathbb{N}\\) é um conjunto finito de categorias discretas.\nEm Regressão, \\(\\mathcal{Y} = \\mathbb{R}\\) é um conjunto contínuo de valores numéricos.\n\n\nDado um novo ponto não observado \\(\\mathbf{x}_{\\text{novo}} \\in \\mathbb{R}^d\\), como inferir o valor correspondente \\(\\hat{y}_{\\text{novo}} = f(\\mathbf{x}_{\\text{novo}})\\) sem conhecer a função geradora real \\(f\\)?\n\n2.1.1 A Hipótese de Suavidade e o Princípio da Vizinhança\nPara tornar a inferência possível, assumimos a Hipótese de Suavidade (Smoothness Assumption): pontos que estão próximos no espaço de características \\(\\mathbb{R}^d\\) tendem a possuir rótulos \\(y\\) semelhantes no espaço de saída \\(\\mathcal{Y}\\).\nEsta intuição é a base teórica do algoritmo \\(k\\)-Nearest Neighbors (\\(k\\)-NN), um dos métodos não paramétricos (instance-based learning) mais fundamentais de Machine Learning."
+    "text": "2.1 Contexto Teórico: O Problema de Aprendizado Supervisionado\nO objetivo fundamental do Aprendizado de Máquina Supervisionado é construir uma função de mapeamento (ou hipótese) \\(f: \\mathcal{X} \\to \\mathcal{Y}\\) a partir de um conjunto de dados de treino observado:\n\\[\\mathcal{D} = \\{(\\mathbf{x}_1, y_1), (\\mathbf{x}_2, y_2), \\dots, (\\mathbf{x}_N, y_N)\\}\\]\nonde:\n\n\\(\\mathbf{x}_i \\in \\mathcal{X} = \\mathbb{R}^d\\) representa o vetor de características (feature vector) da \\(i\\)-ésima observação.\n\\(y_i \\in \\mathcal{Y}\\) representa o rótulo ou alvo (target) associado ao vetor \\(\\mathbf{x}_i\\).\n\nEm Classificação, \\(\\mathcal{Y} = \\{1, 2, \\dots, C\\} \\subset \\mathbb{N}\\) é um conjunto finito de categorias discretas.\nEm Regressão, \\(\\mathcal{Y} = \\mathbb{R}\\) é um conjunto contínuo de valores numéricos.\n\n\nDado um novo ponto não observado \\(\\mathbf{x}_{\\text{novo}} \\in \\mathbb{R}^d\\), como inferir o valor correspondente \\(\\hat{y}_{\\text{novo}} = f(\\mathbf{x}_{\\text{novo}})\\) sem conhecer a função geradora real \\(f\\)?\n\n2.1.1 A Hipótese de Suavidade e o Princípio da Vizinhança\nPara tornar a inferência possível, assumimos a Hipótese de Suavidade (Smoothness Assumption): pontos que estão próximos no espaço de características \\(\\mathbb{R}^d\\) tendem a possuir rótulos \\(y\\) semelhantes no espaço de saída \\(\\mathcal{Y}\\).\nEsta intuição é a base teórica do algoritmo \\(k\\)-Nearest Neighbors (\\(k\\)-NN), um dos métodos não paramétricos (instance-based learning) mais fundamentais de Machine Learning.\n\n\n\n\n\n\nNotaUma base formal para “suavidade” (citada, não aprofundada aqui)\n\n\n\nA intuição de que “pontos próximos geram saídas próximas” tem um nome formal em análise matemática: uma função \\(f\\) é Lipschitz contínua se existe uma constante \\(L \\geq 0\\) tal que, para quaisquer \\(\\mathbf{x}, \\mathbf{y}\\) do domínio, \\[|f(\\mathbf{x}) - f(\\mathbf{y})| \\leq L \\cdot d(\\mathbf{x}, \\mathbf{y}).\\] Em palavras: o quanto a saída pode variar é limitado por uma constante \\(L\\) vezes o quanto a entrada variou — nenhum salto abrupto além desse limite é permitido. A Hipótese de Suavidade do \\(k\\)-NN é, em essência, assumir que a função geradora real \\(f\\) é Lipschitz contínua com um \\(L\\) razoavelmente pequeno (e que a métrica \\(d\\) escolhida é a certa para medir essa proximidade — tema do resto da aula). Esta mesma ideia reaparece, com muito mais peso, quando estudarmos convergência de algoritmos de otimização mais adiante no curso: lá, a constante de Lipschitz do gradiente é o que determina o quão longo pode ser o passo de um algoritmo de descida sem arriscar divergir."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#formalização-do-k-nn",
@@ -956,14 +956,14 @@
     "href": "algebra_opt/aula01/notas.html#ilustração-prática-encontrando-os-k-vizinhos-em-mathbbr2",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
     "section": "2.3 Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)",
-    "text": "2.3 Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)\nNo código a seguir, geramos um cenário sintético de classificação binária em \\(\\mathbb{R}^2\\) para visualizar como a escolha de \\(k\\) seleciona a vizinhança e altera o rótulo previsto para um ponto de teste \\(\\mathbf{x}_{\\text{novo}}\\)."
+    "text": "2.3 Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)\nNo código a seguir, usamos dados reais do Breast Cancer Wisconsin Dataset (via Hugging Face Hub) — duas características (raio médio e textura média do núcleo celular) e o diagnóstico real (benigno/maligno) — para visualizar como a escolha de \\(k\\) seleciona a vizinhança e altera o rótulo previsto para uma paciente de consulta \\(\\mathbf{x}_{\\text{novo}}\\), também uma paciente real do dataset (removida da vizinhança e tratada como “nova”).\n\n\n\n\n\n\n\n\n\nEsta paciente de consulta é, na realidade, um caso benigno — mas o voto por \\(k=3\\) erra, dando maioria para maligno (\\(2\\) a \\(1\\)). É um lembrete honesto, com dado real: a escolha de \\(k\\) não é neutra, e o \\(k\\)-NN pode errar justamente nas regiões onde as duas classes se aproximam no espaço de características. Escolher \\(k\\) com cuidado é assunto da Aula 4 de supervised (seleção de modelo).\nA figura acima mostra só a vizinhança local de uma consulta. O gráfico a seguir generaliza a ideia: em vez de olhar um único ponto novo, calculamos a previsão do \\(k\\)-NN (\\(k=3\\)) para todo ponto possível do plano, usando as \\(569\\) pacientes reais do dataset inteiro. O resultado é o limiar de decisão — a fronteira que separa a região onde o \\(k\\)-NN prevê “benigno” da região onde prevê “maligno”.\n\n\n\n\n\n\n\n\n\nA fronteira não é uma reta — é uma linha irregular, corroída pelo ruído dos dados reais próximos dela, exatamente na região onde as duas classes se misturam. É ali, no meio dessa fronteira ondulada, que a paciente de consulta está posicionada — o que explica por que o voto de \\(k=3\\) para ela é instável e chega a errar.\n\n\n\n\n\n\nDicaJulgue V ou F: a hipótese de suavidade e o \\(k\\)-NN\n\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO \\(k\\)-NN assume que pontos próximos no espaço de características tendem a ter rótulos semelhantes.\nO \\(k\\)-NN é um método paramétrico: ele ajusta um número fixo de parâmetros ao conjunto de treino, independente de \\(N\\).\nEm classificação, a previsão do \\(k\\)-NN é dada pela classe mais votada entre os \\(k\\) vizinhos mais próximos.\nA escolha de \\(k\\) não depende da métrica de distância usada para encontrar os vizinhos."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#a-estrutura-rígida-espaços-e-subespaços-vetoriais",
     "href": "algebra_opt/aula01/notas.html#a-estrutura-rígida-espaços-e-subespaços-vetoriais",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
     "section": "3.1 A Estrutura Rígida: Espaços e Subespaços Vetoriais",
-    "text": "3.1 A Estrutura Rígida: Espaços e Subespaços Vetoriais\nUm espaço vetorial formaliza um ambiente onde podemos realizar combinações lineares de forma irrestrita. Matematicamente, se \\(V\\) é um espaço vetorial, qualquer operação de adição entre dois de seus vetores ou multiplicação por um escalar resultará em um novo vetor que ainda pertence a \\(V\\).\nNa busca por reduzir a dimensionalidade dos nossos dados de forma linear (como no PCA), não procuramos apenas agrupamentos, mas sim Subespaços Vetoriais. Um subconjunto \\(U \\subseteq V\\) é um subespaço vetorial se herdar a mesma estrutura rígida e perfeitamente plana de \\(V\\).\nPara provar que um subconjunto \\(U\\) é um subespaço válido, ele deve passar no teste do fechamento:\n\nOrigem: O vetor nulo deve estar no subconjunto (\\(\\mathbf{0} \\in U\\)).\nFechamento sob adição: Para quaisquer \\(\\mathbf{x}, \\mathbf{y} \\in U\\), a soma \\(\\mathbf{x} + \\mathbf{y} \\in U\\).\nFechamento sob multiplicação por escalar: Para qualquer \\(\\mathbf{x} \\in U\\) e \\(\\lambda \\in \\mathbb{R}\\), \\(\\lambda \\mathbf{x} \\in U\\).\n\nDemonstração de um Subespaço Válido: O conjunto de todas as soluções de um sistema linear homogêneo \\(A\\mathbf{x} = \\mathbf{0}\\) é um subespaço de \\(\\mathbb{R}^n\\).\nProva:\n\n\\(A\\mathbf{0} = \\mathbf{0}\\), logo \\(\\mathbf{0}\\) pertence ao conjunto.\nSe \\(A\\mathbf{x} = \\mathbf{0}\\) e \\(A\\mathbf{y} = \\mathbf{0}\\), então \\(A(\\mathbf{x} + \\mathbf{y}) = A\\mathbf{x} + A\\mathbf{y} = \\mathbf{0} + \\mathbf{0} = \\mathbf{0}\\) (fechado para soma).\nSe \\(A\\mathbf{x} = \\mathbf{0}\\), então \\(A(\\lambda\\mathbf{x}) = \\lambda(A\\mathbf{x}) = \\lambda\\mathbf{0} = \\mathbf{0}\\) (fechado para escalar).\n\nGeometricamente em \\(\\mathbb{R}^3\\), um subespaço só pode ser a origem, uma reta infinita passando pela origem, um plano infinito passando pela origem ou o próprio espaço 3D. Subespaços não fazem curvas."
+    "text": "3.1 A Estrutura Rígida: Espaços e Subespaços Vetoriais\nUm espaço vetorial formaliza um ambiente onde podemos realizar combinações lineares de forma irrestrita. Matematicamente, se \\(V\\) é um espaço vetorial, qualquer operação de adição entre dois de seus vetores ou multiplicação por um escalar resultará em um novo vetor que ainda pertence a \\(V\\).\nNa busca por reduzir a dimensionalidade dos nossos dados de forma linear (como no PCA), não procuramos apenas agrupamentos, mas sim Subespaços Vetoriais. Um subconjunto \\(U \\subseteq V\\) é um subespaço vetorial se herdar a mesma estrutura rígida e perfeitamente plana de \\(V\\).\nPara provar que um subconjunto \\(U\\) é um subespaço válido, ele deve passar no teste do fechamento:\n\nOrigem: O vetor nulo deve estar no subconjunto (\\(\\mathbf{0} \\in U\\)).\nFechamento sob adição: Para quaisquer \\(\\mathbf{x}, \\mathbf{y} \\in U\\), a soma \\(\\mathbf{x} + \\mathbf{y} \\in U\\).\nFechamento sob multiplicação por escalar: Para qualquer \\(\\mathbf{x} \\in U\\) e \\(\\lambda \\in \\mathbb{R}\\), \\(\\lambda \\mathbf{x} \\in U\\).\n\nDemonstração de um Subespaço Válido: O conjunto de todas as soluções de um sistema linear homogêneo \\(A\\mathbf{x} = \\mathbf{0}\\) é um subespaço de \\(\\mathbb{R}^n\\).\nProva:\n\n\\(A\\mathbf{0} = \\mathbf{0}\\), logo \\(\\mathbf{0}\\) pertence ao conjunto.\nSe \\(A\\mathbf{x} = \\mathbf{0}\\) e \\(A\\mathbf{y} = \\mathbf{0}\\), então \\(A(\\mathbf{x} + \\mathbf{y}) = A\\mathbf{x} + A\\mathbf{y} = \\mathbf{0} + \\mathbf{0} = \\mathbf{0}\\) (fechado para soma).\nSe \\(A\\mathbf{x} = \\mathbf{0}\\), então \\(A(\\lambda\\mathbf{x}) = \\lambda(A\\mathbf{x}) = \\lambda\\mathbf{0} = \\mathbf{0}\\) (fechado para escalar).\n\nUm exemplo concreto, para tirar a prova do papel. Tome \\(A = \\begin{bmatrix} 1 & 1 & 1 \\end{bmatrix}\\), uma única equação em \\(\\mathbb{R}^3\\): \\(A\\mathbf{x} = \\mathbf{0}\\) significa \\(x_1+x_2+x_3=0\\). Geometricamente, o conjunto-solução já deveria ser um plano passando pela origem (uma equação linear homogênea em 3 incógnitas corta um grau de liberdade). Dois exemplos de solução: \\[\n\\mathbf{x} = \\begin{bmatrix} 1 \\\\ -1 \\\\ 0 \\end{bmatrix}, \\qquad\n\\mathbf{y} = \\begin{bmatrix} 0 \\\\ 1 \\\\ -1 \\end{bmatrix}.\n\\] Confira: \\(A\\mathbf{x} = 1-1+0 = 0\\) e \\(A\\mathbf{y} = 0+1-1 = 0\\), ambas soluções válidas. Agora teste o fechamento diretamente nesses dois vetores concretos, em vez de na abstração: \\[\n\\mathbf{x}+\\mathbf{y} = \\begin{bmatrix} 1 \\\\ 0 \\\\ -1 \\end{bmatrix}\n\\;\\Rightarrow\\; A(\\mathbf{x}+\\mathbf{y}) = 1+0-1 = 0 \\quad\\checkmark\n\\] \\[\n3\\mathbf{x} = \\begin{bmatrix} 3 \\\\ -3 \\\\ 0 \\end{bmatrix}\n\\;\\Rightarrow\\; A(3\\mathbf{x}) = 3-3+0 = 0 \\quad\\checkmark\n\\] Some ou escale à vontade — o resultado nunca escapa do plano \\(x_1+x_2+x_3=0\\). É exatamente esse tipo de verificação, repetida para quaisquer \\(\\mathbf{x}, \\mathbf{y}\\) e \\(\\lambda\\) (não só para estes dois vetores específicos), que a prova abstrata acima generaliza de uma vez por todas.\nGeometricamente em \\(\\mathbb{R}^3\\), um subespaço só pode ser a origem, uma reta infinita passando pela origem, um plano infinito passando pela origem ou o próprio espaço 3D. Subespaços não fazem curvas.\n\n\n\n\n\n\n\nDicaPor que a superfície de uma esfera em \\(\\mathbb{R}^3\\) não é um subespaço vetorial, mesmo sendo uma superfície bem definida?\n\n\n\nPense no teste de fechamento sob adição (2 min)."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#o-espaço-real-dos-dados-variedades-manifolds",
@@ -991,7 +991,7 @@
     "href": "algebra_opt/aula01/notas.html#demonstração-visual-as-geometrias-das-normas",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
     "section": "4.2 Demonstração Visual: As Geometrias das Normas",
-    "text": "4.2 Demonstração Visual: As Geometrias das Normas\nA escolha da norma altera fundamentalmente a “forma” do espaço. Para visualizar isso, plotamos as Bolas Unitárias (Unit Balls) em \\(\\mathbb{R}^2\\), ou seja, o conjunto de todos os pontos onde a norma é exatamente igual a \\(1\\)."
+    "text": "4.2 Demonstração Visual: As Geometrias das Normas\nA escolha da norma altera fundamentalmente a “forma” do espaço. Para visualizar isso, plotamos as Bolas Unitárias (Unit Balls) em \\(\\mathbb{R}^2\\), ou seja, o conjunto de todos os pontos onde a norma é exatamente igual a \\(1\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDicaUm vetor com uma coordenada grande e as demais pequenas pode ter normas \\(L_1\\), \\(L_2\\) e \\(L_\\infty\\) bem diferentes entre si. Por quê?\n\n\n\nPense na forma das bolas unitárias — quadrado, círculo, losango (2 min)."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#definição-formal-de-métrica",
@@ -1019,7 +1019,7 @@
     "href": "algebra_opt/aula01/notas.html#a-distância-do-cosseno-métrica-ou-quase-métrica",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
     "section": "5.4 A Distância do Cosseno: Métrica ou Quase-Métrica?",
-    "text": "5.4 A Distância do Cosseno: Métrica ou Quase-Métrica?\nPara que uma medida de dessimilaridade baseada na Similaridade do Cosseno possa ser rigorosamente classificada como uma métrica, ela deve satisfazer todos os axiomas formais de métrica apresentados anteriormente.\nDefinimos a Distância do Cosseno entre dois vetores não nulos \\(x, y \\in \\mathbb{R}^n \\setminus \\{\\mathbf{0}\\}\\) como:\n\\[d_{\\cos}(x, y) = 1 - \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = 1 - \\cos(\\theta)\\]\nVamos verificar os três axiomas — e a desigualdade triangular vai revelar algo que a intuição não avisa.\n\nNão-negatividade: Pela Desigualdade de Cauchy-Schwarz, sabemos que \\(|\\langle x, y \\rangle| \\leq \\|x\\|_2 \\|y\\|_2\\), o que implica diretamente que: \\[-1 \\leq \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} \\leq 1 \\implies -1 \\leq \\cos(\\theta) \\leq 1\\] Substituindo na fórmula da distância, temos \\(0 \\leq d_{\\cos}(x, y) \\leq 2\\). Além disso, \\(d_{\\cos}(x, y) = 0 \\iff \\cos(\\theta) = 1 \\iff \\theta = 0^\\circ\\), o que significa que \\(x\\) e \\(y\\) apontam exatamente para a mesma direção (são linearmente dependentes com escalar positivo: \\(x = c y\\) para \\(c &gt; 0\\)).\nSimetria: Como o produto interno e a norma Euclidiana são comutativos e simétricos: \\[d_{\\cos}(x, y) = 1 - \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = 1 - \\frac{\\langle y, x \\rangle}{\\|y\\|_2 \\|x\\|_2} = d_{\\cos}(y, x)\\]\nDesigualdade Triangular — aqui \\(d_{\\cos}\\) falha: Seja a normalização de qualquer vetor não nulo definida como o vetor unitário correspondente: \\[\\hat{x} = \\frac{x}{\\|x\\|_2}, \\quad \\hat{y} = \\frac{y}{\\|y\\|_2}, \\quad \\hat{z} = \\frac{z}{\\|z\\|_2}\\]\nA distância Euclidiana ao quadrado entre dois vetores unitários guarda uma relação direta com \\(d_{\\cos}\\): \\[\\|\\hat{x} - \\hat{y}\\|_2^2 = \\|\\hat{x}\\|_2^2 + \\|\\hat{y}\\|_2^2 - 2\\langle \\hat{x}, \\hat{y} \\rangle = 1 + 1 - 2\\cos(\\theta_{xy}) = 2\\,d_{\\cos}(x, y)\\]\nou seja, \\(\\sqrt{2\\,d_{\\cos}(x, y)} = \\|\\hat{x} - \\hat{y}\\|_2\\) — a raiz de \\(2d_{\\cos}\\) é literalmente a distância Euclidiana entre os vetores normalizados. Como \\(\\|\\cdot\\|_2\\) satisfaz a desigualdade triangular ordinária: \\[\\|\\hat{x} - \\hat{z}\\|_2 \\leq \\|\\hat{x} - \\hat{y}\\|_2 + \\|\\hat{y} - \\hat{z}\\|_2 \\;\\Longrightarrow\\; \\sqrt{2\\,d_{\\cos}(x, z)} \\leq \\sqrt{2\\,d_{\\cos}(x, y)} + \\sqrt{2\\,d_{\\cos}(y, z)}.\\]\nIsso prova que \\(\\sqrt{2\\,d_{\\cos}}\\) é uma métrica válida — não prova nada sobre \\(d_{\\cos}\\) em si. Elevar ao quadrado uma desigualdade entre somas de raízes não preserva a desigualdade sem o termo cruzado \\(2\\sqrt{d_{\\cos}(x,y)\\,d_{\\cos}(y,z)}\\), que é estritamente positivo em geral. Um contraexemplo concreto mostra que \\(d_{\\cos}\\) de fato viola a desigualdade triangular: tome três vetores unitários em \\(\\mathbb{R}^2\\) a \\(0^\\circ\\), \\(90^\\circ\\) e \\(135^\\circ\\). Então \\(d_{\\cos}(x,y) = 1-\\cos 90^\\circ = 1\\), \\(d_{\\cos}(y,z) = 1-\\cos 45^\\circ \\approx 0{,}293\\), mas \\(d_{\\cos}(x,z) = 1-\\cos 135^\\circ \\approx 1{,}707 &gt; 1 + 0{,}293\\). A desigualdade falha.\n\n\n\n\n\n\nImportanteConclusão correta (o texto original desta aula concluía o oposto)\n\n\n\n\\(d_{\\cos}(x,y) = 1-\\cos\\theta\\) não é uma métrica em geral — é uma medida de dessimilaridade útil, mas informal. O que é uma métrica de verdade é a distância cordal \\(\\sqrt{2\\,d_{\\cos}(x,y)} = \\Vert \\hat x - \\hat y\\Vert_2\\) (distância Euclidiana entre os vetores normalizados), ou a distância angular \\(\\arccos(\\cos\\theta) = \\theta\\) (o arco geodésico na esfera unitária), que também satisfaz desigualdade triangular por ser um comprimento de arco. Na prática (busca vetorial, RAG), quase sempre se usa \\(1-\\cos\\theta\\) mesmo assim, porque o que importa ali é a ordenação dos vizinhos por similaridade, não os axiomas formais de métrica — mas vale saber que, tecnicamente, não é uma."
+    "text": "5.4 A Distância do Cosseno: Métrica ou Quase-Métrica?\nPara que uma medida de dessimilaridade baseada na Similaridade do Cosseno possa ser rigorosamente classificada como uma métrica, ela deve satisfazer todos os axiomas formais de métrica apresentados anteriormente.\nDefinimos a Distância do Cosseno entre dois vetores não nulos \\(x, y \\in \\mathbb{R}^n \\setminus \\{\\mathbf{0}\\}\\) como:\n\\[d_{\\cos}(x, y) = 1 - \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = 1 - \\cos(\\theta)\\]\nVamos verificar os três axiomas — e a desigualdade triangular vai revelar algo que a intuição não avisa.\n\nNão-negatividade: Pela Desigualdade de Cauchy-Schwarz, sabemos que \\(|\\langle x, y \\rangle| \\leq \\|x\\|_2 \\|y\\|_2\\), o que implica diretamente que: \\[-1 \\leq \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} \\leq 1 \\implies -1 \\leq \\cos(\\theta) \\leq 1\\] Substituindo na fórmula da distância, temos \\(0 \\leq d_{\\cos}(x, y) \\leq 2\\). Além disso, \\(d_{\\cos}(x, y) = 0 \\iff \\cos(\\theta) = 1 \\iff \\theta = 0^\\circ\\), o que significa que \\(x\\) e \\(y\\) apontam exatamente para a mesma direção (são linearmente dependentes com escalar positivo: \\(x = c y\\) para \\(c &gt; 0\\)).\nSimetria: Como o produto interno e a norma Euclidiana são comutativos e simétricos: \\[d_{\\cos}(x, y) = 1 - \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = 1 - \\frac{\\langle y, x \\rangle}{\\|y\\|_2 \\|x\\|_2} = d_{\\cos}(y, x)\\]\nDesigualdade Triangular — aqui \\(d_{\\cos}\\) falha: Seja a normalização de qualquer vetor não nulo definida como o vetor unitário correspondente: \\[\\hat{x} = \\frac{x}{\\|x\\|_2}, \\quad \\hat{y} = \\frac{y}{\\|y\\|_2}, \\quad \\hat{z} = \\frac{z}{\\|z\\|_2}\\]\nA distância Euclidiana ao quadrado entre dois vetores unitários guarda uma relação direta com \\(d_{\\cos}\\): \\[\\|\\hat{x} - \\hat{y}\\|_2^2 = \\|\\hat{x}\\|_2^2 + \\|\\hat{y}\\|_2^2 - 2\\langle \\hat{x}, \\hat{y} \\rangle = 1 + 1 - 2\\cos(\\theta_{xy}) = 2\\,d_{\\cos}(x, y)\\]\nou seja, \\(\\sqrt{2\\,d_{\\cos}(x, y)} = \\|\\hat{x} - \\hat{y}\\|_2\\) — a raiz de \\(2d_{\\cos}\\) é literalmente a distância Euclidiana entre os vetores normalizados. Como \\(\\|\\cdot\\|_2\\) satisfaz a desigualdade triangular ordinária: \\[\\|\\hat{x} - \\hat{z}\\|_2 \\leq \\|\\hat{x} - \\hat{y}\\|_2 + \\|\\hat{y} - \\hat{z}\\|_2 \\;\\Longrightarrow\\; \\sqrt{2\\,d_{\\cos}(x, z)} \\leq \\sqrt{2\\,d_{\\cos}(x, y)} + \\sqrt{2\\,d_{\\cos}(y, z)}.\\]\nIsso prova que \\(\\sqrt{2\\,d_{\\cos}}\\) é uma métrica válida — não prova nada sobre \\(d_{\\cos}\\) em si. Elevar ao quadrado uma desigualdade entre somas de raízes não preserva a desigualdade sem o termo cruzado \\(2\\sqrt{d_{\\cos}(x,y)\\,d_{\\cos}(y,z)}\\), que é estritamente positivo em geral. Um contraexemplo concreto mostra que \\(d_{\\cos}\\) de fato viola a desigualdade triangular: tome três vetores unitários em \\(\\mathbb{R}^2\\) a \\(0^\\circ\\), \\(90^\\circ\\) e \\(135^\\circ\\). Então \\(d_{\\cos}(x,y) = 1-\\cos 90^\\circ = 1\\), \\(d_{\\cos}(y,z) = 1-\\cos 45^\\circ \\approx 0{,}293\\), mas \\(d_{\\cos}(x,z) = 1-\\cos 135^\\circ \\approx 1{,}707 &gt; 1 + 0{,}293\\). A desigualdade falha.\n\n\n\n\n\n\nImportanteConclusão correta (o texto original desta aula concluía o oposto)\n\n\n\n\\(d_{\\cos}(x,y) = 1-\\cos\\theta\\) não é uma métrica em geral — é uma medida de dessimilaridade útil, mas informal. O que é uma métrica de verdade é a distância cordal \\(\\sqrt{2\\,d_{\\cos}(x,y)} = \\Vert \\hat x - \\hat y\\Vert_2\\) (distância Euclidiana entre os vetores normalizados), ou a distância angular \\(\\arccos(\\cos\\theta) = \\theta\\) (o arco geodésico na esfera unitária), que também satisfaz desigualdade triangular por ser um comprimento de arco. Na prática (busca vetorial, RAG), quase sempre se usa \\(1-\\cos\\theta\\) mesmo assim, porque o que importa ali é a ordenação dos vizinhos por similaridade, não os axiomas formais de métrica — mas vale saber que, tecnicamente, não é uma.\n\n\n\n\n\n\n\n\n\nDicaJulgue V ou F: métricas, alta dimensão e distância do cosseno\n\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA distância Euclidiana induzida por uma norma satisfaz sempre os três axiomas de métrica.\nEm espaços de altíssima dimensão, é comum a distância entre o ponto mais próximo e o mais distante de uma consulta ficar cada vez mais parecida.\nA distância do cosseno \\(d_{\\cos}(x,y) = 1-\\cos\\theta\\) satisfaz a desigualdade triangular, sendo portanto uma métrica válida.\nA distância cordal \\(\\sqrt{2\\,d_{\\cos}(x,y)}\\) é igual à distância Euclidiana entre os vetores normalizados \\(\\hat x\\) e \\(\\hat y\\)."
   },
   {
     "objectID": "algebra_opt/aula01/notas.html#fechamento-teórico-e-garantias-de-funcionamento",
@@ -1040,7 +1040,7 @@
     "href": "algebra_opt/aula01/notas.html#rag-retrieval-augmented-generation-é-um-k-nn-para-texto",
     "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
     "section": "6.3 RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto",
-    "text": "6.3 RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto\nPara consolidar a importância prática de tudo o que vimos nesta aula (espaços vetoriais, normas, alta dimensionalidade e métricas de similaridade), vale notar que uma das tecnologias mais revolucionárias da atualidade — o RAG (Retrieval-Augmented Generation), usado em arquiteturas modernas de Inteligência Artificial — nada mais é do que uma aplicação direta e em larga escala do \\(k\\)-NN.\n\nComo funciona: Documentos corporativos, livros ou artigos são fatiados e convertidos em vetores densos de alta dimensão (os chamados embeddings, em \\(\\mathbb{R}^{1536}\\)) por um modelo de linguagem. Esses vetores habitam uma variedade latente complexa.\nA Busca Vetorial: Quando um usuário faz uma pergunta, a consulta é convertida em um vetor no mesmo espaço. O sistema executa um algoritmo de vizinhança equivalente ao \\(k\\)-NN (usando similaridade de cosseno ou norma \\(L_2\\) otimizada) para recuperar os \\(k\\) trechos de texto mais próximos.\nA Conclusão da Aula: A eficácia de um sistema de RAG de ponta depende exatamente dos tópicos que cobrimos hoje: escolher a métrica adequada (geralmente Cosseno para resistir à alta dimensionalidade) e compreender que a proximidade vetorial na base de dados reflete a proximidade semântica no manifold da linguagem."
+    "text": "6.3 RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto\nPara consolidar a importância prática de tudo o que vimos nesta aula (espaços vetoriais, normas, alta dimensionalidade e métricas de similaridade), vale notar que uma das tecnologias mais revolucionárias da atualidade — o RAG (Retrieval-Augmented Generation), usado em arquiteturas modernas de Inteligência Artificial — nada mais é do que uma aplicação direta e em larga escala do \\(k\\)-NN.\n\nComo funciona: Documentos corporativos, livros ou artigos são fatiados e convertidos em vetores densos de alta dimensão (os chamados embeddings, em \\(\\mathbb{R}^{1536}\\)) por um modelo de linguagem. Esses vetores habitam uma variedade latente complexa.\nA Busca Vetorial: Quando um usuário faz uma pergunta, a consulta é convertida em um vetor no mesmo espaço. O sistema executa um algoritmo de vizinhança equivalente ao \\(k\\)-NN (usando similaridade de cosseno ou norma \\(L_2\\) otimizada) para recuperar os \\(k\\) trechos de texto mais próximos.\nA Conclusão da Aula: A eficácia de um sistema de RAG de ponta depende exatamente dos tópicos que cobrimos hoje: escolher a métrica adequada (geralmente Cosseno para resistir à alta dimensionalidade) e compreender que a proximidade vetorial na base de dados reflete a proximidade semântica no manifold da linguagem.\n\n\nRetomando as perguntas de abertura\n\nComo transformar um objeto do mundo real num vetor, e o que isso compra? Qualquer atributo quantificável vira uma coordenada; uma vez em \\(\\mathbb{R}^d\\), “objetos parecidos” passa a significar “pontos próximos” — a base do \\(k\\)-NN.\nQue estrutura descreve onde os dados vivem? Em geral, uma variedade (manifold) — só localmente parecida com um espaço vetorial plano; um subespaço vetorial de verdade é o caso especial em que essa variedade já é globalmente plana.\nComo medir tamanho e distância rigorosamente — e o que quebra em alta dimensão? Normas (\\(L_1\\), \\(L_2\\), \\(L_\\infty\\)) e métricas induzidas; em alta dimensão, a distância Euclidiana perde contraste e fica dominada pela magnitude — o cosseno resolve o segundo problema, mas troca de axiomas (não é métrica em sentido estrito).\nOnde isso aparece hoje? No motor de busca vetorial por trás do RAG — literalmente um \\(k\\)-NN em embeddings de texto."
   },
   {
     "objectID": "supervised/aula01/slides.html#a-tese-central-do-curso",
@@ -1103,7 +1103,7 @@
     "href": "supervised/aula01/slides.html#exemplo-triagem-médica",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "Exemplo: triagem médica",
-    "text": "Exemplo: triagem médica\nPrevalência \\(p(D) = 0{,}01\\). Sensibilidade \\(p(+\\mid D) = 0{,}90\\). Falso positivo \\(p(+\\mid\\bar D) = 0{,}03\\).\nTeste positivo. Probabilidade de estar doente?\n\n\\[ p(D\\mid+) = \\frac{0{,}90 \\times 0{,}01}{0{,}90\\times0{,}01 + 0{,}03\\times0{,}99} \\approx \\mathbf{0{,}233} \\]\nEm 10.000 pessoas: 90 verdadeiros positivos contra 297 falsos positivos.\n\n\nMesma lição do Passo 4, no caso discreto: a priori decide.\n\n\n\n\n\n\n\n\nNo exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?\n\n\nEscreva os três nomes ao lado dos três números do enunciado, e confira com um colega (2 min)."
+    "text": "Exemplo: triagem médica\nPrevalência \\(p(D) = 0{,}01\\). Sensibilidade \\(p(+\\mid D) = 0{,}90\\). Falso positivo \\(p(+\\mid\\bar D) = 0{,}03\\).\nTeste positivo. Probabilidade de estar doente?\n\n\\[ p(D\\mid+) = \\frac{0{,}90 \\times 0{,}01}{0{,}90\\times0{,}01 + 0{,}03\\times0{,}99} \\approx \\mathbf{0{,}233} \\]\nEm 10.000 pessoas: 90 verdadeiros positivos contra 297 falsos positivos.\n\n\nMesma lição do Passo 4, no caso discreto: a priori decide."
   },
   {
     "objectID": "supervised/aula01/slides.html#densidade-vs.-probabilidade-1",
@@ -1124,7 +1124,7 @@
     "href": "supervised/aula01/slides.html#o-comportamento-de-cauda",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "O Comportamento de Cauda",
-    "text": "O Comportamento de Cauda\nO comportamento de \\(p(x)\\) quando \\(|x| \\to \\infty\\) define a sensibilidade a eventos extremos.\n\nCaudas Leves (Decaimento Exponencial/Quadrático):\n\n\\(p(x) \\sim \\exp(-x^2)\\) (Gaussiana) ou \\(\\exp(-|x|)\\) (Laplace).\nValores a \\(5\\sigma\\) são virtualmente impossíveis.\n\nCaudas Pesadas (Decaimento Polinomial):\n\n\\(p(x) \\sim x^{-\\nu}\\) (\\(t\\) de Student com \\(\\nu\\) graus de liberdade).\nOutliers têm probabilidade não desprezível.\n\n\n\n\n\n\n\n\nPor que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?\n\n\nEscreva um argumento em uma frase, sem usar a palavra “feio” (2 min)."
+    "text": "O Comportamento de Cauda\nO comportamento de \\(p(x)\\) quando \\(|x| \\to \\infty\\) define a sensibilidade a eventos extremos.\n\nCaudas Leves (Decaimento Exponencial/Quadrático):\n\n\\(p(x) \\sim \\exp(-x^2)\\) (Gaussiana) ou \\(\\exp(-|x|)\\) (Laplace).\nValores a \\(5\\sigma\\) são virtualmente impossíveis.\n\nCaudas Pesadas (Decaimento Polinomial):\n\n\\(p(x) \\sim x^{-\\nu}\\) (\\(t\\) de Student com \\(\\nu\\) graus de liberdade).\nOutliers têm probabilidade não desprezível."
   },
   {
     "objectID": "supervised/aula01/slides.html#qual-distribuição-para-dados-em-01",
@@ -1166,7 +1166,7 @@
     "href": "supervised/aula02/slides.html#quanto-custa-um-histograma-multidimensional",
     "title": "Independência, Naive Bayes e Teoria da Decisão",
     "section": "Quanto custa um histograma multidimensional?",
-    "text": "Quanto custa um histograma multidimensional?\n\nHistograma multidimensional: \\(M\\) células por eixo, \\(d\\) eixos $M^d $$\n\n\n\n\\(d=1\\): \\(M=10\\) células bastam.\n\\(d=10\\): \\(10^{10}\\) células — mais que qualquer dataset real.\n\n\n\n\nNão é falta de poder computacional. É falta de dados — o problema é estrutural, não de engenharia.\n\n\n\n\n\n\n\n\n\nPor que “faltam dados” para estimar \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\) em alta dimensão é diferente de “falta poder computacional”?\n\n\nExplique a um colega em uma frase. Se comprássemos 100× mais GPUs, o problema desapareceria?"
+    "text": "Quanto custa um histograma multidimensional?\n\nHistograma multidimensional: \\(M\\) células por eixo, \\(d\\) eixos $M^d $$\n\n\n\n\\(d=1\\): \\(M=10\\) células bastam.\n\\(d=10\\): \\(10^{10}\\) células — mais que qualquer dataset real.\n\n\n\n\nNão é falta de poder computacional. É falta de dados — o problema é estrutural, não de engenharia."
   },
   {
     "objectID": "supervised/aula02/slides.html#o-que-a-aula-1-entregou",
@@ -1306,7 +1306,7 @@
     "href": "supervised/aula02/slides.html#modelos-generativos-discriminativos-e-ia-generativa",
     "title": "Independência, Naive Bayes e Teoria da Decisão",
     "section": "Modelos Generativos, Discriminativos e IA Generativa",
-    "text": "Modelos Generativos, Discriminativos e IA Generativa\nRegressão logística (Aula 6) modela \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) direto — nunca constrói \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\).\n\n\nPergunte a ela: “me dê um \\(\\mathbf{x}\\) plausível da classe 2”.\nA pergunta não faz sentido — ela nunca representou como \\(\\mathbf{x}\\) se distribui.\n\n\nDiscriminativo decide. Generativo decide e sonha.\n\n\n\nÉ a mesma palavra em “IA generativa”\n\n\n\n\n\n\n\n\n\nesta aula\nmodelo moderno\n\n\n\n\ncondição\n\\(\\mathcal{C}_k \\sim \\pi_k\\)\nprompt / latente\n\n\ngera\n\\(\\mathbf{x}\\in\\mathbb{R}^2\\)\nimagem, tokens\n\n\n\\(p(\\mathbf{x}\\mid\\cdot)\\)\ngaussiana, 5 params\nrede, \\(10^9\\)+ params\n\n\n\n\n\nMudou a família de distribuições, não o conceito. E precisa de bilhões de parâmetros porque \\(\\mathbf{x}\\) tem dimensão altíssima — o problema do histograma, de novo.\n\n\n\n\n\n\n\nO que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?\n\n\nUma frase. Compare com um colega antes de avançar (2 min)."
+    "text": "Modelos Generativos, Discriminativos e IA Generativa\nRegressão logística (Aula 6) modela \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) direto — nunca constrói \\(p(\\mathbf{x}\\mid\\mathcal{C}_k)\\).\n\n\nPergunte a ela: “me dê um \\(\\mathbf{x}\\) plausível da classe 2”.\nA pergunta não faz sentido — ela nunca representou como \\(\\mathbf{x}\\) se distribui.\n\n\nDiscriminativo decide. Generativo decide e sonha.\n\n\n\nÉ a mesma palavra em “IA generativa”\n\n\n\n\n\n\n\n\n\nesta aula\nmodelo moderno\n\n\n\n\ncondição\n\\(\\mathcal{C}_k \\sim \\pi_k\\)\nprompt / latente\n\n\ngera\n\\(\\mathbf{x}\\in\\mathbb{R}^2\\)\nimagem, tokens\n\n\n\\(p(\\mathbf{x}\\mid\\cdot)\\)\ngaussiana, 5 params\nrede, \\(10^9\\)+ params\n\n\n\n\n\nMudou a família de distribuições, não o conceito. E precisa de bilhões de parâmetros porque \\(\\mathbf{x}\\) tem dimensão altíssima — o problema do histograma, de novo."
   },
   {
     "objectID": "supervised/aula02/slides.html#a-conta-quebra-rápido",
@@ -1439,7 +1439,7 @@
     "href": "supervised/aula02/slides.html#a-escolha-do-passo-2",
     "title": "Independência, Naive Bayes e Teoria da Decisão",
     "section": "A escolha do passo 2",
-    "text": "A escolha do passo 2\n\n\n\n\n\n\n\n\natributo\nfamília\npor classe\n\n\n\n\nbinário\nBernoulli\n1 prob.\n\n\ncategórico (\\(M\\) níveis)\nCategórica\n\\(M-1\\)\n\n\ncontagem\nMultinomial\ntaxa/termo\n\n\ncontínuo, forma conhecida\nGaussiana 1-D\n\\(\\mu_{ik}, \\sigma^2_{ik}\\)\n\n\ncontínuo, forma livre\nhistograma / KDE\n\\(M\\) contagens\n\n\n\n\nFamílias diferentes por coluna são permitidas — idade, estado civil e “tem cartão” convivem. O passo 3 soma os logs indiferentemente.\n\n\n\n\n\n\n\nDê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável\n\n\nEscreva os dois exemplos, num problema que você conheça."
+    "text": "A escolha do passo 2\n\n\n\n\n\n\n\n\natributo\nfamília\npor classe\n\n\n\n\nbinário\nBernoulli\n1 prob.\n\n\ncategórico (\\(M\\) níveis)\nCategórica\n\\(M-1\\)\n\n\ncontagem\nMultinomial\ntaxa/termo\n\n\ncontínuo, forma conhecida\nGaussiana 1-D\n\\(\\mu_{ik}, \\sigma^2_{ik}\\)\n\n\ncontínuo, forma livre\nhistograma / KDE\n\\(M\\) contagens\n\n\n\n\nFamílias diferentes por coluna são permitidas — idade, estado civil e “tem cartão” convivem. O passo 3 soma os logs indiferentemente."
   },
   {
     "objectID": "supervised/aula02/slides.html#o-objeto-geral-1",
@@ -1866,7 +1866,7 @@
     "href": "supervised/aula01/slides.html#o-corte-deslocado-erra-menos",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "O corte deslocado erra menos",
-    "text": "O corte deslocado erra menos\n\nO corte deslocado erra muito menos.\nE ele não veio de tentativa e erro — vem de um princípio.\n\n\nOnde a justificativa verbal falhou:\n“igualmente plausíveis” \\(\\ne\\) “igualmente prováveis”\n\n\n\n\n\n\n\nPor que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?\n\n\nEscreva, com suas palavras, e compare a sua frase com a de um colega antes de avançar (2 min)."
+    "text": "O corte deslocado erra menos\n\nO corte deslocado erra muito menos.\nE ele não veio de tentativa e erro — vem de um princípio.\n\n\nOnde a justificativa verbal falhou:\n“igualmente plausíveis” \\(\\ne\\) “igualmente prováveis”"
   },
   {
     "objectID": "supervised/aula01/slides.html#perguntas",
@@ -1880,7 +1880,7 @@
     "href": "supervised/aula01/slides.html#resposta",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "Resposta",
-    "text": "Resposta\n\n\n\n\n\n\nA distribuição Beta — Resposta\n\n\n\nVerdadeiro — é exatamente por isso que ela é a escolha natural para dados confinados em \\([0,1]\\).\nVerdadeiro — \\(\\operatorname{Beta}(x\\mid 1,1) = 1\\) para todo \\(x\\in[0,1]\\), a densidade uniforme.\nFalso — o estimador de momentos tem fórmula fechada; o MLE precisa de solução numérica (as estatísticas suficientes são médias logarítmicas, não a média aritmética).\nVerdadeiro — a densidade diverge nas bordas quando \\(a&lt;1\\) ou \\(b&lt;1\\), e \\(\\ln 0 = -\\infty\\) quebra a verossimilhança."
+    "text": "Resposta\n\n\n\n\n\n\nCruzamento de condicionais vs. conjuntas — Resposta\n\n\n\nFalso — só é ótima quando \\(\\pi_A = \\pi_B\\).\nFalso — enquanto houver sobreposição das densidades, existe erro irredutível (erro de Bayes); nenhum \\(t\\) zera as duas áreas.\nVerdadeiro — se B fica mais frequente, é preciso menos evidência relativa a favor de B para declará-la (o limiar de razão de verossimilhanças \\(\\pi_A/\\pi_B\\) cai), então a região de B cresce e a fronteira se desloca para a esquerda, tomando território de A.\nVerdadeiro — cortar no cruzamento das condicionais é exatamente agir como se as duas classes fossem igualmente prováveis."
   },
   {
     "objectID": "supervised/aula01/slides.html#a-prova-de-que-o-cruzamento-das-conjuntas-é-ótimo-1",
@@ -1999,7 +1999,7 @@
     "href": "supervised/aula01/slides.html#pergunta",
     "title": "Dados, Distribuições e Detecção de Anomalias",
     "section": "Pergunta",
-    "text": "Pergunta\n\n\n\n\n\n\nA distribuição Beta\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA densidade \\(\\operatorname{Beta}(x\\mid a,b)\\) tem suporte em \\([0,1]\\) por construção.\nQuando \\(a=b=1\\), a Beta se reduz à distribuição Uniforme em \\([0,1]\\).\nO estimador de máxima verossimilhança da Beta tem fórmula fechada, assim como o estimador de momentos.\nSe \\(a&lt;1\\), uma observação exatamente igual a \\(0\\) torna a verossimilhança infinita ou indefinida."
+    "text": "Pergunta\n\n\n\n\n\n\nCruzamento de condicionais vs. conjuntas\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO ponto de cruzamento das condicionais é a fronteira ótima quando as classes têm frequências diferentes.\nA área de alarme falso e a área de escape podem, ambas, ser reduzidas a zero pela escolha certa do limiar \\(t\\).\nAumentar a frequência relativa da classe B desloca a fronteira ótima para a esquerda.\nIgnorar a frequência das classes é o mesmo que assumir \\(\\pi_A = \\pi_B\\)."
   },
   {
     "objectID": "supervised/aula01/notas.html#respostas",
@@ -2399,5 +2399,852 @@
     "title": "Árvores de Decisão — Particionamento Guloso",
     "section": "Julgue V ou F: poda por custo-complexidade — Resposta",
     "text": "Julgue V ou F: poda por custo-complexidade — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é a própria definição do termo de penalidade.\nVerdadeiro — sem penalidade, \\(C(T)\\) se reduz à soma de \\(Q_\\tau\\), sempre menor (ou igual) para a árvore mais completa.\nVerdadeiro — verificado no bloco: \\(\\lambda\\) vem de validação cruzada (ponte com a Aula 4).\nVerdadeiro — mais penalidade por folha empurra a poda para árvores menores."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#quatro-perguntas-de-hoje",
+    "href": "unsupervised/aula01/slides.html#quatro-perguntas-de-hoje",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Quatro Perguntas de Hoje",
+    "text": "Quatro Perguntas de Hoje\n\n1. Que forma de modelo faz sentido sem rótulo — por que a Gaussiana multivariada?\n\n\n2. Como ajustar essa forma aos dados — o que pode dar errado?\n\n\n3. Como comparar um ponto novo ao modelo — por que não a distância Euclidiana?\n\n\n4. Como virar isso uma afirmação probabilística rigorosa — e onde a receita quebra?"
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#do-limiar-ao-p-valor",
+    "href": "unsupervised/aula01/slides.html#do-limiar-ao-p-valor",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Do Limiar ao \\(p\\)-valor",
+    "text": "Do Limiar ao \\(p\\)-valor\n\\[ p(\\mathbf{x}) = 1 - F_{\\chi^2_d}\\big(D_M(\\mathbf{x})^2\\big) \\]\n\nO que estamos tentando responder é “qual a probabilidade de um ponto do modelo ajustado ser tão extremo, ou mais, quanto \\(\\mathbf{x}\\)?”\nE não qual a “probabilidade de \\(\\mathbf{x}\\) vir do modelo certo”.\n\n\nLimiar fixo = caso particular \\(p(\\mathbf{x})&lt;\\alpha\\). \\(p\\)-valor ordena por surpresa em vez de só separar em duas caixas."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#conjunta-vs.-por-dimensão",
+    "href": "unsupervised/aula01/slides.html#conjunta-vs.-por-dimensão",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Conjunta vs. por dimensão",
+    "text": "Conjunta vs. por dimensão\n\\(\\hat\\Sigma\\) diagonal = supor independência (PRML p. 84: mais rápido de inverter, mas “limita a capacidade de capturar correlações interessantes”).\n\nPor dimensão: \\(p_i(x_i)\\) da marginal \\(\\mathcal{N}(\\hat\\mu_i,\\hat\\sigma_i^2)\\). Combinado por Fisher: \\(-2\\sum_i\\ln p_i \\sim \\chi^2_{2d}\\)."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#por-que-a-distribuição-empírica-nunca-está-errada-e-ainda-assim-não-basta-para-decidir-se-um-ponto-novo-é-típico-ou-anômalo-1",
+    "href": "unsupervised/aula01/slides.html#por-que-a-distribuição-empírica-nunca-está-errada-e-ainda-assim-não-basta-para-decidir-se-um-ponto-novo-é-típico-ou-anômalo-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Por que a distribuição empírica “nunca está errada” e ainda assim não basta para decidir se um ponto novo é típico ou anômalo?",
+    "text": "Por que a distribuição empírica “nunca está errada” e ainda assim não basta para decidir se um ponto novo é típico ou anômalo?\n\n\n\n\n\n\nDica\n\n\n\n(Pense: o que ela diz sobre uma região onde nenhum ponto foi observado?)"
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#julgue-v-ou-f-gaussiana-multivariada-e-máxima-verossimilhança-1",
+    "href": "unsupervised/aula01/slides.html#julgue-v-ou-f-gaussiana-multivariada-e-máxima-verossimilhança-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Julgue V ou F: Gaussiana multivariada e máxima verossimilhança",
+    "text": "Julgue V ou F: Gaussiana multivariada e máxima verossimilhança\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nOs autovetores de \\(\\Sigma\\) dão a orientação das elipses de densidade constante da Gaussiana multivariada; os autovalores dão o comprimento dos eixos.\nO estimador de máxima verossimilhança \\(\\hat{\\boldsymbol\\mu}\\) é não-viesado: \\(\\mathbb{E}[\\hat{\\boldsymbol\\mu}] = \\boldsymbol\\mu\\).\nO estimador de máxima verossimilhança \\(\\hat\\Sigma_{\\text{ML}}\\) (dividido por \\(N\\)) é não-viesado.\nSe \\(N \\le d\\), a matriz \\(\\hat\\Sigma_{\\text{ML}}\\) estimada não é invertível."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#julgue-v-ou-f-gaussiana-multivariada-e-máxima-verossimilhança-resposta",
+    "href": "unsupervised/aula01/slides.html#julgue-v-ou-f-gaussiana-multivariada-e-máxima-verossimilhança-resposta",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Julgue V ou F: Gaussiana multivariada e máxima verossimilhança — Resposta",
+    "text": "Julgue V ou F: Gaussiana multivariada e máxima verossimilhança — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é a interpretação geométrica padrão da forma quadrática.\nVerdadeiro — a média amostral é sempre não-viesada para a média populacional.\nFalso — \\(\\mathbb{E}[\\hat\\Sigma_{\\text{ML}}] = \\frac{N-1}{N}\\Sigma \\ne \\Sigma\\); é viesado, e a correção divide por \\(N-1\\).\nVerdadeiro — posto no máximo \\(N-1\\), precisa de posto \\(d\\) para ser invertível."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#por-que-o-ponto-b-mais-distante-do-centro-em-unidades-brutas-tem-uma-distância-de-mahalanobis-menor-que-a-do-ponto-c-mais-próximo-1",
+    "href": "unsupervised/aula01/slides.html#por-que-o-ponto-b-mais-distante-do-centro-em-unidades-brutas-tem-uma-distância-de-mahalanobis-menor-que-a-do-ponto-c-mais-próximo-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Por que o ponto B, mais distante do centro em unidades brutas, tem uma distância de Mahalanobis menor que a do ponto C, mais próximo?",
+    "text": "Por que o ponto B, mais distante do centro em unidades brutas, tem uma distância de Mahalanobis menor que a do ponto C, mais próximo?\n\n\n\n\n\n\nDica\n\n\n\n(Pense: \\(\\Sigma^{-1}\\) estica o espaço nas direções de baixa variância, comprime nas de alta variância.)"
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#julgue-v-ou-f-distância-de-mahalanobis-e-o-p-valor-de-anomalia-1",
+    "href": "unsupervised/aula01/slides.html#julgue-v-ou-f-distância-de-mahalanobis-e-o-p-valor-de-anomalia-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Julgue V ou F: distância de Mahalanobis e o \\(p\\)-valor de anomalia",
+    "text": "Julgue V ou F: distância de Mahalanobis e o \\(p\\)-valor de anomalia\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA distância de Mahalanobis reduz à distância Euclidiana quando \\(\\Sigma\\) é a matriz identidade.\nSe \\(\\mathbf{x}\\sim\\mathcal{N}(\\boldsymbol\\mu,\\Sigma)\\), então \\(D_M(\\mathbf{x})^2\\) segue uma distribuição qui-quadrado com \\(d\\) graus de liberdade.\nUm \\(p\\)-valor baixo para um ponto \\(\\mathbf{x}\\) significa que a probabilidade de \\(\\mathbf{x}\\) ter vindo da distribuição verdadeira é baixa.\nDois pontos igualmente distantes do centro em distância Euclidiana podem ter distâncias de Mahalanobis bem diferentes."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#julgue-v-ou-f-distância-de-mahalanobis-e-o-p-valor-de-anomalia-resposta",
+    "href": "unsupervised/aula01/slides.html#julgue-v-ou-f-distância-de-mahalanobis-e-o-p-valor-de-anomalia-resposta",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Julgue V ou F: distância de Mahalanobis e o \\(p\\)-valor de anomalia — Resposta",
+    "text": "Julgue V ou F: distância de Mahalanobis e o \\(p\\)-valor de anomalia — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é a própria definição, citada do PRML.\nVerdadeiro — verificado: \\(\\mathbf{Y}=\\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu)\\sim\\mathcal{N}(0,I_d)\\), e \\(\\mathbf{Y}^T\\mathbf{Y}\\sim\\chi^2_d\\).\nFalso — é uma afirmação condicional ao modelo ajustado estar certo, não sobre a origem real de \\(\\mathbf{x}\\).\nVerdadeiro — é exatamente o contraste entre os pontos B e C."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#julgue-v-ou-f-teste-conjunto-vs.-teste-por-dimensão-1",
+    "href": "unsupervised/aula01/slides.html#julgue-v-ou-f-teste-conjunto-vs.-teste-por-dimensão-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Julgue V ou F: teste conjunto vs. teste por dimensão",
+    "text": "Julgue V ou F: teste conjunto vs. teste por dimensão\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nSupor \\(\\Sigma\\) diagonal equivale a supor independência entre as dimensões dos dados.\nO teste por dimensão, combinado pelo teste de Fisher, usa \\(d(d+1)/2\\) parâmetros — o mesmo que o teste conjunto via Mahalanobis.\nUm ponto pode ter \\(p\\)-valor baixo em cada dimensão isoladamente e ainda assim ter \\(p\\)-valor conjunto alto, se o desvio observado for consistente com a correlação entre as dimensões.\nUm ponto pode parecer normal em cada dimensão isoladamente e ainda assim ser uma anomalia no teste conjunto, se ele quebrar a relação de correlação entre as dimensões."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#julgue-v-ou-f-teste-conjunto-vs.-teste-por-dimensão-resposta",
+    "href": "unsupervised/aula01/slides.html#julgue-v-ou-f-teste-conjunto-vs.-teste-por-dimensão-resposta",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Julgue V ou F: teste conjunto vs. teste por dimensão — Resposta",
+    "text": "Julgue V ou F: teste conjunto vs. teste por dimensão — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é a restrição discutida no PRML §2.3, p. 84.\nFalso — é o oposto: por dimensão usa só \\(d\\) parâmetros; o conjunto (Mahalanobis) usa \\(d(d+1)/2\\).\nVerdadeiro — é exatamente o caso do ponto B (falso alarme do teste por dimensão).\nVerdadeiro — é exatamente o caso do ponto C (anomalia real que escapa do teste por dimensão)."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#retomando-as-perguntas-de-abertura-1",
+    "href": "unsupervised/aula01/slides.html#retomando-as-perguntas-de-abertura-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Retomando as Perguntas de Abertura",
+    "text": "Retomando as Perguntas de Abertura\n\n1. Forma sem rótulo: Gaussiana multivariada (entropia máxima, TCL).\n\n\n2. Ajuste: MLE — \\(\\hat{\\boldsymbol\\mu}\\), \\(\\hat\\Sigma\\) (viesado; trava se \\(N\\le d\\)).\n\n\n3. Comparação: Mahalanobis, não Euclidiana.\n\n\n4. Rigor: \\(p\\)-valor via \\(\\chi^2_d\\) — quebra sob multimodalidade e outliers."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#ponte-para-a-aula-2-1",
+    "href": "unsupervised/aula01/slides.html#ponte-para-a-aula-2-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Ponte para a Aula 2",
+    "text": "Ponte para a Aula 2\n\nRelaxar a suposição de família única: \\(k\\)-NN e KDE, densidade não-paramétrica. Preço: a maldição da dimensionalidade."
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#questões-discursivas",
+    "href": "unsupervised/aula01/notas.html#questões-discursivas",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "9.1 Questões discursivas",
+    "text": "9.1 Questões discursivas\n\nExplique por que a distribuição empírica “nunca está errada”, mas ainda assim não é suficiente para decidir se um ponto novo é típico ou anômalo. Sua explicação deve mencionar o que a distribuição empírica diz (ou deixa de dizer) sobre regiões do espaço onde nenhum ponto foi observado.\nA distância de Mahalanobis “reduz à distância Euclidiana quando \\(\\Sigma\\) é a matriz identidade” (PRML, tradução nossa). Explique o que isso significa geometricamente, e descreva um exemplo (pode ser hipotético) em que a diferença entre as duas distâncias muda a decisão de marcar ou não um ponto como anômalo.\nUm colega propõe substituir o teste conjunto (via distância de Mahalanobis e \\(\\chi^2_d\\)) pelo teste por dimensão combinado via Fisher em todos os casos, para economizar parâmetros. Usando o contraste entre os pontos B e C desta aula, explique por que essa substituição não é sempre segura."
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#questões-de-verdadeirofalso",
+    "href": "unsupervised/aula01/notas.html#questões-de-verdadeirofalso",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "9.2 Questões de Verdadeiro/Falso",
+    "text": "9.2 Questões de Verdadeiro/Falso\nCada bloco de 4 itens trata do mesmo tema. A questão só é considerada correta se todos os 4 itens forem julgados corretamente (deixar em branco tem penalidade de 20% da nota da questão).\n\n\n\n\n\n\nDicaModelagem sem rótulos e profiling\n\n\n\n\n( ) Em aprendizado não supervisionado, o objetivo central é encontrar uma função que preveja um rótulo \\(y\\) a partir de \\(\\mathbf{x}\\).\n( ) Profiling é a tarefa de descrever o comportamento típico de uma população para depois reconhecer o que se desvia dele.\n( ) Espessura da dobra cutânea e IMC podem variar de forma correlacionada numa população de pacientes.\n( ) A pergunta central desta aula é “que forma esses dados têm”, não “que função prevê \\(y\\)”.\n\n\n\n\n\n\n\n\n\nDicaDistribuição empírica vs. distribuição teórica\n\n\n\n\n( ) A distribuição empírica é, em algum sentido, sempre “correta”, pois é literalmente o que foi observado.\n( ) A distribuição empírica generaliza bem para regiões do espaço onde poucos ou nenhum ponto foi observado.\n( ) Assumir uma família teórica com poucos parâmetros troca ruído por estrutura, ao custo de a suposição poder estar errada.\n( ) A escolha de uma família teórica específica (como a Gaussiana) é sempre garantidamente correta, desde que \\(N\\) seja grande o suficiente.\n\n\n\n\n\n\n\n\n\nDicaA Gaussiana multivariada: forma geométrica\n\n\n\n\n( ) As curvas de nível de densidade constante de uma Gaussiana multivariada são elipsoides centrados em \\(\\boldsymbol\\mu\\).\n( ) Os autovetores de \\(\\Sigma\\) determinam a orientação dos eixos dessas elipsoides.\n( ) Os autovalores de \\(\\Sigma\\) determinam o comprimento desses eixos.\n( ) \\(\\Sigma\\) pode ser qualquer matriz quadrada, sem restrição de simetria ou de definição positiva.\n\n\n\n\n\n\n\n\n\nDicaPor que a Gaussiana é a escolha natural\n\n\n\n\n( ) A Gaussiana é a distribuição de entropia máxima dada uma média e uma covariância fixas.\n( ) O Teorema Central do Limite diz que a soma de muitas variáveis aleatórias, sob condições brandas, tende a uma distribuição Gaussiana.\n( ) O Teorema Central do Limite garante que qualquer conjunto de dados observado é, de fato, gaussiano.\n( ) A escolha da Gaussiana como modelo é uma suposição, não uma consequência lógica obrigatória dos dados.\n\n\n\n\n\n\n\n\n\nDicaMáxima verossimilhança para \\(\\boldsymbol\\mu\\) e \\(\\Sigma\\)\n\n\n\n\n( ) O estimador de máxima verossimilhança de \\(\\boldsymbol\\mu\\) é a média amostral \\(\\bar{\\mathbf{x}}\\).\n( ) O estimador de máxima verossimilhança de \\(\\Sigma\\) (dividido por \\(N\\)) é a matriz de covariância amostral.\n( ) A derivação do estimador de máxima verossimilhança de \\(\\boldsymbol\\mu\\) e \\(\\Sigma\\) segue do mesmo princípio de maximização da log-verossimilhança usado em outras partes do curso.\n( ) O estimador de máxima verossimilhança de \\(\\boldsymbol\\mu\\) depende da escolha de um limiar de anomalia.\n\n\n\n\n\n\n\n\n\nDicaViés do estimador de covariância\n\n\n\n\n( ) O estimador de máxima verossimilhança \\(\\hat\\Sigma_{\\text{ML}}\\) (dividido por \\(N\\)) subestima, em esperança, a covariância verdadeira.\n( ) A correção padrão para o viés de \\(\\hat\\Sigma_{\\text{ML}}\\) consiste em dividir por \\(N-1\\) em vez de \\(N\\).\n( ) O estimador de máxima verossimilhança de \\(\\boldsymbol\\mu\\) também é viesado, pela mesma razão que \\(\\hat\\Sigma_{\\text{ML}}\\).\n( ) np.cov com o parâmetro padrão do NumPy usa a correção por \\(N-1\\), não a versão de máxima verossimilhança dividida por \\(N\\).\n\n\n\n\n\n\n\n\n\nDicaA armadilha \\(N \\le d\\)\n\n\n\n\n( ) Se \\(N \\le d\\), a matriz de covariância amostral \\(\\hat\\Sigma\\) tem posto no máximo \\(N-1\\).\n( ) Uma matriz de covariância amostral com posto menor que \\(d\\) é sempre invertível.\n( ) Sem \\(\\hat\\Sigma^{-1}\\), a distância de Mahalanobis não pode ser calculada.\n( ) A armadilha \\(N \\le d\\) é uma primeira manifestação da maldição da dimensionalidade, tema da Aula 2.\n\n\n\n\n\n\n\n\n\nDicaDistância de Mahalanobis vs. distância Euclidiana\n\n\n\n\n( ) A distância de Mahalanobis reduz à distância Euclidiana quando \\(\\Sigma\\) é a matriz identidade.\n( ) \\(\\Sigma^{-1}\\) estica o espaço nas direções de alta variância e comprime nas direções de baixa variância.\n( ) Dois pontos igualmente distantes do centro em distância Euclidiana podem ter distâncias de Mahalanobis diferentes.\n( ) Um deslocamento ao longo da direção de maior correlação entre as variáveis pode “custar pouco” em distância de Mahalanobis, mesmo parecendo grande em unidades brutas.\n\n\n\n\n\n\n\n\n\nDicaDa distância de Mahalanobis ao \\(p\\)-valor\n\n\n\n\n( ) Se \\(\\mathbf{x}\\sim\\mathcal{N}(\\boldsymbol\\mu,\\Sigma)\\), a distância de Mahalanobis ao quadrado \\(D_M(\\mathbf{x})^2\\) segue uma distribuição qui-quadrado com \\(d\\) graus de liberdade.\n( ) O \\(p\\)-valor de anomalia definido nesta aula é a probabilidade de um ponto do modelo ajustado ser tão extremo, ou mais, quanto o ponto observado.\n( ) Um limiar fixo de anomalia (dentro/fora) é um caso particular do escore contínuo dado pelo \\(p\\)-valor.\n( ) O \\(p\\)-valor ordena os pontos apenas em duas categorias (típico/anômalo), sem informação adicional sobre o grau de surpresa.\n\n\n\n\n\n\n\n\n\nDicaA armadilha de interpretação do \\(p\\)-valor\n\n\n\n\n( ) Um \\(p\\)-valor baixo significa que a probabilidade de o ponto observado pertencer à distribuição verdadeira é baixa.\n( ) Um \\(p\\)-valor baixo é uma afirmação condicional a o modelo ajustado estar correto.\n( ) Se o modelo ajustado estiver errado, o \\(p\\)-valor calculado a partir dele também estará comprometido.\n( ) O \\(p\\)-valor é uma afirmação sobre o modelo, não uma afirmação direta sobre a origem do ponto observado.\n\n\n\n\n\n\n\n\n\nDicaTeste conjunto vs. teste por dimensão\n\n\n\n\n( ) Supor \\(\\Sigma\\) diagonal é equivalente a supor independência entre as dimensões dos dados.\n( ) O teste por dimensão, combinado pelo teste de Fisher, usa menos parâmetros do que o teste conjunto via distância de Mahalanobis.\n( ) Um ponto que quebra a relação de correlação entre duas dimensões, mas parece normal em cada dimensão isoladamente, é sempre detectado pelo teste por dimensão.\n( ) O teste conjunto via Mahalanobis é sensível a esse tipo de quebra de correlação, mesmo quando o teste por dimensão não é.\n\n\n\n\n\n\n\n\n\nDicaLimitações: multimodalidade e outliers no ajuste\n\n\n\n\n( ) Uma única Gaussiana ajustada a dados genuinamente multimodais (com duas subpopulações distintas) sempre falha ao produzir \\(\\hat{\\boldsymbol\\mu}\\) e \\(\\hat\\Sigma\\) numericamente válidos.\n( ) Outliers no próprio conjunto usado para ajustar \\(\\hat{\\boldsymbol\\mu}\\) e \\(\\hat\\Sigma\\) podem inflar \\(\\hat\\Sigma\\) e esconder anomalias reais.\n( ) O problema de robustez a outliers no ajuste é resolvido, nesta aula, por um estimador robusto de locação e escala.\n( ) A saída não-paramétrica (\\(k\\)-NN e KDE), tema da Aula 2, evita a suposição de uma única forma paramétrica para os dados."
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#aviso",
+    "href": "unsupervised/aula01/notas.html#aviso",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "9.3 Aviso",
+    "text": "9.3 Aviso\nAs questões de Verdadeiro/Falso e discursivas ficam sem solução neste arquivo — são para resolução autônoma do aluno, fora do horário de aula."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#formulação",
+    "href": "unsupervised/aula01/slides.html#formulação",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Formulação",
+    "text": "Formulação\nSem rótulo \\(y\\) — só \\(\\mathbf{x}_1,\\dots,\\mathbf{x}_N\\).\n\nQue forma esses dados têm?\n\n\n\nProfiling: descrever o comportamento típico, depois reconhecer o desvio. Espessura da dobra cutânea e IMC variam juntas na população (dados reais, Pima Indians Diabetes) — um paciente novo se parece com isso?\n\n\n\n\nAbordagem: assumir uma família teórica → ajustar → usar a verossimilhança para decidir o que é típico."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#roteiro-da-aula",
+    "href": "algebra_opt/aula01/notas.html#roteiro-da-aula",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "1.1 Roteiro da Aula",
+    "text": "1.1 Roteiro da Aula\nEsta é a primeira aula do curso, e o alicerce de tudo que vem depois: PCA, otimização, redes neurais — todos operam sobre a mesma representação numérica dos dados que construímos aqui. Quatro perguntas guiam o percurso:\n\nComo transformar um objeto do mundo real (uma imagem, um paciente, um texto) em algo sobre o qual se possa fazer aritmética — e o que isso compra (o algoritmo do \\(k\\)-NN)?\nQue estrutura matemática realmente descreve onde os dados “vivem”: um espaço vetorial plano, ou algo mais geral (uma variedade)?\nComo definir rigorosamente “tamanho” (norma) e “distância” (métrica) de um vetor — e o que quebra nessas definições em alta dimensão?\nOnde essa teoria toda aparece, hoje, numa aplicação real?"
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#questões-discursivas",
+    "href": "algebra_opt/aula01/notas.html#questões-discursivas",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "7.1 Questões discursivas",
+    "text": "7.1 Questões discursivas\n\nExplique por que representar objetos do mundo real como vetores em \\(\\mathbb{R}^d\\) é o que torna possível um método como o \\(k\\)-NN. Sua explicação deve conectar a noção de “vetor de características” com a Hipótese de Suavidade.\nUm subespaço vetorial e uma variedade (manifold) podem, à primeira vista, parecer o mesmo tipo de objeto geométrico. Usando o exemplo do Swiss Roll discutido na aula, explique por que somar dois pontos de uma variedade curva pode produzir um resultado fora dela, e por que isso nunca acontece num subespaço vetorial de verdade.\nA prova original de que \\(d_{\\cos}(x,y)=1-\\cos\\theta\\) satisfaz a desigualdade triangular continha um erro (elevar ao quadrado uma desigualdade entre somas de raízes). Explique, com suas próprias palavras, por que esse passo é inválido, e o que a identidade \\(\\sqrt{2\\,d_{\\cos}(x,y)} = \\|\\hat x - \\hat y\\|_2\\) realmente prova."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#questões-de-verdadeirofalso",
+    "href": "algebra_opt/aula01/notas.html#questões-de-verdadeirofalso",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "7.2 Questões de Verdadeiro/Falso",
+    "text": "7.2 Questões de Verdadeiro/Falso\nCada bloco de 4 itens trata do mesmo tema. A questão só é considerada correta se todos os 4 itens forem julgados corretamente (deixar em branco tem penalidade de 20% da nota da questão).\n\n\n\n\n\n\nDicaVetores e operações elementares\n\n\n\n\n( ) Um vetor de dimensão \\(d\\) é, por convenção, tratado como um vetor-coluna em \\(\\mathbb{R}^d\\).\n( ) A soma de dois vetores \\(\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^d\\) é feita componente a componente.\n( ) Multiplicar um vetor por um escalar negativo preserva sua direção original.\n( ) Um escalar representa uma magnitude pura, sem direção associada.\n\n\n\n\n\n\n\n\n\nDicaO espaço de características (feature space)\n\n\n\n\n( ) Cada linha de um dataset tabular pode ser representada como um ponto no espaço de características \\(\\mathbb{R}^d\\).\n( ) Uma imagem em escala de cinza de \\(28\\times 28\\) pixels é naturalmente representada por um vetor de \\(784\\) dimensões.\n( ) Em abordagens de Bag of Words, cada posição do vetor de um documento corresponde a uma palavra específica de um vocabulário.\n( ) Embeddings de texto modernos são, em geral, vetores de baixa dimensão (2 ou 3 componentes).\n\n\n\n\n\n\n\n\n\nDicaO problema de aprendizado supervisionado\n\n\n\n\n( ) Em classificação, o conjunto \\(\\mathcal{Y}\\) é finito e discreto.\n( ) Em regressão, o conjunto \\(\\mathcal{Y}\\) é o conjunto dos números reais.\n( ) O objetivo do aprendizado supervisionado é encontrar uma função \\(f:\\mathcal{X}\\to\\mathcal{Y}\\) a partir do conjunto de treino \\(\\mathcal{D}\\).\n( ) O conjunto de treino \\(\\mathcal{D}\\) não inclui rótulos \\(y_i\\), apenas vetores de características \\(\\mathbf{x}_i\\).\n\n\n\n\n\n\n\n\n\nDicaA hipótese de suavidade e o \\(k\\)-NN\n\n\n\n\n( ) A Hipótese de Suavidade postula que pontos próximos no espaço de características tendem a ter rótulos parecidos.\n( ) O \\(k\\)-NN é um método paramétrico, com número fixo de parâmetros a estimar.\n( ) Em classificação, o \\(k\\)-NN agrega os rótulos dos \\(k\\) vizinhos mais próximos por votação.\n( ) Em regressão, o \\(k\\)-NN agrega os rótulos dos \\(k\\) vizinhos mais próximos pela média aritmética.\n\n\n\n\n\n\n\n\n\nDicaEspaços vetoriais e o teste de fechamento\n\n\n\n\n( ) Um subconjunto \\(U\\) de um espaço vetorial \\(V\\) só é um subespaço se contiver o vetor nulo.\n( ) Um subespaço vetorial deve ser fechado sob adição: a soma de dois vetores quaisquer de \\(U\\) deve permanecer em \\(U\\).\n( ) Um subespaço vetorial deve ser fechado sob multiplicação por escalar.\n( ) O conjunto de soluções de um sistema linear homogêneo \\(A\\mathbf{x}=\\mathbf{0}\\) não é, em geral, um subespaço vetorial.\n\n\n\n\n\n\n\n\n\nDicaSubespaços vs. variedades (manifolds)\n\n\n\n\n( ) Uma variedade é, por definição, globalmente plana, assim como um subespaço vetorial.\n( ) Uma variedade é, localmente, semelhante a um espaço Euclidiano plano.\n( ) Somar dois pontos que estão sobre a superfície de uma esfera em \\(\\mathbb{R}^3\\) produz, em geral, um ponto fora dessa superfície.\n( ) Um subespaço vetorial em \\(\\mathbb{R}^3\\) só pode ser a origem, uma reta, um plano (ambos passando pela origem) ou o próprio \\(\\mathbb{R}^3\\).\n\n\n\n\n\n\n\n\n\nDicaA Hipótese da Variedade e o espaço latente\n\n\n\n\n( ) A Hipótese da Variedade postula que dados de alta dimensão concentram-se em variedades de dimensão intrínseca menor.\n( ) Se a variedade que descreve os dados é aproximadamente plana, um método linear como o PCA tende a funcionar bem.\n( ) Redes neurais profundas aplicam transformações lineares sequenciais para “desamassar” uma variedade curva.\n( ) O objetivo de mapear os dados para um espaço latente é fazer com que a variedade original se torne aproximadamente plana nesse novo espaço.\n\n\n\n\n\n\n\n\n\nDicaNormas: definição e propriedades\n\n\n\n\n( ) Uma norma \\(\\|\\cdot\\|\\) deve satisfazer homogeneidade absoluta: \\(\\|\\lambda x\\| = |\\lambda|\\,\\|x\\|\\).\n( ) Uma norma deve satisfazer a desigualdade triangular: \\(\\|x+y\\| \\le \\|x\\|+\\|y\\|\\).\n( ) Uma norma pode ser negativa para vetores diferentes do vetor nulo.\n( ) \\(\\|x\\| = 0\\) se, e somente se, \\(x\\) é o vetor nulo.\n\n\n\n\n\n\n\n\n\nDicaAs normas \\(L_1\\), \\(L_2\\) e \\(L_\\infty\\)\n\n\n\n\n( ) A norma \\(L_1\\) (Manhattan) é definida como a soma dos valores absolutos das componentes do vetor.\n( ) A norma \\(L_2\\) (Euclidiana) corresponde à distância em linha reta a partir da origem.\n( ) A norma \\(L_\\infty\\) é definida como a soma de todos os componentes do vetor, sem valor absoluto.\n( ) A bola unitária da norma \\(L_1\\) em \\(\\mathbb{R}^2\\) tem o formato de um losango.\n\n\n\n\n\n\n\n\n\nDicaMétricas e a métrica induzida por norma\n\n\n\n\n( ) Uma métrica \\(d(x,y)\\) deve satisfazer não-negatividade, simetria e desigualdade triangular.\n( ) \\(d(x,y) = 0\\) se, e somente se, \\(x = y\\).\n( ) Toda norma \\(\\|\\cdot\\|\\) induz uma métrica válida via \\(d(x,y) = \\|x-y\\|\\).\n( ) A métrica induzida por uma norma não precisa ser simétrica.\n\n\n\n\n\n\n\n\n\nDicaDistância Euclidiana em alta dimensão e similaridade do cosseno\n\n\n\n\n( ) Em espaços de altíssima dimensão, a distância Euclidiana entre o ponto mais próximo e o mais distante de uma consulta tende a ficar cada vez mais parecida.\n( ) A norma \\(L_2\\) é sensível ao tamanho absoluto (magnitude) de um vetor, não só à sua direção.\n( ) A similaridade do cosseno mede o ângulo entre dois vetores, ignorando seus comprimentos.\n( ) Em NLP, um documento longo e um documento curto sobre o mesmo assunto tendem a ter distância Euclidiana pequena entre seus vetores de contagem de palavras.\n\n\n\n\n\n\n\n\n\nDicaA distância do cosseno como quase-métrica, e o \\(k\\)-NN em produção\n\n\n\n\n( ) A distância do cosseno \\(d_{\\cos}(x,y) = 1-\\cos\\theta\\) satisfaz a desigualdade triangular para quaisquer três vetores.\n( ) A distância cordal \\(\\sqrt{2\\,d_{\\cos}(x,y)}\\) é uma métrica válida.\n( ) Em sistemas de busca vetorial (como RAG), usa-se com frequência \\(1-\\cos\\theta\\) mesmo sabendo que, tecnicamente, não é uma métrica — porque o que importa ali é a ordenação dos vizinhos, não os axiomas formais.\n( ) O motor de busca (retrieval) de um sistema RAG é, em essência, uma aplicação em larga escala do \\(k\\)-NN sobre embeddings."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#aviso",
+    "href": "algebra_opt/aula01/notas.html#aviso",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "7.3 Aviso",
+    "text": "7.3 Aviso\nAs questões de Verdadeiro/Falso e discursivas ficam sem solução neste arquivo — são para resolução autônoma do aluno, fora do horário de aula."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#roteiro-da-aula-1",
+    "href": "algebra_opt/aula01/slides.html#roteiro-da-aula-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Roteiro da Aula",
+    "text": "Roteiro da Aula\n\n1. Do mundo real ao vetor — e o que isso compra (\\(k\\)-NN)?\n\n\n2. Onde os dados “vivem”: espaço vetorial plano, ou variedade curva?\n\n\n3. Norma e métrica, rigorosamente — o que quebra em alta dimensão?\n\n\n4. Onde isso aparece numa aplicação de hoje?"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#motivação-traduzindo-o-mundo-real",
+    "href": "algebra_opt/aula01/slides.html#motivação-traduzindo-o-mundo-real",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Motivação: Traduzindo o Mundo Real",
+    "text": "Motivação: Traduzindo o Mundo Real\n\nA máquina só processa números: Conceitos do mundo real precisam ser codificados quantitativamente.\nAtributos (\\(Features\\)): Variáveis mensuráveis de um fenômeno.\nExemplos de representação vetorial:\n\nImagens: Pixels achatados em um vetor longo (\\(\\mathbb{R}^{784}\\) para \\(28 \\times 28\\)).\nDados Tabulares: Atributos de pacientes/clientes (\\(\\mathbf{x} \\in \\mathbb{R}^d\\)).\nDados Categóricos: Sem ordem natural (cor, bairro, tipo de contrato) — codificados por one-hot (cada categoria = uma coordenada binária, ex: \\(\\mathbb{R}^3\\) para 3 cores).\nTexto/NLP: Contagem de palavras ou embeddings (\\(\\mathbb{R}^{1536}\\))."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#escalares-vs.-vetores",
+    "href": "algebra_opt/aula01/slides.html#escalares-vs.-vetores",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Escalares vs. Vetores",
+    "text": "Escalares vs. Vetores\n\nEscalar (\\(c \\in \\mathbb{R}\\)): Número real único (ex: learning rate, temperatura).\nVetor-coluna (\\(\\mathbf{x} \\in \\mathbb{R}^d\\)): Arranjo ordenado de \\(d\\) características:\n\n\\[\\mathbf{x} = \\begin{bmatrix} x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_d \\end{bmatrix}\\]\n\nOperações Básicas (Element-wise):\n\nSoma: \\(\\mathbf{u} + \\mathbf{v} = [u_1 + v_1, \\dots, u_d + v_d]^T\\) (composição)\nEscalar: \\(\\alpha \\mathbf{v} = [\\alpha v_1, \\dots, \\alpha v_d]^T\\) (escala/redimensionamento)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#representação-visual-o-espaço-de-características-feature-space",
+    "href": "algebra_opt/aula01/slides.html#representação-visual-o-espaço-de-características-feature-space",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Representação Visual: O Espaço de Características (Feature Space)",
+    "text": "Representação Visual: O Espaço de Características (Feature Space)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#geometria-das-operações-vetoriais-em-mathbbr2",
+    "href": "algebra_opt/aula01/slides.html#geometria-das-operações-vetoriais-em-mathbbr2",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)",
+    "text": "Geometria das Operações Vetoriais em \\(\\mathbb{R}^2\\)\n\nSoma (\\(\\mathbf{u} + \\mathbf{v}\\)): Combinação linear de forças/direções (Regra do Paralelogramo).\nMultiplicação por Escalar (\\(\\alpha \\mathbf{u}\\)): Amplificação ou atenuamento de magnitude sem alterar a linha de ação."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#se-dois-pontos-estão-próximos-no-espaço-de-características-seus-rótulos-são-necessariamente-parecidos-que-suposição-isso-exige-1",
+    "href": "algebra_opt/aula01/slides.html#se-dois-pontos-estão-próximos-no-espaço-de-características-seus-rótulos-são-necessariamente-parecidos-que-suposição-isso-exige-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Se dois pontos estão próximos no espaço de características, seus rótulos são necessariamente parecidos? Que suposição isso exige?",
+    "text": "Se dois pontos estão próximos no espaço de características, seus rótulos são necessariamente parecidos? Que suposição isso exige?\n\n\n\n\n\n\nDica\n\n\n\n(Pense: proximidade em \\(\\mathbb{R}^d\\) garante rótulo parecido, ou é uma suposição adicional sobre o problema?)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#o-problema-de-aprendizado-supervisionado",
+    "href": "algebra_opt/aula01/slides.html#o-problema-de-aprendizado-supervisionado",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "O Problema de Aprendizado Supervisionado",
+    "text": "O Problema de Aprendizado Supervisionado\n\nConjunto de Treino: \\(\\mathcal{D} = \\{(\\mathbf{x}_i, y_i)\\}_{i=1}^N\\), onde \\(\\mathbf{x}_i \\in \\mathbb{R}^d\\) e \\(y_i \\in \\mathcal{Y}\\).\nClassificação: \\(y_i \\in \\{1, 2, \\dots, C\\}\\) (rótulos discretos).\nRegressão: \\(y_i \\in \\mathbb{R}\\) (valores contínuos).\nObjetivo: Prever \\(\\hat{y}_{\\text{novo}}\\) para um novo vetor de características \\(\\mathbf{x}_{\\text{novo}}\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#a-intuição-do-k-nn",
+    "href": "algebra_opt/aula01/slides.html#a-intuição-do-k-nn",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "A Intuição do \\(k\\)-NN",
+    "text": "A Intuição do \\(k\\)-NN\n\nPrincípio da Vizinhança: Observações próximas no espaço de características compartilham propriedades semelhantes.\nNão Paramétrico: O \\(k\\)-NN não assume uma forma funcional pré-definida para \\(f(\\mathbf{x})\\); o próprio conjunto de treino \\(\\mathcal{D}\\) define o modelo.\nMecânica Básica:\n\nEncontrar os \\(k\\) pontos de treino mais próximos de \\(\\mathbf{x}_{\\text{novo}}\\).\nAgregar seus rótulos por votação (classificação) ou média (regressão).\n\n\n\n\n\n\n\n\n\nBase formal: continuidade de Lipschitz\n\n\n\\(f\\) é Lipschitz contínua se \\(|f(\\mathbf{x})-f(\\mathbf{y})| \\leq\nL\\cdot d(\\mathbf{x},\\mathbf{y})\\) para algum \\(L\\geq 0\\). A Hipótese de Suavidade é, essencialmente, supor \\(f\\) Lipschitz com \\(L\\) pequeno — mesma ideia que volta, com mais peso, na convergência de algoritmos de otimização adiante no curso."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#formalização-do-k-nn",
+    "href": "algebra_opt/aula01/slides.html#formalização-do-k-nn",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Formalização do \\(k\\)-NN",
+    "text": "Formalização do \\(k\\)-NN\n\nConjunto de \\(k\\) Vizinhos: \\(\\mathcal{N}_k(\\mathbf{x}_{\\text{novo}}) \\subset \\mathcal{D}\\) contendo as \\(k\\) amostras com menores \\(d(\\mathbf{x}_{\\text{novo}}, \\mathbf{x}_i)\\).\nClassificação (Votação Majoritária): \\[\\hat{y}_{\\text{novo}} = \\arg\\max_{c} \\sum_{i \\in \\mathcal{N}_k} \\mathbb{I}(y_i = c)\\]\nRegressão (Média Aritmética): \\[\\hat{y}_{\\text{novo}} = \\frac{1}{k} \\sum_{i \\in \\mathcal{N}_k} y_i\\]"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#ilustração-prática-encontrando-os-k-vizinhos-em-mathbbr2",
+    "href": "algebra_opt/aula01/slides.html#ilustração-prática-encontrando-os-k-vizinhos-em-mathbbr2",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)",
+    "text": "Ilustração Prática: Encontrando os \\(k\\) Vizinhos em \\(\\mathbb{R}^2\\)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#julgue-v-ou-f-a-hipótese-de-suavidade-e-o-k-nn-1",
+    "href": "algebra_opt/aula01/slides.html#julgue-v-ou-f-a-hipótese-de-suavidade-e-o-k-nn-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Julgue V ou F: a hipótese de suavidade e o \\(k\\)-NN",
+    "text": "Julgue V ou F: a hipótese de suavidade e o \\(k\\)-NN\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO \\(k\\)-NN assume que pontos próximos no espaço de características tendem a ter rótulos semelhantes.\nO \\(k\\)-NN é um método paramétrico: ele ajusta um número fixo de parâmetros ao conjunto de treino, independente de \\(N\\).\nEm classificação, a previsão do \\(k\\)-NN é dada pela classe mais votada entre os \\(k\\) vizinhos mais próximos.\nA escolha de \\(k\\) não depende da métrica de distância usada para encontrar os vizinhos."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#julgue-v-ou-f-a-hipótese-de-suavidade-e-o-k-nn-resposta",
+    "href": "algebra_opt/aula01/slides.html#julgue-v-ou-f-a-hipótese-de-suavidade-e-o-k-nn-resposta",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Julgue V ou F: a hipótese de suavidade e o \\(k\\)-NN — Resposta",
+    "text": "Julgue V ou F: a hipótese de suavidade e o \\(k\\)-NN — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é a própria Hipótese de Suavidade.\nFalso — é não paramétrico: o próprio conjunto de treino \\(\\mathcal{D}\\) define o modelo, sem número fixo de parâmetros.\nVerdadeiro — é a regra de votação majoritária.\nFalso — a métrica escolhida determina quem são os \\(k\\) vizinhos, então a escolha de \\(k\\) e da métrica interagem."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#subespaços-vetoriais",
+    "href": "algebra_opt/aula01/slides.html#subespaços-vetoriais",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Subespaços Vetoriais",
+    "text": "Subespaços Vetoriais\n\nDefinição: Subconjunto \\(U \\subseteq V\\) que preserva a estrutura linear plana de um espaço vetorial.\nCondições (Regras de Fechamento):\n\nContém o vetor nulo (\\(\\mathbf{0} \\in U\\)).\nFechado para adição (\\(\\mathbf{x} + \\mathbf{y} \\in U\\)).\nFechado para escalar (\\(\\lambda \\mathbf{x} \\in U\\)).\n\nGeometria: Retas e planos infinitos passando necessariamente pela origem. Não possuem curvatura.\nExemplo Válido: Solução de \\(A\\mathbf{x} = \\mathbf{0}\\).\n\n\nConcreto: \\(A=[1,1,1]\\), \\(\\mathbf{x}=[1,-1,0]^T\\), \\(\\mathbf{y}=[0,1,-1]^T\\) — some ou escale, \\(A(\\cdot)\\) continua \\(0\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#por-que-a-superfície-de-uma-esfera-em-mathbbr3-não-é-um-subespaço-vetorial-mesmo-sendo-uma-superfície-bem-definida-1",
+    "href": "algebra_opt/aula01/slides.html#por-que-a-superfície-de-uma-esfera-em-mathbbr3-não-é-um-subespaço-vetorial-mesmo-sendo-uma-superfície-bem-definida-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Por que a superfície de uma esfera em \\(\\mathbb{R}^3\\) não é um subespaço vetorial, mesmo sendo uma superfície bem definida?",
+    "text": "Por que a superfície de uma esfera em \\(\\mathbb{R}^3\\) não é um subespaço vetorial, mesmo sendo uma superfície bem definida?\n\n\n\n\n\n\nDica\n\n\n\n(Pense: some dois pontos quaisquer da superfície — o resultado ainda está sobre ela?)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#o-espaço-real-dos-dados-variedades-manifolds",
+    "href": "algebra_opt/aula01/slides.html#o-espaço-real-dos-dados-variedades-manifolds",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "O Espaço Real dos Dados: Variedades (Manifolds)",
+    "text": "O Espaço Real dos Dados: Variedades (Manifolds)\n\nO que é um Manifold? Um espaço localmente plano, mas globalmente curvo.\nO Fim da Linearidade: Uma variedade curva viola a definição de Subespaço Vetorial.\nA Falha no Fechamento: Se você somar dois vetores \\(\\mathbf{x}\\) e \\(\\mathbf{y}\\) que estão sobre uma superfície curva (ex: esfera), o vetor resultante \\(\\mathbf{x} + \\mathbf{y}\\) apontará para fora da superfície, caindo no espaço nulo."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#a-hipótese-da-variedade-e-a-busca-pelo-subespaço-latente",
+    "href": "algebra_opt/aula01/slides.html#a-hipótese-da-variedade-e-a-busca-pelo-subespaço-latente",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "A Hipótese da Variedade e a Busca pelo Subespaço Latente",
+    "text": "A Hipótese da Variedade e a Busca pelo Subespaço Latente\n\nSe o Manifold é Plano: Ele é um subespaço afim/vetorial. Métodos de projeção linear (como PCA) funcionam perfeitamente.\nSe o Manifold é Curvo: Forçar um plano rígido destrói a informação dos dados.\nA Solução do Deep Learning: Redes neurais aplicam mapas não-lineares para “desamassar” a variedade curva original, enviando-a para um espaço latente.\nO Subespaço Final: No espaço latente final, a variedade desamassada vira um subespaço perfeitamente plano, onde a distância Euclidiana volta a funcionar."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#julgue-v-ou-f-espaços-vetoriais-subespaços-e-variedades-1",
+    "href": "algebra_opt/aula01/slides.html#julgue-v-ou-f-espaços-vetoriais-subespaços-e-variedades-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Julgue V ou F: espaços vetoriais, subespaços e variedades",
+    "text": "Julgue V ou F: espaços vetoriais, subespaços e variedades\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nUm subespaço vetorial deve necessariamente conter o vetor nulo.\nO conjunto de soluções de um sistema linear homogêneo \\(A\\mathbf{x}=\\mathbf{0}\\) é um subespaço vetorial.\nUma variedade (manifold) é, por definição, globalmente plana, assim como um subespaço vetorial.\nSe a variedade que descreve os dados é aproximadamente plana, um método linear como o PCA pode funcionar bem sobre ela."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#julgue-v-ou-f-espaços-vetoriais-subespaços-e-variedades-resposta",
+    "href": "algebra_opt/aula01/slides.html#julgue-v-ou-f-espaços-vetoriais-subespaços-e-variedades-resposta",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Julgue V ou F: espaços vetoriais, subespaços e variedades — Resposta",
+    "text": "Julgue V ou F: espaços vetoriais, subespaços e variedades — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — é a primeira condição do teste de fechamento.\nVerdadeiro — é exatamente a prova apresentada no bloco.\nFalso — uma variedade é só localmente plana; globalmente pode ser curva, o que a distingue de um subespaço.\nVerdadeiro — é exatamente o caso em que a Hipótese da Variedade favorece métodos lineares."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#normas-o-tamanho-do-vetor",
+    "href": "algebra_opt/aula01/slides.html#normas-o-tamanho-do-vetor",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Normas: O Tamanho do Vetor",
+    "text": "Normas: O Tamanho do Vetor\n\nO que é uma norma? Uma função \\(\\|\\cdot\\|: V \\rightarrow \\mathbb{R}\\) que mede o comprimento de um vetor.\nPropriedades Obrigatórias:\n\nHomogeneidade Absoluta (\\(\\|\\lambda x\\| = |\\lambda|\\|x\\|\\)).\nDesigualdade Triangular (\\(\\|x + y\\| \\leq \\|x\\| + \\|y\\|\\)).\nPositiva Definida (\\(\\|x\\| \\geq 0\\) e \\(\\|x\\| = 0 \\Leftrightarrow x = \\mathbf{0}\\)).\n\nTipos Comuns em ML:\n\n\\(L_1\\) (Manhattan): \\(\\|x\\|_1 := \\sum_{i=1}^n |x_i|\\).\n\\(L_2\\) (Euclidiana): \\(\\|x\\|_2 := \\sqrt{\\sum_{i=1}^n x_i^2}\\).\n\\(L_\\infty\\) (Chebyshev/Máximo): \\(\\|x\\|_\\infty := \\max_i |x_i|\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#demonstração-visual-as-geometrias-das-normas",
+    "href": "algebra_opt/aula01/slides.html#demonstração-visual-as-geometrias-das-normas",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Demonstração Visual: As Geometrias das Normas",
+    "text": "Demonstração Visual: As Geometrias das Normas"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#um-vetor-com-uma-coordenada-grande-e-as-demais-pequenas-pode-ter-normas-l_1-l_2-e-l_infty-bem-diferentes-entre-si.-por-quê-1",
+    "href": "algebra_opt/aula01/slides.html#um-vetor-com-uma-coordenada-grande-e-as-demais-pequenas-pode-ter-normas-l_1-l_2-e-l_infty-bem-diferentes-entre-si.-por-quê-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Um vetor com uma coordenada grande e as demais pequenas pode ter normas \\(L_1\\), \\(L_2\\) e \\(L_\\infty\\) bem diferentes entre si. Por quê?",
+    "text": "Um vetor com uma coordenada grande e as demais pequenas pode ter normas \\(L_1\\), \\(L_2\\) e \\(L_\\infty\\) bem diferentes entre si. Por quê?\n\n\n\n\n\n\nDica\n\n\n\n(Pense: \\(L_1\\) soma todas as coordenadas, \\(L_\\infty\\) só olha a maior — uma coordenada dominante afeta cada uma de forma diferente.)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#definição-formal-de-métrica-1",
+    "href": "algebra_opt/aula01/slides.html#definição-formal-de-métrica-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Definição Formal de Métrica",
+    "text": "Definição Formal de Métrica\n\nO que é uma métrica? Uma função \\(d: X \\times X \\to \\mathbb{R}\\) que quantifica a separação entre objetos.\nAxiomas Obrigatórios:\n\nNão-negatividade (\\(d(x, y) \\geq 0\\) e \\(d(x, y) = 0 \\iff x = y\\)).\nSimetria (\\(d(x, y) = d(y, x)\\)).\nDesigualdade Triangular (\\(d(x, z) \\leq d(x, y) + d(y, z)\\)).\n\nMétrica Induzida por Norma: \\[d(x, y) = \\|x - y\\|\\]"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#distância-euclidiana-e-a-maldição-de-alta-dimensão",
+    "href": "algebra_opt/aula01/slides.html#distância-euclidiana-e-a-maldição-de-alta-dimensão",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Distância Euclidiana e a Maldição de Alta Dimensão",
+    "text": "Distância Euclidiana e a Maldição de Alta Dimensão\n\nIntuição Física: Excelente para espaços de baixa dimensão (\\(\\mathbb{R}^2, \\mathbb{R}^3\\)).\nO Colapso em Alta Dimensão (\\(d \\gg 1000\\)):\n\nConcentração de Distâncias: O ponto mais próximo e o mais distante tornam-se quase indistinguíveis.\nViés de Magnitude: O valor da norma \\(L_2\\) é dominado pelo tamanho absoluto (energia) dos vetores, mascarando o padrão real."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#similaridade-do-cosseno-em-alta-dimensão",
+    "href": "algebra_opt/aula01/slides.html#similaridade-do-cosseno-em-alta-dimensão",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Similaridade do Cosseno em Alta Dimensão",
+    "text": "Similaridade do Cosseno em Alta Dimensão\n\nFórmula Formal: \\[\\text{Sim}_{\\cos}(x, y) = \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = \\cos(\\theta)\\]\nPor que funciona melhor em alta dimensão?\n\nInvariância de Escala: Ignora o tamanho absoluto do vetor, focando na proporção das características.\nGeometria de Orientação: Em espaços latentes e textuais, a semântica é codificada pelo ângulo (direção), e não pelo comprimento do vetor."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#a-distância-do-cosseno-métrica-ou-quase-métrica",
+    "href": "algebra_opt/aula01/slides.html#a-distância-do-cosseno-métrica-ou-quase-métrica",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "A Distância do Cosseno: Métrica ou Quase-Métrica?",
+    "text": "A Distância do Cosseno: Métrica ou Quase-Métrica?\n\nFórmula Base: \\[d_{\\cos}(x, y) = 1 - \\frac{\\langle x, y \\rangle}{\\|x\\|_2 \\|y\\|_2} = 1 - \\cos(\\theta)\\]\n1. Não-negatividade: Como \\(-1 \\leq \\cos(\\theta) \\leq 1\\), temos que \\(0 \\leq d_{\\cos}(x, y) \\leq 2\\).\n2. Simetria: Decorre diretamente da simetria do produto interno: \\(\\langle x, y \\rangle = \\langle y, x \\rangle\\).\n3. Desigualdade Triangular — \\(d_{\\cos}\\) falha aqui: \\[\\sqrt{2\\,d_{\\cos}(x, y)} = \\|\\hat{x} - \\hat{y}\\|_2 \\quad\\text{(distância cordal, isso sim é métrica)}\\]\n\n\nContraexemplo: vetores a \\(0^\\circ, 90^\\circ, 135^\\circ\\) dão \\(d_{\\cos}(x,z)\\approx 1{,}707 &gt; d_{\\cos}(x,y)+d_{\\cos}(y,z) = 1{,}293\\).\n\\(d_{\\cos}\\) não é uma métrica. O que é: \\(\\sqrt{2\\,d_{\\cos}}\\) (distância cordal) ou \\(\\arccos(\\cos\\theta)\\) (distância angular)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#julgue-v-ou-f-métricas-alta-dimensão-e-distância-do-cosseno-1",
+    "href": "algebra_opt/aula01/slides.html#julgue-v-ou-f-métricas-alta-dimensão-e-distância-do-cosseno-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Julgue V ou F: métricas, alta dimensão e distância do cosseno",
+    "text": "Julgue V ou F: métricas, alta dimensão e distância do cosseno\n\n\n\n\n\n\nDica\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA distância Euclidiana induzida por uma norma satisfaz sempre os três axiomas de métrica.\nEm espaços de altíssima dimensão, é comum a distância entre o ponto mais próximo e o mais distante de uma consulta ficar cada vez mais parecida.\nA distância do cosseno \\(d_{\\cos}(x,y) = 1-\\cos\\theta\\) satisfaz a desigualdade triangular, sendo portanto uma métrica válida.\nA distância cordal \\(\\sqrt{2\\,d_{\\cos}(x,y)}\\) é igual à distância Euclidiana entre os vetores normalizados \\(\\hat x\\) e \\(\\hat y\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#julgue-v-ou-f-métricas-alta-dimensão-e-distância-do-cosseno-resposta",
+    "href": "algebra_opt/aula01/slides.html#julgue-v-ou-f-métricas-alta-dimensão-e-distância-do-cosseno-resposta",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Julgue V ou F: métricas, alta dimensão e distância do cosseno — Resposta",
+    "text": "Julgue V ou F: métricas, alta dimensão e distância do cosseno — Resposta\n\n\n\n\n\n\nDica\n\n\n\nVerdadeiro — qualquer norma induz uma métrica válida via \\(d(x,y)=\\|x-y\\|\\).\nVerdadeiro — é a concentração de distâncias em alta dimensão.\nFalso — o contraexemplo a \\(0°,90°,135°\\) mostra que \\(d_{\\cos}\\) viola a desigualdade triangular.\nVerdadeiro — é exatamente a identidade usada para corrigir a prova nesta aula."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#k-nn-limitações-geométricas-e-prática",
+    "href": "algebra_opt/aula01/slides.html#k-nn-limitações-geométricas-e-prática",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "\\(k\\)-NN: Limitações Geométricas e Prática",
+    "text": "\\(k\\)-NN: Limitações Geométricas e Prática\n\nPremissa do \\(L_2\\): Assume que o espaço local é plano.\nGarantias: Funciona com dados densos o suficiente para operar na porção localmente plana do manifold.\nDesafios Práticos:\n\nFronteiras de Voronoi: Particionamento espacial baseado em distâncias.\nFeature Scaling: Essencial para evitar que características de alta escala distorçam a geometria da norma."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#exemplo-1",
+    "href": "algebra_opt/aula01/slides.html#exemplo-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Exemplo 1",
+    "text": "Exemplo 1"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#rag-retrieval-augmented-generation-é-um-k-nn-para-texto",
+    "href": "algebra_opt/aula01/slides.html#rag-retrieval-augmented-generation-é-um-k-nn-para-texto",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto",
+    "text": "RAG (Retrieval-Augmented Generation) é um \\(k\\)-NN para Texto\n\nA Arquitetura: Documentos e perguntas são mapeados como vetores densos em um espaço latente de alta dimensão.\nO Motor de Busca: A etapa de Retrieval (Recuperação) do RAG é um \\(k\\)-NN em larga escala, utilizando similaridade de cosseno ou distâncias normadas.\nSíntese: Toda a teoria de espaços vetoriais, normas e métricas que estudamos hoje é o motor matemático por trás dos sistemas modernos de IA generativa baseados em conhecimento externo."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#retomando-as-perguntas-de-abertura-1",
+    "href": "algebra_opt/aula01/slides.html#retomando-as-perguntas-de-abertura-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Retomando as Perguntas de Abertura",
+    "text": "Retomando as Perguntas de Abertura\n\n1. Mundo real → vetor: “parecido” passa a significar “próximo” (\\(k\\)-NN).\n\n\n2. Onde os dados vivem: variedade em geral; subespaço só se globalmente plana.\n\n\n3. Norma e métrica rigorosas; em alta dimensão, Euclidiana perde contraste — cosseno troca de axiomas.\n\n\n4. Aplicação de hoje: RAG é \\(k\\)-NN em embeddings de texto."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#representação-visual-o-espaço-de-características",
+    "href": "algebra_opt/aula01/slides.html#representação-visual-o-espaço-de-características",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Representação Visual: O Espaço de Características",
+    "text": "Representação Visual: O Espaço de Características"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#pergunta",
+    "href": "algebra_opt/aula01/slides.html#pergunta",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nSe dois pontos estão próximos no espaço de características, seus rótulos são necessariamente parecidos? Que suposição isso exige?\n\n\n\n(Pense: proximidade em \\(\\mathbb{R}^d\\) garante rótulo parecido, ou é uma suposição adicional sobre o problema?)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#pergunta-1",
+    "href": "algebra_opt/aula01/slides.html#pergunta-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: a hipótese de suavidade e o \\(k\\)-NN\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO \\(k\\)-NN assume que pontos próximos no espaço de características tendem a ter rótulos semelhantes.\nO \\(k\\)-NN é um método paramétrico: ele ajusta um número fixo de parâmetros ao conjunto de treino, independente de \\(N\\).\nEm classificação, a previsão do \\(k\\)-NN é dada pela classe mais votada entre os \\(k\\) vizinhos mais próximos.\nA escolha de \\(k\\) não depende da métrica de distância usada para encontrar os vizinhos."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#pergunta",
+    "href": "unsupervised/aula01/slides.html#pergunta",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nPor que a distribuição empírica “nunca está errada” e ainda assim não basta para decidir se um ponto novo é típico ou anômalo?\n\n\n\n(Pense: o que ela diz sobre uma região onde nenhum ponto foi observado?)"
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#pergunta-1",
+    "href": "unsupervised/aula01/slides.html#pergunta-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: Gaussiana multivariada e máxima verossimilhança\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nOs autovetores de \\(\\Sigma\\) dão a orientação das elipses de densidade constante da Gaussiana multivariada; os autovalores dão o comprimento dos eixos.\nO estimador de máxima verossimilhança \\(\\hat{\\boldsymbol\\mu}\\) é não-viesado: \\(\\mathbb{E}[\\hat{\\boldsymbol\\mu}] = \\boldsymbol\\mu\\).\nO estimador de máxima verossimilhança \\(\\hat\\Sigma_{\\text{ML}}\\) (dividido por \\(N\\)) é não-viesado.\nSe \\(N \\le d\\), a matriz \\(\\hat\\Sigma_{\\text{ML}}\\) estimada não é invertível."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#resposta",
+    "href": "unsupervised/aula01/slides.html#resposta",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: Gaussiana multivariada e máxima verossimilhança — Resposta\n\n\n\nVerdadeiro — é a interpretação geométrica padrão da forma quadrática.\nVerdadeiro — a média amostral é sempre não-viesada para a média populacional.\nFalso — \\(\\mathbb{E}[\\hat\\Sigma_{\\text{ML}}] = \\frac{N-1}{N}\\Sigma \\ne \\Sigma\\); é viesado, e a correção divide por \\(N-1\\).\nVerdadeiro — posto no máximo \\(N-1\\), precisa de posto \\(d\\) para ser invertível."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#pergunta-2",
+    "href": "unsupervised/aula01/slides.html#pergunta-2",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nPor que o ponto B, mais distante do centro em unidades brutas, tem uma distância de Mahalanobis menor que a do ponto C, mais próximo?\n\n\n\n(Pense: \\(\\Sigma^{-1}\\) estica o espaço nas direções de baixa variância, comprime nas de alta variância.)"
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#pergunta-3",
+    "href": "unsupervised/aula01/slides.html#pergunta-3",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: distância de Mahalanobis e o \\(p\\)-valor de anomalia\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA distância de Mahalanobis reduz à distância Euclidiana quando \\(\\Sigma\\) é a matriz identidade.\nSe \\(\\mathbf{x}\\sim\\mathcal{N}(\\boldsymbol\\mu,\\Sigma)\\), então \\(D_M(\\mathbf{x})^2\\) segue uma distribuição qui-quadrado com \\(d\\) graus de liberdade.\nUm \\(p\\)-valor baixo para um ponto \\(\\mathbf{x}\\) significa que a probabilidade de \\(\\mathbf{x}\\) ter vindo da distribuição verdadeira é baixa.\nDois pontos igualmente distantes do centro em distância Euclidiana podem ter distâncias de Mahalanobis bem diferentes."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#resposta-1",
+    "href": "unsupervised/aula01/slides.html#resposta-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: distância de Mahalanobis e o \\(p\\)-valor de anomalia — Resposta\n\n\n\nVerdadeiro — é a própria definição, citada do PRML.\nVerdadeiro — verificado: \\(\\mathbf{Y}=\\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu)\\sim\\mathcal{N}(0,I_d)\\), e \\(\\mathbf{Y}^T\\mathbf{Y}\\sim\\chi^2_d\\).\nFalso — é uma afirmação condicional ao modelo ajustado estar certo, não sobre a origem real de \\(\\mathbf{x}\\).\nVerdadeiro — é exatamente o contraste entre os pontos B e C."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#pergunta-4",
+    "href": "unsupervised/aula01/slides.html#pergunta-4",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: teste conjunto vs. teste por dimensão\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nSupor \\(\\Sigma\\) diagonal equivale a supor independência entre as dimensões dos dados.\nO teste por dimensão, combinado pelo teste de Fisher, usa \\(d(d+1)/2\\) parâmetros — o mesmo que o teste conjunto via Mahalanobis.\nUm ponto pode ter \\(p\\)-valor baixo em cada dimensão isoladamente e ainda assim ter \\(p\\)-valor conjunto alto, se o desvio observado for consistente com a correlação entre as dimensões.\nUm ponto pode parecer normal em cada dimensão isoladamente e ainda assim ser uma anomalia no teste conjunto, se ele quebrar a relação de correlação entre as dimensões."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#resposta-2",
+    "href": "unsupervised/aula01/slides.html#resposta-2",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: teste conjunto vs. teste por dimensão — Resposta\n\n\n\nVerdadeiro — é a restrição discutida no PRML §2.3, p. 84.\nFalso — é o oposto: por dimensão usa só \\(d\\) parâmetros; o conjunto (Mahalanobis) usa \\(d(d+1)/2\\).\nVerdadeiro — é exatamente o caso do ponto B (falso alarme do teste por dimensão).\nVerdadeiro — é exatamente o caso do ponto C (anomalia real que escapa do teste por dimensão)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#resposta",
+    "href": "algebra_opt/aula01/slides.html#resposta",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: a hipótese de suavidade e o \\(k\\)-NN — Resposta\n\n\n\nVerdadeiro — é a própria Hipótese de Suavidade.\nFalso — é não paramétrico: o próprio conjunto de treino \\(\\mathcal{D}\\) define o modelo, sem número fixo de parâmetros.\nVerdadeiro — é a regra de votação majoritária.\nFalso — a métrica escolhida determina quem são os \\(k\\) vizinhos, então a escolha de \\(k\\) e da métrica interagem."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#pergunta-2",
+    "href": "algebra_opt/aula01/slides.html#pergunta-2",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nPor que a superfície de uma esfera em \\(\\mathbb{R}^3\\) não é um subespaço vetorial, mesmo sendo uma superfície bem definida?\n\n\n\n(Pense: some dois pontos quaisquer da superfície — o resultado ainda está sobre ela?)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#pergunta-3",
+    "href": "algebra_opt/aula01/slides.html#pergunta-3",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: espaços vetoriais, subespaços e variedades\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nUm subespaço vetorial deve necessariamente conter o vetor nulo.\nO conjunto de soluções de um sistema linear homogêneo \\(A\\mathbf{x}=\\mathbf{0}\\) é um subespaço vetorial.\nUma variedade (manifold) é, por definição, globalmente plana, assim como um subespaço vetorial.\nSe a variedade que descreve os dados é aproximadamente plana, um método linear como o PCA pode funcionar bem sobre ela."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#resposta-1",
+    "href": "algebra_opt/aula01/slides.html#resposta-1",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: espaços vetoriais, subespaços e variedades — Resposta\n\n\n\nVerdadeiro — é a primeira condição do teste de fechamento.\nVerdadeiro — é exatamente a prova apresentada no bloco.\nFalso — uma variedade é só localmente plana; globalmente pode ser curva, o que a distingue de um subespaço.\nVerdadeiro — é exatamente o caso em que a Hipótese da Variedade favorece métodos lineares."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#pergunta-4",
+    "href": "algebra_opt/aula01/slides.html#pergunta-4",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nUm vetor com uma coordenada grande e as demais pequenas pode ter normas \\(L_1\\), \\(L_2\\) e \\(L_\\infty\\) bem diferentes entre si. Por quê?\n\n\n\n(Pense: \\(L_1\\) soma todas as coordenadas, \\(L_\\infty\\) só olha a maior — uma coordenada dominante afeta cada uma de forma diferente.)"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#pergunta-5",
+    "href": "algebra_opt/aula01/slides.html#pergunta-5",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: métricas, alta dimensão e distância do cosseno\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA distância Euclidiana induzida por uma norma satisfaz sempre os três axiomas de métrica.\nEm espaços de altíssima dimensão, é comum a distância entre o ponto mais próximo e o mais distante de uma consulta ficar cada vez mais parecida.\nA distância do cosseno \\(d_{\\cos}(x,y) = 1-\\cos\\theta\\) satisfaz a desigualdade triangular, sendo portanto uma métrica válida.\nA distância cordal \\(\\sqrt{2\\,d_{\\cos}(x,y)}\\) é igual à distância Euclidiana entre os vetores normalizados \\(\\hat x\\) e \\(\\hat y\\)."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#resposta-2",
+    "href": "algebra_opt/aula01/slides.html#resposta-2",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: métricas, alta dimensão e distância do cosseno — Resposta\n\n\n\nVerdadeiro — qualquer norma induz uma métrica válida via \\(d(x,y)=\\|x-y\\|\\).\nVerdadeiro — é a concentração de distâncias em alta dimensão.\nFalso — o contraexemplo a \\(0°,90°,135°\\) mostra que \\(d_{\\cos}\\) viola a desigualdade triangular.\nVerdadeiro — é exatamente a identidade usada para corrigir a prova nesta aula."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#representação-visual-o-espaço-de-características",
+    "href": "algebra_opt/aula01/notas.html#representação-visual-o-espaço-de-características",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "1.4 Representação Visual: O Espaço de Características",
+    "text": "1.4 Representação Visual: O Espaço de Características\nQuando organizamos dados tabulares, cada linha do dataset é representada como um ponto isolado no espaço de características \\(d\\)-dimensional (\\(\\mathbb{R}^d\\)).\nAbaixo, carregamos uma amostra real do California Housing Dataset (via Hugging Face Hub) para visualizar graficamente a transição de um dataset tabular de imóveis para pontos geométricos no espaço \\(\\mathbb{R}^2\\) (renda mediana do bairro vs. valor mediano do imóvel). Cada ponto representa um grupo de setores censitários da Califórnia (não um imóvel individual) — uma simplificação comum ao usar este dataset, mas que vale deixar explícita."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#pergunta-1",
+    "href": "supervised/aula01/slides.html#pergunta-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nPor que o corte “no cruzamento das curvas” está errado, e o que falta entrar na conta?\n\n\n\n(Escreva uma frase. Compare com um colega antes de avançar — 2 min.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#pergunta-2",
+    "href": "supervised/aula01/slides.html#pergunta-2",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nTeorema de Bayes: priori, verossimilhança e evidência\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA priori \\(\\pi_k = p(\\mathcal{C}_k)\\) é o conhecimento sobre a prevalência da classe antes de observar \\(x\\).\nA evidência \\(p(x)\\) depende de qual classe \\(k\\) está sendo avaliada no numerador do Teorema de Bayes.\nA posteriori \\(p(\\mathcal{C}_k \\mid x)\\) é proporcional ao produto entre verossimilhança e priori.\nSe \\(\\pi_A = \\pi_B\\), decidir pela conjunta maior é o mesmo que decidir pela condicional maior."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#resposta-1",
+    "href": "supervised/aula01/slides.html#resposta-1",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nTeorema de Bayes: priori, verossimilhança e evidência — Resposta\n\n\n\nVerdadeiro — é exatamente essa a definição de priori.\nFalso — \\(p(x) = \\sum_j p(x\\mid\\mathcal{C}_j)\\,\\pi_j\\) soma sobre todas as classes; é o mesmo denominador para qualquer \\(k\\).\nVerdadeiro — \\(p(\\mathcal{C}_k\\mid x) \\propto p(x\\mid\\mathcal{C}_k)\\,\\pi_k\\).\nVerdadeiro — com priori iguais, a conjunta é a condicional escalada pela mesma constante para as duas classes, então a comparação não muda."
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#pergunta-3",
+    "href": "supervised/aula01/slides.html#pergunta-3",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nNo exemplo da triagem médica, qual número é a priori? Qual é a verossimilhança? Qual é a evidência?\n\n\n\n(Escreva os três nomes ao lado dos três números. Confira com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#pergunta-4",
+    "href": "supervised/aula01/slides.html#pergunta-4",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nPor que ajustar uma Gaussiana a escores de crédito normalizados em \\([0,1]\\) é, no mínimo, arriscado?\n\n\n\n(Uma frase, sem usar a palavra “feio”. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula01/slides.html#resposta-2",
+    "href": "supervised/aula01/slides.html#resposta-2",
+    "title": "Dados, Distribuições e Detecção de Anomalias",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nA distribuição Beta — Resposta\n\n\n\nVerdadeiro — é exatamente por isso que ela é a escolha natural para dados confinados em \\([0,1]\\).\nVerdadeiro — \\(\\operatorname{Beta}(x\\mid 1,1) = 1\\) para todo \\(x\\in[0,1]\\), a densidade uniforme.\nFalso — o estimador de momentos tem fórmula fechada; o MLE precisa de solução numérica (as estatísticas suficientes são médias logarítmicas, não a média aritmética).\nVerdadeiro — a densidade diverge nas bordas quando \\(a&lt;1\\) ou \\(b&lt;1\\), e \\(\\ln 0 = -\\infty\\) quebra a verossimilhança."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pergunta",
+    "href": "supervised/aula02/slides.html#pergunta",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nBayes para \\(K\\) classes e modelos generativos\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nA regra “decida pela conjunta maior” só vale para \\(K=2\\) classes; para \\(K&gt;2\\) é preciso um argumento novo.\nUm modelo generativo descreve, em duas etapas, como a natureza sorteia primeiro a classe e depois o valor \\(\\mathbf{x}\\).\n\\(\\sum_{j=1}^K p(\\mathbf{x}\\mid\\mathcal{C}_j)\\,\\pi_j\\) é a mesma quantidade que aparece no denominador do Teorema de Bayes para qualquer classe \\(k\\) do numerador.\nTrocar a família de distribuições usada (gaussiana por uma rede neural, por exemplo) muda o conceito de “modelo generativo”."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#resposta",
+    "href": "supervised/aula02/slides.html#resposta",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nBayes para \\(K\\) classes e modelos generativos — Resposta\n\n\n\nFalso — a prova da Aula 1 nunca usou \\(K=2\\) como hipótese; ela generaliza sem atrito.\nVerdadeiro — é exatamente a leitura em duas etapas construída neste bloco.\nVerdadeiro — é a evidência \\(p(\\mathbf{x})\\), a mesma para todo \\(k\\).\nFalso — muda só a família de distribuições; o conceito (gerar a classe, depois os dados) permanece o mesmo."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pergunta-1",
+    "href": "supervised/aula02/slides.html#pergunta-1",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nO que muda entre um modelo generativo gaussiano de 5 parâmetros e uma IA generativa moderna com bilhões — o conceito, ou só a família de distribuições?\n\n\n\n(Uma frase. Compare com um colega antes de avançar.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pergunta-2",
+    "href": "supervised/aula02/slides.html#pergunta-2",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\n“Faltam dados” é o mesmo problema que “falta poder computacional”?\n\n\nComprar 100× mais GPUs resolveria?\n\n(Uma frase. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pergunta-3",
+    "href": "supervised/aula02/slides.html#pergunta-3",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nIndependência e Naive Bayes\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nIndependência (não condicional) entre \\(X_1\\) e \\(X_2\\) significa que \\(p(x_1, x_2) = p(x_1)\\,p(x_2)\\).\nIndependência condicional dada a classe, \\(p(x_1, x_2 \\mid \\mathcal{C}_k)\n= p(x_1\\mid\\mathcal{C}_k)\\,p(x_2\\mid\\mathcal{C}_k)\\), implica independência não condicional entre \\(X_1\\) e \\(X_2\\).\nO Naive Bayes assume independência condicional dada a classe, não independência incondicional entre os atributos.\nUm zero em qualquer atributo categórico pode fazer o score de uma classe inteira ir a \\(-\\infty\\) na soma de logs."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#resposta-1",
+    "href": "supervised/aula02/slides.html#resposta-1",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nIndependência e Naive Bayes — Resposta\n\n\n\nVerdadeiro — é a própria definição de independência.\nFalso — as duas noções são diferentes; independência condicional dada a classe pode conviver com forte dependência marginal entre \\(X_1\\) e \\(X_2\\) (a classe é um confusor comum).\nVerdadeiro — exatamente a suposição construída neste bloco.\nVerdadeiro — \\(\\log 0 = -\\infty\\) na soma dos logs; corrigido com contagens fictícias (suavização), como na Aula 1."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pergunta-4",
+    "href": "supervised/aula02/slides.html#pergunta-4",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nDê um exemplo de par de atributos em que a independência condicional do Naive Bayes parece particularmente errada — e outro em que parece razoável\n\n\n\n(Compare os dois exemplos com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#pergunta-5",
+    "href": "supervised/aula02/slides.html#pergunta-5",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nTeoria da decisão e risco de Bayes\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO risco posterior \\(\\rho(a\\mid\\mathbf{x})\\) é uma média das perdas \\(L(k,a)\\) ponderada pela posteriori \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\).\nSob perda 0-1, a regra de Bayes \\(\\delta^\\star\\) coincide com a regra do posterior máximo.\nMudar a matriz de perda \\(L\\) pode mudar a regra de decisão ótima sem que a posteriori \\(p(\\mathcal{C}_k\\mid\\mathbf{x})\\) mude em nada.\nO risco de Bayes \\(R^\\star\\) mede o quão bem o modelo \\(p(\\mathbf{x},\\mathcal{C}_k)\\) está especificado."
+  },
+  {
+    "objectID": "supervised/aula02/slides.html#resposta-2",
+    "href": "supervised/aula02/slides.html#resposta-2",
+    "title": "Independência, Naive Bayes e Teoria da Decisão",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nTeoria da decisão e risco de Bayes — Resposta\n\n\n\nVerdadeiro — é exatamente a definição de risco posterior.\nVerdadeiro — com perda 0-1, minimizar o risco posterior é escolher a classe de maior posteriori.\nVerdadeiro — os custos entram só pelo limiar de decisão; a posteriori não depende de \\(L\\).\nFalso — o risco de Bayes é a perda esperada da regra ótima dado o modelo; ele não avalia se o modelo está certo, só otimiza dado que ele está."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta",
+    "href": "supervised/aula03/slides.html#pergunta",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\nAulas 1–2: a fórmula (gaussiana, produto de Bernoullis) é fixada antes — só os parâmetros vêm dos dados.\n\n\n Árvore: a própria forma (quantas regiões, onde ficam os cortes) vem dos dados — estimativa não-paramétrica.\n\n\n\n\n\n\nA Inversão de Papéis\n\n\nOs próximos dois blocos: o critério que decide onde cortar, primeiro em regressão, depois em classificação."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-1",
+    "href": "supervised/aula03/slides.html#pergunta-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nO que muda, na prática, entre “escolher uma família de curvas” e “deixar a partição emergir dos dados”?\n\n\n\n(Um exemplo, hipotético ou real. Compare com um colega.)"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-2",
+    "href": "supervised/aula03/slides.html#pergunta-2",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\nIntuição: um só número para representar vários — a média.\n\n\n Formalismo: a média minimiza a soma de quadrados \\[Q_\\tau = \\sum_{\\mathbf{x}_n\\in\\mathcal{R}_\\tau}(t_n-y_\\tau)^2\\] \\[\\Rightarrow\\; y_\\tau = \\frac{1}{N_\\tau}\\sum_{\\mathbf{x}_n\\in\\mathcal{R}_\\tau} t_n\\]\n\n\n\n\n\n\nIntuição → Formalismo: o Que Prever numa Folha?\n\n\nVou fazer uma afirmação forte: essa receita é uma maximização de verossimilhança. Vamos verificar."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-3",
+    "href": "supervised/aula03/slides.html#pergunta-3",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nSe duas folhas de uma árvore de regressão têm o mesmo número de pontos, a que tem maior soma de quadrados residuais \\(Q_\\tau\\) tem, necessariamente, maior variância dos alvos dentro dela?\n\n\n\n(Pense: \\(Q_\\tau = \\sum(t_n-y_\\tau)^2\\) e a variância amostral \\(\\hat\\sigma^2 = Q_\\tau/N_\\tau\\) — mesmo \\(N_\\tau\\), mesma ordem.)"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-4",
+    "href": "supervised/aula03/slides.html#pergunta-4",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\nNão um número — uma distribuição sobre classes: \\(\\hat p_{\\tau k} =\nn_{\\tau k}/N_\\tau\\), a proporção empírica.\n\n\n\n\n\n\nO Que uma Folha de Classificação Prevê\n\n\nMesmo padrão do Bloco 2: o MLE categórico numa folha é, de novo, a proporção empírica. Verificado a seguir."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-5",
+    "href": "supervised/aula03/slides.html#pergunta-5",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: entropia, Gini e taxa de erro para crescer/podar árvores\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO MLE de uma distribuição categórica numa folha é a proporção empírica de cada classe.\nEntropia e Gini são preferidas para crescer a árvore porque são diferenciáveis e sensíveis à distribuição interna da folha.\nDois splits podem ter a mesma taxa de erro de classificação e, ainda assim, impurezas (Gini/entropia) diferentes.\nA taxa de erro de classificação bruta é a escolha usual para crescer a árvore, não para podá-la."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#resposta",
+    "href": "supervised/aula03/slides.html#resposta",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: entropia, Gini e taxa de erro — Resposta\n\n\n\nVerdadeiro — verificado numericamente acima.\nVerdadeiro — exatamente o argumento do bloco.\nVerdadeiro — é o próprio contraexemplo Split 1 vs. Split 2.\nFalso — é o oposto: erro bruto é usado para podar; entropia/Gini para crescer."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-6",
+    "href": "supervised/aula03/slides.html#pergunta-6",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\nEmpiricamente: um corte “inútil” agora pode habilitar um corte muito bom depois. Parar cedo perde esse ganho adiado.\n\n\n Prática: crescer uma árvore grande, depois podar por custo-complexidade: \\[C(T) = \\sum_\\tau Q_\\tau(T) + \\lambda|T|\\]\n\n\n\n\n\n\nCrescer Demais, Depois Podar\n\n\n\\(\\lambda=0\\): árvore completa sempre vence. \\(\\lambda\\) grande: poda forte. O valor certo vem de validação cruzada (Aula 4)."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-7",
+    "href": "supervised/aula03/slides.html#pergunta-7",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: poda por custo-complexidade\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nO critério \\(C(T) = \\sum_\\tau Q_\\tau(T) + \\lambda|T|\\) penaliza árvores com mais folhas, para \\(\\lambda &gt; 0\\).\nCom \\(\\lambda = 0\\), a árvore completa (sem poda) sempre minimiza \\(C(T)\\) entre todas as subárvores possíveis.\nO valor de \\(\\lambda\\) usado na prática é escolhido por validação cruzada, não derivado analiticamente.\nAumentar \\(\\lambda\\) tende a reduzir o número de folhas da árvore podada."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#resposta-1",
+    "href": "supervised/aula03/slides.html#resposta-1",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: poda por custo-complexidade — Resposta\n\n\n\nVerdadeiro — é a própria definição do termo de penalidade.\nVerdadeiro — sem penalidade, \\(C(T)\\) se reduz à soma de \\(Q_\\tau\\), sempre menor (ou igual) para a árvore mais completa.\nVerdadeiro — verificado no bloco: \\(\\lambda\\) vem de validação cruzada (ponte com a Aula 4).\nVerdadeiro — mais penalidade por folha empurra a poda para árvores menores."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-8",
+    "href": "supervised/aula03/slides.html#pergunta-8",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nPor que “pare quando o próximo corte não reduzir muito o erro” é uma estratégia de parada ruim?\n\n\n\n(Um corte ruim pode isolar um subgrupo que só fica homogêneo depois de mais um corte.)"
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#pergunta-9",
+    "href": "supervised/aula03/slides.html#pergunta-9",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Pergunta",
+    "text": "Pergunta\n\n\n\n\n\n\nJulgue V ou F: limites estruturais das árvores\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nUma árvore de profundidade suficientemente grande sempre alcança exatamente uma fronteira linear diagonal, sem aproximação em degraus.\nA estrutura de uma árvore pode mudar substancialmente com a remoção de uma pequena fração dos pontos de treino.\nA partição de uma árvore é rígida: cada ponto do espaço pertence a exatamente uma folha.\nDescontinuidades nas previsões de uma árvore de regressão são especialmente problemáticas quando o alvo verdadeiro é uma função suave."
+  },
+  {
+    "objectID": "supervised/aula03/slides.html#resposta-2",
+    "href": "supervised/aula03/slides.html#resposta-2",
+    "title": "Árvores de Decisão — Particionamento Guloso",
+    "section": "Resposta",
+    "text": "Resposta\n\n\n\n\n\n\nJulgue V ou F: limites estruturais das árvores — Resposta\n\n\n\nFalso — nunca alcança exatamente; só aproxima em degraus cada vez mais finos.\nVerdadeiro — verificado acima (5 pontos já mudam o corte da raiz).\nVerdadeiro — é a definição de partição rígida.\nVerdadeiro — a árvore introduz descontinuidades onde a função suave não tem nenhuma."
+  },
+  {
+    "objectID": "algebra_opt/aula01/notas.html#desamassando-um-manifold-um-mapeamento-não-linear-na-prática",
+    "href": "algebra_opt/aula01/notas.html#desamassando-um-manifold-um-mapeamento-não-linear-na-prática",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "3.4 Desamassando um Manifold: um Mapeamento Não-Linear na Prática",
+    "text": "3.4 Desamassando um Manifold: um Mapeamento Não-Linear na Prática\nA afirmação “um mapa não-linear desamassa a variedade até ela virar um subespaço plano” fica mais concreta com um exemplo mínimo. Considere dados dispostos em dois círculos concêntricos — a classe interna e a classe externa formam, juntas, uma variedade curva em \\(\\mathbb{R}^2\\): nenhuma reta separa bem as duas classes, e a fronteira de decisão de um \\(k\\)-NN rodado diretamente em \\((x_1, x_2)\\) precisa ser curva para acompanhar essa geometria.\nAgora aplique um mapa não-linear simples — a mudança para coordenadas polares, \\((x_1, x_2) \\mapsto (r, \\theta)\\) com \\(r = \\sqrt{x_1^2+x_2^2}\\) e \\(\\theta = \\operatorname{atan2}(x_2, x_1)\\). Nesse novo espaço, a variável \\(\\theta\\) deixa de carregar qualquer informação sobre a classe (as duas classes cobrem o círculo inteiro de ângulos), e toda a informação relevante migra para uma única coordenada, \\(r\\). As duas classes viram duas faixas verticais disjuntas — literalmente um subespaço afim (um intervalo de \\(r\\)) separa perfeitamente as classes, algo que nenhuma reta fazia no espaço original.\n\n\n\n\n\n\n\n\n\nNo painel esquerdo, a fronteira do \\(k\\)-NN precisa contornar a curvatura dos dois círculos. No painel direito — a mesma informação, só que reexpressa em \\((r,\\theta)\\) — a fronteira colapsa para uma linha quase reta ao longo de \\(r\\): exatamente o subespaço perfeitamente plano que a Hipótese da Variedade promete depois do mapa certo. \\(\\theta\\) virou uma direção sem informação de classe alguma; \\(r\\) concentra sozinho tudo o que importa.\n\n\n\n\n\n\nDicaJulgue V ou F: espaços vetoriais, subespaços e variedades\n\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nUm subespaço vetorial deve necessariamente conter o vetor nulo.\nO conjunto de soluções de um sistema linear homogêneo \\(A\\mathbf{x}=\\mathbf{0}\\) é um subespaço vetorial.\nUma variedade (manifold) é, por definição, globalmente plana, assim como um subespaço vetorial.\nSe a variedade que descreve os dados é aproximadamente plana, um método linear como o PCA pode funcionar bem sobre ela."
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#desamassando-um-manifold-um-mapeamento-não-linear-na-prática",
+    "href": "algebra_opt/aula01/slides.html#desamassando-um-manifold-um-mapeamento-não-linear-na-prática",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Desamassando um Manifold: um Mapeamento Não-Linear na Prática",
+    "text": "Desamassando um Manifold: um Mapeamento Não-Linear na Prática"
+  },
+  {
+    "objectID": "algebra_opt/aula01/slides.html#desamassando-um-manifold-na-prática",
+    "href": "algebra_opt/aula01/slides.html#desamassando-um-manifold-na-prática",
+    "title": "Aula 1: Espaços Vetoriais, Normas e Métricas",
+    "section": "Desamassando um Manifold na Prática",
+    "text": "Desamassando um Manifold na Prática\n\nDados: dois círculos concêntricos — variedade curva, nenhuma reta separa as classes.\nMapa não-linear: coordenadas polares \\((x_1,x_2)\\mapsto(r,\\theta)\\).\n\n\nNo espaço \\((r,\\theta)\\), \\(\\theta\\) perde toda informação de classe; \\(r\\) sozinho separa as duas classes — a fronteira vira quase uma reta."
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#um-exemplo-completo-detectando-uma-paciente-real",
+    "href": "unsupervised/aula01/notas.html#um-exemplo-completo-detectando-uma-paciente-real",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "7.1 Um exemplo completo: detectando uma paciente real",
+    "text": "7.1 Um exemplo completo: detectando uma paciente real\nVale ver a receita inteira funcionar, do início ao fim, num caso real e inequívoco — sem nenhum ponto construído artificialmente.\nO dataset tem, entre as pacientes válidas, uma com espessura de dobra cutânea de \\(46\\)mm e IMC de \\(67{,}1\\) \\(\\text{kg/m}^2\\) — o maior IMC de todo o conjunto. Aplicando a receita da aula, nessa ordem:\n\nO modelo já ajustado (Bloco 4): \\(\\hat{\\boldsymbol\\mu} =\n[29{,}05,\\ 32{,}89]^T\\), com \\(\\hat\\Sigma\\) estimada da população de \\(538\\) pacientes.\nA distância de Mahalanobis (Bloco 5) dessa paciente até o centro do modelo: \\(D_M(\\mathbf{x})^2 \\approx 29{,}85\\).\nO \\(p\\)-valor (Bloco 6): \\(p(\\mathbf{x}) = 1 -\nF_{\\chi^2_2}(29{,}85) \\approx 3{,}3\\times 10^{-7}\\) — uma entre praticamente três milhões.\n\nA conclusão é inequívoca: sob o modelo ajustado, uma paciente tão extrema quanto esta seria observada com probabilidade próxima de zero. Diferente do contraste sutil entre B e C (Bloco 6), aqui não há ambiguidade nenhuma — o IMC de \\(67{,}1\\) sozinho já está no percentil \\(99{,}8\\) da população (um teste ingênuo por dimensão também a acusaria, sem precisar de correlação alguma). É esse o caso mais simples e mais comum de detecção de anomalia na prática: nem toda anomalia depende de uma correlação quebrada entre variáveis — a maioria, como esta, é simplesmente um valor extremo isolado, e o pipeline completo (ajustar \\(\\to\\) medir distância \\(\\to\\) converter em \\(p\\)-valor) capta os dois casos com a mesma régua.\n\n\n\n\n\n\n\n\n\nA estrela cai bem longe de todos os contornos — inclusive do mais extremo (\\(\\alpha=0{,}01\\)) — visualmente consistente com um \\(p\\)-valor da ordem de \\(10^{-7}\\)."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#um-exemplo-completo-do-início-ao-fim",
+    "href": "unsupervised/aula01/slides.html#um-exemplo-completo-do-início-ao-fim",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Um Exemplo Completo, do Início ao Fim",
+    "text": "Um Exemplo Completo, do Início ao Fim\n\nPaciente real: espessura \\(=46\\)mm, IMC \\(=67{,}1\\) (o maior do dataset).\n\n\n1. Modelo ajustado (Bloco 4): \\(\\hat{\\boldsymbol\\mu}\\), \\(\\hat\\Sigma\\) de 538 pacientes.\n\n\n2. Mahalanobis (Bloco 5): \\(D_M(\\mathbf{x})^2 \\approx 29{,}85\\).\n\n\n3. \\(p\\)-valor (Bloco 6): \\(p(\\mathbf{x}) \\approx 3{,}3\\times 10^{-7}\\) — inequívoco."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#uma-anomalia-real-sem-ambiguidade",
+    "href": "unsupervised/aula01/slides.html#uma-anomalia-real-sem-ambiguidade",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Uma Anomalia Real, Sem Ambiguidade",
+    "text": "Uma Anomalia Real, Sem Ambiguidade\n\n\nIMC no percentil \\(99{,}8\\) sozinho — um teste ingênuo por dimensão também pegaria este caso. Nem toda anomalia depende de correlação quebrada; a maioria é só um valor extremo isolado."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#por-que-d_mmathbfx2-sim-chi2_d",
+    "href": "unsupervised/aula01/slides.html#por-que-d_mmathbfx2-sim-chi2_d",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Por que \\(D_M(\\mathbf{x})^2 \\sim \\chi^2_d\\)?",
+    "text": "Por que \\(D_M(\\mathbf{x})^2 \\sim \\chi^2_d\\)?\n\nIntuição: “desfazer” a elipse — devolver os dados a uma nuvem esférica sem correlação, variância \\(1\\). Ali, distância\\(^2\\) até o centro = soma de \\(d\\) normais padrão\\(^2\\) = \\(\\chi^2_d\\), por definição.\n\n\nBranqueamento: \\(\\mathbf{Y}=\\Sigma^{-1/2}(\\mathbf{X}-\\boldsymbol\\mu)\n\\sim \\mathcal{N}(\\mathbf{0}, I_d)\\) — verificado calculando média e covariância de \\(\\mathbf{Y}\\).\n\n\n\\[\\mathbf{Y}^T\\mathbf{Y} = (\\mathbf{X}-\\boldsymbol\\mu)^T\\Sigma^{-1}(\\mathbf{X}-\\boldsymbol\\mu) = D_M(\\mathbf{X})^2\\]\n\n\nLogo \\(D_M(\\mathbf{X})^2 = \\mathbf{Y}^T\\mathbf{Y} \\sim \\chi^2_d\\) — prova completa, não citação de livro (resultado clássico, não está no PRML/DLFC; verificado também por simulação a seguir)."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#verificação-simulação-vs.-chi2_d-teórica",
+    "href": "unsupervised/aula01/slides.html#verificação-simulação-vs.-chi2_d-teórica",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Verificação: Simulação vs. \\(\\chi^2_d\\) Teórica",
+    "text": "Verificação: Simulação vs. \\(\\chi^2_d\\) Teórica\n\n\n20.000 pontos simulados de \\(\\mathcal{N}(\\hat\\mu,\\hat\\Sigma)\\) — o histograma acompanha a curva teórica de perto."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#quando-o-modelo-erra-um-veredito-que-muda-de-lado",
+    "href": "unsupervised/aula01/slides.html#quando-o-modelo-erra-um-veredito-que-muda-de-lado",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Quando o Modelo Erra: um Veredito que Muda de Lado",
+    "text": "Quando o Modelo Erra: um Veredito que Muda de Lado\nPaciente diabética real: dobra cutânea \\(=7\\)mm (mínimo do dataset), IMC \\(=27{,}6\\).\n\n\nSubgrupo (só diabéticas): \\(p\\approx 0{,}016\\) — flagrada. Pooled (população inteira): \\(p\\approx 0{,}057\\) — não flagrada. Mesma paciente, mesmos números — só a população de referência muda."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#armadilha-de-interpretação-1",
+    "href": "unsupervised/aula01/slides.html#armadilha-de-interpretação-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Armadilha de Interpretação",
+    "text": "Armadilha de Interpretação\n\n\n\nAviso\n\n\n\\(p(\\mathbf{x})\\) pequeno não significa “probabilidade de \\(\\mathbf{x}\\) pertencer à distribuição verdadeira” — significa “probabilidade de um ponto do modelo ajustado ser tão extremo quanto \\(\\mathbf{x}\\)”. Se o modelo estiver errado, o \\(p\\)-valor também estará (volta como exemplo prático adiante)."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#por-que-detectar-anomalias-afinal",
+    "href": "unsupervised/aula01/slides.html#por-que-detectar-anomalias-afinal",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Por que Detectar Anomalias, Afinal?",
+    "text": "Por que Detectar Anomalias, Afinal?\n\n\nNão é diagnóstico — o rótulo de diabetes nunca entrou no ajuste.\n\n\n\n\nUso real: controle de qualidade de dados (erros de coleta) e triagem de perfis atípicos que merecem uma segunda checagem.\n\n\n\n\n\\(p(\\mathbf{x})\\) baixo = “olhe aqui com mais atenção”, não uma sentença."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#a-população-é-só-de-pessoas-saudáveis",
+    "href": "unsupervised/aula01/slides.html#a-população-é-só-de-pessoas-saudáveis",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "A População é só de Pessoas Saudáveis?",
+    "text": "A População é só de Pessoas Saudáveis?\n\nNão — coorte clínica geral: \\(359\\) sem diabetes, \\(179\\) com diabetes (\\(N=538\\)). Uma mistura real, não uma referência “normal” isolada.\n\n\nO rótulo existe no dataset, mas não foi usado para ajustar \\(\\hat{\\boldsymbol\\mu}\\)/\\(\\hat\\Sigma\\) — só reaparece depois, para explicar os casos a seguir."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#quando-o-modelo-erra-um-veredito-que-muda-de-lado-1",
+    "href": "unsupervised/aula01/slides.html#quando-o-modelo-erra-um-veredito-que-muda-de-lado-1",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Quando o Modelo Erra: um Veredito que Muda de Lado",
+    "text": "Quando o Modelo Erra: um Veredito que Muda de Lado\nPaciente diabética real: dobra cutânea \\(=7\\)mm (mínimo do dataset), IMC \\(=27{,}6\\).\n\n\nSubgrupo (só diabéticas): \\(p\\approx 0{,}016\\) — flagrada. Pooled (população inteira): \\(p\\approx 0{,}057\\) — não flagrada. Mesma paciente, mesmos números — só a população de referência muda."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#quando-o-modelo-erra-um-veredito-que-muda-de-lado-2",
+    "href": "unsupervised/aula01/slides.html#quando-o-modelo-erra-um-veredito-que-muda-de-lado-2",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Quando o Modelo Erra: um Veredito que Muda de Lado",
+    "text": "Quando o Modelo Erra: um Veredito que Muda de Lado\nPaciente diabética real: dobra cutânea \\(=7\\)mm (mínimo do dataset), IMC \\(=27{,}6\\).\n\n\nSubgrupo (só diabéticas): \\(p\\approx 0{,}016\\) — flagrada. Pooled (população inteira): \\(p\\approx 0{,}057\\) — não flagrada. Mesma paciente, mesmos números — só a população de referência muda."
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#quando-o-modelo-erra-um-veredito-que-muda-de-lado",
+    "href": "unsupervised/aula01/notas.html#quando-o-modelo-erra-um-veredito-que-muda-de-lado",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "7.2 Quando o modelo erra: um veredito que muda de lado",
+    "text": "7.2 Quando o modelo erra: um veredito que muda de lado\nO caso anterior foi limpo porque o modelo — uma única Gaussiana para toda a população — realmente descreve bem essa paciente. Mas a população é, como acabamos de ver, uma mistura de duas subpopulações (com e sem diabetes) — e o Bloco 7 vai argumentar, em abstrato, que isso pode quebrar a receita. Aqui está a versão concreta, com uma segunda paciente real.\nConsidere a paciente diabética com a menor espessura de dobra cutânea de todo o dataset (\\(7\\)mm) e IMC \\(27{,}6\\) — um corpo magro para o padrão de quem tem diabetes nesta amostra (a subpopulação diabética tem, em média, mais gordura subcutânea). Ajustando o modelo só à subpopulação diabética (\\(N=179\\)), essa combinação é surpreendente: \\(p\\approx 0{,}016\\), abaixo do limiar usual de \\(5\\%\\) — seria flagrada. Ajustando o modelo à população inteira (\\(N=538\\), o que a aula fez até aqui), a mesma paciente, com os mesmos números, deixa de ser flagrada: \\(p\\approx 0{,}057\\), acima de \\(5\\%\\) — ela se mistura com os pacientes magros e não-diabéticos que também estão na base. Nenhum dos dois cálculos está “errado” em termos de aritmética; a diferença inteira vem de qual população de referência se assume.\n\n\n\n\n\n\n\n\n\nA mesma estrela, os mesmos dois números — só a população de referência muda entre os dois painéis, e o veredito muda junto.\nQual dos dois confiar, e por quê? Nenhum dos dois \\(p\\)-valores é um erro de cálculo — cada um está correto dentro do modelo em que foi calculado. Mas os dois modelos não são igualmente apropriados aqui. A paciente é genuinamente incomum para uma pessoa com diabetes especificamente — nesta amostra, diabéticas carregam mais gordura subcutânea em média, então uma diabética com dobra cutânea tão fina destoa dentro desse grupo. O modelo pooled não sabe que esse subgrupo existe: sua noção de “típico” é uma média borrada entre os dois grupos, alargada pelo simples fato de que várias pacientes não-diabéticas são igualmente magras. Contra essa referência mais larga e borrada, ela não chama atenção.\nA lição não é “a conta deu diferente” — é que o modelo pooled foi a ferramenta errada aqui, porque a população que ele descreve não é, de fato, uma única Gaussiana: é uma mistura de duas subpopulações com composições corporais típicas diferentes. A consequência prática é concreta, não abstrata: uma anomalia real, específica de um subgrupo, pode escapar ilesa exatamente porque tudo foi agrupado numa única distribuição de referência em vez de ser modelado por subgrupo (ou por uma mistura de verdade — fora do escopo desta aula). O Bloco 7 fecha a aula nomeando esse risco (e o segundo, outliers no ajuste) de forma explícita."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#duas-rotas-para-o-mesmo-p-valor",
+    "href": "unsupervised/aula01/slides.html#duas-rotas-para-o-mesmo-p-valor",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Duas Rotas para o Mesmo \\(p\\)-valor",
+    "text": "Duas Rotas para o Mesmo \\(p\\)-valor"
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#onde-a-suposição-de-independência-erra",
+    "href": "unsupervised/aula01/slides.html#onde-a-suposição-de-independência-erra",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Onde a Suposição de Independência Erra",
+    "text": "Onde a Suposição de Independência Erra\n\n\nB: cada coordenada parece extrema isolada — o teste por dimensão dá falso alarme. O teste conjunto reconhece a correlação esperada.\n\n\nC: cada coordenada parece normal isolada — o teste por dimensão deixa passar. O teste conjunto vê a correlação quebrada.\n\n\nNenhum dos dois está “certo” em geral — o preço da independência depende de onde a anomalia acontece. Mesma lição do Naive Bayes."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#qual-dos-dois-confiar-e-por-quê",
+    "href": "unsupervised/aula01/slides.html#qual-dos-dois-confiar-e-por-quê",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Qual dos Dois Confiar, e Por Quê?",
+    "text": "Qual dos Dois Confiar, e Por Quê?\n\nNenhum \\(p\\)-valor está “errado” — cada um é correto dentro do seu próprio modelo. A pergunta é qual modelo é apropriado aqui.\n\n\nDiabéticas carregam mais gordura subcutânea em média — esta paciente destoa dentro do subgrupo. O modelo pooled não sabe que o subgrupo existe: sua noção de “típico” é uma média borrada com as não-diabéticas magras, o que a esconde.\n\n\nA lição: o modelo pooled foi a ferramenta errada — a população não é uma única Gaussiana, é uma mistura. Uma anomalia real de subgrupo pode escapar exatamente por ter sido agrupada numa única referência."
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#duas-rotas-para-o-mesmo-p-valor",
+    "href": "unsupervised/aula01/notas.html#duas-rotas-para-o-mesmo-p-valor",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "6.3 Duas Rotas para o Mesmo \\(p\\)-valor",
+    "text": "6.3 Duas Rotas para o Mesmo \\(p\\)-valor"
+  },
+  {
+    "objectID": "unsupervised/aula01/notas.html#onde-a-suposição-de-independência-erra",
+    "href": "unsupervised/aula01/notas.html#onde-a-suposição-de-independência-erra",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "6.4 Onde a Suposição de Independência Erra",
+    "text": "6.4 Onde a Suposição de Independência Erra\n\n\n\n\n\n\n\n\n\nO gráfico mostra o erro nas duas direções. No ponto B, cada coordenada isolada já parece grande (o teste por dimensão dá um \\(p\\)-valor baixo), mas a combinação é exatamente o que a correlação prevê — o teste conjunto reconhece isso e dá um \\(p\\)-valor bem maior: falso alarme do teste por dimensão. No ponto C, cada coordenada isolada parece perfeitamente normal (o teste por dimensão dá um \\(p\\)-valor alto, tranquilizador), mas a combinação quebra a correlação — o teste conjunto enxerga isso e dá um \\(p\\)-valor baixo: anomalia real que o teste por dimensão deixa passar. Nenhum dos dois testes está “certo” em geral; a suposição de independência é uma escolha, com um preço que depende de onde a anomalia acontece — a mesma lição do preço da suposição de independência do Naive Bayes, agora em teste de hipótese em vez de classificação.\n\n\n\n\n\n\nDicaJulgue V ou F: teste conjunto vs. teste por dimensão\n\n\n\nJulgue V ou F — a questão só conta se acertar os 4 itens:\n\nSupor \\(\\Sigma\\) diagonal equivale a supor independência entre as dimensões dos dados.\nO teste por dimensão, combinado pelo teste de Fisher, usa \\(d(d+1)/2\\) parâmetros — o mesmo que o teste conjunto via Mahalanobis.\nUm ponto pode ter \\(p\\)-valor baixo em cada dimensão isoladamente e ainda assim ter \\(p\\)-valor conjunto alto, se o desvio observado for consistente com a correlação entre as dimensões.\nUm ponto pode parecer normal em cada dimensão isoladamente e ainda assim ser uma anomalia no teste conjunto, se ele quebrar a relação de correlação entre as dimensões."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#ponte-para-a-aula-2-2",
+    "href": "unsupervised/aula01/slides.html#ponte-para-a-aula-2-2",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Ponte para a Aula 2",
+    "text": "Ponte para a Aula 2\n\nRelaxar a suposição de família única: \\(k\\)-NN e KDE, densidade não-paramétrica. Preço: a maldição da dimensionalidade."
+  },
+  {
+    "objectID": "unsupervised/aula01/slides.html#limitações-da-receita",
+    "href": "unsupervised/aula01/slides.html#limitações-da-receita",
+    "title": "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias",
+    "section": "Limitações da Receita",
+    "text": "Limitações da Receita\n\nMultimodalidade: uma Gaussiana só descreve uma média cega entre subpopulações distintas — como diabéticos/não-diabéticos aqui (IMC médio \\(31{,}4\\) vs. \\(35{,}9\\)). É por isso que o veredito da paciente do exemplo anterior mudou de lado.\nOutliers no ajuste: inflam \\(\\hat\\Sigma\\), escondem o que se queria detectar. Exemplo real: 1 paciente com \\(99\\)mm de dobra cutânea já infla \\(\\det\\hat\\Sigma\\) em \\(\\sim 13\\%\\)."
   }
 ]

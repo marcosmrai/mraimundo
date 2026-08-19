@@ -74,9 +74,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -122,19 +119,33 @@ window.Quarto = {
     <h2 id="toc-title">Sumário</h2>
    
   <ul>
-  <li><a href="#abertura-modelar-dados-sem-rótulos" id="toc-abertura-modelar-dados-sem-rótulos" class="nav-link active" data-scroll-target="#abertura-modelar-dados-sem-rótulos"><span class="header-section-number">1</span> Abertura — modelar dados sem rótulos</a></li>
+  <li><a href="#como-modelar-dados-sem-rótulos" id="toc-como-modelar-dados-sem-rótulos" class="nav-link active" data-scroll-target="#como-modelar-dados-sem-rótulos"><span class="header-section-number">1</span> Como modelar dados sem rótulos?</a></li>
   <li><a href="#distribuição-empírica-vs.-teórica" id="toc-distribuição-empírica-vs.-teórica" class="nav-link" data-scroll-target="#distribuição-empírica-vs.-teórica"><span class="header-section-number">2</span> Distribuição Empírica vs.&nbsp;Teórica</a></li>
-  <li><a href="#a-gaussiana-multivariada-forma-e-parâmetros" id="toc-a-gaussiana-multivariada-forma-e-parâmetros" class="nav-link" data-scroll-target="#a-gaussiana-multivariada-forma-e-parâmetros"><span class="header-section-number">3</span> A Gaussiana Multivariada: Forma e Parâmetros</a></li>
-  <li><a href="#ajuste-por-máxima-verossimilhança" id="toc-ajuste-por-máxima-verossimilhança" class="nav-link" data-scroll-target="#ajuste-por-máxima-verossimilhança"><span class="header-section-number">4</span> Ajuste por Máxima Verossimilhança</a></li>
-  <li><a href="#da-verossimilhança-à-distância-de-mahalanobis" id="toc-da-verossimilhança-à-distância-de-mahalanobis" class="nav-link" data-scroll-target="#da-verossimilhança-à-distância-de-mahalanobis"><span class="header-section-number">5</span> Da Verossimilhança à Distância de Mahalanobis</a></li>
+  <li><a href="#gaussiana-multivariada" id="toc-gaussiana-multivariada" class="nav-link" data-scroll-target="#gaussiana-multivariada"><span class="header-section-number">3</span> Gaussiana Multivariada</a></li>
+  <li><a href="#máxima-verossimilhança" id="toc-máxima-verossimilhança" class="nav-link" data-scroll-target="#máxima-verossimilhança"><span class="header-section-number">4</span> Máxima Verossimilhança</a></li>
+  <li><a href="#distância-de-mahalanobis" id="toc-distância-de-mahalanobis" class="nav-link" data-scroll-target="#distância-de-mahalanobis"><span class="header-section-number">5</span> Distância de Mahalanobis</a></li>
   <li><a href="#da-posição-ao-p-valor" id="toc-da-posição-ao-p-valor" class="nav-link" data-scroll-target="#da-posição-ao-p-valor"><span class="header-section-number">6</span> Da Posição ao <span class="math inline">\(p\)</span>-valor</a>
   <ul class="collapse">
   <li><a href="#do-limiar-fixo-ao-escore-contínuo" id="toc-do-limiar-fixo-ao-escore-contínuo" class="nav-link" data-scroll-target="#do-limiar-fixo-ao-escore-contínuo"><span class="header-section-number">6.1</span> Do limiar fixo ao escore contínuo</a></li>
   <li><a href="#conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese" id="toc-conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese" class="nav-link" data-scroll-target="#conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese"><span class="header-section-number">6.2</span> Conjunta vs.&nbsp;por dimensão — o mesmo trade-off do Naive Bayes, agora em teste de hipótese</a></li>
+  <li><a href="#duas-rotas-para-o-mesmo-p-valor" id="toc-duas-rotas-para-o-mesmo-p-valor" class="nav-link" data-scroll-target="#duas-rotas-para-o-mesmo-p-valor"><span class="header-section-number">6.3</span> Duas Rotas para o Mesmo <span class="math inline">\(p\)</span>-valor</a></li>
+  <li><a href="#onde-a-suposição-de-independência-erra" id="toc-onde-a-suposição-de-independência-erra" class="nav-link" data-scroll-target="#onde-a-suposição-de-independência-erra"><span class="header-section-number">6.4</span> Onde a Suposição de Independência Erra</a></li>
   </ul></li>
-  <li><a href="#armadilhas-e-ponte-para-a-aula-2" id="toc-armadilhas-e-ponte-para-a-aula-2" class="nav-link" data-scroll-target="#armadilhas-e-ponte-para-a-aula-2"><span class="header-section-number">7</span> Armadilhas e Ponte para a Aula 2</a>
+  <li><a href="#exemplo-prático-detecção-de-anomalia-em-ação" id="toc-exemplo-prático-detecção-de-anomalia-em-ação" class="nav-link" data-scroll-target="#exemplo-prático-detecção-de-anomalia-em-ação"><span class="header-section-number">7</span> Exemplo Prático: Detecção de Anomalia em Ação</a>
   <ul class="collapse">
+  <li><a href="#um-exemplo-completo-detectando-uma-paciente-real" id="toc-um-exemplo-completo-detectando-uma-paciente-real" class="nav-link" data-scroll-target="#um-exemplo-completo-detectando-uma-paciente-real"><span class="header-section-number">7.1</span> Um exemplo completo: detectando uma paciente real</a></li>
+  <li><a href="#quando-o-modelo-erra-um-veredito-que-muda-de-lado" id="toc-quando-o-modelo-erra-um-veredito-que-muda-de-lado" class="nav-link" data-scroll-target="#quando-o-modelo-erra-um-veredito-que-muda-de-lado"><span class="header-section-number">7.2</span> Quando o modelo erra: um veredito que muda de lado</a></li>
+  </ul></li>
+  <li><a href="#armadilhas-e-ponte-para-a-aula-2" id="toc-armadilhas-e-ponte-para-a-aula-2" class="nav-link" data-scroll-target="#armadilhas-e-ponte-para-a-aula-2"><span class="header-section-number">8</span> Armadilhas e Ponte para a Aula 2</a>
+  <ul class="collapse">
+  <li><a href="#retomando-as-perguntas-de-abertura" id="toc-retomando-as-perguntas-de-abertura" class="nav-link" data-scroll-target="#retomando-as-perguntas-de-abertura">Retomando as perguntas de abertura</a></li>
   <li><a href="#ponte-para-a-aula-2" id="toc-ponte-para-a-aula-2" class="nav-link" data-scroll-target="#ponte-para-a-aula-2">Ponte para a Aula 2</a></li>
+  </ul></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">9</span> Exercícios</a>
+  <ul class="collapse">
+  <li><a href="#questões-discursivas" id="toc-questões-discursivas" class="nav-link" data-scroll-target="#questões-discursivas"><span class="header-section-number">9.1</span> Questões discursivas</a></li>
+  <li><a href="#questões-de-verdadeirofalso" id="toc-questões-de-verdadeirofalso" class="nav-link" data-scroll-target="#questões-de-verdadeirofalso"><span class="header-section-number">9.2</span> Questões de Verdadeiro/Falso</a></li>
+  <li><a href="#aviso" id="toc-aviso" class="nav-link" data-scroll-target="#aviso"><span class="header-section-number">9.3</span> Aviso</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Outros formatos</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -193,7 +204,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">17 de agosto de 2026</p>
+      <p class="date">19 de agosto de 2026</p>
     </div>
   </div>
   
@@ -205,34 +216,25 @@ window.Quarto = {
 </header>
 
 
-<section id="abertura-modelar-dados-sem-rótulos" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Abertura — modelar dados sem rótulos</h1>
+<section id="como-modelar-dados-sem-rótulos" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Como modelar dados sem rótulos?</h1>
 <p>Todo o curso de Aprendizado Supervisionado parte de um par <span class="math inline">\((\mathbf{x}, y)\)</span>: um vetor de características e um rótulo a prever. Aqui não há <span class="math inline">\(y\)</span> — só <span class="math inline">\(\mathbf{x}_1,\dots,\mathbf{x}_N \in \mathbb{R}^d\)</span>. A pergunta deixa de ser “que função prevê <span class="math inline">\(y\)</span> a partir de <span class="math inline">\(\mathbf{x}\)</span>” e passa a ser mais básica: <strong>que forma esses dados têm?</strong></p>
-<p>Essa pergunta parece vaga, mas tem uma primeira resposta operacional direta, e é o assunto desta aula: <strong>profiling</strong>. Descrever o comportamento típico de uma população — a forma que a maioria dos pontos assume — para depois reconhecer o que se desvia dela. Um sensor de temperatura e um de vibração de uma máquina, por exemplo, variam juntos sob operação normal. Quando um ponto novo chega, a pergunta é: ele se parece com o que já vimos?</p>
+<p>Essa pergunta parece vaga, mas tem uma primeira resposta operacional direta, e é o assunto desta aula: <strong>profiling</strong>. Descrever o comportamento típico de uma população — a forma que a maioria dos pontos assume — para depois reconhecer o que se desvia dela. Duas medidas antropométricas de um paciente, por exemplo — espessura da dobra cutânea e IMC —, variam juntas na população: quem tem mais gordura subcutânea tende a ter IMC mais alto. Quando um paciente novo chega, a pergunta é: ele se parece com o que já vimos? O fio condutor desta aula é justamente esse par de medidas, de dados reais do <strong>Pima Indians Diabetes Dataset</strong> (768 pacientes, disponível no Hugging Face Hub).</p>
 <p>O caminho desta aula, em uma frase: <strong>assumir uma família teórica conhecida para os dados, ajustá-la, e usar a verossimilhança do modelo ajustado para decidir o que é típico e o que não é.</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A["dados sem rótulo"] --&gt; B["assumir família teórica&lt;br/&gt;(Gaussiana multivariada)"]
-    B --&gt; C["ajustar por máxima&lt;br/&gt;verossimilhança"]
-    C --&gt; D["distância de Mahalanobis&lt;br/&gt;de um ponto novo"]
-    D --&gt; E["p-valor via χ²_d"]
-    E --&gt; F["decisão: típico ou anômalo"]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<p>Quatro perguntas guiam o resto da aula:</p>
+<ol type="1">
+<li>Que forma de modelo faz sentido quando não há rótulo — e por que a Gaussiana multivariada é a aposta natural?</li>
+<li>Como ajustar essa forma aos dados, e o que pode dar errado nesse ajuste?</li>
+<li>Como comparar um ponto novo ao modelo ajustado — por que a distância certa não é a Euclidiana?</li>
+<li>Como transformar essa distância numa afirmação probabilística rigorosa, e onde exatamente essa receita quebra?</li>
+</ol>
+<img src="02-aula_files/mediabag/1561afd25cb9decad1bdd83e9ec0d7bc1627dba2.svg" class="img-fluid" style="width:80.0%">
 </section>
 <section id="distribuição-empírica-vs.-teórica" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Distribuição Empírica vs.&nbsp;Teórica</h1>
 <p>O objeto mais honesto que se pode construir a partir dos dados é a <strong>distribuição empírica</strong>: o próprio histograma, ou a nuvem de pontos. Ela nunca está “errada” — é literalmente o que foi observado. Mas tem dois problemas práticos: é ruidosa (poucos dados numa região dão uma estimativa tremendamente instável), e não diz nada sobre pontos que nunca foram observados.</p>
 <p>A aposta desta aula é trocar ruído por estrutura: assumir que os dados vieram de uma <strong>família teórica</strong> conhecida, com poucos parâmetros. O preço é que a suposição pode estar errada — um tema que volta na aula inteira, e no fechamento (Bloco 7).</p>
-<div id="ea9d1b20" class="cell" data-execution_count="2">
+<div id="6ff83c9a" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -241,9 +243,22 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Por que a distribuição empírica “nunca está errada” e ainda assim não basta para decidir se um ponto novo é típico ou anômalo?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Escreva sua resposta em uma frase, e compare com um colega (2 min).</p>
+</div>
+</div>
 </section>
-<section id="a-gaussiana-multivariada-forma-e-parâmetros" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> A Gaussiana Multivariada: Forma e Parâmetros</h1>
+<section id="gaussiana-multivariada" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Gaussiana Multivariada</h1>
 <p>A distribuição Gaussiana (ou normal) multivariada, para um vetor <span class="math inline">\(\mathbf{x}\in\mathbb{R}^d\)</span>, é (PRML, eq. 2.43, p.&nbsp;78):</p>
 <p><span class="math display">\[
 \mathcal{N}(\mathbf{x}\mid\boldsymbol\mu,\Sigma) = \frac{1}{(2\pi)^{d/2}}\frac{1}{|\Sigma|^{1/2}}
@@ -263,7 +278,7 @@ window.Quarto = {
 <p>Duas razões clássicas, ambas em PRML §2.3, p.&nbsp;78: <strong>(1)</strong> é a distribuição de entropia máxima dada média e covariância fixas — a suposição menos comprometida possível além desses dois momentos; <strong>(2)</strong> pelo Teorema Central do Limite, a soma de muitas variáveis aleatórias tende a uma Gaussiana, o que a torna plausível como modelo de ruído agregado ou de medições que resultam de muitos efeitos pequenos somados. Nenhuma das duas provas é feita aqui — ambas voltam com mais detalhe em cursos futuros.</p>
 </div>
 </div>
-<div id="e842cceb" class="cell" data-execution_count="3">
+<div id="1356d9ea" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -273,8 +288,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="ajuste-por-máxima-verossimilhança" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Ajuste por Máxima Verossimilhança</h1>
+<section id="máxima-verossimilhança" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Máxima Verossimilhança</h1>
 <p>Dado um conjunto <span class="math inline">\(\mathbf{x}_1,\dots,\mathbf{x}_N\)</span> assumido i.i.d. de <span class="math inline">\(\mathcal{N}(\boldsymbol\mu,\Sigma)\)</span>, a máxima verossimilhança dá (PRML §2.3.4, eqs. 2.118–2.122, pp.&nbsp;93–94):</p>
 <p><span class="math display">\[
 \hat{\boldsymbol\mu} = \frac1N\sum_{n=1}^N \mathbf{x}_n, \qquad
@@ -293,7 +308,7 @@ window.Quarto = {
 <p>Duas coisas para anunciar antes que a turma descubra sozinha. Primeira: <span class="math inline">\(\mathbb{E}[\hat\Sigma_{\text{ML}}] = \frac{N-1}{N}\Sigma\)</span> — subestima a covariância verdadeira (PRML, eqs. 2.123–2.124, p.&nbsp;94). A correção padrão divide por <span class="math inline">\(N-1\)</span> em vez de <span class="math inline">\(N\)</span>: <span class="math inline">\(\tilde\Sigma = \frac{1}{N-1}\sum_n(\mathbf{x}_n-\hat{\boldsymbol\mu})(\mathbf{x}_n-\hat{\boldsymbol\mu})^T\)</span> (PRML, eq. 2.125, p.&nbsp;94) — é exatamente o <code>np.cov</code> padrão do NumPy. Segunda, mais grave: <strong>se <span class="math inline">\(N \le d\)</span>, <span class="math inline">\(\hat\Sigma\)</span> não é invertível</strong> (posto no máximo <span class="math inline">\(N-1\)</span>, precisa de posto <span class="math inline">\(d\)</span>). Sem <span class="math inline">\(\Sigma^{-1}\)</span>, não há distância de Mahalanobis, não há verossimilhança bem definida — o resto da aula trava. Guarde isso: é exatamente a maldição da dimensionalidade que abre a Aula 2.</p>
 </div>
 </div>
-<div id="13a953fe" class="cell" data-execution_count="4">
+<div id="c29d7d99" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -302,16 +317,35 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Julgue V ou F: Gaussiana multivariada e máxima verossimilhança
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>Os autovetores de <span class="math inline">\(\Sigma\)</span> dão a orientação das elipses de densidade constante da Gaussiana multivariada; os autovalores dão o comprimento dos eixos.</li>
+<li>O estimador de máxima verossimilhança <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> é não-viesado: <span class="math inline">\(\mathbb{E}[\hat{\boldsymbol\mu}] = \boldsymbol\mu\)</span>.</li>
+<li>O estimador de máxima verossimilhança <span class="math inline">\(\hat\Sigma_{\text{ML}}\)</span> (dividido por <span class="math inline">\(N\)</span>) é não-viesado.</li>
+<li>Se <span class="math inline">\(N \le d\)</span>, a matriz <span class="math inline">\(\hat\Sigma_{\text{ML}}\)</span> estimada não é invertível.</li>
+</ol>
+</div>
+</div>
 </section>
-<section id="da-verossimilhança-à-distância-de-mahalanobis" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Da Verossimilhança à Distância de Mahalanobis</h1>
+<section id="distância-de-mahalanobis" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Distância de Mahalanobis</h1>
 <p>Comparar <span class="math inline">\(p(\mathbf{x})\)</span> com um limiar é equivalente a comparar o termo que está no expoente — a única parte que depende de <span class="math inline">\(\mathbf{x}\)</span>. Essa quantidade é a <strong>distância de Mahalanobis</strong> (PRML, eq. 2.44, p.&nbsp;80):</p>
 <p><span class="math display">\[
 D_M(\mathbf{x})^2 = (\mathbf{x}-\hat{\boldsymbol\mu})^T\hat\Sigma^{-1}(\mathbf{x}-\hat{\boldsymbol\mu}),
 \]</span></p>
 <p>que “reduz à distância Euclidiana quando <span class="math inline">\(\Sigma\)</span> é a identidade” (PRML, p.&nbsp;80) — mas em geral não é a Euclidiana, e a diferença é o ponto todo desta aula. <span class="math inline">\(\Sigma^{-1}\)</span> <strong>estica</strong> o espaço nas direções de baixa variância e <strong>comprime</strong> nas de alta variância: um deslocamento ao longo do eixo de alta correlação “custa pouco” em Mahalanobis, mesmo que pareça grande em unidades brutas; um deslocamento perpendicular a esse eixo “custa muito”, mesmo que pareça pequeno.</p>
 <p>Dois pontos novos tornam isso concreto — nenhum dos dois é o típico “outlier evidente”:</p>
-<div id="b0ccc23c" class="cell" data-execution_count="5">
+<div id="77e62ca9" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -321,12 +355,52 @@ D_M(\mathbf{x})^2 = (\mathbf{x}-\hat{\boldsymbol\mu})^T\hat\Sigma^{-1}(\mathbf{x
 </div>
 </div>
 <p>O ponto <strong>B</strong> está longe do centro em unidades brutas (ao longo da crista de alta correlação), mas sua distância de Mahalanobis é modesta — é exatamente o tipo de desvio que a correlação prevê. O ponto <strong>C</strong> está próximo do centro em unidades brutas, mas fora da crista — sua distância de Mahalanobis é maior, porque ele quebra a relação entre as duas variáveis, não porque esteja “longe” no sentido ingênuo. Guarde os dois: o próximo bloco transforma essas distâncias em probabilidades, e o contraste entre B e C é exatamente onde a suposição de independência entre dimensões vai errar em direções opostas.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Por que o ponto B, mais distante do centro em unidades brutas, tem uma distância de Mahalanobis menor que a do ponto C, mais próximo?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pense em termos de <span class="math inline">\(\Sigma^{-1}\)</span> esticando e comprimindo o espaço (2 min).</p>
+</div>
+</div>
 </section>
 <section id="da-posição-ao-p-valor" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Da Posição ao <span class="math inline">\(p\)</span>-valor</h1>
 <section id="do-limiar-fixo-ao-escore-contínuo" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="do-limiar-fixo-ao-escore-contínuo"><span class="header-section-number">6.1</span> Do limiar fixo ao escore contínuo</h2>
-<p>Se <span class="math inline">\(\mathbf{x}\sim\mathcal{N}(\boldsymbol\mu,\Sigma)\)</span>, então <span class="math inline">\(D_M(\mathbf{x})^2 \sim \chi^2_d\)</span> — soma de <span class="math inline">\(d\)</span> quadrados de normais padrão independentes, que é a própria definição da qui-quadrado. <em>(Este resultado é estatística multivariada clássica; não está em PRML ou DLFC — verificação: <span class="math inline">\(\mathbf{Y}=\Sigma^{-1/2}(\mathbf{X}-\boldsymbol\mu)\sim\mathcal{N}(0,I_d)\)</span>, logo <span class="math inline">\(\mathbf{Y}^T\mathbf{Y}=\sum_i Y_i^2 = D_M(\mathbf{X})^2 \sim \chi^2_d\)</span> por definição.)</em></p>
+<p>Antes de definir o escore, vale entender <strong>por que</strong> a distância de Mahalanobis ao quadrado tem uma distribuição exata e conhecida quando o modelo está certo — é esse fato, não uma convenção arbitrária, que transforma o próximo passo (o <span class="math inline">\(p\)</span>-valor) numa afirmação probabilística rigorosa.</p>
+<p><strong>Intuição primeiro.</strong> A ideia é “desfazer” a elipse. Se existisse uma transformação que tomasse os dados gaussianos correlacionados e os devolvesse como uma nuvem esférica — sem correlação, variância <span class="math inline">\(1\)</span> em toda direção —, a distância de Mahalanobis nessa nuvem esférica seria simplesmente a distância Euclidiana ao quadrado até o centro. E a distância Euclidiana ao quadrado de um ponto gaussiano padrão <span class="math inline">\(d\)</span>-dimensional até a origem é, por definição, uma soma de <span class="math inline">\(d\)</span> quadrados de normais padrão independentes — exatamente uma qui-quadrado com <span class="math inline">\(d\)</span> graus de liberdade. O resto é só confirmar que essa transformação “desfazedora” existe e formalizar a conta.</p>
+<p><strong>Agora formalmente.</strong> Seja <span class="math inline">\(\mathbf{X}\sim\mathcal{N}(\boldsymbol\mu,\Sigma)\)</span>. Como <span class="math inline">\(\Sigma\)</span> é simétrica e positiva definida, ela tem uma raiz quadrada matricial <span class="math inline">\(\Sigma^{1/2}\)</span> (via decomposição espectral) e uma inversa <span class="math inline">\(\Sigma^{-1/2}\)</span>. Defina a variável <strong>branqueada</strong> <span class="math display">\[
+\mathbf{Y} = \Sigma^{-1/2}(\mathbf{X}-\boldsymbol\mu).
+\]</span> Por ser uma transformação linear de um vetor gaussiano, <span class="math inline">\(\mathbf{Y}\)</span> também é gaussiano — só falta achar sua média e covariância: <span class="math display">\[
+\mathbb{E}[\mathbf{Y}] = \Sigma^{-1/2}\,\mathbb{E}[\mathbf{X}-\boldsymbol\mu] = \mathbf{0},
+\qquad
+\text{Cov}(\mathbf{Y}) = \Sigma^{-1/2}\,\Sigma\,\Sigma^{-1/2}
+= \Sigma^{-1/2}\Sigma^{1/2}\Sigma^{1/2}\Sigma^{-1/2} = I_d.
+\]</span> Ou seja, <span class="math inline">\(\mathbf{Y}\sim\mathcal{N}(\mathbf{0},I_d)\)</span>: as <span class="math inline">\(d\)</span> coordenadas de <span class="math inline">\(\mathbf{Y}\)</span> são normais padrão <strong>independentes</strong> entre si — para vetores gaussianos (só para eles), covariância zero já implica independência. Por definição, a soma dos quadrados de <span class="math inline">\(d\)</span> normais padrão independentes é uma qui-quadrado com <span class="math inline">\(d\)</span> graus de liberdade: <span class="math display">\[
+\mathbf{Y}^T\mathbf{Y} = \sum_{i=1}^d Y_i^2 \;\sim\; \chi^2_d.
+\]</span> Falta uma última peça: mostrar que <span class="math inline">\(\mathbf{Y}^T\mathbf{Y}\)</span> é, literalmente, a distância de Mahalanobis ao quadrado. <span class="math display">\[
+\mathbf{Y}^T\mathbf{Y}
+= \big[\Sigma^{-1/2}(\mathbf{X}-\boldsymbol\mu)\big]^T\big[\Sigma^{-1/2}(\mathbf{X}-\boldsymbol\mu)\big]
+= (\mathbf{X}-\boldsymbol\mu)^T\Sigma^{-1/2}\Sigma^{-1/2}(\mathbf{X}-\boldsymbol\mu)
+= (\mathbf{X}-\boldsymbol\mu)^T\Sigma^{-1}(\mathbf{X}-\boldsymbol\mu)
+= D_M(\mathbf{X})^2.
+\]</span> Logo <span class="math inline">\(D_M(\mathbf{X})^2 = \mathbf{Y}^T\mathbf{Y} \sim \chi^2_d\)</span>. Este resultado é estatística multivariada clássica — não está no PRML nem no DLFC —, mas a conta acima é uma prova completa, não um apelo à autoridade; a verificação numérica logo abaixo confirma que ela bate com a prática, não só com a álgebra.</p>
+<div id="a6bd6f42" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-aula_files/figure-html/cell-7-output-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O histograma simulado acompanha a curva teórica <span class="math inline">\(\chi^2_d\)</span> de perto — a prova algébrica acima e a simulação contam a mesma história por caminhos diferentes.</p>
 <p>Em vez de só “dentro/fora” de um limiar fixo, isso permite definir o <strong>escore de anomalia como um <span class="math inline">\(p\)</span>-valor</strong>:</p>
 <p><span class="math display">\[
 p(\mathbf{x}) = P\big(D_M(\mathbf{X}')^2 \ge D_M(\mathbf{x})^2 \mid \mathbf{X}'\sim\mathcal{N}(\hat{\boldsymbol\mu},\hat\Sigma)\big)
@@ -346,60 +420,376 @@ p(\mathbf{x}) = P\big(D_M(\mathbf{X}')^2 \ge D_M(\mathbf{x})^2 \mid \mathbf{X}'\
 <p><span class="math inline">\(p(\mathbf{x})\)</span> pequeno <strong>não</strong> significa “probabilidade de <span class="math inline">\(\mathbf{x}\)</span> pertencer à distribuição verdadeira”. Significa “probabilidade de um ponto <em>do modelo ajustado</em> ser tão extremo quanto <span class="math inline">\(\mathbf{x}\)</span>”. É uma afirmação sobre o modelo, condicional a ele estar certo — não é uma afirmação sobre a origem de <span class="math inline">\(\mathbf{x}\)</span>. Se o modelo estiver errado (Bloco 7), o <span class="math inline">\(p\)</span>-valor também estará.</p>
 </div>
 </div>
-<div id="e808510b" class="cell" data-execution_count="6">
+<div id="346442b6" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="02-aula_files/figure-html/cell-7-output-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="02-aula_files/figure-html/cell-9-output-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Julgue V ou F: distância de Mahalanobis e o <span class="math inline">\(p\)</span>-valor de anomalia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>A distância de Mahalanobis reduz à distância Euclidiana quando <span class="math inline">\(\Sigma\)</span> é a matriz identidade.</li>
+<li>Se <span class="math inline">\(\mathbf{x}\sim\mathcal{N}(\boldsymbol\mu,\Sigma)\)</span>, então <span class="math inline">\(D_M(\mathbf{x})^2\)</span> segue uma distribuição qui-quadrado com <span class="math inline">\(d\)</span> graus de liberdade.</li>
+<li>Um <span class="math inline">\(p\)</span>-valor baixo para um ponto <span class="math inline">\(\mathbf{x}\)</span> significa que a probabilidade de <span class="math inline">\(\mathbf{x}\)</span> ter vindo da distribuição verdadeira é baixa.</li>
+<li>Dois pontos igualmente distantes do centro em distância Euclidiana podem ter distâncias de Mahalanobis bem diferentes.</li>
+</ol>
 </div>
 </div>
 </section>
 <section id="conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="conjunta-vs.-por-dimensão-o-mesmo-trade-off-do-naive-bayes-agora-em-teste-de-hipótese"><span class="header-section-number">6.2</span> Conjunta vs.&nbsp;por dimensão — o mesmo trade-off do Naive Bayes, agora em teste de hipótese</h2>
 <p>Calcular <span class="math inline">\(D_M\)</span> exige estimar e inverter <span class="math inline">\(\hat\Sigma\)</span> — <span class="math inline">\(d(d+1)/2\)</span> parâmetros, caro e instável quando <span class="math inline">\(N\)</span> não é <span class="math inline">\(\gg d\)</span> (a armadilha do Bloco 4). A alternativa mais barata: supor independência entre dimensões (PRML discute exatamente essa restrição — <span class="math inline">\(\Sigma\)</span> diagonal — em §2.3, p.&nbsp;84, como uma forma de “tornar a inversão da matriz de covariância uma operação muito mais rápida”, ao custo de “limitar a capacidade do modelo de capturar correlações interessantes nos dados”). Sob essa suposição, calcula-se um <span class="math inline">\(p\)</span>-valor <strong>por dimensão</strong>, <span class="math inline">\(p_i(x_i) = P(|Z_i|\ge|z_i|)\)</span> usando só a marginal <span class="math inline">\(\mathcal{N}(\hat\mu_i,\hat\sigma_i^2)\)</span> — <span class="math inline">\(d\)</span> parâmetros, não <span class="math inline">\(d(d+1)/2\)</span> — e combinam-se os <span class="math inline">\(d\)</span> <span class="math inline">\(p\)</span>-valores independentes pelo teste de Fisher, <span class="math inline">\(-2\sum_i\ln p_i(x_i) \sim \chi^2_{2d}\)</span> <em>(também estatística clássica, não coberta por PRML/DLFC — combinação padrão de <span class="math inline">\(p\)</span>-valores independentes)</em>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    X["ponto novo x"] --&gt; Q{"supor independência&lt;br/&gt;entre dimensões?"}
-    Q --&gt;|"sim"| M1["p-valor por dimensão&lt;br/&gt;(d parâmetros)"]
-    M1 --&gt; F1["combinar via Fisher&lt;br/&gt;-2 Σ ln p_i ~ χ²_2d"]
-    Q --&gt;|"não"| M2["distância de Mahalanobis&lt;br/&gt;(d(d+1)/2 parâmetros)"]
-    M2 --&gt; F2["p-valor conjunto&lt;br/&gt;via χ²_d"]
-    F1 --&gt; R["cego à correlação entre dimensões"]
-    F2 --&gt; R2["sensível à correlação — mais caro"]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<div id="c1dba97e" class="cell" data-execution_count="7">
+</section>
+<section id="duas-rotas-para-o-mesmo-p-valor" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="duas-rotas-para-o-mesmo-p-valor"><span class="header-section-number">6.3</span> Duas Rotas para o Mesmo <span class="math inline">\(p\)</span>-valor</h2>
+<img src="02-aula_files/mediabag/ec2e5111b4f16ce9cc7496456c57ce1181c268c8.svg" class="img-fluid" style="width:75.0%">
+</section>
+<section id="onde-a-suposição-de-independência-erra" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="onde-a-suposição-de-independência-erra"><span class="header-section-number">6.4</span> Onde a Suposição de Independência Erra</h2>
+<div id="d7c7718d" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="02-aula_files/figure-html/cell-8-output-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="02-aula_files/figure-html/cell-10-output-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>O gráfico mostra o erro nas duas direções. No ponto <strong>B</strong>, cada coordenada isolada já parece grande (o teste por dimensão dá um <span class="math inline">\(p\)</span>-valor baixo), mas a combinação é exatamente o que a correlação prevê — o teste <strong>conjunto</strong> reconhece isso e dá um <span class="math inline">\(p\)</span>-valor bem maior: <strong>falso alarme do teste por dimensão</strong>. No ponto <strong>C</strong>, cada coordenada isolada parece perfeitamente normal (o teste por dimensão dá um <span class="math inline">\(p\)</span>-valor alto, tranquilizador), mas a combinação quebra a correlação — o teste conjunto enxerga isso e dá um <span class="math inline">\(p\)</span>-valor baixo: <strong>anomalia real que o teste por dimensão deixa passar</strong>. Nenhum dos dois testes está “certo” em geral; a suposição de independência é uma escolha, com um preço que depende de onde a anomalia acontece — a mesma lição do preço da suposição de independência do Naive Bayes, agora em teste de hipótese em vez de classificação.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Julgue V ou F: teste conjunto vs.&nbsp;teste por dimensão
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
+<ol type="a">
+<li>Supor <span class="math inline">\(\Sigma\)</span> diagonal equivale a supor independência entre as dimensões dos dados.</li>
+<li>O teste por dimensão, combinado pelo teste de Fisher, usa <span class="math inline">\(d(d+1)/2\)</span> parâmetros — o mesmo que o teste conjunto via Mahalanobis.</li>
+<li>Um ponto pode ter <span class="math inline">\(p\)</span>-valor baixo em cada dimensão isoladamente e ainda assim ter <span class="math inline">\(p\)</span>-valor conjunto alto, se o desvio observado for consistente com a correlação entre as dimensões.</li>
+<li>Um ponto pode parecer normal em cada dimensão isoladamente e ainda assim ser uma anomalia no teste conjunto, se ele quebrar a relação de correlação entre as dimensões.</li>
+</ol>
+</div>
+</div>
 </section>
 </section>
-<section id="armadilhas-e-ponte-para-a-aula-2" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Armadilhas e Ponte para a Aula 2</h1>
+<section id="exemplo-prático-detecção-de-anomalia-em-ação" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exemplo Prático: Detecção de Anomalia em Ação</h1>
+<p>Antes de aplicar a receita inteira a casos concretos, duas perguntas que ficaram implícitas até aqui merecem resposta explícita.</p>
+<p><strong>Por que, afinal, alguém quer saber se um ponto é anômalo?</strong> Não é para “diagnosticar” a paciente — o rótulo de diabetes nunca entrou no ajuste do modelo, e esta aula não é sobre diagnóstico médico. O caso de uso é mais geral, e mais comum do que parece: <strong>controle de qualidade de dados e triagem de perfis atípicos</strong>. Antes de usar uma base de dados clínica em qualquer análise — treinar um modelo, calcular estatísticas de um estudo —, é prática padrão sinalizar registros fisiologicamente implausíveis (erro de digitação, falha de equipamento de medição) e perfis genuinamente incomuns que merecem uma segunda checagem manual, seja por um erro de coleta, seja por um caso clínico raro que vale a pena um especialista revisar de perto. <span class="math inline">\(p(\mathbf{x})\)</span> baixo não é uma sentença — é um sinal de “olhe aqui com mais atenção”.</p>
+<p><strong>A população usada para ajustar o modelo é só de pessoas saudáveis?</strong> Não — e isso importa para o que vem a seguir. O <em>Pima Indians Diabetes Dataset</em> é uma coorte clínica geral: das <span class="math inline">\(538\)</span> pacientes válidas usadas no ajuste, <span class="math inline">\(359\)</span> não têm diabetes e <span class="math inline">\(179\)</span> têm — uma mistura real, não uma referência “normal” isolada de uma população doente. O rótulo de diabetes existe no dataset, mas <strong>não</strong> foi usado para ajustar <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> e <span class="math inline">\(\hat\Sigma\)</span> (a aula inteira é não-supervisionada); ele só reaparece agora, para <em>explicar</em> os dois casos abaixo depois do fato.</p>
+<section id="um-exemplo-completo-detectando-uma-paciente-real" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="um-exemplo-completo-detectando-uma-paciente-real"><span class="header-section-number">7.1</span> Um exemplo completo: detectando uma paciente real</h2>
+<p>Vale ver a receita inteira funcionar, do início ao fim, num caso real e inequívoco — sem nenhum ponto construído artificialmente.</p>
+<p>O dataset tem, entre as pacientes válidas, uma com espessura de dobra cutânea de <span class="math inline">\(46\)</span>mm e IMC de <span class="math inline">\(67{,}1\)</span> <span class="math inline">\(\text{kg/m}^2\)</span> — o maior IMC de todo o conjunto. Aplicando a receita da aula, nessa ordem:</p>
+<ol type="1">
+<li><strong>O modelo já ajustado</strong> (Bloco 4): <span class="math inline">\(\hat{\boldsymbol\mu} =
+[29{,}05,\ 32{,}89]^T\)</span>, com <span class="math inline">\(\hat\Sigma\)</span> estimada da população de <span class="math inline">\(538\)</span> pacientes.</li>
+<li><strong>A distância de Mahalanobis</strong> (Bloco 5) dessa paciente até o centro do modelo: <span class="math inline">\(D_M(\mathbf{x})^2 \approx 29{,}85\)</span>.</li>
+<li><strong>O <span class="math inline">\(p\)</span>-valor</strong> (Bloco 6): <span class="math inline">\(p(\mathbf{x}) = 1 -
+F_{\chi^2_2}(29{,}85) \approx 3{,}3\times 10^{-7}\)</span> — uma entre praticamente três milhões.</li>
+</ol>
+<p>A conclusão é inequívoca: sob o modelo ajustado, uma paciente tão extrema quanto esta seria observada com probabilidade próxima de zero. Diferente do contraste sutil entre B e C (Bloco 6), aqui não há ambiguidade nenhuma — o IMC de <span class="math inline">\(67{,}1\)</span> sozinho já está no percentil <span class="math inline">\(99{,}8\)</span> da população (um teste ingênuo por dimensão também a acusaria, sem precisar de correlação alguma). É esse o caso mais simples e mais comum de detecção de anomalia na prática: nem toda anomalia depende de uma correlação quebrada entre variáveis — a maioria, como esta, é simplesmente um valor extremo isolado, e o pipeline completo (ajustar <span class="math inline">\(\to\)</span> medir distância <span class="math inline">\(\to\)</span> converter em <span class="math inline">\(p\)</span>-valor) capta os dois casos com a mesma régua.</p>
+<div id="776b136e" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-aula_files/figure-html/cell-11-output-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A estrela cai bem longe de todos os contornos — inclusive do mais extremo (<span class="math inline">\(\alpha=0{,}01\)</span>) — visualmente consistente com um <span class="math inline">\(p\)</span>-valor da ordem de <span class="math inline">\(10^{-7}\)</span>.</p>
+</section>
+<section id="quando-o-modelo-erra-um-veredito-que-muda-de-lado" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="quando-o-modelo-erra-um-veredito-que-muda-de-lado"><span class="header-section-number">7.2</span> Quando o modelo erra: um veredito que muda de lado</h2>
+<p>O caso anterior foi limpo porque o modelo — uma única Gaussiana para toda a população — realmente descreve bem essa paciente. Mas a população é, como acabamos de ver, uma mistura de duas subpopulações (com e sem diabetes) — e o Bloco 7 vai argumentar, em abstrato, que isso pode quebrar a receita. Aqui está a versão concreta, com uma segunda paciente real.</p>
+<p>Considere a paciente diabética com a menor espessura de dobra cutânea de todo o dataset (<span class="math inline">\(7\)</span>mm) e IMC <span class="math inline">\(27{,}6\)</span> — um corpo magro para o padrão de quem tem diabetes nesta amostra (a subpopulação diabética tem, em média, mais gordura subcutânea). Ajustando o modelo só à subpopulação diabética (<span class="math inline">\(N=179\)</span>), essa combinação é surpreendente: <span class="math inline">\(p\approx 0{,}016\)</span>, abaixo do limiar usual de <span class="math inline">\(5\%\)</span> — seria flagrada. Ajustando o modelo à população inteira (<span class="math inline">\(N=538\)</span>, o que a aula fez até aqui), a mesma paciente, com os mesmos números, deixa de ser flagrada: <span class="math inline">\(p\approx 0{,}057\)</span>, acima de <span class="math inline">\(5\%\)</span> — ela se mistura com os pacientes magros e não-diabéticos que também estão na base. Nenhum dos dois cálculos está “errado” em termos de aritmética; a diferença inteira vem de qual população de referência se assume.</p>
+<div id="d1607adb" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-aula_files/figure-html/cell-12-output-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A mesma estrela, os mesmos dois números — só a população de referência muda entre os dois painéis, e o veredito muda junto.</p>
+<p><strong>Qual dos dois confiar, e por quê?</strong> Nenhum dos dois <span class="math inline">\(p\)</span>-valores é um erro de cálculo — cada um está correto <em>dentro do modelo em que foi calculado</em>. Mas os dois modelos não são igualmente apropriados aqui. A paciente é genuinamente incomum <strong>para uma pessoa com diabetes especificamente</strong> — nesta amostra, diabéticas carregam mais gordura subcutânea em média, então uma diabética com dobra cutânea tão fina destoa dentro desse grupo. O modelo <em>pooled</em> não sabe que esse subgrupo existe: sua noção de “típico” é uma média borrada entre os dois grupos, alargada pelo simples fato de que várias pacientes <em>não</em>-diabéticas são igualmente magras. Contra essa referência mais larga e borrada, ela não chama atenção.</p>
+<p>A lição não é “a conta deu diferente” — é que <strong>o modelo <em>pooled</em> foi a ferramenta errada aqui</strong>, porque a população que ele descreve não é, de fato, uma única Gaussiana: é uma mistura de duas subpopulações com composições corporais típicas diferentes. A consequência prática é concreta, não abstrata: uma anomalia real, específica de um subgrupo, pode escapar ilesa exatamente porque tudo foi agrupado numa única distribuição de referência em vez de ser modelado por subgrupo (ou por uma mistura de verdade — fora do escopo desta aula). O Bloco 7 fecha a aula nomeando esse risco (e o segundo, outliers no ajuste) de forma explícita.</p>
+</section>
+</section>
+<section id="armadilhas-e-ponte-para-a-aula-2" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Armadilhas e Ponte para a Aula 2</h1>
 <p>Dois jeitos de essa receita quebrar, nenhum deles resolvido nesta aula:</p>
 <ol type="1">
-<li><strong>Dados genuinamente multimodais.</strong> Se a população real tem duas subpopulações distintas (por exemplo, dois regimes de operação da máquina), uma única Gaussiana ajustada é uma média cega entre os dois modos — o ajuste “funciona” no sentido de que a matemática produz <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> e <span class="math inline">\(\hat\Sigma\)</span> válidos, e mesmo assim a descrição resultante mente sobre a forma real dos dados.</li>
-<li><strong>Outliers no próprio conjunto de ajuste.</strong> <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> e <span class="math inline">\(\hat\Sigma\)</span> são médias — poucos pontos extremos os deslocam e <strong>inflam</strong> <span class="math inline">\(\hat\Sigma\)</span>, o que aumenta o limiar e esconde exatamente o que se queria detectar. Isso não é resolvido aqui; é um problema de robustez (estimadores robustos de locação/escala) fora do escopo desta aula.</li>
+<li><strong>Dados genuinamente multimodais.</strong> Se a população real tem duas subpopulações distintas, uma única Gaussiana ajustada é uma média cega entre os dois modos — o ajuste “funciona” no sentido de que a matemática produz <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> e <span class="math inline">\(\hat\Sigma\)</span> válidos, e mesmo assim a descrição resultante mente sobre a forma real dos dados. É exatamente o que a própria população desta aula é: separando os pacientes com e sem diabetes (rótulo não usado no ajuste, mas disponível no dataset), a média de IMC muda de <span class="math inline">\(31{,}4\)</span> para <span class="math inline">\(35{,}9\)</span> — e, como o exemplo prático anterior mostrou com uma paciente real, essa mistura pode mudar o veredito de anômalo para típico (ou vice-versa), dependendo de qual população de referência se assume.</li>
+<li><strong>Outliers no próprio conjunto de ajuste.</strong> <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> e <span class="math inline">\(\hat\Sigma\)</span> são médias — poucos pontos extremos os deslocam e <strong>inflam</strong> <span class="math inline">\(\hat\Sigma\)</span>, o que aumenta o limiar e esconde exatamente o que se queria detectar. Isso não é resolvido aqui; é um problema de robustez (estimadores robustos de locação/escala) fora do escopo desta aula. O próprio dataset desta aula tem um exemplo real: antes de filtrar, uma paciente registrada com <span class="math inline">\(99\)</span>mm de espessura de dobra cutânea (fisiologicamente improvável — quase certamente um erro de coleta) já bastava para inflar <span class="math inline">\(\det\hat\Sigma\)</span> em cerca de <span class="math inline">\(13\%\)</span> sozinha, mesmo entre quase <span class="math inline">\(540\)</span> pacientes.</li>
 </ol>
+<section id="retomando-as-perguntas-de-abertura" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="retomando-as-perguntas-de-abertura">Retomando as perguntas de abertura</h3>
+<ol type="1">
+<li><strong>Que forma de modelo faz sentido sem rótulo?</strong> Uma família teórica com poucos parâmetros — a Gaussiana multivariada, motivada por máxima entropia e pelo Teorema Central do Limite.</li>
+<li><strong>Como ajustar essa forma?</strong> Por máxima verossimilhança — <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> é a média amostral, <span class="math inline">\(\hat\Sigma\)</span> a covariância amostral (viesada; corrigida dividindo por <span class="math inline">\(N-1\)</span>); o ajuste trava se <span class="math inline">\(N\le d\)</span>.</li>
+<li><strong>Como comparar um ponto novo ao modelo?</strong> Pela distância de Mahalanobis, não pela Euclidiana — ela pondera cada direção pela variância (e correlação) que o modelo aprendeu.</li>
+<li><strong>Como transformar isso numa afirmação probabilística rigorosa — e onde a receita quebra?</strong> Via <span class="math inline">\(p\)</span>-valor sob <span class="math inline">\(\chi^2_d\)</span>; quebra sob multimodalidade e sob outliers não tratados no próprio ajuste.</li>
+</ol>
+</section>
 <section id="ponte-para-a-aula-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="ponte-para-a-aula-2">Ponte para a Aula 2</h3>
 <p>Toda a aula assumiu que uma única forma paramétrica — a Gaussiana — descreve os dados. A Aula 2 relaxa essa suposição pelo lado não-paramétrico: em vez de assumir uma família, estimar a densidade diretamente dos vizinhos mais próximos (<span class="math inline">\(k\)</span>-NN) e suavizar com Estimação de Densidade por Kernel (KDE). O preço dessa liberdade — a maldição da dimensionalidade, já anunciada no Bloco 4 — é o assunto de lá.</p>
+</section>
+</section>
+<section id="exercícios" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Exercícios</h1>
+<section id="questões-discursivas" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="questões-discursivas"><span class="header-section-number">9.1</span> Questões discursivas</h2>
+<ol type="1">
+<li><p>Explique por que a distribuição empírica “nunca está errada”, mas ainda assim não é suficiente para decidir se um ponto novo é típico ou anômalo. Sua explicação deve mencionar o que a distribuição empírica diz (ou deixa de dizer) sobre regiões do espaço onde nenhum ponto foi observado.</p></li>
+<li><p>A distância de Mahalanobis “reduz à distância Euclidiana quando <span class="math inline">\(\Sigma\)</span> é a matriz identidade” (PRML, tradução nossa). Explique o que isso significa geometricamente, e descreva um exemplo (pode ser hipotético) em que a diferença entre as duas distâncias muda a decisão de marcar ou não um ponto como anômalo.</p></li>
+<li><p>Um colega propõe substituir o teste conjunto (via distância de Mahalanobis e <span class="math inline">\(\chi^2_d\)</span>) pelo teste por dimensão combinado via Fisher em todos os casos, para economizar parâmetros. Usando o contraste entre os pontos B e C desta aula, explique por que essa substituição não é sempre segura.</p></li>
+</ol>
+</section>
+<section id="questões-de-verdadeirofalso" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="questões-de-verdadeirofalso"><span class="header-section-number">9.2</span> Questões de Verdadeiro/Falso</h2>
+<p>Cada bloco de 4 itens trata do mesmo tema. A questão só é considerada correta se todos os 4 itens forem julgados corretamente (deixar em branco tem penalidade de 20% da nota da questão).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Modelagem sem rótulos e profiling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) Em aprendizado não supervisionado, o objetivo central é encontrar uma função que preveja um rótulo <span class="math inline">\(y\)</span> a partir de <span class="math inline">\(\mathbf{x}\)</span>.</p></li>
+<li><p>( ) <em>Profiling</em> é a tarefa de descrever o comportamento típico de uma população para depois reconhecer o que se desvia dele.</p></li>
+<li><p>( ) Espessura da dobra cutânea e IMC podem variar de forma correlacionada numa população de pacientes.</p></li>
+<li><p>( ) A pergunta central desta aula é “que forma esses dados têm”, não “que função prevê <span class="math inline">\(y\)</span>”.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Distribuição empírica vs.&nbsp;distribuição teórica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) A distribuição empírica é, em algum sentido, sempre “correta”, pois é literalmente o que foi observado.</p></li>
+<li><p>( ) A distribuição empírica generaliza bem para regiões do espaço onde poucos ou nenhum ponto foi observado.</p></li>
+<li><p>( ) Assumir uma família teórica com poucos parâmetros troca ruído por estrutura, ao custo de a suposição poder estar errada.</p></li>
+<li><p>( ) A escolha de uma família teórica específica (como a Gaussiana) é sempre garantidamente correta, desde que <span class="math inline">\(N\)</span> seja grande o suficiente.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>A Gaussiana multivariada: forma geométrica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) As curvas de nível de densidade constante de uma Gaussiana multivariada são elipsoides centrados em <span class="math inline">\(\boldsymbol\mu\)</span>.</p></li>
+<li><p>( ) Os autovetores de <span class="math inline">\(\Sigma\)</span> determinam a orientação dos eixos dessas elipsoides.</p></li>
+<li><p>( ) Os autovalores de <span class="math inline">\(\Sigma\)</span> determinam o comprimento desses eixos.</p></li>
+<li><p>( ) <span class="math inline">\(\Sigma\)</span> pode ser qualquer matriz quadrada, sem restrição de simetria ou de definição positiva.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Por que a Gaussiana é a escolha natural
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) A Gaussiana é a distribuição de entropia máxima dada uma média e uma covariância fixas.</p></li>
+<li><p>( ) O Teorema Central do Limite diz que a soma de muitas variáveis aleatórias, sob condições brandas, tende a uma distribuição Gaussiana.</p></li>
+<li><p>( ) O Teorema Central do Limite garante que qualquer conjunto de dados observado é, de fato, gaussiano.</p></li>
+<li><p>( ) A escolha da Gaussiana como modelo é uma suposição, não uma consequência lógica obrigatória dos dados.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Máxima verossimilhança para <span class="math inline">\(\boldsymbol\mu\)</span> e <span class="math inline">\(\Sigma\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) O estimador de máxima verossimilhança de <span class="math inline">\(\boldsymbol\mu\)</span> é a média amostral <span class="math inline">\(\bar{\mathbf{x}}\)</span>.</p></li>
+<li><p>( ) O estimador de máxima verossimilhança de <span class="math inline">\(\Sigma\)</span> (dividido por <span class="math inline">\(N\)</span>) é a matriz de covariância amostral.</p></li>
+<li><p>( ) A derivação do estimador de máxima verossimilhança de <span class="math inline">\(\boldsymbol\mu\)</span> e <span class="math inline">\(\Sigma\)</span> segue do mesmo princípio de maximização da log-verossimilhança usado em outras partes do curso.</p></li>
+<li><p>( ) O estimador de máxima verossimilhança de <span class="math inline">\(\boldsymbol\mu\)</span> depende da escolha de um limiar de anomalia.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Viés do estimador de covariância
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) O estimador de máxima verossimilhança <span class="math inline">\(\hat\Sigma_{\text{ML}}\)</span> (dividido por <span class="math inline">\(N\)</span>) subestima, em esperança, a covariância verdadeira.</p></li>
+<li><p>( ) A correção padrão para o viés de <span class="math inline">\(\hat\Sigma_{\text{ML}}\)</span> consiste em dividir por <span class="math inline">\(N-1\)</span> em vez de <span class="math inline">\(N\)</span>.</p></li>
+<li><p>( ) O estimador de máxima verossimilhança de <span class="math inline">\(\boldsymbol\mu\)</span> também é viesado, pela mesma razão que <span class="math inline">\(\hat\Sigma_{\text{ML}}\)</span>.</p></li>
+<li><p>( ) <code>np.cov</code> com o parâmetro padrão do NumPy usa a correção por <span class="math inline">\(N-1\)</span>, não a versão de máxima verossimilhança dividida por <span class="math inline">\(N\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>A armadilha <span class="math inline">\(N \le d\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) Se <span class="math inline">\(N \le d\)</span>, a matriz de covariância amostral <span class="math inline">\(\hat\Sigma\)</span> tem posto no máximo <span class="math inline">\(N-1\)</span>.</p></li>
+<li><p>( ) Uma matriz de covariância amostral com posto menor que <span class="math inline">\(d\)</span> é sempre invertível.</p></li>
+<li><p>( ) Sem <span class="math inline">\(\hat\Sigma^{-1}\)</span>, a distância de Mahalanobis não pode ser calculada.</p></li>
+<li><p>( ) A armadilha <span class="math inline">\(N \le d\)</span> é uma primeira manifestação da maldição da dimensionalidade, tema da Aula 2.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Distância de Mahalanobis vs.&nbsp;distância Euclidiana
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) A distância de Mahalanobis reduz à distância Euclidiana quando <span class="math inline">\(\Sigma\)</span> é a matriz identidade.</p></li>
+<li><p>( ) <span class="math inline">\(\Sigma^{-1}\)</span> estica o espaço nas direções de alta variância e comprime nas direções de baixa variância.</p></li>
+<li><p>( ) Dois pontos igualmente distantes do centro em distância Euclidiana podem ter distâncias de Mahalanobis diferentes.</p></li>
+<li><p>( ) Um deslocamento ao longo da direção de maior correlação entre as variáveis pode “custar pouco” em distância de Mahalanobis, mesmo parecendo grande em unidades brutas.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Da distância de Mahalanobis ao <span class="math inline">\(p\)</span>-valor
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) Se <span class="math inline">\(\mathbf{x}\sim\mathcal{N}(\boldsymbol\mu,\Sigma)\)</span>, a distância de Mahalanobis ao quadrado <span class="math inline">\(D_M(\mathbf{x})^2\)</span> segue uma distribuição qui-quadrado com <span class="math inline">\(d\)</span> graus de liberdade.</p></li>
+<li><p>( ) O <span class="math inline">\(p\)</span>-valor de anomalia definido nesta aula é a probabilidade de um ponto do modelo ajustado ser tão extremo, ou mais, quanto o ponto observado.</p></li>
+<li><p>( ) Um limiar fixo de anomalia (dentro/fora) é um caso particular do escore contínuo dado pelo <span class="math inline">\(p\)</span>-valor.</p></li>
+<li><p>( ) O <span class="math inline">\(p\)</span>-valor ordena os pontos apenas em duas categorias (típico/anômalo), sem informação adicional sobre o grau de surpresa.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>A armadilha de interpretação do <span class="math inline">\(p\)</span>-valor
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) Um <span class="math inline">\(p\)</span>-valor baixo significa que a probabilidade de o ponto observado pertencer à distribuição verdadeira é baixa.</p></li>
+<li><p>( ) Um <span class="math inline">\(p\)</span>-valor baixo é uma afirmação condicional a o modelo ajustado estar correto.</p></li>
+<li><p>( ) Se o modelo ajustado estiver errado, o <span class="math inline">\(p\)</span>-valor calculado a partir dele também estará comprometido.</p></li>
+<li><p>( ) O <span class="math inline">\(p\)</span>-valor é uma afirmação sobre o modelo, não uma afirmação direta sobre a origem do ponto observado.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Teste conjunto vs.&nbsp;teste por dimensão
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) Supor <span class="math inline">\(\Sigma\)</span> diagonal é equivalente a supor independência entre as dimensões dos dados.</p></li>
+<li><p>( ) O teste por dimensão, combinado pelo teste de Fisher, usa menos parâmetros do que o teste conjunto via distância de Mahalanobis.</p></li>
+<li><p>( ) Um ponto que quebra a relação de correlação entre duas dimensões, mas parece normal em cada dimensão isoladamente, é sempre detectado pelo teste por dimensão.</p></li>
+<li><p>( ) O teste conjunto via Mahalanobis é sensível a esse tipo de quebra de correlação, mesmo quando o teste por dimensão não é.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Limitações: multimodalidade e outliers no ajuste
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>( ) Uma única Gaussiana ajustada a dados genuinamente multimodais (com duas subpopulações distintas) sempre falha ao produzir <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> e <span class="math inline">\(\hat\Sigma\)</span> numericamente válidos.</p></li>
+<li><p>( ) Outliers no próprio conjunto usado para ajustar <span class="math inline">\(\hat{\boldsymbol\mu}\)</span> e <span class="math inline">\(\hat\Sigma\)</span> podem inflar <span class="math inline">\(\hat\Sigma\)</span> e esconder anomalias reais.</p></li>
+<li><p>( ) O problema de robustez a outliers no ajuste é resolvido, nesta aula, por um estimador robusto de locação e escala.</p></li>
+<li><p>( ) A saída não-paramétrica (<span class="math inline">\(k\)</span>-NN e KDE), tema da Aula 2, evita a suposição de uma única forma paramétrica para os dados.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="aviso" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="aviso"><span class="header-section-number">9.3</span> Aviso</h2>
+<p>As questões de Verdadeiro/Falso e discursivas ficam sem solução neste arquivo — são para resolução autônoma do aluno, fora do horário de aula.</p>
 
 
 </section>

@@ -23,6 +23,7 @@ teaching/
 │   ├── index.md
 │   ├── fontes/
 │   │   └── exemplos-estilo/
+│   ├── dados/
 │   ├── progresso.md
 │   ├── aula01/
 │   │   ├── 00-plano-aula.md
@@ -33,6 +34,7 @@ teaching/
 ├── algebra_opt/
 │   ├── index.md
 │   ├── fontes/
+│   ├── dados/
 │   ├── progresso.md
 │   ├── aula01/
 │   └── ...
@@ -80,13 +82,37 @@ A espinha dorsal mais robusta é a de três movimentos:
 
 **2. Desenvolvimento (segmentado)** — o ponto crítico: não é um bloco contínuo.
 - **Segmentação em blocos de 10–15 min**, cada um com um único "ponto de aterrissagem". A atenção sustentada em exposição passiva degrada rapidamente; o corte periódico reinicia o ciclo.
-- **Pausas ativas** entre blocos: 1–2 min para o aluno escrever a ideia central com suas palavras, comparar com o colega, ou responder uma pergunta de checagem. É o intervalo que consolida, não a exposição. Apresentar como uma **pergunta direta**, sem rótulo genérico tipo "Pausa ativa" antes dela — o título do `callout-tip` é a própria pergunta:
+- **Pausas ativas**: crie um slide `Perguta` entre blocos: peça para o aluno escrever a ideia central com suas palavras, comparar com o colega, ou responder uma pergunta de checagem. É o intervalo que consolida, não a exposição. Apresentar como uma **pergunta direta**, sem rótulo genérico tipo "Pausa ativa" antes dela — o título do `callout-tip` é a própria pergunta:
   ```
   ::: {.callout-tip}
   ## Por que o corte "no cruzamento das curvas" está errado, e o que falta entrar na conta?
   :::
   ```
-  **Nunca** colocar um título de slide separado *fora* da caixa antes do `callout-tip` (nem nas notas, nem nos slides) — isso cria um slide extra e vazio de conteúdo entre o bloco anterior e a pergunta. O título do próprio `callout-tip` já é o único título do slide; a pergunta (ou o V/F) e sua resposta devem ficar cada um em seu próprio slide **separado**, sem nenhum slide genérico "Pergunta"/"Resposta" no meio.
+  **Atenção — no RevealJS isso precisa de um heading real por fora da
+  caixa.** Um `##` usado como título de um `callout-tip` não gera um
+  heading de verdade (vira um `<div class="callout-title">`), e por
+  isso o Reveal.js sozinho não reconhece ali um novo slide — o
+  conteúdo gruda no slide anterior. É por isso que o slide `Pergunta`
+  citado acima precisa de um heading real `## Pergunta`, genérico,
+  ANTES da caixa (fora dela) — só esse heading real garante o corte de
+  slide certo. A pergunta específica continua sendo o título do
+  `callout-tip`, dentro da caixa, exatamente como no exemplo acima:
+  ```
+  ::: {.content-visible when-format="revealjs"}
+  ## Pergunta
+
+  ::: {.callout-tip}
+  ## Por que o corte "no cruzamento das curvas" está errado, e o que falta entrar na conta?
+  :::
+  :::
+  ```
+  Nas notas HTML não há esse problema de corte de slide (não é
+  necessário o heading genérico `## Pergunta` por fora) — mas usar o
+  mesmo padrão nos dois formatos não atrapalha.
+
+  Neste slide também coloque uma pergunta de V/F que auxilie a pensar nesse conceito.
+
+  Crie um slide seguinte chamando `Resposta` onde a pergunta direta é repetida e a resposta do VF é dada.
 - **Sinalização verbal**: "isto é o resultado central", "esta hipótese é a que vamos relaxar depois". Marcadores explícitos de hierarquia evitam que tudo pareça igualmente importante.
 
 **3. Fechamento (5 min)** — quase sempre o mais sacrificado e o mais valioso:
@@ -127,28 +153,98 @@ blocos `::: {.content-visible when-format="..."}`:
   explicativo nos slides que têm nas notas — não vale simplificar a
   ponto de distorcer.
 
+## Dados: prefira exemplos reais a sintéticos
+
+Feedback explícito do usuário: as aulas têm ficado teóricas demais para
+quem está aprendendo Aprendizado de Máquina/Otimização pela primeira
+vez — sem um dado real e palpável por trás, a matemática fica abstrata
+demais. Ao escolher o dataset que ilustra o fio condutor de uma aula (o
+"problema-fio" que atravessa os blocos), **prefira um dataset real a um
+dataset sintético**, e **prefira ambos a um dataset de brinquedo como
+Iris** — interessante para ensinar sintaxe, mas pouco palpável (poucos
+alunos têm intuição sobre pétalas de flor).
+
+**De onde puxar o dataset: Hugging Face Hub, não pedir arquivo ao
+usuário a cada aula.** Em vez de esperar o usuário trazer um CSV para
+cada aula nova, use a lista curada abaixo — todos os itens foram
+**testados nesta sessão** com `datasets.load_dataset(repo_id)`, sem
+token/chave (datasets públicos do Hub não exigem autenticação; só
+datasets *gated*/privados exigiriam, via `HF_TOKEN`, o que não é o caso
+de nenhum item desta lista). O pacote `datasets` (e `huggingface_hub`)
+já está nas dependências do projeto (`pyproject.toml`). Ao carregar,
+aparece um aviso de "unauthenticated requests" — é só um aviso de
+limite de taxa, não um bloqueio; pode ignorar.
+
+| Dataset (repo Hugging Face) | Linhas | Uso recomendado | Observações |
+|---|---|---|---|
+| **Adult / Census Income** — `scikit-learn/adult-census-income` | 32.561 | Classificação binária (renda >50k), atributos mistos (contínuos + categóricos) — bom para Naive Bayes, árvores, regressão logística | Sem colunas problemáticas |
+| **Breast Cancer Wisconsin** — `scikit-learn/breast-cancer-wisconsin` | 569 | Classificação binária médica (diagnóstico M/B), todos os atributos contínuos | Descartar `id` e `Unnamed: 32` (coluna vazia, artefato do CSV original) |
+| **Pima Indians Diabetes** — `khoaguin/pima-indians-diabetes-database` | 768 | Médico, multivariado contínuo (Glicose, IMC, pressão, etc.), alvo binário — bom para Aula 1 de `supervised` (Beta 1D, usando só `Glucose`) **e** Aula 1 de `unsupervised` (Gaussiana multivariada/Mahalanobis, no lugar dos sensores sintéticos) | Coluna alvo já vem nomeada `y` |
+| **California Housing** — `gvlassis/california_housing` | 20.640 (já dividido train/val/test) | Regressão — preço de imóvel a partir de 8 atributos contínuos; bom para regressão linear, regularização, e para `algebra_opt` (escalas bem diferentes entre atributos, motiva *feature scaling*) | Substitui o antigo Boston Housing (removido do scikit-learn por um problema ético numa variável) |
+| **Default of Credit Card Clients (UCI)** — `Lancer73/uci-credit-card-default` | 30.000 (já dividido train/val/test) | Risco de crédito, classificação binária, atributos de histórico de pagamento — bom para árvores, ensembles | — |
+| **German Credit Data (Statlog)** — `AiresPucrs/german-credit-data` | 1.000 | Risco de crédito, mistura explícita de categóricos (Sexo, Moradia, Propósito) e numéricos (Idade, Valor, Duração) — bom encaixe para Naive Bayes com atributos de tipos diferentes | Dataset pequeno, bom para uma aula que não quer um treino pesado |
+| **Credit Card Transactions Fraud Detection** — `dazzle-nu/CIS435-CreditCardFraudDetection` | ~1.048.575 | Fraude/anomalia com atributos interpretáveis (valor, categoria, localização) — melhor para a lógica de detecção de anomalia da Aula 1 de `unsupervised` do que o dataset clássico da ULB, cujos atributos são componentes de PCA anônimos, não interpretáveis | Grande: **subamostrar** para uso em aula; descartar colunas `Unnamed: 0`, `Unnamed: 23`, `6006` (artefatos); classe muito desbalanceada (avisar antes de usar) |
+
+Isso não bane dados sintéticos por completo: eles seguem úteis para
+isolar um ponto matemático específico (ex.: um contraexemplo
+controlado, ou uma verificação numérica de uma propriedade, como o
+contraexemplo de Gini/entropia da Aula 3 de `supervised`). Mas o
+**exemplo-fio** que atravessa os blocos de uma aula — o problema que dá
+contexto para tudo o resto — deve, sempre que possível, vir de um
+dataset real, preferencialmente um da tabela acima.
+
+**Como usar no `.qmd`:** carregar no bloco de setup global, junto com
+os outros imports:
+
+```python
+from huggingface_hub.utils import logging as hf_logging
+hf_logging.set_verbosity_error()  # evita o aviso "unauthenticated requests" vazando no chunk
+
+from datasets import disable_progress_bar
+disable_progress_bar()  # evita barra de progresso poluindo a saída do chunk
+
+from datasets import load_dataset
+ds = load_dataset("scikit-learn/adult-census-income")["train"].to_pandas()
+```
+
+Testado nesta sessão com `#| echo: false`: sem as duas primeiras
+linhas, tanto o aviso de "unauthenticated requests" quanto a barra de
+progresso do download vazam para a saída do chunk renderizado (mesmo
+com `echo: false`, que só esconde o código, não a saída/stderr) — com
+elas, a saída fica limpa.
+
+O download é armazenado em cache local (`~/.cache/huggingface/`) —
+renderizações seguintes na mesma máquina não baixam de novo. Se, algum
+dia, um dataset novo (fora desta lista) for necessário, teste o
+`load_dataset(repo_id)` antes de incorporar à aula (confirmar que
+carrega sem token e checar as colunas), e considere adicionar à tabela
+acima se for reutilizável em outras aulas. Se o usuário preferir
+fornecer um arquivo diretamente (em vez de puxar do Hub), a convenção
+de `<disciplina>/dados/` com link simbólico (mesmo padrão de `fontes/`,
+ver "Fontes como link simbólico" abaixo) continua válida como
+alternativa.
+
 ## Citações e trechos de fontes: sempre traduzidos no `.qmd`
 
 Fontes bibliográficas em inglês (comum neste projeto) devem ter seus
 trechos **traduzidos para português** no `02-aula.qmd` — tanto nas notas
 quanto nos slides. Deixar a citação em inglês tem um custo alto de troca
 de idioma para quem lê ou apresenta em português (feedback explícito do
-usuário).
+usuário). Evite "copiar e colar" trechos dos livros.
 
-- Em `01-fontes.md`, o "Trecho" continua na língua original da fonte,
-  literal, sem tradução — é o registro de verificação direta contra o
-  PDF (Etapa 3, não mexer nisso).
-- No `02-aula.qmd`, usar a tradução para português do trecho, deixando
-  claro que é tradução nossa (ex.: "tradução nossa"), não uma citação
-  literal de outra fonte. Termos técnicos sem tradução direta e estável
-  (ex.: *prima facie*, em latim) podem ficar no original, com uma
-  explicação ao lado na primeira aparição.
+- Em `01-fontes.md`, o "Trecho" deve ser um overview dos conceitos, a citação literal deve sempre ser traduzida pasra evitar travas de direitos autorais — a intenção é ter um o registro de verificação direta contra o PDF (Etapa 3, não mexer nisso).
+- No `02-aula.qmd`, usar a tradução para português do trecho, deixando claro que é tradução nossa (ex.: "tradução livre"), não uma citação literal de outra fonte. Termos técnicos sem tradução direta e estável (ex.: *prima facie*, em latim) podem ficar no original, com uma explicação ao lado na primeira aparição.
 
-Código Python é embutido nos mesmos chunks, gerando as figuras
-que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do arquivo de referência em `fontes/exemplos-estilo/`:
+Código Python é embutido nos mesmos chunks, gerando as figuras que ilustram tanto a versão HTML quanto a RevealJS. Siga o padrão do arquivo de referência em `fontes/exemplos-estilo/`:
 
 - Um único bloco de **setup global** no topo (imports, seed do RNG,
   paleta de cores fixa reutilizada em toda a aula, funções auxiliares).
+  **Cores preferenciais, nesta ordem:** as cores do IC —
+  `#0085CA` (RGB 0,133,202), `#FF5E00` (RGB 255,94,0) e `#E03C31`
+  (RGB 224,60,49). Use essas três primeiro (ex.: `COR_A`, `COR_B`,
+  `COR_LIM`) antes de introduzir qualquer outra cor na paleta da aula;
+  cores adicionais (`COR_NEU`, `COR_ALT`, etc.), se precisar de mais de
+  três, ficam livres, mas as três do IC vêm sempre primeiro.
 - Chunks com `#| echo: false` e `#| fig-align: center` para as figuras.
 - Numeração de blocos/seções consistente com a numeração usada no
   planejamento do semestre.
@@ -173,7 +269,7 @@ format:
 
 ## Sugestão de fluxogramas e diagramas
 
-Ao montar o bloco, se o conteúdo tiver estrutura sequencial, uma árvore de decisão, um processo com ramificações, ou uma comparação de caminhos alternativos (ex: "três saídas honestas para um problema"), **proponha um diagrama Mermaid** (` ```{mermaid} ` ), sem esperar o usuário pedir. Use Mermaid porque renderiza nativamente em Quarto nos dois formatos de saída (HTML e RevealJS). Só pergunte se não estiver claro que o diagrama ajuda mais do que texto.
+Ao montar o bloco, se o conteúdo tiver estrutura sequencial, uma árvore de decisão, um processo com ramificações, ou uma comparação de caminhos alternativos (ex: "três saídas honestas para um problema"), **proponha um diagrama TikZ** (` ```{.tikz} ` , com `%%| fig-align: center`), sem esperar o usuário pedir. O projeto já está configurado (`_quarto.yml`) com o *engine* de diagrama TikZ (via `pdflatex`), renderizando nativamente nos dois formatos de saída (HTML e RevealJS). Use as cores preferenciais do IC (ver seção acima) nos elementos do diagrama quando fizer sentido. Só pergunte se não estiver claro que o diagrama ajuda mais do que texto.
 
 ## Exercícios (obrigatório em toda aula)
 
@@ -266,7 +362,7 @@ Gerar `aulaNN/02-aula.qmd`: arquivo único com saída dupla
 HTML/RevealJS, código Python embutido, seguindo o estilo descrito
 acima, o tom do(s) arquivo(s) de referência em `fontes/exemplos-estilo/`,
 e a estrutura de blocos definida em `00-plano-aula.md`. Incluir
-diagramas Mermaid onde fizer sentido (ver seção acima), e os
+diagramas TikZ onde fizer sentido (ver seção acima), e os
 exercícios obrigatórios (ver seção "Exercícios" acima: seção de
 exercícios ao fim das notas HTML; exercícios de checagem intercalados
 nos slides, cada um seguido da solução no slide seguinte). **PARAR.**

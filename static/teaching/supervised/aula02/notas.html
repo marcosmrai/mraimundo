@@ -253,7 +253,7 @@ p(\mathcal{C}_k \mid \mathbf{x}) \;=\; \frac{p(\mathbf{x}\mid\mathcal{C}_k)\,\pi
 <section id="o-teste-jogue-fora-os-dados" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="o-teste-jogue-fora-os-dados"><span class="header-section-number">1.3</span> O teste: jogue fora os dados</h2>
 <p>A figura abaixo executa esse teste com três classes gaussianas em <span class="math inline">\(\mathbb{R}^2\)</span>. Observamos 900 pares rotulados (painel 1). Ajustamos por máxima verossimilhança e guardamos apenas <span class="math inline">\(\hat\pi_k\)</span>, <span class="math inline">\(\hat{\boldsymbol\mu}_k\)</span> e <span class="math inline">\(\hat\Sigma_k\)</span> — <strong>17 números</strong> ao todo, contra os 1800 valores dos dados originais (painel 2). Então <strong>descartamos os dados</strong>, e pedimos ao modelo 900 pares novos, executando os dois passos da receita (painel 3).</p>
-<div id="b8a3b7ab" class="cell" data-execution_count="2">
+<div id="aa84700e" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -400,7 +400,7 @@ p(\mathcal{C}_k\mid x) \;=\; \frac{p(x\mid\mathcal{C}_k)\,\pi_k}{\sum_j p(x\mid\
 <h2 data-number="2.2" class="anchored" data-anchor-id="o-ponto-não-é-compute-mais-rápido"><span class="header-section-number">2.2</span> O ponto não é “compute mais rápido”</h2>
 <p>Não é um problema de poder computacional. É um problema de <strong>dados</strong>: o número de observações necessárias para preencher as células cresce exponencialmente com <span class="math inline">\(d\)</span>, e nenhum orçamento de coleta razoável acompanha isso. A saída não é um histograma mais eficiente — é abandonar o histograma como estratégia de estimação em alta dimensão.</p>
 <p>Isto é exatamente a promessa que a Aula 1 fez ao fechar (PRML §1.4, pp. 33–38; DLFC §6.1.1, pp.&nbsp;172–174, tratamento moderno): sem impor nenhuma estrutura sobre <span class="math inline">\(p(\mathbf{x}\mid\mathcal{C}_k)\)</span>, ela não é estimável com dados finitos a partir de <span class="math inline">\(d\)</span> moderado.</p>
-<div id="25f72205" class="cell" data-execution_count="3">
+<div id="e58f099b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -458,7 +458,7 @@ p(x_i, x_j \mid z) = p(x_i \mid z)\, p(x_j \mid z),
 p(\mathbf{x}\mid\mathcal{C}_k) \;=\; \prod_{i=1}^d p(x_i \mid \mathcal{C}_k).
 \]</span></p>
 <p>O diagrama não tem <strong>nenhuma</strong> seta entre os <span class="math inline">\(x_i\)</span> — essa ausência é a suposição inteira, desenhada. Ela troca <span class="math inline">\(2^d-1\)</span> parâmetros por <span class="math inline">\(d\)</span>: linear em vez de exponencial.</p>
-<div id="e616de19" class="cell" data-execution_count="5">
+<div id="800cc5d4" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -484,7 +484,7 @@ p(\mathbf{x}\mid\mathcal{C}_k) \;=\; \prod_{i=1}^d p(x_i \mid \mathcal{C}_k).
 </div>
 </div>
 </div>
-<div id="b4c01b1c" class="cell" data-execution_count="6">
+<div id="fb0f86c0" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -637,7 +637,7 @@ p(\mathcal{C}_A\mid\mathbf{x}) \;&gt;\; \underbrace{\frac{c_{\mathrm{II}}}{c_{\m
 \frac{p(\mathbf{x}\mid\mathcal{C}_A)}{p(\mathbf{x}\mid\mathcal{C}_B)} \;&gt;\; \frac{c_{\mathrm{II}}\,\pi_B}{c_{\mathrm{I}}\,\pi_A}.
 \]</span></p>
 <p><strong>Toda regra de decisão binária é um teste de razão de verossimilhanças contra um limiar</strong> — e o limiar depende só de custos e prioris, <strong>nunca de <span class="math inline">\(\mathbf{x}\)</span></strong>. Note também que só a <strong>razão</strong> <span class="math inline">\(c_{\mathrm{II}}/c_{\mathrm{I}}\)</span> importa: dobrar os dois custos não muda decisão nenhuma.</p>
-<div id="c0322d4e" class="cell" data-execution_count="7">
+<div id="bcded439" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

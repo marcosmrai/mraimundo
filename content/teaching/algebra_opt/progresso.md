@@ -47,6 +47,122 @@ mas valem revisão): produto interno usado no Bloco 5 sem definição formal
 prévia no Bloco 4 (a Fonte 5, MathML §3.2.2, cobre isso mas ainda não foi
 citada no texto); $L_\infty$ sem exemplo nomeado localizado no MathML.
 
+**Reavaliada em 2026-08-19** para se ajustar ao novo paradigma de aula do
+`CLAUDE.md` (o mesmo já aplicado a `supervised` Aulas 1–3 e a
+`unsupervised` Aula 1): roteiro explícito de 4 perguntas logo na
+abertura (o arquivo não tinha uma seção de abertura separada — o roteiro
+foi inserido como a primeira caixa do Bloco 1), 3 pausas ativas
+(pergunta-título entre blocos: hipótese de suavidade antes do $k$-NN;
+fechamento sob adição de uma esfera antes de introduzir variedades;
+por que $L_1$/$L_2$/$L_\infty$ discordam sobre o "tamanho" de um vetor),
+3 testes V/F nos slides — cada um com slide de resposta separado
+(hipótese de suavidade e $k$-NN; espaços vetoriais/subespaços/variedades;
+métricas/alta dimensão/cosseno) —, uma seção "Retomando as perguntas de
+abertura" no fechamento, e a seção de Exercícios nas notas HTML (3
+discursivas + 12 blocos de V/F, 48 itens, cobrindo os 6 blocos de ponta a
+ponta). Diferente da reavaliação de `unsupervised`, este `.qmd` usa
+`---` como separador explícito de slide dentro de um mesmo bloco
+`content-visible` (convenção própria deste arquivo, não usada nos
+outros); todo callout-tip novo foi conferido para não ficar "solto" (sem
+`content-visible` restringindo o formato), que causaria slide duplicado
+no Reveal.js — mesmo bug já corrigido antes na Aula 3 de `supervised`.
+Conteúdo técnico não mudou (nem a correção da prova do cosseno feita
+antes); só a estrutura pedagógica e os exercícios foram adicionados.
+Revalidado com `quarto render --to html` e `--to revealjs` (mesmo
+detalhe de ambiente `.venv` já registrado em `supervised/progresso.md`).
+
+**Dados sintéticos trocados por dados reais em 2026-08-19** (aplicação
+da diretriz "Dados: prefira exemplos reais a sintéticos" do
+`CLAUDE.md`), em dois blocos:
+
+- **Bloco 1** (espaço de características): a tabela fake de 5 imóveis
+  virou uma amostra real de 5 bairros do **California Housing Dataset**
+  (`gvlassis/california_housing` no Hugging Face Hub) — renda mediana
+  vs. valor mediano do imóvel, com a ressalva explícita no texto de que
+  cada ponto é um grupo de setores censitários, não um imóvel
+  individual.
+- **Bloco 2** (ilustração do $k$-NN): as duas nuvens gaussianas
+  sintéticas viraram dados reais do **Breast Cancer Wisconsin Dataset**
+  (`scikit-learn/breast-cancer-wisconsin`) — raio médio vs. textura
+  média do núcleo celular, diagnóstico real (benigno/maligno). A
+  paciente de consulta também é real (removida da vizinhança); achado
+  ao explorar os dados: para essa paciente (diagnóstico real benigno),
+  o voto por $k=3$ erra (maioria maligno, 2 a 1) — mantido no texto como
+  lembrete honesto de que a escolha de $k$ não é neutra, com ponte
+  explícita para a Aula 4 de `supervised` (seleção de modelo).
+
+**Correção de padrão de slide em 2026-08-19**: as pausas ativas e os
+testes V/F desta aula usavam a pergunta/tema inteiro como título real
+do slide (heading hoisted para fora da caixa), com a caixa `callout-tip`
+carregando só uma dica curta. O padrão correto — confirmado
+explicitamente pelo usuário e agora documentado no `CLAUDE.md` — é
+diferente: o título real do slide deve ser o rótulo genérico `Pergunta`
+(e, no slide de resposta, `Resposta`), com a pergunta/tema específico
+sendo o título do `callout-tip`, dentro da caixa. Havia uma inconsistência
+real neste arquivo: 2 das 3 pausas ativas já seguiam esse padrão
+`Pergunta`/`Resposta` corretamente, mas a terceira (L1/L2/L∞) e os 3
+testes V/F ainda usavam o padrão antigo — todos corrigidos agora para o
+mesmo padrão `Pergunta`/`Resposta`. Revalidado com `quarto render --to
+html` e `--to revealjs`; confirmado via extração de `<section id=...>`
+do `slides.html` renderizado que todo slide `Pergunta`/`Resposta` tem a
+caixa correta por baixo, sem heading duplicado ou solto.
+
+Deixados sintéticos, por decisão consciente (são contraexemplos/provas
+específicas, não o problema-fio de um bloco): o *Swiss Roll* (Bloco 3,
+ilustração geométrica de variedade curva), as bolas unitárias das
+normas $L_1/L_2/L_\infty$ (Bloco 4, pura geometria, não há "dado" por
+trás), o contraexemplo dos três vetores a $0°/90°/135°$ (Bloco 5, prova
+da desigualdade triangular), e as duas luas (Bloco 6, ilustração
+geométrica de fronteira não-linear). Adicionadas `datasets` e
+`huggingface_hub` como dependências do projeto (`pyproject.toml`).
+Verificado que o aviso "unauthenticated requests" e a barra de
+progresso do download não vazam para a saída renderizada. Revalidado
+com `quarto render --to html` e `--to revealjs`, sem erro.
+
+**Pequenos ajustes de conteúdo em 2026-08-19** (pedidos pontuais do
+usuário):
+
+- **Dados categóricos** adicionados à Motivação (Bloco 1) — *one-hot
+  encoding* explicado com exemplo (cor de um carro), avisando por que
+  codificar categorias com números arbitrários introduz ordem falsa.
+- **Continuidade de Lipschitz** citada (não aprofundada) logo após a
+  Hipótese de Suavidade (Bloco 2), com a fórmula
+  $|f(\mathbf{x})-f(\mathbf{y})|\le L\cdot d(\mathbf{x},\mathbf{y})$ e
+  ponte explícita para convergência de otimização, tema futuro do
+  curso.
+- **Gráfico de limiar de decisão** adicionado depois da Ilustração
+  Prática do $k$-NN (Bloco 2) — região de decisão do $k$-NN ($k=3$)
+  sobre as $569$ pacientes reais do Breast Cancer Wisconsin, mostrando
+  a fronteira irregular exatamente na região onde a paciente de
+  consulta está posicionada.
+- **Demonstração concreta de $A\mathbf{x}=\mathbf{0}$** (Bloco 3) — a
+  prova abstrata de 3 passos ganhou um exemplo numérico
+  ($A=[1,1,1]$, $\mathbf{x}=[1,-1,0]^T$, $\mathbf{y}=[0,1,-1]^T$),
+  verificado antes via script Python, tirando a prova "do papel".
+- **Mapeamento não-linear + fronteira do $k$-NN** (Bloco 3, depois da
+  Hipótese da Variedade) — dois círculos concêntricos mapeados para
+  coordenadas polares $(r,\theta)$: fronteira curva no espaço original
+  vira uma fronteira quase plana em $(r,\theta)$ (verificado
+  numericamente: $r$ sozinho separa as classes com acurácia $1{,}0$),
+  ilustração direta e concreta do "desamassar o manifold".
+
+Todas as figuras novas usam a paleta preferencial do IC
+(`#0085CA`/`#FF5E00`/`#E03C31`). Revalidado com `quarto render --to
+html` e `--to revealjs`, sem erro.
+
+**Pergunta separada do usuário, respondida só no chat (não incorporada
+à aula):** vantagens práticas de usar distância cordal/angular em vez
+de $1-\cos\theta$ em sistemas reais de busca vetorial — ver a
+conversa; resumo: para *ranking*/ordenação as três são equivalentes
+(transformações monótonas umas das outras), então a maioria dos
+sistemas usa a versão mais barata ($1-\cos\theta$ ou o produto interno
+puro); a distância cordal importa na prática porque equivale à
+distância Euclidiana entre vetores normalizados — permite reusar
+índices ANN que só suportam L2 nativamente; métricas de verdade
+(cordal/angular) só são estritamente necessárias para estruturas de
+indexação métrica clássicas (M-trees, VP-trees) que podam candidatos
+via desigualdade triangular.
+
 ## Etapa 5 — index.md
 
 Link da Aula 1 corrigido: apontava para `../../algebra/aula1/livro.html`

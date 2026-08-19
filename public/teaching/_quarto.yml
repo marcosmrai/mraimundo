@@ -9,6 +9,17 @@ project:
   preview:
     watch-inputs: true
 
+filters:
+  - diagram
+
+diagram:
+  cache: true
+  engine:
+    tikz:
+      execpath: pdflatex
+      additional-packages: |
+        \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
 execute:
   freeze: auto # 'auto' compila apenas os arquivos .qmd que foram alterados
 
@@ -34,8 +45,6 @@ format:
     width: 1280
     height: 800
     margin: 0.02
-    fig-width: 13           # Aumenta a largura nativa do SVG gerado para bater com 1280px
-    fig-height: 5.2         # Altura proporcional para ocupar o slide
     fig-responsive: true    # Habilita CSS responsivo nativo nas imagens
     fig-format: "svg"       # (Opcional) Usa SVG para gráficos sem perda de qualidade ao escalar
     footer: "UNICAMP — Instituto de Computação"

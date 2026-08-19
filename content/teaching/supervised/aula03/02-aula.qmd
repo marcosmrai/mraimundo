@@ -321,7 +321,7 @@ Não é um modelo probabilístico gráfico — é uma função determinística q
 
 ::: {.content-visible when-format="revealjs"}
 
-## A Inversão de Papéis
+## Pergunta
 
 ::: {.fragment}
 **Aulas 1–2:** a fórmula (gaussiana, produto de Bernoullis) é fixada
@@ -338,6 +338,8 @@ vem dos dados — estimativa **não-paramétrica**.
 <br/>
 
 ::: {.callout-tip icon=false}
+## A Inversão de Papéis
+
 Os próximos dois blocos: o critério que decide *onde* cortar, primeiro em regressão, depois em classificação.
 :::
 :::
@@ -356,9 +358,11 @@ esperaria que uma fronteira em forma de reta funcionasse mal, mas uma
 
 ::: {.content-visible when-format="revealjs"}
 
-## O que muda, na prática, entre "escolher uma família de curvas" e "deixar a partição emergir dos dados"?
+## Pergunta
 
 ::: {.callout-tip}
+## O que muda, na prática, entre "escolher uma família de curvas" e "deixar a partição emergir dos dados"?
+
 ::: {.fragment}
 *(Um exemplo, hipotético ou real. Compare com um colega.)*
 :::
@@ -549,7 +553,7 @@ limitação estrutural, no Bloco 5.
 
 ::: {.content-visible when-format="revealjs"}
 
-## Intuição → Formalismo: o Que Prever numa Folha?
+## Pergunta
 
 ::: {.fragment}
 **Intuição:** um só número para representar vários — a média.
@@ -566,6 +570,8 @@ $$\Rightarrow\; y_\tau = \frac{1}{N_\tau}\sum_{\mathbf{x}_n\in\mathcal{R}_\tau} 
 <br/>
 
 ::: {.callout-tip icon=false}
+## Intuição → Formalismo: o Que Prever numa Folha?
+
 Vou fazer uma afirmação forte: essa receita **é** uma maximização de verossimilhança. Vamos verificar.
 :::
 :::
@@ -674,9 +680,11 @@ uma constante?
 
 ::: {.content-visible when-format="revealjs"}
 
-## Se duas folhas de uma árvore de regressão têm o mesmo número de pontos, a que tem maior soma de quadrados residuais $Q_\tau$ tem, necessariamente, maior variância dos alvos dentro dela?
+## Pergunta
 
 ::: {.callout-tip}
+## Se duas folhas de uma árvore de regressão têm o mesmo número de pontos, a que tem maior soma de quadrados residuais $Q_\tau$ tem, necessariamente, maior variância dos alvos dentro dela?
+
 ::: {.fragment}
 *(Pense: $Q_\tau = \sum(t_n-y_\tau)^2$ e a variância amostral $\hat\sigma^2 = Q_\tau/N_\tau$ — mesmo $N_\tau$, mesma ordem.)*
 :::
@@ -861,7 +869,7 @@ geralmente reservada para a fase de *poda* — assunto do próximo bloco.
 
 ::: {.content-visible when-format="revealjs"}
 
-## O Que uma Folha de Classificação Prevê
+## Pergunta
 
 ::: {.fragment}
 Não um número — uma **distribuição** sobre classes: $\hat p_{\tau k} =
@@ -872,6 +880,8 @@ n_{\tau k}/N_\tau$, a proporção empírica.
 <br/>
 
 ::: {.callout-tip icon=false}
+## O Que uma Folha de Classificação Prevê
+
 Mesmo padrão do Bloco 2: o MLE categórico numa folha é, de novo, a proporção empírica. Verificado a seguir.
 :::
 :::
@@ -982,9 +992,11 @@ d. A taxa de erro de classificação bruta é a escolha usual para
 
 ::: {.content-visible when-format="revealjs"}
 
-## Julgue V ou F: entropia, Gini e taxa de erro para crescer/podar árvores
+## Pergunta
 
 ::: {.callout-tip}
+## Julgue V ou F: entropia, Gini e taxa de erro para crescer/podar árvores
+
 Julgue V ou F — a questão só conta se acertar os 4 itens:
 
 a. O MLE de uma distribuição categórica numa folha é a proporção
@@ -1001,9 +1013,11 @@ d. A taxa de erro de classificação bruta é a escolha usual para
 
 ::: {.content-visible when-format="revealjs"}
 
-## Julgue V ou F: entropia, Gini e taxa de erro — Resposta
+## Resposta
 
 ::: {.callout-tip}
+## Julgue V ou F: entropia, Gini e taxa de erro — Resposta
+
 a. **Verdadeiro** — verificado numericamente acima.
 b. **Verdadeiro** — exatamente o argumento do bloco.
 c. **Verdadeiro** — é o próprio contraexemplo Split 1 vs. Split 2.
@@ -1103,7 +1117,7 @@ capacidade de memorizar o próprio treino) — mas a acurácia de
 
 ::: {.content-visible when-format="revealjs"}
 
-## Crescer Demais, Depois Podar
+## Pergunta
 
 ::: {.fragment}
 Empiricamente: um corte "inútil" agora pode habilitar um corte muito
@@ -1121,6 +1135,8 @@ $$C(T) = \sum_\tau Q_\tau(T) + \lambda|T|$$
 <br/>
 
 ::: {.callout-tip icon=false}
+## Crescer Demais, Depois Podar
+
 $\lambda=0$: árvore completa sempre vence. $\lambda$ grande: poda forte. O valor certo vem de validação cruzada (Aula 4).
 :::
 :::
@@ -1180,9 +1196,11 @@ d. Aumentar $\lambda$ tende a reduzir o número de folhas da árvore
 
 ::: {.content-visible when-format="revealjs"}
 
-## Julgue V ou F: poda por custo-complexidade
+## Pergunta
 
 ::: {.callout-tip}
+## Julgue V ou F: poda por custo-complexidade
+
 Julgue V ou F — a questão só conta se acertar os 4 itens:
 
 a. O critério $C(T) = \sum_\tau Q_\tau(T) + \lambda|T|$ penaliza
@@ -1199,9 +1217,11 @@ d. Aumentar $\lambda$ tende a reduzir o número de folhas da árvore
 
 ::: {.content-visible when-format="revealjs"}
 
-## Julgue V ou F: poda por custo-complexidade — Resposta
+## Resposta
 
 ::: {.callout-tip}
+## Julgue V ou F: poda por custo-complexidade — Resposta
+
 a. **Verdadeiro** — é a própria definição do termo de penalidade.
 b. **Verdadeiro** — sem penalidade, $C(T)$ se reduz à soma de $Q_\tau$, sempre menor (ou igual) para a árvore mais completa.
 c. **Verdadeiro** — verificado no bloco: $\lambda$ vem de validação cruzada (ponte com a Aula 4).
@@ -1222,9 +1242,11 @@ míope perderia esse ganho.
 
 ::: {.content-visible when-format="revealjs"}
 
-## Por que "pare quando o próximo corte não reduzir muito o erro" é uma estratégia de parada ruim?
+## Pergunta
 
 ::: {.callout-tip}
+## Por que "pare quando o próximo corte não reduzir muito o erro" é uma estratégia de parada ruim?
+
 ::: {.fragment}
 *(Um corte ruim pode isolar um subgrupo que só fica homogêneo depois de mais um corte.)*
 :::
@@ -1478,9 +1500,11 @@ d. Descontinuidades nas previsões de uma árvore de regressão são
 
 ::: {.content-visible when-format="revealjs"}
 
-## Julgue V ou F: limites estruturais das árvores
+## Pergunta
 
 ::: {.callout-tip}
+## Julgue V ou F: limites estruturais das árvores
+
 Julgue V ou F — a questão só conta se acertar os 4 itens:
 
 a. Uma árvore de profundidade suficientemente grande sempre alcança
@@ -1499,9 +1523,11 @@ d. Descontinuidades nas previsões de uma árvore de regressão são
 
 ::: {.content-visible when-format="revealjs"}
 
-## Julgue V ou F: limites estruturais das árvores — Resposta
+## Resposta
 
 ::: {.callout-tip}
+## Julgue V ou F: limites estruturais das árvores — Resposta
+
 a. **Falso** — nunca alcança exatamente; só aproxima em degraus cada vez mais finos.
 b. **Verdadeiro** — verificado acima (5 pontos já mudam o corte da raiz).
 c. **Verdadeiro** — é a definição de partição rígida.

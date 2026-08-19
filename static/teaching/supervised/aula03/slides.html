@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Marcos M. Raimundo — Instituto de Computação, UNICAMP">
-  <meta name="dcterms.date" content="2026-08-18">
+  <meta name="dcterms.date" content="2026-08-19">
   <title>Árvores de Decisão — Particionamento Guloso</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8c26d432394c45b47640ac4edfcb49a3.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-001457c4c9e0e018bea41a9dd3feb500.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -151,7 +151,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 
-  <p class="date">2026-08-18</p>
+  <p class="date">2026-08-19</p>
 </section>
 <section>
 <section id="proposta-da-aula" class="title-slide slide level1 center">
@@ -251,8 +251,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 </section>
-<section id="a-inversão-de-papéis" class="slide level2">
-<h2>A Inversão de Papéis</h2>
+<section id="pergunta" class="slide level2">
+<h2>Pergunta</h2>
 <div class="fragment">
 <p><strong>Aulas 1–2:</strong> a fórmula (gaussiana, produto de Bernoullis) é fixada antes — só os <em>parâmetros</em> vêm dos dados.</p>
 </div>
@@ -264,7 +264,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Dica</strong></p>
+<p><strong>A Inversão de Papéis</strong></p>
 </div>
 <div class="callout-content">
 <p>Os próximos dois blocos: o critério que decide <em>onde</em> cortar, primeiro em regressão, depois em classificação.</p>
@@ -273,15 +273,15 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 </section>
-<section id="o-que-muda-na-prática-entre-escolher-uma-família-de-curvas-e-deixar-a-partição-emergir-dos-dados-1" class="slide level2">
-<h2>O que muda, na prática, entre “escolher uma família de curvas” e “deixar a partição emergir dos dados”?</h2>
+<section id="pergunta-1" class="slide level2">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>O que muda, na prática, entre “escolher uma família de curvas” e “deixar a partição emergir dos dados”?</strong></p>
 </div>
 <div class="callout-content">
 <div class="fragment">
@@ -296,8 +296,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <h1>Árvores de Regressão: Verossimilhança Gaussiana</h1>
 
 </section>
-<section id="intuição-formalismo-o-que-prever-numa-folha" class="slide level2">
-<h2>Intuição → Formalismo: o Que Prever numa Folha?</h2>
+<section id="pergunta-2" class="slide level2">
+<h2>Pergunta</h2>
 <div class="fragment">
 <p><strong>Intuição:</strong> um só número para representar vários — a média.</p>
 </div>
@@ -309,7 +309,7 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Dica</strong></p>
+<p><strong>Intuição → Formalismo: o Que Prever numa Folha?</strong></p>
 </div>
 <div class="callout-content">
 <p>Vou fazer uma afirmação forte: essa receita <strong>é</strong> uma maximização de verossimilhança. Vamos verificar.</p>
@@ -370,15 +370,15 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 </div>
 </div>
 </section>
-<section id="se-duas-folhas-de-uma-árvore-de-regressão-têm-o-mesmo-número-de-pontos-a-que-tem-maior-soma-de-quadrados-residuais-q_tau-tem-necessariamente-maior-variância-dos-alvos-dentro-dela-1" class="slide level2">
-<h2>Se duas folhas de uma árvore de regressão têm o mesmo número de pontos, a que tem maior soma de quadrados residuais <span class="math inline">\(Q_\tau\)</span> tem, necessariamente, maior variância dos alvos dentro dela?</h2>
+<section id="pergunta-3" class="slide level2">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Se duas folhas de uma árvore de regressão têm o mesmo número de pontos, a que tem maior soma de quadrados residuais <span class="math inline">\(Q_\tau\)</span> tem, necessariamente, maior variância dos alvos dentro dela?</strong></p>
 </div>
 <div class="callout-content">
 <div class="fragment">
@@ -393,8 +393,8 @@ Marcos M. Raimundo — Instituto de Computação, UNICAMP
 <h1>Árvores de Classificação: Verossimilhança Categórica, Entropia e Gini</h1>
 
 </section>
-<section id="o-que-uma-folha-de-classificação-prevê" class="slide level2">
-<h2>O Que uma Folha de Classificação Prevê</h2>
+<section id="pergunta-4" class="slide level2">
+<h2>Pergunta</h2>
 <div class="fragment">
 <p>Não um número — uma <strong>distribuição</strong> sobre classes: <span class="math inline">\(\hat p_{\tau k} =
 n_{\tau k}/N_\tau\)</span>, a proporção empírica.</p>
@@ -404,7 +404,7 @@ n_{\tau k}/N_\tau\)</span>, a proporção empírica.</p>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Dica</strong></p>
+<p><strong>O Que uma Folha de Classificação Prevê</strong></p>
 </div>
 <div class="callout-content">
 <p>Mesmo padrão do Bloco 2: o MLE categórico numa folha é, de novo, a proporção empírica. Verificado a seguir.</p>
@@ -453,7 +453,7 @@ n_{\tau k}/N_\tau\)</span>, a proporção empírica.</p>
 </section>
 <section id="o-contraexemplo-resolvido" class="slide level2">
 <h2>O Contraexemplo, Resolvido</h2>
-<div id="213029c2" class="cell" data-execution_count="14">
+<div id="d524b9b0" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-stdout">
 <pre><code>Split 1: erro=0.2500  gini=0.3750  entropia=0.5623
 Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
@@ -475,15 +475,15 @@ Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
 <p><br> Por isso: entropia/Gini para <strong>crescer</strong>; taxa de erro bruta para <strong>podar</strong>.</p>
 </div>
 </section>
-<section id="julgue-v-ou-f-entropia-gini-e-taxa-de-erro-para-crescerpodar-árvores-1" class="slide level2 scrollable">
-<h2>Julgue V ou F: entropia, Gini e taxa de erro para crescer/podar árvores</h2>
+<section id="pergunta-5" class="slide level2 scrollable">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Julgue V ou F: entropia, Gini e taxa de erro para crescer/podar árvores</strong></p>
 </div>
 <div class="callout-content">
 <p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
@@ -497,15 +497,15 @@ Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
 </div>
 </div>
 </section>
-<section id="julgue-v-ou-f-entropia-gini-e-taxa-de-erro-resposta" class="slide level2 scrollable">
-<h2>Julgue V ou F: entropia, Gini e taxa de erro — Resposta</h2>
+<section id="resposta" class="slide level2 scrollable">
+<h2>Resposta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Julgue V ou F: entropia, Gini e taxa de erro — Resposta</strong></p>
 </div>
 <div class="callout-content">
 <ol type="a">
@@ -523,8 +523,8 @@ Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
 <h1>Poda e o Critério de Custo-Complexidade</h1>
 
 </section>
-<section id="crescer-demais-depois-podar" class="slide level2">
-<h2>Crescer Demais, Depois Podar</h2>
+<section id="pergunta-6" class="slide level2">
+<h2>Pergunta</h2>
 <div class="fragment">
 <p>Empiricamente: um corte “inútil” agora pode habilitar um corte muito bom depois. Parar cedo perde esse ganho adiado.</p>
 </div>
@@ -536,7 +536,7 @@ Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Dica</strong></p>
+<p><strong>Crescer Demais, Depois Podar</strong></p>
 </div>
 <div class="callout-content">
 <p><span class="math inline">\(\lambda=0\)</span>: árvore completa sempre vence. <span class="math inline">\(\lambda\)</span> grande: poda forte. O valor certo vem de validação cruzada (Aula 4).</p>
@@ -561,15 +561,15 @@ Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
 </div>
 </div>
 </section>
-<section id="julgue-v-ou-f-poda-por-custo-complexidade-1" class="slide level2 scrollable">
-<h2>Julgue V ou F: poda por custo-complexidade</h2>
+<section id="pergunta-7" class="slide level2 scrollable">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Julgue V ou F: poda por custo-complexidade</strong></p>
 </div>
 <div class="callout-content">
 <p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
@@ -583,15 +583,15 @@ Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
 </div>
 </div>
 </section>
-<section id="julgue-v-ou-f-poda-por-custo-complexidade-resposta" class="slide level2 scrollable">
-<h2>Julgue V ou F: poda por custo-complexidade — Resposta</h2>
+<section id="resposta-1" class="slide level2 scrollable">
+<h2>Resposta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Julgue V ou F: poda por custo-complexidade — Resposta</strong></p>
 </div>
 <div class="callout-content">
 <ol type="a">
@@ -604,15 +604,15 @@ Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
 </div>
 </div>
 </section>
-<section id="por-que-pare-quando-o-próximo-corte-não-reduzir-muito-o-erro-é-uma-estratégia-de-parada-ruim-1" class="slide level2">
-<h2>Por que “pare quando o próximo corte não reduzir muito o erro” é uma estratégia de parada ruim?</h2>
+<section id="pergunta-8" class="slide level2">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Por que “pare quando o próximo corte não reduzir muito o erro” é uma estratégia de parada ruim?</strong></p>
 </div>
 <div class="callout-content">
 <div class="fragment">
@@ -645,7 +645,7 @@ Split 2: erro=0.2500  gini=0.3333  entropia=0.4774</code></pre>
 </section>
 <section id="instabilidade-poucos-pontos-corte-diferente" class="slide level2">
 <h2>Instabilidade: Poucos Pontos, Corte Diferente</h2>
-<div id="8b3a05de" class="cell" data-execution_count="20">
+<div id="083a62c4" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-stdout">
 <pre><code>Corte da raiz, árvore original:    x_2 &lt;= 0.014
 Corte da raiz, com 5 pontos a menos: x_2 &lt;= 0.014</code></pre>
@@ -676,15 +676,15 @@ Corte da raiz, com 5 pontos a menos: x_2 &lt;= 0.014</code></pre>
 <p><br> Neutro em classificação; ruim em regressão quando o alvo é suave (Bloco 2, a senoide).</p>
 </div>
 </section>
-<section id="julgue-v-ou-f-limites-estruturais-das-árvores-1" class="slide level2 scrollable">
-<h2>Julgue V ou F: limites estruturais das árvores</h2>
+<section id="pergunta-9" class="slide level2 scrollable">
+<h2>Pergunta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Julgue V ou F: limites estruturais das árvores</strong></p>
 </div>
 <div class="callout-content">
 <p>Julgue V ou F — a questão só conta se acertar os 4 itens:</p>
@@ -698,15 +698,15 @@ Corte da raiz, com 5 pontos a menos: x_2 &lt;= 0.014</code></pre>
 </div>
 </div>
 </section>
-<section id="julgue-v-ou-f-limites-estruturais-das-árvores-resposta" class="slide level2 scrollable">
-<h2>Julgue V ou F: limites estruturais das árvores — Resposta</h2>
+<section id="resposta-2" class="slide level2 scrollable">
+<h2>Resposta</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Dica</strong></p>
+<p><strong>Julgue V ou F: limites estruturais das árvores — Resposta</strong></p>
 </div>
 <div class="callout-content">
 <ol type="a">
